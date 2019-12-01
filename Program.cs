@@ -19,6 +19,19 @@ namespace shipparser
 			var spaceshipsFolder = Path.Combine(scDataRoot, @"Data\Libs\Foundry\Records\entities\spaceships");
 			var vehiclesFolder = Path.Combine(scDataRoot, @"Data\Libs\Foundry\Records\entities\groundvehicles");
 
+			string[] UselessEntities =
+			{
+				"AEGS_Javelin",
+				"ANVL_Hornet_F7A",
+				"DefaultSpaceShips.AEGS.AEGS_Idris",
+				"does_not_exist",
+				"Krig_P72_Archimedes",
+				"MISC_Hull_C",
+				"RSI_IR1337_Weapon_Mount",
+				"TNGS_AEGS_Redeemer",
+				"TNGS_ORIG_AX114"
+			};
+
 			var parser = new ShipParser { InputRoot = scDataRoot };
 			Directory.CreateDirectory(outputFolder);
 
@@ -26,18 +39,12 @@ namespace shipparser
 			{
 				var entry = GetTurbulentEntry(filename);
 				Console.WriteLine($"{filename}: {entry.turbulentName}, {entry.itemClass}");
+				if (UselessEntities.Contains(entry.itemClass)) continue;
 
 				var entityFilename = Path.ChangeExtension(Path.Combine(spaceshipsFolder, entry.itemClass.ToLower()), ".xml");
 				if (!File.Exists(entityFilename)) entityFilename = Path.ChangeExtension(Path.Combine(vehiclesFolder, entry.itemClass.ToLower()), ".xml");
 
 				var entityClassName = entry.itemClass;
-
-				// Skip bad data
-				if (entityClassName.StartsWith("Krig"))
-				{
-					Console.WriteLine("Skipped");
-					continue;
-				}
 
 				var ship = parser.Parse(entityFilename, entityClassName);
 				var json = JsonConvert.SerializeObject(ship, Newtonsoft.Json.Formatting.Indented);
