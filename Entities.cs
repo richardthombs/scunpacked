@@ -83,6 +83,21 @@ namespace shipparser
 	public class loadout
 	{
 		public SItemPortLoadoutXMLParams SItemPortLoadoutXMLParams { get; set; }
+		public SItemPortLoadoutManualParams SItemPortLoadoutManualParams { get; set; }
+	}
+
+	public class SItemPortLoadoutManualParams
+	{
+		public SItemPortLoadoutEntryParams[] entries { get; set; }
+	}
+
+	public class SItemPortLoadoutEntryParams
+	{
+		[XmlAttribute]
+		public string itemPortName { get; set; }
+
+		[XmlAttribute]
+		public string entityClassName { get; set; }
 	}
 
 	public class SItemPortLoadoutXMLParams

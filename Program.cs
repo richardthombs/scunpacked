@@ -13,50 +13,18 @@ namespace shipparser
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
-
-			var s = new Serialise();
-			s.Run();
-
 			var parser = new ShipParser
 			{
-				InputRoot = @"..\all"
+				InputRoot = @"c:\dev\scdata\3.7.2"
 			};
 
-			var ship = parser.Parse(@"..\all\Data\Libs\Foundry\Records\entities\spaceships\aegs_avenger_stalker.xml");
+			//var entityName = "aegs_sabre.xml";
+			var entityName = "anvl_c8x_pisces_expedition.xml";
+			if (args.Length == 1) entityName = args[0];
 
+			var ship = parser.Parse(Path.Combine(@"Data\Libs\Foundry\Records\entities\spaceships", entityName));
 			var json = JsonConvert.SerializeObject(ship, Newtonsoft.Json.Formatting.Indented);
 			File.WriteAllText("ship.json", json);
-		}
-	}
-
-	public class Serialise
-	{
-		public void Run()
-		{
-			var entity = new EntityClassDefinition
-			{
-				Components = new Component[]
-				{
-					new SEntityComponentDefaultLoadoutParams
-					{
-						loadout = new loadout
-						{
-							SItemPortLoadoutXMLParams =
-						new SItemPortLoadoutXMLParams
-						{
-							loadoutPath = "Hello, World!"
-						}
-						}
-					}
-				}
-			};
-
-			XmlSerializer s = new XmlSerializer(typeof(EntityClassDefinition));
-			using (TextWriter writer = new StreamWriter("testout.xml"))
-			{
-				s.Serialize(writer, entity);
-			}
 		}
 	}
 
@@ -69,7 +37,7 @@ namespace shipparser
 
 	public class ShipParser
 	{
-		readonly String[] allCaps = { "PU", "AI", "CRIM", "CIV", "QIG", "PIR", "SEC", "UEE" };
+		readonly String[] allCaps = { "PU", "AI", "CRIM", "CIV", "QIG", "PIR", "SEC", "UEE", "C8X" };
 		public string InputRoot { get; set; }
 
 		public Ship Parse(string shipEntityPath)
@@ -78,11 +46,15 @@ namespace shipparser
 			Vehicle vehicle = null;
 			Loadout loadout = null;
 
-			shipEntity = ParseShipDefinition(shipEntityPath);
+			Console.WriteLine($"Ship entity file: {shipEntityPath}");
+
+			shipEntity = ParseShipDefinition(Path.Combine(InputRoot, shipEntityPath));
 
 			var vehicleComponent = shipEntity.Components.First(x => x.GetType() == typeof(VehicleComponentParams)) as VehicleComponentParams;
 			if (vehicleComponent != null)
 			{
+				Console.WriteLine($"Vehicle definition: {vehicleComponent.vehicleDefinition}");
+
 				var vehiclePath = vehicleComponent.vehicleDefinition;
 				vehiclePath = vehiclePath.Replace('/', '\\');
 				vehiclePath = Path.Combine(InputRoot, "Data", vehiclePath);
@@ -92,13 +64,27 @@ namespace shipparser
 			var loadoutComponent = shipEntity.Components.First(x => x.GetType() == typeof(SEntityComponentDefaultLoadoutParams)) as SEntityComponentDefaultLoadoutParams;
 			if (loadoutComponent != null)
 			{
-				var loadoutPath = loadoutComponent.loadout.SItemPortLoadoutXMLParams.loadoutPath;
-				loadoutPath = loadoutPath.Replace('/', '\\');
-				loadoutPath = Path.Combine(InputRoot, "Data", loadoutPath);
-				loadout = ParseLoadout(loadoutPath);
+				if (loadoutComponent.loadout.SItemPortLoadoutXMLParams != null)
+				{
+					Console.WriteLine($"Loadout XML file: {loadoutComponent.loadout.SItemPortLoadoutXMLParams.loadoutPath}");
+					var loadoutPath = loadoutComponent.loadout.SItemPortLoadoutXMLParams.loadoutPath;
+					loadoutPath = loadoutPath.Replace('/', '\\');
+					loadoutPath = Path.Combine(InputRoot, "Data", loadoutPath);
+					loadout = ParseLoadout(loadoutPath);
+				}
+				if (loadoutComponent.loadout.SItemPortLoadoutManualParams != null)
+				{
+					Console.WriteLine($"Loadout hardcoded in entity definition");
+					throw new NotImplementedException();
+				}
 
 				var flightControllerItemName = loadout.Items.First(x => x.portName == "hardpoint_controller_flight")?.itemName;
 				Console.WriteLine(flightControllerItemName);
+				Console.WriteLine($"{CountLoadout(loadout.Items):n0} items in the loadout");
+			}
+			else
+			{
+				throw new ApplicationException("No loadout");
 			}
 
 			return new Ship
@@ -107,6 +93,17 @@ namespace shipparser
 				Vehicle = vehicle,
 				Loadout = loadout
 			};
+		}
+
+		int CountLoadout(Item[] items)
+		{
+			if (items == null) return 0;
+			var count = items.Length;
+			foreach (var item in items)
+			{
+				if (item.Items != null) count += CountLoadout(item.Items);
+			}
+			return count;
 		}
 
 		EntityClassDefinition ParseShipDefinition(string shipEntityPath)
@@ -130,6 +127,8 @@ namespace shipparser
 			}
 
 			shipEntityName = $"EntityClassDefinition.{String.Join('_', parts)}";
+
+			Console.WriteLine($"Expecting ship entity root node to be: {shipEntityName}");
 
 			var xml = File.ReadAllText(shipEntityPath);
 			var doc = new XmlDocument();
