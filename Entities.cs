@@ -179,4 +179,13 @@ namespace shipparser
 		[XmlAttribute]
 		public int Threshold { get; set; }
 	}
+
+	public class TurbulentEntry
+	{
+		[XmlAttribute]
+		public string turbulentName { get; set; }
+
+		[XmlAttribute]
+		public string itemClass { get; set; }
+	}
 }
