@@ -14,6 +14,7 @@ namespace shipparser
 		static void Main(string[] args)
 		{
 			var outputFolder = @".\json";
+
 			var scDataRoot = @"c:\dev\scdata\3.7.2";
 			var turbulentFolder = Path.Combine(scDataRoot, @"Data\Libs\Foundry\Records\turbulent\vehicles");
 			var spaceshipsFolder = Path.Combine(scDataRoot, @"Data\Libs\Foundry\Records\entities\spaceships");
