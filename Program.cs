@@ -1,4 +1,7 @@
-﻿namespace shipparser
+﻿using System.IO;
+using Newtonsoft.Json;
+
+namespace shipparser
 {
 	class Program
 	{
@@ -11,14 +14,16 @@
 				OutputFolder = @".\json\ships",
 				DataRoot = scDataRoot
 			};
-			shipLoader.Load();
+			var shipIndex = shipLoader.Load();
+			File.WriteAllText(Path.Combine(@".\json", "ships.json"), JsonConvert.SerializeObject(shipIndex, Newtonsoft.Json.Formatting.Indented));
 
 			var itemLoader = new ItemLoader
 			{
 				OutputFolder = @".\json\items",
 				DataRoot = scDataRoot
 			};
-			itemLoader.Load();
+			var itemIndex = itemLoader.Load();
+			File.WriteAllText(Path.Combine(@".\json", "items.json"), JsonConvert.SerializeObject(itemIndex, Newtonsoft.Json.Formatting.Indented));
 		}
 	}
 }

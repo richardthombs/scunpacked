@@ -9,7 +9,7 @@ namespace shipparser
 {
 	public class EntityParser
 	{
-		public EntityClassDefinition Parse(string fullXmlPath, string className = "")
+		public EntityClassDefinition Parse(string fullXmlPath)
 		{
 			if (!File.Exists(fullXmlPath))
 			{

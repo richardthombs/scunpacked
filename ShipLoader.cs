@@ -19,7 +19,7 @@ namespace shipparser
 		public string OutputFolder { get; set; }
 		public string DataRoot { get; set; }
 
-		public void Load()
+		public List<IndexEntry> Load()
 		{
 			var turbulentFolder = Path.Combine(DataRoot, @"Data\Libs\Foundry\Records\turbulent\vehicles");
 			var spaceshipsFolder = Path.Combine(DataRoot, @"Data\Libs\Foundry\Records\entities\spaceships");
@@ -40,7 +40,7 @@ namespace shipparser
 
 			Directory.CreateDirectory(OutputFolder);
 
-			var shipList = new List<IndexEntry>();
+			var index = new List<IndexEntry>();
 
 			foreach (var filename in Directory.EnumerateFiles(turbulentFolder, "*.xml"))
 			{
@@ -51,25 +51,27 @@ namespace shipparser
 				var entityFilename = Path.ChangeExtension(Path.Combine(spaceshipsFolder, entry.itemClass.ToLower()), ".xml");
 				if (!File.Exists(entityFilename)) entityFilename = Path.ChangeExtension(Path.Combine(vehiclesFolder, entry.itemClass.ToLower()), ".xml");
 
-				var entityClassName = entry.itemClass;
-
-				var ship = LoadShip(entityFilename, entityClassName);
+				var ship = LoadShip(entityFilename);
 
 				if (ship.DefaultLoadout != null) ship.loadout = AddDefaultLoadout(ship.DefaultLoadout.Items);
 				else if (ship.Entity.Components.SEntityComponentDefaultLoadoutParams.loadout != null) ship.loadout = AddManualLoadout(ship.Entity.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutManualParams);
 
 				var json = JsonConvert.SerializeObject(ship, Newtonsoft.Json.Formatting.Indented);
-				File.WriteAllText(Path.Combine(OutputFolder, $"{entityClassName}.json"), json);
+				var jsonFilename = Path.Combine(OutputFolder, $"{ship.Entity.ClassName.ToLower()}.json");
+				File.WriteAllText(jsonFilename, json);
 
-				shipList.Add(new IndexEntry
+				index.Add(new IndexEntry
 				{
-					filename = Path.GetFileNameWithoutExtension(filename),
-					itemClass = entry.itemClass,
-					turbulentName = entry.turbulentName
+					json = Path.GetRelativePath(Path.GetDirectoryName(OutputFolder), jsonFilename),
+					@class = ship.Entity.ClassName,
+					item = ship.Entity.ClassName.ToLower(),
+					kind = entityFilename.StartsWith(spaceshipsFolder) ? "spaceship" : "groundvehicle",
+					Type = ship.Entity.Components?.SAttachableComponentParams?.AttachDef.Type,
+					SubType = ship.Entity.Components?.SAttachableComponentParams?.AttachDef.SubType
 				});
 			}
 
-			File.WriteAllText(Path.Combine(OutputFolder, "ships.json"), JsonConvert.SerializeObject(shipList, Newtonsoft.Json.Formatting.Indented));
+			return index;
 		}
 
 		TurbulentEntry GetTurbulentEntry(string turbulentXmlFile)
@@ -91,23 +93,19 @@ namespace shipparser
 			}
 		}
 
-		Ship LoadShip(string shipEntityPath, string shipEntityClass)
+		Ship LoadShip(string shipEntityPath)
 		{
 			EntityClassDefinition shipEntity;
 			Vehicle vehicle = null;
 			Loadout loadout = null;
 
-			Console.WriteLine($"Ship entity file: {shipEntityPath}");
-
 			var entityParser = new EntityParser();
-			shipEntity = entityParser.Parse(shipEntityPath, shipEntityClass);
+			shipEntity = entityParser.Parse(shipEntityPath);
 			if (shipEntity == null) return null;
 
 			var vehicleComponent = shipEntity.Components.VehicleComponentParams;
 			if (vehicleComponent != null)
 			{
-				Console.WriteLine($"Vehicle definition: {vehicleComponent.vehicleDefinition}");
-
 				var vehiclePath = vehicleComponent.vehicleDefinition;
 				vehiclePath = vehiclePath.Replace('/', '\\');
 				vehiclePath = Path.Combine(DataRoot, "Data", vehiclePath);
@@ -121,8 +119,6 @@ namespace shipparser
 			{
 				if (loadoutComponent.loadout.SItemPortLoadoutXMLParams != null)
 				{
-
-					Console.WriteLine($"Loadout XML file: {loadoutComponent.loadout.SItemPortLoadoutXMLParams.loadoutPath}");
 					var loadoutPath = loadoutComponent.loadout.SItemPortLoadoutXMLParams.loadoutPath;
 					loadoutPath = loadoutPath.Replace('/', '\\');
 					loadoutPath = Path.Combine(DataRoot, "Data", loadoutPath);
@@ -130,25 +126,6 @@ namespace shipparser
 					var loadoutParser = new LoadoutParser();
 					loadout = loadoutParser.Parse(loadoutPath);
 				}
-				if (loadoutComponent.loadout.SItemPortLoadoutManualParams != null)
-				{
-					Console.WriteLine($"Loadout hardcoded in entity definition");
-				}
-
-				if (loadout != null)
-				{
-					var flightControllerItemName = loadout.Items.FirstOrDefault(x => x.portName == "hardpoint_controller_flight")?.itemName;
-					if (flightControllerItemName != null) Console.WriteLine(flightControllerItemName);
-					else Console.WriteLine("No flight controller!");
-				}
-				else
-				{
-					Console.WriteLine("No loadout");
-				}
-			}
-			else
-			{
-				throw new ApplicationException("No loadout");
 			}
 
 			return new Ship

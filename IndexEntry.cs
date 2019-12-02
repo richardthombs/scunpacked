@@ -1,9 +1,12 @@
 namespace shipparser
 {
-	class IndexEntry
+	public class IndexEntry
 	{
-		public string filename;
-		public string itemClass;
-		public string turbulentName;
+		public string json;
+		public string @class;
+		public string item;
+		public string kind;
+		public string Type;
+		public string SubType;
 	}
 }

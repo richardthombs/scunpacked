@@ -15,9 +15,10 @@ namespace shipparser
 		public string OutputFolder { get; set; }
 		public string DataRoot { get; set; }
 
-		public void Load()
+		public List<IndexEntry> Load()
 		{
 			var itemsFolder = Path.Combine(DataRoot, @"Data\Libs\Foundry\Records\entities\scitem\ships");
+			var index = new List<IndexEntry>();
 
 			foreach (var folder in Directory.EnumerateDirectories(itemsFolder))
 			{
@@ -33,12 +34,24 @@ namespace shipparser
 					var entity = entityParser.Parse(filename);
 
 					var json = JsonConvert.SerializeObject(entity, Newtonsoft.Json.Formatting.Indented);
-					var jsonFilename = Path.ChangeExtension(Path.Combine(outputFolder, entity.ClassName.ToLower()), ".json");
+					var jsonFilename = Path.Combine(outputFolder, $"{entity.ClassName.ToLower()}.json");
 					File.WriteAllText(jsonFilename, json);
-				}
-			}
-		}
 
+					index.Add(new IndexEntry
+					{
+						@class = entity.ClassName,
+						item = entity.ClassName.ToLower(),
+						json = Path.GetRelativePath(Path.GetDirectoryName(OutputFolder), jsonFilename),
+						kind = itemType,
+						Type = entity.Components?.SAttachableComponentParams?.AttachDef.Type,
+						SubType = entity.Components?.SAttachableComponentParams?.AttachDef.SubType
+					});
+				}
+
+			}
+
+			return index;
+		}
 
 		TurbulentEntry GetTurbulentEntry(string turbulentXmlFile)
 		{
