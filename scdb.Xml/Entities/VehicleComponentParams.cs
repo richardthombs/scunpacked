@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace scdb.Xml.Entities
 {
-	public class VehicleComponentParams : Component
+	public class VehicleComponentParams
 	{
 		[XmlAttribute]
 		public string landingSystem { get; set; }

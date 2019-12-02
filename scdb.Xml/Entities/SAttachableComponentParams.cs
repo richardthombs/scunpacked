@@ -1,7 +1,7 @@
 namespace scdb.Xml.Entities
 {
-	public class SAttachableComponentParams : Component
+	public class SAttachableComponentParams
 	{
-		public SItemDefinition AttachDef { get; set; }
+		public AttachDef AttachDef { get; set; }
 	}
 }

@@ -8,12 +8,6 @@ namespace scdb.Xml.Entities
 		[XmlAttribute]
 		public string __type { get; set; }
 
-		[
-			XmlArrayItem(typeof(VehicleComponentParams)),
-			XmlArrayItem(typeof(SEntityComponentDefaultLoadoutParams)),
-			XmlArrayItem(typeof(SAttachableComponentParams)),
-			XmlArrayItem(typeof(SHealthComponentParams))
-		]
-		public Component[] Components { get; set; }
+		public Components Components { get; set; }
 	}
 }

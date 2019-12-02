@@ -24,7 +24,7 @@ namespace shipparser
 			shipEntity = entityParser.Parse(shipEntityPath, shipEntityClass);
 			if (shipEntity == null) return null;
 
-			var vehicleComponent = shipEntity.Components.First(x => x.GetType() == typeof(VehicleComponentParams)) as VehicleComponentParams;
+			var vehicleComponent = shipEntity.Components.VehicleComponentParams;
 			if (vehicleComponent != null)
 			{
 				Console.WriteLine($"Vehicle definition: {vehicleComponent.vehicleDefinition}");
@@ -37,7 +37,7 @@ namespace shipparser
 				vehicle = vehicleParser.Parse(vehiclePath, vehicleComponent.modification);
 			}
 
-			var loadoutComponent = shipEntity.Components.First(x => x.GetType() == typeof(SEntityComponentDefaultLoadoutParams)) as SEntityComponentDefaultLoadoutParams;
+			var loadoutComponent = shipEntity.Components.SEntityComponentDefaultLoadoutParams;
 			if (loadoutComponent != null)
 			{
 				if (loadoutComponent.loadout.SItemPortLoadoutXMLParams != null)

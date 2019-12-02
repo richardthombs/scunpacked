@@ -1,9 +1,9 @@
-using System.Xml;
+﻿using System.Xml;
 using System.Xml.Serialization;
 
 namespace scdb.Xml.Entities
 {
-	public class SItemDefinition
+	public class AttachDef
 	{
 		[XmlAttribute]
 		public string Type { get; set; }
@@ -21,10 +21,13 @@ namespace scdb.Xml.Entities
 		public string Manufacturer { get; set; }
 
 		[XmlAttribute]
-		public string Tags;
+		public string Tags { get; set; }
 
 		[XmlAttribute]
-		public string __type { get; set; }
+		public string RequiredTags { get; set; }
+
+		[XmlAttribute]
+		public string DisplayType { get; set; }
 
 		public SCItemLocalization Localization { get; set; }
 	}

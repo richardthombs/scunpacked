@@ -1,6 +1,6 @@
 namespace scdb.Xml.Entities
 {
-	public class SEntityComponentDefaultLoadoutParams : Component
+	public class SEntityComponentDefaultLoadoutParams
 	{
 		public loadout loadout { get; set; }
 	}

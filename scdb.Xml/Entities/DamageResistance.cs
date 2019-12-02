@@ -7,5 +7,6 @@ namespace scdb.Xml.Entities
 		public DamageResistanceEntry DistortionResistance { get; set; }
 		public DamageResistanceEntry ThermalResistance { get; set; }
 		public DamageResistanceEntry BiochemicalResistance { get; set; }
+		public DamageResistanceEntry StunResistance { get; set; }
 	}
 }

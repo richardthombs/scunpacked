@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace scdb.Xml.Entities
 {
-	public class SHealthComponentParams : Component
+	public class SHealthComponentParams
 	{
 		[XmlAttribute]
 		public int Health { get; set; }
