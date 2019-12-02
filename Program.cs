@@ -4,6 +4,7 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Globalization;
 using System.Linq;
+using System.Collections.Generic;
 
 using Newtonsoft.Json;
 
@@ -53,6 +54,10 @@ namespace shipparser
 				var entityClassName = entry.itemClass;
 
 				var ship = parser.Parse(entityFilename, entityClassName);
+
+				if (ship.DefaultLoadout != null) ship.loadout = AddDefaultLoadout(ship.DefaultLoadout.Items);
+				else if (ship.Entity.Components.SEntityComponentDefaultLoadoutParams.loadout != null) ship.loadout = AddManualLoadout(ship.Entity.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutManualParams);
+
 				var json = JsonConvert.SerializeObject(ship, Newtonsoft.Json.Formatting.Indented);
 				File.WriteAllText(Path.Combine(outputFolder, $"{entityClassName}.json"), json);
 			}
@@ -76,6 +81,37 @@ namespace shipparser
 				return entry;
 			}
 		}
+
+		public static scdb.Models.loadout[] AddDefaultLoadout(scdb.Xml.Loadouts.Item[] defaultLoadoutItems)
+		{
+			var modelLoadout = new List<scdb.Models.loadout>();
+
+			if (defaultLoadoutItems != null)
+			{
+				foreach (var item in defaultLoadoutItems)
+				{
+					modelLoadout.Add(new scdb.Models.loadout { item = item.itemName, port = item.portName });
+					if (item.Items != null) modelLoadout.AddRange(AddDefaultLoadout(item.Items));
+				}
+			}
+
+			return modelLoadout.ToArray();
+		}
+
+		public static scdb.Models.loadout[] AddManualLoadout(scdb.Xml.Entities.SItemPortLoadoutManualParams manual)
+		{
+			var modelLoadout = new List<scdb.Models.loadout>();
+
+			if (manual != null)
+			{
+				foreach (var item in manual.entries)
+				{
+					modelLoadout.Add(new scdb.Models.loadout { item = item.entityClassName, port = item.itemPortName });
+					if (item.loadout.SItemPortLoadoutManualParams != null) modelLoadout.AddRange(AddManualLoadout(item.loadout.SItemPortLoadoutManualParams));
+				}
+			}
+			return modelLoadout.ToArray();
+		}
 	}
 
 	public class Ship
@@ -83,5 +119,6 @@ namespace shipparser
 		public EntityClassDefinition Entity { get; set; }
 		public Vehicle Vehicle { get; set; }
 		public Loadout DefaultLoadout { get; set; }
+		public scdb.Models.loadout[] loadout { get; set; }
 	}
 }
