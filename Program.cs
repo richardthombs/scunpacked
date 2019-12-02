@@ -1,19 +1,5 @@
-﻿using System.IO;
-using System.Globalization;
-
-using scdb.Xml.Entities;
-using scdb.Xml.Loadouts;
-using scdb.Xml.Vehicles;
-
-namespace shipparser
+﻿namespace shipparser
 {
-	class ShipIndex
-	{
-		public string filename;
-		public string itemClass;
-		public string turbulentName;
-	}
-
 	class Program
 	{
 		static void Main(string[] args)
@@ -28,13 +14,5 @@ namespace shipparser
 			};
 			shipLoader.Load();
 		}
-	}
-
-	public class Ship
-	{
-		public EntityClassDefinition Entity { get; set; }
-		public Vehicle Vehicle { get; set; }
-		public Loadout DefaultLoadout { get; set; }
-		public scdb.Models.loadout[] loadout { get; set; }
 	}
 }

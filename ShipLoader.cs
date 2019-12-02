@@ -40,7 +40,7 @@ namespace shipparser
 
 			Directory.CreateDirectory(OutputFolder);
 
-			var shipList = new List<ShipIndex>();
+			var shipList = new List<IndexEntry>();
 
 			foreach (var filename in Directory.EnumerateFiles(turbulentFolder, "*.xml"))
 			{
@@ -61,7 +61,7 @@ namespace shipparser
 				var json = JsonConvert.SerializeObject(ship, Newtonsoft.Json.Formatting.Indented);
 				File.WriteAllText(Path.Combine(OutputFolder, $"{entityClassName}.json"), json);
 
-				shipList.Add(new ShipIndex
+				shipList.Add(new IndexEntry
 				{
 					filename = Path.GetFileNameWithoutExtension(filename),
 					itemClass = entry.itemClass,
