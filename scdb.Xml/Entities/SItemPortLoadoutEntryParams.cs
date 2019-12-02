@@ -10,5 +10,7 @@ namespace scdb.Xml.Entities
 
 		[XmlAttribute]
 		public string entityClassName { get; set; }
+
+		public loadout loadout { get; set; }
 	}
 }

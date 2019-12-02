@@ -58,7 +58,6 @@ namespace shipparser
 			}
 		}
 
-
 		public static TurbulentEntry GetTurbulentEntry(string turbulentXmlFile)
 		{
 			var rootNode = Path.GetFileNameWithoutExtension(turbulentXmlFile).ToUpper();
