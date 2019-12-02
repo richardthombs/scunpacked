@@ -15,6 +15,13 @@ using scdb.Xml.Turbulent;
 
 namespace shipparser
 {
+	class ShipIndex
+	{
+		public string filename;
+		public string itemClass;
+		public string turbulentName;
+	}
+
 	class Program
 	{
 		static void Main(string[] args)
@@ -42,6 +49,8 @@ namespace shipparser
 			var parser = new ShipParser { InputRoot = scDataRoot };
 			Directory.CreateDirectory(outputFolder);
 
+			var shipList = new List<ShipIndex>();
+
 			foreach (var filename in Directory.EnumerateFiles(turbulentFolder, "*.xml"))
 			{
 				var entry = GetTurbulentEntry(filename);
@@ -60,7 +69,16 @@ namespace shipparser
 
 				var json = JsonConvert.SerializeObject(ship, Newtonsoft.Json.Formatting.Indented);
 				File.WriteAllText(Path.Combine(outputFolder, $"{entityClassName}.json"), json);
+
+				shipList.Add(new ShipIndex
+				{
+					filename = Path.GetFileNameWithoutExtension(filename),
+					itemClass = entry.itemClass,
+					turbulentName = entry.turbulentName
+				});
 			}
+
+			File.WriteAllText(Path.Combine(outputFolder, "ships.json"), JsonConvert.SerializeObject(shipList, Newtonsoft.Json.Formatting.Indented));
 		}
 
 		public static TurbulentEntry GetTurbulentEntry(string turbulentXmlFile)
