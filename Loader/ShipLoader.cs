@@ -19,7 +19,7 @@ namespace Loader
 		public string OutputFolder { get; set; }
 		public string DataRoot { get; set; }
 
-		public List<IndexEntry> Load()
+		public List<ShipIndexEntry> Load()
 		{
 			var turbulentFolder = Path.Combine(DataRoot, @"Data\Libs\Foundry\Records\turbulent\vehicles");
 			var spaceshipsFolder = Path.Combine(DataRoot, @"Data\Libs\Foundry\Records\entities\spaceships");
@@ -40,16 +40,16 @@ namespace Loader
 
 			Directory.CreateDirectory(OutputFolder);
 
-			var index = new List<IndexEntry>();
+			var index = new List<ShipIndexEntry>();
 
 			foreach (var filename in Directory.EnumerateFiles(turbulentFolder, "*.xml"))
 			{
 				var entry = GetTurbulentEntry(filename);
-				Console.WriteLine($"{filename}: {entry.turbulentName}, {entry.itemClass}");
 				if (UselessEntities.Contains(entry.itemClass)) continue;
 
 				var entityFilename = Path.ChangeExtension(Path.Combine(spaceshipsFolder, entry.itemClass.ToLower()), ".xml");
 				if (!File.Exists(entityFilename)) entityFilename = Path.ChangeExtension(Path.Combine(vehiclesFolder, entry.itemClass.ToLower()), ".xml");
+				Console.WriteLine(entityFilename);
 
 				var ship = LoadShip(entityFilename);
 
@@ -60,18 +60,34 @@ namespace Loader
 				var jsonFilename = Path.Combine(OutputFolder, $"{ship.Entity.ClassName.ToLower()}.json");
 				File.WriteAllText(jsonFilename, json);
 
-				index.Add(new IndexEntry
+				var headlines = new ShipHeadlines
+				{
+					Crew = ship.Entity.Components.VehicleComponentParams.crewSize,
+					TopSpeed = Convert.ToInt32(ship.Entity.Components.IFCSParams?.maxAfterburnSpeed),
+					ManuveringSpeed = Convert.ToInt32(ship.Entity.Components.IFCSParams?.maxSpeed)
+				};
+
+				var indexEntry = new ShipIndexEntry
 				{
 					json = Path.GetRelativePath(Path.GetDirectoryName(OutputFolder), jsonFilename),
 					@class = ship.Entity.ClassName,
 					item = ship.Entity.ClassName.ToLower(),
 					kind = entityFilename.StartsWith(spaceshipsFolder) ? "spaceship" : "groundvehicle",
 					Type = ship.Entity.Components?.SAttachableComponentParams?.AttachDef.Type,
-					SubType = ship.Entity.Components?.SAttachableComponentParams?.AttachDef.SubType
-				});
+					SubType = ship.Entity.Components?.SAttachableComponentParams?.AttachDef.SubType,
+					Headlines = headlines
+				};
+
+				index.Add(indexEntry);
 			}
 
 			return index;
+		}
+
+		int CalculateScu(Part part)
+		{
+			if (part == null) return 0;
+			return 0;
 		}
 
 		TurbulentEntry GetTurbulentEntry(string turbulentXmlFile)

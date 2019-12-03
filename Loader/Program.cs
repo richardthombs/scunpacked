@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 
 using Newtonsoft.Json;
 using NDesk.Options;
