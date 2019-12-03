@@ -6,21 +6,21 @@ namespace scdb.Xml.Vehicles
 	public class Camera
 	{
 		[XmlAttribute]
-		public string type { get; set; }
+		public string type;
 
 		[XmlAttribute]
-		public string attachPoint { get; set; }
+		public string attachPoint;
 
 		[XmlAttribute]
-		public string cameraOffset { get; set; }
+		public string cameraOffset;
 
 		[XmlAttribute]
-		public string cameraRotationOffset { get; set; }
+		public string cameraRotationOffset;
 
 		[XmlAttribute]
-		public string cameraSecondaryOffset { get; set; }
+		public string cameraSecondaryOffset;
 
 		[XmlAttribute]
-		public string filename { get; set; }
+		public string filename;
 	}
 }

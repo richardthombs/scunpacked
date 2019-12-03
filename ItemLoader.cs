@@ -24,7 +24,7 @@ namespace shipparser
 			{
 				Console.WriteLine(Path.GetFileNameWithoutExtension(folder));
 				var itemType = Path.GetFileNameWithoutExtension(folder);
-				var outputFolder = OutputFolder; //Path.Combine(OutputFolder, itemType);
+				var outputFolder = /*OutputFolder; //*/Path.Combine(OutputFolder, itemType);
 				Directory.CreateDirectory(outputFolder);
 
 				foreach (var filename in Directory.EnumerateFiles(folder, "*.xml", SearchOption.AllDirectories))

@@ -6,9 +6,9 @@ namespace scdb.Xml.Vehicles
 	public class Connection
 	{
 		[XmlAttribute]
-		public string pipeClass { get; set; }
+		public string pipeClass;
 
 		[XmlAttribute]
-		public string pipe { get; set; }
+		public string pipe;
 	}
 }

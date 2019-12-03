@@ -6,9 +6,9 @@ namespace scdb.Xml.Vehicles
 	public class PriorityGroup
 	{
 		[XmlAttribute]
-		public string itemType { get; set; }
+		public string itemType;
 
 		[XmlAttribute]
-		public string defaultPriority { get; set; }
+		public string defaultPriority;
 	}
 }

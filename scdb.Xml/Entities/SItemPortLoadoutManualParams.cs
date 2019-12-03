@@ -2,6 +2,6 @@ namespace scdb.Xml.Entities
 {
 	public class SItemPortLoadoutManualParams
 	{
-		public SItemPortLoadoutEntryParams[] entries { get; set; }
+		public SItemPortLoadoutEntryParams[] entries;
 	}
 }

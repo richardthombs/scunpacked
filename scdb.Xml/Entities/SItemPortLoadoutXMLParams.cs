@@ -6,9 +6,9 @@ namespace scdb.Xml.Entities
 	public class SItemPortLoadoutXMLParams
 	{
 		[XmlAttribute]
-		public string loadoutPath { get; set; }
+		public string loadoutPath;
 
 		[XmlAttribute]
-		public string __type { get; set; }
+		public string __type;
 	}
 }

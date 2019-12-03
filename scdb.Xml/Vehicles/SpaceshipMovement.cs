@@ -6,45 +6,45 @@ namespace scdb.Xml.Vehicles
 	public class SpaceshipMovement
 	{
 		[XmlAttribute]
-		public double engineWarmupDelay { get; set; }
+		public double engineWarmupDelay;
 
 		[XmlAttribute]
-		public double engineIgnitionTime { get; set; }
+		public double engineIgnitionTime;
 
 		[XmlAttribute]
-		public double enginePowerMax { get; set; }
+		public double enginePowerMax;
 
 		[XmlAttribute]
-		public double rotationDamping { get; set; }
+		public double rotationDamping;
 
 		[XmlAttribute]
-		public double maxCruiseSpeed { get; set; }
+		public double maxCruiseSpeed;
 
 		[XmlAttribute]
-		public double maxEngineThrust { get; set; }
+		public double maxEngineThrust;
 
 		[XmlAttribute]
-		public double maxRetroThrust { get; set; }
+		public double maxRetroThrust;
 
 		[XmlAttribute]
-		public double maxDirectionalThrust { get; set; }
+		public double maxDirectionalThrust;
 
 		[XmlAttribute]
-		public string maxAngularVelocity { get; set; }
+		public string maxAngularVelocity;
 
 		[XmlAttribute]
-		public string maxAngularAcceleration { get; set; }
+		public string maxAngularAcceleration;
 
 		[XmlAttribute]
-		public double maxJerk { get; set; }
+		public double maxJerk;
 
 		[XmlAttribute]
-		public double maxAngJerk { get; set; }
+		public double maxAngJerk;
 
 		[XmlAttribute]
-		public string maxTorqueAlpha { get; set; }
+		public string maxTorqueAlpha;
 
 		[XmlAttribute]
-		public string maxTorqueAngle { get; set; }
+		public string maxTorqueAngle;
 	}
 }

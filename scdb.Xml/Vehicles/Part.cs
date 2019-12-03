@@ -7,19 +7,19 @@ namespace scdb.Xml.Vehicles
 	public class Part
 	{
 		[XmlAttribute]
-		public string name { get; set; }
+		public string name;
 
 		[XmlAttribute]
-		public double mass { get; set; }
+		public double mass;
 
 		[XmlAttribute]
-		public double damageMax { get; set; }
+		public double damageMax;
 
 		[XmlAttribute]
-		public string @class { get; set; }
+		public string @class;
 
-		public Part[] Parts { get; set; }
+		public Part[] Parts;
 
-		public ItemPort ItemPort { get; set; }
+		public ItemPort ItemPort;
 	}
 }

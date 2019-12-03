@@ -7,9 +7,9 @@ namespace scdb.Xml.Turbulent
 	public class TurbulentEntry
 	{
 		[XmlAttribute]
-		public string turbulentName { get; set; }
+		public string turbulentName;
 
 		[XmlAttribute]
-		public string itemClass { get; set; }
+		public string itemClass;
 	}
 }

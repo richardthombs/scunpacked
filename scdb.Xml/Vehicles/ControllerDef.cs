@@ -5,8 +5,8 @@ namespace scdb.Xml.Vehicles
 	public class ControllerDef
 	{
 		[XmlAttribute]
-		public string controllableTags { get; set; }
+		public string controllableTags;
 
-		public UsableDef UsableDef { get; set; }
+		public UsableDef UsableDef;
 	}
 }

@@ -6,31 +6,31 @@ namespace scdb.Xml.Vehicles
 	public class Vehicle
 	{
 		[XmlAttribute]
-		public string name { get; set; }
+		public string name;
 
 		[XmlAttribute]
-		public string displayname { get; set; }
+		public string displayname;
 
 		[XmlAttribute]
-		public string subType { get; set; }
+		public string subType;
 
 		[XmlAttribute]
-		public int size { get; set; }
+		public int size;
 
 		[XmlAttribute]
-		public string requiredItemTags { get; set; }
+		public string requiredItemTags;
 
 		[XmlAttribute]
-		public string itemPortTags { get; set; }
+		public string itemPortTags;
 
 		[XmlAttribute]
-		public string crossSectionMultiplier { get; set; }
+		public string crossSectionMultiplier;
 
-		public Camera[] Cameras { get; set; }
+		public Camera[] Cameras;
 
-		public Pipe[] Pipes { get; set; }
+		public Pipe[] Pipes;
 
-		public Part[] Parts { get; set; }
-		public MovementParams MovementParams { get; set; }
+		public Part[] Parts;
+		public MovementParams MovementParams;
 	}
 }

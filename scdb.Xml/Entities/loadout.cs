@@ -2,7 +2,7 @@ namespace scdb.Xml.Entities
 {
 	public class loadout
 	{
-		public SItemPortLoadoutXMLParams SItemPortLoadoutXMLParams { get; set; }
-		public SItemPortLoadoutManualParams SItemPortLoadoutManualParams { get; set; }
+		public SItemPortLoadoutXMLParams SItemPortLoadoutXMLParams;
+		public SItemPortLoadoutManualParams SItemPortLoadoutManualParams;
 	}
 }

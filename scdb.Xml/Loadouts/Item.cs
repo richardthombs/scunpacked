@@ -7,11 +7,11 @@ namespace scdb.Xml.Loadouts
 	public class Item
 	{
 		[XmlAttribute]
-		public string portName { get; set; }
+		public string portName;
 
 		[XmlAttribute]
-		public string itemName { get; set; }
+		public string itemName;
 
-		public Item[] Items { get; set; }
+		public Item[] Items;
 	}
 }

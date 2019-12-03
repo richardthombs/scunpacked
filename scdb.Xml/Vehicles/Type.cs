@@ -6,9 +6,9 @@ namespace scdb.Xml.Vehicles
 	public class Type
 	{
 		[XmlAttribute]
-		public string type { get; set; }
+		public string type;
 
 		[XmlAttribute]
-		public string subtypes { get; set; }
+		public string subtypes;
 	}
 }

@@ -7,30 +7,30 @@ namespace scdb.Xml.Vehicles
 	public class ItemPort
 	{
 		[XmlAttribute]
-		public int minsize { get; set; }
+		public int minsize;
 
 		[XmlAttribute]
-		public int maxsize { get; set; }
+		public int maxsize;
 
 		[XmlAttribute]
-		public string display_name { get; set; }
+		public string display_name;
 
 		[XmlAttribute]
-		public string flags { get; set; }
+		public string flags;
 
 		[XmlAttribute]
-		public string defaultWeaponGroup { get; set; }
+		public string defaultWeaponGroup;
 
 		[XmlAttribute]
-		public string id { get; set; }
+		public string id;
 
 		[XmlAttribute]
-		public string requiredTags { get; set; }
+		public string requiredTags;
 
-		public Type[] Types { get; set; }
-		public Connection[] Connections { get; set; }
-		public ControllerDef ControllerDef { get; set; }
-		public AngleRange Pitch { get; set; }
-		public AngleRange Yaw { get; set; }
+		public Type[] Types;
+		public Connection[] Connections;
+		public ControllerDef ControllerDef;
+		public AngleRange Pitch;
+		public AngleRange Yaw;
 	}
 }

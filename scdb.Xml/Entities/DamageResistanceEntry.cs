@@ -6,9 +6,9 @@ namespace scdb.Xml.Entities
 	public class DamageResistanceEntry
 	{
 		[XmlAttribute]
-		public double Multiplier { get; set; }
+		public double Multiplier;
 
 		[XmlAttribute]
-		public int Threshold { get; set; }
+		public int Threshold;
 	}
 }

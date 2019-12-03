@@ -6,29 +6,29 @@ namespace scdb.Xml.Entities
 	public class AttachDef
 	{
 		[XmlAttribute]
-		public string Type { get; set; }
+		public string Type;
 
 		[XmlAttribute]
-		public string SubType { get; set; }
+		public string SubType;
 
 		[XmlAttribute]
-		public int Size { get; set; }
+		public int Size;
 
 		[XmlAttribute]
-		public int Grade { get; set; }
+		public int Grade;
 
 		[XmlAttribute]
-		public string Manufacturer { get; set; }
+		public string Manufacturer;
 
 		[XmlAttribute]
-		public string Tags { get; set; }
+		public string Tags;
 
 		[XmlAttribute]
-		public string RequiredTags { get; set; }
+		public string RequiredTags;
 
 		[XmlAttribute]
-		public string DisplayType { get; set; }
+		public string DisplayType;
 
-		public SCItemLocalization Localization { get; set; }
+		public SCItemLocalization Localization;
 	}
 }

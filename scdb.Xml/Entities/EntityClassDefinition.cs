@@ -5,8 +5,8 @@ namespace scdb.Xml.Entities
 {
 	public class EntityClassDefinition
 	{
-		public Components Components { get; set; }
+		public Components Components;
 
-		public string ClassName { get; set; }
+		public string ClassName;
 	}
 }

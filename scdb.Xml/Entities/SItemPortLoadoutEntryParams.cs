@@ -6,11 +6,11 @@ namespace scdb.Xml.Entities
 	public class SItemPortLoadoutEntryParams
 	{
 		[XmlAttribute]
-		public string itemPortName { get; set; }
+		public string itemPortName;
 
 		[XmlAttribute]
-		public string entityClassName { get; set; }
+		public string entityClassName;
 
-		public loadout loadout { get; set; }
+		public loadout loadout;
 	}
 }

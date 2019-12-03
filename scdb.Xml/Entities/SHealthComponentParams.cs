@@ -6,8 +6,8 @@ namespace scdb.Xml.Entities
 	public class SHealthComponentParams
 	{
 		[XmlAttribute]
-		public double Health { get; set; }
+		public double Health;
 
-		public DamageResistances DamageResistances { get; set; }
+		public DamageResistances DamageResistances;
 	}
 }

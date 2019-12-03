@@ -6,51 +6,51 @@ namespace scdb.Xml.Entities
 	public class VehicleComponentParams
 	{
 		[XmlAttribute]
-		public string landingSystem { get; set; }
+		public string landingSystem;
 
 		[XmlAttribute]
-		public string manufacturer { get; set; }
+		public string manufacturer;
 
 		[XmlAttribute]
-		public string vehicleDefinition { get; set; }
+		public string vehicleDefinition;
 
 		[XmlAttribute]
-		public string modification { get; set; }
+		public string modification;
 
 		[XmlAttribute]
-		public int dogfightEnabled { get; set; }
+		public int dogfightEnabled;
 
 		[XmlAttribute]
-		public int unmovable { get; set; }
+		public int unmovable;
 
 		[XmlAttribute]
-		public int isGravlevVehicle { get; set; }
+		public int isGravlevVehicle;
 
 		[XmlAttribute]
-		public double incomingDamageModifierToAI { get; set; }
+		public double incomingDamageModifierToAI;
 
 		[XmlAttribute]
-		public double emergencyStatusDamageThreshold { get; set; }
+		public double emergencyStatusDamageThreshold;
 
 		[XmlAttribute]
-		public int crewSize { get; set; }
+		public int crewSize;
 
 		[XmlAttribute]
-		public string vehicleName { get; set; }
+		public string vehicleName;
 
 		[XmlAttribute]
-		public string vehicleDescription { get; set; }
+		public string vehicleDescription;
 
 		[XmlAttribute]
-		public string vehicleCareer { get; set; }
+		public string vehicleCareer;
 
 		[XmlAttribute]
-		public string vehicleCareerRef { get; set; }
+		public string vehicleCareerRef;
 
 		[XmlAttribute]
-		public string vehicleRole { get; set; }
+		public string vehicleRole;
 
 		[XmlAttribute]
-		public string vehicleRoleRef { get; set; }
+		public string vehicleRoleRef;
 	}
 }
