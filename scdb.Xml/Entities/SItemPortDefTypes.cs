@@ -6,5 +6,13 @@ namespace scdb.Xml.Entities
 	{
 		[XmlAttribute]
 		public string Type;
+
+		public Enum[] SubTypes;
+	}
+
+	public class Enum
+	{
+		[XmlAttribute]
+		public string value;
 	}
 }
