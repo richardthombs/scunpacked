@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: scdb-website
+  labels:
+    app: scdb
+    tier: website
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    certmanager.k8s.io/cluster-issuer: "letsencrypt-prod"
+    certmanager.k8s.io/acme-challenge-type: http01
+spec:
+  tls:
+  - hosts:
+    - scdb.gearstone.uk
+    secretName: scdb-website-tls
+  rules:
+  - host: scdb.gearstone.uk
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: scdb-website
+          servicePort: 80
+      - path: /api
+        backend:
+          serviceName: scdb-api
+          servicePort: 80

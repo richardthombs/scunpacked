@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: scdb-api
+  labels:
+    app: scdb
+    tier: api
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: scdb
+    tier: api
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scdb-api
+  labels:
+    app: scdb
+    tier: api
+spec:
+  selector:
+    matchLabels:
+      app: scdb
+      tier: api
+  template:
+    metadata:
+      labels:
+        app: scdb
+        tier: api
+    spec:
+      containers:
+      - name: scdb-api
+        image: gearstone/scdb-api:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
