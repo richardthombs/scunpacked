@@ -3,7 +3,7 @@ using scdb.Xml.Entities;
 using scdb.Xml.Loadouts;
 using scdb.Xml.Vehicles;
 
-namespace shipparser
+namespace Loader
 {
 	public class Ship
 	{

@@ -1,4 +1,4 @@
-namespace shipparser
+namespace Loader
 {
 	public class IndexEntry
 	{

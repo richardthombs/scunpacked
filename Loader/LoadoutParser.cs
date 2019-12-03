@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 using System.IO;
 using scdb.Xml.Loadouts;
 
-namespace shipparser
+namespace Loader
 {
 	public class LoadoutParser
 	{

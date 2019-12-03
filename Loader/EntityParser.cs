@@ -5,7 +5,7 @@ using System.IO;
 
 using scdb.Xml.Entities;
 
-namespace shipparser
+namespace Loader
 {
 	public class EntityParser
 	{

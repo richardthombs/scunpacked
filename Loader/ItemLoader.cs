@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 using scdb.Xml.Turbulent;
 
-namespace shipparser
+namespace Loader
 {
 	public class ItemLoader
 	{

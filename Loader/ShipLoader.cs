@@ -12,7 +12,7 @@ using scdb.Xml.Vehicles;
 using scdb.Xml.Loadouts;
 using scdb.Xml.Turbulent;
 
-namespace shipparser
+namespace Loader
 {
 	public class ShipLoader
 	{
