@@ -57,7 +57,7 @@ namespace Loader
 						minsize = part.ItemPort?.minsize,
 						maxsize = part.ItemPort?.maxsize,
 						flags = GetItemPortFlags(part.ItemPort?.flags),
-						types = GetItemPortTypes(part.ItemPort?.Types)
+						types = GetItemPortTypes(part.ItemPort?.Types),
 					};
 
 					modelLoadout.Add(itemPort);
@@ -116,18 +116,18 @@ namespace Loader
 			return null;
 		}
 
-		Dictionary<string, string[]> GetItemPortTypes(scdb.Xml.Vehicles.Type[] vehicleItemPortTypes)
+		Dictionary<string, bool> GetItemPortTypes(scdb.Xml.Vehicles.Type[] vehicleItemPortTypes)
 		{
 			if (vehicleItemPortTypes == null) return null;
 
-			var dict = new Dictionary<string, string[]>();
+			var dict = new Dictionary<string, bool>();
 			foreach (var vehicleItemPortType in vehicleItemPortTypes)
 			{
 				var type = vehicleItemPortType.type;
 				var subtypes = vehicleItemPortType.subtypes?.Split(",").Where(x => !String.IsNullOrEmpty(x)).ToArray();
 
-				if (!dict.ContainsKey(type)) dict.Add(type, new string[0]);
-				if (subtypes != null) dict[type] = dict[type].Concat(subtypes).ToArray();
+				if (subtypes == null || subtypes.Length == 0) dict.Add(type, true);
+				else foreach (var s in subtypes) dict.Add($"{type}.{s}", true);
 			}
 			return dict;
 		}

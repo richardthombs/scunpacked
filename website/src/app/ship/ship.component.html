@@ -5,82 +5,85 @@
   <h1>Offence</h1>
   <ol>
     <li *ngFor="let hardpoint of grouped?.Offence">
-      {{hardpoint.port}} size {{hardpoint.maxsize}} {{hardpoint.types | json}}
-      <a [href]="'https://scdb.gearstone.uk/api/items/' + hardpoint.item?.toLowerCase() + '.json'">{{hardpoint.item}}</a>
+      <div>{{hardpoint.grouping.class}} size {{hardpoint.maxsize}}</div>
+      <div *ngIf="hardpoint.item">Installed <a [href]="'https://scdb.gearstone.uk/api/items/' + hardpoint.item?.toLowerCase() + '.json'">{{hardpoint.item}}</a></div>
+      <div *ngIf="hardpoint.flags">Flags {{hardpoint.flags | json}}</div>
+      <div *ngIf="hardpoint.types">Types {{hardpoint.types | json}}</div>
     </li>
   </ol>
 
   <h1>Defence</h1>
   <ol>
     <li *ngFor="let hardpoint of grouped?.Defence">
-      {{hardpoint.port}} size {{hardpoint.maxsize}}
-      <a [href]="'https://scdb.gearstone.uk/api/items/' + hardpoint.item?.toLowerCase() + '.json'">{{hardpoint.item}}</a>
+      <div>{{hardpoint.grouping.class}} size {{hardpoint.maxsize}}</div>
+      <div *ngIf="hardpoint.item">Installed <a [href]="'https://scdb.gearstone.uk/api/items/' + hardpoint.item?.toLowerCase() + '.json'">{{hardpoint.item}}</a></div>
+      <div *ngIf="hardpoint.flags">Flags {{hardpoint.flags | json}}</div>
+      <div *ngIf="hardpoint.types">Types {{hardpoint.types | json}}</div>
     </li>
   </ol>
 
   <h1>Systems</h1>
   <ol>
     <li *ngFor="let hardpoint of grouped?.Systems">
-      {{hardpoint.port}} size {{hardpoint.maxsize}}
-      <a [href]="'https://scdb.gearstone.uk/api/items/' + hardpoint.item?.toLowerCase() + '.json'">{{hardpoint.item}}</a>
+      <div>{{hardpoint.grouping.class}} size {{hardpoint.maxsize}}</div>
+      <div *ngIf="hardpoint.item">Installed <a [href]="'https://scdb.gearstone.uk/api/items/' + hardpoint.item?.toLowerCase() + '.json'">{{hardpoint.item}}</a></div>
+      <div *ngIf="hardpoint.flags">Flags {{hardpoint.flags | json}}</div>
+      <div *ngIf="hardpoint.types">Types {{hardpoint.types | json}}</div>
     </li>
   </ol>
 
   <h1>Propulsion</h1>
   <ol>
     <li *ngFor="let hardpoint of grouped?.Propulsion">
-      {{hardpoint.port}} size {{hardpoint.maxsize}}
-      <a [href]="'https://scdb.gearstone.uk/api/items/' + hardpoint.item?.toLowerCase() + '.json'">{{hardpoint.item}}</a>
+      <div>{{hardpoint.grouping.class}} size {{hardpoint.maxsize}}</div>
+      <div *ngIf="hardpoint.item">Installed <a [href]="'https://scdb.gearstone.uk/api/items/' + hardpoint.item?.toLowerCase() + '.json'">{{hardpoint.item}}</a></div>
+      <div *ngIf="hardpoint.flags">Flags {{hardpoint.flags | json}}</div>
+      <div *ngIf="hardpoint.types">Types {{hardpoint.types | json}}</div>
     </li>
   </ol>
 
   <h1>Fuel</h1>
   <ol>
     <li *ngFor="let hardpoint of grouped?.Fuel">
-      {{hardpoint.port}} size {{hardpoint.maxsize}}
-      <a [href]="'https://scdb.gearstone.uk/api/items/' + hardpoint.item?.toLowerCase() + '.json'">{{hardpoint.item}}</a>
+      <div>{{hardpoint.grouping.class}} size {{hardpoint.maxsize}}</div>
+      <div *ngIf="hardpoint.item">Installed <a [href]="'https://scdb.gearstone.uk/api/items/' + hardpoint.item?.toLowerCase() + '.json'">{{hardpoint.item}}</a></div>
+      <div *ngIf="hardpoint.flags">Flags {{hardpoint.flags | json}}</div>
+      <div *ngIf="hardpoint.types">Types {{hardpoint.types | json}}</div>
     </li>
   </ol>
 
   <h1>Sensors</h1>
   <ol>
     <li *ngFor="let hardpoint of grouped?.Sensors">
-      {{hardpoint.port}} size {{hardpoint.maxsize}}
-      <a [href]="'https://scdb.gearstone.uk/api/items/' + hardpoint.item?.toLowerCase() + '.json'">{{hardpoint.item}}</a>
-    </li>
-  </ol>
-
-  <h1>Systems</h1>
-  <ol>
-    <li *ngFor="let hardpoint of grouped?.Systems">
-      {{hardpoint.port}} size {{hardpoint.maxsize}}
-      <a [href]="'https://scdb.gearstone.uk/api/items/' + hardpoint.item?.toLowerCase() + '.json'">{{hardpoint.item}}</a>
+      <div>{{hardpoint.grouping.class}} size {{hardpoint.maxsize}}</div>
+      <div *ngIf="hardpoint.item">Installed <a [href]="'https://scdb.gearstone.uk/api/items/' + hardpoint.item?.toLowerCase() + '.json'">{{hardpoint.item}}</a></div>
+      <div *ngIf="hardpoint.flags">Flags {{hardpoint.flags | json}}</div>
+      <div *ngIf="hardpoint.types">Types {{hardpoint.types | json}}</div>
     </li>
   </ol>
 
   <h1>Interior</h1>
   <ol>
     <li *ngFor="let hardpoint of grouped?.Interior">
-      {{hardpoint.port}} size {{hardpoint.maxsize}}
-      <a [href]="'https://scdb.gearstone.uk/api/items/' + hardpoint.item?.toLowerCase() + '.json'">{{hardpoint.item}}</a>
+      <div>{{hardpoint.grouping.class}} size {{hardpoint.maxsize}}</div>
+      <div *ngIf="hardpoint.item">Installed <a [href]="'https://scdb.gearstone.uk/api/items/' + hardpoint.item?.toLowerCase() + '.json'">{{hardpoint.item}}</a></div>
+      <div *ngIf="hardpoint.flags">Flags {{hardpoint.flags | json}}</div>
+      <div *ngIf="hardpoint.types">Types {{hardpoint.types | json}}</div>
     </li>
   </ol>
 
   <h1>Cargo</h1>
   <ol>
     <li *ngFor="let hardpoint of grouped?.Cargo">
-      {{hardpoint.port}} size {{hardpoint.maxsize}}
-      <a [href]="'https://scdb.gearstone.uk/api/items/' + hardpoint.item?.toLowerCase() + '.json'">{{hardpoint.item}}</a>
+      <div>{{hardpoint.grouping.class}} size {{hardpoint.maxsize}}</div>
+      <div *ngIf="hardpoint.item">Installed <a [href]="'https://scdb.gearstone.uk/api/items/' + hardpoint.item?.toLowerCase() + '.json'">{{hardpoint.item}}</a></div>
+      <div *ngIf="hardpoint.flags">Flags {{hardpoint.flags | json}}</div>
+      <div *ngIf="hardpoint.types">Types {{hardpoint.types | json}}</div>
     </li>
   </ol>
 
   <pre>
-  {{types | json}}
-</pre>
-  <pre>
-  {{ship?.Loadout | json }}
-</pre>
-  <pre>
-  {{ship | json}}
-</pre>
+    {{types | json}}
+  </pre>
+
 </div>
