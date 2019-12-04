@@ -2,11 +2,11 @@ using System;
 using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
-using scdb.Xml.Loadouts;
+using scdb.Xml.DefaultLoadouts;
 
 namespace Loader
 {
-	public class LoadoutParser
+	public class DefaultLoadoutParser
 	{
 		public Loadout Parse(string fullXmlPath)
 		{

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Collections.Generic;
 
 using Newtonsoft.Json;
 using NDesk.Options;
+
+using scdb.Xml.Entities;
 
 namespace Loader
 {
@@ -28,6 +31,12 @@ namespace Loader
 				return;
 			}
 
+			JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+			{
+				Formatting = Formatting.Indented,
+				NullValueHandling = NullValueHandling.Ignore
+			};
+
 			// Ships and ground vehicles
 			var shipLoader = new ShipLoader
 			{
@@ -35,7 +44,8 @@ namespace Loader
 				DataRoot = scDataRoot
 			};
 			var shipIndex = shipLoader.Load();
-			File.WriteAllText(Path.Combine(outputRoot, "ships.json"), JsonConvert.SerializeObject(shipIndex, Newtonsoft.Json.Formatting.Indented));
+
+			File.WriteAllText(Path.Combine(outputRoot, "ships.json"), JsonConvert.SerializeObject(shipIndex));
 
 			// Items that go on ships
 			var itemLoader = new ItemLoader
@@ -44,7 +54,17 @@ namespace Loader
 				DataRoot = scDataRoot
 			};
 			var itemIndex = itemLoader.Load();
-			File.WriteAllText(Path.Combine(outputRoot, "items.json"), JsonConvert.SerializeObject(itemIndex, Newtonsoft.Json.Formatting.Indented));
+			File.WriteAllText(Path.Combine(outputRoot, "items.json"), JsonConvert.SerializeObject(itemIndex));
+
+			var itemDict = new Dictionary<string, EntityCacheEntry>();
+			itemIndex.ForEach(i => itemDict.Add(i.ItemName, new EntityCacheEntry { item = i.ItemName, entityFilename = i.EntityFilename, entity = i.Entity }));
 		}
+	}
+
+	public class EntityCacheEntry
+	{
+		public string item;
+		public string entityFilename;
+		public EntityClassDefinition entity;
 	}
 }

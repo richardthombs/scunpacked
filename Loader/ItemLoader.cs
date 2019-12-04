@@ -1,12 +1,12 @@
 using System;
 using System.IO;
-using System.Xml;
-using System.Xml.Serialization;
 using System.Collections.Generic;
 
 using Newtonsoft.Json;
 
-using scdb.Xml.Turbulent;
+using scdb.Xml.Entities;
+using scdb.Xml.DefaultLoadouts;
+using scdb.Models;
 
 namespace Loader
 {
@@ -15,60 +15,78 @@ namespace Loader
 		public string OutputFolder { get; set; }
 		public string DataRoot { get; set; }
 
-		public List<IndexEntry> Load()
+		public List<ItemIndexEntry> Load()
 		{
 			var itemsFolder = Path.Combine(DataRoot, @"Data\Libs\Foundry\Records\entities\scitem\ships");
-			var index = new List<IndexEntry>();
+			var index = new List<ItemIndexEntry>();
 
 			foreach (var folder in Directory.EnumerateDirectories(itemsFolder))
 			{
 				Console.WriteLine(Path.GetFileNameWithoutExtension(folder));
 				var itemType = Path.GetFileNameWithoutExtension(folder);
-				var outputFolder = /*OutputFolder; //*/Path.Combine(OutputFolder, itemType);
+				var outputFolder = OutputFolder;
 				Directory.CreateDirectory(outputFolder);
 
-				foreach (var filename in Directory.EnumerateFiles(folder, "*.xml", SearchOption.AllDirectories))
+				foreach (var entityFilename in Directory.EnumerateFiles(folder, "*.xml", SearchOption.AllDirectories))
 				{
-					Console.WriteLine(filename);
-					var entityParser = new EntityParser();
-					var entity = entityParser.Parse(filename);
+					EntityClassDefinition entity = null;
+					Loadout defaultLoadout = null;
+					ItemPort[] normalisedLoadout = null;
 
-					var json = JsonConvert.SerializeObject(entity, Newtonsoft.Json.Formatting.Indented);
+					// Entity
+					Console.WriteLine(entityFilename);
+					var entityParser = new EntityParser();
+					entity = entityParser.Parse(entityFilename);
+					if (entity == null) continue;
+
+					// Default loadout
+					var defaultLoadoutFilename = entity.Components?.SEntityComponentDefaultLoadoutParams?.loadout?.SItemPortLoadoutXMLParams?.loadoutPath;
+					if (!String.IsNullOrEmpty(defaultLoadoutFilename))
+					{
+						defaultLoadoutFilename = Path.Combine(DataRoot, "Data", defaultLoadoutFilename.Replace('/', '\\'));
+						Console.WriteLine(defaultLoadoutFilename);
+
+						var loadoutParser = new DefaultLoadoutParser();
+						defaultLoadout = loadoutParser.Parse(defaultLoadoutFilename);
+					}
+
+					// Normalise loadout
+					var normaliser = new LoadoutNormaliser();
+					if (defaultLoadout != null) normalisedLoadout = normaliser.NormaliseLoadout(defaultLoadout.Items, null);
+					if (normalisedLoadout == null)
+					{
+						var manualLoadout = entity.Components?.SEntityComponentDefaultLoadoutParams?.loadout?.SItemPortLoadoutManualParams;
+						normalisedLoadout = normaliser.NormaliseLoadout(manualLoadout, null);
+					}
+
 					var jsonFilename = Path.Combine(outputFolder, $"{entity.ClassName.ToLower()}.json");
+					var json = JsonConvert.SerializeObject(new
+					{
+						Raw = new
+						{
+							Entity = entity,
+							DefaultLoadout = defaultLoadout
+						},
+						NormalisedLoadout = normalisedLoadout
+					});
 					File.WriteAllText(jsonFilename, json);
 
-					index.Add(new IndexEntry
+					index.Add(new ItemIndexEntry
 					{
-						@class = entity.ClassName,
-						item = entity.ClassName.ToLower(),
 						json = Path.GetRelativePath(Path.GetDirectoryName(OutputFolder), jsonFilename),
-						kind = itemType,
+						ClassName = entity.ClassName,
+						ItemName = entity.ClassName.ToLower(),
 						Type = entity.Components?.SAttachableComponentParams?.AttachDef.Type,
-						SubType = entity.Components?.SAttachableComponentParams?.AttachDef.SubType
+						SubType = entity.Components?.SAttachableComponentParams?.AttachDef.SubType,
+						EntityFilename = Path.GetRelativePath(DataRoot, entityFilename),
+						DefaultLoadoutFilename = defaultLoadout != null ? Path.GetRelativePath(DataRoot, defaultLoadoutFilename) : null,
+						Entity = entity,
+						DefaultLoadout = defaultLoadout
 					});
 				}
-
 			}
 
 			return index;
-		}
-
-		TurbulentEntry GetTurbulentEntry(string turbulentXmlFile)
-		{
-			var rootNode = Path.GetFileNameWithoutExtension(turbulentXmlFile);
-			rootNode = rootNode.Replace("igp", "IGP");
-			rootNode = $"TurbulentEntry.{rootNode}";
-
-			var xml = File.ReadAllText(turbulentXmlFile);
-			var doc = new XmlDocument();
-			doc.LoadXml(xml);
-
-			var serialiser = new XmlSerializer(typeof(TurbulentEntry), new XmlRootAttribute { ElementName = rootNode });
-			using (var stream = new XmlNodeReader(doc))
-			{
-				var entry = (TurbulentEntry)serialiser.Deserialize(stream);
-				return entry;
-			}
 		}
 	}
 }

@@ -2,7 +2,7 @@
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Loadouts
+namespace scdb.Xml.DefaultLoadouts
 {
 	public class Item
 	{

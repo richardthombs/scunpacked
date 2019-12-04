@@ -9,8 +9,9 @@ using Newtonsoft.Json;
 
 using scdb.Xml.Entities;
 using scdb.Xml.Vehicles;
-using scdb.Xml.Loadouts;
+using scdb.Xml.DefaultLoadouts;
 using scdb.Xml.Turbulent;
+using scdb.Models;
 
 namespace Loader
 {
@@ -44,6 +45,12 @@ namespace Loader
 
 			foreach (var filename in Directory.EnumerateFiles(turbulentFolder, "*.xml"))
 			{
+				EntityClassDefinition entity = null;
+				Vehicle vehicle = null;
+				string vehicleModification = null;
+				Loadout defaultLoadout = null;
+				scdb.Models.ItemPort[] normalisedLoadout = null;
+
 				var entry = GetTurbulentEntry(filename);
 				if (UselessEntities.Contains(entry.itemClass)) continue;
 
@@ -51,43 +58,75 @@ namespace Loader
 				if (!File.Exists(entityFilename)) entityFilename = Path.ChangeExtension(Path.Combine(vehiclesFolder, entry.itemClass.ToLower()), ".xml");
 				Console.WriteLine(entityFilename);
 
-				var ship = LoadShip(entityFilename);
+				// Entity
+				var entityParser = new EntityParser();
+				entity = entityParser.Parse(entityFilename);
+				if (entity == null) continue;
 
-				if (ship.DefaultLoadout != null) ship.loadout = AddDefaultLoadout(ship.DefaultLoadout.Items);
-				else if (ship.Entity.Components.SEntityComponentDefaultLoadoutParams.loadout != null) ship.loadout = AddManualLoadout(ship.Entity.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutManualParams);
-
-				var json = JsonConvert.SerializeObject(ship, Newtonsoft.Json.Formatting.Indented);
-				var jsonFilename = Path.Combine(OutputFolder, $"{ship.Entity.ClassName.ToLower()}.json");
-				File.WriteAllText(jsonFilename, json);
-
-				var headlines = new ShipHeadlines
+				// Vehicle
+				var vehicleFilename = entity.Components?.VehicleComponentParams?.vehicleDefinition;
+				if (vehicleFilename != null)
 				{
-					Crew = ship.Entity.Components.VehicleComponentParams.crewSize,
-					TopSpeed = Convert.ToInt32(ship.Entity.Components.IFCSParams?.maxAfterburnSpeed),
-					ManuveringSpeed = Convert.ToInt32(ship.Entity.Components.IFCSParams?.maxSpeed)
-				};
+					vehicleFilename = Path.Combine(DataRoot, "Data", vehicleFilename.Replace('/', '\\'));
+					vehicleModification = entity.Components?.VehicleComponentParams?.modification;
+					Console.WriteLine(vehicleFilename);
+
+					var vehicleParser = new VehicleParser();
+					vehicle = vehicleParser.Parse(vehicleFilename, vehicleModification);
+				}
+
+				// Default loadout
+				var defaultLoadoutFilename = entity.Components?.SEntityComponentDefaultLoadoutParams.loadout?.SItemPortLoadoutXMLParams?.loadoutPath;
+				if (!String.IsNullOrEmpty(defaultLoadoutFilename))
+				{
+					defaultLoadoutFilename = Path.Combine(DataRoot, "Data", defaultLoadoutFilename.Replace('/', '\\'));
+					Console.WriteLine(defaultLoadoutFilename);
+
+					var loadoutParser = new DefaultLoadoutParser();
+					defaultLoadout = loadoutParser.Parse(defaultLoadoutFilename);
+				}
+
+				// Normalise loadout
+				var normaliser = new LoadoutNormaliser();
+				if (defaultLoadout != null) normalisedLoadout = normaliser.NormaliseLoadout(defaultLoadout.Items, vehicle?.Parts);
+				if (normalisedLoadout == null)
+				{
+					var manualLoadout = entity.Components?.SEntityComponentDefaultLoadoutParams?.loadout?.SItemPortLoadoutManualParams;
+					normalisedLoadout = normaliser.NormaliseLoadout(manualLoadout, vehicle?.Parts);
+				}
+
+				var jsonFilename = Path.Combine(OutputFolder, $"{entity.ClassName.ToLower()}.json");
+				var json = JsonConvert.SerializeObject(new
+				{
+					Raw = new
+					{
+						Entity = entity,
+						Vehicle = vehicle,
+						DefaultLoadout = defaultLoadout
+					},
+					Loadout = normalisedLoadout
+				});
+				File.WriteAllText(jsonFilename, json);
 
 				var indexEntry = new ShipIndexEntry
 				{
-					json = Path.GetRelativePath(Path.GetDirectoryName(OutputFolder), jsonFilename),
-					@class = ship.Entity.ClassName,
-					item = ship.Entity.ClassName.ToLower(),
-					kind = entityFilename.StartsWith(spaceshipsFolder) ? "spaceship" : "groundvehicle",
-					Type = ship.Entity.Components?.SAttachableComponentParams?.AttachDef.Type,
-					SubType = ship.Entity.Components?.SAttachableComponentParams?.AttachDef.SubType,
-					Headlines = headlines
+					JsonFilename = Path.GetRelativePath(Path.GetDirectoryName(OutputFolder), jsonFilename),
+					ClassName = entity.ClassName,
+					ItemName = entity.ClassName.ToLower(),
+					Type = entity.Components?.SAttachableComponentParams?.AttachDef.Type,
+					SubType = entity.Components?.SAttachableComponentParams?.AttachDef.SubType,
+					EntityFilename = Path.GetRelativePath(DataRoot, entityFilename),
+					VehicleFilename = vehicleFilename != null ? Path.GetRelativePath(DataRoot, vehicleFilename) : null,
+					DefaultLoadoutFilename = defaultLoadoutFilename != null ? Path.GetRelativePath(DataRoot, defaultLoadoutFilename) : null,
+					Entity = entity,
+					Vehicle = vehicle,
+					DefaultLoadout = defaultLoadout
 				};
 
 				index.Add(indexEntry);
 			}
 
 			return index;
-		}
-
-		int CalculateScu(Part part)
-		{
-			if (part == null) return 0;
-			return 0;
 		}
 
 		TurbulentEntry GetTurbulentEntry(string turbulentXmlFile)
@@ -107,80 +146,6 @@ namespace Loader
 				var entry = (TurbulentEntry)serialiser.Deserialize(stream);
 				return entry;
 			}
-		}
-
-		Ship LoadShip(string shipEntityPath)
-		{
-			EntityClassDefinition shipEntity;
-			Vehicle vehicle = null;
-			Loadout loadout = null;
-
-			var entityParser = new EntityParser();
-			shipEntity = entityParser.Parse(shipEntityPath);
-			if (shipEntity == null) return null;
-
-			var vehicleComponent = shipEntity.Components.VehicleComponentParams;
-			if (vehicleComponent != null)
-			{
-				var vehiclePath = vehicleComponent.vehicleDefinition;
-				vehiclePath = vehiclePath.Replace('/', '\\');
-				vehiclePath = Path.Combine(DataRoot, "Data", vehiclePath);
-
-				var vehicleParser = new VehicleParser();
-				vehicle = vehicleParser.Parse(vehiclePath, vehicleComponent.modification);
-			}
-
-			var loadoutComponent = shipEntity.Components.SEntityComponentDefaultLoadoutParams;
-			if (loadoutComponent != null)
-			{
-				if (loadoutComponent.loadout.SItemPortLoadoutXMLParams != null)
-				{
-					var loadoutPath = loadoutComponent.loadout.SItemPortLoadoutXMLParams.loadoutPath;
-					loadoutPath = loadoutPath.Replace('/', '\\');
-					loadoutPath = Path.Combine(DataRoot, "Data", loadoutPath);
-
-					var loadoutParser = new LoadoutParser();
-					loadout = loadoutParser.Parse(loadoutPath);
-				}
-			}
-
-			return new Ship
-			{
-				Entity = shipEntity,
-				Vehicle = vehicle,
-				DefaultLoadout = loadout
-			};
-		}
-
-		scdb.Models.loadout[] AddDefaultLoadout(scdb.Xml.Loadouts.Item[] defaultLoadoutItems)
-		{
-			var modelLoadout = new List<scdb.Models.loadout>();
-
-			if (defaultLoadoutItems != null)
-			{
-				foreach (var item in defaultLoadoutItems)
-				{
-					modelLoadout.Add(new scdb.Models.loadout { item = item.itemName, port = item.portName });
-					if (item.Items != null) modelLoadout.AddRange(AddDefaultLoadout(item.Items));
-				}
-			}
-
-			return modelLoadout.ToArray();
-		}
-
-		scdb.Models.loadout[] AddManualLoadout(scdb.Xml.Entities.SItemPortLoadoutManualParams manual)
-		{
-			var modelLoadout = new List<scdb.Models.loadout>();
-
-			if (manual != null)
-			{
-				foreach (var item in manual.entries)
-				{
-					modelLoadout.Add(new scdb.Models.loadout { item = item.entityClassName, port = item.itemPortName });
-					if (item.loadout.SItemPortLoadoutManualParams != null) modelLoadout.AddRange(AddManualLoadout(item.loadout.SItemPortLoadoutManualParams));
-				}
-			}
-			return modelLoadout.ToArray();
 		}
 	}
 }
