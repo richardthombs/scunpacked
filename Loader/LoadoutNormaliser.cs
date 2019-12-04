@@ -28,7 +28,7 @@ namespace Loader
 						item = itemName,
 						minsize = part.ItemPort?.minsize,
 						maxsize = part.ItemPort?.maxsize,
-						flags = part.ItemPort?.flags?.Split(" ").ToDictionary(x => x, x => true),
+						flags = GetItemPortFlags(part.ItemPort?.flags),
 						types = GetItemPortTypes(part.ItemPort?.Types)
 					};
 
