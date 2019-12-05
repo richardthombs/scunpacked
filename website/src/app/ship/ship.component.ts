@@ -137,6 +137,7 @@ export class ShipComponent implements OnInit {
 
 interface Ship {
   Loadout: ItemPort[];
+  Raw: any;
 }
 
 interface ItemPortClassification {
