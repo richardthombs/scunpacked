@@ -17,7 +17,7 @@ namespace Loader
 
 			foreach (var part in GetParts(parts))
 			{
-				if (part.@class == "ItemPort")
+				if (part.@class == "ItemPort" && part.ItemPort != null)
 				{
 					var portName = part.name;
 					var itemName = FindItemByPort(defaultLoadoutItems, portName);
@@ -45,7 +45,7 @@ namespace Loader
 
 			foreach (var part in GetParts(parts))
 			{
-				if (part.@class == "ItemPort")
+				if (part.@class == "ItemPort" && part.ItemPort != null)
 				{
 					var portName = part.name;
 					var itemName = FindItemByPort(manualLoadout.entries, portName);
