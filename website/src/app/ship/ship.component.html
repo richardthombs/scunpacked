@@ -5,10 +5,17 @@
   <div *ngFor="let g of grouped | keyvalue">
     <h2 class="mt-4">{{g.key}}</h2>
     <ol class="list-group">
-      <li *ngFor="let itemPort of g.value" class="list-group-item">
-        <app-item [itemPort]="itemPort"></app-item>
+      <li *ngFor="let class of g.value | keyvalue" class="list-group-item">
+        <div class="d-flex">
+          <div class="mr-auto">{{class.key}}</div>
+          <div *ngFor="let size of [0,1,2,3,4,5,6,7,8,9]" class="size-box">
+            <div *ngIf="class.value[size]?.length">
+              <small class="text-muted">S{{size}}</small><br>
+              {{class.value[size].length | nozero}}
+            </div>
+          </div>
+        </div>
       </li>
     </ol>
   </div>
-
 </div>

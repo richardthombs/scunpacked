@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import * as _ from "lodash";
 
 import { environment } from "../../environments/environment";
 
@@ -15,11 +16,11 @@ export class ShipListComponent implements OnInit {
 
   ngOnInit() {
     this.$http.get<any[]>(`${environment.api}/ships.json`).subscribe(r => {
-      this.ships = r;
+      this.ships = _.sortBy(r, "ClassName");
     });
   }
 
-  apiUrl(ship) {
+  apiUrl(ship: any) {
     return `${environment.api}/${ship.JsonFilename}`;
   }
 

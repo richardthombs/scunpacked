@@ -4,7 +4,6 @@ import * as _ from "lodash";
 
 import { environment } from "../../environments/environment";
 import { ActivatedRoute } from '@angular/router';
-import { Z_UNKNOWN } from 'zlib';
 
 @Component({
   selector: 'app-ship',
@@ -14,54 +13,60 @@ import { Z_UNKNOWN } from 'zlib';
 export class ShipComponent implements OnInit {
 
   ship: Ship | null = null;
-  grouped: any;
+  grouped: { [id: string]: any } = {};
   types: string[] = [];
 
   private typeMap: { [id: string]: ItemPortClassification } = {
-    "Seat": { group: "Interior", class: "Seat", hideSize: true },
-    "Room": { group: "Interior", class: "Room", hideSize: true },
-    "Display": { group: "Interior", class: "Display", hideSize: true },
-    "ManneuverThruster": { group: "Propulsion", class: "Thruster", hideSize: true },
-    "FuelIntake": { group: "Fuel", class: "Intake", hideSize: true },
-    "FuelTank": { group: "Fuel", class: "Hydrogen fuel tank", hideSize: true },
-    "Cooler": { group: "Systems", class: "Cooler" },
-    "Radar": { group: "Sensors", class: "Radar", hideSize: true },
-    "QuantumDrive": { group: "Quantum travel", class: "Quantum drive" },
-    "Avionics": { group: "Systems", class: "Avionics", hideSize: true },
-    "QuantumFuelTank": { group: "Quantum travel", class: "Quantum fuel tank", hideSize: true },
-    "TurretBase.MannedTurret": { group: "Offence", class: "Manned turret" },
-    "Shield": { group: "Defence", class: "Shield" },
-    "MainThruster": { group: "Propulsion", class: "Main engine", hideSize: true },
-    "MissileLauncher": { group: "Offence", class: "Missile rack" },
-    "WeaponDefensive": { group: "Defence", class: "Unknown" },
-    "WeaponDefensive.CountermeasureLauncher": { group: "Defence", class: "Countermeasure launcher", hideSize: true },
-    "CoolerController": { group: "Controller", class: "Cooler controller", hideSize: true },
-    "ShieldController": { group: "Controller", class: "Shield controller", hideSize: true },
-    "EnergyController": { group: "Controller", class: "Energy controller", hideSize: true },
-    "WeaponController": { group: "Controller", class: "Weapon controller", hideSize: true },
-    "FlightController": { group: "Controller", class: "Flight controller", hideSize: true },
-    "CommsController": { group: "Controller", class: "Communications controller", hideSize: true },
-    "DoorController": { group: "Controller", class: "Door controller", hideSize: true },
-    "LightController": { group: "Controller", class: "Light controller", hideSize: true },
-    "Cargo": { group: "Cargo", class: "Cargo grid", hideSize: true },
-    "SeatAccess": { group: "Interior", class: "Seat access", hideSize: true },
-    "Door": { group: "Interior", class: "Door", hideSize: true },
-    "Scanner": { group: "Sensors", class: "Scanner", hideSize: true },
-    "Ping": { group: "Sensors", class: "Ping", hideSize: true },
-    "Transponder": { group: "Systems", class: "Transponder", hideSize: true },
-    "Turret": { group: "Offence", class: "Unknown" },
-    "Turret.NoseMounted": { group: "Offence", class: "Turret" },
-    "PowerPlant": { group: "Systems", class: "Power plant" },
-    "Armor": { group: "Defence", class: "Armor", hideSize: true },
-    "SelfDestruct": { group: "Systems", class: "Self destruct", hideSize: true },
-    "SeatDashboard": { group: "Interior", class: "Dashboard", hideSize: true },
-    "LandingSystem": { group: "Systems", class: "Landing system", hideSize: true },
-    "WeaponGun": { group: "Offence", class: "Weapon hardpoint" },
-    "Turret.GunTurret": { group: "Offence", class: "Weapon hardpoint" },
-    "Turret.MissileTurret": { group: "Offence", class: "Missile turret" },
-    "EMP": { group: "Offence", class: "EMP" },
-    "Usable": { group: "Usable", class: "Usable item", hideSize: true }
+    "Seat": { category: "Interior", kind: "Seat / Bed", hideSize: true, isBoring: true },
+    "Room": { category: "Interior", kind: "Room", hideSize: true, isBoring: true },
+    "Display": { category: "Interior", kind: "Display", hideSize: true, isBoring: true },
+    "ManneuverThruster": { category: "Propulsion", kind: "Thruster", hideSize: true },
+    "FuelIntake": { category: "Propulsion", kind: "Fuel intake", hideSize: true },
+    "FuelTank": { category: "Propulsion", kind: "Hydrogen fuel tank", hideSize: true },
+    "Cooler": { category: "Systems", kind: "Cooler" },
+    "Radar": { category: "Sensors", kind: "Radar", hideSize: true },
+    "QuantumDrive": { category: "Quantum travel", kind: "Quantum drive" },
+    "Avionics": { category: "Systems", kind: "Avionics", hideSize: true, isBoring: true },
+    "QuantumFuelTank": { category: "Quantum travel", kind: "Quantum fuel tank", hideSize: true },
+    "TurretBase.MannedTurret": { category: "Offence", kind: "Manned turret" },
+    "Shield": { category: "Defence", kind: "Shield" },
+    "MainThruster": { category: "Propulsion", kind: "Main engine", hideSize: true },
+    "MissileLauncher": { category: "Offence", kind: "Missile rack" },
+    "WeaponDefensive": { category: "Defence", kind: "Unknown" },
+    "WeaponDefensive.CountermeasureLauncher": { category: "Defence", kind: "Countermeasure launcher", hideSize: true },
+    "CoolerController": { category: "Controllers", kind: "Cooler controller", hideSize: true, isBoring: true },
+    "ShieldController": { category: "Controllers", kind: "Shield controller", hideSize: true, isBoring: true },
+    "EnergyController": { category: "Controllers", kind: "Energy controller", hideSize: true, isBoring: true },
+    "WeaponController": { category: "Controllers", kind: "Weapon controller", hideSize: true, isBoring: true },
+    "FlightController": { category: "Controllers", kind: "Flight controller", hideSize: true, isBoring: true },
+    "CommsController": { category: "Controllers", kind: "Communications controller", hideSize: true, isBoring: true },
+    "DoorController": { category: "Controllers", kind: "Door controller", hideSize: true, isBoring: true },
+    "LightController": { category: "Controllers", kind: "Light controller", hideSize: true, isBoring: true },
+    "WheeledController": { category: "Controllers", kind: "Wheeled controller", hideSize: true, isBoring: true },
+    "Cargo": { category: "Cargo", kind: "Cargo grid", hideSize: true },
+    "SeatAccess": { category: "Interior", kind: "Seat access", hideSize: true, isBoring: true },
+    "Door": { category: "Interior", kind: "Door", hideSize: true, isBoring: true },
+    "Scanner": { category: "Sensors", kind: "Scanner", hideSize: true },
+    "Ping": { category: "Sensors", kind: "Ping", hideSize: true },
+    "Transponder": { category: "Systems", kind: "Transponder", hideSize: true },
+    "Turret": { category: "Offence", kind: "Unknown" },
+    "Turret.NoseMounted": { category: "Offence", kind: "Turret" },
+    "PowerPlant": { category: "Systems", kind: "Power plant" },
+    "Armor": { category: "Defence", kind: "Armor", hideSize: true },
+    "SelfDestruct": { category: "Systems", kind: "Self destruct", hideSize: true },
+    "SeatDashboard": { category: "Interior", kind: "Dashboard", hideSize: true, isBoring: true },
+    "LandingSystem": { category: "Systems", kind: "Landing system", hideSize: true, isBoring: true },
+    "WeaponGun": { category: "Offence", kind: "Weapon hardpoint" },
+    "Turret.GunTurret": { category: "Offence", kind: "Weapon hardpoint" },
+    "Turret.MissileTurret": { category: "Offence", kind: "Missile turret" },
+    "Turret.CanardTurret": { category: "Offence", kind: "Weapon hardpoint" },
+    "Turret.BallTurret": { category: "Offence", kind: "Turret" },
+    "EMP": { category: "Offence", kind: "EMP" },
+    "Usable": { category: "Usables", kind: "Usable item", hideSize: true, isBoring: true },
+    "QuantumInterdictionGenerator": { category: "Offence", kind: "Quantum Interdiction" }
   }
+
+  includeBoring: boolean = false;
 
   constructor(private $http: HttpClient, private route: ActivatedRoute) {
   }
@@ -71,11 +76,27 @@ export class ShipComponent implements OnInit {
       this.$http.get<Ship>(`${environment.api}/ships/${params.get("name")}.json`).subscribe(r => {
         this.ship = r;
 
+        // Classify each Item Port
         this.ship.Loadout.forEach(itemPort => itemPort.classification = this.classifyItemPort(itemPort));
 
-        this.grouped = _.groupBy(this.ship!.Loadout, (x: ItemPort) => x.classification.group);
+        // Filter out the boring ones
+        if (!this.includeBoring) this.ship.Loadout = _.filter(this.ship.Loadout, x => !x.classification.isBoring);
 
-        _.forEach(this.grouped, (value, key) => this.grouped[key] = _.orderBy(this.grouped[key], ["grouping.type", "maxsize", "port"], ["asc", "desc", "asc"]));
+        // Group by the major grouping
+        this.grouped = _.groupBy(this.ship!.Loadout, (x: ItemPort) => x.classification.category);
+
+        // _.forEach(this.grouped, (value, key) => this.grouped[key] = _.orderBy(this.grouped[key], ["grouping.type", "maxsize", "port"], ["asc", "desc", "asc"]));
+
+        // Secondary group by the class
+        _.forEach(this.grouped, (value, key) => this.grouped[key] = _.groupBy(this.grouped[key], (x: ItemPort) => x.classification.kind))
+
+        // Create an array of 10 ItemPort[] arrays, one for each size 0-9 and add each Item Port to the appropriate array according to maxsize
+        _.forEach(this.grouped, (gv, gk) => _.forEach(gv, (cv: ItemPort[], ck) => {
+          let counts: ItemPort[][] = [[], [], [], [], [], [], [], [], [], []];
+
+          cv.forEach(itemPort => counts[itemPort.maxsize || 0].push(itemPort));
+          this.grouped[gk][ck] = counts;
+        }));
 
         console.log(this.grouped);
 
@@ -92,28 +113,26 @@ export class ShipComponent implements OnInit {
   }
 
   classifyItemPort(itemPort: ItemPort): ItemPortClassification {
-    let classification: ItemPortClassification = { type: "unknown", class: "unknown", group: "unknown" };
-    if (!itemPort.types) return classification;
+    if (!itemPort.types) return { category: "Unknown", kind: itemPort.port || "Unknown" };
+
+    let classification: ItemPortClassification | undefined;
 
     Object.keys(itemPort.types).some(type => {
+      if (this.typeMap[type]) classification = this.typeMap[type];
+      return !!classification;
+    });
+    if (classification) return classification;
 
-      let found: ItemPortClassification | undefined;
-
-      // Look it up in the type map
-      if (this.typeMap[type]) found = this.typeMap[type];
-      else {
-        let major = type.split(".")[0];
-        if (this.typeMap[major]) found = this.typeMap[major];
-      }
-
-      if (found) classification = found;
-      return !!found;
+    Object.keys(itemPort.types).some(type => {
+      let major = type.split(".")[0];
+      if (this.typeMap[major]) classification = this.typeMap[major];
+      return !!classification;
     });
 
-    return classification;
+    if (classification) return classification;
+
+    return { category: "Unknown", kind: Object.keys(itemPort.types)[0] };
   }
-
-
 }
 
 interface Ship {
@@ -121,14 +140,18 @@ interface Ship {
 }
 
 interface ItemPortClassification {
-  type?: string;
-  class: string;
-  group: string;
+  category: string;
+  kind: string;
   hideSize?: boolean;
+  isBoring?: boolean;
 }
 
 interface ItemPort {
   types: {};
   flags: {};
   classification: ItemPortClassification;
+  minsize: number;
+  maxsize: number;
+  item: string;
+  port: string;
 }
