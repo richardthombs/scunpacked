@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-between">
+  <div>
+    <div>{{itemPort.classification.class}}</div>
+    <div *ngIf="!itemPort.classification.hideSize">Size {{itemPort.maxsize}}</div>
+  </div>
+  <div>
+    <div>{{itemPort.port}}</div>
+    <div *ngIf="itemPort.item"><a [href]="'https://scdb.gearstone.uk/api/items/' + itemPort.item.toLowerCase() + '.json'">{{itemPort.item}}</a></div>
+  </div>
+  <div>
+    <div *ngIf="itemPort.flags">Flags {{itemPort.flags | json}}</div>
+    <div *ngIf="itemPort.types">Types {{itemPort.types | json}}</div>
+  </div>
+</div>
