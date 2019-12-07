@@ -5,10 +5,10 @@
       <div class="mr-auto" style="align-self: center">
         <strong>{{class.key}}</strong>
       </div>
-      <div *ngFor="let size of [0,1,2,3,4,5,6,7,8,9]" class="size-box" [class.list-group-item-success]="!!class.value.bySize[size]?.length">
-        <div *ngIf="class.value.bySize[size]?.length">
-          <small class="text-muted">S{{size}}</small><br>
-          {{class.value.bySize[size].length | nozero}}
+      <div *ngFor="let size of class.value.bySize; let s = index" class="size-box" [class.list-group-item-success]="!!size.length">
+        <div *ngIf="size.length">
+          <small class="text-muted">S{{s}}</small><br>
+          {{size.length | nozero}}
         </div>
       </div>
     </li>

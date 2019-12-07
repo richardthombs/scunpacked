@@ -16,7 +16,6 @@ export class ItemGroupComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.groupName, this.groupItems);
   }
 
   toggleItems(className: string) {

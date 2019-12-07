@@ -103,9 +103,12 @@ export class ShipComponent implements OnInit {
         // Secondary group by the class
         _.forEach(this.grouped, (value, key) => this.grouped[key] = _.groupBy(this.grouped[key], (x: ItemPort) => x.classification.kind))
 
-        // Create an array of 10 ItemPort[] arrays, one for each size 0-9 and add each Item Port to the appropriate array according to maxsize
+        // Create an array of ItemPort[] arrays, one for each size 0-9 and add each Item Port to the appropriate array according to maxsize
+        let largestSize = _.reduce(this.ship.Loadout, (max, itemPort) => itemPort.maxsize > max ? itemPort.maxsize : max, 0);
+        if (largestSize < 9) largestSize = 9;
         _.forEach(this.grouped, (gv, gk) => _.forEach(gv, (cv: ItemPort[], ck) => {
-          let counts: ItemPort[][] = [[], [], [], [], [], [], [], [], [], []];
+          let counts: ItemPort[][] = [];
+          for (let i = 0; i <= largestSize; i++) counts.push([]);
 
           cv.forEach(itemPort => counts[itemPort.maxsize || 0].push(itemPort));
           this.grouped[gk][ck] = { bySize: counts };
