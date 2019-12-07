@@ -1,6 +1,13 @@
 <div class="container">
   <h1>{{ship?.Raw.Entity.Components.VehicleComponentParams.vehicleName}}</h1>
-  {{ship?.Raw.Entity.Components.VehicleComponentParams.vehicleDescription}}
+  <div class="text-muted">
+    {{ship?.Raw.Entity.Components.VehicleComponentParams.vehicleCareer}} / {{ship?.Raw.Entity.Components.VehicleComponentParams.vehicleRole}}<br>
+    Size {{ship?.Raw.Entity.Components.SAttachableComponentParams.AttachDef.Size}},
+    crew {{ship?.Raw.Entity.Components.VehicleComponentParams.crewSize}}
+  </div>
+  <div class="mt-3">
+    {{ship?.Raw.Entity.Components.VehicleComponentParams.vehicleDescription}}
+  </div>
 
   <div class="row">
     <div class="col-sm-6">
