@@ -1,0 +1,23 @@
+<h4 class="mt-4">{{groupName}}</h4>
+<ol class="list-group">
+  <ng-container *ngFor="let class of groupItems | keyvalue">
+    <li (click)="toggleItems(class.key)" class="list-group-item d-flex" style="cursor: pointer">
+      <div class="mr-auto" style="align-self: center">
+        <strong>{{class.key}}</strong>
+      </div>
+      <div *ngFor="let size of [0,1,2,3,4,5,6,7,8,9]" class="size-box" [class.list-group-item-success]="!!class.value.bySize[size]?.length">
+        <div *ngIf="class.value.bySize[size]?.length">
+          <small class="text-muted">S{{size}}</small><br>
+          {{class.value.bySize[size].length | nozero}}
+        </div>
+      </div>
+    </li>
+    <ng-container *ngIf="class.value.showItems">
+      <ng-container *ngFor="let size of class.value.bySize">
+        <li *ngFor="let itemPort of size" class="list-group-item pl-1">
+          <app-item [itemPort]="itemPort"></app-item>
+        </li>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</ol>
