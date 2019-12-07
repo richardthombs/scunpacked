@@ -8,6 +8,7 @@ import { ShipListComponent } from './shiplist/shiplist.component';
 import { ShipComponent } from './ship/ship.component';
 import { ItemComponent } from './item/item.component';
 import { NoZeroPipe } from './no-zero.pipe';
+import { ItemGroupComponent } from './item-group/item-group.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { NoZeroPipe } from './no-zero.pipe';
     ShipListComponent,
     ShipComponent,
     ItemComponent,
-    NoZeroPipe
+    NoZeroPipe,
+    ItemGroupComponent
   ],
   imports: [
     BrowserModule,

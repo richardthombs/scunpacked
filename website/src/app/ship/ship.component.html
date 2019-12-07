@@ -2,20 +2,15 @@
   <h1>{{ship?.Raw.Entity.Components.VehicleComponentParams.vehicleName}}</h1>
   {{ship?.Raw.Entity.Components.VehicleComponentParams.vehicleDescription}}
 
-  <div *ngFor="let g of grouped | keyvalue">
-    <h2 class="mt-4">{{g.key}}</h2>
-    <ol class="list-group">
-      <li *ngFor="let class of g.value | keyvalue" class="list-group-item">
-        <div class="d-flex">
-          <div class="mr-auto">{{class.key}}</div>
-          <div *ngFor="let size of [0,1,2,3,4,5,6,7,8,9]" class="size-box">
-            <div *ngIf="class.value[size]?.length">
-              <small class="text-muted">S{{size}}</small><br>
-              {{class.value[size].length | nozero}}
-            </div>
-          </div>
-        </div>
-      </li>
-    </ol>
+  <div class="row">
+    <div class="col-sm-6">
+      <app-itemgroup *ngFor="let g of leftGroups" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
+    </div>
+    <div class="col-sm-6">
+      <app-itemgroup *ngFor="let g of rightGroups" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
+    </div>
+  </div>
+  <div class="row">
+    <app-itemgroup *ngFor="let g of unexpectedGroups()" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
   </div>
 </div>

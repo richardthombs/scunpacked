@@ -33,7 +33,7 @@ export class ShipComponent implements OnInit {
     "MainThruster": { category: "Propulsion", kind: "Main engine", hideSize: true },
     "MissileLauncher": { category: "Offence", kind: "Missile rack" },
     "WeaponDefensive": { category: "Defence", kind: "Unknown" },
-    "WeaponDefensive.CountermeasureLauncher": { category: "Defence", kind: "Countermeasure launcher", hideSize: true },
+    "WeaponDefensive.CountermeasureLauncher": { category: "Defence", kind: "Countermeasure", hideSize: true },
     "CoolerController": { category: "Controllers", kind: "Cooler controller", hideSize: true, isBoring: true },
     "ShieldController": { category: "Controllers", kind: "Shield controller", hideSize: true, isBoring: true },
     "EnergyController": { category: "Controllers", kind: "Energy controller", hideSize: true, isBoring: true },
@@ -48,7 +48,7 @@ export class ShipComponent implements OnInit {
     "Door": { category: "Interior", kind: "Door", hideSize: true, isBoring: true },
     "Scanner": { category: "Sensors", kind: "Scanner", hideSize: true },
     "Ping": { category: "Sensors", kind: "Ping", hideSize: true, isBoring: true },
-    "Transponder": { category: "Systems", kind: "Transponder", hideSize: true },
+    "Transponder": { category: "Systems", kind: "Transponder", hideSize: true, isBoring: true },
     "Turret": { category: "Offence", kind: "Unknown" },
     "Turret.NoseMounted": { category: "Offence", kind: "Turret" },
     "PowerPlant": { category: "Systems", kind: "Power plant" },
@@ -65,6 +65,19 @@ export class ShipComponent implements OnInit {
     "Usable": { category: "Usables", kind: "Usable item", hideSize: true, isBoring: true },
     "QuantumInterdictionGenerator": { category: "Offence", kind: "Quantum Interdiction" }
   }
+
+  leftGroups: string[] = [
+    "Offence",
+    "Defence",
+    "Systems"
+  ];
+
+  rightGroups: string[] = [
+    "Cargo",
+    "Propulsion",
+    "Quantum travel",
+    "Sensors"
+  ];
 
   includeBoring: boolean = false;
 
@@ -95,7 +108,7 @@ export class ShipComponent implements OnInit {
           let counts: ItemPort[][] = [[], [], [], [], [], [], [], [], [], []];
 
           cv.forEach(itemPort => counts[itemPort.maxsize || 0].push(itemPort));
-          this.grouped[gk][ck] = counts;
+          this.grouped[gk][ck] = { bySize: counts };
         }));
 
         console.log(this.grouped);
@@ -112,8 +125,8 @@ export class ShipComponent implements OnInit {
     });
   }
 
-  classifyItemPort(itemPort: ItemPort): ItemPortClassification {
-    if (!itemPort.types) return { category: "Unknown", kind: itemPort.port || "Unknown" };
+  private classifyItemPort(itemPort: ItemPort): ItemPortClassification {
+    if (!itemPort.types) return { category: "Unknown", kind: itemPort.port || "Unknown", isBoring: true };
 
     let classification: ItemPortClassification | undefined;
 
@@ -131,7 +144,11 @@ export class ShipComponent implements OnInit {
 
     if (classification) return classification;
 
-    return { category: "Unknown", kind: Object.keys(itemPort.types)[0] };
+    return { category: "Unknown", kind: Object.keys(itemPort.types)[0], isBoring: true };
+  }
+
+  unexpectedGroups() {
+    return Object.keys(this.grouped).filter(g => !this.leftGroups.includes(g) && !this.rightGroups.includes(g));
   }
 }
 
