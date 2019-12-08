@@ -3,7 +3,7 @@
   <div class="text-muted">
     {{ship?.Raw.Entity.Components.VehicleComponentParams.vehicleCareer | localise | async}} / {{ship?.Raw.Entity.Components.VehicleComponentParams.vehicleRole | localise | async}}<br>
     Size {{ship?.Raw.Entity.Components.SAttachableComponentParams.AttachDef.Size}},
-    crew {{ship?.Raw.Entity.Components.VehicleComponentParams.crewSize}}
+    crew {{ship?.Raw.Entity.Components.VehicleComponentParams.crewSize}}, cargo {{ship?.scu | number}} SCU
   </div>
   <div class="mt-3">
     {{ship?.Raw.Entity.Components.VehicleComponentParams.vehicleDescription | localise | async}}
