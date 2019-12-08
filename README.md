@@ -11,6 +11,7 @@ Run the extraction tools
 ```
 cd c:\scdata\3.7.2
 unp4k.exe 'C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\Data.p4k' *.xml
+unp4k.exe 'C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\Data.p4k' *.ini
 unforge.exe .
 ```
 

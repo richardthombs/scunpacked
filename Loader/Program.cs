@@ -37,6 +37,20 @@ namespace Loader
 				NullValueHandling = NullValueHandling.Ignore
 			};
 
+			// Localisation
+			var labels = new Dictionary<string, string>();
+			using (var ini = new StreamReader(Path.Combine(scDataRoot, @"Data\Localization\english\global.ini")))
+			{
+				for (var line = ini.ReadLine(); line != null; line = ini.ReadLine())
+				{
+					Console.WriteLine(line);
+					var split = line.Split('=', 2);
+					labels.Add(split[0], split[1]);
+				}
+			}
+
+			File.WriteAllText(Path.Combine(outputRoot, "labels.json"), JsonConvert.SerializeObject(labels));
+
 			// Ships and ground vehicles
 			var shipLoader = new ShipLoader
 			{
