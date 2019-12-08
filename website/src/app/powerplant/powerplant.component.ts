@@ -10,14 +10,11 @@ import { SCItem } from '../SCItem';
 export class PowerplantComponent implements OnInit {
 
   @Input()
-  item: Item | undefined;
-
-  scitem: SCItem | undefined;
+  item: SCItem | undefined;
 
   constructor() { }
 
   ngOnInit() {
-    if (this.item) this.scitem = new SCItem(this.item);
   }
 
 }

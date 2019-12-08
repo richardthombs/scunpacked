@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-between">
   <div><span *ngIf="!itemPort.classification.hideSize" class="list-group-item-success mr-1 p-1">S{{itemPort.maxsize}}</span>{{itemPort.port}}</div>
   <div *ngIf="itemPort.item">
-    <div [ngSwitch]="itemPort.loadedItem.Raw.Entity.Components.SAttachableComponentParams.AttachDef.Type">
+    <div [ngSwitch]="itemPort.loadedItem?.Raw.Entity.Components.SAttachableComponentParams.AttachDef.Type">
       <app-powerplant *ngSwitchCase="'PowerPlant'" [item]="itemPort.loadedItem"></app-powerplant>
       <app-cargo *ngSwitchCase="'Cargo'" [item]="itemPort.loadedItem"></app-cargo>
     </div>

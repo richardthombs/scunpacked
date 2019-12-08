@@ -1,5 +1,4 @@
 import { ItemPortClassification } from './ItemPortClassification';
-import { Item } from "./Item";
 import { SCItem } from './SCItem';
 
 export interface ItemPort {

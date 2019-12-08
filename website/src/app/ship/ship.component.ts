@@ -17,7 +17,7 @@ import { SCItem } from '../SCItem';
 })
 export class ShipComponent implements OnInit {
 
-  ship: Ship | null = null;
+  ship: Ship | undefined;
   grouped: { [id: string]: any } = {};
   types: string[] = [];
 
@@ -93,9 +93,10 @@ export class ShipComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.$http.get<Ship>(`${environment.api}/ships/${params.get("name")}.json`).subscribe(async r => {
+      this.$http.get<any>(`${environment.api}/ships/${params.get("name")}.json`).subscribe(async r => {
         console.log("Loaded ship:", r);
-        this.ship = r;
+
+        this.ship = new Ship(r.Loadout, r.Raw);
 
         // Load each item
         for (let i = 0; i < this.ship.Loadout.length; i++) {
