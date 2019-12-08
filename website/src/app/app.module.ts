@@ -12,6 +12,7 @@ import { ItemGroupComponent } from './item-group/item-group.component';
 import { LocalisePipe } from './localise.pipe';
 import { PowerplantComponent } from './powerplant/powerplant.component';
 import { CargoComponent } from './cargo/cargo.component';
+import { ShieldComponent } from './shield/shield.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CargoComponent } from './cargo/cargo.component';
     ItemGroupComponent,
     LocalisePipe,
     PowerplantComponent,
-    CargoComponent
+    CargoComponent,
+    ShieldComponent
   ],
   imports: [
     BrowserModule,

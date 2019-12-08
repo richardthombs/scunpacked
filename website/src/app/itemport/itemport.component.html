@@ -4,6 +4,7 @@
     <div [ngSwitch]="itemPort.loadedItem?.Raw.Entity.Components.SAttachableComponentParams.AttachDef.Type">
       <app-powerplant *ngSwitchCase="'PowerPlant'" [item]="itemPort.loadedItem"></app-powerplant>
       <app-cargo *ngSwitchCase="'Cargo'" [item]="itemPort.loadedItem"></app-cargo>
+      <app-shield *ngSwitchCase="'Shield'" [item]="itemPort.loadedItem"></app-shield>
     </div>
     <a [href]="'https://scdb.gearstone.uk/api/items/' + itemPort.item.toLowerCase() + '.json'">{{itemPort.item}}</a>
   </div>

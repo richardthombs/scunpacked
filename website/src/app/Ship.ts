@@ -12,7 +12,11 @@ export class Ship {
   }
 
   get scu(): number {
-    return _.reduce(this.Loadout, (total, ip) => total += _.get(ip.loadedItem, "scu", 0), 0);
+    return _.reduce(this.Loadout, (total, itemPort) => total += _.get(itemPort.loadedItem, "scu", 0), 0);
+  }
+
+  get maxShieldHealth(): number {
+    return _.reduce(this.Loadout, (total, itemPort) => total += _.get(itemPort.loadedItem, "maxShieldHealth", 0), 0);
   }
 
   get vehicleName(): string {

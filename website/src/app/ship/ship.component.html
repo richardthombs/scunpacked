@@ -8,6 +8,7 @@
     <div>Size {{ship?.vehicleSize}}</div>
     <div>Crew {{ship?.crewSize}}</div>
     <div>{{ship?.scu | number}} SCU</div>
+    <div>{{ship?.maxShieldHealth | number:'1.0-0'}} shield HP</div>
   </div>
   <div class="mt-3 text-muted" style="white-space: pre-line;">
     {{ship?.vehicleDescription.replace("\\n", "xxx") | localise}}
