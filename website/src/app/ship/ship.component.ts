@@ -87,6 +87,7 @@ export class ShipComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.$http.get<Ship>(`${environment.api}/ships/${params.get("name")}.json`).subscribe(r => {
+        console.log("Loaded ship", r);
         this.ship = r;
 
         // Classify each Item Port
@@ -114,7 +115,7 @@ export class ShipComponent implements OnInit {
           this.grouped[gk][ck] = { bySize: counts };
         }));
 
-        console.log(this.grouped);
+        console.log("Grouped loadout", this.grouped);
 
         this.types = [];
         this.ship.Loadout.forEach(x => {
