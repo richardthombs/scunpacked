@@ -4,6 +4,11 @@ import * as _ from "lodash";
 
 import { environment } from "../../environments/environment";
 import { ActivatedRoute } from '@angular/router';
+import { Ship } from '../Ship';
+import { ItemPortClassification } from '../ItemPortClassification';
+import { ItemPort } from '../ItemPort';
+import { Item } from '../Item';
+import { SCItem } from '../SCItem';
 
 @Component({
   selector: 'app-ship',
@@ -81,14 +86,26 @@ export class ShipComponent implements OnInit {
 
   includeBoring: boolean = false;
 
+  private itemCache: { [id: string]: Item } = {}
+
   constructor(private $http: HttpClient, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.$http.get<Ship>(`${environment.api}/ships/${params.get("name")}.json`).subscribe(r => {
-        console.log("Loaded ship", r);
+      this.$http.get<Ship>(`${environment.api}/ships/${params.get("name")}.json`).subscribe(async r => {
+        console.log("Loaded ship:", r);
         this.ship = r;
+
+        // Load each item
+        for (let i = 0; i < this.ship.Loadout.length; i++) {
+          var itemport = this.ship.Loadout[i];
+          if (itemport.item) {
+            var item = await this.loadItem(itemport.item);
+            if (!item) console.log("Can't load item:", itemport.item);
+            else itemport.loadedItem = new SCItem(item);
+          }
+        };
 
         // Classify each Item Port
         this.ship.Loadout.forEach(itemPort => itemPort.classification = this.classifyItemPort(itemPort));
@@ -98,8 +115,6 @@ export class ShipComponent implements OnInit {
 
         // Group by the major grouping
         this.grouped = _.groupBy(this.ship!.Loadout, (x: ItemPort) => x.classification.category);
-
-        // _.forEach(this.grouped, (value, key) => this.grouped[key] = _.orderBy(this.grouped[key], ["grouping.type", "maxsize", "port"], ["asc", "desc", "asc"]));
 
         // Secondary group by the class
         _.forEach(this.grouped, (value, key) => this.grouped[key] = _.groupBy(this.grouped[key], (x: ItemPort) => x.classification.kind))
@@ -115,7 +130,7 @@ export class ShipComponent implements OnInit {
           this.grouped[gk][ck] = { bySize: counts };
         }));
 
-        console.log("Grouped loadout", this.grouped);
+        console.log("Grouped loadout:", this.grouped);
 
         this.types = [];
         this.ship.Loadout.forEach(x => {
@@ -154,26 +169,19 @@ export class ShipComponent implements OnInit {
   unexpectedGroups() {
     return Object.keys(this.grouped).filter(g => !this.leftGroups.includes(g) && !this.rightGroups.includes(g));
   }
+
+  async loadItem(itemName: string): Promise<Item | undefined> {
+    var loaded = undefined;
+    if (itemName) {
+      if (this.itemCache[itemName]) loaded = this.itemCache[itemName];
+      else {
+        loaded = await this.$http.get<Item>(`${environment.api}/items/${itemName.toLowerCase()}.json`).toPromise().catch(e => { });
+        if (loaded) this.itemCache[itemName] = loaded;
+      }
+    }
+
+    if (loaded) return Promise.resolve(JSON.parse(JSON.stringify(loaded)));
+    return Promise.resolve(undefined);
+  }
 }
 
-interface Ship {
-  Loadout: ItemPort[];
-  Raw: any;
-}
-
-interface ItemPortClassification {
-  category: string;
-  kind: string;
-  hideSize?: boolean;
-  isBoring?: boolean;
-}
-
-interface ItemPort {
-  types: {};
-  flags: {};
-  classification: ItemPortClassification;
-  minsize: number;
-  maxsize: number;
-  item: string;
-  port: string;
-}
