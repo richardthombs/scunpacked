@@ -1,19 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { SCItem } from '../SCItem';
+import { Component } from '@angular/core';
+
+import { ItemBaseComponent } from '../ItemBaseComponent';
 
 @Component({
   selector: 'app-shield',
   templateUrl: './shield.component.html',
   styleUrls: ['./shield.component.scss']
 })
-export class ShieldComponent implements OnInit {
+export class ShieldComponent extends ItemBaseComponent {
 
-  @Input()
-  item: SCItem | undefined;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor() { super(); }
 
 }

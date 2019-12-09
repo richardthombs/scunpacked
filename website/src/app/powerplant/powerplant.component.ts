@@ -1,20 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Item } from '../Item';
-import { SCItem } from '../SCItem';
+import { Component } from '@angular/core';
+
+import { ItemBaseComponent } from '../ItemBaseComponent';
 
 @Component({
   selector: 'app-powerplant',
   templateUrl: './powerplant.component.html',
   styleUrls: ['./powerplant.component.scss']
 })
-export class PowerplantComponent implements OnInit {
+export class PowerplantComponent extends ItemBaseComponent {
 
-  @Input()
-  item: SCItem | undefined;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor() { super(); }
 
 }

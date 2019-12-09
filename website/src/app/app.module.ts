@@ -13,6 +13,11 @@ import { LocalisePipe } from './localise.pipe';
 import { PowerplantComponent } from './powerplant/powerplant.component';
 import { CargoComponent } from './cargo/cargo.component';
 import { ShieldComponent } from './shield/shield.component';
+import { QuantumdriveComponent } from './quantumdrive/quantumdrive.component';
+import { DistancePipe } from './distance.pipe';
+import { SpeedPipe } from './speed.pipe';
+import { SiPipe } from './si.pipe';
+import { QuantumfueltankComponent } from './quantumfueltank/quantumfueltank.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,12 @@ import { ShieldComponent } from './shield/shield.component';
     LocalisePipe,
     PowerplantComponent,
     CargoComponent,
-    ShieldComponent
+    ShieldComponent,
+    QuantumdriveComponent,
+    DistancePipe,
+    SpeedPipe,
+    SiPipe,
+    QuantumfueltankComponent
   ],
   imports: [
     BrowserModule,

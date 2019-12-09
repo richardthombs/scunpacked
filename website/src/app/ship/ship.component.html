@@ -4,14 +4,21 @@
   <div class="text-muted">
     {{ship?.vehicleCareer | localise}} / {{ship?.vehicleRole | localise}}
   </div>
-  <div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-between mt-3">
     <div>Size {{ship?.vehicleSize}}</div>
     <div>Crew {{ship?.crewSize}}</div>
     <div>{{ship?.scu | number}} SCU</div>
     <div>{{ship?.maxShieldHealth | number:'1.0-0'}} shield HP</div>
   </div>
+  <div class="d-flex justify-content-between">
+    <div>Quantum speed {{ship?.quantumSpeed | si:'m/s'}}</div>
+    <div>Quantum range {{ship?.quantumRange | si:'m'}}</div>
+    <div>Quantum fuel {{ship?.quantumFuelCapacity | number:'1.0-0'}} l</div>
+    <div>PO to ArcCorp {{ship?.secondsToArcCorp | si:'s'}}</div>
+    <div>PO to ArcCorp and back {{ship?.timesToArcCorpAndBack | number:'1.1-1'}} times</div>
+  </div>
   <div class="mt-3 text-muted" style="white-space: pre-line;">
-    {{ship?.vehicleDescription.replace("\\n", "xxx") | localise}}
+    {{ship?.vehicleDescription | localise}}
   </div>
 
   <div class="row">
