@@ -12,6 +12,10 @@ export class SiPipe implements PipeTransform {
   }
 
   static siPrefix(value: number): { value: number, prefix: string } {
+
+    if (isNaN(value)) return { value: 0, prefix: "" };
+    if (!isFinite(value)) return { value: value, prefix: "" };
+
     if (value >= 1e24) return { value: (value / 1e24), prefix: "Y" };
     if (value >= 1e21) return { value: (value / 1e21), prefix: "Z" };
     if (value >= 1e18) return { value: (value / 1e18), prefix: "E" };
@@ -20,7 +24,7 @@ export class SiPipe implements PipeTransform {
     if (value >= 1e9) return { value: (value / 1e9), prefix: "G" };
     if (value >= 1e6) return { value: (value / 1e6), prefix: "M" };
     if (value >= 1e3) return { value: (value / 1e3), prefix: "k" };
-    if (value >= 1) return { value: value, prefix: "" };
+    if (value == 0) return { value: value, prefix: "" };
 
     if (value < 1e-3) return { value: value / 1e-6, prefix: "u" };
     if (value < 1) return { value: value / 1e-3, prefix: "m" };

@@ -77,4 +77,18 @@ export class Ship {
   get timesToArcCorpAndBack(): number {
     return this.quantumRange / (2 * distanceBetweenPOandArcCorp)
   }
+
+  get fuelIntakePushRate(): number {
+    return _.reduce(this.Loadout, (total, itemPort) => {
+      if (_.get(itemPort.loadedItem, "type", "") == "FuelIntake") return total + _.get(itemPort.loadedItem, "fuelPushRate", 0);
+      return total;
+    }, 0);
+  }
+
+  get mainThrusterBurnRate(): number {
+    return _.reduce(this.Loadout, (total, itemPort) => {
+      if (_.get(itemPort.loadedItem, "type", "") == "MainThruster") return total + _.get(itemPort.loadedItem, "maxThrustFuelBurnRate", 0);
+      return total;
+    }, 0);
+  }
 }

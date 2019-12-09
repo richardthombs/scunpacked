@@ -9,6 +9,7 @@ export class LocalisePipe implements PipeTransform {
 
   transform(value: string, ...args: any[]): string {
     if (!value) return "";
+    if (value == "@LOC_PLACEHOLDER") return args[0] || "";
 
     var label = value.substring(1);
     var text = LocalisePipe.strings && LocalisePipe.strings[label] ? LocalisePipe.strings[label] : value;

@@ -7,6 +7,10 @@ export class SCItem {
   constructor(private item: Item) {
   }
 
+  get name(): string {
+    return _.get(this.item, "Raw.Entity.Components.SAttachableComponentParams.AttachDef.Localization.Name");
+  }
+
   get type(): string {
     return _.get(this.item, "Raw.Entity.Components.SAttachableComponentParams.AttachDef.Type");
   }
@@ -28,10 +32,6 @@ export class SCItem {
     return _.get(this.item, "Raw.Entity.Components.SCItemShieldGeneratorParams.MaxShieldHealth", 0);
   }
 
-  get fuelPushRate(): number {
-    return _.get(this.item, "Raw.Entity.Components.SCItemFuelIntakeParams.fuelPushRate", 0);
-  }
-
   get capacity(): number {
     return _.get(this.item, "Raw.Entity.Components.SCItemFuelTankParams.capacity", 0);
   }
@@ -47,6 +47,23 @@ export class SCItem {
 
   get driveSpeed(): number {
     return _.get(this.item, "Raw.Entity.Components.SCItemQuantumDriveParams.params.driveSpeed", 0);
+  }
+
+  get thrustCapacity(): number {
+    return _.get(this.item, "Raw.Entity.Components.SCItemThrusterParams.thrustCapacity", 0);
+  }
+
+  get fuelBurnRate(): number {
+    // Rate is per 10KN, so divide by 1e4 to get the rate per newton
+    return _.get(this.item, "Raw.Entity.Components.SCItemThrusterParams.fuelBurnRatePer10KNewton", 0) / 1e4;
+  }
+
+  get fuelPushRate(): number {
+    return _.get(this.item, "Raw.Entity.Components.SCItemFuelIntakeParams.fuelPushRate", 0);
+  }
+
+  get maxThrustFuelBurnRate(): number {
+    return this.thrustCapacity * this.fuelBurnRate;
   }
 
   get Raw(): any {

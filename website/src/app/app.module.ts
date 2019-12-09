@@ -18,6 +18,9 @@ import { DistancePipe } from './distance.pipe';
 import { SpeedPipe } from './speed.pipe';
 import { SiPipe } from './si.pipe';
 import { QuantumfueltankComponent } from './quantumfueltank/quantumfueltank.component';
+import { ThrusterComponent } from './thruster/thruster.component';
+import { HydrogenfueltankComponent } from './hydrogenfueltank/hydrogenfueltank.component';
+import { HydrogenfuelintakeComponent } from './hydrogenfuelintake/hydrogenfuelintake.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { QuantumfueltankComponent } from './quantumfueltank/quantumfueltank.comp
     DistancePipe,
     SpeedPipe,
     SiPipe,
-    QuantumfueltankComponent
+    QuantumfueltankComponent,
+    ThrusterComponent,
+    HydrogenfueltankComponent,
+    HydrogenfuelintakeComponent
   ],
   imports: [
     BrowserModule,
