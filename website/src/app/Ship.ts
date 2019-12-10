@@ -91,4 +91,11 @@ export class Ship {
       return total;
     }, 0);
   }
+
+  get manneuverThrusterBurnRate(): number {
+    return _.reduce(this.Loadout, (total, itemPort) => {
+      if (_.get(itemPort.loadedItem, "type", "") == "ManneuverThruster") return total + _.get(itemPort.loadedItem, "maxThrustFuelBurnRate", 0);
+      return total;
+    }, 0);
+  }
 }
