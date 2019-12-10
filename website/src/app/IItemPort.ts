@@ -8,6 +8,7 @@ export interface IItemPort {
   flags: string[];
   types: string[];
   item: SCItem | undefined;
+  itemClass: string | undefined;
 
   findItemPorts(predicate?: (itemPort: IItemPort) => boolean): IItemPort[];
 }

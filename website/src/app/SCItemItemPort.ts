@@ -6,6 +6,7 @@ import { IItemPort } from './IItemPort';
 export class SCItemItemPort implements IItemPort {
 
   item: SCItem | undefined;
+  itemClass: string | undefined;
 
   constructor(private json: any) {
   }

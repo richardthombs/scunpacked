@@ -15,7 +15,7 @@
     <ng-container *ngIf="class.value.showItems">
       <ng-container *ngFor="let size of class.value.bySize">
         <li *ngFor="let itemPort of size" class="list-group-item pl-1">
-          <app-itemport [itemPort]="itemPort"></app-itemport>
+          <app-itemport [itemPort]="itemPort.itemPort"></app-itemport>
         </li>
       </ng-container>
     </ng-container>

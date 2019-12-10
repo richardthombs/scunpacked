@@ -10,6 +10,7 @@ export class ItemPort implements IItemPort {
   }
 
   item: SCItem | undefined;
+  itemClass: string | undefined;
 
   get displayName(): string {
     return _.get(this.json, "display_name", "");

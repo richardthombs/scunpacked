@@ -12,6 +12,11 @@ import { ItemPort } from '../ItemPort';
 import { IItemPort } from "../IItemPort";
 import { JsonLoadout } from '../JsonLoadout';
 
+interface ClassifiedItemPort {
+  classification: ItemPortClassification;
+  itemPort: IItemPort;
+}
+
 @Component({
   selector: 'app-ship',
   templateUrl: './ship.component.html',
@@ -100,35 +105,36 @@ export class ShipComponent implements OnInit {
         this.ship = new Ship(r.Loadout, r.Raw);
         console.log("Loaded ship", this.ship.className);
 
-        var vehiclePorts = this.ship.findItemPorts(ip => ip instanceof ItemPort);
-        var loadout: JsonLoadout[] | undefined = _.get(r.Raw, "DefaultLoadout.Items", []);
 
         console.log("Initialising loadout");
+        var vehiclePorts = this.ship.findItemPorts(ip => ip instanceof ItemPort);
+        var loadout: JsonLoadout[] | undefined = _.get(r.Raw, "DefaultLoadout.Items", []);
         if (vehiclePorts.length && loadout) await this.loadItems(vehiclePorts, loadout);
         console.log("Loadout initialised");
 
         this.ItemPorts = this.ship.findItemPorts(ip => ip.types.length > 0);
 
         // Classify each Item Port
-        this.ship.Loadout.forEach(itemPort => itemPort.classification = this.classifyItemPort(itemPort));
+        let classifiedPorts: ClassifiedItemPort[] = [];
+        classifiedPorts = _.map(vehiclePorts, (x) => <ClassifiedItemPort>{ itemPort: x, classification: this.classifyItemPort(x) })
 
         // Filter out the boring ones
-        if (!this.includeBoring) this.ship.Loadout = _.filter(this.ship.Loadout, x => !x.classification.isBoring);
+        if (!this.includeBoring) classifiedPorts = _.filter(classifiedPorts, x => !x.classification.isBoring);
 
         // Group by the major grouping
-        this.grouped = _.groupBy(this.ship!.Loadout, (x: ItemPortLoadout) => x.classification.category);
+        this.grouped = _.groupBy(classifiedPorts, x => x.classification.category);
 
         // Secondary group by the class
-        _.forEach(this.grouped, (value, key) => this.grouped[key] = _.groupBy(this.grouped[key], (x: ItemPortLoadout) => x.classification.kind))
+        _.forEach(this.grouped, (value, key) => this.grouped[key] = _.groupBy(this.grouped[key], x => x.classification.kind))
 
         // Create an array of ItemPort[] arrays, one for each size 0-9 and add each Item Port to the appropriate array according to maxsize
-        let largestSize = _.reduce(this.ship.Loadout, (max, itemPort) => itemPort.maxsize > max ? itemPort.maxsize : max, 0);
+        let largestSize = _.reduce(classifiedPorts, (max, itemPort) => itemPort.itemPort.maxSize > max ? itemPort.itemPort.maxSize : max, 0);
         if (largestSize < 9) largestSize = 9;
-        _.forEach(this.grouped, (gv, gk) => _.forEach(gv, (cv: ItemPortLoadout[], ck) => {
-          let counts: ItemPortLoadout[][] = [];
+        _.forEach(this.grouped, (gv, gk) => _.forEach(gv, (cv: ClassifiedItemPort[], ck) => {
+          let counts: ClassifiedItemPort[][] = [];
           for (let i = 0; i <= largestSize; i++) counts.push([]);
 
-          cv.forEach(itemPort => counts[itemPort.maxsize || 0].push(itemPort));
+          cv.forEach(itemPort => counts[itemPort.itemPort.maxSize || 0].push(itemPort));
           this.grouped[gk][ck] = { bySize: counts };
         }));
 
@@ -137,18 +143,18 @@ export class ShipComponent implements OnInit {
     });
   }
 
-  private classifyItemPort(itemPort: ItemPortLoadout): ItemPortClassification {
-    if (!itemPort.types) return { category: "Unknown", kind: itemPort.port || "Unknown", isBoring: true };
+  private classifyItemPort(itemPort: IItemPort): ItemPortClassification {
+    if (!itemPort.types.length) return { category: "Unknown", kind: itemPort.name || "Unknown", isBoring: true };
 
     let classification: ItemPortClassification | undefined;
 
-    Object.keys(itemPort.types).some(type => {
+    itemPort.types.some(type => {
       if (this.typeMap[type]) classification = this.typeMap[type];
       return !!classification;
     });
     if (classification) return classification;
 
-    Object.keys(itemPort.types).some(type => {
+    itemPort.types.some(type => {
       let major = type.split(".")[0];
       if (this.typeMap[major]) classification = this.typeMap[major];
       return !!classification;
@@ -156,7 +162,7 @@ export class ShipComponent implements OnInit {
 
     if (classification) return classification;
 
-    return { category: "Unknown", kind: Object.keys(itemPort.types)[0], isBoring: true };
+    return { category: "Unknown", kind: itemPort.types[0], isBoring: true };
   }
 
   unexpectedGroups() {
@@ -168,9 +174,9 @@ export class ShipComponent implements OnInit {
       let itemPort = itemPorts[i];
       let loadout: JsonLoadout | undefined = _.find(loadouts, x => x.portName == itemPort.name);
       if (loadout && loadout.itemName) {
-        var item = await this.loadItem(loadout.itemName);
-        if (item) {
-          itemPort.item = item;
+        itemPort.itemClass = loadout.itemName;
+        itemPort.item = await this.loadItem(loadout.itemName);
+        if (itemPort.item) {
           let subPorts = itemPort.item.findItemPorts();
           if (subPorts.length && loadout.Items) {
             await this.loadItems(subPorts, loadout.Items);

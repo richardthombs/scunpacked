@@ -1,19 +1,19 @@
 <div class="d-flex justify-content-between">
-  <div><span *ngIf="true || !itemPort.classification.hideSize" class="list-group-item-success mr-1 p-1">S{{itemPort.maxsize}}</span>{{itemPort.port}}</div>
-  <div *ngIf="itemPort.item" style="overflow:hidden;">
-    <div [ngSwitch]="itemPort.loadedItem?.type" class="item-stats-container">
-      <app-powerplant *ngSwitchCase="'PowerPlant'" [item]="itemPort.loadedItem"></app-powerplant>
-      <app-cargo *ngSwitchCase="'Cargo'" [item]="itemPort.loadedItem"></app-cargo>
-      <app-shield *ngSwitchCase="'Shield'" [item]="itemPort.loadedItem"></app-shield>
-      <app-quantumdrive *ngSwitchCase="'QuantumDrive'" [item]="itemPort.loadedItem"></app-quantumdrive>
-      <app-quantumfueltank *ngSwitchCase="'QuantumFuelTank'" [item]="itemPort.loadedItem"></app-quantumfueltank>
-      <app-thruster *ngSwitchCase="'MainThruster'" [item]="itemPort.loadedItem"></app-thruster>
-      <app-thruster *ngSwitchCase="'ManneuverThruster'" [item]="itemPort.loadedItem"></app-thruster>
-      <app-hydrogenfueltank *ngSwitchCase="'FuelTank'" [item]="itemPort.loadedItem"></app-hydrogenfueltank>
-      <app-hydrogenfuelintake *ngSwitchCase="'FuelIntake'" [item]="itemPort.loadedItem"></app-hydrogenfuelintake>
+  <div><span class="list-group-item-success mr-1 p-1">S{{itemPort.maxSize}}</span>{{itemPort.name}}</div>
+  <div *ngIf="itemPort.itemClass" style="overflow:hidden;">
+    <div [ngSwitch]="itemPort.item?.type" class="item-stats-container">
+      <app-powerplant *ngSwitchCase="'PowerPlant'" [item]="itemPort.item"></app-powerplant>
+      <app-cargo *ngSwitchCase="'Cargo'" [item]="itemPort.item"></app-cargo>
+      <app-shield *ngSwitchCase="'Shield'" [item]="itemPort.item"></app-shield>
+      <app-quantumdrive *ngSwitchCase="'QuantumDrive'" [item]="itemPort.item"></app-quantumdrive>
+      <app-quantumfueltank *ngSwitchCase="'QuantumFuelTank'" [item]="itemPort.item"></app-quantumfueltank>
+      <app-thruster *ngSwitchCase="'MainThruster'" [item]="itemPort.item"></app-thruster>
+      <app-thruster *ngSwitchCase="'ManneuverThruster'" [item]="itemPort.item"></app-thruster>
+      <app-hydrogenfueltank *ngSwitchCase="'FuelTank'" [item]="itemPort.item"></app-hydrogenfueltank>
+      <app-hydrogenfuelintake *ngSwitchCase="'FuelIntake'" [item]="itemPort.item"></app-hydrogenfuelintake>
     </div>
-    <div *ngIf="!itemPort.loadedItem" class="text-right">{{itemPort.item}} (no data)</div>
-    <div *ngIf="itemPort.loadedItem" class="text-right"><a [href]="'https://scdb.gearstone.uk/api/items/' + itemPort.item.toLowerCase() + '.json'">{{itemPort.loadedItem?.name | localise:itemPort.item}}</a></div>
+    <div *ngIf="!itemPort.item" class="text-right">{{itemPort.itemClass}} (no data)</div>
+    <div *ngIf="itemPort.item" class="text-right"><a [href]="'https://scdb.gearstone.uk/api/items/' + itemPort.itemClass.toLowerCase() + '.json'">{{itemPort.itemClass | localise:itemPort.name}}</a></div>
   </div>
-  <div *ngIf="!itemPort.item" class="text-muted">Nothing installed</div>
+  <div *ngIf="!itemPort.itemClass" class="text-muted">Nothing installed</div>
 </div>
