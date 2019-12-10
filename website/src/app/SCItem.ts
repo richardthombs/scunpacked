@@ -1,6 +1,7 @@
 import * as _ from 'lodash';
 
 import { Item } from './Item';
+import { IItemPort, SCItemItemPort } from './ItemPort';
 
 export class SCItem {
 
@@ -9,6 +10,10 @@ export class SCItem {
 
   get name(): string {
     return _.get(this.item, "Raw.Entity.Components.SAttachableComponentParams.AttachDef.Localization.Name");
+  }
+
+  get className(): string {
+    return _.get(this.item, "Raw.Entity.ClassName");
   }
 
   get type(): string {
@@ -64,6 +69,18 @@ export class SCItem {
 
   get maxThrustFuelBurnRate(): number {
     return this.thrustCapacity * this.fuelBurnRate;
+  }
+
+  findItemPorts(predicate?: (itemPort: IItemPort) => boolean): IItemPort[] {
+    let found: IItemPort[] = [];
+
+    let itemPorts: any[] = _.get(this.item, "Raw.Entity.Components.SCItem.ItemPorts", []);
+    itemPorts.forEach(itemPort => {
+      let ports: any[] = _.get(itemPort, "Ports", []);
+      found = found.concat(_.map(ports, x => new SCItemItemPort(x)).filter(ip => !predicate || predicate(ip)));
+    });
+
+    return found;
   }
 
   get Raw(): any {

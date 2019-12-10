@@ -38,3 +38,14 @@
     <app-itemgroup *ngFor="let g of unexpectedGroups()" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
   </div>
 </div>
+<div class="container">
+  <table class="table">
+    <tr *ngFor="let itemPort of ItemPorts">
+      <td>{{itemPort.name}}</td>
+      <td>{{itemPort.types.join(", ")}}</td>
+      <td>
+        <span *ngIf="itemPort.item">{{itemPort.item.className}}</span>
+      </td>
+    </tr>
+  </table>
+</div>

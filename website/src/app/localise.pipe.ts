@@ -11,7 +11,7 @@ export class LocalisePipe implements PipeTransform {
     if (!value) return "";
     if (value == "@LOC_PLACEHOLDER") return args[0] || "";
 
-    var label = value.substring(1);
+    var label = value.startsWith("@") ? value.substring(1) : value;
     var text = LocalisePipe.strings && LocalisePipe.strings[label] ? LocalisePipe.strings[label] : value;
     return text.replace(/\\n/g, "\n");
   }

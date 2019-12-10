@@ -6,9 +6,10 @@ import { environment } from "../../environments/environment";
 import { ActivatedRoute } from '@angular/router';
 import { Ship } from '../Ship';
 import { ItemPortClassification } from '../ItemPortClassification';
-import { ItemPort } from '../ItemPort';
+import { ItemPortLoadout } from '../ItemPortLoadout';
 import { Item } from '../Item';
 import { SCItem } from '../SCItem';
+import { IItemPort } from '../ItemPort';
 
 @Component({
   selector: 'app-ship',
@@ -86,6 +87,8 @@ export class ShipComponent implements OnInit {
 
   includeBoring: boolean = false;
 
+  ItemPorts: IItemPort[] = [];
+
   private itemCache: { [id: string]: Item } = {}
 
   constructor(private $http: HttpClient, private route: ActivatedRoute) {
@@ -94,19 +97,30 @@ export class ShipComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.$http.get<any>(`${environment.api}/ships/${params.get("name")}.json`).subscribe(async r => {
-        console.log("Loaded ship:", r);
+
+        let ship = r;
+
+        console.log("Loaded ship:", ship);
 
         this.ship = new Ship(r.Loadout, r.Raw);
 
         // Load each item
-        for (let i = 0; i < this.ship.Loadout.length; i++) {
-          var itemport = this.ship.Loadout[i];
+        for (let i = 0; i < ship.Loadout.length; i++) {
+          var itemport = ship.Loadout[i];
           if (itemport.item) {
             var item = await this.loadItem(itemport.item);
             if (!item) console.log("Can't load item:", itemport.item);
-            else itemport.loadedItem = new SCItem(item);
+            else {
+              itemport.loadedItem = new SCItem(item);
+              let ip = this.ship.findItemPorts(x => x.name == itemport.port);
+              if (ip.length) ip[0].item = new SCItem(item);
+              else console.log("Can't find IItemPort with name ", itemport.port);
+            }
           }
         };
+
+        this.ItemPorts = this.ship.findItemPorts(ip => ip.types.length > 0);
+
 
         // Classify each Item Port
         this.ship.Loadout.forEach(itemPort => itemPort.classification = this.classifyItemPort(itemPort));
@@ -115,16 +129,16 @@ export class ShipComponent implements OnInit {
         if (!this.includeBoring) this.ship.Loadout = _.filter(this.ship.Loadout, x => !x.classification.isBoring);
 
         // Group by the major grouping
-        this.grouped = _.groupBy(this.ship!.Loadout, (x: ItemPort) => x.classification.category);
+        this.grouped = _.groupBy(this.ship!.Loadout, (x: ItemPortLoadout) => x.classification.category);
 
         // Secondary group by the class
-        _.forEach(this.grouped, (value, key) => this.grouped[key] = _.groupBy(this.grouped[key], (x: ItemPort) => x.classification.kind))
+        _.forEach(this.grouped, (value, key) => this.grouped[key] = _.groupBy(this.grouped[key], (x: ItemPortLoadout) => x.classification.kind))
 
         // Create an array of ItemPort[] arrays, one for each size 0-9 and add each Item Port to the appropriate array according to maxsize
         let largestSize = _.reduce(this.ship.Loadout, (max, itemPort) => itemPort.maxsize > max ? itemPort.maxsize : max, 0);
         if (largestSize < 9) largestSize = 9;
-        _.forEach(this.grouped, (gv, gk) => _.forEach(gv, (cv: ItemPort[], ck) => {
-          let counts: ItemPort[][] = [];
+        _.forEach(this.grouped, (gv, gk) => _.forEach(gv, (cv: ItemPortLoadout[], ck) => {
+          let counts: ItemPortLoadout[][] = [];
           for (let i = 0; i <= largestSize; i++) counts.push([]);
 
           cv.forEach(itemPort => counts[itemPort.maxsize || 0].push(itemPort));
@@ -145,7 +159,7 @@ export class ShipComponent implements OnInit {
     });
   }
 
-  private classifyItemPort(itemPort: ItemPort): ItemPortClassification {
+  private classifyItemPort(itemPort: ItemPortLoadout): ItemPortClassification {
     if (!itemPort.types) return { category: "Unknown", kind: itemPort.port || "Unknown", isBoring: true };
 
     let classification: ItemPortClassification | undefined;
@@ -185,4 +199,3 @@ export class ShipComponent implements OnInit {
     return Promise.resolve(undefined);
   }
 }
-

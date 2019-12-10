@@ -1,6 +1,6 @@
-import { ItemPort } from './ItemPort';
+import { ItemPortLoadout } from './ItemPortLoadout';
 
 export interface Item {
-  Loadout: ItemPort[];
-  Raw: any;
+	Loadout: ItemPortLoadout[];
+	Raw: any;
 }

@@ -7,7 +7,6 @@ export class SiPipe implements PipeTransform {
 
   transform(value: number, units: string | undefined): any {
     var si = SiPipe.siPrefix(value);
-    console.log(value, si);
     return `${Math.round(si.value)} ${si.prefix}${units || ""}`;
   }
 

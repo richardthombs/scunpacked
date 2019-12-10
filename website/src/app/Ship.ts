@@ -1,16 +1,20 @@
 import * as _ from 'lodash';
 
-import { ItemPort } from "./ItemPort";
+import { ItemPortLoadout } from "./ItemPortLoadout";
+import { Part } from './Part';
+import { IItemPort } from "./ItemPort";
 
 const distanceBetweenPOandArcCorp = 41927351070;
 
 export class Ship {
-  Loadout: ItemPort[] = [];
+  Loadout: ItemPortLoadout[] = [];
   Raw: any;
+  Parts: Part[] = [];
 
-  constructor(loadout: ItemPort[], raw: any) {
+  constructor(loadout: ItemPortLoadout[], raw: any) {
     this.Loadout = loadout;
     this.Raw = raw;
+    if (this.Raw.Vehicle.Parts) this.Parts = _.map(this.Raw.Vehicle.Parts, x => new Part(x));
   }
 
   get scu(): number {
@@ -97,5 +101,27 @@ export class Ship {
       if (_.get(itemPort.loadedItem, "type", "") == "ManneuverThruster") return total + _.get(itemPort.loadedItem, "maxThrustFuelBurnRate", 0);
       return total;
     }, 0);
+  }
+
+  findParts(predicate?: (p: Part) => boolean): Part[] {
+    var found: Part[] = [];
+    this.Parts.forEach(part => {
+      var s = part.findParts(predicate);
+      found = found.concat(s);
+    });
+    return found;
+  }
+
+  findItemPorts(predicate?: (ip: IItemPort) => boolean): IItemPort[] {
+    console.log("Finding itemports...");
+    let found: IItemPort[] = [];
+
+    let parts = this.findParts(p => p.class == "ItemPort" && !!p.itemPort);
+    parts.forEach(p => {
+      if (p.itemPort == null) return;
+      found = found.concat(p.itemPort.findItemPorts(predicate));
+    });
+
+    return found;
   }
 }
