@@ -1,30 +1,15 @@
 import * as _ from 'lodash';
 
 import { SCItem } from './SCItem';
-
-export interface IItemPort {
-  name: string;
-  displayName: string;
-  minSize: number;
-  maxSize: number;
-  flags: string[];
-  types: string[];
-  item: SCItem | undefined;
-
-  findItemPorts(predicate?: (itemPort: IItemPort) => boolean): IItemPort[];
-}
+import { IItemPort } from './IItemPort';
 
 export class ItemPort implements IItemPort {
-  private json: any;
   private _types: string[] | undefined;
 
-  name: string = "";
-  item: SCItem | undefined;
-
-  constructor(jsonItemPort: any, name: string) {
-    this.json = jsonItemPort;
-    this.name = name;
+  constructor(private json: any, public name: string) {
   }
+
+  item: SCItem | undefined;
 
   get displayName(): string {
     return _.get(this.json, "display_name", "");
@@ -67,51 +52,5 @@ export class ItemPort implements IItemPort {
     if (this.item) found = found.concat(this.item.findItemPorts(predicate));
 
     return found;
-  }
-}
-
-
-export class SCItemItemPort implements IItemPort {
-
-  item: SCItem | undefined;
-
-  constructor(private json: any) {
-  }
-
-  get name(): string {
-    return _.get(this.json, "Name", "");
-  }
-
-  get minSize(): number {
-    return _.get(this.json, "MinSize", 0);
-  }
-
-  get maxSize(): number {
-    return _.get(this.json, "MaxSize", 0);
-  }
-
-  get flags(): string[] {
-    return [];
-  }
-
-  get types(): string[] {
-    let types: string[] = [];
-
-    let superTypes: any[] = _.get(this.json, "Types", []);
-    superTypes.forEach(superType => {
-      let subTypes: any[] = _.get(superType, "SubTypes", []);
-      if (subTypes.length == 0) types.push(superType.Type);
-      else subTypes.forEach(subType => types.push(`${superType.Type}.${subType.value}`));
-    });
-
-    return types;
-  }
-
-  get displayName(): string {
-    return _.get(this.json, "Slot", "");
-  }
-
-  findItemPorts(predicate?: ((itemPort: IItemPort) => boolean) | undefined): IItemPort[] {
-    throw new Error("Method not implemented.");
   }
 }

@@ -7,9 +7,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Ship } from '../Ship';
 import { ItemPortClassification } from '../ItemPortClassification';
 import { ItemPortLoadout } from '../ItemPortLoadout';
-import { Item } from '../Item';
 import { SCItem } from '../SCItem';
-import { IItemPort, ItemPort } from '../ItemPort';
+import { ItemPort } from '../ItemPort';
+import { IItemPort } from "../IItemPort";
+import { JsonLoadout } from '../JsonLoadout';
 
 @Component({
   selector: 'app-ship',
@@ -88,7 +89,7 @@ export class ShipComponent implements OnInit {
 
   ItemPorts: IItemPort[] = [];
 
-  private itemCache: { [id: string]: Item } = {}
+  private itemCache: { [id: string]: any } = {}
 
   constructor(private $http: HttpClient, private route: ActivatedRoute) {
   }
@@ -169,7 +170,7 @@ export class ShipComponent implements OnInit {
       if (loadout && loadout.itemName) {
         var item = await this.loadItem(loadout.itemName);
         if (item) {
-          itemPort.item = new SCItem(item);
+          itemPort.item = item;
           let subPorts = itemPort.item.findItemPorts();
           if (subPorts.length && loadout.Items) {
             await this.loadItems(subPorts, loadout.Items);
@@ -179,24 +180,21 @@ export class ShipComponent implements OnInit {
     }
   }
 
-  async loadItem(itemName: string): Promise<Item | undefined> {
-    var loaded = undefined;
+  async loadItem(itemName: string): Promise<SCItem | undefined> {
+    let loaded: any;
+
     if (itemName) {
       if (this.itemCache[itemName]) loaded = this.itemCache[itemName];
       else {
-        loaded = await this.$http.get<Item>(`${environment.api}/items/${itemName.toLowerCase()}.json`).toPromise().catch(e => { });
-        console.log("Loaded item", itemName);
+        loaded = await this.$http.get<any>(`${environment.api}/items/${itemName.toLowerCase()}.json`).toPromise().catch(e => { });
+        console.log(loaded ? "Loaded item" : "Could not load item", itemName);
         if (loaded) this.itemCache[itemName] = loaded;
       }
     }
 
-    if (loaded) return JSON.parse(JSON.stringify(loaded));
-    return undefined;
-  }
-}
+    if (!loaded) return undefined;
 
-export interface JsonLoadout {
-  portName: string | undefined;
-  itemName: string | undefined;
-  Items: JsonLoadout[] | undefined;
+    // Clone so that each itemPort gets a unique object
+    return new SCItem(JSON.parse(JSON.stringify(loaded)));
+  }
 }

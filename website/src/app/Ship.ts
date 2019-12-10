@@ -2,7 +2,7 @@ import * as _ from 'lodash';
 
 import { ItemPortLoadout } from "./ItemPortLoadout";
 import { Part } from './Part';
-import { IItemPort } from "./ItemPort";
+import { IItemPort } from "./IItemPort";
 
 const distanceBetweenPOandArcCorp = 41927351070;
 

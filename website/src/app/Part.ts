@@ -1,6 +1,7 @@
 import * as _ from 'lodash';
 
-import { IItemPort, ItemPort } from './ItemPort';
+import { ItemPort } from './ItemPort';
+import { IItemPort } from "./IItemPort";
 
 export class Part {
 
