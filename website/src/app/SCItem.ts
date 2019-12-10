@@ -5,6 +5,8 @@ import { IItemPort, SCItemItemPort } from './ItemPort';
 
 export class SCItem {
 
+  private _itemPorts: SCItemItemPort[] | undefined;
+
   constructor(private item: Item) {
   }
 
@@ -71,16 +73,20 @@ export class SCItem {
     return this.thrustCapacity * this.fuelBurnRate;
   }
 
+  get itemPorts(): SCItemItemPort[] {
+    if (this._itemPorts === undefined) {
+      this._itemPorts = [];
+      let itemPorts = _.get(this.item, "Raw.Entity.Components.SCItem.ItemPorts", []);
+      itemPorts.forEach((itemPort: any) => {
+        let ports: any[] = _.get(itemPort, "Ports", []);
+        this._itemPorts = (<SCItemItemPort[]>this._itemPorts).concat(_.map(ports, x => new SCItemItemPort(x)));
+      });
+    }
+    return this._itemPorts || [];
+  }
+
   findItemPorts(predicate?: (itemPort: IItemPort) => boolean): IItemPort[] {
-    let found: IItemPort[] = [];
-
-    let itemPorts: any[] = _.get(this.item, "Raw.Entity.Components.SCItem.ItemPorts", []);
-    itemPorts.forEach(itemPort => {
-      let ports: any[] = _.get(itemPort, "Ports", []);
-      found = found.concat(_.map(ports, x => new SCItemItemPort(x)).filter(ip => !predicate || predicate(ip)));
-    });
-
-    return found;
+    return this.itemPorts.filter(ip => !predicate || predicate(ip));
   }
 
   get Raw(): any {

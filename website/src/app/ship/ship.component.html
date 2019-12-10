@@ -40,7 +40,7 @@
 </div>
 <div class="container">
   <table class="table">
-    <tr *ngFor="let itemPort of ItemPorts">
+    <tr *ngFor="let itemPort of ship?.findItemPorts()">
       <td>{{itemPort.name}}</td>
       <td>{{itemPort.types.join(", ")}}</td>
       <td>

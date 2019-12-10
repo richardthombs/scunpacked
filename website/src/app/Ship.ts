@@ -17,6 +17,10 @@ export class Ship {
     if (this.Raw.Vehicle.Parts) this.Parts = _.map(this.Raw.Vehicle.Parts, x => new Part(x));
   }
 
+  get className(): string {
+    return _.get(this.Raw, "Entity.ClassName", "Unknown");
+  }
+
   get scu(): number {
     return _.reduce(this.Loadout, (total, itemPort) => total + _.get(itemPort.loadedItem, "scu", 0), 0);
   }
@@ -113,7 +117,6 @@ export class Ship {
   }
 
   findItemPorts(predicate?: (ip: IItemPort) => boolean): IItemPort[] {
-    console.log("Finding itemports...");
     let found: IItemPort[] = [];
 
     let parts = this.findParts(p => p.class == "ItemPort" && !!p.itemPort);

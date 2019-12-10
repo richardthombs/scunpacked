@@ -9,7 +9,7 @@ import { ItemPortClassification } from '../ItemPortClassification';
 import { ItemPortLoadout } from '../ItemPortLoadout';
 import { Item } from '../Item';
 import { SCItem } from '../SCItem';
-import { IItemPort } from '../ItemPort';
+import { IItemPort, ItemPort } from '../ItemPort';
 
 @Component({
   selector: 'app-ship',
@@ -20,7 +20,6 @@ export class ShipComponent implements OnInit {
 
   ship: Ship | undefined;
   grouped: { [id: string]: any } = {};
-  types: string[] = [];
 
   private typeMap: { [id: string]: ItemPortClassification } = {
     "Seat": { category: "Interior", kind: "Seat / Bed", hideSize: true, isBoring: true },
@@ -97,30 +96,17 @@ export class ShipComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.$http.get<any>(`${environment.api}/ships/${params.get("name")}.json`).subscribe(async r => {
-
-        let ship = r;
-
-        console.log("Loaded ship:", ship);
-
         this.ship = new Ship(r.Loadout, r.Raw);
+        console.log("Loaded ship", this.ship.className);
 
-        // Load each item
-        for (let i = 0; i < ship.Loadout.length; i++) {
-          var itemport = ship.Loadout[i];
-          if (itemport.item) {
-            var item = await this.loadItem(itemport.item);
-            if (!item) console.log("Can't load item:", itemport.item);
-            else {
-              itemport.loadedItem = new SCItem(item);
-              let ip = this.ship.findItemPorts(x => x.name == itemport.port);
-              if (ip.length) ip[0].item = new SCItem(item);
-              else console.log("Can't find IItemPort with name ", itemport.port);
-            }
-          }
-        };
+        var vehiclePorts = this.ship.findItemPorts(ip => ip instanceof ItemPort);
+        var loadout: JsonLoadout[] | undefined = _.get(r.Raw, "DefaultLoadout.Items", []);
+
+        console.log("Initialising loadout");
+        if (vehiclePorts.length && loadout) await this.loadItems(vehiclePorts, loadout);
+        console.log("Loadout initialised");
 
         this.ItemPorts = this.ship.findItemPorts(ip => ip.types.length > 0);
-
 
         // Classify each Item Port
         this.ship.Loadout.forEach(itemPort => itemPort.classification = this.classifyItemPort(itemPort));
@@ -146,15 +132,6 @@ export class ShipComponent implements OnInit {
         }));
 
         console.log("Grouped loadout:", this.grouped);
-
-        this.types = [];
-        this.ship.Loadout.forEach(x => {
-          if (x.types) {
-            Object.keys(x.types).forEach(t => {
-              if (!this.types.includes(t)) this.types.push(t);
-            })
-          }
-        });
       });
     });
   }
@@ -185,17 +162,41 @@ export class ShipComponent implements OnInit {
     return Object.keys(this.grouped).filter(g => !this.leftGroups.includes(g) && !this.rightGroups.includes(g));
   }
 
+  async loadItems(itemPorts: IItemPort[], loadouts: JsonLoadout[]): Promise<void> {
+    for (let i = 0; i < itemPorts.length; i++) {
+      let itemPort = itemPorts[i];
+      let loadout: JsonLoadout | undefined = _.find(loadouts, x => x.portName == itemPort.name);
+      if (loadout && loadout.itemName) {
+        var item = await this.loadItem(loadout.itemName);
+        if (item) {
+          itemPort.item = new SCItem(item);
+          let subPorts = itemPort.item.findItemPorts();
+          if (subPorts.length && loadout.Items) {
+            await this.loadItems(subPorts, loadout.Items);
+          }
+        }
+      }
+    }
+  }
+
   async loadItem(itemName: string): Promise<Item | undefined> {
     var loaded = undefined;
     if (itemName) {
       if (this.itemCache[itemName]) loaded = this.itemCache[itemName];
       else {
         loaded = await this.$http.get<Item>(`${environment.api}/items/${itemName.toLowerCase()}.json`).toPromise().catch(e => { });
+        console.log("Loaded item", itemName);
         if (loaded) this.itemCache[itemName] = loaded;
       }
     }
 
-    if (loaded) return Promise.resolve(JSON.parse(JSON.stringify(loaded)));
-    return Promise.resolve(undefined);
+    if (loaded) return JSON.parse(JSON.stringify(loaded));
+    return undefined;
   }
+}
+
+export interface JsonLoadout {
+  portName: string | undefined;
+  itemName: string | undefined;
+  Items: JsonLoadout[] | undefined;
 }
