@@ -1,12 +1,12 @@
 ## Usage
 
-Create a folder to store the extracted Star Citizen data
+Create a folder to store the extracted Star Citizen data:
 
 ```
 mkdir c:\scdata\3.7.2
 ```
 
-Run the extraction tools
+Run the [extraction tools](https://github.com/dolkensp/unp4k):
 
 ```
 cd c:\scdata\3.7.2
@@ -15,7 +15,7 @@ unp4k.exe 'C:\Program Files\Roberts Space Industries\StarCitizen\LIVE\Data.p4k' 
 unforge.exe .
 ```
 
-Run the parser
+Run the loader:
 
 ```
 loader.exe -scdata=c:\scdata\3.7.2 -output=c:\scdata\3.7.2-json
