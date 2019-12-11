@@ -10,6 +10,20 @@ namespace scdb.Xml.Vehicles
 
 		[XmlAttribute]
 		public string patchFile;
+
+		public Elem[] Elems;
+	}
+
+	public class Elem
+	{
+		[XmlAttribute]
+		public string idRef;
+
+		[XmlAttribute]
+		public string name;
+
+		[XmlAttribute]
+		public string value;
 	}
 
 	public class Modifications

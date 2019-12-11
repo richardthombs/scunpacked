@@ -18,28 +18,31 @@ namespace Loader
 				return null;
 			}
 
-			var vehicleBase = ParseVehicle(fullXmlPath);
+			var vehicleBase = ParseVehicle(fullXmlPath, modificationName);
 			if (!String.IsNullOrWhiteSpace(modificationName))
 			{
 				var modification = vehicleBase.Modifications.FirstOrDefault(x => x.name == modificationName);
-				if (modification != null && !String.IsNullOrWhiteSpace(modification.patchFile))
+				if (modification != null)
 				{
-					var modFilename = Path.ChangeExtension(Path.Combine(Path.GetDirectoryName(fullXmlPath), modification.patchFile.Replace("/", "\\")), ".xml");
-					Console.WriteLine(modFilename);
-					var modifications = ParseModifications(modFilename);
-					if (modifications.Parts != null) vehicleBase.Parts = modifications.Parts;
-					if (modifications.MovementParams != null) vehicleBase.MovementParams = modifications.MovementParams;
+					if (!String.IsNullOrWhiteSpace(modification.patchFile))
+					{
+						var patchFilename = Path.ChangeExtension(Path.Combine(Path.GetDirectoryName(fullXmlPath), modification.patchFile.Replace("/", "\\")), ".xml");
+						Console.WriteLine(patchFilename);
+						var patches = ParsePatchFile(patchFilename);
+						if (patches.Parts != null) vehicleBase.Parts = patches.Parts;
+						if (patches.MovementParams != null) vehicleBase.MovementParams = patches.MovementParams;
+					}
 				}
 				else Console.WriteLine($"Could not process vehicle modification '{modificationName}'");
 			}
 			return vehicleBase;
 		}
 
-		Vehicle ParseVehicle(string vehiclePath)
+		Vehicle ParseVehicle(string vehiclePath, string modificationName)
 		{
-			var xml = File.ReadAllText(vehiclePath);
-			var doc = new XmlDocument();
-			doc.LoadXml(xml);
+			var doc = LoadVehicleXml(vehiclePath);
+
+			if (!String.IsNullOrWhiteSpace(modificationName)) ProcessModificationElems(doc, modificationName);
 
 			var serialiser = new XmlSerializer(typeof(Vehicle));
 			using (var stream = new XmlNodeReader(doc))
@@ -49,7 +52,34 @@ namespace Loader
 			}
 		}
 
-		Modifications ParseModifications(string modificationsPath)
+		XmlDocument LoadVehicleXml(string vehiclePath)
+		{
+			var xml = File.ReadAllText(vehiclePath);
+			var doc = new XmlDocument();
+			doc.LoadXml(xml);
+			return doc;
+		}
+
+		void ProcessModificationElems(XmlDocument doc, string modificationName)
+		{
+			var elems = doc.SelectNodes($"//Modifications/Modification[@name='{modificationName}']/Elems/Elem");
+			foreach (XmlNode elem in elems)
+			{
+				var idRef = elem.Attributes["idRef"].Value;
+				var attrName = elem.Attributes["name"].Value;
+				var attrValue = elem.Attributes["value"].Value;
+
+				var nodes = doc.SelectNodes($"//*[@id='{idRef}']");
+				foreach (XmlNode node in nodes)
+				{
+					var attr = node.Attributes[attrName];
+					if (attr == null) attr = node.Attributes.Append(doc.CreateAttribute(attrName));
+					node.Attributes[attrName].Value = attrValue;
+				}
+			}
+		}
+
+		Modifications ParsePatchFile(string modificationsPath)
 		{
 			var xml = File.ReadAllText(modificationsPath);
 			var doc = new XmlDocument();

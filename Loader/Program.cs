@@ -43,7 +43,6 @@ namespace Loader
 			{
 				for (var line = ini.ReadLine(); line != null; line = ini.ReadLine())
 				{
-					Console.WriteLine(line);
 					var split = line.Split('=', 2);
 					labels.Add(split[0], split[1]);
 				}

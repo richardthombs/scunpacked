@@ -28,6 +28,9 @@ export class SCItem {
     return subType;
   }
 
+  get size(): number {
+    return _.get(this.json, "Raw.Entity.Components.SAttachableComponentParams.AttachDef.Size", 0);
+  }
   get powerDraw(): number {
     return _.get(this.json, "Raw.Entity.Components.EntityComponentPowerConnection.PowerDraw", 0);
   }
