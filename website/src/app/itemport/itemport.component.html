@@ -13,7 +13,9 @@
       <app-hydrogenfuelintake *ngSwitchCase="'FuelIntake'" [item]="itemPort.item"></app-hydrogenfuelintake>
     </div>
     <div *ngIf="!itemPort.item" class="text-right">{{itemPort.itemClass}} (no data)</div>
-    <div *ngIf="itemPort.item" class="text-right"><a [href]="'https://scdb.gearstone.uk/api/items/' + itemPort.itemClass.toLowerCase() + '.json'">{{itemPort.itemClass | localise:itemPort.name}}</a></div>
+    <div *ngIf="itemPort.item" class="text-right">
+      <a [href]="'https://scdb.gearstone.uk/api/items/' + itemPort.itemClass.toLowerCase() + '.json'">{{itemPort.item.name | localise:itemPort.itemClass}}</a>
+    </div>
   </div>
   <div *ngIf="!itemPort.itemClass" class="text-muted">Nothing installed</div>
 </div>
