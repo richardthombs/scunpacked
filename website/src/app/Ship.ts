@@ -1,18 +1,15 @@
 import * as _ from 'lodash';
 
-import { ItemPortLoadout } from "./ItemPortLoadout";
 import { Part } from './Part';
 import { IItemPort } from "./IItemPort";
 
 const distanceBetweenPOandArcCorp = 41927351070;
 
 export class Ship {
-  Loadout: ItemPortLoadout[] = [];
   Raw: any;
   Parts: Part[] = [];
 
-  constructor(loadout: ItemPortLoadout[], raw: any) {
-    this.Loadout = loadout;
+  constructor(raw: any) {
     this.Raw = raw;
     if (this.Raw.Vehicle.Parts) this.Parts = _.map(this.Raw.Vehicle.Parts, x => new Part(x));
   }
@@ -22,11 +19,11 @@ export class Ship {
   }
 
   get scu(): number {
-    return _.reduce(this.Loadout, (total, itemPort) => total + _.get(itemPort.loadedItem, "scu", 0), 0);
+    return _.reduce(this.findItemPorts(ip => ip.types.includes("Cargo")), (total, ip) => total + _.get(ip.item, "scu", 0), 0);
   }
 
   get maxShieldHealth(): number {
-    return _.reduce(this.Loadout, (total, itemPort) => total + _.get(itemPort.loadedItem, "maxShieldHealth", 0), 0);
+    return _.reduce(this.findItemPorts(ip => ip.types.includes("Shield")), (total, ip) => total + _.get(ip.item, "maxShieldHealth", 0), 0);
   }
 
   get vehicleName(): string {
@@ -54,17 +51,11 @@ export class Ship {
   }
 
   get quantumFuelCapacity(): number {
-    return _.reduce(this.Loadout, (total, itemPort) => {
-      if (_.get(itemPort.loadedItem, "type", "") == "QuantumFuelTank") return total + _.get(itemPort.loadedItem, "capacity", 0);
-      return total;
-    }, 0);
+    return _.reduce(this.findItemPorts(ip => ip.item != null && ip.item.type == "QuantumFuelTank"), (total, ip) => total + _.get(ip.item, "capacity", 0), 0);
   }
 
   get quantumFuelRequirement(): number {
-    return _.reduce(this.Loadout, (total, itemPort) => {
-      if (_.get(itemPort.loadedItem, "type", "") == "QuantumDrive") return total + _.get(itemPort.loadedItem, "quantumFuelRequirement", 0);
-      return total;
-    }, 0);
+    return _.reduce(this.findItemPorts(ip => ip.item != null && ip.item.type == "QuantumDrive"), (total, ip) => total + _.get(ip.item, "quantumFuelRequirement", 0), 0);
   }
 
   get quantumRange(): number {
@@ -72,9 +63,9 @@ export class Ship {
   }
 
   get quantumSpeed(): number {
-    let drive = _.find(this.Loadout, x => _.get(x.loadedItem, "type", "") == "QuantumDrive");
-    if (!drive || !drive.loadedItem) return 0;
-    return drive.loadedItem.driveSpeed;
+    let drives = this.findItemPorts(ip => ip.item != null && ip.item.type == "QuantumDrive");
+    if (drives.length == 0 || !drives[0].item) return 0;
+    return drives[0].item.driveSpeed;
   }
 
   get secondsToArcCorp(): number {
@@ -87,24 +78,15 @@ export class Ship {
   }
 
   get fuelIntakePushRate(): number {
-    return _.reduce(this.Loadout, (total, itemPort) => {
-      if (_.get(itemPort.loadedItem, "type", "") == "FuelIntake") return total + _.get(itemPort.loadedItem, "fuelPushRate", 0);
-      return total;
-    }, 0);
+    return _.reduce(this.findItemPorts(ip => ip.item != null && ip.item.type == "FuelIntake"), (total, ip) => total + _.get(ip.item, "fuelPushRate", 0), 0);
   }
 
   get mainThrusterBurnRate(): number {
-    return _.reduce(this.Loadout, (total, itemPort) => {
-      if (_.get(itemPort.loadedItem, "type", "") == "MainThruster") return total + _.get(itemPort.loadedItem, "maxThrustFuelBurnRate", 0);
-      return total;
-    }, 0);
+    return _.reduce(this.findItemPorts(ip => ip.item != null && ip.item.type == "MainThruster"), (total, ip) => total + _.get(ip.item, "maxThrustFuelBurnRate", 0), 0);
   }
 
   get manneuverThrusterBurnRate(): number {
-    return _.reduce(this.Loadout, (total, itemPort) => {
-      if (_.get(itemPort.loadedItem, "type", "") == "ManneuverThruster") return total + _.get(itemPort.loadedItem, "maxThrustFuelBurnRate", 0);
-      return total;
-    }, 0);
+    return _.reduce(this.findItemPorts(ip => ip.item != null && ip.item.type == "ManneuverThruster"), (total, ip) => total + _.get(ip.item, "maxThrustFuelBurnRate", 0), 0);
   }
 
   findParts(predicate?: (p: Part) => boolean): Part[] {

@@ -40,12 +40,12 @@
 </div>
 <div class="container">
   <table class="table">
-    <tr *ngFor="let itemPort of ship?.findItemPorts()">
-      <td>{{itemPort.name}}</td>
-      <td>{{itemPort.types.join(", ")}}</td>
+    <tr *ngFor="let itemPort of ItemPorts">
       <td>
-        <span *ngIf="itemPort.item">{{itemPort.item.className}}</span>
+        <app-itemport [itemPort]="itemPort"></app-itemport>
       </td>
+      <td hidden>{{itemPort.types.join(", ")}}</td>
+      <td>{{itemPort.item?.type}}<span *ngIf="itemPort.item?.subType">.{{itemPort.item?.subType}}</span></td>
     </tr>
   </table>
 </div>

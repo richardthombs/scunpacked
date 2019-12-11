@@ -11,7 +11,7 @@ export class SCItem {
   }
 
   get name(): string {
-    return _.get(this.json, "Raw.Entity.Components.SAttachableComponentParams.AttachDef.Localization.Name");
+    return _.get(this.json, "Raw.Entity.Components.SAttachableComponentParams.AttachDef.Localization.Name", "");
   }
 
   get className(): string {
@@ -19,11 +19,13 @@ export class SCItem {
   }
 
   get type(): string {
-    return _.get(this.json, "Raw.Entity.Components.SAttachableComponentParams.AttachDef.Type");
+    return _.get(this.json, "Raw.Entity.Components.SAttachableComponentParams.AttachDef.Type", "");
   }
 
   get subType(): string {
-    return _.get(this.json, "Raw.Entity.Components.SAttachableComponentParams.AttachDef.SubType");
+    let subType = _.get(this.json, "Raw.Entity.Components.SAttachableComponentParams.AttachDef.SubType", "");
+    if (subType == "UNDEFINED") subType = "";
+    return subType;
   }
 
   get powerDraw(): number {

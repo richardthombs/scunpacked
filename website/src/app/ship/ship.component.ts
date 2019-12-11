@@ -6,11 +6,11 @@ import { environment } from "../../environments/environment";
 import { ActivatedRoute } from '@angular/router';
 import { Ship } from '../Ship';
 import { ItemPortClassification } from '../ItemPortClassification';
-import { ItemPortLoadout } from '../ItemPortLoadout';
 import { SCItem } from '../SCItem';
 import { ItemPort } from '../ItemPort';
 import { IItemPort } from "../IItemPort";
 import { JsonLoadout } from '../JsonLoadout';
+import { SCItemItemPort } from '../SCItemItemPort';
 
 interface ClassifiedItemPort {
   classification: ItemPortClassification;
@@ -102,9 +102,8 @@ export class ShipComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.$http.get<any>(`${environment.api}/ships/${params.get("name")}.json`).subscribe(async r => {
-        this.ship = new Ship(r.Loadout, r.Raw);
+        this.ship = new Ship(r.Raw);
         console.log("Loaded ship", this.ship.className);
-
 
         console.log("Initialising loadout");
         var vehiclePorts = this.ship.findItemPorts(ip => ip instanceof ItemPort);
@@ -112,7 +111,7 @@ export class ShipComponent implements OnInit {
         if (vehiclePorts.length && loadout) await this.loadItems(vehiclePorts, loadout);
         console.log("Loadout initialised");
 
-        this.ItemPorts = this.ship.findItemPorts(ip => ip.types.length > 0);
+        this.ItemPorts = this.ship.findItemPorts();
 
         // Classify each Item Port
         let classifiedPorts: ClassifiedItemPort[] = [];
