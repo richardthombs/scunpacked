@@ -17,10 +17,18 @@ namespace Loader
 
 		public List<ItemIndexEntry> Load()
 		{
-			var itemsFolder = Path.Combine(DataRoot, @"Data\Libs\Foundry\Records\entities\scitem\ships");
+			var index = new List<ItemIndexEntry>();
+			index.AddRange(Load(@"Data\Libs\Foundry\Records\entities\scitem\ships"));
+			index.AddRange(Load(@"Data\Libs\Foundry\Records\entities\scitem\vehicles"));
+			return index;
+		}
+
+		List<ItemIndexEntry> Load(string itemsFolder)
+		{
+			var folderPath = Path.Combine(DataRoot, itemsFolder);
 			var index = new List<ItemIndexEntry>();
 
-			foreach (var folder in Directory.EnumerateDirectories(itemsFolder))
+			foreach (var folder in Directory.EnumerateDirectories(folderPath))
 			{
 				Console.WriteLine(Path.GetFileNameWithoutExtension(folder));
 				var itemType = Path.GetFileNameWithoutExtension(folder);
