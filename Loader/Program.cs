@@ -49,6 +49,7 @@ namespace Loader
 				}
 			}
 
+			Directory.CreateDirectory(outputRoot);
 			File.WriteAllText(Path.Combine(outputRoot, "labels.json"), JsonConvert.SerializeObject(labels));
 
 			// Ships and ground vehicles

@@ -26,7 +26,7 @@ namespace scdb.Xml.Entities
 		public int MaxSize;
 
 		[XmlAttribute]
-		public int InteractionPointSize;
+		public double InteractionPointSize;
 
 		[XmlAttribute]
 		public string DefaultWeaponGroup;
