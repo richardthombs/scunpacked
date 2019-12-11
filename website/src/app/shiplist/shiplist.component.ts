@@ -10,18 +10,33 @@ import { environment } from "../../environments/environment";
   styleUrls: ['./shiplist.component.scss']
 })
 export class ShipListComponent implements OnInit {
-  ships: any[] = [];
+  ships: ShipIndexEntry[] = [];
+  grouped: { [id: string]: ShipIndexEntry[] } = {}
+  doubleGrouped: { [id: string]: { [id: string]: ShipIndexEntry[] } } = {}
 
   constructor(private $http: HttpClient) { }
 
   ngOnInit() {
-    this.$http.get<any[]>(`${environment.api}/ships.json`).subscribe(r => {
-      this.ships = _.sortBy(r, "ClassName");
+    this.$http.get<ShipIndexEntry[]>(`${environment.api}/ships.json`).subscribe(r => {
+      r = r.filter(x => x.career != "@LOC_PLACEHOLDER");
+
+      this.grouped = _.groupBy(r, x => x.career);
+      _.each(this.grouped, (g, i) => this.grouped[i] = _.sortBy(g, s => s.className));
+
+      console.log(this.grouped);
+
+      _.each(this.grouped, (value, key) => this.doubleGrouped[key] = _.groupBy(this.grouped[key], x => x.role));
+
     });
   }
+}
 
-  apiUrl(ship: any) {
-    return `${environment.api}/${ship.JsonFilename}`;
-  }
-
+interface ShipIndexEntry {
+  jsonFilename: string;
+  name: string;
+  career: string;
+  role: string;
+  className: string;
+  type: string;
+  subType: string;
 }

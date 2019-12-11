@@ -20,7 +20,7 @@ export class LabelsResolver implements Resolve<any> {
 }
 
 const routes: Routes = [
-  { path: "", component: ShipListComponent },
+  { path: "", component: ShipListComponent, resolve: { labels: LabelsResolver } },
   { path: "ships/:name", component: ShipComponent, resolve: { labels: LabelsResolver } }
 ];
 
