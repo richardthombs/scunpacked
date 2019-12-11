@@ -103,7 +103,7 @@ export class ShipComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.$http.get<any>(`${environment.api}/ships/${params.get("name")}.json`).subscribe(async r => {
         this.ship = new Ship(r.Raw);
-        console.log("Loaded ship", this.ship.className);
+        console.log("Loaded ship", this.ship.className, this.ship);
 
         console.log("Initialising loadout");
         var vehiclePorts = this.ship.findItemPorts(ip => ip instanceof ItemPort);
