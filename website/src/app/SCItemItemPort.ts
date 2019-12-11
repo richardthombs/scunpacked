@@ -45,6 +45,9 @@ export class SCItemItemPort implements IItemPort {
   }
 
   findItemPorts(predicate?: ((itemPort: IItemPort) => boolean) | undefined): IItemPort[] {
-    throw new Error("Method not implemented.");
+    var found: IItemPort[] = [];
+    if (!predicate || predicate(this)) found.push(this);
+    if (this.item) found = found.concat(this.item.findItemPorts(predicate));
+    return found;
   }
 }

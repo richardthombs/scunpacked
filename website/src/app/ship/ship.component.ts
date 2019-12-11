@@ -9,7 +9,7 @@ import { ItemPortClassification } from '../ItemPortClassification';
 import { SCItem } from '../SCItem';
 import { ItemPort } from '../ItemPort';
 import { IItemPort } from "../IItemPort";
-import { JsonLoadout } from '../JsonLoadout';
+import { JsonLoadout, SEntityComponentDefaultLoadoutParams, SItemPortLoadoutEntryParams } from '../JsonLoadout';
 import { SCItemItemPort } from '../SCItemItemPort';
 
 interface ClassifiedItemPort {
@@ -106,9 +106,13 @@ export class ShipComponent implements OnInit {
         console.log("Loaded ship", this.ship.className, this.ship);
 
         console.log("Initialising loadout");
-        var vehiclePorts = this.ship.findItemPorts(ip => ip instanceof ItemPort);
-        var loadout: JsonLoadout[] | undefined = _.get(r.Raw, "DefaultLoadout.Items", []);
-        if (vehiclePorts.length && loadout) await this.loadItems(vehiclePorts, loadout);
+        let vehiclePorts = this.ship.findItemPorts(ip => ip instanceof ItemPort);
+
+        let xmlLoadout: JsonLoadout[] | undefined = _.get(r.Raw, "DefaultLoadout.Items");
+        if (vehiclePorts.length && xmlLoadout) await this.loadItems(vehiclePorts, xmlLoadout);
+
+        let manualLoadout: JsonLoadout[] | undefined = this.convertManualLoadout(_.get(r.Raw, "Entity.Components.SEntityComponentDefaultLoadoutParams"));
+        if (vehiclePorts.length && manualLoadout) await this.loadItems(vehiclePorts, manualLoadout);
         console.log("Loadout initialised");
 
         this.ItemPorts = this.ship.findItemPorts();
@@ -177,9 +181,7 @@ export class ShipComponent implements OnInit {
         itemPort.item = await this.loadItem(loadout.itemName);
         if (itemPort.item) {
           let subPorts = itemPort.item.findItemPorts();
-          if (subPorts.length && loadout.Items) {
-            await this.loadItems(subPorts, loadout.Items);
-          }
+          if (subPorts.length && loadout.Items) await this.loadItems(subPorts, loadout.Items);
         }
       }
     }
@@ -189,7 +191,10 @@ export class ShipComponent implements OnInit {
     let loaded: any;
 
     if (itemName) {
-      if (this.itemCache[itemName]) loaded = this.itemCache[itemName];
+      if (this.itemCache[itemName]) {
+        loaded = this.itemCache[itemName];
+        console.log("Loaded cached item", itemName);
+      }
       else {
         loaded = await this.$http.get<any>(`${environment.api}/items/${itemName.toLowerCase()}.json`).toPromise().catch(e => { });
         console.log(loaded ? "Loaded item" : "Could not load item", itemName);
@@ -201,5 +206,22 @@ export class ShipComponent implements OnInit {
 
     // Clone so that each itemPort gets a unique object
     return new SCItem(JSON.parse(JSON.stringify(loaded)));
+  }
+
+  private convertManualLoadout(defaultLoadoutParams: SEntityComponentDefaultLoadoutParams): JsonLoadout[] | undefined {
+    if (!defaultLoadoutParams) return undefined;
+    let jsonEntries = _.get(defaultLoadoutParams, "loadout.SItemPortLoadoutManualParams.entries", []);
+    let entries = this.convertManualLoadoutEntries(jsonEntries);
+    return entries;
+  }
+
+  private convertManualLoadoutEntries(entries: SItemPortLoadoutEntryParams[]): JsonLoadout[] | undefined {
+    let result: JsonLoadout[] = [];
+    entries.forEach(x => {
+      var subEntries = this.convertManualLoadout(x);
+      var entry = { itemName: x.entityClassName, portName: x.itemPortName, Items: subEntries };
+      result.push(entry);
+    });
+    return result.length ? result : undefined;
   }
 }
