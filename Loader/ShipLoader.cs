@@ -85,15 +85,13 @@ namespace Loader
 
 				var indexEntry = new ShipIndexEntry
 				{
-					JsonFilename = Path.GetRelativePath(Path.GetDirectoryName(OutputFolder), jsonFilename),
-					ClassName = entity.ClassName,
-					ItemName = entity.ClassName.ToLower(),
-					Type = entity.Components?.SAttachableComponentParams?.AttachDef.Type,
-					SubType = entity.Components?.SAttachableComponentParams?.AttachDef.SubType,
-					EntityFilename = Path.GetRelativePath(DataRoot, entityFilename),
-					VehicleFilename = vehicleFilename != null ? Path.GetRelativePath(DataRoot, vehicleFilename) : null,
-					Entity = entity,
-					Vehicle = vehicle
+					jsonFilename = Path.GetRelativePath(Path.GetDirectoryName(OutputFolder), jsonFilename),
+					className = entity.ClassName,
+					type = entity.Components?.SAttachableComponentParams?.AttachDef.Type,
+					subType = entity.Components?.SAttachableComponentParams?.AttachDef.SubType,
+					name = entity.Components.VehicleComponentParams.vehicleName,
+					career = entity.Components.VehicleComponentParams.vehicleCareer,
+					role = entity.Components.VehicleComponentParams.vehicleRole
 				};
 
 				index.Add(indexEntry);
