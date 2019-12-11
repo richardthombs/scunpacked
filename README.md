@@ -18,7 +18,7 @@ unforge.exe .
 Run the parser
 
 ```
-loader.exe -scdata=c:\scdata\3.7.2 -output=c:\scdata\3.7.3-json
+loader.exe -scdata=c:\scdata\3.7.2 -output=c:\scdata\3.7.2-json
 ```
 
 Now you will have a folder `c:\scdata\3.7.2-json` which contains:
