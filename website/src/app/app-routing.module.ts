@@ -1,6 +1,6 @@
 import { NgModule, Injectable } from '@angular/core';
-import { Routes, RouterModule, Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Routes, RouterModule, Resolve } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 import { ShipListComponent } from "./shiplist/shiplist.component";
 import { ShipComponent } from './ship/ship.component';
@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
 @Injectable()
-class LabelsResolver implements Resolve<any> {
+export class LabelsResolver implements Resolve<any> {
 
   constructor(private $http: HttpClient) { }
 
