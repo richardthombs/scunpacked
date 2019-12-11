@@ -9,8 +9,7 @@ import { ItemPortClassification } from '../ItemPortClassification';
 import { SCItem } from '../SCItem';
 import { ItemPort } from '../ItemPort';
 import { IItemPort } from "../IItemPort";
-import { JsonLoadout, SEntityComponentDefaultLoadoutParams, SItemPortLoadoutEntryParams } from '../JsonLoadout';
-import { SCItemItemPort } from '../SCItemItemPort';
+import { JsonLoadout, SEntityComponentDefaultLoadoutParams, SItemPortLoadoutEntryParams, SItemPortLoadoutManualParams, SItemPortLoadoutXMLParams } from '../JsonLoadout';
 
 interface ClassifiedItemPort {
   classification: ItemPortClassification;
@@ -107,12 +106,8 @@ export class ShipComponent implements OnInit {
 
         console.log("Initialising loadout");
         let vehiclePorts = this.ship.findItemPorts(ip => ip instanceof ItemPort);
-
-        let xmlLoadout: JsonLoadout[] | undefined = _.get(r.Raw, "DefaultLoadout.Items");
-        if (vehiclePorts.length && xmlLoadout) await this.loadItems(vehiclePorts, xmlLoadout);
-
-        let manualLoadout: JsonLoadout[] | undefined = this.convertManualLoadout(_.get(r.Raw, "Entity.Components.SEntityComponentDefaultLoadoutParams"));
-        if (vehiclePorts.length && manualLoadout) await this.loadItems(vehiclePorts, manualLoadout);
+        let loadout = await this.getLoadout(r.Raw.Entity.Components.SEntityComponentDefaultLoadoutParams);
+        if (vehiclePorts.length && loadout.length) await this.loadItems(vehiclePorts, loadout);
         console.log("Loadout initialised");
 
         this.ItemPorts = this.ship.findItemPorts();
@@ -181,7 +176,9 @@ export class ShipComponent implements OnInit {
         itemPort.item = await this.loadItem(loadout.itemName);
         if (itemPort.item) {
           let subPorts = itemPort.item.findItemPorts();
-          if (subPorts.length && loadout.Items) await this.loadItems(subPorts, loadout.Items);
+          let manualLoadout = await this.getLoadout(_.get(itemPort.item.Raw, "Entity.Components.SEntityComponentDefaultLoadoutParams", []));
+          let combinedLoadout: JsonLoadout[] = (loadout.Items || []).concat(manualLoadout || []);
+          if (subPorts.length && combinedLoadout.length) await this.loadItems(subPorts, combinedLoadout);
         }
       }
     }
@@ -208,20 +205,38 @@ export class ShipComponent implements OnInit {
     return new SCItem(JSON.parse(JSON.stringify(loaded)));
   }
 
-  private convertManualLoadout(defaultLoadoutParams: SEntityComponentDefaultLoadoutParams): JsonLoadout[] | undefined {
-    if (!defaultLoadoutParams) return undefined;
-    let jsonEntries = _.get(defaultLoadoutParams, "loadout.SItemPortLoadoutManualParams.entries", []);
-    let entries = this.convertManualLoadoutEntries(jsonEntries);
-    return entries;
+  private async getLoadout(defaultLoadoutParams: SEntityComponentDefaultLoadoutParams): Promise<JsonLoadout[]> {
+    if (!defaultLoadoutParams || !defaultLoadoutParams.loadout) return [];
+
+    let loadouts: JsonLoadout[] = [];
+    if (defaultLoadoutParams.loadout.SItemPortLoadoutManualParams) loadouts = loadouts.concat(await this.getManualLoadout(defaultLoadoutParams.loadout.SItemPortLoadoutManualParams));
+    if (defaultLoadoutParams.loadout.SItemPortLoadoutXMLParams) loadouts = loadouts.concat(await this.getXmlLoadout(defaultLoadoutParams.loadout.SItemPortLoadoutXMLParams));
+    return loadouts;
   }
 
-  private convertManualLoadoutEntries(entries: SItemPortLoadoutEntryParams[]): JsonLoadout[] | undefined {
-    let result: JsonLoadout[] = [];
-    entries.forEach(x => {
-      var subEntries = this.convertManualLoadout(x);
-      var entry = { itemName: x.entityClassName, portName: x.itemPortName, Items: subEntries };
-      result.push(entry);
-    });
-    return result.length ? result : undefined;
+  private async getManualLoadout(params: SItemPortLoadoutManualParams): Promise<JsonLoadout[]> {
+    if (!params || !params.entries) return [];
+
+    let loadouts: JsonLoadout[] = [];
+
+    for (let i = 0; i < params.entries.length; i++) {
+      let entry = params.entries[i];
+      let subEntries = await this.getLoadout(entry);
+      let loadout = { itemName: entry.entityClassName, portName: entry.itemPortName, Items: subEntries };
+      loadouts.push(loadout);
+    }
+
+    return loadouts;
   }
+
+  private async getXmlLoadout(params: SItemPortLoadoutXMLParams): Promise<JsonLoadout[]> {
+    let loadouts = await this.$http.get<any>(`${environment.api}/loadouts/${params.loadoutPath}`).toPromise().catch(e => { });
+
+    if (loadouts) console.log("Loaded loadout", params.loadoutPath);
+    else console.error("Could not load loadout", params.loadoutPath);
+
+    if (loadouts) return loadouts.Items || [];
+    else return [];
+  }
+
 }
