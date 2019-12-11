@@ -9,7 +9,7 @@ namespace Loader
 {
 	public class EntityParser
 	{
-		public EntityClassDefinition Parse(string fullXmlPath)
+		public EntityClassDefinition Parse(string fullXmlPath, Func<string, string> onXmlLoadout)
 		{
 			if (!File.Exists(fullXmlPath))
 			{
@@ -17,10 +17,10 @@ namespace Loader
 				return null;
 			}
 
-			return ParseShipDefinition(fullXmlPath);
+			return ParseShipDefinition(fullXmlPath, onXmlLoadout);
 		}
 
-		EntityClassDefinition ParseShipDefinition(string shipEntityPath)
+		EntityClassDefinition ParseShipDefinition(string shipEntityPath, Func<string, string> onXmlLoadout)
 		{
 			string rootNodeName;
 			using (var reader = XmlReader.Create(new StreamReader(shipEntityPath)))
@@ -41,6 +41,12 @@ namespace Loader
 			{
 				var entity = (EntityClassDefinition)serialiser.Deserialize(stream);
 				entity.ClassName = className;
+
+				if (entity.Components?.SEntityComponentDefaultLoadoutParams?.loadout?.SItemPortLoadoutXMLParams != null)
+				{
+					entity.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutXMLParams.loadoutPath = onXmlLoadout(entity.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutXMLParams.loadoutPath);
+				}
+
 				return entity;
 			}
 		}

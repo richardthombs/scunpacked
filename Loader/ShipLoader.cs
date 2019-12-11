@@ -19,6 +19,8 @@ namespace Loader
 	{
 		public string OutputFolder { get; set; }
 		public string DataRoot { get; set; }
+		public Func<string, string> OnXmlLoadout { get; set; }
+
 
 		public List<ShipIndexEntry> Load()
 		{
@@ -48,8 +50,6 @@ namespace Loader
 				EntityClassDefinition entity = null;
 				Vehicle vehicle = null;
 				string vehicleModification = null;
-				Loadout defaultLoadout = null;
-				scdb.Models.ItemPort[] normalisedLoadout = null;
 
 				var entry = GetTurbulentEntry(filename);
 				if (UselessEntities.Contains(entry.itemClass)) continue;
@@ -60,7 +60,7 @@ namespace Loader
 
 				// Entity
 				var entityParser = new EntityParser();
-				entity = entityParser.Parse(entityFilename);
+				entity = entityParser.Parse(entityFilename, OnXmlLoadout);
 				if (entity == null) continue;
 
 				// Vehicle
@@ -75,26 +75,6 @@ namespace Loader
 					vehicle = vehicleParser.Parse(vehicleFilename, vehicleModification);
 				}
 
-				// Default loadout
-				var defaultLoadoutFilename = entity.Components?.SEntityComponentDefaultLoadoutParams.loadout?.SItemPortLoadoutXMLParams?.loadoutPath;
-				if (!String.IsNullOrEmpty(defaultLoadoutFilename))
-				{
-					defaultLoadoutFilename = Path.Combine(DataRoot, "Data", defaultLoadoutFilename.Replace('/', '\\'));
-					Console.WriteLine(defaultLoadoutFilename);
-
-					var loadoutParser = new DefaultLoadoutParser();
-					defaultLoadout = loadoutParser.Parse(defaultLoadoutFilename);
-				}
-
-				// Normalise loadout
-				var normaliser = new LoadoutNormaliser();
-				if (defaultLoadout != null) normalisedLoadout = normaliser.NormaliseLoadout(defaultLoadout.Items, vehicle?.Parts);
-				if (normalisedLoadout == null)
-				{
-					var manualLoadout = entity.Components?.SEntityComponentDefaultLoadoutParams?.loadout?.SItemPortLoadoutManualParams;
-					normalisedLoadout = normaliser.NormaliseLoadout(manualLoadout, vehicle?.Parts);
-				}
-
 				var jsonFilename = Path.Combine(OutputFolder, $"{entity.ClassName.ToLower()}.json");
 				var json = JsonConvert.SerializeObject(new
 				{
@@ -102,9 +82,7 @@ namespace Loader
 					{
 						Entity = entity,
 						Vehicle = vehicle,
-						DefaultLoadout = defaultLoadout
-					},
-					Loadout = normalisedLoadout
+					}
 				});
 				File.WriteAllText(jsonFilename, json);
 
@@ -117,10 +95,8 @@ namespace Loader
 					SubType = entity.Components?.SAttachableComponentParams?.AttachDef.SubType,
 					EntityFilename = Path.GetRelativePath(DataRoot, entityFilename),
 					VehicleFilename = vehicleFilename != null ? Path.GetRelativePath(DataRoot, vehicleFilename) : null,
-					DefaultLoadoutFilename = defaultLoadoutFilename != null ? Path.GetRelativePath(DataRoot, defaultLoadoutFilename) : null,
 					Entity = entity,
-					Vehicle = vehicle,
-					DefaultLoadout = defaultLoadout
+					Vehicle = vehicle
 				};
 
 				index.Add(indexEntry);

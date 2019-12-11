@@ -52,11 +52,18 @@ namespace Loader
 			Directory.CreateDirectory(outputRoot);
 			File.WriteAllText(Path.Combine(outputRoot, "labels.json"), JsonConvert.SerializeObject(labels));
 
+			var loadoutLoader = new LoadoutLoader
+			{
+				OutputFolder = Path.Combine(outputRoot, "loadouts"),
+				DataRoot = scDataRoot
+			};
+
 			// Ships and ground vehicles
 			var shipLoader = new ShipLoader
 			{
 				OutputFolder = Path.Combine(outputRoot, "ships"),
-				DataRoot = scDataRoot
+				DataRoot = scDataRoot,
+				OnXmlLoadout = path => loadoutLoader.Load(path)
 			};
 			var shipIndex = shipLoader.Load();
 
@@ -66,7 +73,8 @@ namespace Loader
 			var itemLoader = new ItemLoader
 			{
 				OutputFolder = Path.Combine(outputRoot, "items"),
-				DataRoot = scDataRoot
+				DataRoot = scDataRoot,
+				OnXmlLoadout = path => loadoutLoader.Load(path)
 			};
 			var itemIndex = itemLoader.Load();
 			File.WriteAllText(Path.Combine(outputRoot, "items.json"), JsonConvert.SerializeObject(itemIndex));

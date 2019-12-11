@@ -14,6 +14,7 @@ namespace Loader
 	{
 		public string OutputFolder { get; set; }
 		public string DataRoot { get; set; }
+		public Func<string, string> OnXmlLoadout { get; set; }
 
 		string[] include = new string[] {
 			"ships",
@@ -23,6 +24,8 @@ namespace Loader
 
 		public List<ItemIndexEntry> Load()
 		{
+			Directory.CreateDirectory(OutputFolder);
+
 			var index = new List<ItemIndexEntry>();
 			foreach (var folder in include)
 			{
@@ -39,34 +42,12 @@ namespace Loader
 			foreach (var entityFilename in Directory.EnumerateFiles(folderPath, "*.xml", SearchOption.AllDirectories))
 			{
 				EntityClassDefinition entity = null;
-				Loadout defaultLoadout = null;
-				ItemPort[] normalisedLoadout = null;
 
 				// Entity
 				Console.WriteLine(entityFilename);
 				var entityParser = new EntityParser();
-				entity = entityParser.Parse(entityFilename);
+				entity = entityParser.Parse(entityFilename, OnXmlLoadout);
 				if (entity == null) continue;
-
-				// Default loadout
-				var defaultLoadoutFilename = entity.Components?.SEntityComponentDefaultLoadoutParams?.loadout?.SItemPortLoadoutXMLParams?.loadoutPath;
-				if (!String.IsNullOrEmpty(defaultLoadoutFilename))
-				{
-					defaultLoadoutFilename = Path.Combine(DataRoot, "Data", defaultLoadoutFilename.Replace('/', '\\'));
-					Console.WriteLine(defaultLoadoutFilename);
-
-					var loadoutParser = new DefaultLoadoutParser();
-					defaultLoadout = loadoutParser.Parse(defaultLoadoutFilename);
-				}
-
-				// Normalise loadout
-				var normaliser = new LoadoutNormaliser();
-				if (defaultLoadout != null) normalisedLoadout = normaliser.NormaliseLoadout(defaultLoadout.Items, null);
-				if (normalisedLoadout == null)
-				{
-					var manualLoadout = entity.Components?.SEntityComponentDefaultLoadoutParams?.loadout?.SItemPortLoadoutManualParams;
-					normalisedLoadout = normaliser.NormaliseLoadout(manualLoadout, null);
-				}
 
 				var jsonFilename = Path.Combine(OutputFolder, $"{entity.ClassName.ToLower()}.json");
 				var json = JsonConvert.SerializeObject(new
@@ -74,9 +55,7 @@ namespace Loader
 					Raw = new
 					{
 						Entity = entity,
-						DefaultLoadout = defaultLoadout
-					},
-					NormalisedLoadout = normalisedLoadout
+					}
 				});
 				File.WriteAllText(jsonFilename, json);
 
@@ -88,9 +67,7 @@ namespace Loader
 					Type = entity.Components?.SAttachableComponentParams?.AttachDef.Type,
 					SubType = entity.Components?.SAttachableComponentParams?.AttachDef.SubType,
 					EntityFilename = Path.GetRelativePath(DataRoot, entityFilename),
-					DefaultLoadoutFilename = defaultLoadout != null ? Path.GetRelativePath(DataRoot, defaultLoadoutFilename) : null,
-					Entity = entity,
-					DefaultLoadout = defaultLoadout
+					Entity = entity
 				});
 			}
 			return index;
