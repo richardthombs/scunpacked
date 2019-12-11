@@ -19,3 +19,6 @@
   </div>
   <div *ngIf="!itemPort.itemClass" class="text-muted">Nothing installed</div>
 </div>
+<ng-container *ngIf="itemPort?.item?.itemPorts">
+  <app-itemport *ngFor="let ip of itemPort.item.itemPorts" [itemPort]="ip"></app-itemport>
+</ng-container>
