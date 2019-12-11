@@ -32,5 +32,7 @@ namespace scdb.Xml.Vehicles
 
 		public Part[] Parts;
 		public MovementParams MovementParams;
+
+		public Modification[] Modifications;
 	}
 }

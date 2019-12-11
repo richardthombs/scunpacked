@@ -19,7 +19,6 @@ namespace Loader
 		public string DataRoot { get; set; }
 		public Func<string, string> OnXmlLoadout { get; set; }
 
-
 		public List<ShipIndexEntry> Load()
 		{
 			var turbulentFolder = Path.Combine(DataRoot, @"Data\Libs\Foundry\Records\turbulent\vehicles");
