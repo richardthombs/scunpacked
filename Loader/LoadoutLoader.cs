@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 using Newtonsoft.Json;
 
-using scdb.Xml.DefaultLoadouts;
-
 namespace Loader
 {
 	public class LoadoutLoader

@@ -9,9 +9,7 @@ using Newtonsoft.Json;
 
 using scdb.Xml.Entities;
 using scdb.Xml.Vehicles;
-using scdb.Xml.DefaultLoadouts;
 using scdb.Xml.Turbulent;
-using scdb.Models;
 
 namespace Loader
 {

@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 
 using scdb.Xml.Entities;
-using scdb.Xml.DefaultLoadouts;
-using scdb.Models;
 
 namespace Loader
 {
