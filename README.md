@@ -18,7 +18,16 @@ unforge.exe .
 Run the parser
 
 ```
-shipparser.exe
+loader.exe -scdata=c:\scdata\3.7.2 -output=c:\scdata\3.7.3-json
 ```
 
-SItemPortLoadoutEntryParams.itemPortName == Part.name == Item.portName
+Now you will have a folder `c:\scdata\3.7.2-json` which contains:
+
+```
+ships        - Folder containing all ships, named after the class name
+items        - Folder containing all Items, named after the class name
+loadouts     - Folder containing loadouts for ships and items named after the loadout filename
+ships.json   - Index of all the ships
+items.json   - Index of all the items
+labels.json  - English translations of all labels
+```
