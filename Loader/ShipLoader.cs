@@ -18,6 +18,7 @@ namespace Loader
 
 		string[] avoids =
 		{
+			// CIG tags
 			"pu",
 			"ai",
 			"civ",
@@ -27,7 +28,21 @@ namespace Loader
 			"template",
 			"wreck",
 			"piano",
-			"swarm"
+			"swarm",
+			"nointerior",
+			"s42",
+
+			// Skin variants
+			"pink",
+			"yellow",
+			"emerald",
+			"dunestalker",
+			"snowblind",
+			"shipshowdown",
+			"showdown",
+			"citizencon2018",
+			"citizencon",
+			"pirate"
 		};
 
 		public List<ShipIndexEntry> Load()
@@ -102,12 +117,8 @@ namespace Loader
 
 		bool avoidFile(string filename)
 		{
-			var fileSplit = filename.Split("_");
-			foreach (var part in fileSplit)
-			{
-				if (avoids.Contains(part)) return true;
-			}
-			return false;
+			var fileSplit = Path.GetFileNameWithoutExtension(filename).Split('_');
+			return fileSplit.Any(part => avoids.Contains(part));
 		}
 	}
 }
