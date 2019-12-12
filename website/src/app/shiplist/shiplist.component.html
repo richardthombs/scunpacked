@@ -1,15 +1,19 @@
 <div class="container-fluid">
-  <div class="d-flex">
+
+  <div class="d-flex flex-wrap">
     <ng-container *ngFor="let career of doubleGrouped | keyvalue">
       <div class="mr-3">
         <h5 class="mb-0">{{career.key | localise}}</h5>
         <ng-container *ngFor="let role of career.value | keyvalue">
           <div>
             <h6 class="mt-3 mb-0">{{role.key | localise}}</h6>
-            <div style="width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" *ngFor="let ship of role.value"><a [routerLink]="['/ships', ship.className.toLowerCase()]" [title]="ship.name | localise">{{ship.name | localise}}</a></div>
+            <div *ngFor="let ship of role.value">
+              <a [routerLink]="['/ships', ship.className.toLowerCase()]" [title]="ship.name | localise">{{ship.name | localise}}</a>
+            </div>
           </div>
         </ng-container>
       </div>
     </ng-container>
   </div>
+
 </div>

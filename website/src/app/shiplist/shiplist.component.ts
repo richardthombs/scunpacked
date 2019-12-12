@@ -10,15 +10,20 @@ import { environment } from "../../environments/environment";
   styleUrls: ['./shiplist.component.scss']
 })
 export class ShipListComponent implements OnInit {
-  ships: ShipIndexEntry[] = [];
-  grouped: { [id: string]: ShipIndexEntry[] } = {}
-  doubleGrouped: { [id: string]: { [id: string]: ShipIndexEntry[] } } = {}
+  grouped: { [id: string]: ShipIndexEntry[] } = {};
+  doubleGrouped: { [id: string]: { [id: string]: ShipIndexEntry[] } } = {};
+  byRole: { [id: string]: ShipIndexEntry[] } = {};
 
   constructor(private $http: HttpClient) { }
 
   ngOnInit() {
     this.$http.get<ShipIndexEntry[]>(`${environment.api}/ships.json`).subscribe(r => {
       r = r.filter(x => x.career != "@LOC_PLACEHOLDER");
+      r = r.filter(x => x.dogFightEnabled);
+
+      this.byRole = _.groupBy(r, s => s.role);
+      _.each(this.byRole, (g, i) => this.byRole[i] = _.sortBy(g, s => s.className));
+
 
       this.grouped = _.groupBy(r, x => x.career);
       _.each(this.grouped, (g, i) => this.grouped[i] = _.sortBy(g, s => s.className));
@@ -39,4 +44,5 @@ interface ShipIndexEntry {
   className: string;
   type: string;
   subType: string;
+  dogFightEnabled: boolean;
 }
