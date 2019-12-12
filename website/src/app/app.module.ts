@@ -21,6 +21,7 @@ import { QuantumfueltankComponent } from './quantumfueltank/quantumfueltank.comp
 import { ThrusterComponent } from './thruster/thruster.component';
 import { HydrogenfueltankComponent } from './hydrogenfueltank/hydrogenfueltank.component';
 import { HydrogenfuelintakeComponent } from './hydrogenfuelintake/hydrogenfuelintake.component';
+import { CompareComponent } from './compare/compare.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HydrogenfuelintakeComponent } from './hydrogenfuelintake/hydrogenfuelin
     QuantumfueltankComponent,
     ThrusterComponent,
     HydrogenfueltankComponent,
-    HydrogenfuelintakeComponent
+    HydrogenfuelintakeComponent,
+    CompareComponent
   ],
   imports: [
     BrowserModule,

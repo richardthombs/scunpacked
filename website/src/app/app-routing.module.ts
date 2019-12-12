@@ -1,13 +1,15 @@
 import { NgModule, Injectable } from '@angular/core';
 import { Routes, RouterModule, Resolve } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+import { environment } from 'src/environments/environment';
 
 import { ShipListComponent } from "./shiplist/shiplist.component";
 import { ShipComponent } from './ship/ship.component';
+import { CompareComponent } from './compare/compare.component';
 import { LocalisePipe } from './localise.pipe';
 
-import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
 
 @Injectable()
 export class LabelsResolver implements Resolve<any> {
@@ -21,7 +23,8 @@ export class LabelsResolver implements Resolve<any> {
 
 const routes: Routes = [
   { path: "", component: ShipListComponent, resolve: { labels: LabelsResolver } },
-  { path: "ships/:name", component: ShipComponent, resolve: { labels: LabelsResolver } }
+  { path: "ships/:name", component: ShipComponent, resolve: { labels: LabelsResolver } },
+  { path: "compare", component: CompareComponent, resolve: { labels: LabelsResolver } }
 ];
 
 @NgModule({

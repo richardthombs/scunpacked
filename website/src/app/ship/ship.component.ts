@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { ActivatedRoute } from '@angular/router';
 import * as _ from "lodash";
 
-import { environment } from "../../environments/environment";
-import { ActivatedRoute } from '@angular/router';
 import { Ship } from '../Ship';
 import { ItemPortClassification } from '../ItemPortClassification';
-import { SCItem } from '../SCItem';
 import { ItemPort } from '../ItemPort';
 import { IItemPort } from "../IItemPort";
-import { JsonLoadout, SEntityComponentDefaultLoadoutParams, SItemPortLoadoutEntryParams, SItemPortLoadoutManualParams, SItemPortLoadoutXMLParams } from '../JsonLoadout';
+import { ShipService } from '../ship.service';
 
 interface ClassifiedItemPort {
   classification: ItemPortClassification;
@@ -22,9 +19,6 @@ interface ClassifiedItemPort {
   styleUrls: ['./ship.component.scss']
 })
 export class ShipComponent implements OnInit {
-
-  ship: Ship | undefined;
-  grouped: { [id: string]: any } = {};
 
   private typeMap: { [id: string]: ItemPortClassification } = {
     "Seat": { category: "Interior", kind: "Seat / Bed", hideSize: true, isBoring: true },
@@ -91,26 +85,21 @@ export class ShipComponent implements OnInit {
 
   includeBoring: boolean = false;
 
+  ship: Ship | undefined;
+  grouped: { [id: string]: any } = {};
   ItemPorts: IItemPort[] = [];
 
-  private itemCache: { [id: string]: any } = {}
-
-  constructor(private $http: HttpClient, private route: ActivatedRoute) {
-  }
+  constructor(private shipSvc: ShipService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.$http.get<any>(`${environment.api}/ships/${params.get("name")}.json`).subscribe(async r => {
-        this.ship = new Ship(r.Raw);
-        console.log("Loaded ship", this.ship.className, this.ship);
 
-        console.log("Initialising loadout");
-        let vehiclePorts = this.ship.findItemPorts(ip => ip instanceof ItemPort);
-        let loadout = await this.getLoadout(r.Raw.Entity.Components.SEntityComponentDefaultLoadoutParams);
-        if (vehiclePorts.length && loadout.length) await this.loadItems(vehiclePorts, loadout);
-        console.log("Loadout initialised");
+      let shipClass = params.get("name");
+      if (!shipClass) return;
 
-        this.ItemPorts = this.ship.findItemPorts();
+      this.shipSvc.load(shipClass).then(ship => {
+
+        let vehiclePorts = ship.findItemPorts(ip => ip instanceof ItemPort);
 
         // Classify each Item Port
         let classifiedPorts: ClassifiedItemPort[] = [];
@@ -120,24 +109,30 @@ export class ShipComponent implements OnInit {
         if (!this.includeBoring) classifiedPorts = _.filter(classifiedPorts, x => !x.classification.isBoring);
 
         // Group by the major grouping
-        this.grouped = _.groupBy(classifiedPorts, x => x.classification.category);
+        let grouped: { [id: string]: any } = _.groupBy(classifiedPorts, x => x.classification.category);
 
         // Secondary group by the class
-        _.forEach(this.grouped, (value, key) => this.grouped[key] = _.groupBy(this.grouped[key], x => x.classification.kind))
+        _.forEach(grouped, (value, key) => grouped[key] = _.groupBy(grouped[key], x => x.classification.kind))
 
-        // Create an array of ItemPort[] arrays, one for each size 0-9 and add each Item Port to the appropriate array according to maxsize
+        // Figure out what the largest size port is
         let largestSize = _.reduce(classifiedPorts, (max, itemPort) => itemPort.itemPort.maxSize > max ? itemPort.itemPort.maxSize : max, 0);
         if (largestSize < 9) largestSize = 9;
-        _.forEach(this.grouped, (gv, gk) => _.forEach(gv, (cv: ClassifiedItemPort[], ck) => {
+
+        // Create an array of ItemPort[] arrays, one for each size 0-9 and add each Item Port to the appropriate array according to maxsize
+        _.forEach(grouped, (gv, gk) => _.forEach(gv, (cv: ClassifiedItemPort[], ck) => {
           let counts: ClassifiedItemPort[][] = [];
           for (let i = 0; i <= largestSize; i++) counts.push([]);
-
           cv.forEach(itemPort => counts[itemPort.itemPort.maxSize || 0].push(itemPort));
-          this.grouped[gk][ck] = { bySize: counts };
+          grouped[gk][ck] = { bySize: counts };
         }));
 
         console.log("Grouped loadout:", this.grouped);
-      });
+
+        this.ship = ship;
+        this.ItemPorts = ship.findItemPorts();
+        this.grouped = grouped;
+
+      })
     });
   }
 
@@ -165,78 +160,6 @@ export class ShipComponent implements OnInit {
 
   unexpectedGroups() {
     return Object.keys(this.grouped).filter(g => !this.leftGroups.includes(g) && !this.rightGroups.includes(g));
-  }
-
-  async loadItems(itemPorts: IItemPort[], loadouts: JsonLoadout[]): Promise<void> {
-    for (let i = 0; i < itemPorts.length; i++) {
-      let itemPort = itemPorts[i];
-      let loadout: JsonLoadout | undefined = _.find(loadouts, x => x.portName == itemPort.name);
-      if (loadout && loadout.itemName) {
-        itemPort.itemClass = loadout.itemName;
-        itemPort.item = await this.loadItem(loadout.itemName);
-        if (itemPort.item) {
-          let subPorts = itemPort.item.findItemPorts();
-          let manualLoadout = await this.getLoadout(_.get(itemPort.item.Raw, "Entity.Components.SEntityComponentDefaultLoadoutParams", []));
-          let combinedLoadout: JsonLoadout[] = (loadout.Items || []).concat(manualLoadout || []);
-          if (subPorts.length && combinedLoadout.length) await this.loadItems(subPorts, combinedLoadout);
-        }
-      }
-    }
-  }
-
-  async loadItem(itemName: string): Promise<SCItem | undefined> {
-    let loaded: any;
-
-    if (itemName) {
-      if (this.itemCache[itemName]) {
-        loaded = this.itemCache[itemName];
-        console.log("Loaded cached item", itemName);
-      }
-      else {
-        loaded = await this.$http.get<any>(`${environment.api}/items/${itemName.toLowerCase()}.json`).toPromise().catch(e => { });
-        console.log(loaded ? "Loaded item" : "Could not load item", itemName);
-        if (loaded) this.itemCache[itemName] = loaded;
-      }
-    }
-
-    if (!loaded) return undefined;
-
-    // Clone so that each itemPort gets a unique object
-    return new SCItem(JSON.parse(JSON.stringify(loaded)));
-  }
-
-  private async getLoadout(defaultLoadoutParams: SEntityComponentDefaultLoadoutParams): Promise<JsonLoadout[]> {
-    if (!defaultLoadoutParams || !defaultLoadoutParams.loadout) return [];
-
-    let loadouts: JsonLoadout[] = [];
-    if (defaultLoadoutParams.loadout.SItemPortLoadoutManualParams) loadouts = loadouts.concat(await this.getManualLoadout(defaultLoadoutParams.loadout.SItemPortLoadoutManualParams));
-    if (defaultLoadoutParams.loadout.SItemPortLoadoutXMLParams) loadouts = loadouts.concat(await this.getXmlLoadout(defaultLoadoutParams.loadout.SItemPortLoadoutXMLParams));
-    return loadouts;
-  }
-
-  private async getManualLoadout(params: SItemPortLoadoutManualParams): Promise<JsonLoadout[]> {
-    if (!params || !params.entries) return [];
-
-    let loadouts: JsonLoadout[] = [];
-
-    for (let i = 0; i < params.entries.length; i++) {
-      let entry = params.entries[i];
-      let subEntries = await this.getLoadout(entry);
-      let loadout = { itemName: entry.entityClassName, portName: entry.itemPortName, Items: subEntries };
-      loadouts.push(loadout);
-    }
-
-    return loadouts;
-  }
-
-  private async getXmlLoadout(params: SItemPortLoadoutXMLParams): Promise<JsonLoadout[]> {
-    let loadouts = await this.$http.get<any>(`${environment.api}/loadouts/${params.loadoutPath}`).toPromise().catch(e => { });
-
-    if (loadouts) console.log("Loaded loadout", params.loadoutPath);
-    else console.error("Could not load loadout", params.loadoutPath);
-
-    if (loadouts) return loadouts.Items || [];
-    else return [];
   }
 
 }

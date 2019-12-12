@@ -1,0 +1,49 @@
+<div class="container">
+  <table>
+    <tr>
+      <td>Name</td>
+      <td *ngFor="let s of ships">{{s.vehicleName | localise}}</td>
+    </tr>
+    <tr>
+      <td>Career</td>
+      <td *ngFor="let s of ships">{{s.vehicleCareer | localise}}</td>
+    </tr>
+    <tr>
+      <td>Role</td>
+      <td *ngFor="let s of ships">{{s.vehicleRole | localise}}</td>
+    </tr>
+    <tr>
+      <td>Cargo</td>
+      <td *ngFor="let s of ships">{{s.scu}} SCU</td>
+    </tr>
+    <tr>
+      <td>Crew</td>
+      <td *ngFor="let s of ships">{{s.crewSize}} crew</td>
+    </tr>
+    <tr>
+      <td>Quantum range</td>
+      <td *ngFor="let s of ships">{{s.quantumRange | si:'m'}}</td>
+    </tr>
+    <tr>
+      <td>Quantum speed</td>
+      <td *ngFor="let s of ships">{{s.quantumSpeed | si:'m/s'}}</td>
+    </tr>
+    <tr>
+      <td>Quantum fuel capacity</td>
+      <td *ngFor="let s of ships">{{s.quantumFuelCapacity | si:'l'}}</td>
+    </tr>
+    <tr>
+      <td>PO to ArcCorp</td>
+      <td *ngFor="let s of ships">{{s.secondsToArcCorp | number:'1.0-0'}} s</td>
+    </tr>
+    <tr>
+      <td>PO to ArcCorp and back</td>
+      <td *ngFor="let s of ships">{{s.timesToArcCorpAndBack | number:'1.0-1'}} times</td>
+    </tr>
+    <tr>
+      <td>Shields</td>
+      <td *ngFor="let s of ships">{{s.maxShieldHealth | number:'1.0-0'}} HP</td>
+    </tr>
+  </table>
+
+</div>
