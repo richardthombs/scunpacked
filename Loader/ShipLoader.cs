@@ -1,6 +1,4 @@
 using System;
-using System.Xml;
-using System.Xml.Serialization;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
@@ -9,7 +7,6 @@ using Newtonsoft.Json;
 
 using scdb.Xml.Entities;
 using scdb.Xml.Vehicles;
-using scdb.Xml.Turbulent;
 
 namespace Loader
 {
@@ -19,40 +16,42 @@ namespace Loader
 		public string DataRoot { get; set; }
 		public Func<string, string> OnXmlLoadout { get; set; }
 
+		string[] avoids =
+		{
+			"pu",
+			"ai",
+			"civ",
+			"qig",
+			"crim",
+			"pir",
+			"template",
+			"wreck",
+			"piano",
+			"swarm"
+		};
+
 		public List<ShipIndexEntry> Load()
 		{
-			var turbulentFolder = Path.Combine(DataRoot, @"Data\Libs\Foundry\Records\turbulent\vehicles");
-			var spaceshipsFolder = Path.Combine(DataRoot, @"Data\Libs\Foundry\Records\entities\spaceships");
-			var vehiclesFolder = Path.Combine(DataRoot, @"Data\Libs\Foundry\Records\entities\groundvehicles");
-
-			string[] UselessEntities =
-			{
-				"AEGS_Javelin",
-				"ANVL_Hornet_F7A",
-				"DefaultSpaceShips.AEGS.AEGS_Idris",
-				"does_not_exist",
-				"Krig_P72_Archimedes",
-				"MISC_Hull_C",
-				"RSI_IR1337_Weapon_Mount",
-				"TNGS_AEGS_Redeemer",
-				"TNGS_ORIG_AX114"
-			};
-
 			Directory.CreateDirectory(OutputFolder);
 
 			var index = new List<ShipIndexEntry>();
+			index.AddRange(Load(@"Data\Libs\Foundry\Records\entities\spaceships"));
+			index.AddRange(Load(@"Data\Libs\Foundry\Records\entities\groundvehicles"));
+			return index;
+		}
 
-			foreach (var filename in Directory.EnumerateFiles(turbulentFolder, "*.xml"))
+		public List<ShipIndexEntry> Load(string entityFolder)
+		{
+			var index = new List<ShipIndexEntry>();
+
+			foreach (var entityFilename in Directory.EnumerateFiles(Path.Combine(DataRoot, entityFolder), "*.xml"))
 			{
+				if (avoidFile(entityFilename)) continue;
+
 				EntityClassDefinition entity = null;
 				Vehicle vehicle = null;
 				string vehicleModification = null;
 
-				var entry = GetTurbulentEntry(filename);
-				if (UselessEntities.Contains(entry.itemClass)) continue;
-
-				var entityFilename = Path.ChangeExtension(Path.Combine(spaceshipsFolder, entry.itemClass.ToLower()), ".xml");
-				if (!File.Exists(entityFilename)) entityFilename = Path.ChangeExtension(Path.Combine(vehiclesFolder, entry.itemClass.ToLower()), ".xml");
 				Console.WriteLine(entityFilename);
 
 				// Entity
@@ -91,7 +90,8 @@ namespace Loader
 					subType = entity.Components?.SAttachableComponentParams?.AttachDef.SubType,
 					name = entity.Components.VehicleComponentParams.vehicleName,
 					career = entity.Components.VehicleComponentParams.vehicleCareer,
-					role = entity.Components.VehicleComponentParams.vehicleRole
+					role = entity.Components.VehicleComponentParams.vehicleRole,
+					dogFightEnabled = Convert.ToBoolean(entity.Components.VehicleComponentParams.dogfightEnabled)
 				};
 
 				index.Add(indexEntry);
@@ -100,23 +100,14 @@ namespace Loader
 			return index;
 		}
 
-		TurbulentEntry GetTurbulentEntry(string turbulentXmlFile)
+		bool avoidFile(string filename)
 		{
-			var rootNode = Path.GetFileNameWithoutExtension(turbulentXmlFile).ToUpper();
-			rootNode = rootNode.Replace("-", "_");
-			rootNode = rootNode.Replace("TURBULENTENTRY", "TurbulentEntry");
-			if (!rootNode.StartsWith("TurbulentEntry")) rootNode = $"TurbulentEntry.{rootNode}";
-
-			var xml = File.ReadAllText(turbulentXmlFile);
-			var doc = new XmlDocument();
-			doc.LoadXml(xml);
-
-			var serialiser = new XmlSerializer(typeof(TurbulentEntry), new XmlRootAttribute { ElementName = rootNode });
-			using (var stream = new XmlNodeReader(doc))
+			var fileSplit = filename.Split("_");
+			foreach (var part in fileSplit)
 			{
-				var entry = (TurbulentEntry)serialiser.Deserialize(stream);
-				return entry;
+				if (avoids.Contains(part)) return true;
 			}
+			return false;
 		}
 	}
 }

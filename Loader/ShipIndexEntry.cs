@@ -9,5 +9,6 @@ namespace Loader
 		public string className;
 		public string type;
 		public string subType;
+		public bool dogFightEnabled;
 	}
 }
