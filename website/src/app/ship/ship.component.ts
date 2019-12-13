@@ -126,11 +126,15 @@ export class ShipComponent implements OnInit {
           grouped[gk][ck] = { bySize: counts };
         }));
 
-        console.log("Grouped loadout:", this.grouped);
-
         this.ship = ship;
         this.ItemPorts = ship.findItemPorts();
         this.grouped = grouped;
+
+        console.log("Ship", this.ship);
+        console.log("ItemPorts", this.ItemPorts);
+        console.log("Grouped loadout:", this.grouped);
+
+        console.log(ship.findItemPorts(ip => ip.item != null && ip.item.type == "FlightController"));
 
       })
     });

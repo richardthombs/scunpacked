@@ -89,6 +89,18 @@ export class Ship {
     return _.reduce(this.findItemPorts(ip => ip.item != null && ip.item.type == "ManneuverThruster"), (total, ip) => total + _.get(ip.item, "maxThrustFuelBurnRate", 0), 0);
   }
 
+  get maxSpeed(): number {
+    var ifcs = this.findItemPorts(ip => ip.item != null && ip.item.type == "FlightController");
+    if (ifcs.length) return _.get(ifcs[0].item, "Raw.Entity.Components.IFCSParams.maxAfterburnSpeed", 0);
+    else return 0;
+  }
+
+  get scmSpeed(): number {
+    var ifcs = this.findItemPorts(ip => ip.item != null && ip.item.type == "FlightController");
+    if (ifcs.length) return _.get(ifcs[0].item, "Raw.Entity.Components.IFCSParams.maxSpeed", 0);
+    else return 0;
+  }
+
   findParts(predicate?: (p: Part) => boolean): Part[] {
     var found: Part[] = [];
     this.Parts.forEach(part => {
