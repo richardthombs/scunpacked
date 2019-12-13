@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import * as _ from "lodash";
 
 import { environment } from "../../environments/environment";
-import { Ship } from '../Ship';
+import { LocalisationService } from '../localisation.service';
 
 @Component({
   selector: 'app-shiplist',
@@ -11,34 +11,60 @@ import { Ship } from '../Ship';
   styleUrls: ['./shiplist.component.scss']
 })
 export class ShipListComponent implements OnInit {
-  grouped: { [id: string]: ShipIndexEntry[] } = {};
-  doubleGrouped: { [id: string]: { [id: string]: ShipIndexEntry[] } } = {};
-  byRole: { [id: string]: ShipIndexEntry[] } = {};
 
-  constructor(private $http: HttpClient) { }
+  byRoles: {
+    [id: string]: {
+      [id: string]: ShipIndexEntry[]
+    }
+  } = {};
+
+  constructor(private $http: HttpClient, private localisationSvc: LocalisationService) { }
 
   ngOnInit() {
     this.$http.get<ShipIndexEntry[]>(`${environment.api}/ships.json`).subscribe(r => {
       r = r.filter(x => x.career != "@LOC_PLACEHOLDER");
       r = r.filter(x => x.dogFightEnabled);
 
-      this.byRole = _.groupBy(r, s => s.role);
-      _.each(this.byRole, (g, i) => this.byRole[i] = _.sortBy(g, s => s.className));
+      // Figure out our own roles and sub-roles rather than using CIG's career/roles
+      r.forEach(s => {
+        s.groundVehicle = (s.career == "@vehicle_focus_ground")
+        s.roles = _.flatMap(this.localisationSvc.getText(s.role).split(" / "), cigRole => {
+          if (s.groundVehicle) return { role: "Ground vehicle", subRole: cigRole };
+          return this.hasPrefix(cigRole) ? cigRole.split(" ").map(rr => { return { role: rr, subRole: cigRole }; }) : { role: cigRole, subRole: "General" }
+        });
+      });
 
-
-      this.grouped = _.groupBy(r, x => x.career);
-      _.each(this.grouped, (g, i) => this.grouped[i] = _.sortBy(g, s => s.className));
-
-      console.log(this.grouped);
-
-      _.each(this.grouped, (value, key) => this.doubleGrouped[key] = _.groupBy(this.grouped[key], x => x.role));
+      // Group by role and sub-role, ships will appear in multiple groupings
+      r.forEach(s => {
+        s.roles.forEach(r => {
+          if (!this.byRoles[r.role]) this.byRoles[r.role] = {};
+          if (!this.byRoles[r.role][r.subRole]) this.byRoles[r.role][r.subRole] = [];
+          this.byRoles[r.role][r.subRole].push(s);
+        });
+      });
 
     });
   }
 
-  shipList(ships: ShipIndexEntry[]): string {
+  shipsInRole(role: { [id: string]: ShipIndexEntry[] }): string {
+    let ships: string[] = [];
+    _.map(role, subRole => ships = ships.concat(_.map(subRole, s => s.className.toLowerCase())));
+    return ships.join(",");
+  }
+
+  shipsInSubRole(ships: ShipIndexEntry[]): string {
     return _.map(ships, s => s.className.toLowerCase()).join(",");
   }
+
+  private hasPrefix(role: string): boolean {
+    if (role.startsWith("Light")) return true;
+    if (role.startsWith("Medium")) return true;
+    if (role.startsWith("Heavy")) return true;
+    if (role.startsWith("Stealth")) return true;
+    if (role.startsWith("Snub")) return true;
+    return false;
+  }
+
 }
 
 interface ShipIndexEntry {
@@ -50,4 +76,8 @@ interface ShipIndexEntry {
   type: string;
   subType: string;
   dogFightEnabled: boolean;
+
+  // We add these fields as we parse what we download from the API
+  roles: { role: string, subRole: string }[];
+  groundVehicle: boolean;
 }

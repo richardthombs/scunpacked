@@ -21,6 +21,7 @@ export class ShipService {
   async load(shipClass: string): Promise<Ship> {
     let shipObj = await this.$http.get<any>(`${environment.api}/ships/${shipClass.toLowerCase()}.json`).toPromise();
     let ship = new Ship(shipObj.Raw);
+    console.log("Loaded ship", shipClass, shipObj);
 
     console.log("Initialising loadout");
     let vehiclePorts = ship.findItemPorts(ip => ip instanceof ItemPort);
