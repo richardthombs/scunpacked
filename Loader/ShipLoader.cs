@@ -97,6 +97,9 @@ namespace Loader
 				});
 				File.WriteAllText(jsonFilename, json);
 
+				bool isGroundVehicle = entity.Components?.VehicleComponentParams.vehicleCareer == "@vehicle_focus_ground";
+				bool isGravlevVehicle = entity.Components?.VehicleComponentParams.isGravlevVehicle ?? false;
+				bool isSpaceship = !(isGroundVehicle || isGravlevVehicle);
 				var indexEntry = new ShipIndexEntry
 				{
 					jsonFilename = Path.GetRelativePath(Path.GetDirectoryName(OutputFolder), jsonFilename),
@@ -107,7 +110,10 @@ namespace Loader
 					career = entity.Components.VehicleComponentParams.vehicleCareer,
 					role = entity.Components.VehicleComponentParams.vehicleRole,
 					dogFightEnabled = Convert.ToBoolean(entity.Components.VehicleComponentParams.dogfightEnabled),
-					size = vehicle?.size
+					size = vehicle?.size,
+					isGroundVehicle = isGroundVehicle,
+					isGravlevVehicle = isGravlevVehicle,
+					isSpaceship = isSpaceship
 				};
 
 				index.Add(indexEntry);

@@ -24,7 +24,7 @@ namespace scdb.Xml.Entities
 		public int unmovable;
 
 		[XmlAttribute]
-		public int isGravlevVehicle;
+		public bool isGravlevVehicle;
 
 		[XmlAttribute]
 		public double incomingDamageModifierToAI;

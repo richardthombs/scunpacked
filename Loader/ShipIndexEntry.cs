@@ -11,5 +11,8 @@ namespace Loader
 		public string subType;
 		public bool dogFightEnabled;
 		public int? size;
+		public bool isGroundVehicle;
+		public bool isGravlevVehicle;
+		public bool isSpaceship;
 	}
 }

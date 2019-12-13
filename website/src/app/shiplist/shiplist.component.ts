@@ -32,13 +32,14 @@ export class ShipListComponent implements OnInit {
 
       // Figure out our own roles and sub-roles rather than using CIG's career/roles
       r.forEach(s => {
-        s.groundVehicle = (s.career == "@vehicle_focus_ground")
         s.roles = _.flatMap(this.localisationSvc.getText(s.role).split(" / "), cigRole => {
-          if (s.groundVehicle) return { role: "Ground vehicle", subRole: cigRole };
-          return this.hasPrefix(cigRole) ? cigRole.split(" ").filter(rr => !this.isSizePrefix(rr)).map(rr => { return { role: rr, subRole: cigRole }; }) : { role: cigRole, subRole: "General" }
+          if (s.isGroundVehicle) return { role: "Ground vehicle", subRole: cigRole };
+          if (s.isGravlevVehicle) return { role: "Gravlev vehicle", subRole: cigRole };
+          return this.isRolePrefix(cigRole) ? cigRole.split(" ").filter(rr => !this.isSizePrefix(rr)).map(rr => { return { role: rr, subRole: cigRole }; }) : { role: cigRole, subRole: "General" }
         });
-        if (s.groundVehicle) s.roles.push({ role: "Vehicles by size", subRole: this.sizes.vehicleSizes[s.size || 0] })
-        else s.roles.push({ role: "Spaceships by size", subRole: this.sizes.shipSizes[s.size || 0] })
+
+        if (s.isSpaceship) s.roles.push({ role: "Spaceships by size", subRole: this.sizes.shipSizes[s.size || 0] })
+        if (s.isGroundVehicle) s.roles.push({ role: "Vehicles by size", subRole: this.sizes.vehicleSizes[s.size || 0] })
       });
 
       // Group by role and sub-role, ships will appear in multiple groupings
@@ -63,7 +64,7 @@ export class ShipListComponent implements OnInit {
     return _.map(ships, s => s.className.toLowerCase()).join(",");
   }
 
-  private hasPrefix(role: string): boolean {
+  private isRolePrefix(role: string): boolean {
     if (role.startsWith("Light")) return true;
     if (role.startsWith("Medium")) return true;
     if (role.startsWith("Heavy")) return true;
@@ -92,8 +93,10 @@ interface ShipIndexEntry {
   subType: string;
   dogFightEnabled: boolean;
   size?: number;
+  isGroundVehicle: boolean;
+  isGravlevVehicle: boolean;
+  isSpaceship: boolean;
 
   // We add these fields as we parse what we download from the API
   roles: { role: string, subRole: string }[];
-  groundVehicle: boolean;
 }
