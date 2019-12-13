@@ -10,5 +10,6 @@ namespace Loader
 		public string type;
 		public string subType;
 		public bool dogFightEnabled;
+		public int? size;
 	}
 }

@@ -106,7 +106,8 @@ namespace Loader
 					name = entity.Components.VehicleComponentParams.vehicleName,
 					career = entity.Components.VehicleComponentParams.vehicleCareer,
 					role = entity.Components.VehicleComponentParams.vehicleRole,
-					dogFightEnabled = Convert.ToBoolean(entity.Components.VehicleComponentParams.dogfightEnabled)
+					dogFightEnabled = Convert.ToBoolean(entity.Components.VehicleComponentParams.dogfightEnabled),
+					size = vehicle?.size
 				};
 
 				index.Add(indexEntry);
