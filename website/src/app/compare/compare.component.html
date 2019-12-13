@@ -1,47 +1,47 @@
-<div class="container">
+<div class="container-fluid">
   <table>
     <tr>
-      <td>Name</td>
-      <td *ngFor="let s of ships">{{s.vehicleName | localise}}</td>
+      <td (click)="sortBy('vehicleName')">Name</td>
+      <td *ngFor="let s of ships"><a [routerLink]="['/ships', s.className.toLowerCase()]">{{s.vehicleName | localise}}</a></td>
     </tr>
     <tr>
-      <td>Career</td>
+      <td (click)="sortBy('vehicleCareer')">Career</td>
       <td *ngFor="let s of ships">{{s.vehicleCareer | localise}}</td>
     </tr>
     <tr>
-      <td>Role</td>
+      <td (click)="sortBy('vehicleRole')">Role</td>
       <td *ngFor="let s of ships">{{s.vehicleRole | localise}}</td>
     </tr>
     <tr>
-      <td>Cargo</td>
+      <td (click)="sortBy('scu','desc')">Cargo</td>
       <td *ngFor="let s of ships">{{s.scu}} SCU</td>
     </tr>
     <tr>
-      <td>Crew</td>
+      <td (click)="sortBy('crewSize', 'desc')">Crew</td>
       <td *ngFor="let s of ships">{{s.crewSize}} crew</td>
     </tr>
     <tr>
-      <td>Quantum range</td>
+      <td (click)="sortBy('quantumRange', 'desc')">Quantum range</td>
       <td *ngFor="let s of ships">{{s.quantumRange | si:'m'}}</td>
     </tr>
     <tr>
-      <td>Quantum speed</td>
+      <td (click)="sortBy('quantumSpeed', 'desc')">Quantum speed</td>
       <td *ngFor="let s of ships">{{s.quantumSpeed | si:'m/s'}}</td>
     </tr>
     <tr>
-      <td>Quantum fuel capacity</td>
+      <td (click)="sortBy('quantumFuelCapacity', 'desc')">Quantum fuel capacity</td>
       <td *ngFor="let s of ships">{{s.quantumFuelCapacity | si:'l'}}</td>
     </tr>
     <tr>
-      <td>PO to ArcCorp</td>
+      <td (click)="sortBy('secondsToArcCorp')">PO to ArcCorp</td>
       <td *ngFor="let s of ships">{{s.secondsToArcCorp | number:'1.0-0'}} s</td>
     </tr>
     <tr>
-      <td>PO to ArcCorp and back</td>
-      <td *ngFor="let s of ships">{{s.timesToArcCorpAndBack | number:'1.0-1'}} times</td>
+      <td (click)="sortBy('timesToArcCorpAndBack','desc')">PO to ArcCorp and back</td>
+      <td *ngFor="let s of ships">{{s.timesToArcCorpAndBack || 0 | number:'1.0-1'}} times</td>
     </tr>
     <tr>
-      <td>Shields</td>
+      <td (click)="sortBy('maxShieldHealth','desc')">Shields</td>
       <td *ngFor="let s of ships">{{s.maxShieldHealth | number:'1.0-0'}} HP</td>
     </tr>
   </table>

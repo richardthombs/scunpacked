@@ -20,7 +20,6 @@ export class ShipService {
 
   async load(shipClass: string): Promise<Ship> {
     let shipObj = await this.$http.get<any>(`${environment.api}/ships/${shipClass.toLowerCase()}.json`).toPromise();
-    console.log(shipObj);
     let ship = new Ship(shipObj.Raw);
 
     console.log("Initialising loadout");

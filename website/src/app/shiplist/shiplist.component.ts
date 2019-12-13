@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Query } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import * as _ from "lodash";
 
 import { environment } from "../../environments/environment";
+import { Ship } from '../Ship';
 
 @Component({
   selector: 'app-shiplist',
@@ -33,6 +34,10 @@ export class ShipListComponent implements OnInit {
       _.each(this.grouped, (value, key) => this.doubleGrouped[key] = _.groupBy(this.grouped[key], x => x.role));
 
     });
+  }
+
+  shipList(ships: ShipIndexEntry[]): string {
+    return _.map(ships, s => s.className.toLowerCase()).join(",");
   }
 }
 

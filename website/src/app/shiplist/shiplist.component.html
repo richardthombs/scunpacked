@@ -6,7 +6,10 @@
         <h5 class="mb-0">{{career.key | localise}}</h5>
         <ng-container *ngFor="let role of career.value | keyvalue">
           <div>
-            <h6 class="mt-3 mb-0">{{role.key | localise}}</h6>
+            <h6 class="mt-3 mb-0">
+              {{role.key | localise}}
+              <a *ngIf="role.value.length > 1" [routerLink]="['/compare']" [queryParams]="{ships:shipList(role.value)}"><small>Compare all</small></a>
+            </h6>
             <div *ngFor="let ship of role.value">
               <a [routerLink]="['/ships', ship.className.toLowerCase()]" [title]="ship.name | localise">{{ship.name | localise}}</a>
             </div>

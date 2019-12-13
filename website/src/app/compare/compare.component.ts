@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import * as _ from 'lodash';
 
 import { ShipService } from '../ship.service';
 import { Ship } from '../Ship';
@@ -11,22 +13,42 @@ import { Ship } from '../Ship';
 })
 export class CompareComponent implements OnInit {
 
-  ships: any[] | undefined;
+  ships: Ship[] = [];
 
-  constructor(private shipSvc: ShipService) { }
+  private currentSortField: string = "vehicleName";
+  private currentSortDirection: "asc" | "desc" = "asc";
+
+  constructor(private shipSvc: ShipService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let shipClasses = ["misc_freelancer", "misc_freelancer_max", "drak_cutlass_black", "drak_caterpillar"];
+    this.route.queryParamMap.subscribe(params => {
 
-    let shipPromises: Promise<Ship>[] = [];
+      let shipsParam: string = params.get("ships") || "";
+      let shipClasses = shipsParam.split(",");
 
-    for (let i = 0; i < shipClasses.length; i++) {
-      shipPromises[i] = this.shipSvc.load(shipClasses[i]);
-    }
+      let shipPromises: Promise<Ship>[] = [];
 
-    Promise.all(shipPromises).then((ships: Ship[]) => {
-      this.ships = ships;
+      this.ships = [];
+      for (let i = 0; i < shipClasses.length; i++) {
+        shipPromises[i] = this.shipSvc.load(shipClasses[i]).then(s => { this.ships.push(s); this.applySort(); return s; });
+      }
+
+      Promise.all(shipPromises).then((ships: Ship[]) => {
+        //this.sortBy(this.currentSortField);
+      });
+
     });
+  }
+
+  sortBy(field: string, defaultDirection?: "asc" | "desc") {
+    if (field == this.currentSortField) this.currentSortDirection = this.currentSortDirection == "asc" ? "desc" : "asc";
+    else this.currentSortDirection = defaultDirection || "asc";
+    this.currentSortField = field;
+    this.applySort();
+  }
+
+  applySort() {
+    this.ships = _.orderBy(this.ships, [s => _.get(s, this.currentSortField)], [this.currentSortDirection]);
   }
 
 }
