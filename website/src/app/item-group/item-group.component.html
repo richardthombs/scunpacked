@@ -1,7 +1,7 @@
 <h4 class="mt-4">{{groupName}}</h4>
 <ol *ngIf="groupItems" class="list-group">
   <ng-container *ngFor="let class of groupItems | keyvalue">
-    <li (click)="toggleItems(class.key)" class="list-group-item d-flex" style="cursor: pointer">
+    <li (click)="toggleItems(class.key)" class="list-group-item d-flex cursor-pointer">
       <div class="mr-auto" style="align-self: center">
         <strong>{{class.key}}</strong>
       </div>

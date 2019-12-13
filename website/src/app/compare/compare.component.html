@@ -1,8 +1,8 @@
-<div class="container-fluid">
+<div class="container-fluid mt-3">
   <table>
     <tr>
-      <td (click)="sortBy('vehicleName')">Name</td>
-      <td *ngFor="let s of ships"><a [routerLink]="['/ships', s.className.toLowerCase()]">{{s.vehicleName | localise}}</a></td>
+      <td (click)="sortBy('vehicleName')" class="text-right">Name</td>
+      <td *ngFor="let s of ships" class="font-weight-bold"><a [routerLink]="['/ships', s.className.toLowerCase()]">{{s.vehicleName | localise}}</a></td>
     </tr>
     <tr>
       <td (click)="sortBy('vehicleCareer')">Career</td>
