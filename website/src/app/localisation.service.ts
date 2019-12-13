@@ -18,7 +18,7 @@ export class LocalisationService {
     return text.replace(/\\n/g, "\n");
   }
 
-  static SetLabels(translations: any) {
+  static SetLabels(translations: { [id: string]: string }) {
     this.translations = translations;
   }
 }
