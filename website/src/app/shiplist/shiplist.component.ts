@@ -5,6 +5,12 @@ import * as _ from "lodash";
 import { environment } from "../../environments/environment";
 import { LocalisationService } from '../localisation.service';
 
+type doubleGroupedShipList = {
+  [id: string]: {
+    [id: string]: ShipIndexEntry[]
+  }
+}
+
 @Component({
   selector: 'app-shiplist',
   templateUrl: './shiplist.component.html',
@@ -12,11 +18,9 @@ import { LocalisationService } from '../localisation.service';
 })
 export class ShipListComponent implements OnInit {
 
-  byRoles: {
-    [id: string]: {
-      [id: string]: ShipIndexEntry[]
-    }
-  } = {};
+  byRoles: doubleGroupedShipList = {};
+  specials: doubleGroupedShipList = {};
+  bySize: doubleGroupedShipList = {};
 
   private sizes = {
     shipSizes: ["Size 0", "Size 1", "Size 2", "Size 3", "Size 4", "Size 5", "Size 6"],
@@ -33,13 +37,14 @@ export class ShipListComponent implements OnInit {
       // Figure out our own roles and sub-roles rather than using CIG's career/roles
       r.forEach(s => {
         s.roles = _.flatMap(this.localisationSvc.getText(s.role).split(" / "), cigRole => {
-          if (s.isGroundVehicle) return { role: "Ground vehicle", subRole: cigRole };
-          if (s.isGravlevVehicle) return { role: "Gravlev vehicle", subRole: cigRole };
+          if (s.isGroundVehicle) return { role: "Ground vehicles", subRole: cigRole };
+          if (s.isGravlevVehicle) return { role: "Gravlev vehicles", subRole: cigRole };
           return this.isRolePrefix(cigRole) ? cigRole.split(" ").filter(rr => !this.isSizePrefix(rr)).map(rr => { return { role: rr, subRole: cigRole }; }) : { role: cigRole, subRole: "General" }
         });
 
         if (s.isSpaceship) s.roles.push({ role: "Spaceships by size", subRole: this.sizes.shipSizes[s.size || 0] })
-        if (s.isGroundVehicle) s.roles.push({ role: "Vehicles by size", subRole: this.sizes.vehicleSizes[s.size || 0] })
+        if (s.isGroundVehicle) s.roles.push({ role: "Ground vehicles by size", subRole: this.sizes.vehicleSizes[s.size || 0] })
+        if (s.isGravlevVehicle) s.roles.push({ role: "Gravlev vehicles by size", subRole: this.sizes.vehicleSizes[s.size || 0] })
       });
 
       // Group by role and sub-role, ships will appear in multiple groupings
@@ -51,6 +56,21 @@ export class ShipListComponent implements OnInit {
         });
       });
 
+      // Move special groupings
+      ["Ground vehicles", "Gravlev vehicles"].forEach(
+        grouping => {
+          this.specials[grouping] = this.byRoles[grouping];
+          delete this.byRoles[grouping];
+        }
+      );
+
+      // Move into by size groupings
+      ["Spaceships by size", "Ground vehicles by size", "Gravlev vehicles by size"].forEach(
+        grouping => {
+          this.bySize[grouping] = this.byRoles[grouping];
+          delete this.byRoles[grouping];
+        }
+      );
     });
   }
 
