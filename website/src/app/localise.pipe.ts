@@ -1,23 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { LocalisationService } from './localisation.service';
 
 @Pipe({
   name: 'localise'
 })
 export class LocalisePipe implements PipeTransform {
 
+  constructor(private localisationSvc: LocalisationService) { }
+
   static strings: { [id: string]: string }
 
   transform(value: string, ...args: any[]): string {
-    if (!value) return "";
-    if (value == "@LOC_PLACEHOLDER") return args[0] || "";
-
-    var label = value.startsWith("@") ? value.substring(1) : value;
-    var text = LocalisePipe.strings && LocalisePipe.strings[label] ? LocalisePipe.strings[label] : args[0] || value;
-    return text.replace(/\\n/g, "\n");
+    let text = this.localisationSvc.getText(value, args[0]);
+    return text;
   }
-
-  static SetLabels(labels: any) {
-    this.strings = labels;
-  }
-
 }

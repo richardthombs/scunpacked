@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 import { ShipListComponent } from "./shiplist/shiplist.component";
 import { ShipComponent } from './ship/ship.component';
 import { CompareComponent } from './compare/compare.component';
-import { LocalisePipe } from './localise.pipe';
+import { LocalisationService } from './localisation.service';
 
 
 @Injectable()
@@ -17,7 +17,7 @@ export class LabelsResolver implements Resolve<any> {
   constructor(private $http: HttpClient) { }
 
   resolve(): Observable<any> | Promise<any> | any {
-    return this.$http.get(`${environment.api}/labels.json`).toPromise().then(r => LocalisePipe.SetLabels(r));
+    return this.$http.get<{ [id: string]: string }>(`${environment.api}/labels.json`).toPromise().then(r => LocalisationService.SetLabels(r));
   }
 }
 
