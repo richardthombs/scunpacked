@@ -22,11 +22,6 @@ export class ShipListComponent implements OnInit {
   specials: doubleGroupedShipList = {};
   bySize: doubleGroupedShipList = {};
 
-  private sizes = {
-    shipSizes: ["Size 0", "Size 1", "Size 2", "Size 3", "Size 4", "Size 5", "Size 6"],
-    vehicleSizes: ["Size 0", "Size 1", "Size 2", "Size 3", "Size 4", "Size 5", "Size 6"]
-  };
-
   constructor(private $http: HttpClient, private localisationSvc: LocalisationService) { }
 
   ngOnInit() {
@@ -42,9 +37,9 @@ export class ShipListComponent implements OnInit {
           return this.isRolePrefix(cigRole) ? cigRole.split(" ").filter(rr => !this.isSizePrefix(rr)).map(rr => { return { role: rr, subRole: cigRole }; }) : { role: cigRole, subRole: "General" }
         });
 
-        if (s.isSpaceship) s.roles.push({ role: "Spaceships by size", subRole: this.sizes.shipSizes[s.size || 0] })
-        if (s.isGroundVehicle) s.roles.push({ role: "Ground vehicles by size", subRole: this.sizes.vehicleSizes[s.size || 0] })
-        if (s.isGravlevVehicle) s.roles.push({ role: "Gravlev vehicles by size", subRole: this.sizes.vehicleSizes[s.size || 0] })
+        if (s.isSpaceship) s.roles.push({ role: "Spaceships by size", subRole: `Size ${s.size || 0}` })
+        if (s.isGroundVehicle) s.roles.push({ role: "Ground vehicles by size", subRole: `Size ${s.size || 0}` })
+        if (s.isGravlevVehicle) s.roles.push({ role: "Gravlev vehicles by size", subRole: `Size ${s.size || 0}` })
       });
 
       // Group by role and sub-role, ships will appear in multiple groupings
