@@ -27,18 +27,17 @@ export class ShipListComponent implements OnInit {
   ngOnInit() {
     this.$http.get<ShipIndexEntry[]>(`${environment.api}/ships.json`).subscribe(r => {
 
-      //r = r.filter(x => x.career != "@LOC_PLACEHOLDER");
-      //r = r.filter(x => x.dogFightEnabled);
-
       // Fix ships without names
       r.forEach(s => s.name = (s.name == "@LOC_PLACEHOLDER" || s.name == "@LOC_UNINITIALIZED") ? s.className : s.name)
 
       // Figure out our own roles and sub-roles rather than using CIG's career/roles
       r.forEach(s => {
         s.roles = _.flatMap(this.localisationSvc.getText(s.role).split(" / "), cigRole => {
+          if (!s.dogFightEnabled || s.career == "@LOC_PLACEHOLDER" || s.noParts) return { role: "Under development", subRole: "General" };
+
           if (s.isGroundVehicle) return { role: "Ground vehicles", subRole: cigRole };
           if (s.isGravlevVehicle) return { role: "Gravlev vehicles", subRole: cigRole };
-          if (!s.dogFightEnabled || s.career == "@LOC_PLACEHOLDER") return { role: "Under development", subRole: "General" };
+
           return this.isRolePrefix(cigRole) ? cigRole.split(" ").filter(rr => !this.isSizePrefix(rr)).map(rr => { return { role: rr, subRole: cigRole }; }) : { role: cigRole, subRole: "General" }
         });
 
@@ -57,7 +56,7 @@ export class ShipListComponent implements OnInit {
       });
 
       // Move special groupings
-      ["Ground vehicles", "Gravlev vehicles"].forEach(
+      ["Ground vehicles", "Gravlev vehicles", "Under development"].forEach(
         grouping => {
           this.specials[grouping] = this.byRoles[grouping];
           delete this.byRoles[grouping];
@@ -116,6 +115,7 @@ interface ShipIndexEntry {
   isGroundVehicle: boolean;
   isGravlevVehicle: boolean;
   isSpaceship: boolean;
+  noParts: boolean;
 
   // We add these fields as we parse what we download from the API
   roles: { role: string, subRole: string }[];

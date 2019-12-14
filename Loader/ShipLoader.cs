@@ -115,7 +115,8 @@ namespace Loader
 					size = vehicle?.size,
 					isGroundVehicle = isGroundVehicle,
 					isGravlevVehicle = isGravlevVehicle,
-					isSpaceship = isSpaceship
+					isSpaceship = isSpaceship,
+					noParts = vehicle == null || vehicle.Parts == null || vehicle.Parts.Length == 0
 				};
 
 				index.Add(indexEntry);

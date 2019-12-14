@@ -14,5 +14,6 @@ namespace Loader
 		public bool isGroundVehicle;
 		public bool isGravlevVehicle;
 		public bool isSpaceship;
+		public bool noParts;
 	}
 }
