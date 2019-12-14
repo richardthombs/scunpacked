@@ -1,18 +1,16 @@
-﻿using scdb.Xml.Entities;
-using scdb.Xml.DefaultLoadouts;
+﻿using scdb.Xml.DefaultLoadouts;
 
 namespace Loader
 {
 	public class ItemIndexEntry
 	{
-		public string json;
-		public string ClassName;
-		public string ItemName;
-		public string Type;
-		public string SubType;
-		public string EntityFilename;
-		public string DefaultLoadoutFilename;
-		public EntityClassDefinition Entity;
-		public Loadout DefaultLoadout;
+		public string jsonFilename;
+		public string className;
+		public string itemName;
+		public string type;
+		public string subType;
+		public int? size;
+		public int? grade;
+		public string name;
 	}
 }

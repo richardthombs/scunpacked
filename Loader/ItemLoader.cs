@@ -59,13 +59,14 @@ namespace Loader
 
 				index.Add(new ItemIndexEntry
 				{
-					json = Path.GetRelativePath(Path.GetDirectoryName(OutputFolder), jsonFilename),
-					ClassName = entity.ClassName,
-					ItemName = entity.ClassName.ToLower(),
-					Type = entity.Components?.SAttachableComponentParams?.AttachDef.Type,
-					SubType = entity.Components?.SAttachableComponentParams?.AttachDef.SubType,
-					EntityFilename = Path.GetRelativePath(DataRoot, entityFilename),
-					Entity = entity
+					jsonFilename = Path.GetRelativePath(Path.GetDirectoryName(OutputFolder), jsonFilename),
+					className = entity.ClassName,
+					itemName = entity.ClassName.ToLower(),
+					type = entity.Components?.SAttachableComponentParams?.AttachDef.Type,
+					subType = entity.Components?.SAttachableComponentParams?.AttachDef.SubType,
+					size = entity.Components?.SAttachableComponentParams?.AttachDef.Size,
+					grade = entity.Components?.SAttachableComponentParams?.AttachDef.Grade,
+					name = entity.Components?.SAttachableComponentParams?.AttachDef.Localization.Name
 				});
 			}
 			return index;

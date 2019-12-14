@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using NDesk.Options;
 
-using scdb.Xml.Entities;
-
 namespace Loader
 {
 	class Program
@@ -85,16 +83,6 @@ namespace Loader
 			};
 			var itemIndex = itemLoader.Load();
 			File.WriteAllText(Path.Combine(outputRoot, "items.json"), JsonConvert.SerializeObject(itemIndex));
-
-			var itemDict = new Dictionary<string, EntityCacheEntry>();
-			itemIndex.ForEach(i => itemDict.Add(i.ItemName, new EntityCacheEntry { item = i.ItemName, entityFilename = i.EntityFilename, entity = i.Entity }));
 		}
-	}
-
-	public class EntityCacheEntry
-	{
-		public string item;
-		public string entityFilename;
-		public EntityClassDefinition entity;
 	}
 }
