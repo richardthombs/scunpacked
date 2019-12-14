@@ -31,6 +31,14 @@ namespace Loader
 				return;
 			}
 
+			// Erase the contents of the output folder
+			if (Directory.Exists(outputRoot))
+			{
+				var info = new DirectoryInfo(outputRoot);
+				foreach (var file in info.GetFiles()) file.Delete();
+				foreach (var dir in info.GetDirectories()) dir.Delete(true);
+			}
+
 			JsonConvert.DefaultSettings = () => new JsonSerializerSettings
 			{
 				Formatting = Formatting.Indented,
