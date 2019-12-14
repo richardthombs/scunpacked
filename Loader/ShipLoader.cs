@@ -31,6 +31,8 @@ namespace Loader
 			"swarm",
 			"nointerior",
 			"s42",
+			"hijacked",
+			"comms",
 
 			// Skin variants
 			"pink",

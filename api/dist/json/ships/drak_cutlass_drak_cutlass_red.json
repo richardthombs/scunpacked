@@ -38,9 +38,59 @@
         },
         "SEntityComponentDefaultLoadoutParams": {
           "loadout": {
-            "SItemPortLoadoutXMLParams": {
-              "loadoutPath": "default_loadout_drak_cutlass_red.json",
-              "__type": "SItemPortLoadoutBaseParams"
+            "SItemPortLoadoutManualParams": {
+              "entries": [
+                {
+                  "itemPortName": "hardpoint_selfdestruct",
+                  "entityClassName": "VHCL_SelfDestruct_30s",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_power_plant",
+                  "entityClassName": "POWR_JUST_S02_Trommel_SCItem",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_cooler",
+                  "entityClassName": "COOL_JSPN_S02_FrostStarEX_SCItem",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_thruster_left_wing_top",
+                  "entityClassName": "DRAK_Cutlass_Maneuver",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_thruster_right_wing_top",
+                  "entityClassName": "DRAK_Cutlass_Maneuver",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "landingpad_helper",
+                  "entityClassName": "Default_LandingSystem",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_class_1_wing_left",
+                  "entityClassName": "BEHR_LaserCannon_S1",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_class_1_wing_right",
+                  "entityClassName": "BEHR_LaserCannon_S1",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_class_1_left",
+                  "entityClassName": "MXOX_NeutronCannon_S1",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_class_1_right",
+                  "entityClassName": "MXOX_NeutronCannon_S1",
+                  "loadout": {}
+                }
+              ]
             }
           }
         },
@@ -131,13 +181,12 @@
       "Parts": [
         {
           "name": "DRAK_Cutlass_Red",
-          "mass": 33000.0,
+          "mass": "33000",
           "damageMax": 0.0,
           "class": "Animated",
           "Parts": [
             {
               "name": "landingpad_helper",
-              "mass": 0.0,
               "damageMax": 0.0,
               "class": "ItemPort",
               "ItemPort": {
@@ -154,13 +203,11 @@
             },
             {
               "name": "Nose",
-              "mass": 0.0,
               "damageMax": 2512.0,
               "class": "AnimatedJoint",
               "Parts": [
                 {
                   "name": "hardpoint_avionics_motherboard",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -192,7 +239,6 @@
                 },
                 {
                   "name": "hardpoint_gunner_avionics",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -224,7 +270,6 @@
                 },
                 {
                   "name": "hardpoint_class2_nose",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -268,7 +313,6 @@
                 },
                 {
                   "name": "hardpoint_radar",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -286,91 +330,76 @@
                 },
                 {
                   "name": "Nose_25_debris1",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "AnimatedJoint"
                 },
                 {
                   "name": "Nose_25_debris2",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "AnimatedJoint"
                 },
                 {
                   "name": "Nose_25_debris3",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "AnimatedJoint"
                 },
                 {
                   "name": "Nose_50_debris1",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "AnimatedJoint"
                 },
                 {
                   "name": "Nose_50_debris2",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "AnimatedJoint"
                 },
                 {
                   "name": "Nose_50_debris3",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "AnimatedJoint"
                 },
                 {
                   "name": "Nose_75_debris1",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "AnimatedJoint"
                 },
                 {
                   "name": "Nose_75_debris2",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "AnimatedJoint"
                 },
                 {
                   "name": "Nose_100_debris1",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "AnimatedJoint"
                 },
                 {
                   "name": "Nose_100_debris2",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "AnimatedJoint"
                 },
                 {
                   "name": "Nose_100_debris3",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "AnimatedJoint"
                 },
                 {
                   "name": "Nose_100_debris5",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "AnimatedJoint"
                 },
                 {
                   "name": "Nose_100_debris6",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "AnimatedJoint"
                 },
                 {
                   "name": "Body",
-                  "mass": 0.0,
                   "damageMax": 3550.0,
                   "class": "AnimatedJoint",
                   "Parts": [
                     {
                       "name": "hardpoint_lights_body_red_variant",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "ItemPort",
                       "ItemPort": {
@@ -387,7 +416,6 @@
                     },
                     {
                       "name": "hardpoint_lights_body_blue_variant",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "ItemPort",
                       "ItemPort": {
@@ -404,7 +432,6 @@
                     },
                     {
                       "name": "hardpoint_lights_int_cockpit",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "ItemPort",
                       "ItemPort": {
@@ -421,49 +448,41 @@
                     },
                     {
                       "name": "Inner_Hull",
-                      "mass": 0.0,
                       "damageMax": 1062.0,
                       "class": "AnimatedJoint",
                       "Parts": [
                         {
                           "name": "Cockpit",
-                          "mass": 0.0,
                           "damageMax": 950.0,
                           "class": "AnimatedJoint",
                           "Parts": [
                             {
                               "name": "CP_Copilot_Yoke",
-                              "mass": 0.0,
                               "damageMax": 0.0,
                               "class": "AnimatedJoint"
                             },
                             {
                               "name": "CP_Copilot_Throttle",
-                              "mass": 0.0,
                               "damageMax": 0.0,
                               "class": "AnimatedJoint"
                             },
                             {
                               "name": "hardpoint_seat",
-                              "mass": 0.0,
                               "damageMax": 0.0,
                               "class": "ItemPort",
                               "Parts": [
                                 {
                                   "name": "CP_Pilot_Yoke",
-                                  "mass": 0.0,
                                   "damageMax": 0.0,
                                   "class": "AnimatedJoint"
                                 },
                                 {
                                   "name": "CP_Pilot_Throttle",
-                                  "mass": 0.0,
                                   "damageMax": 0.0,
                                   "class": "AnimatedJoint"
                                 },
                                 {
                                   "name": "UI_Helper",
-                                  "mass": 0.0,
                                   "damageMax": 0.0,
                                   "class": "ItemPort",
                                   "ItemPort": {
@@ -480,7 +499,6 @@
                                 },
                                 {
                                   "name": "Radar_Helper",
-                                  "mass": 0.0,
                                   "damageMax": 0.0,
                                   "class": "ItemPort",
                                   "ItemPort": {
@@ -525,19 +543,16 @@
                             },
                             {
                               "name": "hardpoint_CoPilotSeat",
-                              "mass": 0.0,
                               "damageMax": 0.0,
                               "class": "ItemPort",
                               "Parts": [
                                 {
                                   "name": "CP_CoPilot_Yoke",
-                                  "mass": 0.0,
                                   "damageMax": 0.0,
                                   "class": "AnimatedJoint"
                                 },
                                 {
                                   "name": "CP_CoPilot_Throttle",
-                                  "mass": 0.0,
                                   "damageMax": 0.0,
                                   "class": "AnimatedJoint"
                                 }
@@ -575,7 +590,6 @@
                     },
                     {
                       "name": "hardpoint_weapon_missilerack_left",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "ItemPort",
                       "ItemPort": {
@@ -607,7 +621,6 @@
                     },
                     {
                       "name": "hardpoint_weapon_missilerack_right",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "ItemPort",
                       "ItemPort": {
@@ -639,7 +652,6 @@
                     },
                     {
                       "name": "hardpoint_thruster_left_mid",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "ItemPort",
                       "ItemPort": {
@@ -675,7 +687,6 @@
                     },
                     {
                       "name": "hardpoint_thruster_right_mid",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "ItemPort",
                       "ItemPort": {
@@ -711,7 +722,6 @@
                     },
                     {
                       "name": "hardpoint_class_5",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "ItemPort",
                       "ItemPort": {
@@ -763,7 +773,6 @@
                     },
                     {
                       "name": "hardpoint_shield_generator",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "ItemPort",
                       "ItemPort": {
@@ -795,7 +804,6 @@
                     },
                     {
                       "name": "hardpoint_powerplant",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "ItemPort",
                       "ItemPort": {
@@ -827,7 +835,6 @@
                     },
                     {
                       "name": "hardpoint_fuel_intake",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "ItemPort",
                       "ItemPort": {
@@ -858,7 +865,6 @@
                     },
                     {
                       "name": "hardpoint_fuel_tank",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "ItemPort",
                       "ItemPort": {
@@ -885,7 +891,6 @@
                     },
                     {
                       "name": "hardpoint_cooler",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "ItemPort",
                       "ItemPort": {
@@ -917,7 +922,6 @@
                     },
                     {
                       "name": "hardpoint_selfdestruct",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "ItemPort",
                       "ItemPort": {
@@ -940,403 +944,336 @@
                     },
                     {
                       "name": "Body_25_debris1",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_25_debris2",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_25_debris3",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_25_debris4",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_25_debris5",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_25_debris6",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_25_debris7",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_25_debris8",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_25_debris9",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_25_debris10",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris1",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris2",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris3",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris4",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris5",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris6",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris7",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris8",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris9",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris10",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris11",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris12",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris13",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris14",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris15",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris16",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris17",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris18",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris19",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris20",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris21",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_50_debris22",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_75_debris1",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_75_debris2",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_75_debris3",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_75_debris4",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_75_debris5",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_75_debris6",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_75_debris7",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris1",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris2",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris3",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris4",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris5",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris6",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris7",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris8",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris9",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris10",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris11",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris12",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris13",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris14",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris15",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris16",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris17",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris18",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris19",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris20",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris21",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris22",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris23",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris24",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Body_100_debris25",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Wing_Right",
-                      "mass": 0.0,
                       "damageMax": 1275.0,
                       "class": "AnimatedJoint",
                       "Parts": [
                         {
                           "name": "Wing_Right_50_debris6",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "hardpoint_thruster_right_upper_front",
-                          "mass": 0.0,
                           "damageMax": 50.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -1368,7 +1305,6 @@
                         },
                         {
                           "name": "hardpoint_thruster_right_lower_front",
-                          "mass": 0.0,
                           "damageMax": 50.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -1400,7 +1336,6 @@
                         },
                         {
                           "name": "hardpoint_class1_right_wing",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -1444,139 +1379,116 @@
                         },
                         {
                           "name": "Wing_Right_25_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_25_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_25_debris3",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_25_debris4",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_25_debris5",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_25_debris6",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_25_debris7",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_50_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_50_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_50_debris3",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_50_debris4",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_50_debris5",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_50_debris8",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_75_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_75_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_75_debris3",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_75_debris4",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_75_debris5",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_75_debris6",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_75_debris7",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_100_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Right_100_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "hardpoint_thruster_right_wing",
-                          "mass": 0.0,
                           "damageMax": 50.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -1610,13 +1522,11 @@
                     },
                     {
                       "name": "Wing_RearRight",
-                      "mass": 0.0,
                       "damageMax": 1487.0,
                       "class": "AnimatedJoint",
                       "Parts": [
                         {
                           "name": "hardpoint_thruster_right_upper_rear",
-                          "mass": 0.0,
                           "damageMax": 20.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -1648,7 +1558,6 @@
                         },
                         {
                           "name": "hardpoint_thruster_right_lower_rear",
-                          "mass": 0.0,
                           "damageMax": 20.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -1680,7 +1589,6 @@
                         },
                         {
                           "name": "hardpoint_engine_right_attach",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -1721,103 +1629,86 @@
                         },
                         {
                           "name": "Wing_RearRight_25_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearRight_25_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearRight_25_debris3",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearRight_50_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearRight_50_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearRight_50_debris3",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearRight_50_debris4",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearRight_50_debris5",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearRight_75_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearRight_75_debris3",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearRight_75_debris4",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearRight_100_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearRight_100_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearRight_100_debris3",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearRight_100_debris4",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearRight_100_debris5",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearRight_100_debris6",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         }
@@ -1825,13 +1716,11 @@
                     },
                     {
                       "name": "Wing_RearLeft",
-                      "mass": 0.0,
                       "damageMax": 1487.0,
                       "class": "AnimatedJoint",
                       "Parts": [
                         {
                           "name": "hardpoint_thruster_left_lower_rear",
-                          "mass": 0.0,
                           "damageMax": 20.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -1863,7 +1752,6 @@
                         },
                         {
                           "name": "hardpoint_thruster_left_upper_rear",
-                          "mass": 0.0,
                           "damageMax": 20.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -1895,7 +1783,6 @@
                         },
                         {
                           "name": "hardpoint_engine_left_attach",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -1936,109 +1823,91 @@
                         },
                         {
                           "name": "Wing_RearLeft_50_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearLeft_50_debris3",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearLeft_50_debris4",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearLeft_50_debris5",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearLeft_50_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearLeft_25_debris3",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearLeft_25_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearLeft_25_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearLeft_100_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearLeft_100_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearLeft_100_debris3",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearLeft_100_debris4",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearLeft_100_debris5",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearLeft_100_debris6",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearLeft_75_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearLeft_75_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearLeft_75_debris3",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_RearLeft_75_debris4",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         }
@@ -2046,13 +1915,11 @@
                     },
                     {
                       "name": "Wing_Left",
-                      "mass": 0.0,
                       "damageMax": 1275.0,
                       "class": "AnimatedJoint",
                       "Parts": [
                         {
                           "name": "hardpoint_class1_left_wing",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -2096,7 +1963,6 @@
                         },
                         {
                           "name": "hardpoint_thruster_left_upper_front",
-                          "mass": 0.0,
                           "damageMax": 50.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -2128,7 +1994,6 @@
                         },
                         {
                           "name": "hardpoint_thruster_left_lower_front",
-                          "mass": 0.0,
                           "damageMax": 50.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -2160,127 +2025,106 @@
                         },
                         {
                           "name": "Wing_Left_25_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_25_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_25_debris3",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_25_debris4",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_25_debris5",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_50_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_50_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_50_debris3",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_50_debris4",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_50_debris5",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_50_debris8",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_75_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_75_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_75_debris3",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_75_debris4",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_75_debris5",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_75_debris6",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_75_debris7",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_100_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Wing_Left_100_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "hardpoint_thruster_left_wing",
-                          "mass": 0.0,
                           "damageMax": 50.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -2312,7 +2156,6 @@
                         },
                         {
                           "name": "Wing_Left_25_debris6",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         }
@@ -2320,103 +2163,86 @@
                     },
                     {
                       "name": "Tail",
-                      "mass": 0.0,
                       "damageMax": 1475.0,
                       "class": "AnimatedJoint",
                       "Parts": [
                         {
                           "name": "Tail_25_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Tail_25_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Tail_25_debris3",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Tail_25_debris4",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Tail_50_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Tail_50_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Tail_50_debris3",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Tail_50_debris4",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Tail_50_debris5",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Tail_75_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Tail_100_debris1",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Tail_100_debris2",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Tail_100_debris3",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Tail_100_debris4",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "Tail_100_debris5",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "AnimatedJoint"
                         },
                         {
                           "name": "hardpoint_thruster_right_rearwing",
-                          "mass": 0.0,
                           "damageMax": 50.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -2448,7 +2274,6 @@
                         },
                         {
                           "name": "hardpoint_thruster_left_rearwing",
-                          "mass": 0.0,
                           "damageMax": 50.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -2480,7 +2305,6 @@
                         },
                         {
                           "name": "hardpoint_countermeasure_launcher_right",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -2512,7 +2336,6 @@
                         },
                         {
                           "name": "hardpoint_countermeasure_launcher_left",
-                          "mass": 0.0,
                           "damageMax": 0.0,
                           "class": "ItemPort",
                           "ItemPort": {
@@ -2546,19 +2369,16 @@
                     },
                     {
                       "name": "Inner_Frame",
-                      "mass": 0.0,
                       "damageMax": 369.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "Inner_Netting",
-                      "mass": 0.0,
                       "damageMax": 369.0,
                       "class": "AnimatedJoint"
                     },
                     {
                       "name": "hull_decals",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "AnimatedJoint"
                     }
@@ -2566,7 +2386,6 @@
                 },
                 {
                   "name": "Nose_100_debris11",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "AnimatedJoint"
                 }

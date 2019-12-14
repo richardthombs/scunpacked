@@ -1,11 +1,7 @@
 {
   "Raw": {
     "Entity": {
-      "StaticEntityClassData": {
-        "DefaultEntitlementEntityParams": {
-          "entitlementPolicy": "8a1fdd48-7896-4774-a110-2466190e1a07"
-        }
-      },
+      "StaticEntityClassData": {},
       "tags": [
         {
           "value": "ef734509-be28-47c9-87df-2775db104d38"
@@ -25,7 +21,7 @@
           "landingSystem": "a7b13eea-15da-48ff-900e-ade7d07bd80e",
           "manufacturer": "b922abdb-0634-4358-9eee-60118f3cf3a7",
           "vehicleDefinition": "scripts/entities/vehicles/implementations/xml/anvl_pisces.xml",
-          "modification": "",
+          "modification": "C8X_Expedition",
           "dogfightEnabled": 1,
           "unmovable": 0,
           "isGravlevVehicle": false,
@@ -33,7 +29,7 @@
           "emergencyStatusDamageThreshold": 0.25,
           "crewSize": 3,
           "vehicleName": "@vehicle_NameANVL_C8X_Pisces_Expedition",
-          "vehicleDescription": "@vehicle_DescANVL_C8X_Pisces_Expedition",
+          "vehicleDescription": "@vehicle_DescANVL_Pisces_Expedition",
           "vehicleCareer": "@vehicle_focus_exploration",
           "vehicleCareerRef": "605f6ca1-9eae-4d78-9f7f-71288d44dada",
           "vehicleRole": "@vehicle_class_pathfinder",
@@ -96,7 +92,7 @@
                       "entries": [
                         {
                           "itemPortName": "radar_helper",
-                          "entityClassName": "AEGS_Sabre_RADR_Display",
+                          "entityClassName": "ANVL_Pisces_RADR_Display",
                           "loadout": {}
                         }
                       ]
@@ -275,13 +271,33 @@
                 },
                 {
                   "itemPortName": "hardpoint_weapon_gun_left",
-                  "entityClassName": "AMRS_LaserCannon_S1",
-                  "loadout": {}
+                  "entityClassName": "Mount_Gimbal_S1",
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "hardpoint_class_2",
+                          "entityClassName": "KLWE_LaserRepeater_S1",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
                 },
                 {
                   "itemPortName": "hardpoint_weapon_gun_right",
-                  "entityClassName": "AMRS_LaserCannon_S1",
-                  "loadout": {}
+                  "entityClassName": "Mount_Gimbal_S1",
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "hardpoint_class_2",
+                          "entityClassName": "KLWE_LaserRepeater_S1",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
                 },
                 {
                   "itemPortName": "hardpoint_controller_door",
@@ -449,19 +465,17 @@
       "Parts": [
         {
           "name": "ANVL_Pisces",
-          "mass": 48143.0,
+          "mass": "48143.0",
           "damageMax": 0.0,
           "class": "Animated",
           "Parts": [
             {
               "name": "Body",
-              "mass": 0.0,
               "damageMax": 1500.0,
               "class": "AnimatedJoint",
               "Parts": [
                 {
                   "name": "hardpoint_weapon_gun_right",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -495,14 +509,13 @@
                       "max": 30
                     },
                     "Yaw": {
-                      "min": -25,
-                      "max": 25
+                      "min": -45,
+                      "max": 15
                     }
                   }
                 },
                 {
                   "name": "hardpoint_weapon_gun_left",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -511,7 +524,6 @@
                     "display_name": "port_NameWeaponSlot02",
                     "flags": "",
                     "defaultWeaponGroup": "1",
-                    "requiredTags": "",
                     "Types": [
                       {
                         "type": "Turret",
@@ -533,18 +545,17 @@
                       }
                     ],
                     "Pitch": {
-                      "min": -10,
-                      "max": 10
+                      "min": -30,
+                      "max": 30
                     },
                     "Yaw": {
-                      "min": -180,
-                      "max": 180
+                      "min": -45,
+                      "max": 15
                     }
                   }
                 },
                 {
                   "name": "hardpoint_thruster_retro_right",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -577,7 +588,6 @@
                 },
                 {
                   "name": "hardpoint_thruster_retro_left",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -610,7 +620,6 @@
                 },
                 {
                   "name": "hardpoint_thruster_rear_top_right",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -647,7 +656,6 @@
                 },
                 {
                   "name": "hardpoint_thruster_rear_top_left",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -684,7 +692,6 @@
                 },
                 {
                   "name": "hardpoint_thruster_rear_side_right",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -721,7 +728,6 @@
                 },
                 {
                   "name": "hardpoint_thruster_rear_side_left",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -758,7 +764,6 @@
                 },
                 {
                   "name": "hardpoint_thruster_rear_bottom_right",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -795,7 +800,6 @@
                 },
                 {
                   "name": "hardpoint_thruster_rear_bottom_left",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -832,7 +836,6 @@
                 },
                 {
                   "name": "hardpoint_thruster_main_right",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -864,7 +867,6 @@
                 },
                 {
                   "name": "hardpoint_thruster_main_left",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -896,7 +898,6 @@
                 },
                 {
                   "name": "hardpoint_thruster_front_top_right",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -933,7 +934,6 @@
                 },
                 {
                   "name": "hardpoint_thruster_front_top_left",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -970,7 +970,6 @@
                 },
                 {
                   "name": "hardpoint_thruster_front_side_right",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1007,7 +1006,6 @@
                 },
                 {
                   "name": "hardpoint_thruster_front_side_left",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1044,7 +1042,6 @@
                 },
                 {
                   "name": "hardpoint_thruster_front_bottom_right",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1081,7 +1078,6 @@
                 },
                 {
                   "name": "hardpoint_thruster_front_bottom_left",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1118,7 +1114,6 @@
                 },
                 {
                   "name": "hardpoint_shield_generator",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1149,7 +1144,6 @@
                 },
                 {
                   "name": "hardpoint_seat_pilot",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1192,7 +1186,6 @@
                 },
                 {
                   "name": "hardpoint_seat_access",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1218,7 +1211,6 @@
                 },
                 {
                   "name": "hardpoint_radar",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1246,7 +1238,6 @@
                 },
                 {
                   "name": "hardpoint_quantum_fuel_tank",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1269,7 +1260,6 @@
                 },
                 {
                   "name": "hardpoint_quantum_drive",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1303,7 +1293,6 @@
                 },
                 {
                   "name": "hardpoint_power_plant",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1330,7 +1319,6 @@
                 },
                 {
                   "name": "hardpoint_ping",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1356,7 +1344,6 @@
                 },
                 {
                   "name": "hardpoint_fuel_tank",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1382,7 +1369,6 @@
                 },
                 {
                   "name": "hardpoint_fuel_intake_right",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1412,7 +1398,6 @@
                 },
                 {
                   "name": "hardpoint_fuel_intake_left",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1442,7 +1427,6 @@
                 },
                 {
                   "name": "hardpoint_dashboard_pilot",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1478,7 +1462,6 @@
                 },
                 {
                   "name": "hardpoint_cooler_right",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1505,7 +1488,6 @@
                 },
                 {
                   "name": "hardpoint_cooler_left",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1532,7 +1514,6 @@
                 },
                 {
                   "name": "hardpoint_controller_weapon",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1579,7 +1560,6 @@
                 },
                 {
                   "name": "hardpoint_controller_shield",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1618,7 +1598,6 @@
                 },
                 {
                   "name": "hardpoint_controller_scanner",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1634,7 +1613,6 @@
                 },
                 {
                   "name": "hardpoint_controller_light",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1673,7 +1651,6 @@
                 },
                 {
                   "name": "hardpoint_controller_flight",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1721,7 +1698,6 @@
                 },
                 {
                   "name": "hardpoint_controller_energy",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1766,7 +1742,6 @@
                 },
                 {
                   "name": "hardpoint_door",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1782,7 +1757,6 @@
                 },
                 {
                   "name": "hardpoint_controller_countermeasures_launcher_right",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1809,7 +1783,6 @@
                 },
                 {
                   "name": "hardpoint_controller_countermeasures_launcher_left",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1836,7 +1809,6 @@
                 },
                 {
                   "name": "hardpoint_controller_cooler",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1861,7 +1833,6 @@
                 },
                 {
                   "name": "hardpoint_controller_comms",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1886,7 +1857,6 @@
                 },
                 {
                   "name": "hardpoint_cockpit_selfDestruct",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1909,13 +1879,11 @@
                 },
                 {
                   "name": "hardpoint_cockpit_audio",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort"
                 },
                 {
                   "name": "hardpoint_controller_door",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1945,7 +1913,6 @@
                 },
                 {
                   "name": "hardpoint_cargogrid_right",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1962,7 +1929,6 @@
                 },
                 {
                   "name": "hardpoint_cargogrid_left",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1979,7 +1945,6 @@
                 },
                 {
                   "name": "hardpoint_cargogrid_leftF",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -1996,7 +1961,6 @@
                 },
                 {
                   "name": "hardpoint_cargogrid_rightF",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -2013,7 +1977,6 @@
                 },
                 {
                   "name": "hardpoint_weapon_gun_wing_left",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -2021,8 +1984,8 @@
                     "maxsize": 1,
                     "display_name": "port_NameWeaponSlot04",
                     "flags": "",
-                    "defaultWeaponGroup": "1",
-                    "requiredTags": "",
+                    "defaultWeaponGroup": "2",
+                    "id": "modPart_gun_left_wing",
                     "Types": [
                       {
                         "type": "Turret",
@@ -2044,18 +2007,17 @@
                       }
                     ],
                     "Pitch": {
-                      "min": -10,
-                      "max": 10
+                      "min": 0,
+                      "max": 0
                     },
                     "Yaw": {
-                      "min": -180,
-                      "max": 180
+                      "min": 0,
+                      "max": 0
                     }
                   }
                 },
                 {
                   "name": "hardpoint_weapon_gun_wing_right",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -2063,7 +2025,8 @@
                     "maxsize": 1,
                     "display_name": "port_NameWeaponSlot03",
                     "flags": "",
-                    "defaultWeaponGroup": "1",
+                    "defaultWeaponGroup": "2",
+                    "id": "modPart_gun_right_wing",
                     "Types": [
                       {
                         "type": "Turret",
@@ -2085,26 +2048,26 @@
                       }
                     ],
                     "Pitch": {
-                      "min": -30,
-                      "max": 30
+                      "min": 0,
+                      "max": 0
                     },
                     "Yaw": {
-                      "min": -25,
-                      "max": 25
+                      "min": 0,
+                      "max": 0
                     }
                   }
                 },
                 {
                   "name": "hardpoint_weapon_missile_right",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
+                    "display_name": "port_NameMissileSlot01",
                     "flags": "",
                     "defaultWeaponGroup": "",
-                    "id": "modPart_gun_left_wing_outer",
+                    "id": "modPart_gun_right_wing_outer",
                     "Types": [
                       {
                         "type": "MissileLauncher",
@@ -2137,12 +2100,12 @@
                 },
                 {
                   "name": "hardpoint_weapon_missile_left",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
+                    "display_name": "port_NameMissileSlot02",
                     "flags": "",
                     "defaultWeaponGroup": "",
                     "id": "modPart_gun_left_wing_outer",
@@ -2178,7 +2141,6 @@
                 },
                 {
                   "name": "hardpoint_paint",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -2197,19 +2159,16 @@
                 },
                 {
                   "name": "ANVIL_Pisces_LandingGearDoors",
-                  "mass": 0.0,
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "Parts": [
                     {
                       "name": "LandingGear_door_Rear_Left",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "ItemPort"
                     },
                     {
                       "name": "LandingGear_door_Rear_Right",
-                      "mass": 0.0,
                       "damageMax": 0.0,
                       "class": "ItemPort"
                     }
@@ -2217,13 +2176,11 @@
                 },
                 {
                   "name": "Wing_Left",
-                  "mass": 0.0,
                   "damageMax": 250.0,
                   "class": "AnimatedJoint",
                   "Parts": [
                     {
                       "name": "Wing_Left_Debris",
-                      "mass": 0.0,
                       "damageMax": 250.0,
                       "class": "AnimatedJoint"
                     }
@@ -2231,13 +2188,11 @@
                 },
                 {
                   "name": "Wing_Right",
-                  "mass": 0.0,
                   "damageMax": 250.0,
                   "class": "AnimatedJoint",
                   "Parts": [
                     {
                       "name": "Wing_Right_Debris",
-                      "mass": 0.0,
                       "damageMax": 250.0,
                       "class": "AnimatedJoint"
                     }
@@ -2245,19 +2200,16 @@
                 },
                 {
                   "name": "Body_underpanels_Right",
-                  "mass": 0.0,
                   "damageMax": 250.0,
                   "class": "AnimatedJoint"
                 },
                 {
                   "name": "Canopy",
-                  "mass": 0.0,
                   "damageMax": 250.0,
                   "class": "AnimatedJoint"
                 },
                 {
                   "name": "Body_underpanels_Left",
-                  "mass": 0.0,
                   "damageMax": 250.0,
                   "class": "AnimatedJoint"
                 }
@@ -2265,7 +2217,6 @@
             },
             {
               "name": "landingpad_helper",
-              "mass": 0.0,
               "damageMax": 0.0,
               "class": "ItemPort",
               "ItemPort": {
@@ -2282,7 +2233,6 @@
             },
             {
               "name": "animated_interior",
-              "mass": 0.0,
               "damageMax": 0.0,
               "class": "ItemPort",
               "ItemPort": {
@@ -2299,85 +2249,71 @@
             },
             {
               "name": "ANVL_Pisces_Mav_Fixed001",
-              "mass": 0.0,
               "damageMax": 0.0,
               "class": "ItemPort"
             },
             {
               "name": "ANVL_Pisces_Mav_Fixed002",
-              "mass": 0.0,
               "damageMax": 0.0,
               "class": "ItemPort"
             },
             {
               "name": "ANVL_Pisces_Mav_Fixed003",
-              "mass": 0.0,
               "damageMax": 0.0,
               "class": "ItemPort"
             },
             {
               "name": "ANVL_Pisces_Mav_Fixed004",
-              "mass": 0.0,
               "damageMax": 0.0,
               "class": "ItemPort"
             },
             {
               "name": "ANVL_Pisces_Mav_Gimbal001",
-              "mass": 0.0,
               "damageMax": 0.0,
               "class": "ItemPort"
             },
             {
               "name": "ANVL_Pisces_Mav_Gimbal002",
-              "mass": 0.0,
               "damageMax": 0.0,
               "class": "ItemPort"
             },
             {
               "name": "ANVL_Pisces_Mav_Gimbal003",
-              "mass": 0.0,
               "damageMax": 0.0,
               "class": "ItemPort"
             },
             {
               "name": "ANVL_Pisces_Mav_Gimbal004",
-              "mass": 0.0,
               "damageMax": 0.0,
               "class": "ItemPort"
             },
             {
               "name": "ANVL_Pisces_Mav_Gimbal005",
-              "mass": 0.0,
               "damageMax": 0.0,
               "class": "ItemPort"
             },
             {
               "name": "ANVL_Pisces_Mav_Gimbal006",
-              "mass": 0.0,
               "damageMax": 0.0,
               "class": "ItemPort"
             },
             {
               "name": "ANVL_Pisces_Mav_Gimbal007",
-              "mass": 0.0,
               "damageMax": 0.0,
               "class": "ItemPort"
             },
             {
               "name": "ANVL_Pisces_Mav_Gimbal008",
-              "mass": 0.0,
               "damageMax": 0.0,
               "class": "ItemPort"
             },
             {
               "name": "ANVL_Pisces_MainThrusters",
-              "mass": 0.0,
               "damageMax": 0.0,
               "class": "ItemPort"
             },
             {
               "name": "ANVL_Pisces_retro_right",
-              "mass": 0.0,
               "damageMax": 0.0,
               "class": "ItemPort"
             }
@@ -2398,7 +2334,35 @@
           "maxJerk": 0.0,
           "maxAngJerk": 0.0
         }
-      }
+      },
+      "Modifications": [
+        {
+          "name": "C8X_Expedition",
+          "patchFile": "",
+          "Elems": [
+            {
+              "idRef": "modPart_gun_c8x_right_wing",
+              "name": "skipPart",
+              "value": "0"
+            },
+            {
+              "idRef": "modPart_gun_c8x_left_wing",
+              "name": "skipPart",
+              "value": "0"
+            },
+            {
+              "idRef": "modPart_gun_c8x_right_wing",
+              "name": "name",
+              "value": "hardpoint_weapon_gun_wing_right"
+            },
+            {
+              "idRef": "modPart_gun_c8x_left_wing",
+              "name": "name",
+              "value": "hardpoint_weapon_gun_wing_left"
+            }
+          ]
+        }
+      ]
     }
   }
 }

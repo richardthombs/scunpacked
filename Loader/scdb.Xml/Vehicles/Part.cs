@@ -10,7 +10,8 @@ namespace scdb.Xml.Vehicles
 		public string name;
 
 		[XmlAttribute]
-		public double mass;
+		// TODO: This should be a double but the 3.8.0 ptu seems to be full of garbage characters
+		public string mass;
 
 		[XmlAttribute]
 		public double damageMax;

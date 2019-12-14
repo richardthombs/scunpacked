@@ -25,7 +25,7 @@
           }
         },
         "SHealthComponentParams": {
-          "Health": 2000.0,
+          "Health": 1395.0,
           "DamageResistances": {
             "DamageResistance": {
               "PhysicalResistance": {
@@ -56,40 +56,40 @@
           }
         },
         "SDegradationParams": {
-          "MaxLifetimeHours": 24.0,
+          "MaxLifetimeHours": 80.0,
           "InitialAgeRatio": 0.0,
           "DegradeOnlyWhenAttached": true
         },
         "EntityComponentPowerConnection": {
           "PowerBase": 768.0,
-          "PowerDraw": 4032.0,
+          "PowerDraw": 5000.0,
           "TimeToReachDrawRequest": 10.0,
           "SafeguardPriority": 5.0,
           "DisplayedInPoweredItemList": true,
           "IsThrottleable": true,
           "IsOverclockable": true,
-          "OverclockThresholdMin": 0.26,
-          "OverclockThresholdMax": 0.64,
-          "OverpowerPerformance": 0.12,
-          "OverclockPerformance": 0.4,
-          "PowerToEM": 4.68,
-          "DecayRateOfEM": 0.15,
+          "OverclockThresholdMin": 0.34,
+          "OverclockThresholdMax": 0.43,
+          "OverpowerPerformance": 0.68,
+          "OverclockPerformance": 0.05,
+          "PowerToEM": 4.2,
+          "DecayRateOfEM": 0.4,
           "WarningDelayTime": 0.3,
           "WarningDisplayTime": 8.0
         },
         "EntityComponentHeatConnection": {
-          "TemperatureToIR": 6.0,
+          "TemperatureToIR": 4.2,
           "OverpowerHeat": 0.0,
           "OverclockThresholdMinHeat": 0.0,
           "OverclockThresholdMaxHeat": 0.0,
-          "ThermalEnergyBase": 1494368.0,
-          "ThermalEnergyDraw": 1494368.0,
+          "ThermalEnergyBase": 181083.0,
+          "ThermalEnergyDraw": 181083.0,
           "ThermalConductivity": 0.0,
-          "SpecificHeatCapacity": 0.5,
-          "Mass": 23790.0,
+          "SpecificHeatCapacity": 0.15,
+          "Mass": 10010.0,
           "SurfaceArea": 0.0,
           "StartCoolingTemperature": 300.0,
-          "MaxCoolingRate": 125.7246,
+          "MaxCoolingRate": 124.0,
           "MaxTemperature": 700.0,
           "OverheatTemperature": 650.0,
           "RecoveryTemperature": 350.0,
@@ -98,28 +98,48 @@
           "MisfireMaxTemperature": 600.0
         },
         "SDistortionParams": {
-          "DecayRate": 69.0,
-          "Maximum": 857.0,
-          "OverloadRatio": 0.77,
-          "RecoveryRatio": 0.47,
+          "DecayRate": 156.0,
+          "Maximum": 1740.0,
+          "OverloadRatio": 0.45,
+          "RecoveryRatio": 0.45,
           "RecoveryTime": 3.0
         },
         "SCItem": {
           "turnedOnByDefault": false,
           "attachToTileItemPort": "NoConnection",
           "inheritModelTagFromHost": true,
-          "ItemPorts": []
+          "ItemPorts": [
+            {
+              "PortFlags": "",
+              "PortTags": "",
+              "RequiredItemTags": "",
+              "Ports": [
+                {
+                  "Name": "hardpoint_Jump_Drive",
+                  "DisplayName": "",
+                  "PortTags": "",
+                  "RequiredPortTags": "",
+                  "Flags": "",
+                  "MinSize": 3,
+                  "MaxSize": 3,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": []
+                }
+              ]
+            }
+          ]
         },
         "SCItemQuantumDriveParams": {
           "tracePoint": "",
-          "quantumFuelRequirement": 0.0644,
+          "quantumFuelRequirement": 0.03864,
           "jumpRange": 3.402823E+38,
           "disconnectRange": 69893.0,
           "params": {
-            "driveSpeed": 93013440.0,
-            "cooldownTime": 32.0,
-            "stageOneAccelRate": 351.3487,
-            "stageTwoAccelRate": 17567430.0,
+            "driveSpeed": 59588720.0,
+            "cooldownTime": 22.0,
+            "stageOneAccelRate": 600.0,
+            "stageTwoAccelRate": 4634678.0,
             "engageSpeed": 1500.0,
             "interdictionEffectTime": 5.0,
             "calibrationRate": 1000.0,
@@ -128,13 +148,13 @@
             "calibrationProcessAngleLimit": 5.0,
             "calibrationWarningAngleLimit": 8.0,
             "calibrationDelayInSeconds": 1.5,
-            "spoolUpTime": 20.44935,
+            "spoolUpTime": 19.375,
             "turnOnSpoolInteraction": "Interactable.SharedInteractions[0]",
             "turnOffSpoolInteraction": "Interactable.SharedInteractions[1]"
           },
           "splineJumpParams": {
             "driveSpeed": 400000.0,
-            "cooldownTime": 32.0,
+            "cooldownTime": 22.0,
             "stageOneAccelRate": 250.0,
             "stageTwoAccelRate": 50000.0,
             "engageSpeed": 1500.0,
@@ -145,16 +165,16 @@
             "calibrationProcessAngleLimit": 5.0,
             "calibrationWarningAngleLimit": 8.0,
             "calibrationDelayInSeconds": 1.5,
-            "spoolUpTime": 5.0,
+            "spoolUpTime": 19.375,
             "turnOnSpoolInteraction": "null",
             "turnOffSpoolInteraction": "null"
           },
           "heatParams": {
-            "preRampUpThermalEnergyDraw": 1500.0,
-            "rampUpThermalEnergyDraw": 1500.0,
-            "inFlightThermalEnergyDraw": 1500.0,
-            "rampDownThermalEnergyDraw": 1500.0,
-            "postRampDownThermalEnergyDraw": 1500.0
+            "preRampUpThermalEnergyDraw": 18750.0,
+            "rampUpThermalEnergyDraw": 18750.0,
+            "inFlightThermalEnergyDraw": 18750.0,
+            "rampDownThermalEnergyDraw": 18750.0,
+            "postRampDownThermalEnergyDraw": 18750.0
           }
         }
       },
