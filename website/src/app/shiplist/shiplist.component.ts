@@ -26,14 +26,19 @@ export class ShipListComponent implements OnInit {
 
   ngOnInit() {
     this.$http.get<ShipIndexEntry[]>(`${environment.api}/ships.json`).subscribe(r => {
-      r = r.filter(x => x.career != "@LOC_PLACEHOLDER");
-      r = r.filter(x => x.dogFightEnabled);
+
+      //r = r.filter(x => x.career != "@LOC_PLACEHOLDER");
+      //r = r.filter(x => x.dogFightEnabled);
+
+      // Fix ships without names
+      r.forEach(s => s.name = (s.name == "@LOC_PLACEHOLDER" || s.name == "@LOC_UNINITIALIZED") ? s.className : s.name)
 
       // Figure out our own roles and sub-roles rather than using CIG's career/roles
       r.forEach(s => {
         s.roles = _.flatMap(this.localisationSvc.getText(s.role).split(" / "), cigRole => {
           if (s.isGroundVehicle) return { role: "Ground vehicles", subRole: cigRole };
           if (s.isGravlevVehicle) return { role: "Gravlev vehicles", subRole: cigRole };
+          if (!s.dogFightEnabled || s.career == "@LOC_PLACEHOLDER") return { role: "Under development", subRole: "General" };
           return this.isRolePrefix(cigRole) ? cigRole.split(" ").filter(rr => !this.isSizePrefix(rr)).map(rr => { return { role: rr, subRole: cigRole }; }) : { role: cigRole, subRole: "General" }
         });
 

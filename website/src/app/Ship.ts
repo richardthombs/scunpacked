@@ -11,7 +11,7 @@ export class Ship {
 
   constructor(raw: any) {
     this.Raw = raw;
-    if (this.Raw.Vehicle.Parts) this.Parts = _.map(this.Raw.Vehicle.Parts, x => new Part(x));
+    if (this.Raw.Vehicle && this.Raw.Vehicle.Parts) this.Parts = _.map(this.Raw.Vehicle.Parts, x => new Part(x));
   }
 
   get className(): string {

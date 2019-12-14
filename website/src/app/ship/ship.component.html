@@ -1,8 +1,8 @@
 <div class="container">
 
-  <h1>{{ship?.vehicleName | localise}}</h1>
+  <h1>{{ship?.vehicleName | localise:ship?.className}}</h1>
   <div class="text-muted">
-    {{ship?.vehicleCareer | localise}} / {{ship?.vehicleRole | localise}}
+    {{ship?.vehicleCareer | localise:'No career'}} / {{ship?.vehicleRole | localise:'No role'}}
   </div>
   <div class="d-flex justify-content-between mt-3">
     <div>Size {{ship?.vehicleSize}}</div>

@@ -8,7 +8,7 @@ export class LocalisationService {
   static translations: { [id: string]: string } | undefined;
 
   getText(label: string, defaultValue?: string): string {
-    if (!label || label == "@LOC_PLACEHOLDER") return defaultValue || "";
+    if (!label || label == "@LOC_PLACEHOLDER" || label == "@LOC_UNINITIALIZED") return defaultValue || "";
 
     if (label.startsWith("@")) label = label.substring(1);
 

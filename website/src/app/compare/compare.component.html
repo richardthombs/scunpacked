@@ -2,7 +2,7 @@
   <table>
     <tr>
       <td (click)="sortBy('vehicleName')">Name</td>
-      <td *ngFor="let s of ships" class="font-weight-bold"><a [routerLink]="['/ships', s.className.toLowerCase()]">{{s.vehicleName | localise}}</a></td>
+      <td *ngFor="let s of ships" class="font-weight-bold"><a [routerLink]="['/ships', s.className.toLowerCase()]">{{s.vehicleName | localise:s.className}}</a></td>
     </tr>
     <tr>
       <td (click)="sortBy('vehicleSize')">Size</td>
