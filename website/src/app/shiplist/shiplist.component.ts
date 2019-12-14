@@ -5,9 +5,9 @@ import * as _ from "lodash";
 import { environment } from "../../environments/environment";
 import { LocalisationService } from '../localisation.service';
 
-type doubleGroupedShipList = {
+export type doubleGroupedList<T> = {
   [id: string]: {
-    [id: string]: ShipIndexEntry[]
+    [id: string]: T[]
   }
 }
 
@@ -18,9 +18,9 @@ type doubleGroupedShipList = {
 })
 export class ShipListComponent implements OnInit {
 
-  byRoles: doubleGroupedShipList = {};
-  specials: doubleGroupedShipList = {};
-  bySize: doubleGroupedShipList = {};
+  byRoles: doubleGroupedList<ShipIndexEntry> = {};
+  specials: doubleGroupedList<ShipIndexEntry> = {};
+  bySize: doubleGroupedList<ShipIndexEntry> = {};
 
   constructor(private $http: HttpClient, private localisationSvc: LocalisationService) { }
 

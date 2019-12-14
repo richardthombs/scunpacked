@@ -9,6 +9,7 @@ import { ShipListComponent } from "./shiplist/shiplist.component";
 import { ShipComponent } from './ship/ship.component';
 import { CompareComponent } from './compare/compare.component';
 import { LocalisationService } from './localisation.service';
+import { ItemlistComponent } from './itemlist/itemlist.component';
 
 
 @Injectable()
@@ -22,9 +23,11 @@ export class LabelsResolver implements Resolve<any> {
 }
 
 const routes: Routes = [
-  { path: "", component: ShipListComponent, resolve: { labels: LabelsResolver } },
+  { path: "", redirectTo: "ships", pathMatch: "full" },
+  { path: "ships", component: ShipListComponent, resolve: { labels: LabelsResolver } },
   { path: "ships/:name", component: ShipComponent, resolve: { labels: LabelsResolver } },
-  { path: "compare", component: CompareComponent, resolve: { labels: LabelsResolver } }
+  { path: "compare", component: CompareComponent, resolve: { labels: LabelsResolver } },
+  { path: "items", component: ItemlistComponent, resolve: { labels: LabelsResolver } }
 ];
 
 @NgModule({

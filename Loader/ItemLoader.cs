@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 
 using Newtonsoft.Json;
 
@@ -13,11 +14,19 @@ namespace Loader
 		public string OutputFolder { get; set; }
 		public string DataRoot { get; set; }
 		public Func<string, string> OnXmlLoadout { get; set; }
+		public List<ManufacturerIndexEntry> Manufacturers { get; set; }
 
 		string[] include = new string[] {
 			"ships",
 			"vehicles",
 			"doors"
+		};
+
+		string[] avoids =
+		{
+			// CIG tags
+			"test",
+			"template",
 		};
 
 		public List<ItemIndexEntry> Load()
@@ -39,6 +48,8 @@ namespace Loader
 
 			foreach (var entityFilename in Directory.EnumerateFiles(folderPath, "*.xml", SearchOption.AllDirectories))
 			{
+				if (avoidFile(entityFilename)) continue;
+
 				EntityClassDefinition entity = null;
 
 				// Entity
@@ -66,10 +77,23 @@ namespace Loader
 					subType = entity.Components?.SAttachableComponentParams?.AttachDef.SubType,
 					size = entity.Components?.SAttachableComponentParams?.AttachDef.Size,
 					grade = entity.Components?.SAttachableComponentParams?.AttachDef.Grade,
-					name = entity.Components?.SAttachableComponentParams?.AttachDef.Localization.Name
+					name = entity.Components?.SAttachableComponentParams?.AttachDef.Localization.Name,
+					manufacturer = FindManufacturer(entity.Components?.SAttachableComponentParams?.AttachDef.Manufacturer)?.code
 				});
 			}
 			return index;
+		}
+
+		ManufacturerIndexEntry FindManufacturer(string reference)
+		{
+			var manufacturer = Manufacturers.FirstOrDefault(x => x.reference == reference);
+			return manufacturer;
+		}
+
+		bool avoidFile(string filename)
+		{
+			var fileSplit = Path.GetFileNameWithoutExtension(filename).Split('_');
+			return fileSplit.Any(part => avoids.Contains(part));
 		}
 	}
 }

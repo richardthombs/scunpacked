@@ -57,7 +57,7 @@ namespace Loader
 			return index;
 		}
 
-		public List<ShipIndexEntry> Load(string entityFolder)
+		List<ShipIndexEntry> Load(string entityFolder)
 		{
 			var index = new List<ShipIndexEntry>();
 

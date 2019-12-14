@@ -1,0 +1,18 @@
+<h3 class="display-4">Items</h3>
+<div class="d-flex flex-wrap">
+  <div *ngFor="let role of byType | keyvalue" class="role-container">
+    <div class="role-inner">
+      <h5>{{role.key}}
+      </h5>
+      <div class="d-flex subrole-container">
+        <div *ngFor="let subRole of role.value | keyvalue" class="subrole-inner">
+          <h6>
+            {{subRole.key}}
+          </h6>
+          <div *ngFor="let item of subRole.value">
+            <a [href]="'//scdb.gearstone.uk/api/items/' + item.className.toLowerCase() + '.json'" [title]="item.name | localise">{{item.manufacturer || "CIG"}}: {{item.name | localise:item.className}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

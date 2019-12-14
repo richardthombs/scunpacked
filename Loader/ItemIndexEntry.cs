@@ -1,6 +1,4 @@
-﻿using scdb.Xml.DefaultLoadouts;
-
-namespace Loader
+﻿namespace Loader
 {
 	public class ItemIndexEntry
 	{
@@ -12,5 +10,6 @@ namespace Loader
 		public int? size;
 		public int? grade;
 		public string name;
+		public string manufacturer;
 	}
 }
