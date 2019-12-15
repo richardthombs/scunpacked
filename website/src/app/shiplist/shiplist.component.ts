@@ -16,7 +16,7 @@ export type doubleGroupedList<T> = {
   templateUrl: './shiplist.component.html',
   styleUrls: ['./shiplist.component.scss']
 })
-export class ShipListComponent implements OnInit {
+export class ShiplistPage implements OnInit {
 
   byRoles: doubleGroupedList<ShipIndexEntry> = {};
   specials: doubleGroupedList<ShipIndexEntry> = {};

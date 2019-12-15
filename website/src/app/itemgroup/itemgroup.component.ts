@@ -2,8 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-itemgroup',
-  templateUrl: './item-group.component.html',
-  styleUrls: ['./item-group.component.scss']
+  templateUrl: './itemgroup.component.html',
+  styleUrls: ['./itemgroup.component.scss']
 })
 export class ItemGroupComponent implements OnInit {
 

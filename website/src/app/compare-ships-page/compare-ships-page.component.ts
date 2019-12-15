@@ -8,10 +8,10 @@ import { Ship } from '../Ship';
 
 @Component({
   selector: 'app-compare',
-  templateUrl: './compare.component.html',
-  styleUrls: ['./compare.component.scss']
+  templateUrl: './compare-ships-page.component.html',
+  styleUrls: ['./compare-ships-page.component.scss']
 })
-export class CompareComponent implements OnInit {
+export class CompareShipsPage implements OnInit {
 
   ships: Ship[] = [];
 

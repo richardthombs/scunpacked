@@ -18,7 +18,7 @@ interface ClassifiedItemPort {
   templateUrl: './ship.component.html',
   styleUrls: ['./ship.component.scss']
 })
-export class ShipComponent implements OnInit {
+export class ShipPage implements OnInit {
 
   private typeMap: { [id: string]: ItemPortClassification } = {
     "Seat": { category: "Interior", kind: "Seat / Bed", hideSize: true, isBoring: true },

@@ -10,7 +10,7 @@ import { doubleGroupedList } from "../shiplist/shiplist.component";
   templateUrl: './itemlist.component.html',
   styleUrls: ['./itemlist.component.scss']
 })
-export class ItemlistComponent implements OnInit {
+export class ItemlistPage implements OnInit {
 
   constructor(private $http: HttpClient) { }
 
