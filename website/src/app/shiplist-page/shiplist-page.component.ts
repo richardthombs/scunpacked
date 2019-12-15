@@ -13,8 +13,8 @@ export type doubleGroupedList<T> = {
 
 @Component({
   selector: 'app-shiplist',
-  templateUrl: './shiplist.component.html',
-  styleUrls: ['./shiplist.component.scss']
+  templateUrl: './shiplist-page.component.html',
+  styleUrls: ['./shiplist-page.component.scss']
 })
 export class ShiplistPage implements OnInit {
 

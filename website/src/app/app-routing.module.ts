@@ -7,10 +7,10 @@ import { environment } from 'src/environments/environment';
 
 import { LocalisationService } from './localisation.service';
 
-import { ShiplistPage } from "./shiplist/shiplist.component";
-import { ShipPage } from './ship/ship.component';
+import { ShiplistPage } from "./shiplist-page/shiplist-page.component";
+import { ShipPage } from './ship-page/ship-page.component';
 import { CompareShipsPage } from './compare-ships-page/compare-ships-page.component';
-import { ItemlistPage } from './itemlist/itemlist.component';
+import { ItemlistPage } from './itemlist-page/itemlist-page.component';
 import { ItemPage } from './item-page/item-page.component';
 import { CompareItemsPage } from './compare-items-page/compare-items-page.component';
 import { HomePage } from './home-page/home-page.component';
@@ -18,26 +18,26 @@ import { HomePage } from './home-page/home-page.component';
 @Injectable()
 export class LabelsResolver implements Resolve<any> {
 
-  constructor(private $http: HttpClient) { }
+	constructor(private $http: HttpClient) { }
 
-  resolve(): Observable<any> | Promise<any> | any {
-    return this.$http.get<{ [id: string]: string }>(`${environment.api}/labels.json`).toPromise().then(r => LocalisationService.SetLabels(r));
-  }
+	resolve(): Observable<any> | Promise<any> | any {
+		return this.$http.get<{ [id: string]: string }>(`${environment.api}/labels.json`).toPromise().then(r => LocalisationService.SetLabels(r));
+	}
 }
 
 const routes: Routes = [
-  { path: "", component: HomePage },
-  { path: "ships", component: ShiplistPage, resolve: { labels: LabelsResolver } },
-  { path: "ships/compare", component: CompareShipsPage, resolve: { labels: LabelsResolver } },
-  { path: "ships/:name", component: ShipPage, resolve: { labels: LabelsResolver } },
-  { path: "items", component: ItemlistPage, resolve: { labels: LabelsResolver } },
-  { path: "items/compare", component: CompareItemsPage, resolve: { labels: LabelsResolver } },
-  { path: "items/:name", component: ItemPage, resolve: { labels: LabelsResolver } }
+	{ path: "", component: HomePage },
+	{ path: "ships", component: ShiplistPage, resolve: { labels: LabelsResolver } },
+	{ path: "ships/compare", component: CompareShipsPage, resolve: { labels: LabelsResolver } },
+	{ path: "ships/:name", component: ShipPage, resolve: { labels: LabelsResolver } },
+	{ path: "items", component: ItemlistPage, resolve: { labels: LabelsResolver } },
+	{ path: "items/compare", component: CompareItemsPage, resolve: { labels: LabelsResolver } },
+	{ path: "items/:name", component: ItemPage, resolve: { labels: LabelsResolver } }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-  providers: [LabelsResolver]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule],
+	providers: [LabelsResolver]
 })
 export class AppRoutingModule { }

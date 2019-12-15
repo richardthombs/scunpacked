@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import * as _ from "lodash";
 
 import { environment } from "../../environments/environment";
-import { doubleGroupedList } from "../shiplist/shiplist.component";
+import { doubleGroupedList } from "../shiplist-page/shiplist-page.component";
 
 @Component({
   selector: 'app-itemlist',
-  templateUrl: './itemlist.component.html',
-  styleUrls: ['./itemlist.component.scss']
+  templateUrl: './itemlist-page.component.html',
+  styleUrls: ['./itemlist-page.component.scss']
 })
 export class ItemlistPage implements OnInit {
 

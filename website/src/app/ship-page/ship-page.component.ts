@@ -15,8 +15,8 @@ interface ClassifiedItemPort {
 
 @Component({
   selector: 'app-ship',
-  templateUrl: './ship.component.html',
-  styleUrls: ['./ship.component.scss']
+  templateUrl: './ship-page.component.html',
+  styleUrls: ['./ship-page.component.scss']
 })
 export class ShipPage implements OnInit {
 

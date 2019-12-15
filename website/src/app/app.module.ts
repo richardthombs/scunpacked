@@ -5,10 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { ShiplistPage } from './shiplist/shiplist.component';
-import { ShipPage } from './ship/ship.component';
+import { ShiplistPage } from './shiplist-page/shiplist-page.component';
+import { ShipPage } from './ship-page/ship-page.component';
 import { CompareShipsPage } from './compare-ships-page/compare-ships-page.component';
-import { ItemlistPage } from './itemlist/itemlist.component';
+import { ItemlistPage } from './itemlist-page/itemlist-page.component';
 import { ItemPage } from './item-page/item-page.component';
 import { CompareItemsPage } from './compare-items-page/compare-items-page.component';
 
@@ -31,37 +31,37 @@ import { NoZeroPipe } from './no-zero.pipe';
 import { HomePage } from './home-page/home-page.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ShiplistPage,
-    ShipPage,
-    CompareShipsPage,
-    ItemlistPage,
-    ItemPage,
-    CompareItemsPage,
-    ItemPortComponent,
-    ItemGroupComponent,
-    PowerplantComponent,
-    CargoComponent,
-    ShieldComponent,
-    QuantumdriveComponent,
-    NoZeroPipe,
-    LocalisePipe,
-    DistancePipe,
-    SpeedPipe,
-    SiPipe,
-    QuantumfueltankComponent,
-    ThrusterComponent,
-    HydrogenfueltankComponent,
-    HydrogenfuelintakeComponent,
-    HomePage
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		ShiplistPage,
+		ShipPage,
+		CompareShipsPage,
+		ItemlistPage,
+		ItemPage,
+		CompareItemsPage,
+		ItemPortComponent,
+		ItemGroupComponent,
+		PowerplantComponent,
+		CargoComponent,
+		ShieldComponent,
+		QuantumdriveComponent,
+		NoZeroPipe,
+		LocalisePipe,
+		DistancePipe,
+		SpeedPipe,
+		SiPipe,
+		QuantumfueltankComponent,
+		ThrusterComponent,
+		HydrogenfueltankComponent,
+		HydrogenfuelintakeComponent,
+		HomePage
+	],
+	imports: [
+		BrowserModule,
+		HttpClientModule,
+		AppRoutingModule
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
