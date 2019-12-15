@@ -3,14 +3,16 @@
   <div *ngFor="let role of byType | keyvalue" class="role-container">
     <div class="role-inner">
       <h5>{{role.key}}
+        <a [routerLink]="['/items/compare']" [queryParams]="{items:itemsInRole(role.value)}">Compare</a>
       </h5>
       <div class="d-flex subrole-container">
         <div *ngFor="let subRole of role.value | keyvalue" class="subrole-inner">
           <h6>
             {{subRole.key}}
+            <a *ngIf="subRole.value.length > 1" [routerLink]="['/items/compare']" [queryParams]="{items:itemsInSubRole(subRole.value)}">Compare</a>
           </h6>
           <div *ngFor="let item of subRole.value">
-            <a [href]="'//scdb.gearstone.uk/api/items/' + item.className.toLowerCase() + '.json'" [title]="item.name | localise">{{item.manufacturer || "CIG"}}: {{item.name | localise:item.className}}</a>
+            <a [routerLink]="['/items', item.className.toLowerCase()]" [title]="item.name | localise">{{item.manufacturer || "CIG"}}: {{item.name | localise:item.className}}</a>
           </div>
         </div>
       </div>

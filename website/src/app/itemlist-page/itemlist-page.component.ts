@@ -99,6 +99,15 @@ export class ItemlistPage implements OnInit {
 
   }
 
+  itemsInRole(level1: { [id: string]: ItemIndexEntry[] }): string {
+    let items: string[] = [];
+    _.map(level1, level2 => items = items.concat(_.map(level2, s => s.className.toLowerCase())));
+    return items.join(",");
+  }
+
+  itemsInSubRole(indexEntry: ItemIndexEntry[]): string {
+    return _.map(indexEntry, s => s.className.toLowerCase()).join(",");
+  }
 }
 
 interface ItemIndexEntry {
@@ -108,4 +117,5 @@ interface ItemIndexEntry {
   size: number | undefined;
   grade: number | undefined;
   manufacturer: string;
+  className: string;
 }

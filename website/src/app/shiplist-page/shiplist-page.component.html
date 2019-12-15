@@ -27,7 +27,7 @@
     <div *ngFor="let role of specials | keyvalue" class="role-container">
       <div class="role-inner">
         <h5>{{role.key}}
-          <a [routerLink]="['/compare']" [queryParams]="{ships:shipsInRole(role.value)}">Compare</a>
+          <a [routerLink]="['/ships/compare']" [queryParams]="{ships:shipsInRole(role.value)}">Compare</a>
         </h5>
         <div class="d-flex subrole-container">
           <div *ngFor="let subRole of role.value | keyvalue" class="subrole-inner">
@@ -49,13 +49,13 @@
     <div *ngFor="let role of bySize | keyvalue" class="role-container">
       <div class="role-inner">
         <h5>{{role.key}}
-          <a [routerLink]="['/compare']" [queryParams]="{ships:shipsInRole(role.value)}">Compare</a>
+          <a [routerLink]="['/ships/compare']" [queryParams]="{ships:shipsInRole(role.value)}">Compare</a>
         </h5>
         <div class="d-flex subrole-container">
           <div *ngFor="let subRole of role.value | keyvalue" class="subrole-inner">
             <h6>
               {{subRole.key}}
-              <a *ngIf="subRole.value.length > 1" [routerLink]="['/compare']" [queryParams]="{ships:shipsInSubRole(subRole.value)}">Compare</a>
+              <a *ngIf="subRole.value.length > 1" [routerLink]="['/ships/compare']" [queryParams]="{ships:shipsInSubRole(subRole.value)}">Compare</a>
             </h6>
             <div *ngFor="let ship of subRole.value">
               <a [routerLink]="['/ships', ship.className.toLowerCase()]" [title]="ship.name | localise">{{ship.name | localise}}</a>

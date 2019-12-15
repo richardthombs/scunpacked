@@ -14,7 +14,7 @@
     </div>
     <div *ngIf="!itemPort.item" class="text-right">{{itemPort.itemClass}} (no data)</div>
     <div *ngIf="itemPort.item" class="text-right">
-      <a [href]="'https://scdb.gearstone.uk/api/items/' + itemPort.itemClass.toLowerCase() + '.json'">{{itemPort.item.name | localise:itemPort.itemClass}}</a>
+      <a [routerLink]="['/items', itemPort.itemClass.toLowerCase()]">{{itemPort.item.name | localise:itemPort.itemClass}}</a>
     </div>
   </div>
   <div *ngIf="!itemPort.itemClass" class="text-muted">Nothing installed</div>

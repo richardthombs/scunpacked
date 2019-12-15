@@ -101,6 +101,10 @@ export class Ship {
     else return 0;
   }
 
+  get hitPoints(): number {
+    return _.reduce(this.findParts(), (total, part) => total + part.damageMax, 0);
+  }
+
   findParts(predicate?: (p: Part) => boolean): Part[] {
     var found: Part[] = [];
     this.Parts.forEach(part => {

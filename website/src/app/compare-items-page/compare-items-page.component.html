@@ -1,1 +1,30 @@
-<p>compare-items-page works!</p>
+<div class="container-fluid mt-3">
+  <table>
+    <tr>
+      <td (click)="sortBy('name')">Name</td>
+      <td *ngFor="let i of items" class="font-weight-bold"><a [routerLink]="['/items', i.className.toLowerCase()]">{{i.name | localise:i.className}}</a></td>
+    </tr>
+    <tr>
+      <td (click)="sortBy('size')">Size</td>
+      <td *ngFor="let i of items">Size {{i.size}}</td>
+    </tr>
+    <tr>
+      <td (click)="sortBy('driveSpeed', 'desc')">Quantum speed</td>
+      <td *ngFor="let i of items">{{i.driveSpeed | si:'m/s'}}</td>
+    </tr>
+    <tr>
+      <td (click)="sortBy('secondsToArcCorp')">PO to ArcCorp</td>
+      <td *ngFor="let i of items">{{i.secondsToArcCorp | number:'1.0-0'}} s</td>
+    </tr>
+    <tr>
+      <td (click)="sortBy('quantumFuelRequirement')">Quantum fuel requirement</td>
+      <td *ngFor="let i of items">{{i.quantumFuelRequirement*1e9 | si:'l/Gm'}}</td>
+    </tr>
+    <tr>
+      <td (click)="sortBy('quantumFuelRequirement', 'desc')">Quantum "mpg"</td>
+      <td *ngFor="let i of items">{{1/i.quantumFuelRequirement | si:'m/l'}}</td>
+    </tr>
+
+  </table>
+
+</div>

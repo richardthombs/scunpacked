@@ -3,6 +3,8 @@ import * as _ from 'lodash';
 import { SCItemItemPort } from "./SCItemItemPort";
 import { IItemPort } from "./IItemPort";
 
+const distanceBetweenPOandArcCorp = 41927351070;
+
 export class SCItem {
 
   private _itemPorts: IItemPort[] | undefined;
@@ -12,6 +14,10 @@ export class SCItem {
 
   get name(): string {
     return _.get(this.json, "Raw.Entity.Components.SAttachableComponentParams.AttachDef.Localization.Name", "");
+  }
+
+  get description(): string {
+    return _.get(this.json, "Raw.Entity.Components.SAttachableComponentParams.AttachDef.Localization.Description", "");
   }
 
   get className(): string {
@@ -31,6 +37,12 @@ export class SCItem {
   get size(): number {
     return _.get(this.json, "Raw.Entity.Components.SAttachableComponentParams.AttachDef.Size", 0);
   }
+
+  get grade(): number {
+    return _.get(this.json, "Raw.Entity.Components.SAttachableComponentParams.AttachDef.Grade", 0);
+  }
+
+
   get powerDraw(): number {
     return _.get(this.json, "Raw.Entity.Components.EntityComponentPowerConnection.PowerDraw", 0);
   }
@@ -61,6 +73,11 @@ export class SCItem {
     return _.get(this.json, "Raw.Entity.Components.SCItemQuantumDriveParams.params.driveSpeed", 0);
   }
 
+  get secondsToArcCorp(): number {
+    let speed = this.driveSpeed;
+    return distanceBetweenPOandArcCorp / speed;
+  }
+
   get thrustCapacity(): number {
     return _.get(this.json, "Raw.Entity.Components.SCItemThrusterParams.thrustCapacity", 0);
   }
@@ -76,6 +93,34 @@ export class SCItem {
 
   get maxThrustFuelBurnRate(): number {
     return this.thrustCapacity * this.fuelBurnRate;
+  }
+
+  get health(): number {
+    return _.get(this.json, "Raw.Entity.Components.SHealthComponentParams.Health", 0);
+  }
+
+  get maxLifetime(): number {
+    return _.get(this.json, "Raw.Entity.Components.SDegradationParams.MaxLifetimeHours", 0);
+  }
+
+  get quantumDrive(): any {
+    return _.get(this.json, "Raw.Entity.Components.SCItemQuantumDriveParams");
+  }
+
+  get degregation(): any {
+    return _.get(this.json, "Raw.Entity.Components.SDegradationParams");
+  }
+
+  get damageResistances(): any {
+    return _.get(this.json, "Raw.Entity.Components.SDegradationParams.DamageResistances");
+  }
+
+  get heatConnection(): any {
+    return _.get(this.json, "Raw.Entity.Components.EntityComponentHeatConnection");
+  }
+
+  get powerConnection(): any {
+    return _.get(this.json, "Raw.Entity.Components.EntityComponentPowerConnection");
   }
 
   get itemPorts(): IItemPort[] {

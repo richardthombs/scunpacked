@@ -45,6 +45,10 @@
       <td *ngFor="let s of ships">{{s.timesToArcCorpAndBack || 0 | number:'1.0-1'}} times</td>
     </tr>
     <tr>
+      <td (click)="sortBy('hitPoints','desc')">Health</td>
+      <td *ngFor="let s of ships">{{s.hitPoints | number:'1.0-0'}} HP</td>
+    </tr>
+    <tr>
       <td (click)="sortBy('maxShieldHealth','desc')">Shields</td>
       <td *ngFor="let s of ships">{{s.maxShieldHealth | number:'1.0-0'}} HP</td>
     </tr>
