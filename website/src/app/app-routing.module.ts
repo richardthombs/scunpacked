@@ -13,6 +13,7 @@ import { CompareShipsPage } from './compare-ships-page/compare-ships-page.compon
 import { ItemlistPage } from './itemlist/itemlist.component';
 import { ItemPage } from './item-page/item-page.component';
 import { CompareItemsPage } from './compare-items-page/compare-items-page.component';
+import { HomePage } from './home-page/home-page.component';
 
 @Injectable()
 export class LabelsResolver implements Resolve<any> {
@@ -25,7 +26,7 @@ export class LabelsResolver implements Resolve<any> {
 }
 
 const routes: Routes = [
-  { path: "", redirectTo: "ships", pathMatch: "full" },
+  { path: "", component: HomePage },
   { path: "ships", component: ShiplistPage, resolve: { labels: LabelsResolver } },
   { path: "ships/compare", component: CompareShipsPage, resolve: { labels: LabelsResolver } },
   { path: "ships/:name", component: ShipPage, resolve: { labels: LabelsResolver } },

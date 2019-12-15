@@ -28,6 +28,7 @@ import { SpeedPipe } from './speed.pipe';
 import { SiPipe } from './si.pipe';
 import { LocalisePipe } from './localise.pipe';
 import { NoZeroPipe } from './no-zero.pipe';
+import { HomePage } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { NoZeroPipe } from './no-zero.pipe';
     QuantumfueltankComponent,
     ThrusterComponent,
     HydrogenfueltankComponent,
-    HydrogenfuelintakeComponent
+    HydrogenfuelintakeComponent,
+    HomePage
   ],
   imports: [
     BrowserModule,
