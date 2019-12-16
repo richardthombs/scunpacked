@@ -24,6 +24,30 @@
       <td (click)="sortBy('quantumFuelRequirement', 'desc')">Quantum "mpg"</td>
       <td *ngFor="let i of items">{{1/i.quantumFuelRequirement | si:'m/l'}}</td>
     </tr>
+    <tr>
+      <td (click)="sortBy('powerConnection.PowerBase', 'asc')">Standby power draw</td>
+      <td *ngFor="let i of items">{{i.powerConnection?.PowerBase | number:'1.0-0'}} W</td>
+    </tr>
+    <tr>
+      <td (click)="sortBy('powerConnection.PowerDraw', 'asc')">Full power draw</td>
+      <td *ngFor="let i of items">{{i.powerConnection?.PowerDraw | number:'1.0-0'}} W</td>
+    </tr>
+    <tr>
+      <td (click)="sortBy('powerConnection.PowerToEM', 'asc')">Power to EM ratio</td>
+      <td *ngFor="let i of items">{{i.powerConnection?.PowerToEM | number:'1.1-1'}} J/W</td>
+    </tr>
+    <tr>
+      <td>EM @ standby</td>
+      <td *ngFor="let i of items">{{i.powerConnection?.PowerBase * i?.powerConnection.PowerToEM | number:'1.0-0'}} J</td>
+    </tr>
+    <tr>
+      <td>EM @ full power</td>
+      <td *ngFor="let i of items">{{i.powerConnection?.PowerDraw * i?.powerConnection.PowerToEM | number:'1.0-0'}} J</td>
+    </tr>
+    <tr>
+      <td (click)="sortBy('maxShieldHealth', 'asc')">Shield</td>
+      <td *ngFor="let i of items">{{i.maxShieldHealth | number:'1.0-0'}} HP</td>
+    </tr>
 
   </table>
 
