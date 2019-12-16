@@ -3,9 +3,12 @@
   <table>
     <tr *ngFor="let f of fields; index as fIndex">
       <td (click)=sortBy(f)>{{f.title}}</td>
-      <td [class.font-weight-bold]="fIndex == 0" *ngFor="let i of items">
-        <ng-container *ngIf="!f.link">{{f.formattedValue(i)}}</ng-container>
-        <a *ngIf="f.link" [href]="f.link(i)">{{f.formattedValue(i)}}</a>
+      <td [class.font-weight-bold]="fIndex == 0" *ngFor="let i of items; index as iIndex">
+        <ng-container *ngIf="!f.linkFn">
+          {{f.formattedValue(i)}}
+          <small [class]="f.compareClass(items[0],i)" *ngIf="iIndex > 0 && f.compareFn">{{f.formattedCompare(items[0], i)}}</small>
+        </ng-container>
+        <a *ngIf="f.linkFn" [href]="f.linkFn(i)">{{f.formattedValue(i)}}</a>
       </td>
     </tr>
   </table>

@@ -78,6 +78,10 @@ export class SCItem {
     return distanceBetweenPOandArcCorp / speed;
   }
 
+  get fuelToArcCorp(): number {
+    return distanceBetweenPOandArcCorp * this.quantumFuelRequirement;
+  }
+
   get thrustCapacity(): number {
     return _.get(this.json, "Raw.Entity.Components.SCItemThrusterParams.thrustCapacity", 0);
   }
