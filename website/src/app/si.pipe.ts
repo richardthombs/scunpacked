@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SiPipe implements PipeTransform {
 
-  transform(value: number, units: string | undefined): any {
+  transform(value: any, units?: string): string {
     var si = SiPipe.siPrefix(value);
     return `${Math.round(si.value)} ${si.prefix}${units || ""}`;
   }

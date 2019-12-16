@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { DecimalPipe } from '@angular/common'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,37 +32,38 @@ import { NoZeroPipe } from './no-zero.pipe';
 import { HomePage } from './home-page/home-page.component';
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		ShiplistPage,
-		ShipPage,
-		CompareShipsPage,
-		ItemlistPage,
-		ItemPage,
-		CompareItemsPage,
-		ItemPortComponent,
-		ItemGroupComponent,
-		PowerplantComponent,
-		CargoComponent,
-		ShieldComponent,
-		QuantumdriveComponent,
-		NoZeroPipe,
-		LocalisePipe,
-		DistancePipe,
-		SpeedPipe,
-		SiPipe,
-		QuantumfueltankComponent,
-		ThrusterComponent,
-		HydrogenfueltankComponent,
-		HydrogenfuelintakeComponent,
-		HomePage
-	],
-	imports: [
-		BrowserModule,
-		HttpClientModule,
-		AppRoutingModule
-	],
-	providers: [],
-	bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    ShiplistPage,
+    ShipPage,
+    CompareShipsPage,
+    ItemlistPage,
+    ItemPage,
+    CompareItemsPage,
+    ItemPortComponent,
+    ItemGroupComponent,
+    PowerplantComponent,
+    CargoComponent,
+    ShieldComponent,
+    QuantumdriveComponent,
+    NoZeroPipe,
+    LocalisePipe,
+    DistancePipe,
+    SpeedPipe,
+    SiPipe,
+    QuantumfueltankComponent,
+    ThrusterComponent,
+    HydrogenfueltankComponent,
+    HydrogenfuelintakeComponent,
+    HomePage
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule
+  ],
+  providers: [
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
