@@ -27,6 +27,7 @@ namespace Loader
 			// CIG tags
 			"test",
 			"template",
+			"s42"
 		};
 
 		public List<ItemIndexEntry> Load()
