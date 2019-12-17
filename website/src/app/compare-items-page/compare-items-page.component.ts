@@ -95,7 +95,7 @@ class ComparisonField {
           value = si.value;
           units = si.prefix + this.units;
         }
-        formatted = value.toFixed(this.decimals);
+        formatted = Number(value.toFixed(this.decimals)).toLocaleString();
       }
       else formatted = "∞";
     }
