@@ -10,7 +10,7 @@
         </tr>
         <tr *ngFor="let f of g.fields; index as fIndex">
           <td (click)=sortBy(f)>{{f.title}}</td>
-          <td [class]="f.compareClass(items,i)" [class.font-weight-bold]="gindex == 0 && fIndex == 0" *ngFor="let i of items; index as iIndex">
+          <td [class]="f.compareClass(items,i)" [class.font-weight-bold]="gIndex == 0 && fIndex == 0" *ngFor="let i of items; index as iIndex">
             <div class="d-flex flex-nowrap">
               <ng-container *ngIf="!f.linkFn && f.compareFn">
                 <div style="flex: 1 1 0; margin-right: 5px;" class="text-right">{{f.formattedValue(i)}}</div>
