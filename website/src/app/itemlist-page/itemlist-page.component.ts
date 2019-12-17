@@ -16,26 +16,28 @@ export class ItemlistPage implements OnInit {
 
   byType: doubleGroupedList<ItemIndexEntry> = {}
 
+  selectedType: any;
+
   typeMap: { [id: string]: string } = {
     "Armor.Light": "Armor",
     "Armor.Medium": "Armor",
-    "Cooler.UNDEFINED": "Cooler",
-    "EMP.UNDEFINED": "EMP",
-    "Missile.Missile": "Missile",
-    "Missile.Torpedo": "Torpedo",
-    "Missile.Rocket": "Rocket",
-    "PowerPlant.Power": "Power plant",
-    "QuantumDrive.UNDEFINED": "Quantum drive",
+    "Cooler.UNDEFINED": "Coolers",
+    "EMP.UNDEFINED": "EMPs",
+    "Missile.Missile": "Missiles",
+    "Missile.Torpedo": "Torpedos",
+    "Missile.Rocket": "Rockets",
+    "PowerPlant.Power": "Power plants",
+    "QuantumDrive.UNDEFINED": "Quantum drives",
     "QuantumInterdictionGenerator.UNDEFINED": "Quantum interdiction",
-    "Radar.MidRangeRadar": "Radar",
-    "Scanner.Scanner": "Scanner",
-    "Scanner.UNDEFINED": "Scanner",
-    "Shield.UNDEFINED": "Shield",
-    "WeaponDefensive.CountermeasureLauncher": "Countermeasure",
-    "WeaponGun.Gun": "Weapon",
-    "WeaponGun.Rocket": "Rocket launcher",
-    "WeaponGun.NoseMounted": "Weapon",
-    "WeaponMining.Gun": "Mining laser"
+    "Radar.MidRangeRadar": "Radars",
+    "Scanner.Scanner": "Scanners",
+    "Scanner.UNDEFINED": "Scanners",
+    "Shield.UNDEFINED": "Shields",
+    "WeaponDefensive.CountermeasureLauncher": "Countermeasures",
+    "WeaponGun.Gun": "Weapons",
+    "WeaponGun.Rocket": "Rocket launchers",
+    "WeaponGun.NoseMounted": "Weapons",
+    "WeaponMining.Gun": "Mining lasers"
   }
 
   ngOnInit() {
@@ -95,6 +97,9 @@ export class ItemlistPage implements OnInit {
 
       _.forEach(this.byType, l1 => _.forEach(l1, (v2, k2) => l1[k2] = _.sortBy(v2, x => x.manufacturer || "CIG")));
 
+      var first = _.sortBy(Object.keys(this.byType))[0];
+
+      this.selectType({ key: first, value: this.byType[first] });
     });
 
   }
@@ -107,6 +112,11 @@ export class ItemlistPage implements OnInit {
 
   itemsInSubRole(indexEntry: ItemIndexEntry[]): string {
     return _.map(indexEntry, s => s.className.toLowerCase()).join(",");
+  }
+
+  selectType(type: any) {
+    console.log(type);
+    this.selectedType = type;
   }
 }
 

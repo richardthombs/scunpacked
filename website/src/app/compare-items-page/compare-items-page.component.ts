@@ -110,7 +110,6 @@ class ComparisonField {
   }
 }
 
-
 type ComparisonGroup = {
   title: string;
   fields: ComparisonField[];

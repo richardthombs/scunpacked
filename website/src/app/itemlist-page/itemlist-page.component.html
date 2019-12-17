@@ -1,18 +1,29 @@
-<h3 class="display-4">Items</h3>
-<div class="d-flex flex-wrap">
-  <div *ngFor="let role of byType | keyvalue" class="role-container">
-    <div class="role-inner">
-      <h5>{{role.key}}
-        <a [routerLink]="['/items/compare']" [queryParams]="{items:itemsInRole(role.value)}">Compare</a>
-      </h5>
-      <div class="d-flex subrole-container">
-        <div *ngFor="let subRole of role.value | keyvalue" class="subrole-inner">
-          <h6>
-            {{subRole.key}}
-            <a *ngIf="subRole.value.length > 1" [routerLink]="['/items/compare']" [queryParams]="{items:itemsInSubRole(subRole.value)}">Compare</a>
-          </h6>
-          <div *ngFor="let item of subRole.value">
-            <a [routerLink]="['/items', item.className.toLowerCase()]" [title]="item.name | localise">{{item.manufacturer || "CIG"}}: {{item.name | localise:item.className}}</a>
+<div class="container-fluid ml-5 mt-5">
+  <h3 class="display-4">Items</h3>
+  <div class="row flex-nowrap">
+    <div class="col-xs-3">
+      <div class="list-group">
+        <button (click)="selectType(type)" *ngFor="let type of byType | keyvalue" [class.active]="type.key == selectedType.key" class="list-group-item list-group-item-action" style="white-space: nowrap;">
+          {{type.key}}
+        </button>
+      </div>
+    </div>
+    <div *ngIf="selectedType" class="col-xs-9">
+      <div class="d-flex flex-wrap">
+        <div class="role-inner">
+          <h5>{{selectedType.key}}
+            <a [routerLink]="['/items/compare']" [queryParams]="{items:itemsInRole(selectedType.value)}">Compare</a>
+          </h5>
+          <div class="d-flex subrole-container">
+            <div *ngFor="let subRole of selectedType.value | keyvalue" class="subrole-inner">
+              <h6>
+                {{subRole.key}}
+                <a *ngIf="subRole.value.length > 1" [routerLink]="['/items/compare']" [queryParams]="{items:itemsInSubRole(subRole.value)}">Compare</a>
+              </h6>
+              <div *ngFor="let item of subRole.value">
+                <a [routerLink]="['/items', item.className.toLowerCase()]" [title]="item.name | localise">{{item.manufacturer || "CIG"}}: {{item.name | localise:item.className}}</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
