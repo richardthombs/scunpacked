@@ -10,6 +10,7 @@ import { LocalisationService } from '../localisation.service';
 import { SiPipe } from '../si.pipe';
 
 type FieldValue = number | string | undefined;
+type FieldScore = { value: number, score: number, best: number, worst: number };
 
 class ComparisonField {
 
@@ -21,7 +22,10 @@ class ComparisonField {
   valueFn: (item: SCItem) => FieldValue = () => undefined;
   formatFn: (value: FieldValue) => string | null = this.defaultFormat;
   linkFn?: (item: SCItem) => string = undefined;
-  compareFn?: (a: SCItem, b: SCItem) => number | undefined = this.compare
+  compareFn?: (all: SCItem[], item: SCItem) => FieldScore | undefined = this.compareValue;
+  bestValue?: number;
+  worstValue?: number;
+  hidden: boolean = false;
 
   constructor(init?: Partial<ComparisonField>) {
     Object.assign(this, init);
@@ -32,29 +36,49 @@ class ComparisonField {
     return this.formatFn(v) || "";
   }
 
-  formattedCompare(a: SCItem, b: SCItem): string {
-    let diff = this.compare(a, b);
-    if (!diff) return "";
+  formattedCompareValue(all: SCItem[], b: SCItem): string {
+    let diff = this.compareValue(all, b);
+    if (diff === undefined) return "";
 
-    var formatted = this.formatFn(diff);
-    if (formatted) return diff > 0 ? "+" + formatted : formatted;
+    if (diff.score === 1) return "";
 
-    return "";
+    let x: number = diff.value - diff.best;
+
+    let fmt = this.formatFn(x) || "";
+    return x > 0 ? "+" + fmt : fmt;
   }
 
-  compare(a: SCItem, b: SCItem): number | undefined {
-    let va = this.valueFn(a), vb = this.valueFn(b);
-    if (!this.isNumber(va) || !this.isNumber(vb)) return undefined;
+  compareValue(all: SCItem[], item: SCItem): FieldScore | undefined {
+    if (!this.bestValue || !this.worstValue) return undefined;
 
-    return vb - va;
+    let itemValue = this.valueFn(item);
+    if (!this.isNumber(itemValue)) return undefined;
+
+    let score = 0;
+    if (this.bestValue === this.worstValue) score = 1;
+    else score = (itemValue - this.worstValue) / (this.bestValue - this.worstValue);
+
+    return { value: itemValue, score: score, best: this.bestValue, worst: this.worstValue };
   }
 
-  compareClass(a: SCItem, b: SCItem): string {
-    let diff = this.compare(a, b);
-    if (!diff) return "same";
+  compareClass(all: SCItem[], b: SCItem): string {
+    if (!this.compareFn) return "";
 
-    if (diff > 0) return this.sortDirection == "desc" ? "better" : "worse";
-    if (diff < 0) return this.sortDirection == "asc" ? "better" : "worse";
+    let diff = this.compareValue(all, b);
+    if (diff === undefined) return "";
+
+    if (diff.score === 0) return "worst";
+    if (diff.score === 1) return "best";
+    if (diff.score >= 0.90) return "best-90"
+    if (diff.score >= 0.80) return "best-80"
+    if (diff.score >= 0.70) return "best-70"
+    if (diff.score >= 0.60) return "best-60"
+    if (diff.score >= 0.50) return "best-50"
+    if (diff.score >= 0.40) return "best-40"
+    if (diff.score >= 0.30) return "best-30"
+    if (diff.score >= 0.20) return "best-20"
+    if (diff.score >= 0.10) return "best-10"
+    if (diff.score >= 0.00) return "best-00"
 
     return "";
   }
@@ -97,20 +121,20 @@ export class CompareItemsPage implements OnInit {
     new ComparisonField({ title: "Name", valueFn: i => this.localisationSvc.getText(i.name, i.className), linkFn: i => `/items/${i.className.toLowerCase()}` }),
     new ComparisonField({ title: "Size", valueFn: i => i.size, formatFn: v => `Size ${v}`, compareFn: undefined }),
     new ComparisonField({ title: "PO to ArcCorp (time)", units: "s", valueFn: i => i.secondsToArcCorp, formatFn: v => typeof v === "number" ? `${Math.floor(v / 60)}m ${Math.round(v % 60)}s` : "?" }),
+    new ComparisonField({ title: "Quantum speed", units: "m/s", siPrefix: true, valueFn: i => i.driveSpeed, sortDirection: "desc" }),
+    new ComparisonField({ title: "P1 acceleration", units: "m/s", valueFn: i => _.get(i, "quantumDrive.params.stageOneAccelRate"), sortDirection: "desc" }),
+    new ComparisonField({ title: "P2 acceleration", units: "m/s", siPrefix: true, decimals: 1, valueFn: i => _.get(i, "quantumDrive.params.stageTwoAccelRate"), sortDirection: "desc" }),
+    new ComparisonField({ title: "Engage speed", units: "m/s", siPrefix: true, decimals: 1, valueFn: i => _.get(i, "quantumDrive.params.engageSpeed") }),
     new ComparisonField({ title: "PO to ArcCorp (fuel)", units: "l", valueFn: i => i.fuelToArcCorp }),
     new ComparisonField({ title: "Efficiency", units: "m/l", siPrefix: true, valueFn: i => 1 / i.quantumFuelRequirement, sortDirection: "desc" }),
-    new ComparisonField({ title: "Quantum speed", units: "m/s", siPrefix: true, valueFn: i => i.driveSpeed }),
     new ComparisonField({ title: "Quantum fuel requirement", units: "l/Gm", valueFn: i => i.quantumFuelRequirement * 1e9 }),
-    new ComparisonField({ title: "P1 acceleration", units: "m/s", valueFn: i => _.get(i, "quantumDrive.params.stageOneAccelRate"), sortDirection: "desc" }),
-    new ComparisonField({ title: "P1 acceleration", units: "m/s", siPrefix: true, decimals: 1, valueFn: i => _.get(i, "quantumDrive.params.stageTwoAccelRate"), sortDirection: "desc" }),
-    new ComparisonField({ title: "Engage speed", units: "m/s", siPrefix: true, decimals: 1, valueFn: i => _.get(i, "quantumDrive.params.engageSpeed") }),
     new ComparisonField({ title: "Standby power draw", units: "W", valueFn: i => _.get(i, "powerConnection.PowerBase") }),
     new ComparisonField({ title: "Full power draw", units: "W", valueFn: i => _.get(i, "powerConnection.PowerDraw") }),
     new ComparisonField({ title: "Power to EM ratio", units: "J/W", decimals: 1, valueFn: i => _.get(i, "powerConnection.PowerToEM") }),
     new ComparisonField({ title: "EM at standby", units: "J", valueFn: i => _.get(i, "powerConnection.PowerBase") * _.get(i, "powerConnection.PowerToEM") }),
     new ComparisonField({ title: "EM at full power", units: "J", valueFn: i => _.get(i, "powerConnection.PowerDraw") * _.get(i, "powerConnection.PowerToEM") }),
     new ComparisonField({ title: "Lifetime", units: "h", decimals: 1, valueFn: i => i.maxLifetime, sortDirection: "desc" }),
-    new ComparisonField({ title: "Shield", units: "HP", valueFn: i => i.maxShieldHealth }),
+    new ComparisonField({ title: "Shield", units: "HP", valueFn: i => i.maxShieldHealth, sortDirection: "desc" }),
   ]
 
   items: SCItem[] = [];
@@ -133,8 +157,17 @@ export class CompareItemsPage implements OnInit {
         itemPromises[i] = this.$http.get<any>(`${environment.api}/items/${itemClasses[i].toLowerCase()}.json`).toPromise().then(i => { this.items.push(new SCItem(i)); this.applySort(); return i; });
       }
 
-      Promise.all(itemPromises).then((items: SCItem[]) => {
-        //this.sortBy(this.currentSortField);
+      Promise.all(itemPromises).then(() => {
+        this.fields.forEach(f => {
+          this.items.forEach(i => {
+            let value = f.valueFn(i);
+            if (value === undefined || typeof value !== "number") return;
+            if (f.sortDirection == "asc" && (f.bestValue === undefined || value < f.bestValue)) f.bestValue = value;
+            if (f.sortDirection == "asc" && (f.worstValue === undefined || value > f.worstValue)) f.worstValue = value;
+            if (f.sortDirection == "desc" && (f.bestValue === undefined || value > f.bestValue)) f.bestValue = value;
+            if (f.sortDirection == "desc" && (f.worstValue === undefined || value < f.worstValue)) f.worstValue = value;
+          });
+        });
       });
 
     });
@@ -147,7 +180,7 @@ export class CompareItemsPage implements OnInit {
     this.applySort();
   }
 
-  applySort() {
+  private applySort() {
     this.items = _.orderBy(this.items, [i => this.currentSortField.valueFn(i) || 0], [this.currentSortDirection]);
   }
 
