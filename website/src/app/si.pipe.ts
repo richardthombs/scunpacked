@@ -5,9 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SiPipe implements PipeTransform {
 
-  transform(value: any, units?: string): string {
+  transform(value: any, units?: string, decimals?: number): string {
     var si = SiPipe.siPrefix(value);
-    return `${Math.round(si.value)} ${si.prefix}${units || ""}`;
+    return `${si.value.toFixed(decimals || 0)} ${si.prefix}${units || ""}`;
   }
 
   static siPrefix(value: number): { value: number, prefix: string } {

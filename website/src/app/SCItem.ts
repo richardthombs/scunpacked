@@ -127,6 +127,34 @@ export class SCItem {
     return _.get(this.json, "Raw.Entity.Components.EntityComponentPowerConnection");
   }
 
+  get shieldGenerator(): any {
+    return _.get(this.json, "Raw.Entity.Components.SCItemShieldGeneratorParams");
+  }
+
+  get armor(): any {
+    return _.get(this.json, "Raw.Entity.Components.SCItemVehicleArmorParams");
+  }
+
+  get cooler(): any {
+    return _.get(this.json, "Raw.Entity.Components.SCItemCoolerParams");
+  }
+
+  get ammoContainer(): any {
+    return _.get(this.json, "Raw.Entity.Components.SAmmoContainerComponentParams");
+  }
+
+  get distortion(): any {
+    return _.get(this.json, "Raw.Entity.Components.SDistortionParams")
+  }
+
+  get emp(): any {
+    return _.get(this.json, "Raw.Entity.Components.SCItemEMPParams")
+  }
+
+  get missile(): any {
+    return _.get(this.json, "Raw.Entity.Components.SCItemMissileParams")
+  }
+
   get itemPorts(): IItemPort[] {
     if (this._itemPorts === undefined) {
       let all: IItemPort[] = [];

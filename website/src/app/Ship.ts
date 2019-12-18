@@ -89,6 +89,14 @@ export class Ship {
     return _.reduce(this.findItemPorts(ip => ip.item != null && ip.item.type == "ManneuverThruster"), (total, ip) => total + _.get(ip.item, "maxThrustFuelBurnRate", 0), 0);
   }
 
+  get totalPowerBase(): number {
+    return _.reduce(this.findItemPorts(ip => ip.item != null && ip.item.type != "PowerPlant"), (total, ip) => total + _.get(ip.item, "powerConnection.PowerBase", 0), 0);
+  }
+
+  get totalPowerDraw(): number {
+    return _.reduce(this.findItemPorts(ip => ip.item != null && ip.item.type != "PowerPlant"), (total, ip) => total + _.get(ip.item, "powerConnection.PowerDraw", 0), 0);
+  }
+
   get maxSpeed(): number {
     var ifcs = this.findItemPorts(ip => ip.item != null && ip.item.type == "FlightController");
     if (ifcs.length) return _.get(ifcs[0].item, "Raw.Entity.Components.IFCSParams.maxAfterburnSpeed", 0);

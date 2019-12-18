@@ -153,6 +153,94 @@ export class CompareItemsPage implements OnInit {
       ]
     },
     {
+      title: "Shield strength",
+      visibleFn: items => !!_.find(items, i => i.shieldGenerator),
+      fields: [
+        new ComparisonField({ title: "HP", units: "HP", valueFn: i => i.shieldGenerator.MaxShieldHealth, sortDirection: "desc" }),
+        new ComparisonField({ title: "Regeneration", units: "HP/s", valueFn: i => i.shieldGenerator.MaxShieldRegen, sortDirection: "desc" }),
+        new ComparisonField({ title: "Decay ratio", decimals: 2, valueFn: i => i.shieldGenerator.DecayRatio }),
+        new ComparisonField({ title: "Downed delay", decimals: 1, valueFn: i => i.shieldGenerator.DownedRegenDelay }),
+        new ComparisonField({ title: "Damaged delay", decimals: 1, valueFn: i => i.shieldGenerator.DamagedRegenDelay }),
+      ]
+    },
+    {
+      title: "Shield absorption",
+      visibleFn: items => !!_.find(items, i => i.shieldGenerator),
+      fields: [
+        new ComparisonField({ title: "Damage type 0", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[0].Max }),
+        new ComparisonField({ title: "Damage type 1", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[1].Max }),
+        new ComparisonField({ title: "Damage type 2", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[2].Max }),
+        new ComparisonField({ title: "Damage type 3", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[3].Max }),
+        new ComparisonField({ title: "Damage type 4", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[4].Max }),
+        new ComparisonField({ title: "Damage type 5", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[5].Max }),
+      ]
+    },
+    {
+      title: "Armor shielding",
+      visibleFn: items => !!_.find(items, i => !!i.armor),
+      fields: [
+        new ComparisonField({ title: "Infrared multiplier", decimals: 2, valueFn: i => i.armor.signalInfrared }),
+        new ComparisonField({ title: "Electromagnetic multiplier", decimals: 2, valueFn: i => i.armor.signalElectromagnetic }),
+        new ComparisonField({ title: "Cross section multiplier", decimals: 2, valueFn: i => i.armor.signalCrossSection }),
+      ]
+    },
+    {
+      title: "Armor resistances",
+      visibleFn: items => !!_.find(items, i => !!i.armor),
+      fields: [
+        new ComparisonField({ title: "Physical", decimals: 2, valueFn: i => i.armor.damageMultiplier.DamageInfo.DamagePhysical }),
+        new ComparisonField({ title: "Energy", decimals: 2, valueFn: i => i.armor.damageMultiplier.DamageInfo.DamageEnergy }),
+        new ComparisonField({ title: "Distortion", decimals: 2, valueFn: i => i.armor.damageMultiplier.DamageInfo.DamageDistortion }),
+        new ComparisonField({ title: "Thermal", decimals: 2, valueFn: i => i.armor.damageMultiplier.DamageInfo.DamageThermal }),
+        new ComparisonField({ title: "Biochemical", decimals: 2, valueFn: i => i.armor.damageMultiplier.DamageInfo.DamageBiochemical }),
+        new ComparisonField({ title: "Stun", decimals: 2, valueFn: i => i.armor.damageMultiplier.DamageInfo.DamageStun }),
+      ]
+    },
+    {
+      title: "Cooling",
+      visibleFn: items => !!_.find(items, i => !!i.cooler),
+      fields: [
+        new ComparisonField({ title: "Cooling rate", siPrefix: true, units: "W", valueFn: i => i.cooler.CoolingRate, sortDirection: "desc" }),
+        new ComparisonField({ title: "IR suppression factor", decimals: 2, valueFn: i => i.cooler.SuppressionIRFactor }),
+        new ComparisonField({ title: "Heat suppression factor", decimals: 2, valueFn: i => i.cooler.SuppressionHeatFactor }),
+      ]
+    },
+    {
+      title: "EMP",
+      visibleFn: items => !!_.find(items, i => !!i.emp),
+      fields: [
+        new ComparisonField({ title: "Charge time", units: "s", valueFn: i => i.emp.chargeTime }),
+        new ComparisonField({ title: "Distortion damage", units: "HP", valueFn: i => i.emp.distortionDamage, sortDirection: "desc" }),
+        new ComparisonField({ title: "EMP radius", units: "m", valueFn: i => i.emp.empRadius, sortDirection: "desc" }),
+        new ComparisonField({ title: "Minimum EMP radius", units: "m", valueFn: i => i.emp.minEmpRadius, sortDirection: "desc" }),
+        new ComparisonField({ title: "Physical radius", units: "m", valueFn: i => i.emp.physRadius, sortDirection: "desc" }),
+        new ComparisonField({ title: "Minimum physical radius", units: "m", valueFn: i => i.emp.minPhysRadius, sortDirection: "desc" }),
+        new ComparisonField({ title: "Pressure", valueFn: i => i.emp.pressure, sortDirection: "desc" }),
+        new ComparisonField({ title: "Unleash time", units: "s", valueFn: i => i.emp.unleashTime }),
+        new ComparisonField({ title: "Cooldown time", units: "s", valueFn: i => i.emp.cooldownTime }),
+      ]
+    },
+    {
+      title: "Missle damage",
+      visibleFn: items => !!_.find(items, i => !!i.missile),
+      fields: [
+        new ComparisonField({ title: "Physical damage", valueFn: i => i.missile.explosionParams.damage[0].DamagePhysical, sortDirection: "desc" }),
+        new ComparisonField({ title: "Energy damage", valueFn: i => i.missile.explosionParams.damage[0].DamageEnergy, sortDirection: "desc" }),
+        new ComparisonField({ title: "Distortion damage", valueFn: i => i.missile.explosionParams.damage[0].DamageDistortion, sortDirection: "desc" }),
+        new ComparisonField({ title: "Thermal damage", valueFn: i => i.missile.explosionParams.damage[0].DamageThermal, sortDirection: "desc" }),
+        new ComparisonField({ title: "Biochemical damage", valueFn: i => i.missile.explosionParams.damage[0].DamageBiochemical, sortDirection: "desc" }),
+        new ComparisonField({ title: "Stun damage", valueFn: i => i.missile.explosionParams.damage[0].DamageStun, sortDirection: "desc" }),
+      ]
+    },
+    {
+      title: "Ammunition",
+      visibleFn: items => !!_.find(items, i => !!i.ammoContainer),
+      fields: [
+        new ComparisonField({ title: "Initial ammo count", valueFn: i => i.ammoContainer.initialAmmoCount, sortDirection: "desc" }),
+        new ComparisonField({ title: "Max ammo count", valueFn: i => i.ammoContainer.maxAmmoCount }),
+      ]
+    },
+    {
       title: "Power usage",
       visibleFn: items => !!_.find(items, i => i.powerConnection),
       fields: [
@@ -161,27 +249,34 @@ export class CompareItemsPage implements OnInit {
       ]
     },
     {
-      title: "Power emmisions",
+      title: "Heat",
+      visibleFn: items => !!_.find(items, i => i.heatConnection),
+      fields: [
+        new ComparisonField({ title: "Standby thermal energy", units: "W", valueFn: i => i.heatConnection.ThermalEnergyBase }),
+        new ComparisonField({ title: "Full thermal energy", units: "W", valueFn: i => i.heatConnection.ThermalEnergyDraw }),
+        new ComparisonField({ title: "Thermal conductivity", decimals: 2, valueFn: i => i.heatConnection.ThermalConductivity }),
+        new ComparisonField({ title: "Specific heat capacity", decimals: 1, valueFn: i => i.heatConnection.SpecificHeatCapacity }),
+        new ComparisonField({ title: "Mass", valueFn: i => i.heatConnection.Mass }),
+        new ComparisonField({ title: "Surface area", units: "m2", decimals: 2, valueFn: i => i.heatConnection.SurfaceArea }),
+        new ComparisonField({ title: "Max cooling rate", valueFn: i => i.heatConnection.MaxCoolingRate, sortDirection: "desc" }),
+      ]
+    },
+    {
+      title: "Emissions",
       visibleFn: items => !!_.find(items, i => i.powerConnection),
       fields: [
         new ComparisonField({ title: "Power to EM ratio", units: "J/W", decimals: 1, valueFn: i => _.get(i, "powerConnection.PowerToEM") }),
         new ComparisonField({ title: "EM at standby", units: "J", valueFn: i => _.get(i, "powerConnection.PowerBase") * _.get(i, "powerConnection.PowerToEM") }),
         new ComparisonField({ title: "EM at full power", units: "J", valueFn: i => _.get(i, "powerConnection.PowerDraw") * _.get(i, "powerConnection.PowerToEM") }),
+        new ComparisonField({ title: "Temperature to IR", decimals: 1, valueFn: i => i.heatConnection.TemperatureToIR })
       ]
     },
     {
       title: "Durability",
-      visibleFn: items => !!_.find(items, i => !!i.degregation || !!i.health),
+      visibleFn: items => !!_.find(items, i => i.degregation || i.health),
       fields: [
         new ComparisonField({ title: "Hitpoints", units: "HP", valueFn: i => i.health, sortDirection: "desc" }),
         new ComparisonField({ title: "Lifetime", units: "h", decimals: 1, valueFn: i => i.maxLifetime, sortDirection: "desc" }),
-      ]
-    },
-    {
-      title: "Shields",
-      visibleFn: items => !!_.find(items, i => !!i.maxShieldHealth),
-      fields: [
-        new ComparisonField({ title: "Shield", units: "HP", valueFn: i => i.maxShieldHealth, sortDirection: "desc" }),
       ]
     }
   ];
@@ -209,7 +304,7 @@ export class CompareItemsPage implements OnInit {
       Promise.all(itemPromises).then(() => {
         this.fields.forEach(g => {
           g.fields.forEach(f => {
-            this.items.forEach(i => {
+            if (g.visibleFn && g.visibleFn(this.items)) this.items.forEach(i => {
               let value = f.valueFn(i);
               if (value === undefined || typeof value !== "number") return;
               if (f.sortDirection == "asc" && (f.bestValue === undefined || value < f.bestValue)) f.bestValue = value;
