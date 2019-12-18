@@ -44,7 +44,9 @@ namespace Loader
 			"showdown",
 			"citizencon2018",
 			"citizencon",
-			"pirate"
+			"pirate",
+			"talus",
+			"carbon"
 		};
 
 		public List<ShipIndexEntry> Load()
