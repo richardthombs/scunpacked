@@ -200,7 +200,7 @@ export class CompareItemsPage implements OnInit {
       title: "Cooling",
       visibleFn: items => !!_.find(items, i => !!i.cooler),
       fields: [
-        new ComparisonField({ title: "Cooling rate", siPrefix: true, units: "W", valueFn: i => i.cooler.CoolingRate, sortDirection: "desc" }),
+        new ComparisonField({ title: "Cooling rate", siPrefix: true, units: "W/s", valueFn: i => i.cooler.CoolingRate, sortDirection: "desc" }),
         new ComparisonField({ title: "IR suppression factor", decimals: 2, valueFn: i => i.cooler.SuppressionIRFactor }),
         new ComparisonField({ title: "Heat suppression factor", decimals: 2, valueFn: i => i.cooler.SuppressionHeatFactor }),
       ]
@@ -236,39 +236,54 @@ export class CompareItemsPage implements OnInit {
       title: "Ammunition",
       visibleFn: items => !!_.find(items, i => !!i.ammoContainer),
       fields: [
-        new ComparisonField({ title: "Initial ammo count", valueFn: i => i.ammoContainer.initialAmmoCount, sortDirection: "desc" }),
-        new ComparisonField({ title: "Max ammo count", valueFn: i => i.ammoContainer.maxAmmoCount }),
+        new ComparisonField({ title: "Initial ammo count", valueFn: i => _.get(i, "ammoContainer.initialAmmoCount"), sortDirection: "desc" }),
+        new ComparisonField({ title: "Max ammo count", valueFn: i => _.get(i, "ammoContainer.maxAmmoCount"), sortDirection: "desc" }),
+      ]
+    },
+    {
+      title: "Power plant",
+      visibleFn: items => !!_.find(items, i => i.powerConnection && i.type == "PowerPlant"),
+      fields: [
+        new ComparisonField({ title: "Power generated", units: "W", valueFn: i => _.get(i, "powerConnection.PowerDraw"), sortDirection: "desc" }),
       ]
     },
     {
       title: "Power usage",
-      visibleFn: items => !!_.find(items, i => i.powerConnection),
+      visibleFn: items => !!_.find(items, i => i.powerConnection && i.type != "PowerPlant"),
       fields: [
         new ComparisonField({ title: "Standby power draw", units: "W", valueFn: i => _.get(i, "powerConnection.PowerBase") }),
         new ComparisonField({ title: "Full power draw", units: "W", valueFn: i => _.get(i, "powerConnection.PowerDraw") }),
       ]
     },
     {
-      title: "Heat",
-      visibleFn: items => !!_.find(items, i => i.heatConnection),
-      fields: [
-        new ComparisonField({ title: "Standby thermal energy", units: "W", valueFn: i => i.heatConnection.ThermalEnergyBase }),
-        new ComparisonField({ title: "Full thermal energy", units: "W", valueFn: i => i.heatConnection.ThermalEnergyDraw }),
-        new ComparisonField({ title: "Thermal conductivity", decimals: 2, valueFn: i => i.heatConnection.ThermalConductivity }),
-        new ComparisonField({ title: "Specific heat capacity", decimals: 1, valueFn: i => i.heatConnection.SpecificHeatCapacity }),
-        new ComparisonField({ title: "Mass", valueFn: i => i.heatConnection.Mass }),
-        new ComparisonField({ title: "Surface area", units: "m2", decimals: 2, valueFn: i => i.heatConnection.SurfaceArea }),
-        new ComparisonField({ title: "Max cooling rate", valueFn: i => i.heatConnection.MaxCoolingRate, sortDirection: "desc" }),
-      ]
-    },
-    {
-      title: "Emissions",
+      title: "Power emissions",
       visibleFn: items => !!_.find(items, i => i.powerConnection),
       fields: [
         new ComparisonField({ title: "Power to EM ratio", units: "J/W", decimals: 1, valueFn: i => _.get(i, "powerConnection.PowerToEM") }),
         new ComparisonField({ title: "EM at standby", units: "J", valueFn: i => _.get(i, "powerConnection.PowerBase") * _.get(i, "powerConnection.PowerToEM") }),
         new ComparisonField({ title: "EM at full power", units: "J", valueFn: i => _.get(i, "powerConnection.PowerDraw") * _.get(i, "powerConnection.PowerToEM") }),
-        new ComparisonField({ title: "Temperature to IR", decimals: 1, valueFn: i => i.heatConnection.TemperatureToIR })
+      ]
+    },
+    {
+      title: "Thermal properties",
+      visibleFn: items => !!_.find(items, i => i.heatConnection),
+      fields: [
+        new ComparisonField({ title: "Standby thermal energy", units: "J", valueFn: i => _.get(i, "heatConnection.ThermalEnergyBase") }),
+        new ComparisonField({ title: "Full thermal energy", units: "J", valueFn: i => _.get(i, "heatConnection.ThermalEnergyDraw") }),
+        new ComparisonField({ title: "Specific heat capacity", units: "J/gC", decimals: 1, valueFn: i => _.get(i, "heatConnection.SpecificHeatCapacity") }),
+        new ComparisonField({ title: "Mass", valueFn: i => _.get(i, "heatConnection.Mass") }),
+        new ComparisonField({ title: "Standby temperature", units: "C", valueFn: i => _.get(i, "heatConnection.ThermalEnergyBase", 0) / (_.get(i, "heatConnection.Mass") * _.get(i, "heatConnection.SpecificHeatCapacity")) }),
+        new ComparisonField({ title: "Full power temperature", units: "C", valueFn: i => _.get(i, "heatConnection.ThermalEnergyDraw", 0) / (_.get(i, "heatConnection.Mass") * _.get(i, "heatConnection.SpecificHeatCapacity")) }),
+        new ComparisonField({ title: "Thermal conductivity", decimals: 2, valueFn: i => _.get(i, "heatConnection.ThermalConductivity") }),
+        new ComparisonField({ title: "Surface area", units: "m2", decimals: 2, valueFn: i => _.get(i, "heatConnection.SurfaceArea") }),
+        new ComparisonField({ title: "Max cooling rate", units: "W", valueFn: i => _.get(i, "heatConnection.MaxCoolingRate"), sortDirection: "desc" }),
+      ]
+    },
+    {
+      title: "Thermal emissions",
+      visibleFn: items => !!_.find(items, i => i.powerConnection),
+      fields: [
+        new ComparisonField({ title: "Temperature to IR ratio", decimals: 1, valueFn: i => _.get(i, "heatConnection.TemperatureToIR") })
       ]
     },
     {
