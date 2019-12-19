@@ -23,6 +23,11 @@ export class CompareShipsPage implements OnInit {
         new ComparisonField({ title: "Size", valueFn: s => s.vehicleSize, formatFn: v => `Size ${v}`, sortDirection: "desc", compareFn: undefined }),
         new ComparisonField({ title: "Career", valueFn: s => this.localisationSvc.getText(s.vehicleCareer), compareFn: undefined }),
         new ComparisonField({ title: "Role", valueFn: s => this.localisationSvc.getText(s.vehicleRole), compareFn: undefined }),
+      ]
+    }),
+    new ComparisonGroup({
+      title: "Capacity",
+      fields: [
         new ComparisonField({ title: "Crew", valueFn: s => s.crewSize, units: "crew" }),
         new ComparisonField({ title: "Cargo", valueFn: s => s.scu, units: "SCU", sortDirection: "desc" }),
       ],
