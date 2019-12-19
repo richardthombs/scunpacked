@@ -16,7 +16,7 @@ import { ComparisonGroup, ComparisonField } from '../Comparisons';
 })
 export class CompareItemsPage implements OnInit {
 
-  fields: ComparisonGroup[] = [
+  fields: ComparisonGroup<SCItem>[] = [
     new ComparisonGroup({
       title: "",
       visibleFn: () => true,
@@ -196,7 +196,7 @@ export class CompareItemsPage implements OnInit {
 
   items: SCItem[] = [];
 
-  private currentSortField: ComparisonField = this.fields[0].fields[0];
+  private currentSortField: ComparisonField<SCItem> = this.fields[0].fields[0];
   private currentSortDirection: "asc" | "desc" = "asc";
 
   constructor(private $http: HttpClient, private route: ActivatedRoute, private localisationSvc: LocalisationService) { }
@@ -232,11 +232,11 @@ export class CompareItemsPage implements OnInit {
     });
   }
 
-  toggleCollapse(group: ComparisonGroup) {
+  toggleCollapse(group: ComparisonGroup<SCItem>) {
     group.collapsed = !group.collapsed;
   }
 
-  sortBy(field: ComparisonField) {
+  sortBy(field: ComparisonField<SCItem>) {
     if (field === this.currentSortField) this.currentSortDirection = this.currentSortDirection == "asc" ? "desc" : "asc";
     else this.currentSortDirection = field.sortDirection;
     this.currentSortField = field;

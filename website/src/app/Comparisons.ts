@@ -4,42 +4,42 @@ import { SiPipe } from './si.pipe';
 export type FieldValue = number | string | undefined;
 export type FieldScore = { value: number, score: number, best: number, worst: number };
 
-export class ComparisonGroup {
+export class ComparisonGroup<T> {
   title: string = "";
-  fields: ComparisonField[] = [];
-  visibleFn: (items: SCItem[]) => boolean = () => true;
+  fields: ComparisonField<T>[] = [];
+  visibleFn: (items: T[]) => boolean = () => true;
   collapsed: boolean = false;
 
-  constructor(init?: Partial<ComparisonGroup>) {
+  constructor(init?: Partial<ComparisonGroup<T>>) {
     Object.assign(this, init);
   }
 }
 
-export class ComparisonField {
+export class ComparisonField<T> {
 
   title: string = "";
   units: string = "";
   siPrefix: boolean = false;
   sortDirection: "asc" | "desc" = "asc";
   decimals: number = 0;
-  valueFn: (item: SCItem) => FieldValue = () => undefined;
+  valueFn: (item: T) => FieldValue = () => undefined;
   formatFn: (value: FieldValue) => string | null = this.defaultFormat;
-  linkFn?: (item: SCItem) => string = undefined;
-  compareFn?: (all: SCItem[], item: SCItem) => FieldScore | undefined = this.compareValue;
+  linkFn?: (item: T) => string = undefined;
+  compareFn?: (all: T[], item: T) => FieldScore | undefined = this.compareValue;
   bestValue?: number;
   worstValue?: number;
   hidden: boolean = false;
 
-  constructor(init?: Partial<ComparisonField>) {
+  constructor(init?: Partial<ComparisonField<T>>) {
     Object.assign(this, init);
   }
 
-  formattedValue(item: SCItem): string {
+  formattedValue(item: T): string {
     let v = this.valueFn(item);
     return this.formatFn(v) || "";
   }
 
-  formattedCompareValue(all: SCItem[], b: SCItem): string {
+  formattedCompareValue(all: T[], b: T): string {
     let diff = this.compareValue(all, b);
     if (diff === undefined) return "";
 
@@ -51,7 +51,7 @@ export class ComparisonField {
     return x > 0 ? "+" + fmt : fmt;
   }
 
-  compareValue(all: SCItem[], item: SCItem): FieldScore | undefined {
+  compareValue(all: T[], item: T): FieldScore | undefined {
     if (!this.bestValue || !this.worstValue) return undefined;
 
     let itemValue = this.valueFn(item);
@@ -64,7 +64,7 @@ export class ComparisonField {
     return { value: itemValue, score: score, best: this.bestValue, worst: this.worstValue };
   }
 
-  compareClass(all: SCItem[], b: SCItem): string {
+  compareClass(all: T[], b: T): string {
     if (!this.compareFn) return "";
 
     let diff = this.compareValue(all, b);

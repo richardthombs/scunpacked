@@ -72,6 +72,9 @@ export class Ship {
     let speed = this.quantumSpeed;
     return distanceBetweenPOandArcCorp / speed;
   }
+  get fuelToArcCorp(): number {
+    return distanceBetweenPOandArcCorp * this.quantumFuelRequirement;
+  }
 
   get timesToArcCorpAndBack(): number {
     return this.quantumRange / (2 * distanceBetweenPOandArcCorp)
