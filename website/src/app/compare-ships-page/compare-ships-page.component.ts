@@ -42,8 +42,8 @@ export class CompareShipsPage implements OnInit {
     new ComparisonGroup({
       title: "Manuverability",
       fields: [
-        new ComparisonField({ title: "SCM speed", units: "m/s", valueFn: s => s.scmSpeed, sortDirection: "desc" }),
         new ComparisonField({ title: "Max speed", units: "m/s", valueFn: s => s.maxSpeed, sortDirection: "desc" }),
+        new ComparisonField({ title: "SCM speed", units: "m/s", valueFn: s => s.scmSpeed, sortDirection: "desc" }),
       ]
     }),
     new ComparisonGroup({

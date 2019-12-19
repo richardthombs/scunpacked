@@ -86,6 +86,18 @@ export class ComparisonField<T> {
     return "";
   }
 
+  differenceClass(all: T[], b: T): string {
+    if (!this.compareFn) return "";
+
+    let diff = this.compareValue(all, b);
+    if (diff === undefined) return "";
+
+    if (diff.value > 0) return "worse";
+    if (diff.value < 0) return "better";
+
+    return "";
+  }
+
   private defaultFormat(v: FieldValue) {
     if (v === undefined) return "";
 
