@@ -28,5 +28,6 @@ namespace scdb.Xml.Entities
 		public SCItemTurretParams SCItemTurretParams;
 		public SCItemEMPParams SCItemEMPParams;
 		public SCItemMissileParams SCItemMissileParams;
+		public SEntityComponentMiningLaserParams SEntityComponentMiningLaserParams;
 	}
 }

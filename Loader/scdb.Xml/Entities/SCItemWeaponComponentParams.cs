@@ -17,10 +17,17 @@ namespace scdb.Xml.Entities
 		public SWeaponActionFireSingleParams SWeaponActionFireSingleParams;
 		public SWeaponActionFireRapidParams SWeaponActionFireRapidParams;
 		public SWeaponActionSequenceParams SWeaponActionSequenceParams;
+		public SWeaponActionFireBeamParams SWeaponActionFireBeamParams;
 	}
 
-	public class SWeaponActionFireSingleParams : SWeaponActionParams
+	public class SWeaponActionFireSingleParams
 	{
+		[XmlAttribute]
+		public string name;
+
+		[XmlAttribute]
+		public string localisedName;
+
 		[XmlAttribute]
 		public double fireRate;
 
@@ -76,8 +83,14 @@ namespace scdb.Xml.Entities
 		public string spinParam;
 	}
 
-	public class SWeaponActionSequenceParams : SWeaponActionParams
+	public class SWeaponActionSequenceParams
 	{
+		[XmlAttribute]
+		public string name;
+
+		[XmlAttribute]
+
+		public string localisedName;
 		[XmlAttribute]
 		public string mode;
 
@@ -95,12 +108,46 @@ namespace scdb.Xml.Entities
 		public fireActions weaponAction;
 	}
 
-	public class SWeaponActionParams
+	public class SWeaponActionFireBeamParams
 	{
 		[XmlAttribute]
 		public string name;
 
 		[XmlAttribute]
 		public string localisedName;
+
+		[XmlAttribute]
+		public string aiShootingMode;
+
+		[XmlAttribute]
+		public string fireHelper;
+
+		[XmlAttribute]
+		public double toggle;
+
+		[XmlAttribute]
+		public double energyRate;
+
+		[XmlAttribute]
+		public double fullDamageRange;
+
+		[XmlAttribute]
+		public double zeroDamageRange;
+
+		[XmlAttribute]
+		public double heatPerSecond;
+
+		[XmlAttribute]
+		public string hitType;
+
+		[XmlAttribute]
+		public double hitRadius;
+
+		public DamagePerSecond damagePerSecond;
+	}
+
+	public class DamagePerSecond
+	{
+		public DamageInfo DamageInfo;
 	}
 }
