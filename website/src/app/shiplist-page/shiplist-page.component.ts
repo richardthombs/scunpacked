@@ -50,7 +50,8 @@ export class ShiplistPage implements OnInit {
           if (s.isGravlevVehicle) s.roles.push({ role: "Gravlev by size", subRole: `Size ${s.size || 0}` });
         }
         else {
-          s.roles = [{ role: this.localisationSvc.getText(s.career, "Under development"), subRole: this.localisationSvc.getText(s.role) }];
+          if (!s.dogFightEnabled || s.career == "@LOC_PLACEHOLDER" || s.noParts) s.roles = [{ role: "Under development", subRole: "General" }];
+          else s.roles = [{ role: this.localisationSvc.getText(s.career, "Under development"), subRole: this.localisationSvc.getText(s.role) }];
         }
       });
 
