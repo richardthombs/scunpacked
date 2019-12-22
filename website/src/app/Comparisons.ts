@@ -2,7 +2,7 @@ import { SCItem } from "./SCItem";
 import { SiPipe } from './si.pipe';
 
 export type FieldValue = number | string | undefined;
-export type FieldScore = { value: number, score: number, best: number, worst: number };
+export type FieldScore = { value: number, diff: number, score: number, best: number, worst: number };
 
 export class ComparisonGroup<T> {
   title: string = "";
@@ -40,18 +40,34 @@ export class ComparisonField<T> {
   }
 
   formattedCompareValue(all: T[], b: T): string {
-    let diff = this.compareValue(all, b);
-    if (diff === undefined) return "";
+    let cmp = this.compareValue(all, b);
+    if (cmp === undefined) return "";
 
-    if (diff.score === 1) return "";
+    if (cmp.diff === 0) return "";
 
-    let x: number = diff.value - diff.best;
+    let x: number = cmp.diff;
 
     let fmt = this.formatFn(x) || "";
     return x > 0 ? "+" + fmt : fmt;
   }
 
   compareValue(all: T[], item: T): FieldScore | undefined {
+    return this.compareAgainstFirst(all[0], item);
+  }
+
+  private compareAgainstFirst(first: T, item: T) {
+    let cmp = this.compareAgainstAll(item);
+    if (!cmp) return undefined;
+
+    let firstValue = this.valueFn(first);
+    if (this.isNumber(firstValue)) {
+      cmp.diff = cmp.value - firstValue;
+    }
+
+    return cmp;
+  }
+
+  private compareAgainstAll(item: T): FieldScore | undefined {
     if (!this.bestValue || !this.worstValue) return undefined;
 
     let itemValue = this.valueFn(item);
@@ -61,7 +77,7 @@ export class ComparisonField<T> {
     if (this.bestValue === this.worstValue) score = 1;
     else score = (itemValue - this.worstValue) / (this.bestValue - this.worstValue);
 
-    return { value: itemValue, score: score, best: this.bestValue, worst: this.worstValue };
+    return { value: itemValue, diff: itemValue - this.bestValue, score: score, best: this.bestValue, worst: this.worstValue };
   }
 
   compareClass(all: T[], b: T): string {
@@ -89,11 +105,18 @@ export class ComparisonField<T> {
   differenceClass(all: T[], b: T): string {
     if (!this.compareFn) return "";
 
-    let diff = this.compareValue(all, b);
-    if (diff === undefined) return "";
+    let cmp = this.compareValue(all, b);
+    if (cmp === undefined) return "";
 
-    if (diff.value > 0) return "worse";
-    if (diff.value < 0) return "better";
+
+    if (this.sortDirection == "asc") {
+      if (cmp.diff > 0) return "worse";
+      if (cmp.diff < 0) return "better";
+    }
+    else {
+      if (cmp.diff < 0) return "worse";
+      if (cmp.diff > 0) return "better";
+    }
 
     return "";
   }
