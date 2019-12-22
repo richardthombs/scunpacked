@@ -34,18 +34,24 @@ export class ShiplistPage implements OnInit {
 
       // Figure out our own roles and sub-roles rather than using CIG's career/roles
       r.forEach(s => {
-        s.roles = _.flatMap(this.localisationSvc.getText(s.role).split(" / "), cigRole => {
-          if (!s.dogFightEnabled || s.career == "@LOC_PLACEHOLDER" || s.noParts) return { role: "Under development", subRole: "General" };
 
-          if (s.isGroundVehicle) return { role: "Vehicles", subRole: cigRole };
-          if (s.isGravlevVehicle) return { role: "Gravlev", subRole: cigRole };
+        if (false) {
+          s.roles = _.flatMap(this.localisationSvc.getText(s.role).split(" / "), cigRole => {
+            if (!s.dogFightEnabled || s.career == "@LOC_PLACEHOLDER" || s.noParts) return { role: "Under development", subRole: "General" };
 
-          return this.isRolePrefix(cigRole) ? cigRole.split(" ").filter(rr => !this.isSizePrefix(rr)).map(rr => { return { role: rr, subRole: cigRole }; }) : { role: cigRole, subRole: "General" }
-        });
+            if (s.isGroundVehicle) return { role: "Vehicles", subRole: cigRole };
+            if (s.isGravlevVehicle) return { role: "Gravlev", subRole: cigRole };
 
-        if (s.isSpaceship) s.roles.push({ role: "Ships by size", subRole: `Size ${s.size || 0}` })
-        if (s.isGroundVehicle) s.roles.push({ role: "Vehicles by size", subRole: `Size ${s.size || 0}` })
-        if (s.isGravlevVehicle) s.roles.push({ role: "Gravlev by size", subRole: `Size ${s.size || 0}` })
+            return this.isRolePrefix(cigRole) ? cigRole.split(" ").filter(rr => !this.isSizePrefix(rr)).map(rr => { return { role: rr, subRole: cigRole }; }) : { role: cigRole, subRole: "General" }
+          });
+
+          if (s.isSpaceship) s.roles.push({ role: "Ships by size", subRole: `Size ${s.size || 0}` });
+          if (s.isGroundVehicle) s.roles.push({ role: "Vehicles by size", subRole: `Size ${s.size || 0}` });
+          if (s.isGravlevVehicle) s.roles.push({ role: "Gravlev by size", subRole: `Size ${s.size || 0}` });
+        }
+        else {
+          s.roles = [{ role: this.localisationSvc.getText(s.career, "Under development"), subRole: this.localisationSvc.getText(s.role) }];
+        }
       });
 
       // Group by role and sub-role, ships will appear in multiple groupings
