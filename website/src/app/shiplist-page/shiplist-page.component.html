@@ -1,69 +1,26 @@
 <div class="container-fluid mt-3">
+  <div class="d-flex flex-wrap flex-row list-group">
+    <button (click)="selectRole(role)" *ngFor="let role of byRoles | keyvalue" class="list-group-item list-group-action roleSelect" [class.active]="role.key == selectedRole.key">{{role.key}}</button>
+  </div>
 
-  <h3 class="display-4">Spaceships</h3>
-  <div class="d-flex flex-wrap">
-    <div *ngFor="let role of byRoles | keyvalue" class="role-container">
-      <div class="role-inner">
-        <h5>{{role.key}}
-          <a [routerLink]="['/ships/compare']" [queryParams]="{ships:shipsInRole(role.value)}">Compare</a>
-        </h5>
-        <div class="d-flex subrole-container">
-          <div *ngFor="let subRole of role.value | keyvalue" class="subrole-inner">
-            <h6>
-              {{subRole.key}}
-              <a *ngIf="subRole.value.length > 1" [routerLink]="['/ships/compare']" [queryParams]="{ships:shipsInSubRole(subRole.value)}">Compare</a>
-            </h6>
-            <div *ngFor="let ship of subRole.value">
-              <a [routerLink]="['/ships', ship.className.toLowerCase()]" [title]="ship.name | localise">{{ship.name | localise}}</a>
-            </div>
+  <div *ngIf="selectedRole" class="role-container">
+    <div class="role-inner">
+      <h5>{{selectedRole.key}}
+        <a [routerLink]="['/ships/compare']" [queryParams]="{ships:shipsInRole(selectedRole.value)}">Compare</a>
+      </h5>
+      <div class="d-flex subrole-container">
+        <div *ngFor="let subRole of selectedRole.value | keyvalue" class="subrole-inner">
+          <h6>
+            {{subRole.key}}
+            <a *ngIf="subRole.value.length > 1" [routerLink]="['/ships/compare']" [queryParams]="{ships:shipsInSubRole(subRole.value)}">Compare</a>
+          </h6>
+          <div *ngFor="let ship of subRole.value">
+            <a [routerLink]="['/ships', ship.className.toLowerCase()]" [title]="ship.name | localise">{{ship.name | localise}}</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <h3 class="display-4">Other vehicles</h3>
-  <div class="d-flex flex-wrap">
-    <div *ngFor="let role of specials | keyvalue" class="role-container">
-      <div class="role-inner">
-        <h5>{{role.key}}
-          <a [routerLink]="['/ships/compare']" [queryParams]="{ships:shipsInRole(role.value)}">Compare</a>
-        </h5>
-        <div class="d-flex subrole-container">
-          <div *ngFor="let subRole of role.value | keyvalue" class="subrole-inner">
-            <h6>
-              {{subRole.key}}
-              <a *ngIf="subRole.value.length > 1" [routerLink]="['/ships/compare']" [queryParams]="{ships:shipsInSubRole(subRole.value)}">Compare</a>
-            </h6>
-            <div *ngFor="let ship of subRole.value">
-              <a [routerLink]="['/ships', ship.className.toLowerCase()]" [title]="ship.name | localise">{{ship.name | localise}}</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <h3 class="display-4">Spaceships and vehicles by size</h3>
-  <div class="d-flex flex-wrap">
-    <div *ngFor="let role of bySize | keyvalue" class="role-container">
-      <div class="role-inner">
-        <h5>{{role.key}}
-          <a [routerLink]="['/ships/compare']" [queryParams]="{ships:shipsInRole(role.value)}">Compare</a>
-        </h5>
-        <div class="d-flex subrole-container">
-          <div *ngFor="let subRole of role.value | keyvalue" class="subrole-inner">
-            <h6>
-              {{subRole.key}}
-              <a *ngIf="subRole.value.length > 1" [routerLink]="['/ships/compare']" [queryParams]="{ships:shipsInSubRole(subRole.value)}">Compare</a>
-            </h6>
-            <div *ngFor="let ship of subRole.value">
-              <a [routerLink]="['/ships', ship.className.toLowerCase()]" [title]="ship.name | localise">{{ship.name | localise}}</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
 </div>

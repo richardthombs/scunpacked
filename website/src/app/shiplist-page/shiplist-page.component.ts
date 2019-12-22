@@ -22,6 +22,8 @@ export class ShiplistPage implements OnInit {
   specials: doubleGroupedList<ShipIndexEntry> = {};
   bySize: doubleGroupedList<ShipIndexEntry> = {};
 
+  selectedRole: any;
+
   constructor(private $http: HttpClient, private localisationSvc: LocalisationService) { }
 
   ngOnInit() {
@@ -35,15 +37,15 @@ export class ShiplistPage implements OnInit {
         s.roles = _.flatMap(this.localisationSvc.getText(s.role).split(" / "), cigRole => {
           if (!s.dogFightEnabled || s.career == "@LOC_PLACEHOLDER" || s.noParts) return { role: "Under development", subRole: "General" };
 
-          if (s.isGroundVehicle) return { role: "Ground vehicles", subRole: cigRole };
-          if (s.isGravlevVehicle) return { role: "Gravlev vehicles", subRole: cigRole };
+          if (s.isGroundVehicle) return { role: "Vehicles", subRole: cigRole };
+          if (s.isGravlevVehicle) return { role: "Gravlev", subRole: cigRole };
 
           return this.isRolePrefix(cigRole) ? cigRole.split(" ").filter(rr => !this.isSizePrefix(rr)).map(rr => { return { role: rr, subRole: cigRole }; }) : { role: cigRole, subRole: "General" }
         });
 
-        if (s.isSpaceship) s.roles.push({ role: "Spaceships by size", subRole: `Size ${s.size || 0}` })
-        if (s.isGroundVehicle) s.roles.push({ role: "Ground vehicles by size", subRole: `Size ${s.size || 0}` })
-        if (s.isGravlevVehicle) s.roles.push({ role: "Gravlev vehicles by size", subRole: `Size ${s.size || 0}` })
+        if (s.isSpaceship) s.roles.push({ role: "Ships by size", subRole: `Size ${s.size || 0}` })
+        if (s.isGroundVehicle) s.roles.push({ role: "Vehicles by size", subRole: `Size ${s.size || 0}` })
+        if (s.isGravlevVehicle) s.roles.push({ role: "Gravlev by size", subRole: `Size ${s.size || 0}` })
       });
 
       // Group by role and sub-role, ships will appear in multiple groupings
@@ -56,21 +58,29 @@ export class ShiplistPage implements OnInit {
       });
 
       // Move special groupings
-      ["Ground vehicles", "Gravlev vehicles", "Under development"].forEach(
+      ["Vehicles", "Gravlev", "Under development"].forEach(
         grouping => {
           this.specials[grouping] = this.byRoles[grouping];
-          delete this.byRoles[grouping];
+          //delete this.byRoles[grouping];
         }
       );
 
       // Move into by size groupings
-      ["Spaceships by size", "Ground vehicles by size", "Gravlev vehicles by size"].forEach(
+      ["Ships by size", "Vehicles by size", "Gravlev by size"].forEach(
         grouping => {
           this.bySize[grouping] = this.byRoles[grouping];
-          delete this.byRoles[grouping];
+          //delete this.byRoles[grouping];
         }
       );
+
+      var first = _.sortBy(Object.keys(this.byRoles))[0];
+      this.selectRole({ key: first, value: this.byRoles[first] });
+
     });
+  }
+
+  selectRole(role: any): void {
+    this.selectedRole = role;
   }
 
   shipsInRole(role: { [id: string]: ShipIndexEntry[] }): string {

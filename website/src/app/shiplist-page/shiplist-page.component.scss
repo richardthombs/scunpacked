@@ -1,9 +1,5 @@
 .role-inner {
   padding: 10px;
-  &:hover {
-    background-color: #ccc;
-
-  }
 }
 
 .subrole-container {
@@ -35,4 +31,19 @@ h6 > a {
 
 h3 {
   margin-left: 10px;
+}
+
+.roleSelect {
+  border: 1px solid #ccc;
+  margin-left: -1px;
+  margin-top: -1px;
+  flex-basis: 10rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+button:focus,
+.list-group-item.active {
+  z-index: 2 ! important; // Bootstrap focus fix
 }
