@@ -29,6 +29,7 @@ export class ComparisonField<T> {
   bestValue?: number;
   worstValue?: number;
   hidden: boolean = false;
+  showPlus: boolean = false;
 
   constructor(init?: Partial<ComparisonField<T>>) {
     Object.assign(this, init);
@@ -36,7 +37,10 @@ export class ComparisonField<T> {
 
   formattedValue(item: T): string {
     let v = this.valueFn(item);
-    return this.formatFn(v) || "";
+    if (v === undefined) return "";
+
+    let fmt = this.formatFn(v) || "";
+    return v >= 0 && this.showPlus ? "+" + fmt : fmt;
   }
 
   formattedCompareValue(all: T[], b: T): string {
@@ -68,7 +72,7 @@ export class ComparisonField<T> {
   }
 
   private compareAgainstAll(item: T): FieldScore | undefined {
-    if (!this.bestValue || !this.worstValue) return undefined;
+    if (this.bestValue === undefined || this.worstValue === undefined) return undefined;
 
     let itemValue = this.valueFn(item);
     if (!this.isNumber(itemValue)) return undefined;
