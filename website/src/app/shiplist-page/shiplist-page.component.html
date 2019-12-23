@@ -1,4 +1,4 @@
-<div class="container-fluid mt-3">
+<div class="container mt-3">
   <div class="d-flex flex-wrap flex-row list-group">
     <button (click)="selectRole(role)" *ngFor="let role of byRoles | keyvalue" class="list-group-item list-group-action roleSelect" [class.active]="role.key == selectedRole.key">{{role.key}}</button>
   </div>

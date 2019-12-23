@@ -6,7 +6,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SiPipe implements PipeTransform {
 
   transform(value: any, units?: string, decimals?: number): string {
+    if (value === undefined || value === null) return "";
+
     var si = SiPipe.siPrefix(value);
+
     return `${si.value.toFixed(decimals || 0)} ${si.prefix}${units || ""}`;
   }
 

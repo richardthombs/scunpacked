@@ -52,6 +52,17 @@ export class CompareShipsPage implements OnInit {
       ]
     }),
     new ComparisonGroup({
+      title: "Fuel usage",
+      fields: [
+        new ComparisonField({ title: "Hydrogen tank", units: "l", valueFn: s => s.fuelCapacity, sortDirection: "desc" }),
+        new ComparisonField({ title: "Main thrusters", units: "l/s", valueFn: s => s.mainThrusterBurnRate }),
+        new ComparisonField({ title: "Manuvering thrusters", units: "l/s", valueFn: s => s.manneuverThrusterBurnRate }),
+        new ComparisonField({ title: "Fuel intakes", units: "l/s", valueFn: s => s.fuelIntakePushRate, sortDirection: "desc" }),
+        new ComparisonField({ title: "Time to empty (Main thrusters)", units: "s", valueFn: s => s.fuelCapacity / (s.mainThrusterBurnRate - s.fuelIntakePushRate), sortDirection: "desc" }),
+        new ComparisonField({ title: "Time to empty (All thrusters)", units: "s", valueFn: s => s.fuelCapacity / (s.mainThrusterBurnRate + s.manneuverThrusterBurnRate - s.fuelIntakePushRate), sortDirection: "desc" }),
+      ]
+    }),
+    new ComparisonGroup({
       title: "Quantum travel",
       fields: [
         new ComparisonField({ title: "Quantum range", units: "m", siPrefix: true, valueFn: s => s.quantumRange, sortDirection: "desc" }),

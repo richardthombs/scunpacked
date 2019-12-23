@@ -50,6 +50,10 @@ export class Ship {
     return _.get(this.Raw, "Entity.Components.VehicleComponentParams.crewSize", 0);
   }
 
+  get fuelCapacity(): number {
+    return _.reduce(this.findItemPorts(ip => ip.item != null && ip.item.type == "FuelTank"), (total, ip) => total + _.get(ip.item, "capacity", 0), 0);
+  }
+
   get quantumFuelCapacity(): number {
     return _.reduce(this.findItemPorts(ip => ip.item != null && ip.item.type == "QuantumFuelTank"), (total, ip) => total + _.get(ip.item, "capacity", 0), 0);
   }

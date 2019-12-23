@@ -51,7 +51,10 @@ export class ShiplistPage implements OnInit {
         }
         else {
           if (!s.dogFightEnabled || s.career == "@LOC_PLACEHOLDER" || s.noParts) s.roles = [{ role: "Under development", subRole: "General" }];
-          else s.roles = [{ role: this.localisationSvc.getText(s.career, "Under development"), subRole: this.localisationSvc.getText(s.role) }];
+          else {
+            s.roles = [{ role: this.localisationSvc.getText(s.career, "Under development"), subRole: this.localisationSvc.getText(s.role) }];
+            if (s.isSpaceship) s.roles.push({ role: "Ships by size", subRole: `Size ${s.size || 0}` });
+          }
         }
       });
 

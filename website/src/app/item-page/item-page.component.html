@@ -18,17 +18,17 @@
   </div>
 
   <div *ngIf="item?.powerConnection" class="d-flex justify-content-between mt-3">
-    <div>Power base {{item?.powerConnection.PowerBase | number:'1.0-0'}} W</div>
-    <div>Power draw {{item?.powerConnection.PowerDraw | number:'1.0-0'}} W</div>
+    <div>Standby power {{item?.powerConnection.PowerBase | number:'1.0-0'}} W</div>
+    <div>Maximum power {{item?.powerConnection.PowerDraw | number:'1.0-0'}} W</div>
     <div>Power to EM ratio {{item?.powerConnection.PowerToEM | number:'1.1-1'}} J/W</div>
     <div>EM @ base draw {{item?.powerConnection.PowerBase * item?.powerConnection.PowerToEM | number:'1.1-1'}} J</div>
     <div>EM @ full draw {{item?.powerConnection.PowerDraw * item?.powerConnection.PowerToEM | number:'1.1-1'}} J</div>
   </div>
 
   <div *ngIf="item?.heatConnection" class="d-flex justify-content-between mt-3">
-    <div>Thermal energy base {{item?.heatConnection.ThermalEnergyBase | number:'1.0-0'}} J/m<sup>3</sup></div>
-    <div>Thermal energy draw {{item?.heatConnection.ThermalEnergyDraw | number:'1.0-0'}} J/m<sup>3</sup></div>
-    <div>Temperature to IR ratio {{item?.heatConnection.TemperatureToIR | number:'1.1-1'}} J/K</div>
+    <div>Thermal energy base {{item?.heatConnection.ThermalEnergyBase | number:'1.0-0'}}</div>
+    <div>Thermal energy draw {{item?.heatConnection.ThermalEnergyDraw | number:'1.0-0'}}</div>
+    <div>Temperature to IR ratio {{item?.heatConnection.TemperatureToIR | number:'1.1-1'}}</div>
   </div>
 
   <div class="mt-3 text-muted" style="white-space: pre-line;">
