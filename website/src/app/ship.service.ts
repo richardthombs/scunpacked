@@ -55,11 +55,11 @@ export class ShipService {
     if (itemName) {
       if (this.itemCache[itemName]) {
         loaded = this.itemCache[itemName];
-        console.log("Loaded cached item", itemName);
+        //console.log("Loaded cached item", itemName);
       }
       else {
         loaded = await this.$http.get<any>(`${environment.api}/items/${itemName.toLowerCase()}.json`).toPromise().catch(e => { });
-        console.log(loaded ? "Loaded item" : "Could not load item", itemName);
+        //console.log(loaded ? "Loaded item" : "Could not load item", itemName);
         if (loaded) this.itemCache[itemName] = loaded;
       }
     }

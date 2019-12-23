@@ -15,6 +15,7 @@
     <div *ngIf="!itemPort.item" class="text-right">{{itemPort.itemClass}} (no data)</div>
     <div *ngIf="itemPort.item" class="text-right">
       <a [routerLink]="['/items', itemPort.itemClass.toLowerCase()]">{{itemPort.item.name | localise:itemPort.itemClass}}</a>
+      <small class="ml-2"><a [routerLink]="['/items/compare']" [queryParams]="{type: itemPort.item.type, subType: itemPort.item.subType, size: itemPort.item.size, selected: itemPort.itemClass}">Compare</a></small>
     </div>
   </div>
   <div *ngIf="!itemPort.itemClass" class="text-muted">Nothing installed</div>

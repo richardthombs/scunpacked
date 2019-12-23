@@ -211,6 +211,7 @@ export class CompareItemsPage implements OnInit {
   ];
 
   items: SCItem[] = [];
+  compareAgainst: string = "";
 
   private currentSortField: ComparisonField<SCItem> = this.fields[0].fields[0];
   private currentSortDirection: "asc" | "desc" = "asc";
@@ -218,10 +219,12 @@ export class CompareItemsPage implements OnInit {
   constructor(private $http: HttpClient, private route: ActivatedRoute, private localisationSvc: LocalisationService) { }
 
   ngOnInit() {
-    this.route.queryParamMap.subscribe(params => {
+    this.route.queryParamMap.subscribe(async params => {
 
       let itemsParam: string = params.get("items") || "";
-      let itemClasses = itemsParam.split(",");
+      let itemClasses = itemsParam ? itemsParam.split(",") : await this.getItemNames(params.get("type") || "", params.get("subType") || "", parseInt(params.get("size") || "0"));
+
+      this.compareAgainst = params.get("selected") || "";
 
       let itemPromises: Promise<SCItem>[] = [];
 
@@ -248,6 +251,12 @@ export class CompareItemsPage implements OnInit {
     });
   }
 
+  async getItemNames(type: string, subType: string, size: number): Promise<string[]> {
+    let index = await this.$http.get<any>(`${environment.api}/items.json`).toPromise();
+
+    return _.map(_.filter(index, (i: any) => (!size || i.size == size) && i.type == type && (!subType || (i.subType == subType))), x => x.className);
+  }
+
   toggleCollapse(group: ComparisonGroup<SCItem>) {
     group.collapsed = !group.collapsed;
   }
@@ -260,6 +269,7 @@ export class CompareItemsPage implements OnInit {
   }
 
   private applySort() {
-    this.items = _.orderBy(this.items, [i => this.currentSortField.valueFn(i) || 0], [this.currentSortDirection]);
+    if (this.compareAgainst) this.items = _.orderBy(this.items, [i => this.compareAgainst == i.className, i => this.currentSortField.valueFn(i) || 0], ["desc", this.currentSortDirection]);
+    else this.items = _.orderBy(this.items, [i => this.currentSortField.valueFn(i) || 0], [this.currentSortDirection]);
   }
 }
