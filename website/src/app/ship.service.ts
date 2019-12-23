@@ -35,7 +35,7 @@ export class ShipService {
   async loadItems(itemPorts: IItemPort[], loadouts: JsonLoadout[]): Promise<void> {
     for (let i = 0; i < itemPorts.length; i++) {
       let itemPort = itemPorts[i];
-      let loadout: JsonLoadout | undefined = _.find(loadouts, x => x.portName == itemPort.name);
+      let loadout: JsonLoadout | undefined = _.find(loadouts, x => !!x.portName && x.portName.toLowerCase() == itemPort.name.toLowerCase());
       if (loadout && loadout.itemName) {
         itemPort.itemClass = loadout.itemName;
         itemPort.item = await this.loadItem(loadout.itemName);
