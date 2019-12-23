@@ -144,15 +144,23 @@ export class SCItem {
   }
 
   get distortion(): any {
-    return _.get(this.json, "Raw.Entity.Components.SDistortionParams")
+    return _.get(this.json, "Raw.Entity.Components.SDistortionParams");
   }
 
   get emp(): any {
-    return _.get(this.json, "Raw.Entity.Components.SCItemEMPParams")
+    return _.get(this.json, "Raw.Entity.Components.SCItemEMPParams");
   }
 
   get missile(): any {
-    return _.get(this.json, "Raw.Entity.Components.SCItemMissileParams")
+    return _.get(this.json, "Raw.Entity.Components.SCItemMissileParams");
+  }
+
+  get miningLaser(): any {
+    return _.get(this.json, "Raw.Entity.Components.SEntityComponentMiningLaserParams");
+  }
+
+  get weapon(): any {
+    return _.get(this.json, "Raw.Entity.Components.SCItemWeaponComponentParams");
   }
 
   get itemPorts(): IItemPort[] {

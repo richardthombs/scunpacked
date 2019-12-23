@@ -126,6 +126,22 @@ export class CompareItemsPage implements OnInit {
       ]
     }),
     new ComparisonGroup({
+      title: "Mining laser",
+      visibleFn: items => !!_.find(items, i => !!i.miningLaser),
+      fields: [
+        new ComparisonField({ title: "Full damage range", units: "m", valueFn: i => i.weapon.fireActions.SWeaponActionFireBeamParams.fullDamageRange, sortDirection: "desc" }),
+        new ComparisonField({ title: "Zero damage range", units: "m", valueFn: i => i.weapon.fireActions.SWeaponActionFireBeamParams.zeroDamageRange, sortDirection: "desc" }),
+        new ComparisonField({ title: "Energy damage", valueFn: i => i.weapon.fireActions.SWeaponActionFireBeamParams.damagePerSecond.DamageInfo.DamageEnergy, sortDirection: "desc" }),
+        new ComparisonField({ title: "Attachment ports", valueFn: i => i.itemPorts.length, sortDirection: "desc" }),
+        new ComparisonField({ title: "Throttle Lerp", decimals: 1, valueFn: i => _.get(i, "miningLaser.throttleLerpSpeed"), sortDirection: "desc" }),
+        new ComparisonField({ title: "Resistance modifier", decimals: 1, valueFn: i => _.get(i, "miningLaser.miningLaserModifiers.resistanceModifier"), sortDirection: "desc" }),
+        new ComparisonField({ title: "Laser instability modifier", decimals: 1, valueFn: i => _.get(i, "miningLaser.miningLaserModifiers.laserInstability.FloatModifierMultiplicative.value"), sortDirection: "desc" }),
+        new ComparisonField({ title: "Shatter damage modifier", decimals: 1, valueFn: i => _.get(i, "miningLaser.miningLaserModifiers.shatterdamageModifier.FloatModifierMultiplicative.value"), sortDirection: "desc" }),
+        new ComparisonField({ title: "Optimal charge window size modifier", decimals: 1, valueFn: i => _.get(i, "miningLaser.miningLaserModifiers.optimalChargeWindowSizeModifier.FloatModifierMultiplicative.value"), sortDirection: "desc" }),
+        new ComparisonField({ title: "Catastrophic charge window size modifier", decimals: 1, valueFn: i => _.get(i, "miningLaser.miningLaserModifiers.catastrophicChargeWindowRateModifier.FloatModifierMultiplicative.value"), sortDirection: "desc" }),
+      ]
+    }),
+    new ComparisonGroup({
       title: "Ammunition",
       visibleFn: items => !!_.find(items, i => !!i.ammoContainer),
       fields: [
