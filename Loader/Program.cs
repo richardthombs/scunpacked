@@ -44,6 +44,13 @@ namespace Loader
 			}
 			else Directory.CreateDirectory(outputRoot);
 
+			// Prices
+			var priceLoader = new ShopLoader
+			{
+				DataRoot = scDataRoot
+			};
+
+			priceLoader.Load();
 			// Localisation
 			var labels = new Dictionary<string, string>();
 			using (var ini = new StreamReader(Path.Combine(scDataRoot, @"Data\Localization\english\global.ini")))
@@ -92,6 +99,7 @@ namespace Loader
 			};
 			var itemIndex = itemLoader.Load();
 			File.WriteAllText(Path.Combine(outputRoot, "items.json"), JsonConvert.SerializeObject(itemIndex));
+
 		}
 	}
 }
