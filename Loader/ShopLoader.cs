@@ -1,39 +1,137 @@
 using System;
 using System.IO;
+using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
+
 using scdb.Xml.Shops;
+using scdb.Xml.Entities;
 
 namespace Loader
 {
 	public class ShopLoader
 	{
 		public string DataRoot { get; set; }
+		public Func<string, string> OnXmlLoadout { get; set; }
 
-		public void Load()
+		string[] avoids =
 		{
-			var prices = Parse<Node>(Path.Combine(DataRoot, @"Data\Libs\Subsumption\Shops\RetailProductPrices.xml"));
-			var shops = Parse<ShopLayoutNode>(Path.Combine(DataRoot, @"Data\Libs\Subsumption\Shops\ShopLayouts.xml"));
-			var x = shops.ShopLayoutNodes[0].ShopLayoutNodes[0].ShopInventoryNodes[0];
+			"NovemberAnniversarySale2019",
+			"NovemberAnniversarySale2018",
+			"AC_Inventory",
+			"TestInventories"
+		};
 
-			PrintShops(prices, shops);
+		LocalisationService localisationService;
 
-			Console.ReadLine();
+		public ShopLoader(LocalisationService localisationService)
+		{
+			this.localisationService = localisationService;
 		}
 
-		void PrintShops(Node prices, ShopLayoutNode node, int depth = 0)
+		public List<Shop> Load()
 		{
-			Console.WriteLine($"{new string(' ', depth)}{node.Name}");
-			if (node.ShopInventoryNodes != null) foreach (var inventory in node.ShopInventoryNodes) PrintInventory(prices, inventory, depth + 1);
-			foreach (var layout in node.ShopLayoutNodes) PrintShops(prices, layout, depth + 1);
+			var shops = new List<Shop>();
 
+			var productList = Parse<Node>(Path.Combine(DataRoot, @"Data\Libs\Subsumption\Shops\RetailProductPrices.xml"));
+			var shopRootNode = Parse<ShopLayoutNode>(Path.Combine(DataRoot, @"Data\Libs\Subsumption\Shops\ShopLayouts.xml"));
+
+			foreach (var (shopNode, p) in GetShops(shopRootNode))
+			{
+				var shop = new Shop
+				{
+					name = shopNode.Name,
+					profitMargin = shopNode.ProfitMargin,
+					acceptsStolenGoods = Convert.ToBoolean(shopNode.AcceptsStolenGoods),
+					containerPath = p
+				};
+
+				shop.inventory = GetInventory(productList, shopNode).ToArray();
+				shops.Add(shop);
+
+				Console.WriteLine($"{shop.containerPath}: {shop.name}, {shop.inventory.Length} items");
+				foreach (var i in shop.inventory)
+				{
+					Console.WriteLine($@"{(i.shopBuysThis ? "Buys" : "")} {(i.shopSellsThis ? "Sells" : "")} {i.name} {i.basePrice} {i.basePriceOffsetPercentage:n0}%");
+				}
+			}
+
+			return shops;
 		}
 
-		void PrintInventory(Node prices, ShopInventoryNode node, int depth)
+		IEnumerable<(ShopLayoutNode, string)> GetShops(ShopLayoutNode node, string path = "")
 		{
-			var invNode = FindInventoryNode(prices, node.InventoryID);
-			if (invNode == null) Console.WriteLine("Can't find " + node.InventoryID);
-			Console.WriteLine($"{new string('.', depth)}{node.Name} {invNode.BasePrice} {invNode.MaxDiscountPercentage}% - {invNode.MaxPremiumPercentage}%");
+			if (avoids.Any(x => node.Name == x)) yield break;
+
+			if (node.ShopInventoryNodes?.Length > 0) yield return (node, path);
+
+			if (node.ShopLayoutNodes?.Length > 0)
+			{
+				foreach (var layout in node.ShopLayoutNodes)
+				{
+					foreach (var (shop, p) in GetShops(layout, Path.Combine(path, layout.Name)))
+					{
+						yield return (shop, p);
+					}
+				}
+			}
+
+			yield break;
+		}
+
+		List<ShopItem> GetInventory(Node prices, ShopLayoutNode shopNode)
+		{
+			var items = new List<ShopItem>();
+
+			if (shopNode?.ShopInventoryNodes.Length > 0)
+			{
+				foreach (var itemNode in shopNode.ShopInventoryNodes)
+				{
+					var product = FindInventoryNode(prices, itemNode.InventoryID);
+					if (product == null) Console.WriteLine($"Can't find product {itemNode.Name} ({itemNode.InventoryID}) ");
+					else
+					{
+						var parser = new EntityParser();
+						var entity = parser.Parse(Path.Combine(DataRoot, product.Filename), OnXmlLoadout);
+
+						var item = new ShopItem
+						{
+							name = itemNode.Name.ToLower(),
+							basePriceOffsetPercentage = itemNode.BasePriceOffsetPercentage,
+							maxDiscountPercentage = itemNode.BasePriceOffsetPercentage,
+							maxPremiumPercentage = itemNode.MaxPremiumPercentage,
+							inventory = itemNode.Inventory,
+							optimalInventoryLevel = itemNode.OptimalInventoryLevel,
+							maxInventory = itemNode.MaxInventory,
+							autoRestock = Convert.ToBoolean(itemNode.AutoRestock),
+							autoConsume = Convert.ToBoolean(itemNode.AutoConsume),
+							refreshRatePercentagePerMinute = itemNode.RefreshRatePercentagePerMinute,
+							shopBuysThis = itemNode.TransactionTypes.Any(x => x.Data == "Sell"),
+							shopSellsThis = itemNode.TransactionTypes.Any(x => x.Data == "Buy"),
+							basePrice = product.BasePrice,
+							filename = product.Filename,
+						};
+
+						if (entity?.Components.SAttachableComponentParams != null)
+						{
+							item.displayName = localisationService.GetText(entity.Components.SAttachableComponentParams.AttachDef.Localization.Name);
+							item.tags = entity.Components.SAttachableComponentParams.AttachDef.Tags.Split(" ");
+							item.type = entity.Components.SAttachableComponentParams.AttachDef.Type;
+							item.subType = entity.Components.SAttachableComponentParams.AttachDef.SubType;
+						}
+
+						if (entity?.Components.CommodityComponentParams != null)
+						{
+							item.displayName = localisationService.GetText(entity.Components.CommodityComponentParams.name);
+						}
+
+						items.Add(item);
+					}
+				}
+			}
+
+			return items;
 		}
 
 		Node FindInventoryNode(Node node, string inventoryId)
@@ -42,7 +140,6 @@ namespace Loader
 
 			if (node.RetailProducts != null)
 			{
-
 				foreach (var n in node.RetailProducts)
 				{
 					var found = FindInventoryNode(n, inventoryId);

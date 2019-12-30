@@ -44,15 +44,15 @@ namespace Loader
 			}
 			else Directory.CreateDirectory(outputRoot);
 
-			// Prices
-			var priceLoader = new ShopLoader
+			// A loadout loader to help with any XML loadouts we encounter while parsing entities
+			var loadoutLoader = new LoadoutLoader
 			{
+				OutputFolder = Path.Combine(outputRoot, "loadouts"),
 				DataRoot = scDataRoot
 			};
 
-			priceLoader.Load();
 			// Localisation
-			var labels = new Dictionary<string, string>();
+			var labels = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 			using (var ini = new StreamReader(Path.Combine(scDataRoot, @"Data\Localization\english\global.ini")))
 			{
 				for (var line = ini.ReadLine(); line != null; line = ini.ReadLine())
@@ -63,6 +63,15 @@ namespace Loader
 			}
 			File.WriteAllText(Path.Combine(outputRoot, "labels.json"), JsonConvert.SerializeObject(labels));
 
+			// Prices
+			var shopLoader = new ShopLoader(new LocalisationService(labels))
+			{
+				DataRoot = scDataRoot,
+				OnXmlLoadout = path => loadoutLoader.Load(path)
+			};
+			var shops = shopLoader.Load();
+			File.WriteAllText(Path.Combine(outputRoot, "shops.json"), JsonConvert.SerializeObject(shops));
+
 			// Manufacturers
 			var manufacturerLoader = new ManufacturerLoader
 			{
@@ -70,13 +79,6 @@ namespace Loader
 			};
 			var manufacturerIndex = manufacturerLoader.Load();
 			File.WriteAllText(Path.Combine(outputRoot, "manufacturers.json"), JsonConvert.SerializeObject(manufacturerIndex));
-
-			// A loadout loader to help with any XML loadouts we encounter while parsing ships
-			var loadoutLoader = new LoadoutLoader
-			{
-				OutputFolder = Path.Combine(outputRoot, "loadouts"),
-				DataRoot = scDataRoot
-			};
 
 			// Ships and ground vehicles
 			var shipLoader = new ShipLoader

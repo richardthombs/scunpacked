@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { DecimalPipe } from '@angular/common'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +11,8 @@ import { CompareShipsPage } from './compare-ships-page/compare-ships-page.compon
 import { ItemlistPage } from './itemlist-page/itemlist-page.component';
 import { ItemPage } from './item-page/item-page.component';
 import { CompareItemsPage } from './compare-items-page/compare-items-page.component';
+import { HomePage } from './home-page/home-page.component';
+import { ShoplistPage } from './shoplist-page/shoplist-page.component';
 
 import { ItemPortComponent } from './itemport/itemport.component';
 import { ItemGroupComponent } from './itemgroup/itemgroup.component';
@@ -29,7 +30,6 @@ import { SpeedPipe } from './speed.pipe';
 import { SiPipe } from './si.pipe';
 import { LocalisePipe } from './localise.pipe';
 import { NoZeroPipe } from './no-zero.pipe';
-import { HomePage } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +55,8 @@ import { HomePage } from './home-page/home-page.component';
     ThrusterComponent,
     HydrogenfueltankComponent,
     HydrogenfuelintakeComponent,
-    HomePage
+    HomePage,
+    ShoplistPage
   ],
   imports: [
     BrowserModule,

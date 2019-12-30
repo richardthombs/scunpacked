@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
@@ -9,18 +10,34 @@ namespace Loader
 {
 	public class EntityParser
 	{
+		static Dictionary<string, string> filenameToClassMap = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+		static Dictionary<string, EntityClassDefinition> cache = new Dictionary<string, EntityClassDefinition>(StringComparer.OrdinalIgnoreCase);
+
 		public EntityClassDefinition Parse(string fullXmlPath, Func<string, string> onXmlLoadout)
 		{
+			if (filenameToClassMap.ContainsKey(fullXmlPath))
+			{
+				var className = filenameToClassMap[fullXmlPath];
+				var cached = cache[className];
+				Console.WriteLine("Cached " + className);
+				return cached;
+			}
+
+			Console.WriteLine(fullXmlPath);
 			if (!File.Exists(fullXmlPath))
 			{
-				Console.WriteLine("Ship entity definition file does not exist");
+				Console.WriteLine("Entity definition file does not exist");
 				return null;
 			}
 
-			return ParseShipDefinition(fullXmlPath, onXmlLoadout);
+			var entity = ParseEntityDefinition(fullXmlPath, onXmlLoadout);
+			filenameToClassMap.Add(fullXmlPath, entity.ClassName);
+			cache.Add(entity.ClassName, entity);
+
+			return entity;
 		}
 
-		EntityClassDefinition ParseShipDefinition(string shipEntityPath, Func<string, string> onXmlLoadout)
+		EntityClassDefinition ParseEntityDefinition(string shipEntityPath, Func<string, string> onXmlLoadout)
 		{
 			string rootNodeName;
 			using (var reader = XmlReader.Create(new StreamReader(shipEntityPath)))

@@ -3,6 +3,7 @@ using System.Xml.Serialization;
 
 namespace scdb.Xml.Shops
 {
+	// This is a node in the the RetailProductPrices XML file
 	public class Node
 	{
 		[XmlAttribute]
