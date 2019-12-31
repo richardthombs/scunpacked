@@ -99,7 +99,7 @@ namespace Loader
 						{
 							name = itemNode.Name.ToLower(),
 							basePriceOffsetPercentage = itemNode.BasePriceOffsetPercentage,
-							maxDiscountPercentage = itemNode.BasePriceOffsetPercentage,
+							maxDiscountPercentage = itemNode.MaxDiscountPercentage,
 							maxPremiumPercentage = itemNode.MaxPremiumPercentage,
 							inventory = itemNode.Inventory,
 							optimalInventoryLevel = itemNode.OptimalInventoryLevel,
