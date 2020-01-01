@@ -1,30 +1,27 @@
-<app-navbar></app-navbar>
+<app-navbar [dark]="false"></app-navbar>
 
-<div class="container mt-3">
-  <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-6 text-center">
-      <h4>
-        Welcome to Star Citizen Unpacked!
-      </h4>
-      <p>
-        I know the site is ugly to look at, but hopefully the content makes up for it.</p>
-      <p>
-        If you would like to comment, contribute or complain then please visit the <a href="https://github.com/richardthombs/scunpacked">GitHub project page</a> and <a href="https://github.com/richardthombs/scunpacked/issues">open an issue</a>.
-      </p>
-      <a class="btn btn-primary" href="ships">Ships</a>&nbsp;
-      <a class="btn btn-primary" href="items">Items</a>&nbsp;
-      <a class="btn btn-primary" href="shops">Shops</a>&nbsp;
-    </div>
-
-    <div class="col-sm-3"></div>
-  </div>
+<div class="splash">
 </div>
 
+<div class="welcome-outer">
+  <div class="container">
+    <h4>
+      Welcome to Star Citizen Unpacked!
+    </h4>
+    <p>
+      I know the site is ugly to look at, but hopefully the content makes up for it!</p>
+    <p>
+      If you would like to comment, contribute or complain then please visit the <a href="https://github.com/richardthombs/scunpacked">GitHub project page</a> and <a href="https://github.com/richardthombs/scunpacked/issues">open an issue</a>.
+    </p>
+    <a class="btn btn-primary" routerLink="/ships">Ships</a>&nbsp;
+    <a class="btn btn-primary" routerLink="/items">Items</a>&nbsp;
+    <a class="btn btn-primary" routerLink="/shops">Shops</a>&nbsp;
+  </div>
+</div>
 <div class="fankit d-flex justify-content-around align-items-center">
   <div class="d-flex justify-content-center align-items-center">
     <img src="https://support.robertsspaceindustries.com/hc/article_attachments/360022704853/MadeByTheCommunity_White.png">
-    <div style="max-width: 40rem;">
+    <div class="mr-3" style="max-width: 40rem;">
       <div>
         This is an unofficial Star Citizen fansite, not affiliated with the Cloud Imperium group of companies.
         All content on this site not authored by its host or users are property of their respective owners.
