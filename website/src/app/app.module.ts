@@ -32,7 +32,6 @@ import { SiPipe } from './si.pipe';
 import { LocalisePipe } from './localise.pipe';
 import { NoZeroPipe } from './no-zero.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
-import { SplashComponent } from './splash/splash.component';
 
 @NgModule({
   declarations: [
@@ -60,8 +59,7 @@ import { SplashComponent } from './splash/splash.component';
     HydrogenfuelintakeComponent,
     HomePage,
     ShoplistPage,
-    NavbarComponent,
-    SplashComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
