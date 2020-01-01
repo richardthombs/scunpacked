@@ -1,4 +1,18 @@
-## Usage
+## Welcome to Star Citizen Unpacked!
+
+_This is an unofficial Star Citizen fansite, not affiliated with the Cloud Imperium group of companies. All content on this site not authored by its host or users are property of their respective owners._
+
+## Introduction
+
+This projects is made up of three parts:
+
+1. `loader` - this is a .NET Core application which parses XML data extracted from the Star Citizen game files and produces a set of JSON files.
+
+1. `api` - this is (currently) a static website which serves up the JSON files to be consumed by the website. In a later release this will be upgraded to allow server-side querying of the data.
+
+1. `website` - this is an Angular application which provides a front-end to the data available through the API.
+
+## Extracting data from Star Citizen
 
 Create a folder to store the extracted Star Citizen data:
 
@@ -6,7 +20,7 @@ Create a folder to store the extracted Star Citizen data:
 mkdir c:\scdata\3.7.2
 ```
 
-Run the [extraction tools](https://github.com/dolkensp/unp4k):
+Download and run the [extraction tools](https://github.com/dolkensp/unp4k):
 
 ```
 cd c:\scdata\3.7.2
