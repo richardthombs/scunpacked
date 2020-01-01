@@ -1,3 +1,5 @@
+<app-navbar></app-navbar>
+
 <div class="container mt-3">
   <div class="d-flex flex-wrap flex-row list-group">
     <button (click)="selectType(type)" *ngFor="let type of byType | keyvalue" class="list-group-item list-group-action typeSelect" [class.active]="type.key == selectedType.key">{{type.key}}</button>

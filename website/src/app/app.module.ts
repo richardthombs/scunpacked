@@ -31,6 +31,7 @@ import { SpeedPipe } from './speed.pipe';
 import { SiPipe } from './si.pipe';
 import { LocalisePipe } from './localise.pipe';
 import { NoZeroPipe } from './no-zero.pipe';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { NoZeroPipe } from './no-zero.pipe';
     HydrogenfueltankComponent,
     HydrogenfuelintakeComponent,
     HomePage,
-    ShoplistPage
+    ShoplistPage,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
