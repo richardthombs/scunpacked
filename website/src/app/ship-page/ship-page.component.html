@@ -1,69 +1,73 @@
-<app-navbar></app-navbar>
+<app-navbar [dark]="false"></app-navbar>
 
-<div class="container">
+<app-splash></app-splash>
 
-  <h1>{{ship?.vehicleName | localise:ship?.className}}</h1>
-  <div class="text-muted">
-    {{ship?.vehicleCareer | localise:'No career'}} / {{ship?.vehicleRole | localise:'No role'}}
-  </div>
-  <div class="d-flex justify-content-between mt-3">
-    <div>Size {{ship?.vehicleSize}}</div>
-    <div>Crew {{ship?.crewSize}}</div>
-    <div>{{ship?.scu | number}} SCU</div>
-  </div>
-  <div class="d-flex justify-content-between mt-3">
-    <div>{{ship?.hitPoints | number: '1.0-0'}} HP</div>
-    <div>{{ship?.maxShieldHealth | number:'1.0-0'}} shield HP</div>
-  </div>
-  <div class="d-flex justify-content-between mt-3">
-    <div>Quantum speed {{ship?.quantumSpeed | si:'m/s'}}</div>
-    <div>Quantum range {{ship?.quantumRange | si:'m'}}</div>
-    <div>Quantum tank {{ship?.quantumFuelCapacity | number:'1.0-0'}} l</div>
-  </div>
-  <div class="d-flex justify-content-between">
-    <div>PO to ArcCorp (time) {{ship?.secondsToArcCorp | si:'s'}}</div>
-    <div>PO to ArcCorp (fuel) {{ship?.fuelToArcCorp | si:'l'}}</div>
-    <div>PO to ArcCorp and back {{ship?.timesToArcCorpAndBack || 0 | number:'1.0-1'}} times</div>
-  </div>
-  <div class="d-flex justify-content-between mt-3">
-    <div>Main thruster fuel usage {{ship?.mainThrusterBurnRate | si:'l/s'}}</div>
-    <div>Manneuvering thruster fuel usage {{ship?.manneuverThrusterBurnRate | si:'l/s'}}</div>
-    <div>Hydrogen tank {{ship?.fuelCapacity | number:'1.0-0'}} l</div>
-    <div>Fuel intake rate {{ship?.fuelIntakePushRate | si:'l/s'}}</div>
-  </div>
-  <div class="d-flex justify-content-between">
-    <div>Maximum speed {{ship?.maxSpeed | number:'1.0-0'}} m/s</div>
-    <div>SCM speed {{ship?.scmSpeed | number:'1.0-0'}} m/s</div>
-  </div>
-  <div class="d-flex justify-content-between mt-3">
-    <div>Standby power usage {{ship?.totalPowerBase | si: "W"}}</div>
-    <div>Maximum power usage {{ship?.totalPowerDraw | si: "W"}}</div>
-  </div>
-  <div class="mt-3 text-muted" style="white-space: pre-line;">
-    {{ship?.vehicleDescription | localise}}
-  </div>
+<div class="container-outer">
+  <div class="container container-inner">
 
-  <div class="row">
-    <div class="col-sm-6">
-      <app-itemgroup *ngFor="let g of leftGroups" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
+    <h1>{{ship?.vehicleName | localise:ship?.className}}</h1>
+    <div class="text-muted">
+      {{ship?.vehicleCareer | localise:'No career'}} / {{ship?.vehicleRole | localise:'No role'}}
     </div>
-    <div class="col-sm-6">
-      <app-itemgroup *ngFor="let g of rightGroups" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
+    <div class="d-flex justify-content-between mt-3">
+      <div>Size {{ship?.vehicleSize}}</div>
+      <div>Crew {{ship?.crewSize}}</div>
+      <div>{{ship?.scu | number}} SCU</div>
+    </div>
+    <div class="d-flex justify-content-between mt-3">
+      <div>{{ship?.hitPoints | number: '1.0-0'}} HP</div>
+      <div>{{ship?.maxShieldHealth | number:'1.0-0'}} shield HP</div>
+    </div>
+    <div class="d-flex justify-content-between mt-3">
+      <div>Quantum speed {{ship?.quantumSpeed | si:'m/s'}}</div>
+      <div>Quantum range {{ship?.quantumRange | si:'m'}}</div>
+      <div>Quantum tank {{ship?.quantumFuelCapacity | number:'1.0-0'}} l</div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div>PO to ArcCorp (time) {{ship?.secondsToArcCorp | si:'s'}}</div>
+      <div>PO to ArcCorp (fuel) {{ship?.fuelToArcCorp | si:'l'}}</div>
+      <div>PO to ArcCorp and back {{ship?.timesToArcCorpAndBack || 0 | number:'1.0-1'}} times</div>
+    </div>
+    <div class="d-flex justify-content-between mt-3">
+      <div>Main thruster fuel usage {{ship?.mainThrusterBurnRate | si:'l/s'}}</div>
+      <div>Manneuvering thruster fuel usage {{ship?.manneuverThrusterBurnRate | si:'l/s'}}</div>
+      <div>Hydrogen tank {{ship?.fuelCapacity | number:'1.0-0'}} l</div>
+      <div>Fuel intake rate {{ship?.fuelIntakePushRate | si:'l/s'}}</div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div>Maximum speed {{ship?.maxSpeed | number:'1.0-0'}} m/s</div>
+      <div>SCM speed {{ship?.scmSpeed | number:'1.0-0'}} m/s</div>
+    </div>
+    <div class="d-flex justify-content-between mt-3">
+      <div>Standby power usage {{ship?.totalPowerBase | si: "W"}}</div>
+      <div>Maximum power usage {{ship?.totalPowerDraw | si: "W"}}</div>
+    </div>
+    <div class="mt-3 text-muted" style="white-space: pre-line;">
+      {{ship?.vehicleDescription | localise}}
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <app-itemgroup *ngFor="let g of leftGroups" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
+      </div>
+      <div class="col-sm-6">
+        <app-itemgroup *ngFor="let g of rightGroups" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
+      </div>
+    </div>
+    <div class="row">
+      <app-itemgroup *ngFor="let g of unexpectedGroups()" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
     </div>
   </div>
-  <div class="row">
-    <app-itemgroup *ngFor="let g of unexpectedGroups()" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
+  <div hidden class="container mt-3">
+    <h6>Debug - all item ports</h6>
+    <table class="table">
+      <tr *ngFor="let itemPort of ItemPorts">
+        <td>
+          <app-itemport [itemPort]="itemPort"></app-itemport>
+        </td>
+        <td hidden>{{itemPort.types.join(", ")}}</td>
+        <td>{{itemPort.item?.type}}<span *ngIf="itemPort.item?.subType">.{{itemPort.item?.subType}}</span></td>
+      </tr>
+    </table>
   </div>
-</div>
-<div hidden class="container mt-3">
-  <h6>Debug - all item ports</h6>
-  <table class="table">
-    <tr *ngFor="let itemPort of ItemPorts">
-      <td>
-        <app-itemport [itemPort]="itemPort"></app-itemport>
-      </td>
-      <td hidden>{{itemPort.types.join(", ")}}</td>
-      <td>{{itemPort.item?.type}}<span *ngIf="itemPort.item?.subType">.{{itemPort.item?.subType}}</span></td>
-    </tr>
-  </table>
 </div>

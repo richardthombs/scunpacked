@@ -1,23 +1,27 @@
-<app-navbar></app-navbar>
+<app-navbar [dark]="false"></app-navbar>
+<app-splash></app-splash>
 
-<div class="container mt-3">
+<div class="container-outer">
   <div class="d-flex flex-wrap flex-row list-group">
     <button (click)="selectType(type)" *ngFor="let type of byType | keyvalue" class="list-group-item list-group-action typeSelect" [class.active]="type.key == selectedType.key">{{type.key}}</button>
   </div>
 
-  <div *ngIf="selectedType" class="role-container">
-    <div class="role-inner">
-      <h5>{{selectedType.key}}
-        <a [routerLink]="['/items/compare']" [queryParams]="{items:itemsInRole(selectedType.value)}">Compare</a>
-      </h5>
-      <div class="d-flex flex-wrap subrole-container">
-        <div *ngFor="let subRole of selectedType.value | keyvalue" class="subrole-inner">
-          <h6>
-            {{subRole.key}}
-            <a *ngIf="subRole.value.length > 1" [routerLink]="['/items/compare']" [queryParams]="{items:itemsInSubRole(subRole.value)}">Compare</a>
-          </h6>
-          <div *ngFor="let item of subRole.value">
-            <a [routerLink]="['/items', item.className.toLowerCase()]" [title]="item.name | localise">{{item.manufacturer || "CIG"}}: {{item.name | localise:item.className}}</a>
+  <div class="container container-inner">
+
+    <div *ngIf="selectedType" class="role-container">
+      <div class="role-inner">
+        <h5>{{selectedType.key}}
+          <a [routerLink]="['/items/compare']" [queryParams]="{items:itemsInRole(selectedType.value)}">Compare</a>
+        </h5>
+        <div class="d-flex flex-wrap subrole-container">
+          <div *ngFor="let subRole of selectedType.value | keyvalue" class="subrole-inner">
+            <h6>
+              {{subRole.key}}
+              <a *ngIf="subRole.value.length > 1" [routerLink]="['/items/compare']" [queryParams]="{items:itemsInSubRole(subRole.value)}">Compare</a>
+            </h6>
+            <div *ngFor="let item of subRole.value">
+              <a [routerLink]="['/items', item.className.toLowerCase()]" [title]="item.name | localise">{{item.manufacturer || "CIG"}}: {{item.name | localise:item.className}}</a>
+            </div>
           </div>
         </div>
       </div>
