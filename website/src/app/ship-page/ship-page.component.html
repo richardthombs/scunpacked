@@ -3,40 +3,40 @@
 <div class="container-outer">
   <div class="container container-inner">
 
-    <h1>{{ship?.vehicleName | localise:ship?.className}}</h1>
-    <div class="text-muted">
+    <h1 class="smallcaps">{{ship?.vehicleName | localise:ship?.className}}</h1>
+    <div class="smallcaps text-muted">
       {{ship?.vehicleCareer | localise:'No career'}} / {{ship?.vehicleRole | localise:'No role'}}
     </div>
-    <div class="d-flex justify-content-between mt-3">
+    <div class="d-flex mt-3">
       <div>Size {{ship?.vehicleSize}}</div>
       <div>Crew {{ship?.crewSize}}</div>
-      <div>{{ship?.scu | number}} SCU</div>
+      <div>Cargo {{ship?.scu | number}} SCU</div>
     </div>
-    <div class="d-flex justify-content-between mt-3">
-      <div>{{ship?.hitPoints | number: '1.0-0'}} HP</div>
-      <div>{{ship?.maxShieldHealth | number:'1.0-0'}} shield HP</div>
+    <div class="d-flex mt-3">
+      <div>Chassis {{ship?.hitPoints | number: '1.0-0'}} HP</div>
+      <div>Shield {{ship?.maxShieldHealth | number:'1.0-0'}} HP</div>
     </div>
-    <div class="d-flex justify-content-between mt-3">
+    <div class="d-flex mt-3">
       <div>Quantum speed {{ship?.quantumSpeed | si:'m/s'}}</div>
       <div>Quantum range {{ship?.quantumRange | si:'m'}}</div>
       <div>Quantum tank {{ship?.quantumFuelCapacity | number:'1.0-0'}} l</div>
     </div>
-    <div class="d-flex justify-content-between">
+    <div class="d-flex">
       <div>PO to ArcCorp (time) {{ship?.secondsToArcCorp | si:'s'}}</div>
       <div>PO to ArcCorp (fuel) {{ship?.fuelToArcCorp | si:'l'}}</div>
       <div>PO to ArcCorp and back {{ship?.timesToArcCorpAndBack || 0 | number:'1.0-1'}} times</div>
     </div>
-    <div class="d-flex justify-content-between mt-3">
-      <div>Main thruster fuel usage {{ship?.mainThrusterBurnRate | si:'l/s'}}</div>
-      <div>Manneuvering thruster fuel usage {{ship?.manneuverThrusterBurnRate | si:'l/s'}}</div>
-      <div>Hydrogen tank {{ship?.fuelCapacity | number:'1.0-0'}} l</div>
-      <div>Fuel intake rate {{ship?.fuelIntakePushRate | si:'l/s'}}</div>
-    </div>
-    <div class="d-flex justify-content-between">
+    <div class="d-flex mt-3">
       <div>Maximum speed {{ship?.maxSpeed | number:'1.0-0'}} m/s</div>
       <div>SCM speed {{ship?.scmSpeed | number:'1.0-0'}} m/s</div>
     </div>
-    <div class="d-flex justify-content-between mt-3">
+    <div class="d-flex">
+      <div>Main engine fuel usage {{ship?.mainThrusterBurnRate | si:'l/s'}}</div>
+      <div>Thruster fuel usage {{ship?.manneuverThrusterBurnRate | si:'l/s'}}</div>
+      <div hidden>Hydrogen tank {{ship?.fuelCapacity | number:'1.0-0'}} l</div>
+      <div>Fuel intake rate {{ship?.fuelIntakePushRate | si:'l/s'}}</div>
+    </div>
+    <div class="d-flex mt-3">
       <div>Standby power usage {{ship?.totalPowerBase | si: "W"}}</div>
       <div>Maximum power usage {{ship?.totalPowerDraw | si: "W"}}</div>
     </div>
