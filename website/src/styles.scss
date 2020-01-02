@@ -23,8 +23,8 @@ button:focus,
 }
 
 .container-outer {
-  //background-color: rgba(255,255,255,0.25);
-  padding-bottom: 50px;
+  background-color: rgba(255,255,255,0.25);
+  margin-bottom: 50px;
 }
 
 .container-inner {
@@ -37,17 +37,26 @@ button:focus,
   width: fit-content;
 }
 
-// Alternate
-.container-inner {
-  background-color: rgba(0,0,0,0.75);
-  color: white;
+a:not(.btn) {
+  color: deeppink;
+}
 
-  a:not(.btn) {
-    color: deeppink;
+.alternate {
+  .container-outer {
+    background-color: inherit;
+    background-color: rgba(0,0,0,0.25);
+  }
+
+  .container-inner {
+    background-color: rgba(0,0,0,0.75);
+    color: white;
   }
 
   .list-group-item {
     color: black;
-  }
 
+    &.active {
+      color: white;
+    }
+  }
 }
