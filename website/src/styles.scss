@@ -9,6 +9,12 @@ $fa-font-path : '~@fortawesome/fontawesome-free/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/brands';
 
+/****** Structural ******/
+button:focus,
+.list-group-item.active {
+  z-index: 2 ! important; // Bootstrap focus fix
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -17,46 +23,120 @@ a:hover {
   cursor: pointer;
 }
 
-button:focus,
-.list-group-item.active {
-  z-index: 2 ! important; // Bootstrap focus fix
-}
-
 .container-outer {
-  background-color: rgba(255,255,255,0.25);
   margin-bottom: 50px;
 }
 
 .container-inner {
   margin-top: 50px;
   padding: 25px;
-  background-color: rgba(255,255,255, 0.9);
 }
 
 .container-fluid.container-inner {
   width: fit-content;
 }
 
-a:not(.btn) {
+nav .list-group-item {
+  border: none;
+
+  &.active:focus {
+    outline: none;
+  }
+  &:active {
+    outline: none;
+  }
+}
+
+
+/***** Colours *****/
+
+.container-inner {
+  a {
+    color: deeppink;
+  }
+}
+
+nav {
+  .list-group-item.active {
+    background-color: deeppink ! important;
+  }
+}
+
+nav.navbar .navbar-brand {
   color: deeppink;
 }
 
-.alternate {
+// Light theme
+@media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
   .container-outer {
-    background-color: inherit;
+    background-color: rgba(255,255,255,0.25);
+  }
+  .container-inner {
+    background-color: rgba(255,255,255, 0.9);
+  }
+  nav .list-group-item {
+    background-color: rgba(255,255,255,0.75);
+  }
+  nav.navbar {
+    background-color: rgba(255,255,255,0.9);
+    .navbar-nav .nav-link {
+      color: #888;
+      &.active,
+      &:hover {
+        color: black;
+      }
+    }
+    .navbar-brand {
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    }
+  }
+}
+
+// Dark theme
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #ccc;
+  }
+  .container-outer {
     background-color: rgba(0,0,0,0.25);
   }
-
   .container-inner {
-    background-color: rgba(0,0,0,0.75);
-    color: white;
+    background-color: rgba(0,0,0,0.9);
   }
-
-  .list-group-item {
-    color: black;
-
-    &.active {
+  nav .list-group-item {
+    background-color: rgba(0,0,0,0.9);
+    color: #ccc;
+    &.active,
+    &:hover {
       color: white;
     }
   }
+  nav.navbar {
+    background-color: rgba(0,0,0,0.8);
+
+    .navbar-nav .nav-link {
+      color: #ccc;
+      &.active,
+      &:hover {
+        color: white;
+      }
+    }
+    .navbar-brand {
+      text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+    }
+  }
+  .container-inner {
+    .list-group-item {
+      border-color: #444;
+      background-color: rgba(0,0,0,0.8);
+      &.list-group-item-dark {
+        background-color: #444;
+        color: white;
+      }
+    }
+  }
+  .app-background {
+    filter: brightness(0.5) ! important;
+  }
+
 }

@@ -1,8 +1,8 @@
 <app-navbar [dark]="false"></app-navbar>
 
-<div class="d-flex flex-wrap flex-row list-group">
+<nav class="d-flex flex-wrap flex-row list-group">
   <button (click)="selectRole(role)" *ngFor="let role of byRoles | keyvalue" class="list-group-item list-group-action roleSelect" [class.active]="role.key == selectedRole.key">{{role.key}}</button>
-</div>
+</nav>
 
 <div class="container-outer">
 
