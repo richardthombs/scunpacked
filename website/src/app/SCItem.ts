@@ -42,6 +42,9 @@ export class SCItem {
     return _.get(this.json, "Raw.Entity.Components.SAttachableComponentParams.AttachDef.Grade", 0);
   }
 
+  get powerConnection(): any {
+    return _.get(this.json, "Raw.Entity.Components.EntityComponentPowerConnection");
+  }
 
   get powerDraw(): number {
     return _.get(this.json, "Raw.Entity.Components.EntityComponentPowerConnection.PowerDraw", 0);
@@ -52,12 +55,37 @@ export class SCItem {
     return Math.floor(size.x / 1.25) * Math.floor(size.y / 1.25) * Math.floor(size.z / 1.25);
   }
 
+  get shieldGenerator(): any {
+    return _.get(this.json, "Raw.Entity.Components.SCItemShieldGeneratorParams");
+  }
+
   get maxShieldHealth(): number {
     return _.get(this.json, "Raw.Entity.Components.SCItemShieldGeneratorParams.MaxShieldHealth", 0);
   }
 
   get capacity(): number {
     return _.get(this.json, "Raw.Entity.Components.SCItemFuelTankParams.capacity", 0);
+  }
+
+  get thrustCapacity(): number {
+    return _.get(this.json, "Raw.Entity.Components.SCItemThrusterParams.thrustCapacity", 0);
+  }
+
+  get fuelBurnRate(): number {
+    // Rate is per 10KN, so divide by 1e4 to get the rate per newton
+    return _.get(this.json, "Raw.Entity.Components.SCItemThrusterParams.fuelBurnRatePer10KNewton", 0) / 1e4;
+  }
+
+  get fuelPushRate(): number {
+    return _.get(this.json, "Raw.Entity.Components.SCItemFuelIntakeParams.fuelPushRate", 0);
+  }
+
+  get maxThrustFuelBurnRate(): number {
+    return this.thrustCapacity * this.fuelBurnRate;
+  }
+
+  get quantumDrive(): any {
+    return _.get(this.json, "Raw.Entity.Components.SCItemQuantumDriveParams");
   }
 
   get quantumFuelRequirement(): number {
@@ -82,37 +110,16 @@ export class SCItem {
     return distanceBetweenPOandArcCorp * this.quantumFuelRequirement;
   }
 
-  get thrustCapacity(): number {
-    return _.get(this.json, "Raw.Entity.Components.SCItemThrusterParams.thrustCapacity", 0);
-  }
-
-  get fuelBurnRate(): number {
-    // Rate is per 10KN, so divide by 1e4 to get the rate per newton
-    return _.get(this.json, "Raw.Entity.Components.SCItemThrusterParams.fuelBurnRatePer10KNewton", 0) / 1e4;
-  }
-
-  get fuelPushRate(): number {
-    return _.get(this.json, "Raw.Entity.Components.SCItemFuelIntakeParams.fuelPushRate", 0);
-  }
-
-  get maxThrustFuelBurnRate(): number {
-    return this.thrustCapacity * this.fuelBurnRate;
-  }
-
   get health(): number {
     return _.get(this.json, "Raw.Entity.Components.SHealthComponentParams.Health", 0);
   }
 
-  get maxLifetime(): number {
-    return _.get(this.json, "Raw.Entity.Components.SDegradationParams.MaxLifetimeHours", 0);
-  }
-
-  get quantumDrive(): any {
-    return _.get(this.json, "Raw.Entity.Components.SCItemQuantumDriveParams");
-  }
-
   get degregation(): any {
     return _.get(this.json, "Raw.Entity.Components.SDegradationParams");
+  }
+
+  get maxLifetime(): number {
+    return _.get(this.json, "Raw.Entity.Components.SDegradationParams.MaxLifetimeHours", 0);
   }
 
   get damageResistances(): any {
@@ -121,14 +128,6 @@ export class SCItem {
 
   get heatConnection(): any {
     return _.get(this.json, "Raw.Entity.Components.EntityComponentHeatConnection");
-  }
-
-  get powerConnection(): any {
-    return _.get(this.json, "Raw.Entity.Components.EntityComponentPowerConnection");
-  }
-
-  get shieldGenerator(): any {
-    return _.get(this.json, "Raw.Entity.Components.SCItemShieldGeneratorParams");
   }
 
   get armor(): any {
