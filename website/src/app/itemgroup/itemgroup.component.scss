@@ -1,14 +1,34 @@
 .size-box {
-  width: 34px;
-  border: 1px solid #ccc;
+  width: 48px;
+  height: 48px;
   text-align: center;
-  line-height: 1;
+  border-left: 1px solid rgba(0, 0, 0, 0.125);
 
-  &:not(first-child) {
-    margin-left: -1px;
+  .size-box-inner {
+    width: 41px;
+    height: 42px;
+    margin-top: 3px;
+    margin-left: 3px;
+    line-height: 1;
+    small {
+      line-height: 1.5;
+    }
   }
 }
 
-.list-group-item {
-  padding: 5px 5px 5px 10px;
+.component-group {
+  &.list-group-item {
+    padding: 0;
+    min-height: 48px;
+  }
+  .component-group-title {
+    margin-left: 10px;
+  }
+}
+
+.component-port {
+  &.list-group-item {
+    padding: 10px;
+    min-height: 32px;
+  }
 }

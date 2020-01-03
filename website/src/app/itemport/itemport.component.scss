@@ -5,3 +5,33 @@
   margin-left: 1em;
   white-space: nowrap;
 }
+
+.size-box {
+  height: 32px;
+  width: 32px;
+
+  .size-box-inner {
+    margin: 1px;
+    line-height: 28px;
+    text-align: center;
+  }
+}
+
+.portflag {
+  width: 1.5em;
+  text-align: center;
+}
+
+.loadout {
+  >* {
+    flex: 1 1 50%;
+  }
+  .portflag,
+  .size-box {
+    flex: 0 0 auto;
+    cursor: default;
+  }
+  .portname {
+    flex: 1 1 25%;
+  }
+}

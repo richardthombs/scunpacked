@@ -1,26 +1,34 @@
 <h4 class="mt-4">{{groupName}}</h4>
-<ol *ngIf="groupItems" class="list-group">
+<div *ngIf="groupItems" class="list-group">
   <ng-container *ngFor="let class of groupItems | keyvalue">
-    <li (click)="toggleItems(class.key)" class="list-group-item d-flex cursor-pointer">
-      <div class="mr-auto" style="align-self: center">
+    <div (click)="toggleItems(class.key)" class="list-group-item component-group d-flex cursor-pointer align-items-center">
+      <div class="component-group-title mr-auto">
         <strong>{{class.key}}</strong>
       </div>
-      <div *ngFor="let size of class.value.bySize; let s = index" class="size-box" [class.list-group-item-success]="!!size.length">
-        <div *ngIf="size.length">
-          <small class="text-muted">S{{s}}</small><br>
+      <div *ngFor="let size of class.value.bySize; let s = index" class="size-box">
+        <div *ngIf="size.length" class="size-box-inner full">
+          <small>S{{s}}</small><br>
           {{size.length | nozero}}
         </div>
+        <div *ngIf="!size.length" class="size-box-inner empty">
+          <small>S{{s}}</small>
+        </div>
       </div>
-    </li>
+    </div>
     <ng-container *ngIf="class.value.showItems">
       <ng-container *ngFor="let size of class.value.bySize">
-        <li *ngFor="let itemPort of size" class="list-group-item pl-1">
+        <div *ngFor="let itemPort of size" class="list-group-item component-port">
           <app-itemport [itemPort]="itemPort.itemPort"></app-itemport>
-        </li>
+        </div>
       </ng-container>
     </ng-container>
   </ng-container>
-</ol>
-<div *ngIf="!groupItems">
-  No {{groupName}}
+</div>
+
+<div *ngIf="!groupItems" class="list-group">
+  <div class="list-group-item d-flex align-items-center">
+    <div class="component-group">
+      No {{groupName}}
+    </div>
+  </div>
 </div>

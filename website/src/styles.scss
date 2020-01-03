@@ -96,6 +96,22 @@ body {
       text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     }
   }
+  .size-box {
+    .size-box-inner {
+      background-color: deeppink;
+      color: white;
+      small {
+        color: rgba(255,255,255,0.8);
+      }
+      &.empty {
+        background-color: #eee;
+        color: #444;
+        small {
+          color: #888;
+        }
+      }
+    }
+  }
 }
 
 // Dark theme
@@ -142,6 +158,14 @@ body {
     }
     .app-background {
       filter: brightness(0.5) ! important;
+    }
+    .size-box {
+      .size-box-inner {
+        &.empty {
+          background-color: #222;
+          color: #888;
+        }
+      }
     }
   }
 }

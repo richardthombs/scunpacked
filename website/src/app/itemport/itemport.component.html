@@ -1,13 +1,22 @@
-<div class="d-flex justify-content-between">
-  <div>
-    <span [class.list-group-item-success]="itemPort.isEditable()" [class.list-group-item-danger]="!itemPort.isEditable()" class="mr-1 p-1">S{{itemPort.maxSize}}</span>
-    <span *ngIf="itemPort.isWeaponHardpoint()">W</span>
-    <span *ngIf="itemPort.isGunHardpoint()">G</span>
-    <span *ngIf="itemPort.isMissileHardpoint()">M</span>
-    <span *ngIf="itemPort.isRemoteControlled()">r</span>
-    <span *ngIf="itemPort.isManned()">m</span>
-    <span *ngIf="itemPort.isPilotControlled()">p</span>
-    <span *ngIf="itemPort.isGimballed()">g</span>
+<div class="d-flex align-items-center loadout">
+  <div class="size-box">
+    <div class="size-box-inner" [class.full]="itemPort.item" [class.empty]="!itemPort.item">
+      S{{itemPort.maxSize}}
+    </div>
+  </div>
+  <div class="portflag"><span *ngIf="!itemPort.isEditable()" title="Loadout locked"><i class="fas fa-fw fa-lock"></i></span></div>
+  <div hidden class="portflag"><span *ngIf="itemPort.isWeaponHardpoint()" title="Weapon hardpoint">W</span></div>
+  <div class="portflag">
+    <span *ngIf="itemPort.isGunHardpoint()" title="Gun hardpoint">G</span>
+    <span *ngIf="itemPort.isMissileHardpoint()" title="Missile hardpoint">M</span>
+  </div>
+  <div class="portflag">
+    <span *ngIf="itemPort.isRemoteControlled()" title="Remote controlled via MFD">r</span>
+    <span *ngIf="itemPort.isManned()" title="Manned by crew member">m</span>
+    <span *ngIf="itemPort.isPilotControlled()" title="Pilot controlled">p</span>
+  </div>
+  <div class="portflag"><span *ngIf="itemPort.isGimballed()" title="Weapon is in a gimballed mount">g</span></div>
+  <div class="portname">
     {{itemPort.name}}
   </div>
   <div *ngIf="itemPort.itemClass" style="overflow:hidden;">
@@ -28,7 +37,7 @@
       <small class="ml-2"><a [routerLink]="['/items/compare']" [queryParams]="{type: itemPort.item.type, subType: itemPort.item.subType, size: itemPort.item.size, selected: itemPort.itemClass}">Compare</a></small>
     </div>
   </div>
-  <div *ngIf="!itemPort.itemClass" class="text-muted">Nothing installed</div>
+  <div *ngIf="!itemPort.itemClass" class="text-muted text-right">Nothing installed</div>
 </div>
 <ng-container *ngIf="itemPort?.item?.itemPorts">
   <app-itemport *ngFor="let ip of itemPort.item.itemPorts" [itemPort]="ip"></app-itemport>

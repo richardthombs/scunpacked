@@ -14,7 +14,11 @@ export class ItemPort implements IItemPort {
   itemClass: string | undefined;
 
   get displayName(): string {
-    return _.get(this.json, "display_name", "");
+    let name = _.get(this.json, "display_name") || this.name;
+    if (!name) return "";
+    if (name.includes(" ")) return name; // Another way to get around ports with already-localised names
+
+    return "itemPort_" + name;
   }
 
   get minSize(): number {

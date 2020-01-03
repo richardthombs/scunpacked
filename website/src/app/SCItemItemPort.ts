@@ -41,7 +41,11 @@ export class SCItemItemPort implements IItemPort {
   }
 
   get displayName(): string {
-    return _.get(this.json, "Slot", "");
+    let name = _.get(this.json, "DisplayName");
+    if (!name) return "";
+
+    if (name.includes(" ")) return name; // Another way to get around ports with already-localised names
+    return "itemPort_" + name;
   }
 
   findItemPorts(predicate?: ((itemPort: IItemPort) => boolean) | undefined): IItemPort[] {
@@ -99,7 +103,9 @@ export class SCItemItemPort implements IItemPort {
   }
 
   isWeaponAttachment(): boolean {
-    return !!_.find(this.types, x => x.startsWith("WeaponAttachment."));
+    if (_.find(this.types, x => x.startsWith("WeaponAttachment."))) return true;
+    if (this.name == "magazine_attach") return true; // Fix for bad itemport flags
+    return false;
   }
 
   isGimballed(): boolean {
