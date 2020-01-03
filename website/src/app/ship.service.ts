@@ -40,6 +40,7 @@ export class ShipService {
         itemPort.itemClass = loadout.itemName;
         itemPort.item = await this.loadItem(loadout.itemName);
         if (itemPort.item) {
+          itemPort.item.parentPort = itemPort;
           let subPorts = itemPort.item.findItemPorts();
           let manualLoadout = await this.getLoadout(_.get(itemPort.item.Raw, "Entity.Components.SEntityComponentDefaultLoadoutParams", []));
           let combinedLoadout: JsonLoadout[] = (loadout.Items || []).concat(manualLoadout || []);

@@ -46,7 +46,6 @@ export class ShoplistPage implements OnInit {
         x.item.premPrice = x.item.shopPrice + (x.item.shopPrice * x.item.maxPremiumPercentage / 100);
       });
       items = _.sortBy(items, ["item.shopBuysThis", "shop.name"]);
-      console.log(items);
       this.grouped = _.groupBy(items, "item.displayName");
 
       this.doSearch();
@@ -58,7 +57,6 @@ export class ShoplistPage implements OnInit {
   }
 
   doSearch() {
-    console.log(this.searchText);
     this.filtered = _.pickBy(this.grouped, (v, k) => k.toLowerCase().includes(this.searchText.toLowerCase()));
   }
 }

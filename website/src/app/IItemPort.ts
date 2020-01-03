@@ -11,4 +11,22 @@ export interface IItemPort {
   itemClass: string | undefined;
 
   findItemPorts(predicate?: (itemPort: IItemPort) => boolean): IItemPort[];
+
+  isEditable(): boolean;
+
+  isGunHardpoint(): boolean;
+
+  isMissileHardpoint(): boolean;
+
+  isWeaponHardpoint(): boolean;
+
+  isRemoteControlled(): boolean;
+
+  isManned(): boolean;
+
+  isPilotControlled(): boolean;
+
+  isWeaponAttachment(): boolean;
+
+  isGimballed(): boolean;
 }

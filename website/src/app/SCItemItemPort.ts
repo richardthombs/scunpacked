@@ -8,7 +8,7 @@ export class SCItemItemPort implements IItemPort {
   item: SCItem | undefined;
   itemClass: string | undefined;
 
-  constructor(private json: any) {
+  constructor(private json: any, public parentItem?: SCItem) {
   }
 
   get name(): string {
@@ -49,5 +49,69 @@ export class SCItemItemPort implements IItemPort {
     if (!predicate || predicate(this)) found.push(this);
     if (this.item) found = found.concat(this.item.findItemPorts(predicate));
     return found;
+  }
+
+  isEditable(): boolean {
+    return !(this.flags.includes("uneditable") || this.flags.includes("$uneditable"));
+  }
+
+  isGunHardpoint(): boolean {
+    return this.types.includes("WeaponGun.Gun");
+  }
+
+  isMissileHardpoint(): boolean {
+    return this.types.includes("MissileLauncher.MissileRack");
+  }
+
+  isWeaponHardpoint(): boolean {
+    return this.isGunHardpoint() || this.isMissileHardpoint();
+  }
+
+  isRemoteControlled(): boolean {
+    if (this.isWeaponAttachment()) return false;
+
+    // Remote turrets seem to have controllableTags and no UsableDef
+    let controllableTags = _.get(this.json, "ControllerDef.controllableTags");
+    let usableDef = _.get(this.json, "ControllerDef.UsableDef");
+    let remote = controllableTags && !usableDef;
+    if (remote) return true;
+
+    if (this.parentItem && this.parentItem.parentPort) return this.parentItem.parentPort.isRemoteControlled();
+    return false;
+  }
+
+  isManned(): boolean {
+    if (this.isWeaponAttachment()) return false;
+
+    // Manned turrets seem to have controllableTags and a UsableDef
+    let controllableTags = _.get(this.json, "ControllerDef.controllableTags");
+    let usableDef = _.get(this.json, "ControllerDef.UsableDef");
+
+    let manned = controllableTags && usableDef;
+    if (manned) return true;
+
+    if (this.parentItem && this.parentItem.parentPort) return this.parentItem.parentPort.isManned();
+    return false;
+  }
+
+  isPilotControlled(): boolean {
+    return !this.isWeaponAttachment() && !this.isManned() && !this.isRemoteControlled();
+  }
+
+  isWeaponAttachment(): boolean {
+    return !!_.find(this.types, x => x.startsWith("WeaponAttachment."));
+  }
+
+  isGimballed(): boolean {
+    if (!this.parentItem) return false;
+
+    let fullType = `${this.parentItem.type}.${this.parentItem.subType}`
+
+    if (fullType == "Turret.NoseMounted") return true;
+    if (fullType == "Turret.BallTurret") return true;
+    if (fullType == "Turret.GunTurret") return true;
+    if (fullType == "Turret.CanardTurret") return true;
+
+    return false;
   }
 }

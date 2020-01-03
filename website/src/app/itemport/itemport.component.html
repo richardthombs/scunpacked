@@ -1,5 +1,15 @@
 <div class="d-flex justify-content-between">
-  <div><span class="list-group-item-success mr-1 p-1">S{{itemPort.maxSize}}</span>{{itemPort.name}}</div>
+  <div>
+    <span [class.list-group-item-success]="itemPort.isEditable()" [class.list-group-item-danger]="!itemPort.isEditable()" class="mr-1 p-1">S{{itemPort.maxSize}}</span>
+    <span *ngIf="itemPort.isWeaponHardpoint()">W</span>
+    <span *ngIf="itemPort.isGunHardpoint()">G</span>
+    <span *ngIf="itemPort.isMissileHardpoint()">M</span>
+    <span *ngIf="itemPort.isRemoteControlled()">r</span>
+    <span *ngIf="itemPort.isManned()">m</span>
+    <span *ngIf="itemPort.isPilotControlled()">p</span>
+    <span *ngIf="itemPort.isGimballed()">g</span>
+    {{itemPort.name}}
+  </div>
   <div *ngIf="itemPort.itemClass" style="overflow:hidden;">
     <div [ngSwitch]="itemPort.item?.type" class="item-stats-container">
       <app-powerplant *ngSwitchCase="'PowerPlant'" [item]="itemPort.item"></app-powerplant>

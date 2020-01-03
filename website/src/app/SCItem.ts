@@ -7,7 +7,9 @@ const distanceBetweenPOandArcCorp = 41927351070;
 
 export class SCItem {
 
-  private _itemPorts: IItemPort[] | undefined;
+  private _itemPorts?: IItemPort[];
+
+  parentPort?: IItemPort;
 
   constructor(private json: any) {
   }
@@ -170,7 +172,7 @@ export class SCItem {
 
       itemPorts.forEach((itemPort: any, i: number) => {
         let ports: any[] = _.get(itemPort, "Ports", []);
-        let itemPortPorts: IItemPort[] = _.map(ports, x => new SCItemItemPort(x));
+        let itemPortPorts: IItemPort[] = _.map(ports, x => new SCItemItemPort(x, this));
         all = all.concat(itemPortPorts);
       });
 

@@ -16,7 +16,7 @@ export class Part {
   get itemPort(): ItemPort | undefined {
     if (this._itemPort === null) return undefined;
     if (!this._itemPort) {
-      if (this.class == "ItemPort") this._itemPort = new ItemPort(this.json.ItemPort, this.name);
+      if (this.class == "ItemPort") this._itemPort = new ItemPort(this.json.ItemPort, this.name, this);
       else this._itemPort = null;
     }
     return this._itemPort || undefined;

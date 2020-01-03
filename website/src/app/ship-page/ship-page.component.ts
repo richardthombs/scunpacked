@@ -134,8 +134,6 @@ export class ShipPage implements OnInit {
         console.log("ItemPorts", this.ItemPorts);
         console.log("Grouped loadout:", this.grouped);
 
-        console.log(ship.findItemPorts(ip => ip.item != null && ip.item.type == "FlightController"));
-
       })
     });
   }

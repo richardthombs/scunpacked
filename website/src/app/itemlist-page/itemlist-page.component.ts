@@ -115,7 +115,6 @@ export class ItemlistPage implements OnInit {
   }
 
   selectType(type: any) {
-    console.log(type);
     this.selectedType = type;
   }
 }

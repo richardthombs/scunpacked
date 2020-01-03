@@ -2,11 +2,12 @@ import * as _ from 'lodash';
 
 import { SCItem } from './SCItem';
 import { IItemPort } from './IItemPort';
+import { Part } from './Part';
 
 export class ItemPort implements IItemPort {
   private _types: string[] | undefined;
 
-  constructor(private json: any, public name: string) {
+  constructor(private json: any, public name: string, public parentPart: Part) {
   }
 
   item: SCItem | undefined;
@@ -54,4 +55,48 @@ export class ItemPort implements IItemPort {
 
     return found;
   }
+
+  isEditable(): boolean {
+    return !(this.flags.includes("uneditable") || this.flags.includes("$uneditable"));
+  }
+
+  isGunHardpoint(): boolean {
+    return this.types.includes("WeaponGun.Gun");
+  }
+
+  isMissileHardpoint(): boolean {
+    return this.types.includes("MissileLauncher.MissileRack");
+  }
+
+  isWeaponHardpoint(): boolean {
+    return this.isGunHardpoint() || this.isMissileHardpoint();
+  }
+
+  isRemoteControlled(): boolean {
+    // Remote turrets seem to have controllableTags and no UsableDef
+    let controllableTags = _.get(this.json, "ControllerDef.controllableTags");
+    let usableDef = _.get(this.json, "ControllerDef.UsableDef");
+    return controllableTags && !usableDef;
+  }
+
+  isManned(): boolean {
+    // Manned turrets seem to have controllableTags and a UsableDef
+    let controllableTags = _.get(this.json, "ControllerDef.controllableTags");
+    let usableDef = _.get(this.json, "ControllerDef.UsableDef");
+
+    return controllableTags && usableDef;
+  }
+
+  isPilotControlled(): boolean {
+    return !this.isWeaponAttachment() && !this.isManned() && !this.isRemoteControlled();
+  }
+
+  isWeaponAttachment(): boolean {
+    return !!_.find(this.types, x => x.startsWith("WeaponAttachment."));
+  }
+
+  isGimballed(): boolean {
+    return false;
+  }
+
 }
