@@ -1,4 +1,4 @@
-<div class="d-flex align-items-center loadout">
+<div *ngIf="!itemPort.isWeaponAttachment()" class="d-flex align-items-center loadout">
   <div class="size-box">
     <div class="size-box-inner" [class.full]="itemPort.item" [class.empty]="!itemPort.item">
       S{{itemPort.maxSize}}
