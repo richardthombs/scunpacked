@@ -38,10 +38,14 @@ export class Part {
     return _.get(this.json, "mass", 0);
   }
 
+  get skipPart(): boolean {
+    return _.get(this.json, "skipPart", false);
+  }
+
   get parts(): Part[] {
     if (!this._parts) {
       let parts: any[] = _.get(this.json, "Parts", []);
-      this._parts = parts.map(x => new Part(x));
+      this._parts = parts.map(x => new Part(x)).filter(x => !x.skipPart);
     }
 
     return this._parts;
