@@ -15,8 +15,6 @@ export class PriceService {
 
   constructor(private $http: HttpClient) {
     this.$http.get<any>(`${environment.api}/shops.json`).subscribe(r => {
-      console.log(r);
-
       let mapped = _.flatMap(r, shop => _.flatMap(shop.inventory, item => { return { item: item, shop: _.omit(shop, "inventory") } }));
       let grouped = _.groupBy(mapped, "item.name");
       this.itemSubject.next(grouped);

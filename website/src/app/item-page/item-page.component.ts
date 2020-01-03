@@ -28,7 +28,7 @@ export class ItemPage implements OnInit {
       this.$http.get(`${environment.api}/items/${itemClass}.json`).toPromise().then(r => {
         var item = new SCItem(r);
         this.item = item;
-        console.log(item);
+        console.log("Item", item);
 
         this.priceSvc.item$.subscribe(r => {
           this.prices = r[itemClass];

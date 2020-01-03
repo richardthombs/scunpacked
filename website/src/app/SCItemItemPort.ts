@@ -105,7 +105,7 @@ export class SCItemItemPort implements IItemPort {
   isGimballed(): boolean {
     if (!this.parentItem) return false;
 
-    let fullType = `${this.parentItem.type}.${this.parentItem.subType}`
+    let fullType = `${this.parentItem.type}.${this.parentItem.subType}`;
 
     if (fullType == "Turret.NoseMounted") return true;
     if (fullType == "Turret.BallTurret") return true;

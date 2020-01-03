@@ -132,7 +132,7 @@ export class ShipPage implements OnInit {
 
         console.log("Ship", this.ship);
         console.log("ItemPorts", this.ItemPorts);
-        console.log("Grouped loadout:", this.grouped);
+        console.log("Loadout:", this.grouped);
 
       })
     });
