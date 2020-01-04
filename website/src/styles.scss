@@ -73,7 +73,8 @@ nav.navbar .navbar-brand {
 }
 
 // Light theme
-body {
+app-root,
+app-root > .light {
   .container-outer {
     background-color: rgba(255,255,255,0.25);
   }
@@ -85,7 +86,8 @@ body {
   }
   nav.navbar {
     background-color: rgba(255,255,255,0.9);
-    .navbar-nav .nav-link {
+    .nav-link,
+    .navbar-text {
       color: #888;
       &.active,
       &:hover {
@@ -115,8 +117,7 @@ body {
 }
 
 // Dark theme
-@media (prefers-color-scheme: dark) {
-  body {
+  app-root > .dark {
     color: #ccc;
     .container-outer {
       background-color: rgba(0,0,0,0.25);
@@ -135,7 +136,8 @@ body {
     nav.navbar {
       background-color: rgba(0,0,0,0.2);
 
-      .navbar-nav .nav-link {
+      .nav-link,
+      .navbar-text {
         color: #ccc;
         &.active,
         &:hover {
@@ -168,4 +170,3 @@ body {
       }
     }
   }
-}

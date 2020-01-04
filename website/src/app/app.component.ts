@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService, Theme } from './theme.service';
 
 @Component({
   selector: 'app-root',
@@ -22,11 +23,22 @@ export class AppComponent implements OnInit {
     "https://images.squarespace-cdn.com/content/v1/5da95ebb5c5f411c6a05ad9e/1572216865869-WS24CQ0YA2IPEILWQX4J/ke17ZwdGBToddI8pDm48kPTrHXgsMrSIMwe6YW3w1AZ7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0k5fwC0WRNFJBIXiBeNI5fKTrY37saURwPBw8fO2esROAxn-RKSrlQamlL27g22X2A/ScreenShot0027.jpg?format=1500w"
   ]
   background: string = "";
+  theme: Theme = "light";
 
-  constructor() { }
+  constructor(private themeSvc: ThemeService) { }
 
   ngOnInit() {
     this.background = `url(${this.backgrounds[Math.floor(Math.random() * this.backgrounds.length)]})`;
-  }
 
+    this.themeSvc.theme$.subscribe(themeSetting => {
+      let nextTheme: Theme;
+
+      if (themeSetting == "auto") {
+        const mq = window.matchMedia("(prefers-color-scheme: dark)");
+        nextTheme = mq.matches ? "dark" : "light";
+      } else nextTheme = themeSetting;
+
+      this.theme = nextTheme;
+    });
+  }
 }

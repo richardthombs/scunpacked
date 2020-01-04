@@ -19,6 +19,12 @@
         </li>
       </ul>
     </div>
+
+    <span (click)="toggleTheme()" class="navbar-text">
+      <i *ngIf="themeSetting == 'dark'" title="Dark mode" class="fas fa-moon"></i>
+      <i *ngIf="themeSetting == 'light'" title="Light mode" class="fas fa-sun"></i>
+      <i *ngIf="themeSetting == 'auto'" title="Use OS dark/light setting" class="fas fa-adjust"></i>
+    </span>
   </div>
 
 </nav>
