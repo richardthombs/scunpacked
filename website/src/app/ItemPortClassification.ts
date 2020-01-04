@@ -1,6 +1,5 @@
 export interface ItemPortClassification {
-    category: string;
-    kind: string;
-    hideSize?: boolean;
-    isBoring?: boolean;
+  category: string;
+  kind: string;
+  isBoring?: boolean;
 }

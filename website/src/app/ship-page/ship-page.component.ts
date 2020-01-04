@@ -21,69 +21,69 @@ interface ClassifiedItemPort {
 export class ShipPage implements OnInit {
 
   private typeMap: { [id: string]: ItemPortClassification } = {
-    "Seat": { category: "Interior", kind: "Seat / Bed", hideSize: true, isBoring: true },
-    "Room": { category: "Interior", kind: "Room", hideSize: true, isBoring: true },
-    "Display": { category: "Interior", kind: "Display", hideSize: true, isBoring: true },
-    "ManneuverThruster": { category: "Propulsion", kind: "Thruster", hideSize: true },
-    "FuelIntake": { category: "Propulsion", kind: "Fuel intake", hideSize: true },
-    "FuelTank": { category: "Propulsion", kind: "Hydrogen fuel tank", hideSize: true },
+    "Seat": { category: "Interior", kind: "Seat / Bed", isBoring: true },
+    "Room": { category: "Interior", kind: "Room", isBoring: true },
+    "Display": { category: "Interior", kind: "Display", isBoring: true },
+    "ManneuverThruster": { category: "Propulsion", kind: "Thruster" },
+    "FuelIntake": { category: "Propulsion", kind: "Fuel intake" },
+    "FuelTank": { category: "Propulsion", kind: "Hydrogen fuel tank" },
     "Cooler": { category: "Systems", kind: "Cooler" },
-    "Radar": { category: "Sensors", kind: "Radar", hideSize: true },
+    "Radar": { category: "Sensors", kind: "Radar" },
     "QuantumDrive": { category: "Quantum travel", kind: "Quantum drive" },
-    "Avionics": { category: "Systems", kind: "Avionics", hideSize: true, isBoring: true },
-    "QuantumFuelTank": { category: "Quantum travel", kind: "Quantum fuel tank", hideSize: true },
+    "Avionics": { category: "Systems", kind: "Avionics", isBoring: true },
+    "QuantumFuelTank": { category: "Quantum travel", kind: "Quantum fuel tank" },
     "TurretBase.MannedTurret": { category: "Offence", kind: "Manned turret" },
     "Shield": { category: "Defence", kind: "Shield" },
-    "MainThruster": { category: "Propulsion", kind: "Main engine", hideSize: true },
+    "MainThruster": { category: "Propulsion", kind: "Main engine" },
     "MissileLauncher": { category: "Offence", kind: "Missile rack" },
     "WeaponDefensive": { category: "Defence", kind: "Unknown" },
-    "WeaponDefensive.CountermeasureLauncher": { category: "Defence", kind: "Countermeasure", hideSize: true },
-    "CoolerController": { category: "Controllers", kind: "Cooler controller", hideSize: true, isBoring: true },
-    "ShieldController": { category: "Controllers", kind: "Shield controller", hideSize: true, isBoring: true },
-    "EnergyController": { category: "Controllers", kind: "Energy controller", hideSize: true, isBoring: true },
-    "WeaponController": { category: "Controllers", kind: "Weapon controller", hideSize: true, isBoring: true },
-    "FlightController": { category: "Controllers", kind: "Flight controller", hideSize: true, isBoring: true },
-    "CommsController": { category: "Controllers", kind: "Communications controller", hideSize: true, isBoring: true },
-    "DoorController": { category: "Controllers", kind: "Door controller", hideSize: true, isBoring: true },
-    "LightController": { category: "Controllers", kind: "Light controller", hideSize: true, isBoring: true },
-    "WheeledController": { category: "Controllers", kind: "Wheeled controller", hideSize: true, isBoring: true },
-    "Cargo": { category: "Cargo", kind: "Cargo grid", hideSize: true },
-    "SeatAccess": { category: "Interior", kind: "Seat access", hideSize: true, isBoring: true },
-    "Door": { category: "Interior", kind: "Door", hideSize: true, isBoring: true },
-    "Scanner": { category: "Sensors", kind: "Scanner", hideSize: true },
-    "Ping": { category: "Sensors", kind: "Ping", hideSize: true, isBoring: true },
-    "Transponder": { category: "Systems", kind: "Transponder", hideSize: true, isBoring: true },
+    "WeaponDefensive.CountermeasureLauncher": { category: "Defence", kind: "Countermeasure" },
+    "CoolerController": { category: "Controllers", kind: "Cooler controller", isBoring: true },
+    "ShieldController": { category: "Controllers", kind: "Shield controller", isBoring: true },
+    "EnergyController": { category: "Controllers", kind: "Energy controller", isBoring: true },
+    "WeaponController": { category: "Controllers", kind: "Weapon controller", isBoring: true },
+    "FlightController": { category: "Controllers", kind: "Flight controller", isBoring: true },
+    "CommsController": { category: "Controllers", kind: "Communications controller", isBoring: true },
+    "DoorController": { category: "Controllers", kind: "Door controller", isBoring: true },
+    "LightController": { category: "Controllers", kind: "Light controller", isBoring: true },
+    "WheeledController": { category: "Controllers", kind: "Wheeled controller", isBoring: true },
+    "MiningController": { category: "Controllers", kind: "Mining controller", isBoring: true },
+    "Cargo": { category: "Cargo", kind: "Cargo grid" },
+    "SeatAccess": { category: "Interior", kind: "Seat access", isBoring: true },
+    "Door": { category: "Interior", kind: "Door", isBoring: true },
+    "Scanner": { category: "Sensors", kind: "Scanner" },
+    "Ping": { category: "Sensors", kind: "Ping", isBoring: true },
+    "Transponder": { category: "Systems", kind: "Transponder", isBoring: true },
     "Turret": { category: "Offence", kind: "Unknown" },
     "Turret.NoseMounted": { category: "Offence", kind: "Turret" },
     "PowerPlant": { category: "Systems", kind: "Power plant" },
-    "Armor": { category: "Defence", kind: "Armor", hideSize: true },
-    "SelfDestruct": { category: "Systems", kind: "Self destruct", hideSize: true, isBoring: true },
-    "SeatDashboard": { category: "Interior", kind: "Dashboard", hideSize: true, isBoring: true },
-    "LandingSystem": { category: "Systems", kind: "Landing system", hideSize: true, isBoring: true },
+    "Armor": { category: "Defence", kind: "Armor" },
+    "SelfDestruct": { category: "Systems", kind: "Self destruct", isBoring: true },
+    "SeatDashboard": { category: "Interior", kind: "Dashboard", isBoring: true },
+    "LandingSystem": { category: "Systems", kind: "Landing system", isBoring: true },
     "WeaponGun": { category: "Offence", kind: "Weapon hardpoint" },
     "Turret.GunTurret": { category: "Offence", kind: "Weapon hardpoint" },
     "Turret.MissileTurret": { category: "Offence", kind: "Missile turret" },
     "Turret.CanardTurret": { category: "Offence", kind: "Weapon hardpoint" },
     "Turret.BallTurret": { category: "Offence", kind: "Turret" },
     "EMP": { category: "Offence", kind: "EMP" },
-    "Usable": { category: "Usables", kind: "Usable item", hideSize: true, isBoring: true },
-    "QuantumInterdictionGenerator": { category: "Offence", kind: "Quantum Interdiction" }
+    "Usable": { category: "Usables", kind: "Usable item", isBoring: true },
+    "QuantumInterdictionGenerator": { category: "Offence", kind: "Quantum Interdiction" },
+    "MiningArm": { category: "Offence", kind: "Mining arm" },
+    "Container.Cargo": { category: "Cargo", kind: "Cargo container" },
   }
 
-  leftGroups: string[] = [
+  groups: string[] = [
     "Offence",
     "Defence",
-    "Systems"
-  ];
-
-  rightGroups: string[] = [
+    "Systems",
     "Cargo",
     "Propulsion",
     "Quantum travel",
     "Sensors"
   ];
 
-  includeBoring: boolean = false;
+  includeBoring: boolean = true;
 
   ship: Ship | undefined;
   grouped: { [id: string]: any } = {};
@@ -161,7 +161,11 @@ export class ShipPage implements OnInit {
   }
 
   unexpectedGroups() {
-    return Object.keys(this.grouped).filter(g => !this.leftGroups.includes(g) && !this.rightGroups.includes(g));
+    return Object.keys(this.grouped).filter(g => !this.groups.includes(g));
+  }
+
+  toggleBoring() {
+    this.includeBoring = !this.includeBoring;
   }
 
 }

@@ -46,14 +46,17 @@
 
     <div class="row">
       <div class="col-sm-12">
-        <app-itemgroup *ngFor="let g of leftGroups" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
-        <app-itemgroup *ngFor="let g of rightGroups" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
+        <app-itemgroup *ngFor="let g of groups" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
+
+        <div class="mt-3">
+          <button class="btn btn-outline-secondary" (click)="toggleBoring()" *ngIf="!includeBoring">Show the boring bits</button>
+        </div>
+
+        <app-itemgroup *ngFor="let g of unexpectedGroups()" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
       </div>
     </div>
-    <div class="row">
-      <app-itemgroup *ngFor="let g of unexpectedGroups()" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
-    </div>
   </div>
+
   <div hidden class="container mt-3">
     <h6>Debug - all item ports</h6>
     <table class="table">
