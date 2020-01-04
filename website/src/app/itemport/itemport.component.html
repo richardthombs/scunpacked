@@ -5,17 +5,19 @@
     </div>
   </div>
   <div class="portflag"><span *ngIf="!itemPort.isEditable()" title="Loadout locked"><i class="fas fa-fw fa-lock"></i></span></div>
-  <div hidden class="portflag"><span *ngIf="itemPort.isWeaponHardpoint()" title="Weapon hardpoint">W</span></div>
-  <div class="portflag">
-    <span *ngIf="itemPort.isGunHardpoint()" title="Gun hardpoint">G</span>
-    <span *ngIf="itemPort.isMissileHardpoint()" title="Missile hardpoint">M</span>
-  </div>
-  <div class="portflag">
-    <span *ngIf="itemPort.isRemoteControlled()" title="Remote controlled via MFD">r</span>
-    <span *ngIf="itemPort.isManned()" title="Manned by crew member">m</span>
-    <span *ngIf="itemPort.isPilotControlled()" title="Pilot controlled">p</span>
-  </div>
-  <div class="portflag"><span *ngIf="itemPort.isGimballed()" title="Weapon is in a gimballed mount">g</span></div>
+  <ng-container *ngIf="itemPort.isWeaponHardpoint()">
+    <div hidden class="portflag"><span *ngIf="itemPort.isWeaponHardpoint()" title="Weapon hardpoint">W</span></div>
+    <div hidden class="portflag">
+      <span *ngIf="itemPort.isGunHardpoint()" title="Gun hardpoint">G</span>
+      <span *ngIf="itemPort.isMissileHardpoint()" title="Missile hardpoint">M</span>
+    </div>
+    <div class="portflag">
+      <span *ngIf="itemPort.isRemoteControlled()" title="Remote controlled via MFD"><i class="fas fa-gamepad"></i></span>
+      <span *ngIf="itemPort.isManned()" title="Manned by crew member"><i class="fas fa-running"></i></span>
+      <span *ngIf="itemPort.isPilotControlled()" title="Pilot controlled"><i class="fas fa-male"></i></span>
+    </div>
+    <div class="portflag"><span *ngIf="itemPort.isGimballed()" title="Weapon is in a gimballed mount"><i class="fas fa-crosshairs"></i></span></div>
+  </ng-container>
   <div class="portname">
     {{itemPort.name}}
   </div>

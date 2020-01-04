@@ -72,8 +72,12 @@ export class ItemPort implements IItemPort {
     return this.types.includes("MissileLauncher.MissileRack");
   }
 
+  isOtherHardpoint(): boolean {
+    return this.types.includes("EMP");
+  }
+
   isWeaponHardpoint(): boolean {
-    return this.isGunHardpoint() || this.isMissileHardpoint();
+    return this.isGunHardpoint() || this.isMissileHardpoint() || this.isOtherHardpoint();
   }
 
   isRemoteControlled(): boolean {
