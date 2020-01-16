@@ -13,19 +13,29 @@ namespace Loader
 		static void Main(string[] args)
 		{
 			string scDataRoot = null;
-			string outputRoot = null; ;
+			string outputRoot = null;
+			string itemFile = null;
 
 			var p = new OptionSet
 			{
-				{ "scdata=", v => { scDataRoot = v; } },
-				{ "output=",  v => { outputRoot = v; } }
+				{ "scdata=", v => scDataRoot = v },
+				{ "output=",  v => outputRoot = v },
+				{ "itemfile=", v => itemFile = v }
 			};
 
 			var extra = p.Parse(args);
 
-			if (extra.Count > 0 || String.IsNullOrWhiteSpace(scDataRoot) || String.IsNullOrWhiteSpace(outputRoot))
+			var badArgs = false;
+			if (extra.Count > 0) badArgs = true;
+			else if (String.IsNullOrEmpty(itemFile) && (!String.IsNullOrEmpty(scDataRoot) || !String.IsNullOrEmpty(outputRoot))) badArgs = true;
+			else if (String.IsNullOrEmpty(itemFile) && (String.IsNullOrEmpty(scDataRoot) || String.IsNullOrEmpty(outputRoot))) badArgs = true;
+
+			if (badArgs)
 			{
-				Console.WriteLine("Usage: Loader.exe -scdata=<path to extracted Star Citizen data> -output=<path to JSON output folder>");
+				Console.WriteLine("Usage:");
+				Console.WriteLine("    Loader.exe -scdata=<path to extracted Star Citizen data> -output=<path to JSON output folder>");
+				Console.WriteLine(" or Loader.exe -itemfile=<path to an SCItem XML file");
+				Console.WriteLine();
 				return;
 			}
 
@@ -34,6 +44,15 @@ namespace Loader
 				Formatting = Formatting.Indented,
 				NullValueHandling = NullValueHandling.Ignore
 			};
+
+			if (itemFile != null)
+			{
+				var entityParser = new EntityParser();
+				var entity = entityParser.Parse(itemFile, x => x);
+				var json = JsonConvert.SerializeObject(entity);
+				Console.WriteLine(json);
+				return;
+			}
 
 			// Prep the output folder
 			if (Directory.Exists(outputRoot))
@@ -62,15 +81,6 @@ namespace Loader
 				}
 			}
 			File.WriteAllText(Path.Combine(outputRoot, "labels.json"), JsonConvert.SerializeObject(labels));
-
-			// Prices
-			var shopLoader = new ShopLoader(new LocalisationService(labels))
-			{
-				DataRoot = scDataRoot,
-				OnXmlLoadout = path => loadoutLoader.Load(path)
-			};
-			var shops = shopLoader.Load();
-			File.WriteAllText(Path.Combine(outputRoot, "shops.json"), JsonConvert.SerializeObject(shops));
 
 			// Manufacturers
 			var manufacturerLoader = new ManufacturerLoader
@@ -102,6 +112,14 @@ namespace Loader
 			var itemIndex = itemLoader.Load();
 			File.WriteAllText(Path.Combine(outputRoot, "items.json"), JsonConvert.SerializeObject(itemIndex));
 
+			// Prices
+			var shopLoader = new ShopLoader(new LocalisationService(labels))
+			{
+				DataRoot = scDataRoot,
+				OnXmlLoadout = path => loadoutLoader.Load(path)
+			};
+			var shops = shopLoader.Load();
+			File.WriteAllText(Path.Combine(outputRoot, "shops.json"), JsonConvert.SerializeObject(shops));
 		}
 	}
 }
