@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace scdb.Xml.Entities
 {
-	public class AttachDef
+	public class SItemDefinition
 	{
 		[XmlAttribute]
 		public string Type;

@@ -30,5 +30,6 @@ namespace scdb.Xml.Entities
 		public SCItemMissileParams SCItemMissileParams;
 		public SEntityComponentMiningLaserParams SEntityComponentMiningLaserParams;
 		public CommodityComponentParams CommodityComponentParams;
+		public SEntityInteractableParams SEntityInteractableParams;
 	}
 }
