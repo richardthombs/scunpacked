@@ -28,37 +28,6 @@
             }
           }
         },
-        "SHealthComponentParams": {
-          "Health": 200.0,
-          "DamageResistances": {
-            "DamageResistance": {
-              "PhysicalResistance": {
-                "Multiplier": 1.0,
-                "Threshold": 0
-              },
-              "EnergyResistance": {
-                "Multiplier": 1.0,
-                "Threshold": 0
-              },
-              "DistortionResistance": {
-                "Multiplier": 1.0,
-                "Threshold": 0
-              },
-              "ThermalResistance": {
-                "Multiplier": 1.0,
-                "Threshold": 0
-              },
-              "BiochemicalResistance": {
-                "Multiplier": 1.0,
-                "Threshold": 0
-              },
-              "StunResistance": {
-                "Multiplier": 1.0,
-                "Threshold": 0
-              }
-            }
-          }
-        },
         "EntityComponentPowerConnection": {
           "PowerBase": 0.0,
           "PowerDraw": 1.0,
@@ -78,7 +47,7 @@
         },
         "SCItem": {
           "turnedOnByDefault": true,
-          "attachToTileItemPort": "ExteriorConnection",
+          "attachToTileItemPort": "NoConnection",
           "inheritModelTagFromHost": true,
           "ItemPorts": [
             {
@@ -367,8 +336,8 @@
                 "DisplayType": "Show",
                 "GenericCursor": "SingleAction",
                 "FocusModeOnly": false,
-                "Sendable": false,
-                "Linkable": false,
+                "Sendable": true,
+                "Linkable": true,
                 "LockedByLinks": false,
                 "RequiresAuthorizedUser": false,
                 "available": true
@@ -416,7 +385,7 @@
                 "available": true
               },
               {
-                "Name": "Toggle",
+                "Name": "Disable",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
                 "DisplayName": "@usable_use",
@@ -430,7 +399,7 @@
                 "available": true
               },
               {
-                "Name": "Unlock",
+                "Name": "ProximitySensorDisable",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
                 "DisplayName": "@usable_use",
@@ -458,77 +427,7 @@
                 "available": true
               },
               {
-                "Name": "CloseInnerDoor",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@usable_use",
-                "DisplayType": "Show",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": true,
-                "Linkable": true,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "CloseOuterDoor",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@usable_use",
-                "DisplayType": "Show",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": true,
-                "Linkable": true,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "CallCloseOuterDoor",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@usable_use",
-                "DisplayType": "Show",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": true,
-                "Linkable": true,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "CloseAllDoors",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@usable_seal_airlock",
-                "DisplayType": "Show",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": true,
-                "Linkable": true,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "ClosedComplete",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@usable_use",
-                "DisplayType": "Show",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": true,
-                "Linkable": true,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "OpenComplete",
+                "Name": "ProximitySensorEnable",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
                 "DisplayName": "@usable_use",
@@ -536,48 +435,6 @@
                 "GenericCursor": "SingleAction",
                 "FocusModeOnly": false,
                 "Sendable": false,
-                "Linkable": false,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "OpenInnerDoor",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@usable_use",
-                "DisplayType": "Show",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": false,
-                "Linkable": false,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "CloseInnerDoor",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@usable_use",
-                "DisplayType": "Show",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": false,
-                "Linkable": false,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "CloseOuterDoor",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@usable_use",
-                "DisplayType": "Show",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": true,
                 "Linkable": true,
                 "LockedByLinks": false,
                 "RequiresAuthorizedUser": false,
@@ -587,7 +444,7 @@
           }
         }
       },
-      "ClassName": "DRAK_Cutlass_Red_Airlock_Ext_Hatch"
+      "ClassName": "ANVL_Carrack_Suit_Locker_Wall"
     }
   }
 }
