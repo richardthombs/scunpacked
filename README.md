@@ -40,10 +40,11 @@ loader.exe -scdata=c:\scdata\3.7.2 -output=c:\scdata\3.7.2-json
 Now you will have a folder `c:\scdata\3.7.2-json` which contains:
 
 ```
-ships        - Folder containing all ships, named after the class name
 items        - Folder containing all Items, named after the class name
 loadouts     - Folder containing loadouts for ships and items named after the loadout filename
-ships.json   - Index of all the ships
+ships        - Folder containing all ships, named after the class name
 items.json   - Index of all the items
 labels.json  - English translations of all labels
+ships.json   - Index of all the ships
+shops.json   - Index of all shops and everything that they sell or buy
 ```
