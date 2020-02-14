@@ -1,0 +1,66 @@
+name: Build
+on: [push]
+jobs:
+
+  API:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Push to registry
+      if: github.ref == 'refs/heads/master'
+      working-directory: ./api
+      run: |
+        docker build -t docker.pkg.github.com/richardthombs/scunpacked/scunpacked-api:latest .
+        docker login docker.pkg.github.com -u richardthombs -p "${{secrets.GITHUB_TOKEN}}"
+        docker push docker.pkg.github.com/richardthombs/scunpacked/scunpacked-api:latest
+
+  Website:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Install Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: "12.x"
+
+    - name: Build Website
+      working-directory: ./website
+      run: |
+        npm ci
+        npx ng build --prod
+
+    - name: Push to registry
+      if: github.ref == 'refs/heads/master'
+      working-directory: ./website
+      run: |
+        docker build -t docker.pkg.github.com/richardthombs/scunpacked/scunpacked-website:latest .
+        docker login docker.pkg.github.com -u richardthombs -p "${{secrets.GITHUB_TOKEN}}"
+        docker push docker.pkg.github.com/richardthombs/scunpacked/scunpacked-website:latest
+
+
+  Deploy:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    needs: [API, Website]
+    steps:
+     - uses: actions/checkout@v1
+
+     - name: Save DigitalOcean kubeconfig
+       uses: digitalocean/action-doctl@master
+       env:
+         DIGITALOCEAN_ACCESS_TOKEN: ${{secrets.DIGITALOCEAN_ACCESS_TOKEN}}
+       with:
+         args: kubernetes cluster kubeconfig show gearstone > $GITHUB_WORKSPACE/.kubeconfig
+
+     - name: Deploy to Kubernetes
+       run: |
+         kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig -n scdb delete deployment -l tier=api
+         kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig -n scdb delete deployment -l tier=website
+         kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig -n scdb apply -f k8s
+
+     - name: Verify deployment
+       run: |
+         kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig -n scdb -w --timeout=5m rollout status deployment scdb-api
+         kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig -n scdb -w --timeout=5m rollout status deployment scdb-website

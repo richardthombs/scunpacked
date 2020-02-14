@@ -33,7 +33,9 @@ spec:
     spec:
       containers:
       - name: scdb-api
-        image: gearstone/scdb-api:latest
+        image: docker.pkg.github.com/richardthombs/scunpacked/scunpacked-api:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
+      imagePullSecrets:
+        - name: github

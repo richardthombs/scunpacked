@@ -33,7 +33,9 @@ spec:
     spec:
       containers:
       - name: scdb-website
-        image: gearstone/scdb-website:latest
+        image: docker.pkg.github.com/richardthombs/scunpacked/scunpacked-website:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
+      imagePullSecrets:
+        - name: github
