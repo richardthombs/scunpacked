@@ -20,7 +20,10 @@ export class AppComponent implements OnInit {
     "https://robertsspaceindustries.com/media/h0ijcnfkb62x2r/channel_item_full/ISC_THUMBNAIL-Nologo.jpg",
     "https://robertsspaceindustries.com/media/83tmncuyta86qr/channel_item_full/Flight.jpg",
     "https://images.squarespace-cdn.com/content/v1/5da95ebb5c5f411c6a05ad9e/1575195490299-MLBJKVOA4M6V8PY0U1OS/ke17ZwdGBToddI8pDm48kPTrHXgsMrSIMwe6YW3w1AZ7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0k5fwC0WRNFJBIXiBeNI5fKTrY37saURwPBw8fO2esROAxn-RKSrlQamlL27g22X2A/ScreenShot0274.jpg?format=1500w",
-    "https://images.squarespace-cdn.com/content/v1/5da95ebb5c5f411c6a05ad9e/1572216865869-WS24CQ0YA2IPEILWQX4J/ke17ZwdGBToddI8pDm48kPTrHXgsMrSIMwe6YW3w1AZ7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0k5fwC0WRNFJBIXiBeNI5fKTrY37saURwPBw8fO2esROAxn-RKSrlQamlL27g22X2A/ScreenShot0027.jpg?format=1500w"
+    "https://images.squarespace-cdn.com/content/v1/5da95ebb5c5f411c6a05ad9e/1572216865869-WS24CQ0YA2IPEILWQX4J/ke17ZwdGBToddI8pDm48kPTrHXgsMrSIMwe6YW3w1AZ7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0k5fwC0WRNFJBIXiBeNI5fKTrY37saURwPBw8fO2esROAxn-RKSrlQamlL27g22X2A/ScreenShot0027.jpg?format=1500w",
+    "https://robertsspaceindustries.com/media/rtmzn4ziowedbr/source/Star_Citizen-Portrait-42.jpg",
+    "https://robertsspaceindustries.com/media/1c4p9hlgaq3cjr/source/CloudImperiumGames_StarCitizen_CalliopeProgress.png",
+    "https://robertsspaceindustries.com/media/ajdt01mm8dccdr/source/Squadron-42-Star-Citizen-Screenshot-20200130-03244964.jpg"
   ]
   background: string = "";
   theme: Theme = "light";
