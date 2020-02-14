@@ -1,3 +1,5 @@
+![Build](https://github.com/richardthombs/scunpacked/workflows/Build/badge.svg)
+
 ## Welcome to Star Citizen Unpacked!
 
 _This is an unofficial Star Citizen fansite, not affiliated with the Cloud Imperium group of companies. All content on this site not authored by its host or users are property of their respective owners._
