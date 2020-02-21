@@ -7,6 +7,7 @@ import { ItemPortClassification } from '../ItemPortClassification';
 import { ItemPort } from '../ItemPort';
 import { IItemPort } from "../IItemPort";
 import { ShipService } from '../ship.service';
+import { environment } from '../../environments/environment';
 
 interface ClassifiedItemPort {
   classification: ItemPortClassification;
@@ -88,6 +89,7 @@ export class ShipPage implements OnInit {
   ship: Ship | undefined;
   grouped: { [id: string]: any } = {};
   ItemPorts: IItemPort[] = [];
+  jsonHref: string = "";
 
   constructor(private shipSvc: ShipService, private route: ActivatedRoute) { }
 
@@ -96,6 +98,8 @@ export class ShipPage implements OnInit {
 
       let shipClass = params.get("name");
       if (!shipClass) return;
+
+      this.jsonHref = `${environment.api}/ships/${shipClass}.json`;
 
       this.shipSvc.load(shipClass).then(ship => {
 

@@ -16,6 +16,7 @@ export class ItemPage implements OnInit {
 
   item: SCItem | undefined;
   prices: any[] = [];
+  jsonHref: string = "";
 
   constructor(private $http: HttpClient, private route: ActivatedRoute, private priceSvc: PriceService) { }
 
@@ -24,6 +25,8 @@ export class ItemPage implements OnInit {
 
       let itemClass = params.get("name") || "";
       if (!itemClass) return;
+
+      this.jsonHref = `${environment.api}/items/${itemClass}.json`;
 
       this.$http.get(`${environment.api}/items/${itemClass}.json`).toPromise().then(r => {
         var item = new SCItem(r);
