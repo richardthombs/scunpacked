@@ -19,6 +19,7 @@ namespace Loader
 			var p = new OptionSet
 			{
 				{ "scdata=", v => scDataRoot = v },
+				{ "input=",  v => scDataRoot = v },
 				{ "output=",  v => outputRoot = v },
 				{ "itemfile=", v => itemFile = v }
 			};
@@ -33,7 +34,7 @@ namespace Loader
 			if (badArgs)
 			{
 				Console.WriteLine("Usage:");
-				Console.WriteLine("    Loader.exe -scdata=<path to extracted Star Citizen data> -output=<path to JSON output folder>");
+				Console.WriteLine("    Loader.exe -input=<path to extracted Star Citizen data> -output=<path to JSON output folder>");
 				Console.WriteLine(" or Loader.exe -itemfile=<path to an SCItem XML file");
 				Console.WriteLine();
 				return;
