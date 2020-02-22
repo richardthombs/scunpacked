@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
-<nav class="d-flex flex-wrap flex-row list-group">
-  <button (click)="selectRole(role)" *ngFor="let role of byRoles | keyvalue" class="list-group-item list-group-action roleSelect" [class.active]="role.key == selectedRole.key">{{role.key}}</button>
+<nav class="d-flex flex-wrap flex-row list-group text-center">
+  <a routerLinkActive="active" *ngFor="let role of byRoles | keyvalue" routerLink="/ships" [queryParams]="{role: role.key}" class="list-group-item list-group-action roleSelect">{{role.key}}</a>
 </nav>
 
 <div class="container-outer">
