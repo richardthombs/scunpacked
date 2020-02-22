@@ -10,7 +10,7 @@ import { LocalisationService } from './localisation.service';
 import { ShipIndexEntry } from './ShipIndexEntry';
 
 @Injectable()
-export class ShipsResolver implements Resolve<any> {
+export class ShipsResolver implements Resolve<ShipIndexEntry> {
   constructor(private $http: HttpClient, private localisationSvc: LocalisationService) { }
   resolve(): Observable<any> {
     return this.$http.get<ShipIndexEntry[]>(`${environment.api}/ships.json`).pipe(map(r => {

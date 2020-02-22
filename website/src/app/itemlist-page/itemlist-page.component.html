@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
-<nav class="d-flex flex-wrap flex-row list-group">
-  <button (click)="selectType(type)" *ngFor="let type of byType | keyvalue" class="list-group-item list-group-action typeSelect" [class.active]="type.key == selectedType.key">{{type.key}}</button>
+<nav class="d-flex flex-wrap flex-row list-group text-center">
+  <a *ngFor="let type of byType | keyvalue" routerLink="/items" [queryParams]="{type: type.key}" routerLinkActive="active" class="list-group-item list-group-action roleSelect">{{type.key}}</a>
 </nav>
 
 <div class="container-outer">

@@ -11,13 +11,14 @@ import { HomePage } from './home-page/home-page.component';
 import { ShoplistPage } from './shoplist-page/shoplist-page.component';
 import { LabelsResolver } from './LabelsResolver';
 import { ShipsResolver } from "./ShipsResolver";
+import { ItemsResolver } from './ItemsResolver';
 
 const routes: Routes = [
   { path: "", component: HomePage },
   { path: "ships", component: ShiplistPage, resolve: { labels: LabelsResolver, ships: ShipsResolver } },
   { path: "ships/compare", component: CompareShipsPage, resolve: { labels: LabelsResolver } },
   { path: "ships/:name", component: ShipPage, resolve: { labels: LabelsResolver } },
-  { path: "items", component: ItemlistPage, resolve: { labels: LabelsResolver } },
+  { path: "items", component: ItemlistPage, resolve: { labels: LabelsResolver, items: ItemsResolver } },
   { path: "items/compare", component: CompareItemsPage, resolve: { labels: LabelsResolver } },
   { path: "items/:name", component: ItemPage, resolve: { labels: LabelsResolver } },
   { path: "shops", component: ShoplistPage, resolve: { labels: LabelsResolver } }
@@ -26,6 +27,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [LabelsResolver, ShipsResolver]
+  providers: [LabelsResolver, ShipsResolver, ItemsResolver]
 })
 export class AppRoutingModule { }

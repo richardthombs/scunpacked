@@ -33,9 +33,8 @@ export class ShiplistPage implements OnInit {
   ngOnInit() {
     this.subs.push(this.route.data.subscribe(data => {
 
-      this.byRoles = {};
-
       // Group by role and sub-role, ships will appear in multiple groupings
+      this.byRoles = {};
       data.ships.forEach((s: ShipIndexEntry) => {
         s.roles.forEach(r => {
           if (!this.byRoles[r.role]) this.byRoles[r.role] = {};
@@ -43,15 +42,14 @@ export class ShiplistPage implements OnInit {
           this.byRoles[r.role][r.subRole].push(s);
         });
       });
+
     }));
 
     this.subs.push(this.route.queryParamMap.subscribe(r => {
       console.log(r);
       let role = r.get("role");
       if (role) this.selectRole({ key: role, value: this.byRoles[role] });
-      else {
-        this.router.navigateByUrl("/ships?role=Combat");
-      }
+      else this.router.navigateByUrl("/ships?role=Combat");
     }));
   }
 

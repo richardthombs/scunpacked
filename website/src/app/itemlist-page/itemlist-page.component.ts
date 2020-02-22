@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import * as _ from "lodash";
 
 import { environment } from "../../environments/environment";
+
 import { doubleGroupedList } from "../shiplist-page/shiplist-page.component";
+import { ItemIndexEntry } from '../ItemIndexEntry';
 
 @Component({
   selector: 'app-itemlist',
@@ -12,9 +16,11 @@ import { doubleGroupedList } from "../shiplist-page/shiplist-page.component";
 })
 export class ItemlistPage implements OnInit {
 
-  constructor(private $http: HttpClient) { }
+  constructor(private $http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   byType: doubleGroupedList<ItemIndexEntry> = {}
+
+  subs: Subscription[] = [];
 
   selectedType: any;
 
@@ -42,46 +48,9 @@ export class ItemlistPage implements OnInit {
 
   ngOnInit() {
 
-    this.$http.get<ItemIndexEntry[]>(`${environment.api}/items.json`).subscribe(r => {
+    this.subs.push(this.route.data.subscribe(data => {
 
-      r = r.filter(x => x.type);
-      r = r.filter(x => !x.type.includes("AIModule"));
-      r = r.filter(x => !x.type.includes("Battery"));
-      r = r.filter(x => !x.type.includes("Button"));
-      r = r.filter(x => !x.type.includes("Cargo"));
-      r = r.filter(x => !x.type.includes("Controller"));
-      r = r.filter(x => !x.type.includes("ControlPanel"));
-      r = r.filter(x => !x.type.includes("Container"));
-      r = r.filter(x => !x.type.includes("Display"));
-      r = r.filter(x => !x.type.includes("Door"));
-      r = r.filter(x => !x.type.includes("FuelIntake"));
-      r = r.filter(x => !x.type.includes("FuelTank"));
-      r = r.filter(x => !x.type.includes("LandingSystem"));
-      r = r.filter(x => !x.type.includes("Lightgroup"));
-      r = r.filter(x => !x.type.includes("MainThruster"));
-      r = r.filter(x => !x.type.includes("ManneuverThruster"));
-      r = r.filter(x => !x.type.includes("MiningArm"));
-      r = r.filter(x => !x.type.includes("MiningModifier"));
-      r = r.filter(x => !x.type.includes("Misc"));
-      r = r.filter(x => !x.type.includes("MissileLauncher"));
-      r = r.filter(x => !x.type.includes("Paints"));
-      r = r.filter(x => !x.type.includes("Ping"));
-      r = r.filter(x => !x.type.includes("Player"));
-      r = r.filter(x => !x.type.includes("QuantumFuelTank"));
-      r = r.filter(x => !x.type.includes("Seat"));
-      r = r.filter(x => !x.type.includes("SeatAccess"));
-      r = r.filter(x => !x.type.includes("SeatDashboard"));
-      r = r.filter(x => !x.type.includes("SelfDestruct"));
-      r = r.filter(x => !x.type.includes("Sensor"));
-      r = r.filter(x => !x.type.includes("TargetSelector"));
-      r = r.filter(x => !x.type.includes("Turret"));
-      r = r.filter(x => !x.type.includes("TurretBase"));
-      r = r.filter(x => !x.type.includes("UNDEFINED"));
-      r = r.filter(x => !x.type.includes("Usable"));
-      r = r.filter(x => !x.type.includes("WeaponAttachment"));
-
-      // Group by role and sub-role, ships will appear in multiple groupings
-      r.forEach(i => {
+      data.items.forEach((i: ItemIndexEntry) => {
         let type = this.typeMap[`${i.type || "UNDEFINED"}.${i.subType || "UNDEFINED"}`] || "Unknown";
 
         let size = `Size ${i.size || 0}`;
@@ -96,12 +65,15 @@ export class ItemlistPage implements OnInit {
       });
 
       _.forEach(this.byType, l1 => _.forEach(l1, (v2, k2) => l1[k2] = _.sortBy(v2, x => x.manufacturer || "CIG")));
+    }));
 
-      var first = _.sortBy(Object.keys(this.byType))[0];
+    this.subs.push(this.route.queryParamMap.subscribe(r => {
+      console.log(r);
+      let type = r.get("type");
+      if (type) this.selectType({ key: type, value: this.byType[type] });
+      else this.router.navigateByUrl("/items?type=Armor");
 
-      this.selectType({ key: first, value: this.byType[first] });
-    });
-
+    }));
   }
 
   itemsInRole(level1: { [id: string]: ItemIndexEntry[] }): string {
@@ -117,14 +89,4 @@ export class ItemlistPage implements OnInit {
   selectType(type: any) {
     this.selectedType = type;
   }
-}
-
-interface ItemIndexEntry {
-  name: string;
-  type: string;
-  subType: string;
-  size: number | undefined;
-  grade: number | undefined;
-  manufacturer: string;
-  className: string;
 }
