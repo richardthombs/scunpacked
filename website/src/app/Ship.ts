@@ -120,6 +120,10 @@ export class Ship {
     return _.reduce(this.findParts(), (total, part) => total + part.damageMax, 0);
   }
 
+  get mass(): number {
+    return _.reduce(this.findParts(), (total, part) => 0 + total + parseInt(part.mass + ""), 0);
+  }
+
   findParts(predicate?: (p: Part) => boolean): Part[] {
     var found: Part[] = [];
     this.Parts.forEach(part => {
