@@ -121,7 +121,7 @@ export class Ship {
   }
 
   get mass(): number {
-    return _.reduce(this.findParts(), (total, part) => 0 + total + parseInt(part.mass + ""), 0);
+    return _.reduce(this.findParts(), (total, part) => 0 + total + parseInt(part.mass + ""), 0); // parseInt hack to fix bad Carrack data that has a "d" at the end
   }
 
   findParts(predicate?: (p: Part) => boolean): Part[] {
