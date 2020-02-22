@@ -21,7 +21,7 @@
   <div class="portname">
     {{itemPort.name}}
   </div>
-  <div *ngIf="itemPort.itemClass" style="overflow:hidden;">
+  <div *ngIf="itemPort.itemClass" xstyle="overflow:hidden;">
     <div [ngSwitch]="itemPort.item?.type" class="item-stats-container">
       <app-powerplant *ngSwitchCase="'PowerPlant'" [item]="itemPort.item"></app-powerplant>
       <app-cargo *ngSwitchCase="'Cargo'" [item]="itemPort.item"></app-cargo>
@@ -32,6 +32,9 @@
       <app-thruster *ngSwitchCase="'ManneuverThruster'" [item]="itemPort.item"></app-thruster>
       <app-hydrogenfueltank *ngSwitchCase="'FuelTank'" [item]="itemPort.item"></app-hydrogenfueltank>
       <app-hydrogenfuelintake *ngSwitchCase="'FuelIntake'" [item]="itemPort.item"></app-hydrogenfuelintake>
+    </div>
+    <div class="text-right">
+      <span class="ml-4" *ngFor="let i of itemPort?.item?.Raw?.Entity?.Components?.SEntityInteractableParams?.Interactable?.SharedInteractions">{{i.Name}}</span>
     </div>
     <div *ngIf="!itemPort.item" class="text-right">{{itemPort.itemClass}} (no data)</div>
     <div *ngIf="itemPort.item" class="text-right">

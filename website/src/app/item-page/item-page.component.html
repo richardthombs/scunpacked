@@ -45,11 +45,19 @@
       {{item?.description | localise}}
     </div>
 
+    <div *ngIf="item?.Raw.Entity.Components.SEntityInteractableParams.Interactable.SharedInteractions?.length">
+      <h5 class="mt-3">Interactions:</h5>
+      <div *ngFor="let i of item?.Raw.Entity.Components.SEntityInteractableParams.Interactable.SharedInteractions">
+        {{i.Name}} ({{i.DisplayName | localise}})
+      </div>
+    </div>
+
     <h5 class="mt-3">Available at:</h5>
 
     <div *ngIf="prices?.length" class="list-group">
       <div *ngFor="let p of prices" class="list-group-item d-flex justify-content-between">
-        <div>{{p.shop.name}}</div>
+        <div>{{p.shop.name}}
+        </div>
         <div>{{p.item.basePrice * (1+(p.item.basePriceOffsetPercentage/100)) | number:'1.0-0'}} aUEC</div>
       </div>
     </div>
