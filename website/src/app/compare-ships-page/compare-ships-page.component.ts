@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 import { ShipService } from '../ship.service';
 import { Ship } from '../Ship';
 import { ComparisonGroup, ComparisonField } from '../Comparisons';
-import { LocalisationService } from '../localisation.service';
+import { LocalisationService } from '../Localisation';
 
 
 @Component({

@@ -6,13 +6,16 @@ import { map } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
 
-import { LocalisationService } from './localisation.service';
+import { LocalisationService } from './Localisation';
 import { ShipIndexEntry } from './ShipIndexEntry';
 
 @Injectable()
 export class ShipsResolver implements Resolve<ShipIndexEntry> {
+
   constructor(private $http: HttpClient, private localisationSvc: LocalisationService) { }
+
   resolve(): Observable<any> {
+
     return this.$http.get<ShipIndexEntry[]>(`${environment.api}/ships.json`).pipe(map(r => {
       // Fix ships without names
       r.forEach(s => s.name = (s.name == "@LOC_PLACEHOLDER" || s.name == "@LOC_UNINITIALIZED") ? s.className : s.name);
@@ -27,7 +30,10 @@ export class ShipsResolver implements Resolve<ShipIndexEntry> {
             s.roles.push({ role: "Ships by size", subRole: `Size ${s.size || 0}` });
         }
       });
+
       return r;
+
     }));
+
   }
 }

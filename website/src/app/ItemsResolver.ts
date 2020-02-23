@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
 
-import { LocalisationService } from './localisation.service';
+import { LocalisationService } from './Localisation';
 import { ItemIndexEntry } from './ItemIndexEntry';
 
 @Injectable()
@@ -56,6 +56,7 @@ export class ItemsResolver implements Resolve<ItemIndexEntry> {
       r = r.filter(x => !x.type.includes("WeaponAttachment"));
 
       return r;
+
     }));
 
   }

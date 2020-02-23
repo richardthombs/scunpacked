@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import * as _ from "lodash";
-
-import { environment } from "../../environments/environment";
 
 import { doubleGroupedList } from "../shiplist-page/shiplist-page.component";
 import { ItemIndexEntry } from '../ItemIndexEntry';
@@ -16,7 +13,7 @@ import { ItemIndexEntry } from '../ItemIndexEntry';
 })
 export class ItemlistPage implements OnInit {
 
-  constructor(private $http: HttpClient, private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   byType: doubleGroupedList<ItemIndexEntry> = {}
 

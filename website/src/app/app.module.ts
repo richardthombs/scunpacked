@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
@@ -32,6 +32,7 @@ import { SiPipe } from './si.pipe';
 import { LocalisePipe } from './localise.pipe';
 import { NoZeroPipe } from './no-zero.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LocalisationService, LabelsApi } from "./Localisation";
 
 @NgModule({
   declarations: [
@@ -68,6 +69,14 @@ import { NavbarComponent } from './navbar/navbar.component';
     AppRoutingModule
   ],
   providers: [
+    LabelsApi,
+    {
+      provide: APP_INITIALIZER,
+      deps: [LabelsApi],
+      useFactory: (labelsApi: LabelsApi) => () => labelsApi.get().then(x => LocalisationService.SetLabels(x)),
+      multi: true
+
+    }
   ],
   bootstrap: [AppComponent]
 })

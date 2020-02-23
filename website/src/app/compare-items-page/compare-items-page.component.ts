@@ -6,7 +6,7 @@ import * as _ from 'lodash';
 import { environment } from 'src/environments/environment';
 
 import { SCItem } from '../SCItem';
-import { LocalisationService } from '../localisation.service';
+import { LocalisationService } from '../Localisation';
 import { ComparisonGroup, ComparisonField } from '../Comparisons';
 
 @Component({

@@ -1,13 +1,10 @@
 import { Component, OnInit, Query } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, combineLatest } from 'rxjs';
 import * as _ from "lodash";
 
-import { environment } from "../../environments/environment";
-
-import { LocalisationService } from '../localisation.service';
 import { ShipIndexEntry } from '../ShipIndexEntry';
+import { map } from 'rxjs/operators';
 
 export type doubleGroupedList<T> = {
   [id: string]: {
@@ -28,10 +25,13 @@ export class ShiplistPage implements OnInit {
 
   selectedRole: any;
 
-  constructor(private $http: HttpClient, private localisationSvc: LocalisationService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.subs.push(this.route.data.subscribe(data => {
+
+    let data$ = this.route.data.pipe(map(data => {
+
+      console.log(data);
 
       // Group by role and sub-role, ships will appear in multiple groupings
       this.byRoles = {};
@@ -43,14 +43,16 @@ export class ShiplistPage implements OnInit {
         });
       });
 
+      return data;
     }));
 
-    this.subs.push(this.route.queryParamMap.subscribe(r => {
-      console.log(r);
-      let role = r.get("role");
+    combineLatest(data$, this.route.queryParamMap).subscribe(([data, queryParamMap]) => {
+      console.log(data, queryParamMap, this.byRoles);
+
+      let role = queryParamMap.get("role");
       if (role) this.selectRole({ key: role, value: this.byRoles[role] });
       else this.router.navigateByUrl("/ships?role=Combat");
-    }));
+    });
   }
 
   selectRole(role: any): void {
