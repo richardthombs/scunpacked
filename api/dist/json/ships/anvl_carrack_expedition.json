@@ -580,11 +580,6 @@
                   "loadout": {}
                 },
                 {
-                  "itemPortName": "hardpoint_antennas",
-                  "entityClassName": "ANVL_Carrack_Antennas",
-                  "loadout": {}
-                },
-                {
                   "itemPortName": "hardpoint_hologlobe_bridge",
                   "entityClassName": "ANVL_Carrack_Cart_Hologlobe_RADR_Display",
                   "loadout": {}
@@ -652,7 +647,7 @@
           "AttachDef": {
             "Type": "NOITEM_Vehicle",
             "SubType": "Vehicle_Spaceship",
-            "Size": 5,
+            "Size": 6,
             "Grade": 1,
             "Manufacturer": "b922abdb-0634-4358-9eee-60118f3cf3a7",
             "Tags": "ANVL_Carrack",
@@ -736,7 +731,7 @@
       "name": "ANVL_Carrack",
       "displayname": "ANVL Carrack",
       "subType": "Vehicle_Spaceship",
-      "size": 5,
+      "size": 6,
       "requiredItemTags": "",
       "itemPortTags": "ANVL_Carrack",
       "Pipes": [
@@ -1853,7 +1848,7 @@
                         "minsize": 3,
                         "maxsize": 3,
                         "display_name": "port_NameCooler",
-                        "flags": "",
+                        "flags": "uneditable",
                         "requiredTags": "",
                         "Types": [
                           {
@@ -1882,7 +1877,7 @@
                         "minsize": 3,
                         "maxsize": 3,
                         "display_name": "port_NameCooler",
-                        "flags": "",
+                        "flags": "uneditable",
                         "requiredTags": "",
                         "Types": [
                           {
@@ -2019,7 +2014,7 @@
                       "ItemPort": {
                         "minsize": 3,
                         "maxsize": 3,
-                        "flags": "",
+                        "flags": "uneditable",
                         "Types": [
                           {
                             "type": "PowerPlant",
@@ -2046,7 +2041,7 @@
                       "ItemPort": {
                         "minsize": 3,
                         "maxsize": 3,
-                        "flags": "",
+                        "flags": "uneditable",
                         "Types": [
                           {
                             "type": "QuantumDrive",
@@ -2081,7 +2076,7 @@
                         "minsize": 3,
                         "maxsize": 3,
                         "display_name": "port_NameShieldGen",
-                        "flags": "",
+                        "flags": "uneditable",
                         "Types": [
                           {
                             "type": "Shield",
@@ -2113,7 +2108,7 @@
                         "minsize": 3,
                         "maxsize": 3,
                         "display_name": "port_NameShieldGen",
-                        "flags": "",
+                        "flags": "uneditable",
                         "Types": [
                           {
                             "type": "Shield",
@@ -2752,30 +2747,6 @@
                 },
                 {
                   "name": "hardpoint_quantum_fuel",
-                  "damageMax": 0.0,
-                  "class": "ItemPort",
-                  "skipPart": false,
-                  "ItemPort": {
-                    "minsize": 1,
-                    "maxsize": 3,
-                    "display_name": "port_NameQFuelTank",
-                    "flags": "invisible uneditable",
-                    "Types": [
-                      {
-                        "type": "QuantumFuelTank",
-                        "subtypes": "QuantumFuel"
-                      }
-                    ],
-                    "Connections": [
-                      {
-                        "pipeClass": "Output",
-                        "pipe": "QuantumFuel"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "name": "hardpoint_quantum_fuel_2",
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "skipPart": false,
@@ -4066,6 +4037,30 @@
                     "Types": [
                       {
                         "type": "Door"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_quantum_fuel_2",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 3,
+                    "display_name": "port_NameQFuelTank",
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "QuantumFuelTank",
+                        "subtypes": "QuantumFuel"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Output",
+                        "pipe": "QuantumFuel"
                       }
                     ]
                   }
