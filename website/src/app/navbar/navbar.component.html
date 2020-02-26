@@ -1,26 +1,12 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="bg-white-alpha-90 dark:bg-black-alpha-40">
 
-  <div class="container">
-    <a class="navbar-brand" routerLink="/" style="font-variant: small-caps;">SCunpacked</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/ships" routerLinkActive="active">Ships</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/items" routerLinkActive="active">Items</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/shops" routerLinkActive="active">Shops</a>
-        </li>
-      </ul>
-    </div>
-
-    <span (click)="toggleTheme()" class="navbar-text">
+  <div class="container mx-auto px-5 py-3 flex lg:flex-row items-baseline text-gray-600 dark:text-gray-500">
+    <a class="text-xl text-primary caps-small text-shadow-sm mr-5" routerLink="/">SCunpacked</a>
+    <a class="mr-5 hover:text-black dark-hover:text-white" routerLink="/ships" routerLinkActive="text-black dark:text-white">Ships</a>
+    <a class="mr-5 hover:text-black dark-hover:text-white" routerLink="/items" routerLinkActive="text-black dark:text-white">Items</a>
+    <a class="mr-5 hover:text-black dark-hover:text-white" routerLink="/shops" routerLinkActive="text-black dark:text-white">Shops</a>
+    <span class="flex-grow"></span>
+    <span (click)="toggleTheme()" class="hover:text-black dark-hover:text-white">
       <i *ngIf="themeSetting == 'dark'" title="Dark mode" class="fas fa-moon"></i>
       <i *ngIf="themeSetting == 'light'" title="Light mode" class="fas fa-sun"></i>
       <i *ngIf="themeSetting == 'auto'" title="Use OS dark/light setting" class="fas fa-adjust"></i>

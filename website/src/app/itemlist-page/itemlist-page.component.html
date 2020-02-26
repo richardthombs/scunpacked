@@ -1,19 +1,21 @@
 <app-navbar></app-navbar>
 
-<nav class="d-flex flex-wrap flex-row list-group text-center">
-  <a *ngFor="let type of byType | keyvalue" routerLink="/items" [queryParams]="{type: type.key}" routerLinkActive="active" class="list-group-item list-group-action typeSelect">{{type.key}}</a>
-</nav>
+<div class="bg-white-alpha-80 dark:bg-black-alpha-20">
+  <nav class="flex flex-wrap flex-row text-center text-gray-600 dark:text-gray-500">
+    <a *ngFor="let type of byType | keyvalue" routerLink="/items" [queryParams]="{type: type.key}" routerLinkActive="text-white bg-primary" class="px-5 py-3 flex-grow hover:text-black dark-hover:text-white">{{type.key}}</a>
+  </nav>
+</div>
 
 <div class="container-outer">
 
-  <div class="container container-inner">
+  <div class="container mx-auto container-inner">
 
     <div *ngIf="selectedType" class="role-container">
       <div class="role-inner">
         <h5>{{selectedType.key}}
           <a [routerLink]="['/items/compare']" [queryParams]="{items:itemsInRole(selectedType.value)}">Compare</a>
         </h5>
-        <div class="d-flex flex-wrap subrole-container">
+        <div class="flex flex-wrap subrole-container">
           <div *ngFor="let subRole of selectedType.value | keyvalue" class="subrole-inner">
             <h6>
               {{subRole.key}}

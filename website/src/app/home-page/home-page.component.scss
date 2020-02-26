@@ -1,11 +1,5 @@
 .credits {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
   display: flex;
-  align-items: center;
   justify-content: space-around;
 
   background-color: rgba(0,0,0,0.75);
@@ -36,9 +30,12 @@
   }
 }
 
-@media (max-height: 767px) {
+@media (min-height: 600px) {
   .credits {
-    position: relative;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 }
 
@@ -49,6 +46,10 @@
 
     >*:not(:first-child) {
       margin-top: 0;
+    }
+
+    .cig-image {
+      align-self: center;
     }
   }
 }

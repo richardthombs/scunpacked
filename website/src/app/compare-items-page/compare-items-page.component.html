@@ -1,15 +1,15 @@
 <app-navbar></app-navbar>
 
 <div class="container-outer">
-  <div class="container-fluid container-inner">
+  <div class="w-fit mx-auto container-inner">
 
     <table>
       <ng-container *ngFor="let g of fields; index as gIndex">
         <ng-container *ngIf="g.visibleFn && g.visibleFn(items)">
           <tr>
-            <td (click)="toggleCollapse(g)" class="d-flex justify-content-between">
+            <td (click)="toggleCollapse(g)" class="flex justify-between">
               <div class="field-group-title">{{g.title}}</div>
-              <div class="ml-3" style="align-self: flex-end;"><i *ngIf="gIndex > 0" [class]="g.collapsed? 'fas fa-chevron-right' : 'fas fa-chevron-down'"></i></div>
+              <div class="ml-3 self-end"><i *ngIf="gIndex > 0" [class]="g.collapsed? 'fas fa-chevron-right' : 'fas fa-chevron-down'"></i></div>
             </td>
           </tr>
           <ng-container *ngIf="!g.collapsed">
@@ -28,7 +28,7 @@
                   {{f.formattedValue(i)}}
                 </td>
                 <td *ngIf="f.linkFn" colspan="2">
-                  <div class="font-weight-bold" style="border-bottom: 1px solid rgba(2255,255,255,0.5);">
+                  <div class="font-bold" style="border-bottom: 1px solid rgba(255,255,255,0.5);">
                     <a [routerLink]="f.linkFn(i)">{{f.formattedValue(i)}}</a>
                   </div>
                 </td>

@@ -1,7 +1,3 @@
-// Bootstrap
-$enable-rounded: false;
-@import '~bootstrap/scss/bootstrap';
-
 // Fontawesome
 $fa-font-path : '~@fortawesome/fontawesome-free/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
@@ -10,10 +6,6 @@ $fa-font-path : '~@fortawesome/fontawesome-free/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/brands';
 
 /****** Structural ******/
-button:focus,
-.list-group-item.active {
-  z-index: 2 ! important; // Bootstrap focus fix
-}
 
 a:hover {
   text-decoration: none;
@@ -32,22 +24,6 @@ a:hover {
   padding: 25px;
 }
 
-.container-fluid.container-inner {
-  width: fit-content;
-}
-
-nav .list-group-item {
-  border: none;
-
-  &.active:focus {
-    outline: none;
-  }
-  &:active {
-    outline: none;
-  }
-}
-
-
 /***** Appearance *****/
 .smallcaps {
   font-variant: small-caps;
@@ -62,15 +38,6 @@ nav .list-group-item {
   }
 }
 
-nav {
-  .list-group-item.active {
-    background-color: deeppink ! important;
-  }
-}
-
-nav.navbar .navbar-brand {
-  color: deeppink;
-}
 
 // Light theme
 app-root,
@@ -81,36 +48,18 @@ app-root > .light {
   .container-inner {
     background-color: rgba(255,255,255, 0.9);
   }
-  nav .list-group-item {
-    background-color: rgba(255,255,255,0.75);
-  }
-  nav.navbar {
-    background-color: rgba(255,255,255,0.9);
-    .nav-link,
-    .navbar-text {
-      color: #888;
-      &.active,
-      &:hover {
-        color: black;
-      }
+
+  .size-box-inner {
+    background-color: deeppink;
+    color: white;
+    small {
+      color: rgba(255,255,255,0.8);
     }
-    .navbar-brand {
-      text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-    }
-  }
-  .size-box {
-    .size-box-inner {
-      background-color: deeppink;
-      color: white;
+    &.empty {
+      background-color: #eee;
+      color: #444;
       small {
-        color: rgba(255,255,255,0.8);
-      }
-      &.empty {
-        background-color: #eee;
-        color: #444;
-        small {
-          color: #888;
-        }
+        color: #888;
       }
     }
   }
@@ -125,29 +74,7 @@ app-root > .light {
     .container-inner {
       background-color: rgba(0,0,0,0.8);
     }
-    nav .list-group-item {
-      background-color: rgba(0,0,0,0.1);
-      color: #ccc;
-      &.active,
-      &:hover {
-        color: white;
-      }
-    }
-    nav.navbar {
-      background-color: rgba(0,0,0,0.2);
 
-      .nav-link,
-      .navbar-text {
-        color: #ccc;
-        &.active,
-        &:hover {
-          color: white;
-        }
-      }
-      .navbar-brand {
-        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-      }
-    }
     .container-inner {
       .list-group-item {
         border-color: #444;
@@ -161,12 +88,10 @@ app-root > .light {
     .app-background {
       filter: brightness(0.5) ! important;
     }
-    .size-box {
-      .size-box-inner {
-        &.empty {
-          background-color: #222;
-          color: #888;
-        }
+    .size-box-inner {
+      &.empty {
+        background-color: #222;
+        color: #888;
       }
     }
   }

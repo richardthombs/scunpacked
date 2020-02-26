@@ -1,34 +1,39 @@
-<h4 class="mt-4">{{groupName}}</h4>
-<div *ngIf="groupItems" class="list-group">
+<h4 class="text-xl mt-4">{{groupName}}</h4>
+
+<div *ngIf="groupItems" class="bg-white dark:bg-black border border-gray-400">
+
   <ng-container *ngFor="let class of groupItems | keyvalue">
-    <div (click)="toggleItems(class.key)" class="list-group-item component-group d-flex cursor-pointer align-items-center">
-      <div class="component-group-title mr-auto">
-        <strong>{{class.key}}</strong>
-      </div>
-      <div *ngFor="let size of class.value.bySize; let s = index" class="size-box">
-        <div *ngIf="size.length" class="size-box-inner full">
-          <small>S{{s}}</small><br>
-          {{size.length | nozero}}
-        </div>
-        <div *ngIf="!size.length" class="size-box-inner empty">
-          <small>S{{s}}</small>
+
+    <div (click)="toggleItems(class.key)" class="flex border-b last:border-b-0 cursor-pointer items-center pl-4">
+
+      <!-- Item group name -->
+      <div class="flex-grow font-bold">{{class.key}}</div>
+
+      <!-- Size boxes -->
+      <div class="flex-shrink-0 flex">
+        <div *ngFor="let size of class.value.bySize; let s = index" class="size-box">
+          <div *ngIf="size.length" class="size-box-inner full">
+            <small>S{{s}}</small><br>
+            {{size.length | nozero}}
+          </div>
+          <div *ngIf="!size.length" class="size-box-inner empty">
+            <small>S{{s}}</small>
+          </div>
         </div>
       </div>
     </div>
+
     <ng-container *ngIf="class.value.showItems">
       <ng-container *ngFor="let size of class.value.bySize">
-        <div *ngFor="let itemPort of size" class="list-group-item component-port">
+        <div *ngFor="let itemPort of size" class="border-b last:border-b-0 pl-2">
           <app-itemport [itemPort]="itemPort.itemPort"></app-itemport>
         </div>
       </ng-container>
     </ng-container>
   </ng-container>
+
 </div>
 
-<div *ngIf="!groupItems" class="list-group">
-  <div class="list-group-item d-flex align-items-center">
-    <div class="component-group">
-      No {{groupName}}
-    </div>
-  </div>
+<div *ngIf="!groupItems" class="px-4 py-2 bg-white dark:bg-black text-gray-600 border border-gray-400">
+  No {{groupName}}
 </div>

@@ -1,19 +1,21 @@
 <app-navbar></app-navbar>
 
-<nav class="d-flex flex-wrap flex-row list-group text-center">
-  <a *ngFor="let role of byRoles | keyvalue" routerLink="/ships" [queryParams]="{role: role.key}" routerLinkActive="active" class="list-group-item list-group-action roleSelect">{{role.key}}</a>
-</nav>
+<div class="bg-white-alpha-80 dark:bg-black-alpha-20">
+  <nav class="flex flex-wrap flex-row text-center text-gray-600 dark:text-gray-500">
+    <a *ngFor="let role of byRoles | keyvalue" routerLink="/ships" [queryParams]="{role: role.key}" routerLinkActive="text-white bg-primary" class="px-5 py-3 flex-grow hover:text-black dark-hover:text-white">{{role.key}}</a>
+  </nav>
+</div>
 
 <div class="container-outer">
 
-  <div class="container container-inner">
+  <div class="container mx-auto container-inner">
 
     <div *ngIf="selectedRole" class="role-container">
       <div class="role-inner">
         <h5>{{selectedRole.key}}
           <a [routerLink]="['/ships/compare']" [queryParams]="{ships:shipsInRole(selectedRole.value)}">Compare</a>
         </h5>
-        <div class="d-flex flex-wrap subrole-container">
+        <div class="flex flex-wrap subrole-container">
           <div *ngFor="let subRole of selectedRole.value | keyvalue" class="subrole-inner">
             <h6>
               {{subRole.key}}

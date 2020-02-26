@@ -103,6 +103,10 @@ export class SCItem {
     return _.get(this.json, "Raw.Entity.Components.SCItemQuantumDriveParams.params.driveSpeed", 0);
   }
 
+  get efficiency(): number {
+    return 1 / this.quantumFuelRequirement;
+  }
+
   get secondsToArcCorp(): number {
     let speed = this.driveSpeed;
     return distanceBetweenPOandArcCorp / speed;
