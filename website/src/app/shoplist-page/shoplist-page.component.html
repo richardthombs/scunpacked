@@ -6,20 +6,20 @@
 
     <div class="flex">
       <div class="flex">
-        <span class="flex items-center leading-normal bg-gray-300 border border-r-0 border-gray-400 px-3 whitespace-no-wrap text-gray-600 text-sm">
+        <span class="flex items-center leading-normal bg-gray-300 dark:bg-gray-800 border border-r-0 border-gray-400 dark:border-gray-700 px-3 whitespace-no-wrap text-gray-600 text-sm">
           <i class="fas fa-search"></i>
         </span>
       </div>
-      <input [ngModel]="searchText" (ngModelChange)="filterChanged.next($event)" type="text" class="w-full border h-10 border-gray-400 px-3" placeholder="Enter at least 3 characters to begin the search...">
+      <input [ngModel]="searchText" (ngModelChange)="filterChanged.next($event)" type="text" class="w-full border h-10 border-gray-400 dark:border-gray-700 dark:text-gray-700 px-3" placeholder="Enter at least 3 characters to begin the search...">
     </div>
 
     <ng-container *ngIf="searchText.length >= 3">
-      <div *ngFor="let item of filtered | keyvalue" class="border border-gray-400 mt-5">
-        <div class="text-gray-800 bg-gray-400 px-4 py-2">
+      <div *ngFor="let item of filtered | keyvalue" class="border border-gray-400 dark:border-gray-700 mt-5">
+        <div class="text-gray-800 dark:text-gray-400 bg-gray-400 dark:bg-gray-800 px-4 py-2">
           {{item.value[0].item.displayName}} ({{item.value[0].item.type || "Commodity"}}) [{{item.value[0].item.tags?.join(", ")}}]
         </div>
         <ng-container *ngIf="!item.collapsed">
-          <div *ngFor="let x of item.value" class="flex bg-white border-b last:border-b-0 border-gray-400 px-4 py-2">
+          <div *ngFor="let x of item.value" class="flex bg-white dark:bg-black border-b last:border-b-0 border-gray-400 dark:border-gray-700 px-4 py-2">
             <div class="flex-1">{{x.shop.name}}</div>
             <div *ngIf="x.item.discPrice == x.item.premPrice" class="flex-1">{{x.item.shopSellsThis? "Sells for": "Buys for"}} {{x.item.discPrice | number:'1.2-2'}}</div>
             <div *ngIf="x.item.discPrice != x.item.premPrice" class="flex-1">{{x.item.shopSellsThis? "Sells for": "Buys for"}} {{x.item.discPrice | number:'1.2-2'}} - {{x.item.premPrice | number:'1.0-2'}} aUEC depending on inventory levels</div>
