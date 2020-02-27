@@ -27,7 +27,7 @@ export class SiPipe implements PipeTransform {
     if (abs >= 1e12) return { value: (value / 1e12), prefix: "T" };
     if (abs >= 1e9) return { value: (value / 1e9), prefix: "G" };
     if (abs >= 1e6) return { value: (value / 1e6), prefix: "M" };
-    if (abs >= 1e3) return { value: (value / 1e3), prefix: "k" };
+    if (abs >= 1e3) return { value: (value / 1e3), prefix: "K" };
     if (abs == 0) return { value: value, prefix: "" };
 
     if (abs < 1e-6) return { value: value / 1e-9, prefix: "n" };

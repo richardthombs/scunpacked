@@ -33,6 +33,7 @@ import { LocalisePipe } from './localise.pipe';
 import { NoZeroPipe } from './no-zero.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LocalisationService, LabelsApi } from "./Localisation";
+import { StatComponent } from './stat/stat.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { LocalisationService, LabelsApi } from "./Localisation";
     HydrogenfuelintakeComponent,
     HomePage,
     ShoplistPage,
-    NavbarComponent
+    NavbarComponent,
+    StatComponent
   ],
   imports: [
     BrowserModule,

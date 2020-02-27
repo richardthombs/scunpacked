@@ -28,6 +28,11 @@
         <div>Efficiency {{item?.efficiency | si:'m/l'}}</div>
       </div>
 
+      <div *ngIf="item?.shieldGenerator" class="flex mt-3">
+        <div>Shield health {{item?.maxShieldHealth | number:'1.0-0'}} HP</div>
+        <div>Regeneration {{item?.maxShieldRegen | number:'1.0-0'}} HP/s</div>
+      </div>
+
       <div *ngIf="item?.powerConnection" class="flex mt-3">
         <div>Standby power {{item?.powerConnection.PowerBase | number:'1.0-0'}} W</div>
         <div>Maximum power {{item?.powerConnection.PowerDraw | number:'1.0-0'}} W</div>
@@ -46,7 +51,7 @@
       </div>
 
       <div class="flex mt-3">
-        <div>Health {{item?.health | number:'1.0-0'}} HP</div>
+        <div>Component health {{item?.health | number:'1.0-0'}} HP</div>
         <div>Lifetime {{item?.maxLifetime | number:'1.0-0'}} h</div>
       </div>
 

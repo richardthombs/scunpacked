@@ -26,6 +26,10 @@ export class Ship {
     return _.reduce(this.findItemPorts(ip => ip.types.includes("Shield")), (total, ip) => total + _.get(ip.item, "maxShieldHealth", 0), 0);
   }
 
+  get maxShieldRegen(): number {
+    return _.reduce(this.findItemPorts(ip => ip.types.includes("Shield")), (total, ip) => total + _.get(ip.item, "maxShieldRegen", 0), 0);
+  }
+
   get vehicleName(): string {
     return _.get(this.Raw, "Entity.Components.VehicleComponentParams.vehicleName", "Unknown");
   }

@@ -16,55 +16,51 @@
 
     <div class="vehicleStats">
 
-      <div class="flex mt-3">
-        <div>Size {{ship?.vehicleSize}}</div>
-        <div>Crew {{ship?.crewSize}}</div>
-        <div>Cargo {{ship?.scu | number}} SCU</div>
+      <div class="flex mt-5">
+        <app-stat title="Size" [value]="ship?.vehicleSize"></app-stat>
+        <app-stat title="Crew" [value]="ship?.crewSize"></app-stat>
+        <app-stat title="Cargo" [value]="ship?.scu" units="SCU"></app-stat>
+        <app-stat title="Mass" [value]="ship?.mass" units="kg"></app-stat>
       </div>
 
-      <div class="flex mt-3">
-        <div>Chassis {{ship?.hitPoints | number: '1.0-0'}} HP</div>
-        <div>Shield {{ship?.maxShieldHealth | number:'1.0-0'}} HP</div>
-        <div>Mass {{ship?.mass | number:'1.0-0'}} kg</div>
+      <div class="flex mt-5">
+        <app-stat title="Chassis" [value]="ship?.hitPoints" units="HP"></app-stat>
+        <app-stat title="Shield" [value]="ship?.maxShieldHealth" units="HP"></app-stat>
+        <app-stat title="Shield regen" [value]="ship?.maxShieldRegen" units="HP/s"></app-stat>
       </div>
 
-      <div class="flex mt-3">
-        <div>Quantum speed {{ship?.quantumSpeed | si:'m/s'}}</div>
-        <div>Quantum range {{ship?.quantumRange | si:'m'}}</div>
-        <div>Quantum tank {{ship?.quantumFuelCapacity | number:'1.0-0'}} l</div>
+      <div class="flex mt-5">
+        <app-stat title="Quantum speed" [value]="ship?.quantumSpeed" units="m/s" si="true"></app-stat>
+        <app-stat title="Quantum range" [value]="ship?.quantumRange" units="m" si="true"></app-stat>
+        <app-stat title="Quantum tank" [value]="ship?.quantumFuelCapacity" units="l" si="true"></app-stat>
       </div>
 
-      <div class="flex">
-        <div>PO to ArcCorp (time) {{ship?.secondsToArcCorp | si:'s'}}</div>
-        <div>PO to ArcCorp (fuel) {{ship?.fuelToArcCorp | si:'l'}}</div>
-        <div>PO to ArcCorp and back {{ship?.timesToArcCorpAndBack || 0 | number:'1.0-1'}} times</div>
+      <div class="flex mt-5">
+        <app-stat title="PO to ArcCorp (time)" [value]="ship?.secondsToArcCorp" units="s"></app-stat>
+        <app-stat title="PO to ArcCorp (fuel)" [value]="ship?.fuelToArcCorp" units="l" si="true"></app-stat>
+        <app-stat title="PO to ArcCorp and back" [value]="ship?.timesToArcCorpAndBack" units="times"></app-stat>
       </div>
 
-      <div class="flex mt-3">
-        <div>Maximum speed {{ship?.maxSpeed | number:'1.0-0'}} m/s</div>
-        <div>SCM speed {{ship?.scmSpeed | number:'1.0-0'}} m/s</div>
+      <div class="flex mt-5">
+        <app-stat title="Maximum speed" [value]="ship?.maxSpeed" units="m/s"></app-stat>
+        <app-stat title="SCM speed" [value]="ship?.scmSpeed" units="m/s"></app-stat>
       </div>
 
-      <div class="flex">
-        <div>Main engine fuel usage {{ship?.mainThrusterBurnRate | si:'l/s':1}}</div>
-        <div>Thruster fuel usage {{ship?.manneuverThrusterBurnRate | si:'l/s':1}}</div>
-        <div hidden>Hydrogen tank {{ship?.fuelCapacity | number:'1.0-0'}} l</div>
-        <div>Fuel intake rate {{ship?.fuelIntakePushRate | si:'l/s':1}}</div>
-      </div>
-
-      <div class="flex mt-3">
-        <div>Standby power usage {{ship?.totalPowerBase | si: "W"}}</div>
-        <div>Maximum power usage {{ship?.totalPowerDraw | si: "W"}}</div>
+      <div class="flex mt-5">
+        <app-stat title="Main engine fuel usage" [value]="ship?.mainThrusterBurnRate" units="l/s" si="true"></app-stat>
+        <app-stat title="Thruster fuel usage" [value]="ship?.manneuverThrusterBurnRate" units="l/s" si="true"></app-stat>
+        <app-stat title="Hydrogen tank" [value]="ship?.fuelCapacity" units="l" si="true"></app-stat>
+        <app-stat title="Fuel intake rate" [value]="ship?.fuelIntakePushRate" units="l/s" si="true"></app-stat>
       </div>
 
     </div>
 
-    <div class="mt-5">CIG says:</div>
+    <div class="mt-10">CIG says:</div>
     <div class="text-gray-600 italic" style="white-space: pre-line;">
       "{{ship?.vehicleDescription | localise}}"
     </div>
 
-    <div class="mt-5">
+    <div class="mt-10">
       <app-itemgroup *ngFor="let g of groups" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
 
       <div class="mt-3">

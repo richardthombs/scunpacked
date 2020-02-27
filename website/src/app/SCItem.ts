@@ -65,6 +65,10 @@ export class SCItem {
     return _.get(this.json, "Raw.Entity.Components.SCItemShieldGeneratorParams.MaxShieldHealth", 0);
   }
 
+  get maxShieldRegen(): number {
+    return _.get(this.json, "Raw.Entity.Components.SCItemShieldGeneratorParams.MaxShieldRegen", 0);
+  }
+
   get capacity(): number {
     return _.get(this.json, "Raw.Entity.Components.SCItemFuelTankParams.capacity", 0);
   }
