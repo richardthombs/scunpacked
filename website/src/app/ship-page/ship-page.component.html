@@ -46,10 +46,10 @@
       </div>
 
       <div class="flex">
-        <div>Main engine fuel usage {{ship?.mainThrusterBurnRate | si:'l/s'}}</div>
-        <div>Thruster fuel usage {{ship?.manneuverThrusterBurnRate | si:'l/s'}}</div>
+        <div>Main engine fuel usage {{ship?.mainThrusterBurnRate | si:'l/s':1}}</div>
+        <div>Thruster fuel usage {{ship?.manneuverThrusterBurnRate | si:'l/s':1}}</div>
         <div hidden>Hydrogen tank {{ship?.fuelCapacity | number:'1.0-0'}} l</div>
-        <div>Fuel intake rate {{ship?.fuelIntakePushRate | si:'l/s'}}</div>
+        <div>Fuel intake rate {{ship?.fuelIntakePushRate | si:'l/s':1}}</div>
       </div>
 
       <div class="flex mt-3">
