@@ -146,7 +146,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_power_plant",
-                  "entityClassName": "POWR_AMRS_S03_SuperDrive_SCItem",
+                  "entityClassName": "POWR_JUST_S03_Reliance_SCItem",
                   "loadout": {}
                 },
                 {
@@ -156,12 +156,12 @@
                 },
                 {
                   "itemPortName": "hardpoint_cooler_l",
-                  "entityClassName": "COOL_AEGS_S03_Mercury_SCItem",
+                  "entityClassName": "COOL_JUST_S03_IceFlush_SCItem",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_cooler_r",
-                  "entityClassName": "COOL_AEGS_S03_Mercury_SCItem",
+                  "entityClassName": "COOL_JUST_S03_IceFlush_SCItem",
                   "loadout": {}
                 },
                 {
@@ -186,7 +186,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_quantum_drive",
-                  "entityClassName": "QDRV_WETK_S03_Pontes_SCItem",
+                  "entityClassName": "QDRV_JUST_S03_Agni_SCItem",
                   "loadout": {
                     "SItemPortLoadoutManualParams": {
                       "entries": [
@@ -647,7 +647,7 @@
           "AttachDef": {
             "Type": "NOITEM_Vehicle",
             "SubType": "Vehicle_Spaceship",
-            "Size": 6,
+            "Size": 5,
             "Grade": 1,
             "Manufacturer": "b922abdb-0634-4358-9eee-60118f3cf3a7",
             "Tags": "ANVL_Carrack",
@@ -731,7 +731,7 @@
       "name": "ANVL_Carrack",
       "displayname": "ANVL Carrack",
       "subType": "Vehicle_Spaceship",
-      "size": 6,
+      "size": 5,
       "requiredItemTags": "",
       "itemPortTags": "ANVL_Carrack",
       "Pipes": [
@@ -768,409 +768,6 @@
           "class": "Animated",
           "skipPart": false,
           "Parts": [
-            {
-              "name": "hardpoint_controller_comms",
-              "damageMax": 0.0,
-              "class": "ItemPort",
-              "skipPart": false,
-              "ItemPort": {
-                "minsize": 1,
-                "maxsize": 1,
-                "flags": "invisible uneditable",
-                "Types": [
-                  {
-                    "type": "CommsController"
-                  }
-                ],
-                "ControllerDef": {
-                  "UsableDef": {
-                    "PriorityGroups": [
-                      {
-                        "itemType": "Comms"
-                      }
-                    ]
-                  }
-                }
-              }
-            },
-            {
-              "name": "hardpoint_controller_cooler",
-              "damageMax": 0.0,
-              "class": "ItemPort",
-              "skipPart": false,
-              "ItemPort": {
-                "minsize": 1,
-                "maxsize": 1,
-                "flags": "invisible uneditable",
-                "Types": [
-                  {
-                    "type": "CoolerController"
-                  }
-                ],
-                "ControllerDef": {
-                  "UsableDef": {
-                    "PriorityGroups": [
-                      {
-                        "itemType": "Cooler"
-                      }
-                    ]
-                  }
-                }
-              }
-            },
-            {
-              "name": "hardpoint_controller_energy",
-              "damageMax": 0.0,
-              "class": "ItemPort",
-              "skipPart": false,
-              "ItemPort": {
-                "minsize": 1,
-                "maxsize": 1,
-                "flags": "invisible uneditable",
-                "Types": [
-                  {
-                    "type": "EnergyController"
-                  }
-                ],
-                "Connections": [
-                  {
-                    "pipeClass": "Power",
-                    "pipe": "MainPower"
-                  },
-                  {
-                    "pipeClass": "Heat",
-                    "pipe": "MainHeat"
-                  }
-                ],
-                "ControllerDef": {
-                  "controllableTags": "energy_controller",
-                  "UsableDef": {
-                    "PriorityGroups": [
-                      {
-                        "itemType": "PowerPlant",
-                        "defaultPriority": "exclusive_control"
-                      },
-                      {
-                        "itemType": "FuelIntake",
-                        "defaultPriority": "exclusive_control"
-                      },
-                      {
-                        "itemType": "FuelTank",
-                        "defaultPriority": "exclusive_control"
-                      }
-                    ]
-                  }
-                }
-              }
-            },
-            {
-              "name": "hardpoint_controller_flight",
-              "damageMax": 0.0,
-              "class": "ItemPort",
-              "skipPart": false,
-              "ItemPort": {
-                "minsize": 1,
-                "maxsize": 1,
-                "flags": "invisible uneditable",
-                "Types": [
-                  {
-                    "type": "FlightController"
-                  }
-                ],
-                "Connections": [
-                  {
-                    "pipeClass": "Power",
-                    "pipe": "MainPower"
-                  },
-                  {
-                    "pipeClass": "Heat",
-                    "pipe": "MainHeat"
-                  },
-                  {
-                    "pipeClass": "Fuel",
-                    "pipe": "MainFuel"
-                  }
-                ],
-                "ControllerDef": {
-                  "UsableDef": {
-                    "PriorityGroups": [
-                      {
-                        "itemType": "MainThruster",
-                        "defaultPriority": "exclusive_control"
-                      },
-                      {
-                        "itemType": "ManneuverThruster",
-                        "defaultPriority": "exclusive_control"
-                      },
-                      {
-                        "itemType": "QuantumDrive",
-                        "defaultPriority": "exclusive_control"
-                      },
-                      {
-                        "itemType": "JumpDrive",
-                        "defaultPriority": "exclusive_control"
-                      }
-                    ]
-                  }
-                }
-              }
-            },
-            {
-              "name": "hardpoint_controller_light",
-              "damageMax": 0.0,
-              "class": "ItemPort",
-              "skipPart": false,
-              "ItemPort": {
-                "minsize": 1,
-                "maxsize": 1,
-                "flags": "invisible uneditable",
-                "Types": [
-                  {
-                    "type": "LightController"
-                  }
-                ],
-                "Connections": [
-                  {
-                    "pipeClass": "Power",
-                    "pipe": "MainPower"
-                  },
-                  {
-                    "pipeClass": "Heat",
-                    "pipe": "MainHeat"
-                  },
-                  {
-                    "pipeClass": "Fuel",
-                    "pipe": "MainFuel"
-                  }
-                ],
-                "ControllerDef": {
-                  "UsableDef": {
-                    "PriorityGroups": [
-                      {
-                        "itemType": "Light"
-                      }
-                    ]
-                  }
-                }
-              }
-            },
-            {
-              "name": "hardpoint_controller_scanner",
-              "damageMax": 0.0,
-              "class": "ItemPort",
-              "skipPart": false,
-              "ItemPort": {
-                "minsize": 1,
-                "maxsize": 1,
-                "flags": "invisible uneditable",
-                "Types": [
-                  {
-                    "type": "Scanner"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "hardpoint_controller_shield",
-              "damageMax": 0.0,
-              "class": "ItemPort",
-              "skipPart": false,
-              "ItemPort": {
-                "minsize": 1,
-                "maxsize": 1,
-                "flags": "invisible uneditable",
-                "Types": [
-                  {
-                    "type": "ShieldController"
-                  }
-                ],
-                "Connections": [
-                  {
-                    "pipeClass": "Power",
-                    "pipe": "MainPower"
-                  },
-                  {
-                    "pipeClass": "Heat",
-                    "pipe": "MainHeat"
-                  },
-                  {
-                    "pipeClass": "Shield",
-                    "pipe": "Shield"
-                  }
-                ],
-                "ControllerDef": {
-                  "UsableDef": {
-                    "PriorityGroups": [
-                      {
-                        "itemType": "Shield"
-                      }
-                    ]
-                  }
-                }
-              }
-            },
-            {
-              "name": "hardpoint_controller_weapon",
-              "damageMax": 0.0,
-              "class": "ItemPort",
-              "skipPart": false,
-              "ItemPort": {
-                "minsize": 1,
-                "maxsize": 1,
-                "flags": "invisible uneditable",
-                "Types": [
-                  {
-                    "type": "WeaponController"
-                  }
-                ],
-                "Connections": [
-                  {
-                    "pipeClass": "Power",
-                    "pipe": "MainPower"
-                  },
-                  {
-                    "pipeClass": "Heat",
-                    "pipe": "MainHeat"
-                  }
-                ],
-                "ControllerDef": {
-                  "controllableTags": "Console_Weapons",
-                  "UsableDef": {
-                    "PriorityGroups": [
-                      {
-                        "itemType": "Turret",
-                        "defaultPriority": "no_control"
-                      },
-                      {
-                        "itemType": "WeaponGun",
-                        "defaultPriority": "no_control"
-                      },
-                      {
-                        "itemType": "WeaponDefensive"
-                      },
-                      {
-                        "itemType": "MissileLauncher"
-                      },
-                      {
-                        "itemType": "Missile"
-                      },
-                      {
-                        "itemType": "QuantumInterdictionGenerator"
-                      }
-                    ]
-                  }
-                }
-              }
-            },
-            {
-              "name": "hardpoint_landing_system",
-              "damageMax": 0.0,
-              "class": "ItemPort",
-              "skipPart": false,
-              "ItemPort": {
-                "minsize": 1,
-                "maxsize": 1,
-                "display_name": "Landing System",
-                "flags": "uneditable",
-                "Types": [
-                  {
-                    "type": "LandingSystem"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "hardpoint_paint",
-              "damageMax": 0.0,
-              "class": "ItemPort",
-              "skipPart": false,
-              "ItemPort": {
-                "minsize": 1,
-                "maxsize": 1,
-                "display_name": "port_NamePaint",
-                "flags": "",
-                "id": "modPaint",
-                "requiredTags": "Carrack_Paint",
-                "Types": [
-                  {
-                    "type": "Paints"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "hardpoint_ping",
-              "damageMax": 0.0,
-              "class": "ItemPort",
-              "skipPart": false,
-              "ItemPort": {
-                "minsize": 1,
-                "maxsize": 1,
-                "flags": "invisible uneditable",
-                "Types": [
-                  {
-                    "type": "Ping"
-                  }
-                ],
-                "Connections": [
-                  {
-                    "pipeClass": "Power",
-                    "pipe": "MainPower"
-                  },
-                  {
-                    "pipeClass": "Heat",
-                    "pipe": "MainHeat"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "hardpoint_radar",
-              "damageMax": 0.0,
-              "class": "ItemPort",
-              "skipPart": false,
-              "ItemPort": {
-                "minsize": 1,
-                "maxsize": 2,
-                "display_name": "port_NameRadar",
-                "flags": "invisible uneditable",
-                "Types": [
-                  {
-                    "type": "Radar",
-                    "subtypes": "ShortRangeRadar,MidRangeRadar"
-                  }
-                ],
-                "Connections": [
-                  {
-                    "pipeClass": "Power",
-                    "pipe": "MainPower"
-                  },
-                  {
-                    "pipeClass": "Heat",
-                    "pipe": "MainHeat"
-                  }
-                ],
-                "ControllerDef": {
-                  "controllableTags": "pilotSeat"
-                }
-              }
-            },
-            {
-              "name": "hardpoint_armor",
-              "damageMax": 0.0,
-              "class": "ItemPort",
-              "skipPart": false,
-              "ItemPort": {
-                "minsize": 1,
-                "maxsize": 1,
-                "flags": "invisible uneditable",
-                "Types": [
-                  {
-                    "type": "Armor"
-                  }
-                ]
-              }
-            },
             {
               "name": "middle",
               "damageMax": 48000.0,
@@ -1848,7 +1445,7 @@
                         "minsize": 3,
                         "maxsize": 3,
                         "display_name": "port_NameCooler",
-                        "flags": "uneditable",
+                        "flags": "",
                         "requiredTags": "",
                         "Types": [
                           {
@@ -1877,7 +1474,7 @@
                         "minsize": 3,
                         "maxsize": 3,
                         "display_name": "port_NameCooler",
-                        "flags": "uneditable",
+                        "flags": "",
                         "requiredTags": "",
                         "Types": [
                           {
@@ -2014,7 +1611,7 @@
                       "ItemPort": {
                         "minsize": 3,
                         "maxsize": 3,
-                        "flags": "uneditable",
+                        "flags": "",
                         "Types": [
                           {
                             "type": "PowerPlant",
@@ -2041,7 +1638,7 @@
                       "ItemPort": {
                         "minsize": 3,
                         "maxsize": 3,
-                        "flags": "uneditable",
+                        "flags": "",
                         "Types": [
                           {
                             "type": "QuantumDrive",
@@ -2076,7 +1673,7 @@
                         "minsize": 3,
                         "maxsize": 3,
                         "display_name": "port_NameShieldGen",
-                        "flags": "uneditable",
+                        "flags": "",
                         "Types": [
                           {
                             "type": "Shield",
@@ -2108,7 +1705,7 @@
                         "minsize": 3,
                         "maxsize": 3,
                         "display_name": "port_NameShieldGen",
-                        "flags": "uneditable",
+                        "flags": "",
                         "Types": [
                           {
                             "type": "Shield",
@@ -4063,6 +3660,409 @@
                         "pipe": "QuantumFuel"
                       }
                     ]
+                  }
+                },
+                {
+                  "name": "hardpoint_armor",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "Armor"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_comms",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "CommsController"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "Comms"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_cooler",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "CoolerController"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "Cooler"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_energy",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "EnergyController"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "energy_controller",
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "PowerPlant",
+                            "defaultPriority": "exclusive_control"
+                          },
+                          {
+                            "itemType": "FuelIntake",
+                            "defaultPriority": "exclusive_control"
+                          },
+                          {
+                            "itemType": "FuelTank",
+                            "defaultPriority": "exclusive_control"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_flight",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "FlightController"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "Fuel",
+                        "pipe": "MainFuel"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "MainThruster",
+                            "defaultPriority": "exclusive_control"
+                          },
+                          {
+                            "itemType": "ManneuverThruster",
+                            "defaultPriority": "exclusive_control"
+                          },
+                          {
+                            "itemType": "QuantumDrive",
+                            "defaultPriority": "exclusive_control"
+                          },
+                          {
+                            "itemType": "JumpDrive",
+                            "defaultPriority": "exclusive_control"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_light",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "LightController"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "Fuel",
+                        "pipe": "MainFuel"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "Light"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_scanner",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "Scanner"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_shield",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "ShieldController"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "Shield",
+                        "pipe": "Shield"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "Shield"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_weapon",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponController"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "Console_Weapons",
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "Turret",
+                            "defaultPriority": "no_control"
+                          },
+                          {
+                            "itemType": "WeaponGun",
+                            "defaultPriority": "no_control"
+                          },
+                          {
+                            "itemType": "WeaponDefensive"
+                          },
+                          {
+                            "itemType": "MissileLauncher"
+                          },
+                          {
+                            "itemType": "Missile"
+                          },
+                          {
+                            "itemType": "QuantumInterdictionGenerator"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_landing_system",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "Landing System",
+                    "flags": "uneditable",
+                    "Types": [
+                      {
+                        "type": "LandingSystem"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_paint",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "port_NamePaint",
+                    "flags": "",
+                    "id": "modPaint",
+                    "requiredTags": "Carrack_Paint",
+                    "Types": [
+                      {
+                        "type": "Paints"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_ping",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "Ping"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_radar",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 2,
+                    "display_name": "port_NameRadar",
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "Radar",
+                        "subtypes": "ShortRangeRadar,MidRangeRadar"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "pilotSeat"
+                    }
                   }
                 }
               ]
