@@ -22,11 +22,11 @@ export class ItemPort implements IItemPort {
   }
 
   get minSize(): number {
-    return _.get(this.json, "minsize", 0);
+    return Math.min(_.get(this.json, "minsize", 0), 10); // Idris has size 9999 itemports
   }
 
   get maxSize(): number {
-    return _.get(this.json, "maxsize", 0);
+    return Math.min(_.get(this.json, "maxsize", 0), 10); // Idris has size 9999 itemports
   }
 
   get flags(): string[] {
