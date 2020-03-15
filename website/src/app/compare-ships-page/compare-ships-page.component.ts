@@ -42,6 +42,7 @@ export class CompareShipsPage implements OnInit {
       title: "Shields",
       fields: [
         new ComparisonField({ title: "Shield HP", units: "HP", valueFn: s => s.maxShieldHealth, sortDirection: "desc" }),
+        new ComparisonField({ title: "Regeneration", units: "HP/s", valueFn: s => s.maxShieldRegen, sortDirection: "desc" }),
       ]
     }),
     new ComparisonGroup({

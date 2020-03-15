@@ -34,6 +34,7 @@ import { NoZeroPipe } from './no-zero.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LocalisationService, LabelsApi } from "./Localisation";
 import { StatComponent } from './stat/stat.component';
+import { CommoditiesComponent } from './commodities/commodities.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { StatComponent } from './stat/stat.component';
     HomePage,
     ShoplistPage,
     NavbarComponent,
-    StatComponent
+    StatComponent,
+    CommoditiesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+
+
+<div class="container-outer">
+
+  <div class="container mx-auto container-inner">
+
+    <div *ngFor="let c of commodityList" class="mb-5 last:mb-0">
+      <div class="flex">
+        <div class="flex-grow text-xl mb-2">
+          {{c.name}}
+        </div>
+        <div>
+          {{c.profitPerUnit | number:"1.2-2"}} aUEC
+        </div>
+      </div>
+
+      <div class="flex">
+        <div class="flex-1">
+          <div class="text-lg mb-1">Sold at</div>
+          <table class="w-full table-fixed">
+            <tr *ngFor="let s of c.sells">
+              <td class="w-3/6">{{s.shop.name}}</td>
+              <td class="w-1/6">{{s.item.discPrice | number:"1.2-2"}} aUEC</td>
+              <td class="w-1/6">{{s.item.refreshRatePercentagePerMinute | number:"1.2-2"}} %/min</td>
+              <td class="w-1/6">{{s.item.maxInventory * s.item.refreshRatePercentagePerMinute / 100 | number:"1.0-0"}}</td>
+            </tr>
+          </table>
+        </div>
+        <div class=" flex-1">
+          <div class="text-lg mb-1">Bought at</div>
+          <table class="w-full table-fixed">
+            <tr *ngFor="let s of c.buys">
+              <td class="w-3/6">{{s.shop.name}}</td>
+              <td class="w-1/6">{{s.item.premPrice | number:"1.2-2"}} aUEC</td>
+              <td class="w-1/6">{{s.item.refreshRatePercentagePerMinute | number:"1.2-2"}} %/min</td>
+              <td class="w-1/6">{{s.item.maxInventory * s.item.refreshRatePercentagePerMinute / 100 | number:"1.0-0"}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

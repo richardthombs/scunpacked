@@ -11,6 +11,7 @@ import { HomePage } from './home-page/home-page.component';
 import { ShoplistPage } from './shoplist-page/shoplist-page.component';
 import { ShipsResolver } from "./ShipsResolver";
 import { ItemsResolver } from './ItemsResolver';
+import { CommoditiesComponent } from './commodities/commodities.component';
 
 const routes: Routes = [
   { path: "", component: HomePage },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: "items", component: ItemlistPage, resolve: { items: ItemsResolver } },
   { path: "items/compare", component: CompareItemsPage },
   { path: "items/:name", component: ItemPage },
-  { path: "shops", component: ShoplistPage }
+  { path: "shops", component: ShoplistPage },
+  { path: "commodities", component: CommoditiesComponent }
 ];
 
 @NgModule({

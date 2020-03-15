@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-import { environment } from "../../environments/environment";
-import * as _ from 'lodash';
 import { Subject, pipe } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter } from 'rxjs/operators';
+import * as _ from 'lodash';
+
+import { environment } from "../../environments/environment";
 
 @Component({
   selector: 'app-shoplist-page',
@@ -47,6 +47,16 @@ export class ShoplistPage implements OnInit {
       });
       items = _.sortBy(items, ["item.shopBuysThis", "shop.name"]);
       this.grouped = _.groupBy(items, "item.displayName");
+      console.log(_.mapValues(this.grouped, g => {
+        return {
+          consumable: !g[0].item.type,
+          lowestPrice: _.minBy(g, (x: any) => x.item.discPrice),
+          highestPrice: _.maxBy(g, (x: any) => x.item.premPrice),
+          data: g
+        };
+      }));
+
+      console.log(this.grouped);
 
       this.doSearch();
     });

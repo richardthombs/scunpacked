@@ -23,6 +23,11 @@
             <div class="flex-1">{{x.shop.name}}</div>
             <div *ngIf="x.item.discPrice == x.item.premPrice" class="flex-1">{{x.item.shopSellsThis? "Sells for": "Buys for"}} {{x.item.discPrice | number:'1.2-2'}}</div>
             <div *ngIf="x.item.discPrice != x.item.premPrice" class="flex-1">{{x.item.shopSellsThis? "Sells for": "Buys for"}} {{x.item.discPrice | number:'1.2-2'}} - {{x.item.premPrice | number:'1.0-2'}} aUEC depending on inventory levels</div>
+            <div *ngIf="x.item.refreshRatePercentagePerMinute">{{x.item.refreshRatePercentagePerMinute | number:"1.1-1"}} %/min</div>
+            <div class="ml-5">Max {{x.item.maxInventory | number:"1.0-1"}}</div>
+            <div class="ml-5">Opt {{x.item.optimalInventoryLevel | number:"1.0-1"}}</div>
+            <div class="ml-5">Init {{x.item.inventory | number:"1.0-1"}}</div>
+            <pre hidden>{{x | json}}</pre>
           </div>
         </ng-container>
       </div>

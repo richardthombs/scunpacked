@@ -26,6 +26,7 @@
       <div *ngIf="item?.quantumDrive" class="flex mt-3">
         <div>Fuel requirement {{item?.quantumFuelRequirement*1e9 | si:'l/Gm'}}</div>
         <div>Efficiency {{item?.efficiency | si:'m/l'}}</div>
+        <div>Spool up time {{item?.quantumDrive.params.spoolUpTime | si:'s'}}</div>
       </div>
 
       <div *ngIf="item?.shieldGenerator" class="flex mt-3">
