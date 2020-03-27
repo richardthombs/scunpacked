@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <div class="bg-white-alpha-80 dark:bg-black-alpha-20">
-  <nav class="flex overflow-auto text-nowrap flex-row text-center text-gray-600 dark:text-gray-500">
+  <nav class="flex flex-wrap flex-row text-center text-gray-600 dark:text-gray-500">
     <a *ngFor="let type of byType | keyvalue" routerLink="/items" [queryParams]="{type: type.key}" routerLinkActive="text-white bg-primary" class="px-5 py-3 flex-grow hover:text-black dark-hover:text-white">{{type.key}}</a>
   </nav>
 </div>
