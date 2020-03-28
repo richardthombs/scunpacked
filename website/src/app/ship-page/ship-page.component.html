@@ -4,8 +4,8 @@
   <div class="container mx-auto container-inner">
     <div class="flex">
       <div class="flex-1">
-        <h1 class="text-2xl smallcaps">{{ship?.vehicleName | localise:ship?.className}}</h1>
-        <div class="smallcaps text-gray-600">
+        <h1 class="text-4xl md:text-5xl font-bold leading-none">{{ship?.vehicleName | localise:ship?.className}}</h1>
+        <div class="mt-1 text-gray-600">
           {{ship?.vehicleCareer | localise:'No career'}} / {{ship?.vehicleRole | localise:'No role'}}
         </div>
       </div>
@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div class="vehicleStats">
+    <div class="vehicleStats mt-8">
 
       <div class="flex mt-5">
         <app-stat title="Size" [value]="ship?.vehicleSize"></app-stat>
@@ -55,7 +55,7 @@
 
     </div>
 
-    <div class="mt-10">CIG says:</div>
+    <div class="mt-8">CIG says:</div>
     <div class="text-gray-600 italic" style="white-space: pre-line;">
       "{{ship?.vehicleDescription | localise}}"
     </div>
