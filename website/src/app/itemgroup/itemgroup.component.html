@@ -25,7 +25,7 @@
 
     <ng-container *ngIf="class.value.showItems">
       <ng-container *ngFor="let size of class.value.bySize">
-        <div *ngFor="let itemPort of size" class="border-b last:border-b-0 pl-2">
+        <div *ngFor="let itemPort of size" class="border-b last:border-b-0">
           <app-itemport [itemPort]="itemPort.itemPort"></app-itemport>
         </div>
       </ng-container>
