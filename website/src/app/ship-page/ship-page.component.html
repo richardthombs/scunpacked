@@ -55,15 +55,15 @@
 
     </div>
 
-    <div class="mt-8">CIG says:</div>
-    <div class="text-gray-600 italic" style="white-space: pre-line;">
-      "{{ship?.vehicleDescription | localise}}"
+    <div class="mt-10 text-xl md:text-2xl font-bold leading-none">Description</div>
+    <div class="mt-4 text-gray-600 font-serif italic" style="white-space: pre-line;">
+      {{ship?.vehicleDescription | localise}}
     </div>
 
     <div class="mt-10">
       <app-itemgroup *ngFor="let g of groups" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
 
-      <div class="mt-3">
+      <div class="mt-4">
         <button class="btn btn-outline-secondary" (click)="toggleBoring()" *ngIf="!includeBoring">Show the boring bits</button>
       </div>
 

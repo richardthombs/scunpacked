@@ -1,6 +1,6 @@
-<h4 class="text-xl mt-4">{{groupName}}</h4>
+<h4 class="mt-10 text-xl md:text-2xl font-bold leading-none">{{groupName}}</h4>
 
-<div *ngIf="groupItems" class="bg-white dark:bg-black border border-gray-400">
+<div *ngIf="groupItems" class="mt-4 bg-white dark:bg-black border border-gray-400">
 
   <ng-container *ngFor="let class of groupItems | keyvalue">
 
@@ -34,6 +34,6 @@
 
 </div>
 
-<div *ngIf="!groupItems" class="px-4 py-2 bg-white dark:bg-black text-gray-600 border border-gray-400">
+<div *ngIf="!groupItems" class="mt-4 px-4 py-2 bg-white dark:bg-black text-gray-600 border border-gray-400">
   No {{groupName}}
 </div>
