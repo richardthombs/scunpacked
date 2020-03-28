@@ -37,14 +37,8 @@ a:hover {
 
 
 // Light theme
-app-root,
-app-root > .light {
-  .container-outer {
-    background-color: rgba(255,255,255,0.25);
-  }
-  .container-inner {
-    background-color: rgba(255,255,255, 0.9);
-  }
+app-root > .light > .app-container{
+  background: white;
 
   .size-box-inner {
     background-color: deeppink;
@@ -63,20 +57,9 @@ app-root > .light {
 }
 
 // Dark theme
-app-root > .dark {
+app-root > .dark > .app-container {
+  background: #121212;
   color: #ccc;
-
-  .container-outer {
-    background-color: rgba(0,0,0,0.25);
-  }
-
-  .container-inner {
-    background-color: rgba(0,0,0,0.8);
-  }
-
-  .app-background {
-    filter: brightness(0.5) ! important;
-  }
 
   .size-box-inner {
     &.empty {
