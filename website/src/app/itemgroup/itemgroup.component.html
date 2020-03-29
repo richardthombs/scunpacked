@@ -14,7 +14,7 @@
         <div *ngFor="let size of class.value.bySize; let s = index" class="size-box">
           <div *ngIf="size.length" class="size-box-inner full">
             <small>S{{s}}</small><br>
-            {{size.length | nozero}}
+            <div class="text-xl font-bold dark:text-white">{{size.length | nozero}}</div>
           </div>
           <div *ngIf="!size.length" class="size-box-inner empty">
             <small>S{{s}}</small>
