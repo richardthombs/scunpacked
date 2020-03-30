@@ -45,32 +45,44 @@ a:hover {
 }
 
 // Light theme
-app-root>.light>.app-container {
-  background: white;
+app-root>.light {
 
-  .size-box-inner {
-    color: white;
+  >.app-background-overlay {
+    background: rgba(255, 255, 255, 0.8)
+  }
 
-    small {
-      color: rgba(255, 255, 255, 0.8);
-    }
+  >.app-container {
 
-    &.empty {
-      color: #444;
+    .size-box-inner {
+      color: white;
 
       small {
-        color: #888;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      &.empty {
+        color: #444;
+
+        small {
+          color: #888;
+        }
       }
     }
   }
 }
 
 // Dark theme
-app-root>.dark>.app-container {
-  background: #121212;
-  color: #ccc;
+app-root>.dark {
 
-  .size-box-inner.empty {
-    color: #888;
+  >.app-background-overlay {
+    background: rgba(12, 12, 12, 0.8)
+  }
+
+  >.app-container {
+    color: #ccc;
+
+    .size-box-inner.empty {
+      color: #888;
+    }
   }
 }
