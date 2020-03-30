@@ -11,12 +11,12 @@
 
       <!-- Size boxes -->
       <div class="flex-shrink-0 flex overflow-auto">
-        <div *ngFor="let size of class.value.bySize; let s = index" class="size-box">
+        <div *ngFor="let size of class.value.bySize; let s = index" class="size-box border-l">
           <div *ngIf="size.length" class="size-box-inner full">
             <small>S{{s}}</small><br>
             <div class="text-xl font-bold dark:text-white">{{size.length | nozero}}</div>
           </div>
-          <div *ngIf="!size.length" class="size-box-inner empty">
+          <div *ngIf="!size.length" class="size-box-inner empty bg-gray-100">
             <small>S{{s}}</small>
           </div>
         </div>
@@ -25,7 +25,7 @@
 
     <ng-container *ngIf="class.value.showItems">
       <ng-container *ngFor="let size of class.value.bySize">
-        <div *ngFor="let itemPort of size" class="border-b last:border-b-0 overflow-auto">
+        <div *ngFor="let itemPort of size" class="bg-gray-100 border-b last:border-b-0 overflow-auto">
           <app-itemport [itemPort]="itemPort.itemPort"></app-itemport>
         </div>
       </ng-container>
