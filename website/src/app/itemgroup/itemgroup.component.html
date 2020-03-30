@@ -1,10 +1,10 @@
 <h4 class="mt-10 text-xl md:text-2xl font-bold dark:text-white leading-none">{{groupName}}</h4>
 
-<div *ngIf="groupItems" class="mt-4 bg-white dark:bg-black border border-gray-400">
+<div *ngIf="groupItems" class="mt-4 bg-white dark:bg-black border border-gray-100 shadow-md">
 
   <ng-container *ngFor="let class of groupItems | keyvalue">
 
-    <div (click)="toggleItems(class.key)" class="flex flex-col md:flex-row md:items-center border-b last:border-b-0 cursor-pointer">
+    <div (click)="toggleItems(class.key)" class="flex flex-col md:flex-row md:items-center border-b border-gray-200 last:border-b-0 cursor-pointer">
 
       <!-- Item group name -->
       <div class="flex-grow font-bold p-2 md:pl-4">{{class.key}}</div>

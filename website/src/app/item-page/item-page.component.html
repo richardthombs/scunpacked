@@ -76,12 +76,11 @@
 
     <div *ngIf="prices?.length" class="border border-gray-400 mt-4">
       <div *ngFor="let p of prices" class="px-4 py-2 border-b last:border-b-0 border-gray-400 flex justify-between">
-        <div>{{p.shop.name}}
-        </div>
+        <div>{{p.shop.name}}</div>
         <div>{{p.item.basePrice * (1+(p.item.basePriceOffsetPercentage/100)) | number:'1.0-0'}} aUEC</div>
       </div>
     </div>
-    <div *ngIf="!prices?.length">
+    <div *ngIf="!prices?.length" class="mt-4">
       Not for sale
     </div>
 
