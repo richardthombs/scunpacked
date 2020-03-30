@@ -1,65 +1,67 @@
-<div *ngIf="!itemPort.isWeaponAttachment()" class="flex items-center">
+<div *ngIf="!itemPort.isWeaponAttachment()" class="flex items-stretch">
 
   <!-- Size box -->
-  <div class="size-box-inner flex-shrink-0 flex items-center justify-center w-12 h-12 mr-4 border-b last:border-b-0 border-gray-400 font-bold" [class.full]="itemPort.item" [class.empty]="!itemPort.item">
+  <div class="size-box-inner bg-gray-100 flex-shrink-0 flex items-center justify-center w-12 h-12 border-b last:border-b-0 border-gray-400 font-bold" [class.full]="itemPort.item" [class.empty]="!itemPort.item">
     S{{itemPort.maxSize}}
   </div>
 
-  <div class="flex-1 flex">
-    <!-- Port flags-->
-    <div>
-      <span *ngIf="!itemPort.isEditable()" class="mr-2 last:mr-4" title="Loadout locked"><i class="fas fa-fw fa-lock"></i></span>
-      <span *ngIf="false && itemPort.isWeaponHardpoint()" class="mr-2 last:mr-4" title="Weapon hardpoint">W</span>
-      <span *ngIf="false && itemPort.isGunHardpoint()" class="mr-2 last:mr-4" title="Gun hardpoint">G</span>
-      <span *ngIf="false && itemPort.isMissileHardpoint()" class="mr-2 last:mr-4" title="Missile hardpoint">M</span>
-      <span *ngIf="itemPort.isRemoteControlled()" class="mr-2 last:mr-4" title="Remote controlled via MFD"><i class="fas fa-gamepad"></i></span>
-      <span *ngIf="itemPort.isManned()" class="mr-2 last:mr-4" title="Manned by crew member"><i class="fas fa-running"></i></span>
-      <span *ngIf="itemPort.isWeaponHardpoint() && itemPort.isPilotControlled()" class="mr-2 last:mr-4" title="Pilot controlled"><i class="fas fa-male"></i></span>
-      <span *ngIf="itemPort.isGimballed()" class="mr-2 last:mr-4" title="Weapon is in a gimballed mount"><i class="fas fa-crosshairs"></i></span>
-    </div>
-
-    <!-- Port name-->
-    <div class="mr-4 flex-1">
-      {{itemPort.name}}
-    </div>
-  </div>
-
-  <div class="flex-1">
-    <!-- Item name -->
-    <div *ngIf="itemPort.item" class="mr-4">
-      <a [routerLink]="['/items', itemPort.itemClass.toLowerCase()]" class="font-medium">{{itemPort.item.name | localise:itemPort.itemClass}}</a>
-      <small class="ml-2"><a [routerLink]="['/items/compare']" [queryParams]="{type: itemPort.item.type, subType: itemPort.item.subType, size: itemPort.item.size, selected: itemPort.itemClass}">Compare</a></small>
-    </div>
-
-    <!-- Installed item info -->
-    <ng-container *ngIf="itemPort.itemClass">
-
-      <!-- Item stats -->
-      <div [ngSwitch]="itemPort.item?.type" class="mr-4">
-        <app-powerplant *ngSwitchCase="'PowerPlant'" [item]="itemPort.item"></app-powerplant>
-        <app-cargo *ngSwitchCase="'Cargo'" [item]="itemPort.item"></app-cargo>
-        <app-shield *ngSwitchCase="'Shield'" [item]="itemPort.item"></app-shield>
-        <app-quantumdrive *ngSwitchCase="'QuantumDrive'" [item]="itemPort.item"></app-quantumdrive>
-        <app-quantumfueltank *ngSwitchCase="'QuantumFuelTank'" [item]="itemPort.item"></app-quantumfueltank>
-        <app-thruster *ngSwitchCase="'MainThruster'" [item]="itemPort.item"></app-thruster>
-        <app-thruster *ngSwitchCase="'ManneuverThruster'" [item]="itemPort.item"></app-thruster>
-        <app-hydrogenfueltank *ngSwitchCase="'FuelTank'" [item]="itemPort.item"></app-hydrogenfueltank>
-        <app-hydrogenfuelintake *ngSwitchCase="'FuelIntake'" [item]="itemPort.item"></app-hydrogenfuelintake>
+  <div class="flex-1 flex pl-4 items-center whitespace-no-wrap overflow-auto">
+    <div class="flex-1 flex">
+      <!-- Port flags-->
+      <div>
+        <span *ngIf="!itemPort.isEditable()" class="mr-2 last:mr-4" title="Loadout locked"><i class="fas fa-fw fa-lock"></i></span>
+        <span *ngIf="false && itemPort.isWeaponHardpoint()" class="mr-2 last:mr-4" title="Weapon hardpoint">W</span>
+        <span *ngIf="false && itemPort.isGunHardpoint()" class="mr-2 last:mr-4" title="Gun hardpoint">G</span>
+        <span *ngIf="false && itemPort.isMissileHardpoint()" class="mr-2 last:mr-4" title="Missile hardpoint">M</span>
+        <span *ngIf="itemPort.isRemoteControlled()" class="mr-2 last:mr-4" title="Remote controlled via MFD"><i class="fas fa-gamepad"></i></span>
+        <span *ngIf="itemPort.isManned()" class="mr-2 last:mr-4" title="Manned by crew member"><i class="fas fa-running"></i></span>
+        <span *ngIf="itemPort.isWeaponHardpoint() && itemPort.isPilotControlled()" class="mr-2 last:mr-4" title="Pilot controlled"><i class="fas fa-male"></i></span>
+        <span *ngIf="itemPort.isGimballed()" class="mr-2 last:mr-4" title="Weapon is in a gimballed mount"><i class="fas fa-crosshairs"></i></span>
       </div>
 
-      <!-- Interactions -->
-      <div hidden>
-        <span class="inline-block text-xs mr-4 last:mr-0" *ngFor="let i of itemPort?.item?.Raw?.Entity?.Components?.SEntityInteractableParams?.Interactable?.SharedInteractions">{{i.Name}}</span>
+      <!-- Port name-->
+      <div class="mr-4 flex-1">
+        {{itemPort.name}}
+      </div>
+    </div>
+
+    <div class="flex-1">
+      <!-- Item name -->
+      <div *ngIf="itemPort.item" class="mr-4">
+        <a [routerLink]="['/items', itemPort.itemClass.toLowerCase()]" class="font-medium">{{itemPort.item.name | localise:itemPort.itemClass}}</a>
+        <small class="ml-2"><a [routerLink]="['/items/compare']" [queryParams]="{type: itemPort.item.type, subType: itemPort.item.subType, size: itemPort.item.size, selected: itemPort.itemClass}">Compare</a></small>
       </div>
 
-      <!-- No item data available message -->
-      <div *ngIf="!itemPort.item" class="mr-4">{{itemPort.itemClass}} (no data)</div>
+      <!-- Installed item info -->
+      <ng-container *ngIf="itemPort.itemClass">
 
-    </ng-container>
+        <!-- Item stats -->
+        <div [ngSwitch]="itemPort.item?.type" class="mr-4">
+          <app-powerplant *ngSwitchCase="'PowerPlant'" [item]="itemPort.item"></app-powerplant>
+          <app-cargo *ngSwitchCase="'Cargo'" [item]="itemPort.item"></app-cargo>
+          <app-shield *ngSwitchCase="'Shield'" [item]="itemPort.item"></app-shield>
+          <app-quantumdrive *ngSwitchCase="'QuantumDrive'" [item]="itemPort.item"></app-quantumdrive>
+          <app-quantumfueltank *ngSwitchCase="'QuantumFuelTank'" [item]="itemPort.item"></app-quantumfueltank>
+          <app-thruster *ngSwitchCase="'MainThruster'" [item]="itemPort.item"></app-thruster>
+          <app-thruster *ngSwitchCase="'ManneuverThruster'" [item]="itemPort.item"></app-thruster>
+          <app-hydrogenfueltank *ngSwitchCase="'FuelTank'" [item]="itemPort.item"></app-hydrogenfueltank>
+          <app-hydrogenfuelintake *ngSwitchCase="'FuelIntake'" [item]="itemPort.item"></app-hydrogenfuelintake>
+        </div>
 
-    <!-- Nothing installed message -->
-    <div *ngIf="!itemPort.itemClass" class="text-gray-600 mr-4">Nothing installed</div>
+        <!-- Interactions -->
+        <div hidden>
+          <span class="inline-block text-xs mr-4 last:mr-0" *ngFor="let i of itemPort?.item?.Raw?.Entity?.Components?.SEntityInteractableParams?.Interactable?.SharedInteractions">{{i.Name}}</span>
+        </div>
 
+        <!-- No item data available message -->
+        <div *ngIf="!itemPort.item" class="mr-4">{{itemPort.itemClass}} (no data)</div>
+
+      </ng-container>
+
+      <!-- Nothing installed message -->
+      <div *ngIf="!itemPort.itemClass" class="text-gray-600 mr-4">Nothing installed</div>
+
+    </div>
   </div>
 
 </div>

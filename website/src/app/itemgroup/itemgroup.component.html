@@ -25,7 +25,7 @@
 
     <ng-container *ngIf="class.value.showItems">
       <ng-container *ngFor="let size of class.value.bySize">
-        <div *ngFor="let itemPort of size" class="bg-gray-100 border-b last:border-b-0 overflow-auto">
+        <div *ngFor="let itemPort of size" class="border-b last:border-b-0">
           <app-itemport [itemPort]="itemPort.itemPort"></app-itemport>
         </div>
       </ng-container>
@@ -34,6 +34,6 @@
 
 </div>
 
-<div *ngIf="!groupItems" class="mt-4 px-4 py-2 bg-white dark:bg-black text-gray-600 border border-gray-400">
+<div *ngIf="!groupItems" class="mt-4 px-4 py-2 bg-gray-100 dark:bg-black text-gray-600 border">
   No {{groupName}}
 </div>
