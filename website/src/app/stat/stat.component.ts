@@ -19,7 +19,6 @@ export class StatComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit(): void {
-    this.formattedValue = "-";
   }
 
   ngOnChanges(): void {
