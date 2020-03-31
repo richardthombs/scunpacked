@@ -28,14 +28,15 @@
   ],
   "dataGroups": [
     {
-      "name": "api-performance",
+      "name": "api-freshness",
       "urls": [
         "https://scunpacked.com/api/**"
       ],
       "cacheConfig": {
-        "strategy": "performance",
+        "strategy": "freshness",
         "maxSize": 100,
-        "maxAge": "518400000",
+        "maxAge": "3d",
+        "timeout": "15s",
         "version": 1
       }
     }
