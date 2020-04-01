@@ -35,6 +35,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LocalisationService, LabelsApi } from "./Localisation";
 import { StatComponent } from './stat/stat.component';
 import { CommoditiesComponent } from './commodities/commodities.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,8 @@ import { CommoditiesComponent } from './commodities/commodities.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     LabelsApi,
