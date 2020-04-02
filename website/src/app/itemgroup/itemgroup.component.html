@@ -1,22 +1,22 @@
-<h4 class="text-xl mt-4">{{groupName}}</h4>
+<h4 class="mt-10 text-xl md:text-2xl font-bold dark:text-white leading-none">{{groupName}}</h4>
 
-<div *ngIf="groupItems" class="bg-white dark:bg-black border border-gray-400">
+<div *ngIf="groupItems" class="mt-4 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-md">
 
   <ng-container *ngFor="let class of groupItems | keyvalue">
 
-    <div (click)="toggleItems(class.key)" class="flex border-b last:border-b-0 cursor-pointer items-center pl-4">
+    <div (click)="toggleItems(class.key)" class="flex flex-col md:flex-row md:items-center border-b border-gray-200 dark:border-gray-800 last:border-b-0 cursor-pointer">
 
       <!-- Item group name -->
-      <div class="flex-grow font-bold">{{class.key}}</div>
+      <div class="flex-grow font-bold p-3 md:pl-4">{{class.key}}</div>
 
       <!-- Size boxes -->
-      <div class="flex-shrink-0 flex">
-        <div *ngFor="let size of class.value.bySize; let s = index" class="size-box">
+      <div class="flex-shrink-0 flex overflow-auto">
+        <div *ngFor="let size of class.value.bySize; let s = index" class="size-box border-l dark:border-gray-800">
           <div *ngIf="size.length" class="size-box-inner full">
             <small>S{{s}}</small><br>
-            {{size.length | nozero}}
+            <div class="text-xl font-bold dark:text-white">{{size.length | nozero}}</div>
           </div>
-          <div *ngIf="!size.length" class="size-box-inner empty">
+          <div *ngIf="!size.length" class="size-box-inner empty bg-gray-100 dark:bg-gray-700">
             <small>S{{s}}</small>
           </div>
         </div>
@@ -25,7 +25,7 @@
 
     <ng-container *ngIf="class.value.showItems">
       <ng-container *ngFor="let size of class.value.bySize">
-        <div *ngFor="let itemPort of size" class="border-b last:border-b-0 pl-2">
+        <div *ngFor="let itemPort of size" class="border-b last:border-b-0 dark:border-gray-800">
           <app-itemport [itemPort]="itemPort.itemPort"></app-itemport>
         </div>
       </ng-container>
@@ -34,6 +34,6 @@
 
 </div>
 
-<div *ngIf="!groupItems" class="px-4 py-2 bg-white dark:bg-black text-gray-600 border border-gray-400">
+<div *ngIf="!groupItems" class="mt-4 px-4 py-2 bg-gray-100 dark:bg-gray-900 text-gray-600 border dark:border-gray-800">
   No {{groupName}}
 </div>
