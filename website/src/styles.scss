@@ -6,7 +6,6 @@ $fa-font-path : '~@fortawesome/fontawesome-free/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/brands';
 
 /****** Structural ******/
-
 a:hover {
   text-decoration: none;
 }
@@ -36,26 +35,55 @@ a:hover {
   }
 }
 
+// Scrollbar
+html {
+  --scrollbarBG: transparent;
+  --thumbBG: rgba(255, 20, 147, 0.7);
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border: 3px solid var(--scrollbarBG);
+}
+
 
 // Light theme
 app-root,
-app-root > .light {
+app-root>.light {
   .container-outer {
-    background-color: rgba(255,255,255,0.25);
+    background-color: rgba(255, 255, 255, 0.25);
   }
+
   .container-inner {
-    background-color: rgba(255,255,255, 0.9);
+    background-color: rgba(255, 255, 255, 0.9);
   }
 
   .size-box-inner {
     background-color: deeppink;
     color: white;
+
     small {
-      color: rgba(255,255,255,0.8);
+      color: rgba(255, 255, 255, 0.8);
     }
+
     &.empty {
       background-color: #eee;
       color: #444;
+
       small {
         color: #888;
       }
@@ -64,15 +92,15 @@ app-root > .light {
 }
 
 // Dark theme
-app-root > .dark {
+app-root>.dark {
   color: #ccc;
 
   .container-outer {
-    background-color: rgba(0,0,0,0.25);
+    background-color: rgba(0, 0, 0, 0.25);
   }
 
   .container-inner {
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
   }
 
   .app-background {
