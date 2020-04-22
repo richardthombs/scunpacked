@@ -202,7 +202,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_controller_shield",
-                  "entityClassName": "Controller_Shield_Quadrant",
+                  "entityClassName": "Controller_Shield_ANVL_Valkyrie",
                   "loadout": {}
                 },
                 {
@@ -212,7 +212,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_radar",
-                  "entityClassName": "RADR_Default",
+                  "entityClassName": "RADR_CHCO_S02_Surveyor",
                   "loadout": {}
                 },
                 {
@@ -427,7 +427,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_turret_top_radar",
-                  "entityClassName": "RADR_Default",
+                  "entityClassName": "RADR_GRNP_S01_Ecouter",
                   "loadout": {}
                 },
                 {
@@ -457,7 +457,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_turret_bottom_radar",
-                  "entityClassName": "RADR_Default",
+                  "entityClassName": "RADR_GRNP_S01_Ecouter",
                   "loadout": {}
                 },
                 {
@@ -1841,8 +1841,8 @@
                   "class": "ItemPort",
                   "skipPart": false,
                   "ItemPort": {
-                    "minsize": 1,
-                    "maxsize": 1,
+                    "minsize": 2,
+                    "maxsize": 2,
                     "display_name": "UI",
                     "flags": "invisible uneditable",
                     "Types": [
@@ -1860,7 +1860,10 @@
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
                       }
-                    ]
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "pilotSeat"
+                    }
                   }
                 },
                 {
@@ -2846,12 +2849,6 @@
                               "skipPart": false
                             }
                           ]
-                        },
-                        {
-                          "name": "$LOD1_Decal_Engine_RL",
-                          "damageMax": 1.0,
-                          "class": "AnimatedJoint",
-                          "skipPart": false
                         }
                       ]
                     },
@@ -3244,35 +3241,9 @@
                 },
                 {
                   "name": "Nose_Shell",
-                  "damageMax": 1.0,
+                  "damageMax": 50.0,
                   "class": "AnimatedJoint",
-                  "skipPart": false,
-                  "Parts": [
-                    {
-                      "name": "$lod2_Decal_Nose_Shell",
-                      "damageMax": 1.0,
-                      "class": "AnimatedJoint",
-                      "skipPart": false
-                    },
-                    {
-                      "name": "$lod3_Decal_Nose_Shell",
-                      "damageMax": 1.0,
-                      "class": "AnimatedJoint",
-                      "skipPart": false
-                    },
-                    {
-                      "name": "$lod4_Decal_Nose_Shell",
-                      "damageMax": 1.0,
-                      "class": "AnimatedJoint",
-                      "skipPart": false
-                    },
-                    {
-                      "name": "$lod1_Decal_Nose_Shell",
-                      "damageMax": 1.0,
-                      "class": "AnimatedJoint",
-                      "skipPart": false
-                    }
-                  ]
+                  "skipPart": false
                 },
                 {
                   "name": "animated_exterior_front_lights",

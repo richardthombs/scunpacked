@@ -110,7 +110,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_controller_shield",
-                  "entityClassName": "Controller_Shield_Quadrant",
+                  "entityClassName": "Controller_Shield_RSI_Mantis",
                   "loadout": {}
                 },
                 {
@@ -317,6 +317,11 @@
                   "itemPortName": "hardpoint_door_lift",
                   "entityClassName": "RSI_Mantis_Door_Lift",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_paint",
+                  "entityClassName": "Paint_Mantis_Default",
+                  "loadout": {}
                 }
               ]
             }
@@ -453,6 +458,23 @@
               "class": "AnimatedJoint",
               "skipPart": false,
               "Parts": [
+                {
+                  "name": "hardpoint_paint",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "port_NamePaint",
+                    "flags": "",
+                    "Types": [
+                      {
+                        "type": "Paints"
+                      }
+                    ]
+                  }
+                },
                 {
                   "name": "nose_wingmount_left",
                   "damageMax": 150.0,

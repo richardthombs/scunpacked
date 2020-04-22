@@ -192,7 +192,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_controller_shield",
-                  "entityClassName": "Controller_Shield_Quadrant",
+                  "entityClassName": "Controller_Shield_MISC_Prospector",
                   "loadout": {}
                 },
                 {
@@ -344,6 +344,31 @@
                   "itemPortName": "hardpoint_countermeasure_launcher_right",
                   "entityClassName": "MISC_Prospector_CML_Chaff",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_paint",
+                  "entityClassName": "Paint_Prospector_Default",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_mining_pod_1",
+                  "entityClassName": "Cargo_Mining_Pod",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_mining_pod_2",
+                  "entityClassName": "Cargo_Mining_Pod",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_mining_pod_3",
+                  "entityClassName": "Cargo_Mining_Pod",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_mining_pod_4",
+                  "entityClassName": "Cargo_Mining_Pod",
+                  "loadout": {}
                 }
               ]
             }
@@ -479,6 +504,23 @@
               "class": "AnimatedJoint",
               "skipPart": false,
               "Parts": [
+                {
+                  "name": "hardpoint_paint",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "port_NamePaint",
+                    "flags": "",
+                    "Types": [
+                      {
+                        "type": "Paints"
+                      }
+                    ]
+                  }
+                },
                 {
                   "name": "hardpoint_mining_arm",
                   "damageMax": 0.0,
@@ -1119,7 +1161,7 @@
                   "ItemPort": {
                     "minsize": 2,
                     "maxsize": 2,
-                    "display_name": "Port Cooler",
+                    "display_name": "@ItemPort_port_NameCooler",
                     "flags": "invisible left",
                     "requiredTags": "",
                     "Types": [
@@ -1148,7 +1190,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
-                    "display_name": "Quantum Drive",
+                    "display_name": "@itemPort_port_NameQDrive",
                     "flags": "invisible",
                     "requiredTags": "",
                     "Types": [
@@ -1180,7 +1222,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
-                    "display_name": "Shield Generator",
+                    "display_name": "@itemPort_port_NameShieldGen",
                     "flags": "invisible",
                     "Types": [
                       {
@@ -1240,7 +1282,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
-                    "display_name": "Port Weapon",
+                    "display_name": "@itemPort_port_NameWeaponLeft",
                     "flags": "",
                     "defaultWeaponGroup": "1",
                     "Types": [
@@ -1273,7 +1315,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
-                    "display_name": "Starboard Weapon",
+                    "display_name": "@itemPort_port_NameWeaponRight",
                     "flags": "",
                     "defaultWeaponGroup": "1",
                     "Types": [
@@ -1311,65 +1353,7 @@
                       "skipPart": false,
                       "Parts": [
                         {
-                          "name": "hardpoint_mining_pod_FR_03",
-                          "damageMax": 0.0,
-                          "class": "ItemPort",
-                          "skipPart": false,
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "display_name": "Cargo Pod 03",
-                            "flags": "uneditable",
-                            "requiredTags": "",
-                            "Types": [
-                              {
-                                "type": "Container",
-                                "subtypes": "Cargo"
-                              }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "name": "hardpoint_mining_pod_FR_02",
-                          "damageMax": 0.0,
-                          "class": "ItemPort",
-                          "skipPart": false,
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "display_name": "Cargo Pod 02",
-                            "flags": "uneditable",
-                            "requiredTags": "",
-                            "Types": [
-                              {
-                                "type": "Container",
-                                "subtypes": "Cargo"
-                              }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "name": "hardpoint_mining_pod_FR_01",
+                          "name": "hardpoint_mining_pod_1",
                           "damageMax": 0.0,
                           "class": "ItemPort",
                           "skipPart": false,
@@ -1398,72 +1382,14 @@
                           }
                         },
                         {
-                          "name": "hardpoint_mining_pod_RR_03",
+                          "name": "hardpoint_mining_pod_2",
                           "damageMax": 0.0,
                           "class": "ItemPort",
                           "skipPart": false,
                           "ItemPort": {
                             "minsize": 1,
                             "maxsize": 1,
-                            "display_name": "Cargo Pod 09",
-                            "flags": "uneditable",
-                            "requiredTags": "",
-                            "Types": [
-                              {
-                                "type": "Container",
-                                "subtypes": "Cargo"
-                              }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "name": "hardpoint_mining_pod_RR_02",
-                          "damageMax": 0.0,
-                          "class": "ItemPort",
-                          "skipPart": false,
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "display_name": "Cargo Pod 08",
-                            "flags": "uneditable",
-                            "requiredTags": "",
-                            "Types": [
-                              {
-                                "type": "Container",
-                                "subtypes": "Cargo"
-                              }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "name": "hardpoint_mining_pod_RR_01",
-                          "damageMax": 0.0,
-                          "class": "ItemPort",
-                          "skipPart": false,
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "display_name": "Cargo Pod 07",
+                            "display_name": "Cargo Pod 02",
                             "flags": "uneditable",
                             "requiredTags": "",
                             "Types": [
@@ -1501,7 +1427,36 @@
                       "skipPart": false,
                       "Parts": [
                         {
-                          "name": "hardpoint_mining_pod_FL_01",
+                          "name": "hardpoint_mining_pod_3",
+                          "damageMax": 0.0,
+                          "class": "ItemPort",
+                          "skipPart": false,
+                          "ItemPort": {
+                            "minsize": 1,
+                            "maxsize": 1,
+                            "display_name": "Cargo Pod 03",
+                            "flags": "uneditable",
+                            "requiredTags": "",
+                            "Types": [
+                              {
+                                "type": "Container",
+                                "subtypes": "Cargo"
+                              }
+                            ],
+                            "Connections": [
+                              {
+                                "pipeClass": "Power",
+                                "pipe": "MainPower"
+                              },
+                              {
+                                "pipeClass": "Heat",
+                                "pipe": "MainHeat"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "name": "hardpoint_mining_pod_4",
                           "damageMax": 0.0,
                           "class": "ItemPort",
                           "skipPart": false,
@@ -1509,151 +1464,6 @@
                             "minsize": 1,
                             "maxsize": 1,
                             "display_name": "Cargo Pod 04",
-                            "flags": "uneditable",
-                            "requiredTags": "",
-                            "Types": [
-                              {
-                                "type": "Container",
-                                "subtypes": "Cargo"
-                              }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "name": "hardpoint_mining_pod_FL_02",
-                          "damageMax": 0.0,
-                          "class": "ItemPort",
-                          "skipPart": false,
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "display_name": "Cargo Pod 05",
-                            "flags": "uneditable",
-                            "requiredTags": "",
-                            "Types": [
-                              {
-                                "type": "Container",
-                                "subtypes": "Cargo"
-                              }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "name": "hardpoint_mining_pod_FL_03",
-                          "damageMax": 0.0,
-                          "class": "ItemPort",
-                          "skipPart": false,
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "display_name": "Cargo Pod 06",
-                            "flags": "uneditable",
-                            "requiredTags": "",
-                            "Types": [
-                              {
-                                "type": "Container",
-                                "subtypes": "Cargo"
-                              }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "name": "hardpoint_mining_pod_RL_03",
-                          "damageMax": 0.0,
-                          "class": "ItemPort",
-                          "skipPart": false,
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "display_name": "Cargo Pod 12",
-                            "flags": "uneditable",
-                            "requiredTags": "",
-                            "Types": [
-                              {
-                                "type": "Container",
-                                "subtypes": "Cargo"
-                              }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "name": "hardpoint_mining_pod_RL_02",
-                          "damageMax": 0.0,
-                          "class": "ItemPort",
-                          "skipPart": false,
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "display_name": "Cargo Pod 11",
-                            "flags": "uneditable",
-                            "requiredTags": "",
-                            "Types": [
-                              {
-                                "type": "Container",
-                                "subtypes": "Cargo"
-                              }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "name": "hardpoint_mining_pod_RL_01",
-                          "damageMax": 0.0,
-                          "class": "ItemPort",
-                          "skipPart": false,
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "display_name": "Cargo Pod 10",
                             "flags": "uneditable",
                             "requiredTags": "",
                             "Types": [
@@ -2032,7 +1842,7 @@
                       "ItemPort": {
                         "minsize": 2,
                         "maxsize": 2,
-                        "display_name": "Power Plant",
+                        "display_name": "@itemPort_port_NamePowerplant",
                         "flags": "invisible",
                         "Types": [
                           {

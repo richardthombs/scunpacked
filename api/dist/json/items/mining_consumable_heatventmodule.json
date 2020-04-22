@@ -19,12 +19,43 @@
             "Size": 1,
             "Grade": 1,
             "Manufacturer": "b28a5c61-63a4-478b-8047-5fba545d5b8a",
-            "Tags": "miningConsumable",
+            "Tags": "miningConsumable miningMount",
             "RequiredTags": "miningConsumable",
             "DisplayType": "Mining Modifiers",
             "Localization": {
               "Name": "@item_Mining_Consumable_HeatVentModule",
-              "Description": "@ui_Mining_Consumable_HeatVentModule_Desc"
+              "Description": "@item_Mining_Consumable_HeatVentModule_Desc"
+            }
+          }
+        },
+        "SHealthComponentParams": {
+          "Health": 1.0,
+          "DamageResistances": {
+            "DamageResistance": {
+              "PhysicalResistance": {
+                "Multiplier": 0.0,
+                "Threshold": 0
+              },
+              "EnergyResistance": {
+                "Multiplier": 0.0,
+                "Threshold": 0
+              },
+              "DistortionResistance": {
+                "Multiplier": 0.0,
+                "Threshold": 0
+              },
+              "ThermalResistance": {
+                "Multiplier": 0.0,
+                "Threshold": 0
+              },
+              "BiochemicalResistance": {
+                "Multiplier": 0.0,
+                "Threshold": 0
+              },
+              "StunResistance": {
+                "Multiplier": 0.0,
+                "Threshold": 0
+              }
             }
           }
         },
@@ -45,20 +76,6 @@
           "Interactable": {
             "SharedInteractions": [
               {
-                "Name": "PickupAndCarry",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@interaction_carry",
-                "DisplayType": "Show",
-                "GenericCursor": "Grab",
-                "FocusModeOnly": false,
-                "Sendable": false,
-                "Linkable": false,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
                 "Name": "Drop",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
@@ -73,38 +90,10 @@
                 "available": true
               },
               {
-                "Name": "Inspect",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@innerthought_inspect",
-                "DisplayType": "Show",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": false,
-                "Linkable": false,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
                 "Name": "Place",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
                 "DisplayName": "@interaction_place",
-                "DisplayType": "Show",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": false,
-                "Linkable": false,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "PickUpAndStow",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@interaction_stow",
                 "DisplayType": "Show",
                 "GenericCursor": "SingleAction",
                 "FocusModeOnly": false,

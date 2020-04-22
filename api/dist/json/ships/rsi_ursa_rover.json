@@ -11,13 +11,13 @@
           "value": "7131f390-96b2-4ea3-8a7a-78c7a3a12528"
         },
         {
-          "value": "0b870232-7ad3-4b12-a41b-36251cb6041a"
+          "value": "ded7fb93-cde8-43e0-9701-ee41d1fa9144"
         },
         {
-          "value": "ea708629-7d16-45b3-b362-878c90792430"
+          "value": "f2032b7d-a766-4102-836a-804352dc7eb9"
         },
         {
-          "value": "573603c7-7f5b-4b40-bbc2-840729773e45"
+          "value": "05027735-e7c0-492a-b80e-d7ad1ed7e76c"
         }
       ],
       "Components": {
@@ -41,9 +41,139 @@
         },
         "SEntityComponentDefaultLoadoutParams": {
           "loadout": {
-            "SItemPortLoadoutXMLParams": {
-              "loadoutPath": "default_loadout_rsi_ursa_rover.json",
-              "__type": "SItemPortLoadoutBaseParams"
+            "SItemPortLoadoutManualParams": {
+              "entries": [
+                {
+                  "itemPortName": "hardpoint_seat_passenger",
+                  "entityClassName": "RSI_Ursa_Rover_SCItem_Seat_CoPilot",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_seat_driver",
+                  "entityClassName": "RSI_Ursa_Rover_SCItem_Seat_Pilot",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_seat_access",
+                  "entityClassName": "RSI_Ursa_Rover_SCItem_SeatAccess",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_wheel",
+                  "entityClassName": "Controller_Wheel",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_light",
+                  "entityClassName": "Controller_Light",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_comms",
+                  "entityClassName": "Controller_Comms",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_door",
+                  "entityClassName": "Controller_Door",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "Radar_Helper",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_selfdestruct",
+                  "entityClassName": "VHCL_SelfDestruct_30s",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_cargogrid",
+                  "entityClassName": "RSI_Ursa_CargoGrid_Rear",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_radar",
+                  "entityClassName": "RADR_GRNP_S00_Prevenir",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_radar_copilot",
+                  "entityClassName": "RADR_GRNP_S00_Prevenir",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_energy",
+                  "entityClassName": "Controller_Energy",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_powerplant",
+                  "entityClassName": "POWR_LPLT_S00_Radix_SCItem",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_cooler",
+                  "entityClassName": "Controller_Cooler",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_cooler",
+                  "entityClassName": "COOL_JSPN_S00_FrostStarSL_SCItem",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_shield",
+                  "entityClassName": "Controller_Shield_RSI_Ursa",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_shield_generator",
+                  "entityClassName": "SHLD_SECO_S00_PIN_SCItem",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_door_sideDoor",
+                  "entityClassName": "RSI_Ursa_SideDoor",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_door_ramp",
+                  "entityClassName": "RSI_Ursa_Ramp",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_weapon",
+                  "entityClassName": "Controller_Weapon_Vehicle",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_turret_mount",
+                  "entityClassName": "RSI_Ursa_Rover_SCItem_BallTurret",
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "turret_left",
+                          "entityClassName": "KLWE_LaserRepeater_S1",
+                          "loadout": {}
+                        },
+                        {
+                          "itemPortName": "turret_right",
+                          "entityClassName": "KLWE_LaserRepeater_S1",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "itemPortName": "hardpoint_paint",
+                  "entityClassName": "",
+                  "loadout": {}
+                }
+              ]
             }
           }
         },
@@ -174,7 +304,7 @@
             {
               "name": "Body",
               "mass": "1636.55",
-              "damageMax": 2000.0,
+              "damageMax": 2500.0,
               "class": "AnimatedJoint",
               "skipPart": false,
               "Parts": [
@@ -765,7 +895,7 @@
                   }
                 },
                 {
-                  "name": "GunMount",
+                  "name": "hardpoint_turret_mount",
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "skipPart": false,

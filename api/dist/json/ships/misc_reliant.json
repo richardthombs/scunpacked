@@ -100,7 +100,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_controller_shield",
-                  "entityClassName": "Controller_Shield_Quadrant",
+                  "entityClassName": "Controller_Shield_MISC_Reliant",
                   "loadout": {}
                 },
                 {
@@ -125,6 +125,11 @@
                 },
                 {
                   "itemPortName": "hardpoint_radar",
+                  "entityClassName": "RADR_WLOP_S01_Capstan",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_radar_copilot",
                   "entityClassName": "RADR_WLOP_S01_Capstan",
                   "loadout": {}
                 },
@@ -305,18 +310,53 @@
                 },
                 {
                   "itemPortName": "Hardpoint_Weapon_Wing_S1_Left",
-                  "entityClassName": "BEHR_LaserCannon_S2",
-                  "loadout": {}
+                  "entityClassName": "Mount_Gimbal_S2",
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "hardpoint_class_2",
+                          "entityClassName": "BEHR_LaserCannon_S1",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
                 },
                 {
                   "itemPortName": "Hardpoint_Weapon_Wing_S1_Right",
-                  "entityClassName": "BEHR_LaserCannon_S2",
-                  "loadout": {}
+                  "entityClassName": "Mount_Gimbal_S2",
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "hardpoint_class_2",
+                          "entityClassName": "BEHR_LaserCannon_S1",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
                 },
                 {
                   "itemPortName": "Hardpoint_Weapon_Wing_Tip_S3_Left",
-                  "entityClassName": "UMNT_MISC_S03_PL01",
-                  "loadout": {}
+                  "entityClassName": "MISC_Reliant_Wing_Dual_Turret",
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "turret_left",
+                          "entityClassName": "KLWE_LaserRepeater_S2",
+                          "loadout": {}
+                        },
+                        {
+                          "itemPortName": "turret_right",
+                          "entityClassName": "KLWE_LaserRepeater_S2",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
                 },
                 {
                   "itemPortName": "Hardpoint_Weapon_Wing_Tip_S3_Right",
@@ -347,6 +387,46 @@
                   "itemPortName": "hardpoint_right_wing_missile_launcher",
                   "entityClassName": "MISC_Reliant_Missile_Cap_Right",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_missilerack_wing_left",
+                  "entityClassName": "MRCK_S03_BEHR_Dual_S02",
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "missile_01_attach",
+                          "entityClassName": "MISL_S02_IR_FSKI_Ignite",
+                          "loadout": {}
+                        },
+                        {
+                          "itemPortName": "missile_02_attach",
+                          "entityClassName": "MISL_S02_IR_FSKI_Ignite",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "itemPortName": "hardpoint_missilerack_wing_right",
+                  "entityClassName": "MRCK_S03_BEHR_Dual_S02",
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "missile_01_attach",
+                          "entityClassName": "MISL_S02_IR_FSKI_Ignite",
+                          "loadout": {}
+                        },
+                        {
+                          "itemPortName": "missile_02_attach",
+                          "entityClassName": "MISL_S02_IR_FSKI_Ignite",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
                 },
                 {
                   "itemPortName": "hardpoint_countermeasure_launcher_left",
@@ -494,13 +574,13 @@
           "Parts": [
             {
               "name": "Nose",
-              "damageMax": 1020.0,
+              "damageMax": 1750.0,
               "class": "AnimatedJoint",
               "skipPart": false,
               "Parts": [
                 {
                   "name": "Wing_Left",
-                  "damageMax": 520.0,
+                  "damageMax": 1250.0,
                   "class": "AnimatedJoint",
                   "skipPart": false,
                   "Parts": [
@@ -946,9 +1026,46 @@
                       "ItemPort": {
                         "minsize": 5,
                         "maxsize": 5,
-                        "display_name": "hardpoint_missile_rack_wing_left_01",
+                        "display_name": "hardpoint_missile_rack_wing_left_02",
                         "flags": "$uneditable",
                         "requiredTags": "$Reliant_MissileRack",
+                        "Types": [
+                          {
+                            "type": "MissileLauncher",
+                            "subtypes": "MissileRack"
+                          }
+                        ],
+                        "Connections": [
+                          {
+                            "pipeClass": "Power",
+                            "pipe": "MainPower"
+                          },
+                          {
+                            "pipeClass": "Heat",
+                            "pipe": "MainHeat"
+                          }
+                        ],
+                        "Pitch": {
+                          "min": 0,
+                          "max": 0
+                        },
+                        "Yaw": {
+                          "min": 0,
+                          "max": 0
+                        }
+                      }
+                    },
+                    {
+                      "name": "hardpoint_missilerack_wing_left",
+                      "damageMax": 0.0,
+                      "class": "ItemPort",
+                      "skipPart": false,
+                      "ItemPort": {
+                        "minsize": 3,
+                        "maxsize": 3,
+                        "display_name": "hardpoint_missile_rack_wing_left_01",
+                        "flags": "",
+                        "requiredTags": "",
                         "Types": [
                           {
                             "type": "MissileLauncher",
@@ -979,7 +1096,7 @@
                 },
                 {
                   "name": "Wing_Right",
-                  "damageMax": 520.0,
+                  "damageMax": 1250.0,
                   "class": "AnimatedJoint",
                   "skipPart": false,
                   "Parts": [
@@ -1425,9 +1542,46 @@
                       "ItemPort": {
                         "minsize": 5,
                         "maxsize": 5,
-                        "display_name": "hardpoint_missile_rack_wing_right_01",
+                        "display_name": "hardpoint_missile_rack_wing_right_02",
                         "flags": "$uneditable",
                         "requiredTags": "$Reliant_MissileRack",
+                        "Types": [
+                          {
+                            "type": "MissileLauncher",
+                            "subtypes": "MissileRack"
+                          }
+                        ],
+                        "Connections": [
+                          {
+                            "pipeClass": "Power",
+                            "pipe": "MainPower"
+                          },
+                          {
+                            "pipeClass": "Heat",
+                            "pipe": "MainHeat"
+                          }
+                        ],
+                        "Pitch": {
+                          "min": 0,
+                          "max": 0
+                        },
+                        "Yaw": {
+                          "min": 0,
+                          "max": 0
+                        }
+                      }
+                    },
+                    {
+                      "name": "hardpoint_missilerack_wing_right",
+                      "damageMax": 0.0,
+                      "class": "ItemPort",
+                      "skipPart": false,
+                      "ItemPort": {
+                        "minsize": 3,
+                        "maxsize": 3,
+                        "display_name": "hardpoint_missile_rack_wing_right_01",
+                        "flags": "",
+                        "requiredTags": "",
                         "Types": [
                           {
                             "type": "MissileLauncher",
@@ -1525,7 +1679,7 @@
                       }
                     ],
                     "ControllerDef": {
-                      "controllableTags": "coPilotSeatRight",
+                      "controllableTags": "copilotSeat",
                       "UsableDef": {
                         "PriorityGroups": [
                           {
@@ -2199,7 +2353,7 @@
             },
             {
               "name": "Body",
-              "damageMax": 1420.0,
+              "damageMax": 2500.0,
               "class": "AnimatedJoint",
               "skipPart": false,
               "Parts": [
@@ -2227,7 +2381,10 @@
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
                       }
-                    ]
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "pilotSeat"
+                    }
                   }
                 },
                 {
@@ -2575,6 +2732,23 @@
                   }
                 },
                 {
+                  "name": "hardpoint_weapon_rack",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "uneditable",
+                    "Types": [
+                      {
+                        "type": "Usable",
+                        "subtypes": ""
+                      }
+                    ]
+                  }
+                },
+                {
                   "name": "hardpoint_cargogrid_tana",
                   "damageMax": 0.0,
                   "class": "ItemPort",
@@ -2649,6 +2823,36 @@
                       }
                     }
                   ]
+                },
+                {
+                  "name": "hardpoint_radar_copilot",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "Radar",
+                        "subtypes": "ShortRangeRadar,MidRangeRadar"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "copilotSeat"
+                    }
+                  }
                 }
               ]
             },
