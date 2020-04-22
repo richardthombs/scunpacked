@@ -14,7 +14,8 @@
           "/*.js"
         ]
       }
-    }, {
+    },
+    {
       "name": "assets",
       "installMode": "lazy",
       "updateMode": "prefetch",
@@ -28,16 +29,16 @@
   ],
   "dataGroups": [
     {
-      "name": "api-freshness",
+      "name": "api",
       "urls": [
-        "https://scunpacked.com/api/**"
+        "/api/**"
       ],
+      "version": 1,
       "cacheConfig": {
         "strategy": "freshness",
         "maxSize": 1000,
-        "maxAge": "3d",
-        "timeout": "15s",
-        "version": 1
+        "maxAge": "1d",
+        "timeout": "30s"
       }
     }
   ]
