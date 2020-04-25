@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemeService, Theme } from './theme.service';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +29,7 @@ export class AppComponent implements OnInit {
   background: string = "";
   theme: Theme = "light";
 
-  constructor(private themeSvc: ThemeService) { }
+  constructor(private themeSvc: ThemeService, private swUpdate: SwUpdate) { }
 
   ngOnInit() {
     this.background = `url(${this.backgrounds[Math.floor(Math.random() * this.backgrounds.length)]})`;
@@ -43,5 +44,11 @@ export class AppComponent implements OnInit {
 
       this.theme = nextTheme;
     });
+
+    this.swUpdate.available.subscribe(event => {
+      console.log("SwUpdate.available", event);
+      this.swUpdate.activateUpdate().then(() => document.location.reload());
+    });
+    this.swUpdate.activated.subscribe(x => console.log("SwUpdate.activated", x));
   }
 }
