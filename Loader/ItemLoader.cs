@@ -3,30 +3,39 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using Loader.SCDb.Xml.Entities;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
 namespace Loader
 {
 	public class ItemLoader
 	{
+		private readonly ILogger<ItemLoader> _logger;
+		private readonly EntityParser _entityParser;
 		public string OutputFolder { get; set; }
 		public string DataRoot { get; set; }
 		public Func<string, string> OnXmlLoadout { get; set; }
 		public List<ManufacturerIndexEntry> Manufacturers { get; set; }
 
-		string[] include = new string[] {
+		private readonly string[] include = new string[] {
 			"ships",
 			"vehicles",
 			"doors"
 		};
 
-		string[] avoids =
+		private readonly string[] avoids =
 		{
 			// CIG tags
 			"test",
 			"template",
 			"s42"
 		};
+
+		public ItemLoader(ILogger<ItemLoader> logger, EntityParser entityParser)
+		{
+			_logger = logger;
+			_entityParser = entityParser;
+		}
 
 		public List<ItemIndexEntry> Load()
 		{
@@ -47,14 +56,13 @@ namespace Loader
 
 			foreach (var entityFilename in Directory.EnumerateFiles(folderPath, "*.xml", SearchOption.AllDirectories))
 			{
-				if (avoidFile(entityFilename)) continue;
+				if (AvoidFile(entityFilename)) continue;
 
 				EntityClassDefinition entity = null;
 
 				// Entity
 				Console.WriteLine(entityFilename);
-				var entityParser = new EntityParser();
-				entity = entityParser.Parse(entityFilename, OnXmlLoadout);
+				entity = _entityParser.Parse(entityFilename, OnXmlLoadout);
 				if (entity == null) continue;
 
 				var jsonFilename = Path.Combine(OutputFolder, $"{entity.ClassName.ToLower()}.json");
@@ -89,7 +97,7 @@ namespace Loader
 			return manufacturer;
 		}
 
-		bool avoidFile(string filename)
+		bool AvoidFile(string filename)
 		{
 			var fileSplit = Path.GetFileNameWithoutExtension(filename).Split('_');
 			return fileSplit.Any(part => avoids.Contains(part));

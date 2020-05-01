@@ -4,11 +4,14 @@ namespace Loader.SCDb.Xml.Entities
 {
 	public class EntityClassDefinition
 	{
-		public StaticEntityClassData StaticEntityClassData;
-		public Reference[] tags;
+		public string ClassName;
+
 		public Components Components;
 
-		public string ClassName;
+		public StaticEntityClassData StaticEntityClassData;
+
+		[XmlElement(ElementName = "tags")]
+		public Reference[] Tags;
 	}
 
 	public class StaticEntityClassData
@@ -18,13 +21,13 @@ namespace Loader.SCDb.Xml.Entities
 
 	public class DefaultEntitlementEntityParams
 	{
-		[XmlAttribute]
-		public string entitlementPolicy;
+		[XmlAttribute(AttributeName = "entitlementPolicy")]
+		public string EntitlementPolicy;
 	}
 
 	public class Reference
 	{
-		[XmlAttribute]
-		public string value;
+		[XmlAttribute(AttributeName = "value")]
+		public string Value;
 	}
 }

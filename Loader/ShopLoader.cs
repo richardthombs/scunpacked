@@ -1,154 +1,170 @@
+//-----------------------------------------------------------------------
+// <copyright file="D:\projekte\scunpacked\Loader\ShopLoader.cs" company="primsoft.NET">
+// Author: Joerg Primke
+// Copyright (c) primsoft.NET. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 using Loader.SCDb.Xml.Shops;
+using Microsoft.Extensions.Logging;
 
 namespace Loader
 {
 	public class ShopLoader
 	{
-		public string DataRoot { get; set; }
-		public Func<string, string> OnXmlLoadout { get; set; }
-
-		string[] avoids =
+		private readonly string[] _avoids =
 		{
-			"NovemberAnniversarySale2019",
-			"NovemberAnniversarySale2018",
-			"AC_Inventory",
-			"TestInventories"
+			"NovemberAnniversarySale2019", "NovemberAnniversarySale2018", "AC_Inventory", "TestInventories"
 		};
 
-		LocalisationService localisationService;
+		private readonly LocalisationService _localisationService;
+		private readonly RetailProductService _retailProductService;
+		private readonly EntityParser _entityParser;
+		private readonly ILogger<ShopLoader> _logger;
 
-		public ShopLoader(LocalisationService localisationService)
+		public ShopLoader(ILogger<ShopLoader> logger, LocalisationService localisationService, RetailProductService retailProductService, EntityParser entityParser)
 		{
-			this.localisationService = localisationService;
+			_localisationService = localisationService;
+			_retailProductService = retailProductService;
+			_entityParser = entityParser;
+			_logger = logger;
 		}
+
+		public string DataRoot { get; set; }
+
+		public Func<string, string> OnXmlLoadout { get; set; }
 
 		public List<Shop> Load()
 		{
-			var shops = new List<Shop>();
+			var shopRootNode =
+				Parse<ShopLayoutNode>(Path.Combine(DataRoot, @"Data\Libs\Subsumption\Shops\ShopLayouts.xml"));
+			var productList =
+				Parse<Node>(Path.Combine(DataRoot, @"Data\Libs\Subsumption\Shops\RetailProductPrices.xml"));
 
-			var productList = Parse<Node>(Path.Combine(DataRoot, @"Data\Libs\Subsumption\Shops\RetailProductPrices.xml"));
-			var shopRootNode = Parse<ShopLayoutNode>(Path.Combine(DataRoot, @"Data\Libs\Subsumption\Shops\ShopLayouts.xml"));
-
-			foreach (var (shopNode, p) in GetShops(shopRootNode))
-			{
-				var shop = new Shop
-				{
-					name = shopNode.Name,
-					profitMargin = shopNode.ProfitMargin,
-					acceptsStolenGoods = Convert.ToBoolean(shopNode.AcceptsStolenGoods),
-					containerPath = p
-				};
-
-				shop.inventory = GetInventory(productList, shopNode).ToArray();
-				shops.Add(shop);
-
-				Console.WriteLine($"{shop.containerPath}: {shop.name}, {shop.inventory.Length} items");
-				foreach (var i in shop.inventory)
-				{
-					Console.WriteLine($@"{(i.shopBuysThis ? "Buys" : "")} {(i.shopSellsThis ? "Sells" : "")} {i.name} {i.basePrice} {i.basePriceOffsetPercentage:n0}%");
-				}
-			}
-
-			return shops;
+			return GetShops(shopRootNode).Select(node => GetShop(node, productList)).ToList();
 		}
 
-		IEnumerable<(ShopLayoutNode, string)> GetShops(ShopLayoutNode node, string path = "")
+		private Shop GetShop((ShopLayoutNode, string) node, Node productList)
 		{
-			if (avoids.Any(x => node.Name == x)) yield break;
+			var (shopNode, p) = node;
 
-			if (node.ShopInventoryNodes?.Length > 0) yield return (node, path);
+			var shop = new Shop
+			           {
+				           name = shopNode.Name,
+				           profitMargin = shopNode.ProfitMargin,
+				           acceptsStolenGoods = Convert.ToBoolean(shopNode.AcceptsStolenGoods),
+				           containerPath = p,
+				           inventory = GetInventory(productList, shopNode).ToArray()
+			           };
 
-			if (node.ShopLayoutNodes?.Length > 0)
+			_logger.LogInformation($"{shop.containerPath}: {shop.name}, {shop.inventory.Length} items");
+			foreach (var i in shop.inventory)
 			{
-				foreach (var layout in node.ShopLayoutNodes)
-				{
-					foreach (var (shop, p) in GetShops(layout, Path.Combine(path, layout.Name)))
-					{
-						yield return (shop, p);
-					}
-				}
+				_logger.LogInformation($@"{(i.shopBuysThis ? "Buys" : string.Empty)} {(i.shopSellsThis ? "Sells" : string.Empty)} {i.name} {i.basePrice} {i.basePriceOffsetPercentage:n0}%");
 			}
 
-			yield break;
+			return shop;
 		}
 
-		List<ShopItem> GetInventory(Node prices, ShopLayoutNode shopNode)
+		private IEnumerable<(ShopLayoutNode, string)> GetShops(ShopLayoutNode node, string path = "")
+		{
+			if (_avoids.Any(x => node.Name == x))
+			{
+				yield break;
+			}
+
+			if (node.ShopInventoryNodes?.Length > 0)
+			{
+				yield return (node, path);
+			}
+
+			if (!(node.ShopLayoutNodes?.Length > 0))
+			{
+				yield break;
+			}
+
+			foreach (var layout in node.ShopLayoutNodes)
+			{
+				foreach (var (shop, p) in GetShops(layout, Path.Combine(path, layout.Name)))
+				{
+					yield return (shop, p);
+				}
+			}
+		}
+
+		private List<ShopItem> GetInventory(Node prices, ShopLayoutNode shopNode)
 		{
 			var items = new List<ShopItem>();
 
 			if (shopNode?.ShopInventoryNodes.Length > 0)
 			{
-				foreach (var itemNode in shopNode.ShopInventoryNodes)
-				{
-					var product = FindInventoryNode(prices, itemNode.InventoryID);
-					if (product == null) Console.WriteLine($"Can't find product {itemNode.Name} ({itemNode.InventoryID}) ");
-					else
-					{
-						var parser = new EntityParser();
-						var entity = parser.Parse(Path.Combine(DataRoot, product.Filename), OnXmlLoadout);
-
-						var item = new ShopItem
-						{
-							name = itemNode.Name.ToLower(),
-							basePriceOffsetPercentage = itemNode.BasePriceOffsetPercentage,
-							maxDiscountPercentage = itemNode.MaxDiscountPercentage,
-							maxPremiumPercentage = itemNode.MaxPremiumPercentage,
-							inventory = itemNode.Inventory,
-							optimalInventoryLevel = itemNode.OptimalInventoryLevel,
-							maxInventory = itemNode.MaxInventory,
-							autoRestock = Convert.ToBoolean(itemNode.AutoRestock),
-							autoConsume = Convert.ToBoolean(itemNode.AutoConsume),
-							refreshRatePercentagePerMinute = itemNode.RefreshRatePercentagePerMinute,
-							shopBuysThis = itemNode.TransactionTypes.Any(x => x.Data == "Sell"),
-							shopSellsThis = itemNode.TransactionTypes.Any(x => x.Data == "Buy"),
-							basePrice = product.BasePrice,
-							filename = product.Filename,
-						};
-
-						if (entity?.Components.SAttachableComponentParams != null)
-						{
-							item.displayName = localisationService.GetText(entity.Components.SAttachableComponentParams.AttachDef.Localization.Name);
-							item.tags = entity.Components.SAttachableComponentParams.AttachDef.Tags.Split(" ");
-							item.type = entity.Components.SAttachableComponentParams.AttachDef.Type;
-							item.subType = entity.Components.SAttachableComponentParams.AttachDef.SubType;
-						}
-
-						if (entity?.Components.CommodityComponentParams != null)
-						{
-							item.displayName = localisationService.GetText(entity.Components.CommodityComponentParams.name);
-						}
-
-						items.Add(item);
-					}
-				}
+				items = shopNode.ShopInventoryNodes.Select(itemNode => GetItemNode(itemNode, prices))
+				                .Where(i => i != null)
+				                .ToList();
 			}
 
 			return items;
 		}
 
-		Node FindInventoryNode(Node node, string inventoryId)
+		private ShopItem GetItemNode(ShopInventoryNode itemNode, Node prices)
 		{
-			if (node.ID == inventoryId) return node;
-
-			if (node.RetailProducts != null)
+			var product = FindInventoryNode(prices, itemNode.InventoryID);
+			if (product == null)
 			{
-				foreach (var n in node.RetailProducts)
-				{
-					var found = FindInventoryNode(n, inventoryId);
-					if (found != null) return found;
-				}
+				_logger.LogWarning($"Can't find product {itemNode.Name} ({itemNode.InventoryID}) ");
+				return null;
 			}
 
-			return null;
+			var entity = _entityParser.Parse(Path.Combine(DataRoot, product.Filename), OnXmlLoadout);
+
+			var item = new ShopItem
+			           {
+				           name = itemNode.Name.ToLower(),
+				           basePriceOffsetPercentage = itemNode.BasePriceOffsetPercentage,
+				           maxDiscountPercentage = itemNode.MaxDiscountPercentage,
+				           maxPremiumPercentage = itemNode.MaxPremiumPercentage,
+				           inventory = itemNode.Inventory,
+				           optimalInventoryLevel = itemNode.OptimalInventoryLevel,
+				           maxInventory = itemNode.MaxInventory,
+				           autoRestock = Convert.ToBoolean(itemNode.AutoRestock),
+				           autoConsume = Convert.ToBoolean(itemNode.AutoConsume),
+				           refreshRatePercentagePerMinute = itemNode.RefreshRatePercentagePerMinute,
+				           shopBuysThis = itemNode.TransactionTypes.Any(x => x.Data == "Sell"),
+				           shopSellsThis = itemNode.TransactionTypes.Any(x => x.Data == "Buy"),
+				           basePrice = product.BasePrice,
+				           filename = product.Filename
+			           };
+
+			if (entity?.Components.SAttachableComponentParams != null)
+			{
+				item.displayName =
+					_localisationService.GetText(entity.Components.SAttachableComponentParams.AttachDef.Localization
+					                                   .Name);
+				item.tags = entity.Components.SAttachableComponentParams.AttachDef.Tags.Split(" ");
+				item.type = entity.Components.SAttachableComponentParams.AttachDef.Type;
+				item.subType = entity.Components.SAttachableComponentParams.AttachDef.SubType;
+			}
+
+			if (entity?.Components.CommodityComponentParams != null)
+			{
+				item.displayName = _localisationService.GetText(entity.Components.CommodityComponentParams.name);
+			}
+
+			return item;
 		}
 
-		T Parse<T>(string xmlFilename)
+		private static Node FindInventoryNode(Node node, string inventoryId)
+		{
+			return node.ID == inventoryId ? node : node.RetailProducts?.Select(n => FindInventoryNode(n, inventoryId)).FirstOrDefault(found => found != null);
+		}
+
+		private static T Parse<T>(string xmlFilename)
 		{
 			string rootNodeName;
 			using (var reader = XmlReader.Create(new StreamReader(xmlFilename)))
@@ -161,12 +177,11 @@ namespace Loader
 			var doc = new XmlDocument();
 			doc.LoadXml(xml);
 
-			var serialiser = new XmlSerializer(typeof(T), new XmlRootAttribute { ElementName = rootNodeName });
-			using (var stream = new XmlNodeReader(doc))
-			{
-				var entity = (T)serialiser.Deserialize(stream);
-				return entity;
-			}
+			var serialiser = new XmlSerializer(typeof(T), new XmlRootAttribute {ElementName = rootNodeName});
+
+			using var stream = new XmlNodeReader(doc);
+			var entity = (T) serialiser.Deserialize(stream);
+			return entity;
 		}
 	}
 }

@@ -1,42 +1,60 @@
+//-----------------------------------------------------------------------
+// <copyright file="D:\projekte\scunpacked\Loader\EntityParser.cs" company="primsoft.NET">
+// Author: Joerg Primke
+// Copyright (c) primsoft.NET. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
+
+using Loader.SCDb.Xml.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
-using System.IO;
-using Loader.SCDb.Xml.Entities;
+using Microsoft.Extensions.Logging;
 
 namespace Loader
 {
 	public class EntityParser
 	{
-		static Dictionary<string, string> filenameToClassMap = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-		static Dictionary<string, EntityClassDefinition> cache = new Dictionary<string, EntityClassDefinition>(StringComparer.OrdinalIgnoreCase);
+		private readonly ILogger<EntityParser> _logger;
+
+		private static readonly Dictionary<string, string> FilenameToClassMap =
+			new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+		private static readonly Dictionary<string, EntityClassDefinition> Cache =
+			new Dictionary<string, EntityClassDefinition>(StringComparer.OrdinalIgnoreCase);
+
+		public EntityParser(ILogger<EntityParser> logger)
+		{
+			_logger = logger;
+		}
 
 		public EntityClassDefinition Parse(string fullXmlPath, Func<string, string> onXmlLoadout)
 		{
-			if (filenameToClassMap.ContainsKey(fullXmlPath))
+			if (FilenameToClassMap.ContainsKey(fullXmlPath))
 			{
-				var className = filenameToClassMap[fullXmlPath];
-				var cached = cache[className];
-				Console.WriteLine("Cached " + className);
+				var className = FilenameToClassMap[fullXmlPath];
+				var cached = Cache[className];
+				_logger.LogInformation($"Cached {className}");
 				return cached;
 			}
 
-			Console.WriteLine(fullXmlPath);
+			_logger.LogInformation(fullXmlPath);
 			if (!File.Exists(fullXmlPath))
 			{
-				Console.WriteLine("Entity definition file does not exist");
+				_logger.LogWarning("Entity definition file does not exist");
 				return null;
 			}
 
 			var entity = ParseEntityDefinition(fullXmlPath, onXmlLoadout);
-			filenameToClassMap.Add(fullXmlPath, entity.ClassName);
-			cache.Add(entity.ClassName, entity);
+			FilenameToClassMap.Add(fullXmlPath, entity.ClassName);
+			Cache.Add(entity.ClassName, entity);
 
 			return entity;
 		}
 
-		EntityClassDefinition ParseEntityDefinition(string shipEntityPath, Func<string, string> onXmlLoadout)
+		private static EntityClassDefinition ParseEntityDefinition(string shipEntityPath, Func<string, string> onXmlLoadout)
 		{
 			string rootNodeName;
 			using (var reader = XmlReader.Create(new StreamReader(shipEntityPath)))
@@ -46,25 +64,27 @@ namespace Loader
 			}
 
 			var split = rootNodeName.Split('.');
-			string className = split[split.Length - 1];
+			var className = split[^1];
 
 			var xml = File.ReadAllText(shipEntityPath);
 			var doc = new XmlDocument();
 			doc.LoadXml(xml);
 
-			var serialiser = new XmlSerializer(typeof(EntityClassDefinition), new XmlRootAttribute { ElementName = rootNodeName });
-			using (var stream = new XmlNodeReader(doc))
+			var serialiser =
+				new XmlSerializer(typeof(EntityClassDefinition), new XmlRootAttribute { ElementName = rootNodeName });
+
+			using var stream = new XmlNodeReader(doc);
+			var entity = (EntityClassDefinition) serialiser.Deserialize(stream);
+			entity.ClassName = className;
+
+			if (entity.Components?.SEntityComponentDefaultLoadoutParams?.loadout?.SItemPortLoadoutXMLParams != null)
 			{
-				var entity = (EntityClassDefinition)serialiser.Deserialize(stream);
-				entity.ClassName = className;
-
-				if (entity.Components?.SEntityComponentDefaultLoadoutParams?.loadout?.SItemPortLoadoutXMLParams != null)
-				{
-					entity.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutXMLParams.loadoutPath = onXmlLoadout(entity.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutXMLParams.loadoutPath);
-				}
-
-				return entity;
+				entity.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutXMLParams.loadoutPath =
+					onXmlLoadout(entity.Components.SEntityComponentDefaultLoadoutParams.loadout
+					                   .SItemPortLoadoutXMLParams.loadoutPath);
 			}
+
+			return entity;
 		}
 	}
 }
