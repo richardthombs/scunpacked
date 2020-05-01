@@ -2,8 +2,7 @@ using System;
 using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
-
-using scdb.Xml.DefaultLoadouts;
+using Loader.SCDb.Xml.DefaultLoadouts;
 
 namespace Loader
 {

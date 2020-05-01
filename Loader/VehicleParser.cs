@@ -3,8 +3,7 @@ using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
-
-using scdb.Xml.Vehicles;
+using Loader.SCDb.Xml.Vehicles;
 
 namespace Loader
 {

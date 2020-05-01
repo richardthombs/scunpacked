@@ -1,7 +1,6 @@
-using System.Xml;
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Shops
+namespace Loader.SCDb.Xml.Shops
 {
 	// This is a node in the the RetailProductPrices XML file
 	public class Node

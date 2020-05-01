@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 
-using scdb.Xml.Entities;
-
 namespace Loader
 {
 	public class LocalisationService

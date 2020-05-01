@@ -1,7 +1,6 @@
-using System.Xml;
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class DamageResistanceEntry
 	{

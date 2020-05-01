@@ -2,10 +2,8 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
-
+using Loader.SCDb.Xml.Entities;
 using Newtonsoft.Json;
-
-using scdb.Xml.Entities;
 
 namespace Loader
 {

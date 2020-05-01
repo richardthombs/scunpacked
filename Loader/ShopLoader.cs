@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
-
-using scdb.Xml.Shops;
-using scdb.Xml.Entities;
+using Loader.SCDb.Xml.Shops;
 
 namespace Loader
 {

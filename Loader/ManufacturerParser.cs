@@ -2,8 +2,7 @@ using System;
 using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
-
-using scdb.Xml.Entities;
+using Loader.SCDb.Xml.Entities;
 
 namespace Loader
 {

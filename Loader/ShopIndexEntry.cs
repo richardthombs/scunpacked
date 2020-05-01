@@ -1,4 +1,4 @@
-using scdb.Xml.Entities;
+using Loader.SCDb.Xml.Entities;
 
 namespace Loader
 {

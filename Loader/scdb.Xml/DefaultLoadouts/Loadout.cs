@@ -1,4 +1,4 @@
-namespace scdb.Xml.DefaultLoadouts
+namespace Loader.SCDb.Xml.DefaultLoadouts
 {
 	public class Loadout
 	{
