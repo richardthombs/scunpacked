@@ -8,9 +8,9 @@ namespace Loader.SCDb.Xml.Entities
 		public double CoolingRate;
 
 		[XmlAttribute]
-		public double SuppressionIRFactor;
+		public double SuppressionHeatFactor;
 
 		[XmlAttribute]
-		public double SuppressionHeatFactor;
+		public double SuppressionIRFactor;
 	}
 }

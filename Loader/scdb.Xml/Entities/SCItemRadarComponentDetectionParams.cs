@@ -14,9 +14,9 @@ namespace Loader.SCDb.Xml.Entities
 		public double partialDetectionRange;
 
 		[XmlAttribute]
-		public double timeoutRangeMultiplier;
+		public double signatureBoostMultiplier;
 
 		[XmlAttribute]
-		public double signatureBoostMultiplier;
+		public double timeoutRangeMultiplier;
 	}
 }

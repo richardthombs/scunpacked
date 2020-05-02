@@ -5,32 +5,33 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using Loader.SCDb.Xml.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
+using Loader.SCDb.Xml.Entities;
 using Microsoft.Extensions.Logging;
 
-namespace Loader
+namespace Loader.Parser
 {
 	public class EntityParser
 	{
-		private readonly ILogger<EntityParser> _logger;
-
 		private static readonly Dictionary<string, string> FilenameToClassMap =
 			new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
 		private static readonly Dictionary<string, EntityClassDefinition> Cache =
 			new Dictionary<string, EntityClassDefinition>(StringComparer.OrdinalIgnoreCase);
 
+		private readonly ILogger<EntityParser> _logger;
+
 		public EntityParser(ILogger<EntityParser> logger)
 		{
 			_logger = logger;
 		}
 
-		public EntityClassDefinition Parse(string fullXmlPath, Func<string, string> onXmlLoadout)
+		public async Task<EntityClassDefinition> Parse(string fullXmlPath, Func<string, Task<string>> onXmlLoadout)
 		{
 			if (FilenameToClassMap.ContainsKey(fullXmlPath))
 			{
@@ -47,14 +48,15 @@ namespace Loader
 				return null;
 			}
 
-			var entity = ParseEntityDefinition(fullXmlPath, onXmlLoadout);
+			var entity = await ParseEntityDefinition(fullXmlPath, onXmlLoadout);
 			FilenameToClassMap.Add(fullXmlPath, entity.ClassName);
 			Cache.Add(entity.ClassName, entity);
 
 			return entity;
 		}
 
-		private static EntityClassDefinition ParseEntityDefinition(string shipEntityPath, Func<string, string> onXmlLoadout)
+		private static async Task<EntityClassDefinition> ParseEntityDefinition(
+			string shipEntityPath, Func<string, Task<string>> onXmlLoadout)
 		{
 			string rootNodeName;
 			using (var reader = XmlReader.Create(new StreamReader(shipEntityPath)))
@@ -70,8 +72,8 @@ namespace Loader
 			var doc = new XmlDocument();
 			doc.LoadXml(xml);
 
-			var serialiser =
-				new XmlSerializer(typeof(EntityClassDefinition), new XmlRootAttribute { ElementName = rootNodeName });
+			var serialiser = new XmlSerializer(typeof(EntityClassDefinition),
+			                                   new XmlRootAttribute {ElementName = rootNodeName});
 
 			using var stream = new XmlNodeReader(doc);
 			var entity = (EntityClassDefinition) serialiser.Deserialize(stream);
@@ -80,8 +82,8 @@ namespace Loader
 			if (entity.Components?.SEntityComponentDefaultLoadoutParams?.loadout?.SItemPortLoadoutXMLParams != null)
 			{
 				entity.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutXMLParams.loadoutPath =
-					onXmlLoadout(entity.Components.SEntityComponentDefaultLoadoutParams.loadout
-					                   .SItemPortLoadoutXMLParams.loadoutPath);
+					await onXmlLoadout(entity.Components.SEntityComponentDefaultLoadoutParams.loadout
+					                         .SItemPortLoadoutXMLParams.loadoutPath);
 			}
 
 			return entity;

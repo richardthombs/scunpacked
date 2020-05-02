@@ -5,9 +5,9 @@ namespace Loader.SCDb.Xml.Vehicles
 	public class Connection
 	{
 		[XmlAttribute]
-		public string pipeClass;
+		public string pipe;
 
 		[XmlAttribute]
-		public string pipe;
+		public string pipeClass;
 	}
 }

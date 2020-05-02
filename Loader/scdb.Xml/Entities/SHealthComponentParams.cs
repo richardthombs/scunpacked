@@ -4,9 +4,9 @@ namespace Loader.SCDb.Xml.Entities
 {
 	public class SHealthComponentParams
 	{
+		public DamageResistances DamageResistances;
+
 		[XmlAttribute]
 		public double Health;
-
-		public DamageResistances DamageResistances;
 	}
 }

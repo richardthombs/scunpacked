@@ -5,22 +5,22 @@ namespace Loader.SCDb.Xml.Vehicles
 	public class Part
 	{
 		[XmlAttribute]
-		public string name;
+		public string @class;
+
+		[XmlAttribute]
+		public double damageMax;
+
+		public ItemPort ItemPort;
 
 		[XmlAttribute]
 		public string mass; // Because 3.8.0 PTU has got dodgy data in the mass attribute
 
 		[XmlAttribute]
-		public double damageMax;
-
-		[XmlAttribute]
-		public string @class;
-
-		[XmlAttribute]
-		public bool skipPart;
+		public string name;
 
 		public Part[] Parts;
 
-		public ItemPort ItemPort;
+		[XmlAttribute]
+		public bool skipPart;
 	}
 }

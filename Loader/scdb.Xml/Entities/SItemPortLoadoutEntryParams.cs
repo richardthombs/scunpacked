@@ -5,10 +5,10 @@ namespace Loader.SCDb.Xml.Entities
 	public class SItemPortLoadoutEntryParams
 	{
 		[XmlAttribute]
-		public string itemPortName;
+		public string entityClassName;
 
 		[XmlAttribute]
-		public string entityClassName;
+		public string itemPortName;
 
 		public loadout loadout;
 	}

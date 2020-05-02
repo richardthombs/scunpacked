@@ -5,12 +5,12 @@ namespace Loader.SCDb.Xml.Entities
 	public class SCItemFuelTankParams
 	{
 		[XmlAttribute]
-		public double fillRate;
+		public double capacity;
 
 		[XmlAttribute]
 		public double drainRate;
 
 		[XmlAttribute]
-		public double capacity;
+		public double fillRate;
 	}
 }

@@ -5,10 +5,10 @@ namespace Loader.SCDb.Xml.Entities
 	public class SCItemRadarComponentParams
 	{
 		[XmlAttribute]
-		public double detectionLifetime;
+		public double altitudeCeiling;
 
 		[XmlAttribute]
-		public double altitudeCeiling;
+		public double detectionLifetime;
 
 		[XmlAttribute]
 		public double enableCrossSectionOcclusion;

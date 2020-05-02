@@ -5,7 +5,16 @@ namespace Loader.SCDb.Xml.Entities
 	public class SCItemEMPParams
 	{
 		[XmlAttribute]
+		public string ChargedTag;
+
+		[XmlAttribute]
 		public double chargeTime;
+
+		[XmlAttribute]
+		public string ChargingTag;
+
+		[XmlAttribute]
+		public double cooldownTime;
 
 		[XmlAttribute]
 		public double distortionDamage;
@@ -17,42 +26,33 @@ namespace Loader.SCDb.Xml.Entities
 		public double minEmpRadius;
 
 		[XmlAttribute]
-		public double physRadius;
+		public double minPhysRadius;
 
 		[XmlAttribute]
-		public double minPhysRadius;
+		public double physRadius;
 
 		[XmlAttribute]
 		public double pressure;
 
 		[XmlAttribute]
-		public double unleashTime;
-
-		[XmlAttribute]
-		public double cooldownTime;
-
-		[XmlAttribute]
-		public string ChargingTag;
-
-		[XmlAttribute]
-		public string ChargedTag;
+		public string StartChargedTrigger;
 
 		[XmlAttribute]
 		public string StartChargingTrigger;
 
 		[XmlAttribute]
-		public string StopChargingTrigger;
-
-		[XmlAttribute]
-		public string StartChargedTrigger;
+		public string StartUnleashTrigger;
 
 		[XmlAttribute]
 		public string StopChargedTrigger;
 
 		[XmlAttribute]
-		public string StartUnleashTrigger;
+		public string StopChargingTrigger;
 
 		[XmlAttribute]
 		public string StopUnleashTrigger;
+
+		[XmlAttribute]
+		public double unleashTime;
 	}
 }

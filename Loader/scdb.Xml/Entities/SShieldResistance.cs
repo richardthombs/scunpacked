@@ -9,6 +9,5 @@ namespace Loader.SCDb.Xml.Entities
 
 		[XmlAttribute]
 		public double Min;
-
 	}
 }

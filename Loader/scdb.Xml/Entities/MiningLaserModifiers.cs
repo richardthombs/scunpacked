@@ -4,13 +4,15 @@ namespace Loader.SCDb.Xml.Entities
 {
 	public class MiningLaserModifiers
 	{
+		public MiningLaserModifier catastrophicChargeWindowRateModifier;
+
+		public MiningLaserModifier laserInstability;
+		public MiningLaserModifier optimalChargeWindowRateModifier;
+		public MiningLaserModifier optimalChargeWindowSizeModifier;
+
 		[XmlAttribute]
 		public double resistanceModifier;
 
-		public MiningLaserModifier laserInstability;
-		public MiningLaserModifier optimalChargeWindowSizeModifier;
 		public MiningLaserModifier shatterdamageModifier;
-		public MiningLaserModifier optimalChargeWindowRateModifier;
-		public MiningLaserModifier catastrophicChargeWindowRateModifier;
 	}
 }

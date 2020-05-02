@@ -5,9 +5,9 @@ namespace Loader.SCDb.Xml.Vehicles
 	public class PriorityGroup
 	{
 		[XmlAttribute]
-		public string itemType;
+		public string defaultPriority;
 
 		[XmlAttribute]
-		public string defaultPriority;
+		public string itemType;
 	}
 }

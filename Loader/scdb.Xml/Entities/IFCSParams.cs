@@ -5,19 +5,7 @@ namespace Loader.SCDb.Xml.Entities
 	public class IFCSParams
 	{
 		[XmlAttribute]
-		public double maxSpeed;
-
-		[XmlAttribute]
-		public double maxAfterburnSpeed;
-
-		[XmlAttribute]
-		public double torqueDistanceThreshold;
-
-		[XmlAttribute]
-		public bool refreshCachesOnLandingMode;
-
-		[XmlAttribute]
-		public double coefficientOfLift;
+		public double angularTurbulenceAmplitude;
 
 		[XmlAttribute]
 		public double centerOfLiftOffset;
@@ -26,21 +14,33 @@ namespace Loader.SCDb.Xml.Entities
 		public double centerOfPressureOffset;
 
 		[XmlAttribute]
-		public double linearTurbulenceAmplitude;
-
-		[XmlAttribute]
-		public double angularTurbulenceAmplitude;
+		public double coefficientOfLift;
 
 		[XmlAttribute]
 		public double groundTurbulenceAmplitude;
 
 		[XmlAttribute]
-		public double precisionMinDistance;
+		public double linearTurbulenceAmplitude;
+
+		[XmlAttribute]
+		public double maxAfterburnSpeed;
+
+		[XmlAttribute]
+		public double maxSpeed;
+
+		[XmlAttribute]
+		public double precisionLandingMultiplier;
 
 		[XmlAttribute]
 		public double precisionMaxDistance;
 
 		[XmlAttribute]
-		public double precisionLandingMultiplier;
+		public double precisionMinDistance;
+
+		[XmlAttribute]
+		public bool refreshCachesOnLandingMode;
+
+		[XmlAttribute]
+		public double torqueDistanceThreshold;
 	}
 }

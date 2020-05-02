@@ -5,13 +5,7 @@ namespace Loader.SCDb.Xml.Entities
 	public class SSharedInteractionParams
 	{
 		[XmlAttribute]
-		public string Name;
-
-		[XmlAttribute]
-		public string RoomTag;
-
-		[XmlAttribute]
-		public string UsableTag;
+		public bool available;
 
 		[XmlAttribute]
 		public string DisplayName;
@@ -20,13 +14,10 @@ namespace Loader.SCDb.Xml.Entities
 		public string DisplayType;
 
 		[XmlAttribute]
-		public string GenericCursor;
-
-		[XmlAttribute]
 		public bool FocusModeOnly;
 
 		[XmlAttribute]
-		public bool Sendable;
+		public string GenericCursor;
 
 		[XmlAttribute]
 		public bool Linkable;
@@ -35,9 +26,18 @@ namespace Loader.SCDb.Xml.Entities
 		public bool LockedByLinks;
 
 		[XmlAttribute]
+		public string Name;
+
+		[XmlAttribute]
 		public bool RequiresAuthorizedUser;
 
 		[XmlAttribute]
-		public bool available;
+		public string RoomTag;
+
+		[XmlAttribute]
+		public bool Sendable;
+
+		[XmlAttribute]
+		public string UsableTag;
 	}
 }

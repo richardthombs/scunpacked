@@ -1,10 +1,10 @@
 using System;
+using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
-using System.IO;
 using Loader.SCDb.Xml.DefaultLoadouts;
 
-namespace Loader
+namespace Loader.Parser
 {
 	public class DefaultLoadoutParser
 	{
@@ -19,9 +19,8 @@ namespace Loader
 			return ParseLoadout(fullXmlPath);
 		}
 
-		Loadout ParseLoadout(string loadoutPath)
+		private Loadout ParseLoadout(string loadoutPath)
 		{
-
 			var xml = File.ReadAllText(loadoutPath);
 			var doc = new XmlDocument();
 			doc.LoadXml(xml);
@@ -29,7 +28,7 @@ namespace Loader
 			var serialiser = new XmlSerializer(typeof(Loadout));
 			using (var stream = new XmlNodeReader(doc))
 			{
-				var loadout = (Loadout)serialiser.Deserialize(stream);
+				var loadout = (Loadout) serialiser.Deserialize(stream);
 				return loadout;
 			}
 		}

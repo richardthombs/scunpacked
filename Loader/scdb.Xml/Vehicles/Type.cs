@@ -5,9 +5,9 @@ namespace Loader.SCDb.Xml.Vehicles
 	public class Type
 	{
 		[XmlAttribute]
-		public string type;
+		public string subtypes;
 
 		[XmlAttribute]
-		public string subtypes;
+		public string type;
 	}
 }

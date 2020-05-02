@@ -5,18 +5,18 @@ namespace Loader.SCDb.Xml.Entities
 	public class CommodityComponentParams
 	{
 		[XmlAttribute]
-		public string type;
+		public string description;
 
 		[XmlAttribute]
-		public string subtype;
+		public bool IsUnrefinedElement;
 
 		[XmlAttribute]
 		public string name;
 
 		[XmlAttribute]
-		public string description;
+		public string subtype;
 
 		[XmlAttribute]
-		public bool IsUnrefinedElement;
+		public string type;
 	}
 }

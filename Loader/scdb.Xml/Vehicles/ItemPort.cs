@@ -4,11 +4,11 @@ namespace Loader.SCDb.Xml.Vehicles
 {
 	public class ItemPort
 	{
-		[XmlAttribute]
-		public int minsize;
+		public Connection[] Connections;
+		public ControllerDef ControllerDef;
 
 		[XmlAttribute]
-		public int maxsize;
+		public string defaultWeaponGroup;
 
 		[XmlAttribute]
 		public string display_name;
@@ -17,18 +17,20 @@ namespace Loader.SCDb.Xml.Vehicles
 		public string flags;
 
 		[XmlAttribute]
-		public string defaultWeaponGroup;
+		public string id;
 
 		[XmlAttribute]
-		public string id;
+		public int maxsize;
+
+		[XmlAttribute]
+		public int minsize;
+
+		public AngleRange Pitch;
 
 		[XmlAttribute]
 		public string requiredTags;
 
 		public Type[] Types;
-		public Connection[] Connections;
-		public ControllerDef ControllerDef;
-		public AngleRange Pitch;
 		public AngleRange Yaw;
 	}
 }

@@ -4,51 +4,51 @@ namespace Loader.SCDb.Xml.Entities
 {
 	public class ExplosionParams
 	{
-		[XmlAttribute]
-		public string friendlyFire;
-
-		[XmlAttribute]
-		public double minRadius;
-
-		[XmlAttribute]
-		public double maxRadius;
-
-		[XmlAttribute]
-		public double soundRadius;
-
-		[XmlAttribute]
-		public double minPhysRadius;
-
-		[XmlAttribute]
-		public double maxPhysRadius;
-
-		[XmlAttribute]
-		public double pressure;
-
-		[XmlAttribute]
-		public double holeSize;
-
-		[XmlAttribute]
-		public double terrainHoleSize;
-
-		[XmlAttribute]
-		public double maxblurdist;
+		public DamageInfo[] damage;
 
 		[XmlAttribute]
 		public double effectScale;
 
 		[XmlAttribute]
-		public double useRandomScale;
+		public double effectScaleMax;
 
 		[XmlAttribute]
 		public double effectScaleMin;
 
 		[XmlAttribute]
-		public double effectScaleMax;
+		public string friendlyFire;
 
 		[XmlAttribute]
 		public string hitType;
 
-		public DamageInfo[] damage;
+		[XmlAttribute]
+		public double holeSize;
+
+		[XmlAttribute]
+		public double maxblurdist;
+
+		[XmlAttribute]
+		public double maxPhysRadius;
+
+		[XmlAttribute]
+		public double maxRadius;
+
+		[XmlAttribute]
+		public double minPhysRadius;
+
+		[XmlAttribute]
+		public double minRadius;
+
+		[XmlAttribute]
+		public double pressure;
+
+		[XmlAttribute]
+		public double soundRadius;
+
+		[XmlAttribute]
+		public double terrainHoleSize;
+
+		[XmlAttribute]
+		public double useRandomScale;
 	}
 }

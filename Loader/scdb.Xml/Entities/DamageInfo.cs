@@ -4,23 +4,22 @@ namespace Loader.SCDb.Xml.Entities
 {
 	public class DamageInfo
 	{
-
 		[XmlAttribute]
-		public double DamagePhysical;
-
-		[XmlAttribute]
-		public double DamageEnergy;
+		public double DamageBiochemical;
 
 		[XmlAttribute]
 		public double DamageDistortion;
 
 		[XmlAttribute]
-		public double DamageThermal;
+		public double DamageEnergy;
 
 		[XmlAttribute]
-		public double DamageBiochemical;
+		public double DamagePhysical;
 
 		[XmlAttribute]
 		public double DamageStun;
+
+		[XmlAttribute]
+		public double DamageThermal;
 	}
 }

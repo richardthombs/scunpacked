@@ -4,34 +4,34 @@ namespace Loader.SCDb.Xml.Vehicles
 {
 	public class Vehicle
 	{
+		public Camera[] Cameras;
+
 		[XmlAttribute]
-		public string name;
+		public string crossSectionMultiplier;
 
 		[XmlAttribute]
 		public string displayname;
 
 		[XmlAttribute]
-		public string subType;
+		public string itemPortTags;
+
+		public Modification[] Modifications;
+		public MovementParams MovementParams;
 
 		[XmlAttribute]
-		public int size;
+		public string name;
+
+		public Part[] Parts;
+
+		public Pipe[] Pipes;
 
 		[XmlAttribute]
 		public string requiredItemTags;
 
 		[XmlAttribute]
-		public string itemPortTags;
+		public int size;
 
 		[XmlAttribute]
-		public string crossSectionMultiplier;
-
-		public Camera[] Cameras;
-
-		public Pipe[] Pipes;
-
-		public Part[] Parts;
-		public MovementParams MovementParams;
-
-		public Modification[] Modifications;
+		public string subType;
 	}
 }

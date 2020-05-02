@@ -5,18 +5,20 @@ namespace Loader.SCDb.Xml.Entities
 	public class SWeaponConnectionParams
 	{
 		[XmlAttribute]
-		public double powerActiveCooldown;
-
-		[XmlAttribute]
 		public double heatRateOnline;
+
+		public SWeaponStats heatStats;
 
 		[XmlAttribute]
 		public double maxGlow;
 
 		public SWeaponStats noPowerStats;
-		public SWeaponStats underpowerStats;
-		public SWeaponStats overpowerStats;
 		public SWeaponStats overclockStats;
-		public SWeaponStats heatStats;
+		public SWeaponStats overpowerStats;
+
+		[XmlAttribute]
+		public double powerActiveCooldown;
+
+		public SWeaponStats underpowerStats;
 	}
 }

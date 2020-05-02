@@ -5,18 +5,18 @@ namespace Loader.SCDb.Xml.Entities
 	public class SCItemTurretParams
 	{
 		[XmlAttribute]
-		public string rotationStyle;
+		public double inputLevelOverOneRate;
 
 		[XmlAttribute]
 		public double inputLevelUnderOneRate;
-
-		[XmlAttribute]
-		public double inputLevelOverOneRate;
 
 		[XmlAttribute]
 		public double joystickSensitivityBoost;
 
 		[XmlAttribute]
 		public double powerRequirement;
+
+		[XmlAttribute]
+		public string rotationStyle;
 	}
 }

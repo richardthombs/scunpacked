@@ -4,15 +4,15 @@ namespace Loader.SCDb.Xml.Entities
 {
 	public class SCItemVehicleArmorParams
 	{
+		public DamageMultiplier damageMultiplier;
+
 		[XmlAttribute]
-		public double signalInfrared;
+		public double signalCrossSection;
 
 		[XmlAttribute]
 		public double signalElectromagnetic;
 
 		[XmlAttribute]
-		public double signalCrossSection;
-
-		public DamageMultiplier damageMultiplier;
+		public double signalInfrared;
 	}
 }

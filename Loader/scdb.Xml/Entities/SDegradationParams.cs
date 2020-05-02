@@ -5,12 +5,12 @@ namespace Loader.SCDb.Xml.Entities
 	public class SDegradationParams
 	{
 		[XmlAttribute]
-		public double MaxLifetimeHours;
+		public bool DegradeOnlyWhenAttached;
 
 		[XmlAttribute]
 		public double InitialAgeRatio;
 
 		[XmlAttribute]
-		public bool DegradeOnlyWhenAttached;
+		public double MaxLifetimeHours;
 	}
 }

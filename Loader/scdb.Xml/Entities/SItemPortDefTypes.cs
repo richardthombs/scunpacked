@@ -4,10 +4,10 @@ namespace Loader.SCDb.Xml.Entities
 {
 	public class SItemPortDefTypes
 	{
+		public Enum[] SubTypes;
+
 		[XmlAttribute]
 		public string Type;
-
-		public Enum[] SubTypes;
 	}
 
 	public class Enum

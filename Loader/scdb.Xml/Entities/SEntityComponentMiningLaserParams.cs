@@ -7,9 +7,9 @@ namespace Loader.SCDb.Xml.Entities
 		[XmlAttribute]
 		public string globalParams;
 
+		public MiningLaserModifiers miningLaserModifiers;
+
 		[XmlAttribute]
 		public string throttleLerpSpeed;
-
-		public MiningLaserModifiers miningLaserModifiers;
 	}
 }
