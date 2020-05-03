@@ -21,6 +21,8 @@ namespace GenericHostTest
 		public string SCData { get; set; }
 		public string Output { get; set; }
 		public string ItemFile { get; set; }
+
+		public bool WriteRawJsonFiles { get; set; } = true;
 	}
 
 	internal class Program
@@ -36,8 +38,10 @@ namespace GenericHostTest
 				                     {"--scdata", "SCData"},
 				                     {"--input", "SCData"},
 				                     {"--output", "Output"},
-				                     {"--itemfile", "ItemFile"}
-			                     };
+				                     {"--itemfile", "ItemFile"},
+				                     {"--writeJson", "WriteRawJsonFiles"},
+									 {"-writeJson", "WriteRawJsonFiles"}
+								 };
 
 			var host = Host.CreateDefaultBuilder()	// without args because we can't change it later
 			               .ConfigureAppConfiguration(builder => { builder.AddCommandLine(args, switchMappings); })

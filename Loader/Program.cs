@@ -17,8 +17,12 @@ namespace Loader
 {
 	internal class Program
 	{
-		private static async Task Main(string[] args)
+		private static void Main(string[] args)
 		{
+			var ci = System.Globalization.CultureInfo.GetCultureInfo("de-DE");
+			System.Threading.Thread.CurrentThread.CurrentCulture = ci;
+			System.Threading.Thread.CurrentThread.CurrentUICulture = ci;
+
 			JsonConvert.DefaultSettings = () => new JsonSerializerSettings
 			                                    {
 				                                    Formatting = Formatting.Indented,
@@ -34,10 +38,12 @@ namespace Loader
 				                     {"--scdata", "SCData"},
 				                     {"--input", "SCData"},
 				                     {"--output", "Output"},
-				                     {"--itemfile", "ItemFile"}
+				                     {"--itemfile", "ItemFile"},
+				                     {"--writeJson", "WriteRawJsonFiles"},
+				                     {"-writeJson", "WriteRawJsonFiles"}
 			                     };
 
-			var host = Host.CreateDefaultBuilder() // WARNING without args! because we can't change it later
+			var host = Host.CreateDefaultBuilder() // HACK without args! because we can't change it later
 			               .ConfigureAppConfiguration(builder => { builder.AddCommandLine(args, switchMappings); })
 			               .ConfigureServices((hostContext, services) =>
 			                                  {
@@ -48,7 +54,7 @@ namespace Loader
 			                                  })
 			               .Build();
 
-			await host.RunAsync();
+			host.Run();
 		}
 	}
 }

@@ -29,17 +29,25 @@ namespace Loader.Loader
 		{
 			"ships",
 			"vehicles",
-			"doors"
+			"doors",
+			"harvestables",
+			"consumables",
+			"characters",
+			"weapons"
 		};
+
+		private readonly LocalisationService _localisationService;
 
 		private readonly ILogger<ItemLoader> _logger;
 		private readonly ServiceOptions _options;
 
 		public ItemLoader(ILogger<ItemLoader> logger, EntityParser entityParser,
-		                  ManufacturersService manufacturersService, IOptions<ServiceOptions> options)
+		                  LoaderService<Manufacturer> manufacturersService, IOptions<ServiceOptions> options,
+		                  LocalisationService localisationService)
 		{
 			_logger = logger;
 			_entityParser = entityParser;
+			_localisationService = localisationService;
 			Manufacturers = manufacturersService.Items;
 			_options = options.Value;
 		}
@@ -55,13 +63,10 @@ namespace Loader.Loader
 			Directory.CreateDirectory(OutputFolder);
 
 			var index = new List<Item>();
-			foreach (var folder in _include)
+			await foreach (var item in
+				LoadAndWriteJsonFile(@"Data\Libs\Foundry\Records\entities\scitem"))
 			{
-				await foreach (var item in
-					LoadAndWriteJsonFile(Path.Combine(@"Data\Libs\Foundry\Records\entities\scitem", folder)))
-				{
-					index.Add(item);
-				}
+				index.Add(item);
 			}
 
 			return index;
@@ -90,11 +95,17 @@ namespace Loader.Loader
 				}
 
 				var jsonFilename = Path.Combine(OutputFolder, $"{entity.ClassName.ToLower()}.json");
-				var json = JsonConvert.SerializeObject(new {Raw = new {Entity = entity}});
-				await File.WriteAllTextAsync(jsonFilename, json);
+				if (_options.WriteRawJsonFiles)
+				{
+					var json = JsonConvert.SerializeObject(new {Raw = new {Entity = entity}});
+					await File.WriteAllTextAsync(jsonFilename, json);
+				}
 
+				var manufacturer =
+					FindManufacturer(entity.Components?.SAttachableComponentParams?.AttachDef.Manufacturer);
 				yield return new Item
 				             {
+								 Id = new Guid(entity.Id),
 					             JsonFilename = Path.GetRelativePath(Path.GetDirectoryName(OutputFolder), jsonFilename),
 					             ClassName = entity.ClassName,
 					             ItemName = entity.ClassName.ToLower(),
@@ -102,18 +113,22 @@ namespace Loader.Loader
 					             SubType = entity.Components?.SAttachableComponentParams?.AttachDef.SubType,
 					             Size = entity.Components?.SAttachableComponentParams?.AttachDef.Size,
 					             Grade = entity.Components?.SAttachableComponentParams?.AttachDef.Grade,
-					             Name = entity.Components?.SAttachableComponentParams?.AttachDef.Localization.Name,
-					             Manufacturer =
-						             FindManufacturer(entity.Components?.SAttachableComponentParams?.AttachDef
-						                                    .Manufacturer)
-							             ?.Code
+					             Name =
+						             _localisationService.GetText(entity.Components?.SAttachableComponentParams
+						                                                ?.AttachDef.Localization.Name),
+					             Description =
+						             _localisationService.GetText(entity.Components?.SAttachableComponentParams
+						                                                ?.AttachDef.Localization.Description),
+					             Manufacturer = manufacturer,
+							     ManufacturerId = manufacturer.Id
 				             };
 			}
 		}
 
 		private Manufacturer FindManufacturer(string reference)
 		{
-			return Manufacturers.FirstOrDefault(x => x.Reference == reference);
+			return Manufacturers.FirstOrDefault(x => x.Id.ToString() == reference) ??
+			       Manufacturers.First(x => x.Code == "UNKN");
 		}
 
 		private bool AvoidFile(string filename)

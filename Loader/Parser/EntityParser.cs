@@ -6,7 +6,7 @@
 // -----------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.IO;
 using System.Threading.Tasks;
 using System.Xml;
@@ -18,11 +18,11 @@ namespace Loader.Parser
 {
 	public class EntityParser
 	{
-		private static readonly Dictionary<string, string> FilenameToClassMap =
-			new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+		private static readonly ConcurrentDictionary<string, string> FilenameToClassMap =
+			new ConcurrentDictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
-		private static readonly Dictionary<string, EntityClassDefinition> Cache =
-			new Dictionary<string, EntityClassDefinition>(StringComparer.OrdinalIgnoreCase);
+		private static readonly ConcurrentDictionary<string, EntityClassDefinition> Cache =
+			new ConcurrentDictionary<string, EntityClassDefinition>(StringComparer.OrdinalIgnoreCase);
 
 		private readonly ILogger<EntityParser> _logger;
 
@@ -49,13 +49,13 @@ namespace Loader.Parser
 			}
 
 			var entity = await ParseEntityDefinition(fullXmlPath, onXmlLoadout);
-			FilenameToClassMap.Add(fullXmlPath, entity.ClassName);
-			Cache.Add(entity.ClassName, entity);
+			FilenameToClassMap.TryAdd(fullXmlPath, entity.ClassName);
+			Cache.TryAdd(entity.ClassName, entity);
 
 			return entity;
 		}
 
-		private static async Task<EntityClassDefinition> ParseEntityDefinition(
+		private async Task<EntityClassDefinition> ParseEntityDefinition(
 			string shipEntityPath, Func<string, Task<string>> onXmlLoadout)
 		{
 			string rootNodeName;
@@ -76,17 +76,25 @@ namespace Loader.Parser
 			                                   new XmlRootAttribute {ElementName = rootNodeName});
 
 			using var stream = new XmlNodeReader(doc);
-			var entity = (EntityClassDefinition) serialiser.Deserialize(stream);
-			entity.ClassName = className;
-
-			if (entity.Components?.SEntityComponentDefaultLoadoutParams?.loadout?.SItemPortLoadoutXMLParams != null)
+			try
 			{
-				entity.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutXMLParams.loadoutPath =
-					await onXmlLoadout(entity.Components.SEntityComponentDefaultLoadoutParams.loadout
-					                         .SItemPortLoadoutXMLParams.loadoutPath);
-			}
+				var entity = (EntityClassDefinition) serialiser.Deserialize(stream);
+				entity.ClassName = className;
 
-			return entity;
+				if (entity.Components?.SEntityComponentDefaultLoadoutParams?.loadout?.SItemPortLoadoutXMLParams != null)
+				{
+					entity.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutXMLParams.loadoutPath
+						= await onXmlLoadout(entity.Components.SEntityComponentDefaultLoadoutParams.loadout
+						                           .SItemPortLoadoutXMLParams.loadoutPath);
+				}
+
+				return entity;
+			}
+			catch (Exception ex)
+			{
+				_logger.LogError(ex, "Error in {0}", nameof(ParseEntityDefinition));
+				throw;
+			}
 		}
 	}
 }

@@ -42,49 +42,57 @@ namespace Loader
 		public Task StopAsync(CancellationToken cancellationToken)
 		{
 			CancellationTokenSource.Cancel();
-			// Defer completion promise, until our application has reported it is done.
 			return TaskCompletionSource.Task;
 		}
 
 		public async Task DoWork(CancellationToken cancellationToken)
 		{
-			if (!OptionsAreWrong())
+			try
 			{
-				if (_options.ItemFile != null)
+				if (OptionsAreOk())
 				{
-					var entity = new EntityParser(null).Parse(_options.ItemFile, Task.FromResult);
-					var json = JsonConvert.SerializeObject(entity);
-					Console.WriteLine(json);
-				}
-				else
-				{
-					if (!cancellationToken.IsCancellationRequested)
+					if (_options.ItemFile != null)
 					{
-						CreateOrCleanupOutputDirectory();
+						var entityParser = _serviceProvider.GetService<EntityParser>();
+						var entity = entityParser.Parse(_options.ItemFile, Task.FromResult);
+						var json = JsonConvert.SerializeObject(entity);
+						Console.WriteLine(json);
+					}
+					else
+					{
+						if (!cancellationToken.IsCancellationRequested)
+						{
+							CreateOrCleanupOutputDirectory();
 
-						var manufacturerService = _serviceProvider.GetService<LoaderService<Manufacturer>>();
-						var taskWriteManufacturer = manufacturerService.WriteItems(cancellationToken);
+							var manufacturerService = _serviceProvider.GetService<LoaderService<Manufacturer>>();
+							await manufacturerService.WriteItems(cancellationToken);
 
-						var shipsService = _serviceProvider.GetService<LoaderService<Ship>>();
-						var taskWriteShips = shipsService.WriteItems(cancellationToken);
+							var shipsService = _serviceProvider.GetService<LoaderService<Ship>>();
+							await shipsService.WriteItems(cancellationToken);
 
-						var itemService = _serviceProvider.GetService<LoaderService<Item>>();
-						var taskWriteItems = itemService.WriteItems(cancellationToken);
+							var itemService = _serviceProvider.GetService<LoaderService<Item>>();
+							await itemService.WriteItems(cancellationToken);
 
-						var shopService = _serviceProvider.GetService<LoaderService<Shop>>();
-						var taskWriteShops = shopService.WriteItems(cancellationToken);
+							var retailsService = _serviceProvider.GetService<LoaderService<RetailProduct>>();
+							await retailsService.WriteItems(cancellationToken);
 
-						Task.WaitAll(taskWriteManufacturer, taskWriteShips, taskWriteItems, taskWriteShops);
+							var shopService = _serviceProvider.GetService<LoaderService<Shop>>();
+							await shopService.WriteItems(cancellationToken);
+						}
 					}
 				}
 			}
-
+			catch (Exception ex)
+			{
+				_logger.LogCritical(ex, "Exception occured");
+			}
+			
 			_logger.LogInformation("Stopping");
 			TaskCompletionSource.SetResult(true);
 			_applictionLifetime.StopApplication();
 		}
 
-		private bool OptionsAreWrong()
+		private bool OptionsAreOk()
 		{
 			var badArgs = false;
 			if (!string.IsNullOrEmpty(_options.ItemFile) &&

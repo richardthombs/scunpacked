@@ -9,14 +9,12 @@ namespace Loader.Services
 {
 	internal class ShopService : LoaderService<Shop>
 	{
-		private readonly LoadoutLoader _loadoutLoader;
 		private readonly ShopLoader _shopLoader;
 
-		public ShopService(ILogger<ShopService> logger, IOptions<ServiceOptions> options, LoadoutLoader loadoutLoader,
+		public ShopService(ILogger<ShopService> logger, IOptions<ServiceOptions> options,
 		                   ShopLoader shopLoader)
 			: base(logger, options)
 		{
-			_loadoutLoader = loadoutLoader;
 			_shopLoader = shopLoader;
 		}
 
@@ -24,7 +22,7 @@ namespace Loader.Services
 
 		protected override Task<List<Shop>> LoadItems()
 		{
-			return _shopLoader.Load(path => _loadoutLoader.Load(path));
+			return _shopLoader.Load();
 		}
 	}
 }

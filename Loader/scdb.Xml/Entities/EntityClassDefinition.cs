@@ -12,6 +12,9 @@ namespace Loader.SCDb.Xml.Entities
 
 		[XmlElement(ElementName = "tags")]
 		public Reference[] Tags;
+
+		[XmlAttribute(AttributeName = "__ref")]
+		public string Id;
 	}
 
 	public class StaticEntityClassData

@@ -61,11 +61,10 @@ namespace Loader.Parser
 			}
 
 			var serialiser = new XmlSerializer(typeof(Vehicle));
-			using (var stream = new XmlNodeReader(doc))
-			{
-				var vehicle = (Vehicle) serialiser.Deserialize(stream);
-				return vehicle;
-			}
+
+			using var stream = new XmlNodeReader(doc);
+			var vehicle = (Vehicle) serialiser.Deserialize(stream);
+			return vehicle;
 		}
 
 		private XmlDocument LoadVehicleXml(string vehiclePath)
@@ -88,13 +87,8 @@ namespace Loader.Parser
 				var nodes = doc.SelectNodes($"//*[@id='{idRef}']");
 				foreach (XmlNode node in nodes)
 				{
-					var attr = node.Attributes[attrName];
-					if (attr == null)
-					{
-						attr = node.Attributes.Append(doc.CreateAttribute(attrName));
-					}
-
-					node.Attributes[attrName].Value = attrValue;
+					var attr = node.Attributes[attrName] ?? node.Attributes.Append(doc.CreateAttribute(attrName));
+					attr.Value = attrValue;
 				}
 			}
 		}
@@ -106,11 +100,10 @@ namespace Loader.Parser
 			doc.LoadXml(xml);
 
 			var serialiser = new XmlSerializer(typeof(Modifications));
-			using (var stream = new XmlNodeReader(doc))
-			{
-				var modifications = (Modifications) serialiser.Deserialize(stream);
-				return modifications;
-			}
+
+			using var stream = new XmlNodeReader(doc);
+			var modifications = (Modifications) serialiser.Deserialize(stream);
+			return modifications;
 		}
 	}
 }

@@ -13,9 +13,12 @@ namespace Loader.Services
 
 		public string GetText(string label)
 		{
-			var key = label.StartsWith("@") ? label.Substring(1) : label;
+			if (string.IsNullOrWhiteSpace(label))
+				return null;
 
-			return _translationService.Translations.GetValueOrDefault(key);
+			var key = label[0] == '@' ? label[1..] : label;
+
+			return _translationService.Translations.GetValueOrDefault(key.Trim());
 		}
 	}
 }

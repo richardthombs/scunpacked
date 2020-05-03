@@ -14,13 +14,14 @@ using Loader.Entries;
 using Loader.Parser;
 using Loader.SCDb.Xml.Entities;
 using Loader.SCDb.Xml.Vehicles;
+using Loader.Services;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
 namespace Loader.Loader
 {
-	public class ShipLoader
+	internal class ShipLoader
 	{
 		private readonly string[] _avoids =
 		{
@@ -53,13 +54,20 @@ namespace Loader.Loader
 		};
 
 		private readonly EntityParser _entityParser;
+		private readonly LocalisationService _localisationService;
 		private readonly ILogger<ShipLoader> _logger;
 		private readonly ServiceOptions _options;
+		private readonly VehicleParser _vehicleParser;
+		private List<Manufacturer> Manufacturers { get; }
 
-		public ShipLoader(ILogger<ShipLoader> logger, EntityParser entityParser, IOptions<ServiceOptions> options)
+		public ShipLoader(ILogger<ShipLoader> logger, EntityParser entityParser, IOptions<ServiceOptions> options,
+		                  VehicleParser vehicleParser, LocalisationService localisationService, LoaderService<Manufacturer> manufacturersService)
 		{
 			_logger = logger;
 			_entityParser = entityParser;
+			_vehicleParser = vehicleParser;
+			_localisationService = localisationService;
+			Manufacturers = manufacturersService.Items;
 			_options = options.Value;
 		}
 
@@ -123,46 +131,67 @@ namespace Loader.Loader
 					var vehicleModification = entity.Components?.VehicleComponentParams?.modification;
 					_logger.LogInformation(vehicleFilename);
 
-					var vehicleParser = new VehicleParser();
-					vehicle = vehicleParser.Parse(vehicleFilename, vehicleModification);
+					vehicle = _vehicleParser.Parse(vehicleFilename, vehicleModification);
 				}
 
 				var jsonFilename = Path.Combine(OutputFolder, $"{entity.ClassName.ToLower()}.json");
-				var json = JsonConvert.SerializeObject(new
-				                                       {
-					                                       Raw = new
-					                                             {
-						                                             Entity = entity,
-						                                             Vehicle = vehicle
-					                                             }
-				                                       });
-				await File.WriteAllTextAsync(jsonFilename, json);
+				if (_options.WriteRawJsonFiles)
+				{
+					var json = JsonConvert.SerializeObject(new
+					                                       {
+						                                       Raw = new
+						                                             {
+							                                             Entity = entity,
+							                                             Vehicle = vehicle
+						                                             }
+					                                       });
+					await File.WriteAllTextAsync(jsonFilename, json);
+				}
 
 				var isGroundVehicle =
 					entity.Components?.VehicleComponentParams.vehicleCareer == "@vehicle_focus_ground";
 				var isGravlevVehicle = entity.Components?.VehicleComponentParams.isGravlevVehicle ?? false;
 				var isSpaceship = !(isGroundVehicle || isGravlevVehicle);
-				var indexEntry = new Ship
-				                 {
-					                 JsonFilename =
-						                 Path.GetRelativePath(Path.GetDirectoryName(OutputFolder), jsonFilename),
-					                 ClassName = entity.ClassName,
-					                 Type = entity.Components?.SAttachableComponentParams?.AttachDef.Type,
-					                 SubType = entity.Components?.SAttachableComponentParams?.AttachDef.SubType,
-					                 Name = entity.Components.VehicleComponentParams.vehicleName,
-					                 Career = entity.Components.VehicleComponentParams.vehicleCareer,
-					                 Role = entity.Components.VehicleComponentParams.vehicleRole,
-					                 DogFightEnabled =
-						                 Convert.ToBoolean(entity.Components.VehicleComponentParams.dogfightEnabled),
-					                 Size = vehicle?.size,
-					                 IsGroundVehicle = isGroundVehicle,
-					                 IsGravlevVehicle = isGravlevVehicle,
-					                 IsSpaceship = isSpaceship,
-					                 NoParts = vehicle?.Parts == null || vehicle.Parts.Length == 0
-				                 };
 
-				yield return indexEntry;
+				var manufacturer = GetManufacturer(entity.Components?.SAttachableComponentParams?.AttachDef.Manufacturer);
+
+				yield return new Ship
+				             {
+					             Id = new Guid(entity.Id),
+					             JsonFilename =
+						             Path.GetRelativePath(Path.GetDirectoryName(OutputFolder), jsonFilename),
+					             ClassName = entity.ClassName,
+					             Type = entity.Components?.SAttachableComponentParams?.AttachDef.Type,
+					             SubType = entity.Components?.SAttachableComponentParams?.AttachDef.SubType,
+					             Name =
+						             _localisationService.GetText(entity.Components.VehicleComponentParams
+						                                                .vehicleName),
+					             Career =
+						             _localisationService.GetText(entity.Components.VehicleComponentParams
+						                                                .vehicleCareer),
+					             Role =
+						             _localisationService.GetText(entity.Components.VehicleComponentParams
+						                                                .vehicleRole),
+					             DogFightEnabled =
+						             Convert.ToBoolean(entity.Components.VehicleComponentParams.dogfightEnabled),
+					             Size = vehicle?.size,
+					             Description =
+						             _localisationService.GetText(entity.Components.VehicleComponentParams
+						                                                .vehicleDescription),
+					             IsGroundVehicle = isGroundVehicle,
+					             IsGravlevVehicle = isGravlevVehicle,
+					             IsSpaceship = isSpaceship,
+					             NoParts = vehicle?.Parts == null || vehicle.Parts.Length == 0,
+					             Manufacturer = manufacturer,
+					             ManufacturerId = manufacturer.Id
+				             };
 			}
+		}
+
+		private Manufacturer GetManufacturer(string manufacturerId)
+		{
+			return Manufacturers.FirstOrDefault(x => x.Id.ToString() == manufacturerId) ??
+			       Manufacturers.First(x => x.Code == "UNKN");
 		}
 
 		private bool AvoidFile(string filename)

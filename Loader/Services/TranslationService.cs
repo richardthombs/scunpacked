@@ -36,8 +36,14 @@ namespace Loader.Services
 			_logger.LogDebug(nameof(LoadTranslations));
 			var allLines =
 				await File.ReadAllLinesAsync(Path.Combine(_options.SCData, @"Data\Localization\english\global.ini"));
-			return allLines.Select(line => line.Split('='))
-			               .ToDictionary(parts => parts[0], parts => parts[1], StringComparer.OrdinalIgnoreCase);
+			return allLines.Select(line =>
+			                       {
+				                       var firstIndexOfEqual = line.IndexOf('=');
+				                       var key = line[..firstIndexOfEqual];
+				                       var value = line[(firstIndexOfEqual + 1)..];
+				                       return (Key: key.Trim(), Value: value.Trim());
+			                       })
+			               .ToDictionary(parts => parts.Key, parts => parts.Value, StringComparer.OrdinalIgnoreCase);
 		}
 
 		public Task WriteTranslations()

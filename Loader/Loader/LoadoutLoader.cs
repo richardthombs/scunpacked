@@ -10,11 +10,13 @@ namespace Loader.Loader
 	public class LoadoutLoader
 	{
 		private readonly ILogger<LoadoutLoader> _logger;
+		private readonly DefaultLoadoutParser _defaultLoadoutParser;
 		private readonly ServiceOptions _options;
 
-		public LoadoutLoader(ILogger<LoadoutLoader> logger, IOptions<ServiceOptions> options)
+		public LoadoutLoader(ILogger<LoadoutLoader> logger, IOptions<ServiceOptions> options, DefaultLoadoutParser defaultLoadoutParser)
 		{
 			_logger = logger;
+			_defaultLoadoutParser = defaultLoadoutParser;
 			_options = options.Value;
 		}
 
@@ -35,12 +37,14 @@ namespace Loader.Loader
 			var windowsPath = loadoutXmlPath.Replace("/", "\\");
 			_logger.LogInformation(windowsPath);
 
-			var loadoutParser = new DefaultLoadoutParser();
-			var defaultLoadout = loadoutParser.Parse(Path.Combine(DataRoot, "Data", windowsPath));
+			var loadout = _defaultLoadoutParser.Parse(Path.Combine(DataRoot, "Data", windowsPath));
 
 			var jsonFilename = Path.Combine(OutputFolder, $"{Path.GetFileNameWithoutExtension(loadoutXmlPath)}.json");
-			var json = JsonConvert.SerializeObject(defaultLoadout);
-			await File.WriteAllTextAsync(jsonFilename, json);
+			if (_options.WriteRawJsonFiles)
+			{
+				var json = JsonConvert.SerializeObject(loadout);
+				await File.WriteAllTextAsync(jsonFilename, json);
+			}
 
 			return Path.GetRelativePath(OutputFolder, jsonFilename);
 		}

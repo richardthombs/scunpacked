@@ -1,24 +1,28 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Loader.Entries;
 using Loader.Parser;
+using Loader.Services;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace Loader.Loader
 {
-	public class ManufacturerLoader
+	internal class ManufacturerLoader
 	{
+		private readonly LocalisationService _localisationService;
 		private readonly ILogger<ManufacturerLoader> _logger;
 		private readonly ManufacturerParser _manufacturerParser;
 		private readonly ServiceOptions _options;
 
 		public ManufacturerLoader(ILogger<ManufacturerLoader> logger, IOptions<ServiceOptions> options,
-		                          ManufacturerParser manufacturerParser)
+		                          ManufacturerParser manufacturerParser, LocalisationService localisationService)
 		{
 			_logger = logger;
 			_manufacturerParser = manufacturerParser;
+			_localisationService = localisationService;
 			_options = options.Value;
 		}
 
@@ -26,14 +30,14 @@ namespace Loader.Loader
 
 		public async Task<List<Manufacturer>> Load()
 		{
-			var index = new List<Manufacturer>();
+			var manufacturers = new List<Manufacturer>();
 
 			await foreach (var item in Load(@"Data\Libs\Foundry\Records\scitemmanufacturer"))
 			{
-				index.Add(item);
+				manufacturers.Add(item);
 			}
 
-			return index;
+			return manufacturers;
 		}
 
 		private async IAsyncEnumerable<Manufacturer> Load(string entityFolder)
@@ -48,14 +52,12 @@ namespace Loader.Loader
 					continue;
 				}
 
-				var indexEntry = new Manufacturer
-				                 {
-					                 Name = entity.Localization.Name,
-					                 Code = entity.Code,
-					                 Reference = entity.__ref
-				                 };
-
-				yield return indexEntry;
+				yield return new Manufacturer
+				             {
+								 Id = new Guid(entity.__ref),
+					             Name = _localisationService.GetText(entity.Localization.Name),
+					             Code = entity.Code
+				             };
 			}
 		}
 	}
