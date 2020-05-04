@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Loader.Entries
 {
-	public class RetailProduct
+	public class RetailProduct : ILoaderItem
 	{
 		public Guid Id { get; set; }
 

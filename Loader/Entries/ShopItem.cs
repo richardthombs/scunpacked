@@ -2,7 +2,7 @@ using System;
 
 namespace Loader.Entries
 {
-	public class ShopItem
+	public class ShopItem : ILoaderItem
 	{
 		public bool AutoConsume { get; set; }
 		public bool AutoRestock { get; set; }

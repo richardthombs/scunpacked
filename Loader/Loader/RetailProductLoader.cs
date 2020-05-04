@@ -14,41 +14,42 @@ namespace Loader.Loader
 {
 	internal class RetailProductLoader
 	{
-		private LocalisationService _localisationService;
-		private EntityParser _entityParser;
-		private readonly ServiceOptions _options;
-		private readonly ILogger<RetailProductLoader> _logger;
 		private readonly Dictionary<string, Item> _items;
+		private readonly ILogger<RetailProductLoader> _logger;
+		private readonly ServiceOptions _options;
 
-		public RetailProductLoader(ILogger<RetailProductLoader> logger, LocalisationService localisationService,
-		                           EntityParser entityParser, IOptions<ServiceOptions> options, LoaderService<Item> itemService)
+		public RetailProductLoader(ILogger<RetailProductLoader> logger, IOptions<ServiceOptions> options,
+		                           LoaderService<Item> itemService)
 		{
-			_localisationService = localisationService;
-			_entityParser = entityParser;
 			_options = options.Value;
 			_logger = logger;
-			_items = itemService.Items.ToDictionary(item => item.Id.ToString());
+			_items = itemService.Items;
 		}
 
 		private string DataRoot => _options.SCData;
 
-		private Func<string, Task<string>> OnXmlLoadout { get; set; }
-
 		public async Task<List<RetailProduct>> Load()
 		{
 			var productList =
-				await GenericParser.Parse<Node>(Path.Combine(DataRoot, @"Data\Libs\Subsumption\Shops\RetailProductPrices.xml"));
+				await GenericParser.Parse<Node>(Path.Combine(DataRoot,
+				                                             @"Data\Libs\Subsumption\Shops\RetailProductPrices.xml"));
 
-			return GetNodes(productList).Select(node => GetRetailProductFromNode(node)).Where(i => i != null).ToList();
+			return GetNodes(productList).Select(GetRetailProductFromNode).Where(i => i != null).ToList();
 		}
 
 		private RetailProduct GetRetailProductFromNode(Node node)
 		{
+			if (node.Id == null)
+			{
+				_logger.LogWarning("This is a node (name = {0}) with id is null", node.Name);
+				return null;
+			}
+
 			var item = _items.GetValueOrDefault(node.Id);
 
 			if (item == null)
 			{
-				_logger.LogWarning("Can't find item with id {0}", node.Id);
+				_logger.LogWarning("Can't find item (name = {0}) with id {1}", node.Name, node.Id);
 				return null;
 			}
 
@@ -64,26 +65,20 @@ namespace Loader.Loader
 				       Name = item.Name,
 				       OutputSPUPerProduction = node.OutputSPUPerProduction
 			       };
-
 		}
 
 		private IEnumerable<Node> GetNodes(Node node)
 		{
+			yield return node;
+
 			if (node.RetailProducts?.Length > 0)
 			{
-				yield return node;
-			}
-
-			if (!(node.RetailProducts?.Length > 0))
-			{
-				yield break;
-			}
-
-			foreach (var subNode in node.RetailProducts)
-			{
-				foreach (var subProduct in GetNodes(subNode))
+				foreach (var subNode in node.RetailProducts)
 				{
-					yield return subProduct;
+					foreach (var subProduct in GetNodes(subNode))
+					{
+						yield return subProduct;
+					}
 				}
 			}
 		}

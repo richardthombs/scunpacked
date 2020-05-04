@@ -10,9 +10,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Serialization;
 using Loader.Entries;
+using Loader.Parser;
 using Loader.SCDb.Xml.Shops;
 using Loader.Services;
 using Microsoft.Extensions.Logging;
@@ -39,7 +38,7 @@ namespace Loader.Loader
 		{
 			_options = options.Value;
 			_logger = logger;
-			_retailProducts = retailProductService.Items.ToDictionary(x => x.Id.ToString());
+			_retailProducts = retailProductService.Items;
 		}
 
 		private string DataRoot => _options.SCData;
@@ -57,14 +56,15 @@ namespace Loader.Loader
 
 			var shop = new Shop
 			           {
+						   Id = new Guid(shopNode.Id),
 				           Name = shopNode.Name,
 				           ProfitMargin = shopNode.ProfitMargin,
 				           AcceptsStolenGoods = Convert.ToBoolean(shopNode.AcceptsStolenGoods),
 				           ContainerPath = p,
-				           Inventory = GetInventory(shopNode).ToArray()
+				           Inventory = GetInventory(shopNode)
 			           };
 
-			_logger.LogInformation($"{shop.ContainerPath}: {shop.Name}, {shop.Inventory.Length} items");
+			_logger.LogInformation($"{shop.ContainerPath}: {shop.Name}, {shop.Inventory.Count} items");
 
 			return shop;
 		}
@@ -153,29 +153,5 @@ namespace Loader.Loader
 		{
 			return _retailProducts.GetValueOrDefault(inventoryId);
 		}
-	}
-
-	internal static class GenericParser
-	{
-		internal static async Task<T> Parse<T>(string xmlFilename)
-		{
-			string rootNodeName;
-			using (var reader = XmlReader.Create(new StreamReader(xmlFilename)))
-			{
-				reader.MoveToContent();
-				rootNodeName = reader.Name;
-			}
-
-			var xml = await File.ReadAllTextAsync(xmlFilename);
-			var doc = new XmlDocument();
-			doc.LoadXml(xml);
-
-			var serialiser = new XmlSerializer(typeof(T), new XmlRootAttribute { ElementName = rootNodeName });
-
-			using var stream = new XmlNodeReader(doc);
-			var entity = (T)serialiser.Deserialize(stream);
-			return entity;
-		}
-
 	}
 }

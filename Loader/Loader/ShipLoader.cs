@@ -58,10 +58,10 @@ namespace Loader.Loader
 		private readonly ILogger<ShipLoader> _logger;
 		private readonly ServiceOptions _options;
 		private readonly VehicleParser _vehicleParser;
-		private List<Manufacturer> Manufacturers { get; }
 
 		public ShipLoader(ILogger<ShipLoader> logger, EntityParser entityParser, IOptions<ServiceOptions> options,
-		                  VehicleParser vehicleParser, LocalisationService localisationService, LoaderService<Manufacturer> manufacturersService)
+		                  VehicleParser vehicleParser, LocalisationService localisationService,
+		                  LoaderService<Manufacturer> manufacturersService)
 		{
 			_logger = logger;
 			_entityParser = entityParser;
@@ -70,6 +70,8 @@ namespace Loader.Loader
 			Manufacturers = manufacturersService.Items;
 			_options = options.Value;
 		}
+
+		private Dictionary<string, Manufacturer> Manufacturers { get; }
 
 		public string OutputFolder => Path.Combine(_options.Output, "ships");
 
@@ -153,7 +155,8 @@ namespace Loader.Loader
 				var isGravlevVehicle = entity.Components?.VehicleComponentParams.isGravlevVehicle ?? false;
 				var isSpaceship = !(isGroundVehicle || isGravlevVehicle);
 
-				var manufacturer = GetManufacturer(entity.Components?.SAttachableComponentParams?.AttachDef.Manufacturer);
+				var manufacturer =
+					GetManufacturer(entity.Components?.SAttachableComponentParams?.AttachDef.Manufacturer);
 
 				yield return new Ship
 				             {
@@ -190,8 +193,7 @@ namespace Loader.Loader
 
 		private Manufacturer GetManufacturer(string manufacturerId)
 		{
-			return Manufacturers.FirstOrDefault(x => x.Id.ToString() == manufacturerId) ??
-			       Manufacturers.First(x => x.Code == "UNKN");
+			return Manufacturers.GetValueOrDefault(manufacturerId) ?? Manufacturers.Values.First(x => x.Code == "UNKN");
 		}
 
 		private bool AvoidFile(string filename)

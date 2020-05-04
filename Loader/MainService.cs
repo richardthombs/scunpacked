@@ -1,3 +1,5 @@
+#define RELOAD
+
 using System;
 using System.IO;
 using System.Threading;
@@ -65,13 +67,26 @@ namespace Loader
 							CreateOrCleanupOutputDirectory();
 
 							var manufacturerService = _serviceProvider.GetService<LoaderService<Manufacturer>>();
+#if RELOAD
+							await manufacturerService.LoadItems(cancellationToken);
+#else
 							await manufacturerService.WriteItems(cancellationToken);
+#endif
 
 							var shipsService = _serviceProvider.GetService<LoaderService<Ship>>();
+#if RELOAD
+							await shipsService.LoadItems(cancellationToken);
+#else
 							await shipsService.WriteItems(cancellationToken);
+#endif
+
 
 							var itemService = _serviceProvider.GetService<LoaderService<Item>>();
+#if !RELOAD
+							await itemService.LoadItems(cancellationToken);
+#else
 							await itemService.WriteItems(cancellationToken);
+#endif
 
 							var retailsService = _serviceProvider.GetService<LoaderService<RetailProduct>>();
 							await retailsService.WriteItems(cancellationToken);
@@ -121,12 +136,14 @@ namespace Loader
 
 		private void CreateOrCleanupOutputDirectory()
 		{
+#if !RELOAD
 			if (Directory.Exists(_options.Output))
 			{
 				Directory.Delete(_options.Output, true);
 			}
 
 			Directory.CreateDirectory(_options.Output);
+#endif
 		}
 	}
 }

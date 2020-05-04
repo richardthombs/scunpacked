@@ -19,9 +19,10 @@ namespace Loader.Services
 
 		protected override string FileName => "retailproducts.json";
 
-		protected override Task<List<RetailProduct>> LoadItems()
+		protected override async Task<List<RetailProduct>> LoadItems()
 		{
-			return _retailProductLoader.Load();
+			var items = await _retailProductLoader.Load();
+			return items;
 		}
 	}
 }

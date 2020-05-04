@@ -2,7 +2,7 @@ using System;
 
 namespace Loader.Entries
 {
-	public class Ship
+	public class Ship : ILoaderItem
 	{
 		public string Career { get; set; }
 		public string ClassName { get; set; }

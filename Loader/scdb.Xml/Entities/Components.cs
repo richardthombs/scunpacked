@@ -8,6 +8,7 @@ namespace Loader.SCDb.Xml.Entities
 		public IFCSParams IFCSParams;
 		public SAmmoContainerComponentParams SAmmoContainerComponentParams;
 		public SAttachableComponentParams SAttachableComponentParams;
+		public SCItemPurchasableParams SCItemPurchasableParams;
 		public SCItem SCItem;
 		public SCItemCargoGridParams SCItemCargoGridParams;
 		public SCItemCoolerParams SCItemCoolerParams;

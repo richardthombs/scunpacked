@@ -2,7 +2,7 @@ using System;
 
 namespace Loader.Entries
 {
-	public class Item
+	public class Item : ILoaderItem
 	{
 		public string ClassName{ get; set; }
 		public int? Grade{ get; set; }

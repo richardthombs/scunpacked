@@ -27,13 +27,8 @@ namespace Loader.Loader
 
 		private readonly string[] _include =
 		{
-			"ships",
-			"vehicles",
-			"doors",
-			"harvestables",
-			"consumables",
-			"characters",
-			"weapons"
+			"scitem",
+			"commodities",
 		};
 
 		private readonly LocalisationService _localisationService;
@@ -43,19 +38,22 @@ namespace Loader.Loader
 
 		public ItemLoader(ILogger<ItemLoader> logger, EntityParser entityParser,
 		                  LoaderService<Manufacturer> manufacturersService, IOptions<ServiceOptions> options,
-		                  LocalisationService localisationService)
+		                  LocalisationService localisationService, LoaderService<Ship> shipService)
 		{
 			_logger = logger;
 			_entityParser = entityParser;
 			_localisationService = localisationService;
 			Manufacturers = manufacturersService.Items;
+			Ships = shipService.Items;
 			_options = options.Value;
 		}
+
+		public Dictionary<string, Ship> Ships { get; }
 
 		private string OutputFolder => Path.Combine(_options.Output, "items");
 		private string DataRoot => _options.SCData;
 		private Func<string, Task<string>> OnXmlLoadout { get; set; }
-		private List<Manufacturer> Manufacturers { get; }
+		private Dictionary<string, Manufacturer> Manufacturers { get; }
 
 		public async Task<List<Item>> Load(Func<string, Task<string>> onXmlLoadout)
 		{
@@ -63,10 +61,27 @@ namespace Loader.Loader
 			Directory.CreateDirectory(OutputFolder);
 
 			var index = new List<Item>();
-			await foreach (var item in
-				LoadAndWriteJsonFile(@"Data\Libs\Foundry\Records\entities\scitem"))
+			index.AddRange(Ships.Values.Select(ship => new Item
+			                                           {
+				                                           Id = ship.Id,
+				                                           JsonFilename = ship.JsonFilename,
+				                                           ClassName = ship.ClassName,
+				                                           Type = ship.Type,
+				                                           SubType = ship.SubType,
+				                                           ItemName = ship.ClassName.ToLower(),
+				                                           Name = ship.Name,
+				                                           Description = ship.Description,
+				                                           Manufacturer = ship.Manufacturer,
+				                                           ManufacturerId = ship.ManufacturerId
+			                                           }));
+
+			foreach (var folder in _include)
 			{
-				index.Add(item);
+				var path = Path.Combine(@"Data\Libs\Foundry\Records\entities", folder);
+				await foreach (var item in LoadAndWriteJsonFile(path))
+				{
+					index.Add(item);
+				}
 			}
 
 			return index;
@@ -103,38 +118,79 @@ namespace Loader.Loader
 
 				var manufacturer =
 					FindManufacturer(entity.Components?.SAttachableComponentParams?.AttachDef.Manufacturer);
+
+				var etd = GetLocalizedDataFromEntity(entity);
 				yield return new Item
 				             {
-								 Id = new Guid(entity.Id),
-					             JsonFilename = Path.GetRelativePath(Path.GetDirectoryName(OutputFolder), jsonFilename),
+					             Id = new Guid(entity.Id),
+					             JsonFilename =
+						             Path.GetRelativePath(Path.GetDirectoryName(OutputFolder), jsonFilename),
 					             ClassName = entity.ClassName,
+					             Type = etd.Type,
+					             SubType = etd.SubType,
 					             ItemName = entity.ClassName.ToLower(),
-					             Type = entity.Components?.SAttachableComponentParams?.AttachDef.Type,
-					             SubType = entity.Components?.SAttachableComponentParams?.AttachDef.SubType,
 					             Size = entity.Components?.SAttachableComponentParams?.AttachDef.Size,
 					             Grade = entity.Components?.SAttachableComponentParams?.AttachDef.Grade,
-					             Name =
-						             _localisationService.GetText(entity.Components?.SAttachableComponentParams
-						                                                ?.AttachDef.Localization.Name),
-					             Description =
-						             _localisationService.GetText(entity.Components?.SAttachableComponentParams
-						                                                ?.AttachDef.Localization.Description),
+					             Name = etd.Name,
+					             Description = etd.Description,
 					             Manufacturer = manufacturer,
-							     ManufacturerId = manufacturer.Id
+					             ManufacturerId = manufacturer.Id
 				             };
 			}
 		}
 
+		private EntityTextData GetLocalizedDataFromEntity(EntityClassDefinition entity)
+		{
+			var etd = new EntityTextData();
+
+			if (entity.Components?.SAttachableComponentParams != null)
+			{
+				etd.Type = entity.Components.SAttachableComponentParams.AttachDef.Type;
+				etd.SubType = entity.Components.SAttachableComponentParams.AttachDef.SubType;
+				etd.Name = _localisationService.GetText(entity.Components.SAttachableComponentParams.AttachDef
+				                                              .Localization.Name);
+				etd.Description =
+					_localisationService.GetText(entity.Components.SAttachableComponentParams.AttachDef.Localization
+					                                   .Description);
+			}
+			else
+			{
+				if (entity.Components?.CommodityComponentParams != null)
+				{
+					var e = entity.Components.CommodityComponentParams;
+					etd.Type = e.type;
+					etd.SubType = e.subtype;
+					etd.Name = _localisationService.GetText(e.name);
+					etd.Description = _localisationService.GetText(e.description);
+				}
+
+				if (entity.Components?.SCItemPurchasableParams != null)
+				{
+					var e = entity.Components.SCItemPurchasableParams;
+					etd.Type = _localisationService.GetText(e.displayType);
+				}
+			}
+
+			return etd;
+		}
+
 		private Manufacturer FindManufacturer(string reference)
 		{
-			return Manufacturers.FirstOrDefault(x => x.Id.ToString() == reference) ??
-			       Manufacturers.First(x => x.Code == "UNKN");
+			return Manufacturers.GetValueOrDefault(reference ?? "") ?? Manufacturers.Values.First(x => x.Code == "UNKN");
 		}
 
 		private bool AvoidFile(string filename)
 		{
 			var fileSplit = Path.GetFileNameWithoutExtension(filename).Split('_');
 			return fileSplit.Any(part => _avoids.Contains(part));
+		}
+
+		private struct EntityTextData
+		{
+			public string Name { get; set; }
+			public string Description { get; set; }
+			public string Type { get; set; }
+			public string SubType { get; set; }
 		}
 	}
 }
