@@ -1,14 +1,13 @@
-using System.Xml;
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class SCItemLocalization
 	{
 		[XmlAttribute]
-		public string Name;
+		public string Description;
 
 		[XmlAttribute]
-		public string Description;
+		public string Name;
 	}
 }

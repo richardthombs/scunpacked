@@ -1,6 +1,6 @@
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class SShieldResistance
 	{
@@ -9,6 +9,5 @@ namespace scdb.Xml.Entities
 
 		[XmlAttribute]
 		public double Min;
-
 	}
 }

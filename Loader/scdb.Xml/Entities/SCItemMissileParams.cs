@@ -1,31 +1,32 @@
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class SCItemMissileParams
 	{
-		[XmlAttribute]
-		public double safeDistance;
+		public ExplosionParams explosionParams;
 
 		[XmlAttribute]
 		public double igniteTime;
 
 		[XmlAttribute]
-		public double irSignalMinValue;
+		public double irSignalDecayRate;
 
 		[XmlAttribute]
 		public double irSignalMaxValue;
 
 		[XmlAttribute]
-		public double irSignalRiseRate;
+		public double irSignalMinValue;
 
 		[XmlAttribute]
-		public double irSignalDecayRate;
+		public double irSignalRiseRate;
 
 		[XmlAttribute]
 		public double projectileProximity;
 
+		[XmlAttribute]
+		public double safeDistance;
+
 		public STargetingParams targetingParams;
-		public ExplosionParams explosionParams;
 	}
 }

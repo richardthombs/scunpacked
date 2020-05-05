@@ -1,14 +1,13 @@
-using System.Xml;
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Vehicles
+namespace Loader.SCDb.Xml.Vehicles
 {
 	public class Type
 	{
 		[XmlAttribute]
-		public string type;
+		public string subtypes;
 
 		[XmlAttribute]
-		public string subtypes;
+		public string type;
 	}
 }

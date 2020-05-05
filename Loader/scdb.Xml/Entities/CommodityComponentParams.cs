@@ -1,22 +1,22 @@
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class CommodityComponentParams
 	{
-		[XmlAttribute]
-		public string type;
-
-		[XmlAttribute]
-		public string subtype;
-
-		[XmlAttribute]
-		public string name;
-
 		[XmlAttribute]
 		public string description;
 
 		[XmlAttribute]
 		public bool IsUnrefinedElement;
+
+		[XmlAttribute]
+		public string name;
+
+		[XmlAttribute]
+		public string subtype;
+
+		[XmlAttribute]
+		public string type;
 	}
 }

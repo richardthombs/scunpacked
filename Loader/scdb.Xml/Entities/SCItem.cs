@@ -1,21 +1,9 @@
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class SCItem
 	{
-		[XmlAttribute]
-		public bool turnedOnByDefault;
-
-		[XmlAttribute]
-		public string turnOnInteraction;
-
-		[XmlAttribute]
-		public string turnOffInteraction;
-
-		[XmlAttribute]
-		public string placeInteraction;
-
 		[XmlAttribute]
 		public string attachToTileItemPort;
 
@@ -23,5 +11,17 @@ namespace scdb.Xml.Entities
 		public bool inheritModelTagFromHost;
 
 		public SItemPortCoreParams[] ItemPorts;
+
+		[XmlAttribute]
+		public string placeInteraction;
+
+		[XmlAttribute]
+		public bool turnedOnByDefault;
+
+		[XmlAttribute]
+		public string turnOffInteraction;
+
+		[XmlAttribute]
+		public string turnOnInteraction;
 	}
 }

@@ -1,14 +1,14 @@
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class SCItemManufacturer
 	{
 		[XmlAttribute]
-		public string Code;
+		public string __ref;
 
 		[XmlAttribute]
-		public string __ref;
+		public string Code;
 
 		public SCItemLocalization Localization;
 	}

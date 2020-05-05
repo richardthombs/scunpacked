@@ -1,4 +1,4 @@
-namespace scdb.Xml.Vehicles
+namespace Loader.SCDb.Xml.Vehicles
 {
 	public class MovementParams
 	{

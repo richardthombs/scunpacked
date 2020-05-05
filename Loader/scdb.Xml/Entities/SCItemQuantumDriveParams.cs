@@ -1,23 +1,25 @@
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class SCItemQuantumDriveParams
 	{
 		[XmlAttribute]
-		public string tracePoint;
+		public double disconnectRange;
 
-		[XmlAttribute]
-		public double quantumFuelRequirement;
+		public QuantumDriveHeatParams heatParams;
 
 		[XmlAttribute]
 		public double jumpRange;
 
-		[XmlAttribute]
-		public double disconnectRange;
-
 		public SQuantumDriveParams @params;
+
+		[XmlAttribute]
+		public double quantumFuelRequirement;
+
 		public SQuantumDriveParams splineJumpParams;
-		public QuantumDriveHeatParams heatParams;
+
+		[XmlAttribute]
+		public string tracePoint;
 	}
 }

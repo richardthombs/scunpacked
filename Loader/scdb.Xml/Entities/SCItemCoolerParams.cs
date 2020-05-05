@@ -1,6 +1,6 @@
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class SCItemCoolerParams
 	{
@@ -8,9 +8,9 @@ namespace scdb.Xml.Entities
 		public double CoolingRate;
 
 		[XmlAttribute]
-		public double SuppressionIRFactor;
+		public double SuppressionHeatFactor;
 
 		[XmlAttribute]
-		public double SuppressionHeatFactor;
+		public double SuppressionIRFactor;
 	}
 }

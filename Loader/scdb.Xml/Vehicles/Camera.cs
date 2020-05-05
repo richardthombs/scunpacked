@@ -1,13 +1,9 @@
-using System.Xml;
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Vehicles
+namespace Loader.SCDb.Xml.Vehicles
 {
 	public class Camera
 	{
-		[XmlAttribute]
-		public string type;
-
 		[XmlAttribute]
 		public string attachPoint;
 
@@ -22,5 +18,8 @@ namespace scdb.Xml.Vehicles
 
 		[XmlAttribute]
 		public string filename;
+
+		[XmlAttribute]
+		public string type;
 	}
 }

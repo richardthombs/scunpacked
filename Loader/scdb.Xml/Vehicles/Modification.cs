@@ -1,17 +1,16 @@
-using System.Xml;
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Vehicles
+namespace Loader.SCDb.Xml.Vehicles
 {
 	public class Modification
 	{
+		public Elem[] Elems;
+
 		[XmlAttribute]
 		public string name;
 
 		[XmlAttribute]
 		public string patchFile;
-
-		public Elem[] Elems;
 	}
 
 	public class Elem
@@ -28,7 +27,8 @@ namespace scdb.Xml.Vehicles
 
 	public class Modifications
 	{
-		public Part[] Parts;
 		public MovementParams MovementParams;
+
+		public Part[] Parts;
 	}
 }

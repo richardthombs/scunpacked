@@ -1,58 +1,58 @@
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class SCItemQuantumInterdictionPulseParams
 	{
 		[XmlAttribute]
-		public double chargeTimeSecs;
-
-		[XmlAttribute]
-		public double dischargeTimeSecs;
-
-		[XmlAttribute]
-		public double cooldownTimeSecs;
-
-		[XmlAttribute]
-		public double radiusMeters;
-
-		[XmlAttribute]
-		public double decreaseChargeRateTimeSeconds;
-
-		[XmlAttribute]
-		public double increaseChargeRateTimeSeconds;
-
-		[XmlAttribute]
 		public double activationPhaseDuration_seconds;
-
-		[XmlAttribute]
-		public double disperseChargeTimeSeconds;
-
-		[XmlAttribute]
-		public double maxPowerDraw;
-
-		[XmlAttribute]
-		public double stopChargingPowerDrawFraction;
-
-		[XmlAttribute]
-		public double maxChargeRatePowerDrawFraction;
 
 		[XmlAttribute]
 		public double activePowerDrawFraction;
 
 		[XmlAttribute]
-		public double tetheringPowerDrawFraction;
+		public string cancelChargingIP;
+
+		[XmlAttribute]
+		public double chargeTimeSecs;
+
+		[XmlAttribute]
+		public double cooldownTimeSecs;
+
+		[XmlAttribute]
+		public double decreaseChargeRateTimeSeconds;
+
+		[XmlAttribute]
+		public double dischargeTimeSecs;
+
+		[XmlAttribute]
+		public string disperseChargeIP;
+
+		[XmlAttribute]
+		public double disperseChargeTimeSeconds;
 
 		[XmlAttribute]
 		public double greenZoneCheckRange;
 
 		[XmlAttribute]
+		public double increaseChargeRateTimeSeconds;
+
+		[XmlAttribute]
+		public double maxChargeRatePowerDrawFraction;
+
+		[XmlAttribute]
+		public double maxPowerDraw;
+
+		[XmlAttribute]
+		public double radiusMeters;
+
+		[XmlAttribute]
 		public string startChargingIP;
 
 		[XmlAttribute]
-		public string cancelChargingIP;
+		public double stopChargingPowerDrawFraction;
 
 		[XmlAttribute]
-		public string disperseChargeIP;
+		public double tetheringPowerDrawFraction;
 	}
 }

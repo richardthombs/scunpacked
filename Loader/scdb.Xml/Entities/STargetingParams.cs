@@ -1,17 +1,20 @@
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class STargetingParams
 	{
 		[XmlAttribute]
-		public string trackingSignalType;
+		public double lockTime;
 
 		[XmlAttribute]
-		public double trackingSignalMin;
+		public double trackingAngle;
 
 		[XmlAttribute]
 		public double trackingDistanceMax;
+
+		[XmlAttribute]
+		public double trackingNoiseAmplifier;
 
 		[XmlAttribute]
 		public double trackingSignalAmplifier;
@@ -20,12 +23,9 @@ namespace scdb.Xml.Entities
 		public double trackingSignalAmplifierSeeking;
 
 		[XmlAttribute]
-		public double trackingAngle;
+		public double trackingSignalMin;
 
 		[XmlAttribute]
-		public double trackingNoiseAmplifier;
-
-		[XmlAttribute]
-		public double lockTime;
+		public string trackingSignalType;
 	}
 }

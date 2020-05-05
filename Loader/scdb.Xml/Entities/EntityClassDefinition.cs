@@ -1,15 +1,20 @@
-using System.Xml;
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class EntityClassDefinition
 	{
-		public StaticEntityClassData StaticEntityClassData;
-		public Reference[] tags;
+		public string ClassName;
+
 		public Components Components;
 
-		public string ClassName;
+		[XmlAttribute(AttributeName = "__ref")]
+		public string Id;
+
+		public StaticEntityClassData StaticEntityClassData;
+
+		[XmlElement(ElementName = "tags")]
+		public Reference[] Tags;
 	}
 
 	public class StaticEntityClassData
@@ -19,13 +24,13 @@ namespace scdb.Xml.Entities
 
 	public class DefaultEntitlementEntityParams
 	{
-		[XmlAttribute]
-		public string entitlementPolicy;
+		[XmlAttribute(AttributeName = "entitlementPolicy")]
+		public string EntitlementPolicy;
 	}
 
 	public class Reference
 	{
-		[XmlAttribute]
-		public string value;
+		[XmlAttribute(AttributeName = "value")]
+		public string Value;
 	}
 }

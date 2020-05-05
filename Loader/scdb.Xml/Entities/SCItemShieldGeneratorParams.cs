@@ -1,14 +1,11 @@
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class SCItemShieldGeneratorParams
 	{
 		[XmlAttribute]
-		public double MaxShieldHealth;
-
-		[XmlAttribute]
-		public double MaxShieldRegen;
+		public double DamagedRegenDelay;
 
 		[XmlAttribute]
 		public double DecayRatio;
@@ -17,15 +14,21 @@ namespace scdb.Xml.Entities
 		public double DownedRegenDelay;
 
 		[XmlAttribute]
-		public double DamagedRegenDelay;
-		[XmlAttribute]
 		public double MaxReallocation;
+
+		[XmlAttribute]
+		public double MaxShieldHealth;
+
+		[XmlAttribute]
+		public double MaxShieldRegen;
 
 		[XmlAttribute]
 		public double ReallocationRate;
 
-		public SShieldHardening ShieldHardening;
-		public SShieldResistance[] ShieldResistance;
 		public SShieldAbsorption[] ShieldAbsorption;
+
+		public SShieldHardening ShieldHardening;
+
+		public SShieldResistance[] ShieldResistance;
 	}
 }

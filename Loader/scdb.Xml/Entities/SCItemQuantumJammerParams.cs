@@ -1,9 +1,12 @@
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class SCItemQuantumJammerParams
 	{
+		[XmlAttribute]
+		public double greenZoneCheckRange;
+
 		[XmlAttribute]
 		public double jammerRange;
 
@@ -11,12 +14,9 @@ namespace scdb.Xml.Entities
 		public double maxPowerDraw;
 
 		[XmlAttribute]
-		public double greenZoneCheckRange;
+		public string setJammerSwitchOff;
 
 		[XmlAttribute]
 		public string setJammerSwitchOn;
-
-		[XmlAttribute]
-		public string setJammerSwitchOff;
 	}
 }

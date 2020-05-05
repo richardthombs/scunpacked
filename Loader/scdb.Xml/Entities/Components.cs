@@ -1,35 +1,65 @@
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class Components
 	{
-		public VehicleComponentParams VehicleComponentParams;
-		public SEntityComponentDefaultLoadoutParams SEntityComponentDefaultLoadoutParams;
-		public SAttachableComponentParams SAttachableComponentParams;
-		public SHealthComponentParams SHealthComponentParams;
-		public SCItemVehicleArmorParams SCItemVehicleArmorParams;
-		public SCItemCargoGridParams SCItemCargoGridParams;
-		public IFCSParams IFCSParams;
-		public SCItemCoolerParams SCItemCoolerParams;
-		public SDegradationParams SDegradationParams;
-		public EntityComponentPowerConnection EntityComponentPowerConnection;
-		public EntityComponentHeatConnection EntityComponentHeatConnection;
-		public SDistortionParams SDistortionParams;
-		public SCItemFuelIntakeParams SCItemFuelIntakeParams;
-		public SCItem SCItem;
-		public SAmmoContainerComponentParams SAmmoContainerComponentParams;
-		public SCItemWeaponComponentParams SCItemWeaponComponentParams;
-		public SCItemFuelTankParams SCItemFuelTankParams;
-		public SCItemQuantumDriveParams SCItemQuantumDriveParams;
-		public SCItemQuantumInterdictionGeneratorParams SCItemQuantumInterdictionGeneratorParams;
-		public SCItemRadarComponentParams SCItemRadarComponentParams;
-		public SSCItemSelfDestructComponentParams SSCItemSelfDestructComponentParams;
-		public SCItemShieldGeneratorParams SCItemShieldGeneratorParams;
-		public SCItemThrusterParams SCItemThrusterParams;
-		public SCItemTurretParams SCItemTurretParams;
-		public SCItemEMPParams SCItemEMPParams;
-		public SCItemMissileParams SCItemMissileParams;
-		public SEntityComponentMiningLaserParams SEntityComponentMiningLaserParams;
 		public CommodityComponentParams CommodityComponentParams;
+
+		public EntityComponentHeatConnection EntityComponentHeatConnection;
+
+		public EntityComponentPowerConnection EntityComponentPowerConnection;
+
+		public IFCSParams IFCSParams;
+
+		public SAmmoContainerComponentParams SAmmoContainerComponentParams;
+
+		public SAttachableComponentParams SAttachableComponentParams;
+
+		public SCItem SCItem;
+
+		public SCItemCargoGridParams SCItemCargoGridParams;
+
+		public SCItemCoolerParams SCItemCoolerParams;
+
+		public SCItemEMPParams SCItemEMPParams;
+
+		public SCItemFuelIntakeParams SCItemFuelIntakeParams;
+
+		public SCItemFuelTankParams SCItemFuelTankParams;
+
+		public SCItemMissileParams SCItemMissileParams;
+
+		public SCItemPurchasableParams SCItemPurchasableParams;
+
+		public SCItemQuantumDriveParams SCItemQuantumDriveParams;
+
+		public SCItemQuantumInterdictionGeneratorParams SCItemQuantumInterdictionGeneratorParams;
+
+		public SCItemRadarComponentParams SCItemRadarComponentParams;
+
+		public SCItemShieldGeneratorParams SCItemShieldGeneratorParams;
+
+		public SCItemThrusterParams SCItemThrusterParams;
+
+		public SCItemTurretParams SCItemTurretParams;
+
+		public SCItemVehicleArmorParams SCItemVehicleArmorParams;
+
+		public SCItemWeaponComponentParams SCItemWeaponComponentParams;
+
+		public SDegradationParams SDegradationParams;
+
+		public SDistortionParams SDistortionParams;
+
+		public SEntityComponentDefaultLoadoutParams SEntityComponentDefaultLoadoutParams;
+
+		public SEntityComponentMiningLaserParams SEntityComponentMiningLaserParams;
+
 		public SEntityInteractableParams SEntityInteractableParams;
+
+		public SHealthComponentParams SHealthComponentParams;
+
+		public SSCItemSelfDestructComponentParams SSCItemSelfDestructComponentParams;
+
+		public VehicleComponentParams VehicleComponentParams;
 	}
 }

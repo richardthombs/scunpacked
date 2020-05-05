@@ -1,17 +1,17 @@
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class SCItemThrusterParams
 	{
 		[XmlAttribute]
-		public double thrustCapacity;
+		public double fuelBurnRatePer10KNewton;
 
 		[XmlAttribute]
 		public double minHealthThrustMultiplier;
 
 		[XmlAttribute]
-		public double fuelBurnRatePer10KNewton;
+		public double thrustCapacity;
 
 		[XmlAttribute]
 		public string thrusterType;

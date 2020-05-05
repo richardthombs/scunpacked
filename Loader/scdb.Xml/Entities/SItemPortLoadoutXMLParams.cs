@@ -1,14 +1,13 @@
-using System.Xml;
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class SItemPortLoadoutXMLParams
 	{
 		[XmlAttribute]
-		public string loadoutPath;
+		public string __type;
 
 		[XmlAttribute]
-		public string __type;
+		public string loadoutPath;
 	}
 }

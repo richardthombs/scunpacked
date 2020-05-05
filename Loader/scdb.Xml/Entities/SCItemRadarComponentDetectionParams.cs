@@ -1,6 +1,6 @@
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class SCItemRadarComponentDetectionParams
 	{
@@ -14,9 +14,9 @@ namespace scdb.Xml.Entities
 		public double partialDetectionRange;
 
 		[XmlAttribute]
-		public double timeoutRangeMultiplier;
+		public double signatureBoostMultiplier;
 
 		[XmlAttribute]
-		public double signatureBoostMultiplier;
+		public double timeoutRangeMultiplier;
 	}
 }

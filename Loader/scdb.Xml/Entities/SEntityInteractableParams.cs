@@ -1,4 +1,4 @@
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class SEntityInteractableParams
 	{

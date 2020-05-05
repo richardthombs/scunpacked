@@ -1,14 +1,13 @@
-using System.Xml;
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Vehicles
+namespace Loader.SCDb.Xml.Vehicles
 {
 	public class Pipe
 	{
 		[XmlAttribute]
-		public string name;
+		public string @class;
 
 		[XmlAttribute]
-		public string @class;
+		public string name;
 	}
 }

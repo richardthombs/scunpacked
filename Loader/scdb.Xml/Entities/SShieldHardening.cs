@@ -1,16 +1,16 @@
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class SShieldHardening
 	{
 		[XmlAttribute]
-		public double Factor;
+		public double Cooldown;
 
 		[XmlAttribute]
 		public double Duration;
 
 		[XmlAttribute]
-		public double Cooldown;
+		public double Factor;
 	}
 }

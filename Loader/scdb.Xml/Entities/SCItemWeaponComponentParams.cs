@@ -1,6 +1,6 @@
 using System.Xml.Serialization;
 
-namespace scdb.Xml.Entities
+namespace Loader.SCDb.Xml.Entities
 {
 	public class SCItemWeaponComponentParams
 	{
@@ -14,20 +14,17 @@ namespace scdb.Xml.Entities
 
 	public class fireActions
 	{
-		public SWeaponActionFireSingleParams SWeaponActionFireSingleParams;
-		public SWeaponActionFireRapidParams SWeaponActionFireRapidParams;
-		public SWeaponActionSequenceParams SWeaponActionSequenceParams;
 		public SWeaponActionFireBeamParams SWeaponActionFireBeamParams;
+
+		public SWeaponActionFireRapidParams SWeaponActionFireRapidParams;
+
+		public SWeaponActionFireSingleParams SWeaponActionFireSingleParams;
+
+		public SWeaponActionSequenceParams SWeaponActionSequenceParams;
 	}
 
 	public class SWeaponActionFireSingleParams
 	{
-		[XmlAttribute]
-		public string name;
-
-		[XmlAttribute]
-		public string localisedName;
-
 		[XmlAttribute]
 		public double fireRate;
 
@@ -35,6 +32,12 @@ namespace scdb.Xml.Entities
 		public double heatPerShot;
 
 		public launchParams launchParams;
+
+		[XmlAttribute]
+		public string localisedName;
+
+		[XmlAttribute]
+		public string name;
 	}
 
 	public class launchParams
@@ -56,43 +59,43 @@ namespace scdb.Xml.Entities
 	public class SSpreadParams
 	{
 		[XmlAttribute]
-		public double min;
+		public double attack;
 
 		[XmlAttribute]
-		public double max;
+		public double decay;
 
 		[XmlAttribute]
 		public double firstAttack;
 
 		[XmlAttribute]
-		public double attack;
+		public double max;
 
 		[XmlAttribute]
-		public double decay;
+		public double min;
 	}
 
 	public class SWeaponActionFireRapidParams : SWeaponActionFireSingleParams
 	{
 		[XmlAttribute]
-		public double spinUpTime;
-
-		[XmlAttribute]
 		public double spinDownTime;
 
 		[XmlAttribute]
 		public string spinParam;
+
+		[XmlAttribute]
+		public double spinUpTime;
 	}
 
 	public class SWeaponActionSequenceParams
 	{
 		[XmlAttribute]
-		public string name;
-
-		[XmlAttribute]
-
 		public string localisedName;
+
 		[XmlAttribute]
 		public string mode;
+
+		[XmlAttribute]
+		public string name;
 
 		public SWeaponSequenceEntryParams[] sequenceEntries;
 	}
@@ -111,39 +114,39 @@ namespace scdb.Xml.Entities
 	public class SWeaponActionFireBeamParams
 	{
 		[XmlAttribute]
-		public string name;
-
-		[XmlAttribute]
-		public string localisedName;
-
-		[XmlAttribute]
 		public string aiShootingMode;
 
-		[XmlAttribute]
-		public string fireHelper;
-
-		[XmlAttribute]
-		public double toggle;
+		public DamagePerSecond damagePerSecond;
 
 		[XmlAttribute]
 		public double energyRate;
 
 		[XmlAttribute]
-		public double fullDamageRange;
+		public string fireHelper;
 
 		[XmlAttribute]
-		public double zeroDamageRange;
+		public double fullDamageRange;
 
 		[XmlAttribute]
 		public double heatPerSecond;
 
 		[XmlAttribute]
+		public double hitRadius;
+
+		[XmlAttribute]
 		public string hitType;
 
 		[XmlAttribute]
-		public double hitRadius;
+		public string localisedName;
 
-		public DamagePerSecond damagePerSecond;
+		[XmlAttribute]
+		public string name;
+
+		[XmlAttribute]
+		public double toggle;
+
+		[XmlAttribute]
+		public double zeroDamageRange;
 	}
 
 	public class DamagePerSecond
