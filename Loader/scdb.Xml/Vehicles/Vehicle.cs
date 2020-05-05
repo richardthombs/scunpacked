@@ -16,6 +16,7 @@ namespace Loader.SCDb.Xml.Vehicles
 		public string itemPortTags;
 
 		public Modification[] Modifications;
+
 		public MovementParams MovementParams;
 
 		[XmlAttribute]

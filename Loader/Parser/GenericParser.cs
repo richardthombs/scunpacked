@@ -20,12 +20,11 @@ namespace Loader.Parser
 			var doc = new XmlDocument();
 			doc.LoadXml(xml);
 
-			var serialiser = new XmlSerializer(typeof(T), new XmlRootAttribute { ElementName = rootNodeName });
+			var serialiser = new XmlSerializer(typeof(T), new XmlRootAttribute {ElementName = rootNodeName});
 
 			using var stream = new XmlNodeReader(doc);
-			var entity = (T)serialiser.Deserialize(stream);
+			var entity = (T) serialiser.Deserialize(stream);
 			return entity;
 		}
-
 	}
 }

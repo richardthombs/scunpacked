@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Loader.Helper;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -12,13 +13,18 @@ namespace Loader.Services
 	internal class TranslationService
 	{
 		private readonly ILogger<TranslationService> _logger;
+
+		private readonly IJsonFileReaderWriter _jsonFileReaderWriter;
+
 		private readonly ServiceOptions _options;
 
 		private Dictionary<string, string> _translations;
 
-		public TranslationService(ILogger<TranslationService> logger, IOptions<ServiceOptions> options)
+		public TranslationService(ILogger<TranslationService> logger, IOptions<ServiceOptions> options,
+		                          IJsonFileReaderWriter jsonFileReaderWriter)
 		{
 			_logger = logger;
+			_jsonFileReaderWriter = jsonFileReaderWriter;
 			_options = options.Value;
 		}
 
@@ -49,8 +55,7 @@ namespace Loader.Services
 		public Task WriteTranslations()
 		{
 			_logger.LogDebug(nameof(WriteTranslations));
-			return File.WriteAllTextAsync(Path.Combine(_options.Output, "labels.json"),
-			                              JsonConvert.SerializeObject(Translations));
+			return _jsonFileReaderWriter.WriteFile(Path.Combine(_options.Output, "labels.json"), () => Translations);
 		}
 	}
 }

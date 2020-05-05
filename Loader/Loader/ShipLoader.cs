@@ -11,13 +11,13 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Loader.Entries;
+using Loader.Helper;
 using Loader.Parser;
 using Loader.SCDb.Xml.Entities;
 using Loader.SCDb.Xml.Vehicles;
 using Loader.Services;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 
 namespace Loader.Loader
 {
@@ -54,17 +54,24 @@ namespace Loader.Loader
 		};
 
 		private readonly EntityParser _entityParser;
+
+		private readonly IJsonFileReaderWriter _jsonFileReaderWriter;
+
 		private readonly LocalisationService _localisationService;
+
 		private readonly ILogger<ShipLoader> _logger;
+
 		private readonly ServiceOptions _options;
+
 		private readonly VehicleParser _vehicleParser;
 
 		public ShipLoader(ILogger<ShipLoader> logger, EntityParser entityParser, IOptions<ServiceOptions> options,
-		                  VehicleParser vehicleParser, LocalisationService localisationService,
-		                  LoaderService<Manufacturer> manufacturersService)
+		                  IJsonFileReaderWriter jsonFileReaderWriter, VehicleParser vehicleParser,
+		                  LocalisationService localisationService, LoaderService<Manufacturer> manufacturersService)
 		{
 			_logger = logger;
 			_entityParser = entityParser;
+			_jsonFileReaderWriter = jsonFileReaderWriter;
 			_vehicleParser = vehicleParser;
 			_localisationService = localisationService;
 			Manufacturers = manufacturersService.Items;
@@ -137,18 +144,15 @@ namespace Loader.Loader
 				}
 
 				var jsonFilename = Path.Combine(OutputFolder, $"{entity.ClassName.ToLower()}.json");
-				if (_options.WriteRawJsonFiles)
-				{
-					var json = JsonConvert.SerializeObject(new
-					                                       {
-						                                       Raw = new
-						                                             {
-							                                             Entity = entity,
-							                                             Vehicle = vehicle
-						                                             }
-					                                       });
-					await File.WriteAllTextAsync(jsonFilename, json);
-				}
+				_ = _jsonFileReaderWriter.WriteFile(jsonFilename,
+				                                    () => new
+				                                          {
+					                                          Raw = new
+					                                                {
+						                                                Entity = entity,
+						                                                Vehicle = vehicle
+					                                                }
+				                                          });
 
 				var isGroundVehicle =
 					entity.Components?.VehicleComponentParams.vehicleCareer == "@vehicle_focus_ground";

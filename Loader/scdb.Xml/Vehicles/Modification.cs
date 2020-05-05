@@ -28,6 +28,7 @@ namespace Loader.SCDb.Xml.Vehicles
 	public class Modifications
 	{
 		public MovementParams MovementParams;
+
 		public Part[] Parts;
 	}
 }

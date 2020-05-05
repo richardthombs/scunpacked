@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Loader.Entries;
+using Loader.Helper;
 using Loader.Loader;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -12,8 +13,8 @@ namespace Loader.Services
 		private readonly ManufacturerLoader _manufacturerLoader;
 
 		public ManufacturersService(ILogger<LoaderService<Manufacturer>> logger, IOptions<ServiceOptions> options,
-		                            ManufacturerLoader manufacturerLoader)
-			: base(logger, options)
+		                            IJsonFileReaderWriter jsonFileReaderWriter, ManufacturerLoader manufacturerLoader)
+			: base(logger, options, jsonFileReaderWriter)
 		{
 			_manufacturerLoader = manufacturerLoader;
 		}

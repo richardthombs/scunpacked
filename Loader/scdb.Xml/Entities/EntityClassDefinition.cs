@@ -8,13 +8,13 @@ namespace Loader.SCDb.Xml.Entities
 
 		public Components Components;
 
+		[XmlAttribute(AttributeName = "__ref")]
+		public string Id;
+
 		public StaticEntityClassData StaticEntityClassData;
 
 		[XmlElement(ElementName = "tags")]
 		public Reference[] Tags;
-
-		[XmlAttribute(AttributeName = "__ref")]
-		public string Id;
 	}
 
 	public class StaticEntityClassData

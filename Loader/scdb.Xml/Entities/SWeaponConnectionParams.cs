@@ -13,7 +13,9 @@ namespace Loader.SCDb.Xml.Entities
 		public double maxGlow;
 
 		public SWeaponStats noPowerStats;
+
 		public SWeaponStats overclockStats;
+
 		public SWeaponStats overpowerStats;
 
 		[XmlAttribute]

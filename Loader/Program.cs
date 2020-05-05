@@ -6,7 +6,8 @@
 // -----------------------------------------------------------------------
 
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using System.Globalization;
+using System.Threading;
 using Loader.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,9 +20,9 @@ namespace Loader
 	{
 		private static void Main(string[] args)
 		{
-			var ci = System.Globalization.CultureInfo.GetCultureInfo("de-DE");
-			System.Threading.Thread.CurrentThread.CurrentCulture = ci;
-			System.Threading.Thread.CurrentThread.CurrentUICulture = ci;
+			var ci = CultureInfo.GetCultureInfo("de-DE");
+			Thread.CurrentThread.CurrentCulture = ci;
+			Thread.CurrentThread.CurrentUICulture = ci;
 
 			JsonConvert.DefaultSettings = () => new JsonSerializerSettings
 			                                    {
@@ -39,11 +40,11 @@ namespace Loader
 				                     {"--input", "SCData"},
 				                     {"--output", "Output"},
 				                     {"--itemfile", "ItemFile"},
-				                     {"--writeJson", "WriteRawJsonFiles"},
-				                     {"-writeJson", "WriteRawJsonFiles"}
+				                     {"--writeRawJson", "WriteRawJsonFiles"},
+				                     {"-writeRawJson", "WriteRawJsonFiles"}
 			                     };
 
-			var host = Host.CreateDefaultBuilder() // HACK without args! because we can't change it later
+			var host = Host.CreateDefaultBuilder() //! HACK without args! because we can't change it later
 			               .ConfigureAppConfiguration(builder => { builder.AddCommandLine(args, switchMappings); })
 			               .ConfigureServices((hostContext, services) =>
 			                                  {

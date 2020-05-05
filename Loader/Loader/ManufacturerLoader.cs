@@ -13,8 +13,11 @@ namespace Loader.Loader
 	internal class ManufacturerLoader
 	{
 		private readonly LocalisationService _localisationService;
+
 		private readonly ILogger<ManufacturerLoader> _logger;
+
 		private readonly ManufacturerParser _manufacturerParser;
+
 		private readonly ServiceOptions _options;
 
 		public ManufacturerLoader(ILogger<ManufacturerLoader> logger, IOptions<ServiceOptions> options,
@@ -54,7 +57,7 @@ namespace Loader.Loader
 
 				yield return new Manufacturer
 				             {
-								 Id = new Guid(entity.__ref),
+					             Id = new Guid(entity.__ref),
 					             Name = _localisationService.GetText(entity.Localization.Name),
 					             Code = entity.Code
 				             };

@@ -4,16 +4,24 @@ using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 using Loader.SCDb.Xml.Vehicles;
+using Microsoft.Extensions.Logging;
 
 namespace Loader.Parser
 {
 	public class VehicleParser
 	{
+		private readonly ILogger<VehicleParser> _logger;
+
+		public VehicleParser(ILogger<VehicleParser> logger)
+		{
+			_logger = logger;
+		}
+
 		public Vehicle Parse(string fullXmlPath, string modificationName)
 		{
 			if (!File.Exists(fullXmlPath))
 			{
-				Console.WriteLine("Vehicle implementation file does not exist");
+				_logger.LogWarning("Vehicle implementation file does not exist");
 				return null;
 			}
 
@@ -29,7 +37,7 @@ namespace Loader.Parser
 							Path.ChangeExtension(Path.Combine(Path.GetDirectoryName(fullXmlPath),
 							                                  modification.patchFile.Replace("/", "\\")),
 							                     ".xml");
-						Console.WriteLine(patchFilename);
+						_logger.LogInformation(patchFilename);
 						var patches = ParsePatchFile(patchFilename);
 						if (patches.Parts != null)
 						{
@@ -44,7 +52,7 @@ namespace Loader.Parser
 				}
 				else
 				{
-					Console.WriteLine($"Could not process vehicle modification '{modificationName}'");
+					_logger.LogWarning($"Could not process vehicle modification '{modificationName}'");
 				}
 			}
 

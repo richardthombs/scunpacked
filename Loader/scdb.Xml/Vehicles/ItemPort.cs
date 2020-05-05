@@ -5,6 +5,7 @@ namespace Loader.SCDb.Xml.Vehicles
 	public class ItemPort
 	{
 		public Connection[] Connections;
+
 		public ControllerDef ControllerDef;
 
 		[XmlAttribute]
@@ -31,6 +32,7 @@ namespace Loader.SCDb.Xml.Vehicles
 		public string requiredTags;
 
 		public Type[] Types;
+
 		public AngleRange Yaw;
 	}
 }

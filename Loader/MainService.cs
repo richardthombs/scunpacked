@@ -1,5 +1,4 @@
-#define RELOAD
-
+// #define RELOAD // use for increase speed for debug
 using System;
 using System.IO;
 using System.Threading;
@@ -18,8 +17,11 @@ namespace Loader
 	internal class MainService : IHostedService
 	{
 		private readonly IHostApplicationLifetime _applictionLifetime;
+
 		private readonly ILogger<MainService> _logger;
+
 		private readonly ServiceOptions _options;
+
 		private readonly IServiceProvider _serviceProvider;
 
 		public MainService(ILogger<MainService> logger, IOptions<ServiceOptions> config,
@@ -32,6 +34,7 @@ namespace Loader
 		}
 
 		private CancellationTokenSource CancellationTokenSource { get; } = new CancellationTokenSource();
+
 		private TaskCompletionSource<bool> TaskCompletionSource { get; } = new TaskCompletionSource<bool>();
 
 		public Task StartAsync(CancellationToken cancellationToken)
@@ -68,22 +71,36 @@ namespace Loader
 
 							var manufacturerService = _serviceProvider.GetService<LoaderService<Manufacturer>>();
 #if RELOAD
-							await manufacturerService.LoadItems(cancellationToken);
+							await manufacturerService.LoadItemsFromJsonFile(cancellationToken);
 #else
 							await manufacturerService.WriteItems(cancellationToken);
 #endif
 
+							var commodityTypeService = _serviceProvider.GetService<LoaderService<CommodityTypeAndSubType>>();
+#if RELOAD
+							await commodityTypeService.LoadItemsFromJsonFile(cancellationToken);
+#else
+							await commodityTypeService.WriteItems(cancellationToken);
+#endif
+
+							var commodityService = _serviceProvider.GetService<LoaderService<Commodity>>();
+#if RELOAD
+							await commodityService.LoadItemsFromJsonFile(cancellationToken);
+#else
+							await commodityService.WriteItems(cancellationToken);
+#endif
+
 							var shipsService = _serviceProvider.GetService<LoaderService<Ship>>();
 #if RELOAD
-							await shipsService.LoadItems(cancellationToken);
+							await shipsService.LoadItemsFromJsonFile(cancellationToken);
 #else
 							await shipsService.WriteItems(cancellationToken);
 #endif
 
 
 							var itemService = _serviceProvider.GetService<LoaderService<Item>>();
-#if !RELOAD
-							await itemService.LoadItems(cancellationToken);
+#if RELOAD
+							await itemService.LoadItemsFromJsonFile(cancellationToken);
 #else
 							await itemService.WriteItems(cancellationToken);
 #endif
@@ -101,7 +118,7 @@ namespace Loader
 			{
 				_logger.LogCritical(ex, "Exception occured");
 			}
-			
+
 			_logger.LogInformation("Stopping");
 			TaskCompletionSource.SetResult(true);
 			_applictionLifetime.StopApplication();

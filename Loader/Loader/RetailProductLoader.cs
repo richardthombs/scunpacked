@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,7 +14,9 @@ namespace Loader.Loader
 	internal class RetailProductLoader
 	{
 		private readonly Dictionary<string, Item> _items;
+
 		private readonly ILogger<RetailProductLoader> _logger;
+
 		private readonly ServiceOptions _options;
 
 		public RetailProductLoader(ILogger<RetailProductLoader> logger, IOptions<ServiceOptions> options,
@@ -71,14 +72,16 @@ namespace Loader.Loader
 		{
 			yield return node;
 
-			if (node.RetailProducts?.Length > 0)
+			if (!(node.RetailProducts?.Length > 0))
 			{
-				foreach (var subNode in node.RetailProducts)
+				yield break;
+			}
+
+			foreach (var subNode in node.RetailProducts)
+			{
+				foreach (var subProduct in GetNodes(subNode))
 				{
-					foreach (var subProduct in GetNodes(subNode))
-					{
-						yield return subProduct;
-					}
+					yield return subProduct;
 				}
 			}
 		}

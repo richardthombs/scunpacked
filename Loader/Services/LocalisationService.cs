@@ -14,7 +14,9 @@ namespace Loader.Services
 		public string GetText(string label)
 		{
 			if (string.IsNullOrWhiteSpace(label))
+			{
 				return null;
+			}
 
 			var key = label[0] == '@' ? label[1..] : label;
 

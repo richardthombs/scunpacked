@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Loader.Entries;
+using Loader.Helper;
 using Loader.Loader;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -11,8 +12,9 @@ namespace Loader.Services
 	{
 		private readonly RetailProductLoader _retailProductLoader;
 
-		public RetailProductService(ILogger<LoaderService<RetailProduct>> logger, IOptions<ServiceOptions> options, RetailProductLoader retailProductLoader)
-			: base(logger, options)
+		public RetailProductService(ILogger<LoaderService<RetailProduct>> logger, IOptions<ServiceOptions> options,
+		                            IJsonFileReaderWriter jsonFileReaderWriter, RetailProductLoader retailProductLoader)
+			: base(logger, options, jsonFileReaderWriter)
 		{
 			_retailProductLoader = retailProductLoader;
 		}

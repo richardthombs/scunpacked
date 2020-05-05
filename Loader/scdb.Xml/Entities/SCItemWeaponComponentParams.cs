@@ -15,8 +15,11 @@ namespace Loader.SCDb.Xml.Entities
 	public class fireActions
 	{
 		public SWeaponActionFireBeamParams SWeaponActionFireBeamParams;
+
 		public SWeaponActionFireRapidParams SWeaponActionFireRapidParams;
+
 		public SWeaponActionFireSingleParams SWeaponActionFireSingleParams;
+
 		public SWeaponActionSequenceParams SWeaponActionSequenceParams;
 	}
 

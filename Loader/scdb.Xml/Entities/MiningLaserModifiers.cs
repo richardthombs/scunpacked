@@ -7,7 +7,9 @@ namespace Loader.SCDb.Xml.Entities
 		public MiningLaserModifier catastrophicChargeWindowRateModifier;
 
 		public MiningLaserModifier laserInstability;
+
 		public MiningLaserModifier optimalChargeWindowRateModifier;
+
 		public MiningLaserModifier optimalChargeWindowSizeModifier;
 
 		[XmlAttribute]

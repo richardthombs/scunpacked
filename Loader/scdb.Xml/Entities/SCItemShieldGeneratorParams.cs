@@ -28,6 +28,7 @@ namespace Loader.SCDb.Xml.Entities
 		public SShieldAbsorption[] ShieldAbsorption;
 
 		public SShieldHardening ShieldHardening;
+
 		public SShieldResistance[] ShieldResistance;
 	}
 }

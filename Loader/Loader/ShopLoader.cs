@@ -30,11 +30,13 @@ namespace Loader.Loader
 		};
 
 		private readonly ILogger<ShopLoader> _logger;
+
 		private readonly ServiceOptions _options;
 
 		private readonly Dictionary<string, RetailProduct> _retailProducts;
 
-		public ShopLoader(ILogger<ShopLoader> logger, IOptions<ServiceOptions> options, LoaderService<RetailProduct> retailProductService)
+		public ShopLoader(ILogger<ShopLoader> logger, IOptions<ServiceOptions> options,
+		                  LoaderService<RetailProduct> retailProductService)
 		{
 			_options = options.Value;
 			_logger = logger;
@@ -46,8 +48,9 @@ namespace Loader.Loader
 		public async Task<List<Shop>> Load()
 		{
 			var shopRootNode =
-				await GenericParser.Parse<ShopLayoutNode>(Path.Combine(DataRoot, @"Data\Libs\Subsumption\Shops\ShopLayouts.xml"));
-			return GetShops(shopRootNode).Select(node => GetShop(node)).ToList();
+				await GenericParser.Parse<ShopLayoutNode>(Path.Combine(DataRoot,
+				                                                       @"Data\Libs\Subsumption\Shops\ShopLayouts.xml"));
+			return GetShops(shopRootNode).Select(GetShop).ToList();
 		}
 
 		private Shop GetShop((ShopLayoutNode, string) node)
@@ -56,7 +59,7 @@ namespace Loader.Loader
 
 			var shop = new Shop
 			           {
-						   Id = new Guid(shopNode.Id),
+				           Id = new Guid(shopNode.Id),
 				           Name = shopNode.Name,
 				           ProfitMargin = shopNode.ProfitMargin,
 				           AcceptsStolenGoods = Convert.ToBoolean(shopNode.AcceptsStolenGoods),
@@ -101,8 +104,7 @@ namespace Loader.Loader
 
 			if (shopNode?.ShopInventoryNodes.Length > 0)
 			{
-				items = shopNode.ShopInventoryNodes
-				                .Select(itemNode => GetItemNode(itemNode))
+				items = shopNode.ShopInventoryNodes.Select(GetItemNode)
 				                .Where(i => i != null)
 				                .ToList();
 			}
@@ -135,9 +137,9 @@ namespace Loader.Loader
 					           ShopBuysThis = itemNode.TransactionTypes.Any(x => x.Data == "Sell"),
 					           ShopSellsThis = itemNode.TransactionTypes.Any(x => x.Data == "Buy"),
 					           RetailProduct = product,
-							   RetailProductId = product.Id,
+					           RetailProductId = product.Id,
 					           Id = new Guid(itemNode.Id),
-							   DisplayName = product.Item.Name
+					           DisplayName = product.Item.Name
 				           };
 
 				return item;
