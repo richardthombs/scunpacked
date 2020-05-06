@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Loader.Helper;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 
 namespace Loader.Services
 {

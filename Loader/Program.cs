@@ -12,7 +12,6 @@ using Loader.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Newtonsoft.Json;
 
 namespace Loader
 {
@@ -23,12 +22,6 @@ namespace Loader
 			var ci = CultureInfo.GetCultureInfo("de-DE");
 			Thread.CurrentThread.CurrentCulture = ci;
 			Thread.CurrentThread.CurrentUICulture = ci;
-
-			JsonConvert.DefaultSettings = () => new JsonSerializerSettings
-			                                    {
-				                                    Formatting = Formatting.Indented,
-				                                    NullValueHandling = NullValueHandling.Ignore
-			                                    };
 
 			var switchMappings = new Dictionary<string, string>
 			                     {

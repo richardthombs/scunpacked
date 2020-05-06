@@ -4,7 +4,6 @@ using Loader.Helper;
 using Loader.Parser;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 
 namespace Loader.Loader
 {
@@ -27,7 +26,7 @@ namespace Loader.Loader
 			_options = options.Value;
 		}
 
-		public string OutputFolder => _options.Output;
+		public string OutputFolder => Path.Combine(_options.Output, "loadouts");
 
 		public string DataRoot => _options.SCData;
 
