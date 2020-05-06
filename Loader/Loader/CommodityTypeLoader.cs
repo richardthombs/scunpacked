@@ -53,7 +53,7 @@ namespace Loader.Loader
 
 		private async IAsyncEnumerable<CommodityTypeAndSubType> LoadAndWriteJsonFiles(string xmlFilename)
 		{
-			var index = new List<Item>();
+			_logger.LogInformation("Read in game.xml. Please wait...");
 
 			var document =
 				await XElement.LoadAsync(new StreamReader(xmlFilename), LoadOptions.None, CancellationToken.None);
@@ -76,6 +76,11 @@ namespace Loader.Loader
 					                    Symbol = type.Attribute("symbol")?.Value,
 					                    Type = type.Attribute("__type")?.Value
 				                    };
+
+				_logger.LogInformation($"Handle CommodityType {commodityType.TypeName}");
+
+				var jsonfilename = Path.Combine(OutputFolder, $"{commodityType.TypeName}.json");
+				_ = _jsonFileReaderWriter.WriteFile(jsonfilename, () => commodityType);
 
 				yield return commodityType;
 			}

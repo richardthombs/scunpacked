@@ -1,9 +1,11 @@
 // #define RELOAD // use for increase speed for debug
 using System;
 using System.IO;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Loader.Entries;
+using Loader.Helper;
 using Loader.Parser;
 using Loader.Services;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,14 +22,17 @@ namespace Loader
 
 		private readonly ILogger<MainService> _logger;
 
+		private readonly IJsonFileReaderWriter _jsonFileReaderWriter;
+
 		private readonly ServiceOptions _options;
 
 		private readonly IServiceProvider _serviceProvider;
 
-		public MainService(ILogger<MainService> logger, IOptions<ServiceOptions> config,
+		public MainService(ILogger<MainService> logger, IOptions<ServiceOptions> config, IJsonFileReaderWriter jsonFileReaderWriter,
 		                   IHostApplicationLifetime applicationLifetime, IServiceProvider serviceProvider)
 		{
 			_logger = logger;
+			_jsonFileReaderWriter = jsonFileReaderWriter;
 			_options = config.Value;
 			_applictionLifetime = applicationLifetime;
 			_serviceProvider = serviceProvider;
@@ -60,7 +65,7 @@ namespace Loader
 					{
 						var entityParser = _serviceProvider.GetService<EntityParser>();
 						var entity = entityParser.Parse(_options.ItemFile, Task.FromResult);
-						var json = JsonConvert.SerializeObject(entity);
+						var json =  JsonConvert.SerializeObject(entity);
 						Console.WriteLine(json);
 					}
 					else

@@ -67,7 +67,7 @@ namespace Loader.Services
 			}
 
 			var output = Path.Combine(Options.Output, FileName);
-			return JsonFileReaderWriter.WriteFile(output, () => _items.Values, cancellationToken);
+			return JsonFileReaderWriter.WriteFile(output, () => Items.Values, cancellationToken);
 		}
 	}
 }

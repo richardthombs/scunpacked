@@ -1,12 +1,10 @@
+using System;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
-using System.Threading;
 
 namespace Loader.Helper
 {
@@ -25,11 +23,20 @@ namespace Loader.Helper
 
 		public JsonFileReaderWriter(ILogger<JsonFileReaderWriter> logger, IOptions<ServiceOptions> options)
 		{
+			JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+			                                    {
+				                                    Formatting = Formatting.Indented,
+				                                    NullValueHandling = NullValueHandling.Ignore,
+				                                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+			                                    };
+
+
 			_logger = logger;
 			_options = options.Value;
 		}
 
-		public async Task WriteFile(string jsonFilename, Func<object> getObject, CancellationToken cancellationToken = default)
+		public async Task WriteFile(string jsonFilename, Func<object> getObject,
+		                            CancellationToken cancellationToken = default)
 		{
 			if (_options.WriteRawJsonFiles)
 			{
