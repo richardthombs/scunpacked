@@ -1,0 +1,82 @@
+{
+  "Raw": {
+    "Entity": {
+      "StaticEntityClassData": {},
+      "tags": [],
+      "Components": {
+        "SAttachableComponentParams": {
+          "AttachDef": {
+            "Type": "FlightController",
+            "SubType": "UNDEFINED",
+            "Size": 1,
+            "Grade": 1,
+            "Manufacturer": "00000000-0000-0000-0000-000000000000",
+            "Tags": "",
+            "RequiredTags": "",
+            "DisplayType": "",
+            "Localization": {
+              "Name": "@item_Name_FLGT_Controller",
+              "Description": "@LOC_EMPTY"
+            }
+          }
+        },
+        "IFCSParams": {
+          "maxSpeed": 200.0,
+          "maxAfterburnSpeed": 1337.0,
+          "torqueDistanceThreshold": -1.0,
+          "refreshCachesOnLandingMode": false,
+          "coefficientOfLift": 0.8,
+          "centerOfLiftOffset": -0.8,
+          "centerOfPressureOffset": -1.6,
+          "linearTurbulenceAmplitude": 1.25,
+          "angularTurbulenceAmplitude": 0.8,
+          "groundTurbulenceAmplitude": 0.8,
+          "precisionMinDistance": 6.0,
+          "precisionMaxDistance": 60.0,
+          "precisionLandingMultiplier": 0.7
+        },
+        "SCItem": {
+          "turnedOnByDefault": false,
+          "attachToTileItemPort": "NoConnection",
+          "inheritModelTagFromHost": true,
+          "ItemPorts": []
+        },
+        "SEntityInteractableParams": {
+          "Interactable": {
+            "SharedInteractions": [
+              {
+                "Name": "EngineOn",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@ui_interactor_engine_on",
+                "DisplayType": "Show",
+                "GenericCursor": "Button",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "EngineOff",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@ui_interactor_engine_off",
+                "DisplayType": "Show",
+                "GenericCursor": "Button",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              }
+            ]
+          }
+        }
+      },
+      "ClassName": "Controller_Flight_ANVL_Hornet_F7A_Mk1"
+    }
+  }
+}
