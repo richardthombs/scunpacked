@@ -14,15 +14,15 @@ import { ItemsResolver } from './ItemsResolver';
 import { CommoditiesComponent } from './commodities/commodities.component';
 
 const routes: Routes = [
-  { path: "", component: HomePage },
-  { path: "ships", component: ShiplistPage, resolve: { ships: ShipsResolver } },
+  { path: "", component: HomePage, data: { title: "Star Citizen Unpacked" } },
+  { path: "ships", component: ShiplistPage, resolve: { ships: ShipsResolver }, data: { title: "Ship explorer" } },
   { path: "ships/compare", component: CompareShipsPage },
   { path: "ships/:name", component: ShipPage },
-  { path: "items", component: ItemlistPage, resolve: { items: ItemsResolver } },
+  { path: "items", component: ItemlistPage, resolve: { items: ItemsResolver }, data: { title: "Item explorer" } },
   { path: "items/compare", component: CompareItemsPage },
   { path: "items/:name", component: ItemPage },
-  { path: "shops", component: ShoplistPage },
-  { path: "commodities", component: CommoditiesComponent }
+  { path: "shops", component: ShoplistPage, data: { title: "Shops and prices" } },
+  { path: "commodities", component: CommoditiesComponent, data: { title: "Commodity prices" } }
 ];
 
 @NgModule({

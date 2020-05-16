@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemeService, Theme } from './theme.service';
 import { SwUpdate } from '@angular/service-worker';
+import { Router, NavigationEnd, Data, ActivatedRoute } from '@angular/router';
+import { filter, map, mergeMap } from 'rxjs/operators';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +32,7 @@ export class AppComponent implements OnInit {
   background: string = "";
   theme: Theme = "light";
 
-  constructor(private themeSvc: ThemeService, private swUpdate: SwUpdate) { }
+  constructor(private themeSvc: ThemeService, private swUpdate: SwUpdate, private router: Router, private route: ActivatedRoute, private titleSvc: Title) { }
 
   ngOnInit() {
     this.background = `url(${this.backgrounds[Math.floor(Math.random() * this.backgrounds.length)]})`;
@@ -50,5 +53,18 @@ export class AppComponent implements OnInit {
       this.swUpdate.activateUpdate().then(() => document.location.reload());
     });
     this.swUpdate.activated.subscribe(x => console.log("SwUpdate.activated", x));
+
+    this.router.events.pipe(
+      filter(e => e instanceof NavigationEnd),
+      map(() => this.route),
+      map(route => {
+        while (route.firstChild) route = route.firstChild;
+        return route;
+      }),
+      mergeMap(route => route.data)
+    ).subscribe((data: Data) => {
+      let title = data.title;
+      if (title) this.titleSvc.setTitle(title);
+    });
   }
 }

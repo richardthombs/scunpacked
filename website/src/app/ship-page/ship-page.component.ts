@@ -8,6 +8,8 @@ import { ItemPort } from '../ItemPort';
 import { IItemPort } from "../IItemPort";
 import { ShipService } from '../ship.service';
 import { environment } from '../../environments/environment';
+import { Title } from '@angular/platform-browser';
+import { LocalisationService } from '../Localisation';
 
 interface ClassifiedItemPort {
   classification: ItemPortClassification;
@@ -91,7 +93,7 @@ export class ShipPage implements OnInit {
   ItemPorts: IItemPort[] = [];
   jsonHref: string = "";
 
-  constructor(private shipSvc: ShipService, private route: ActivatedRoute) { }
+  constructor(private shipSvc: ShipService, private route: ActivatedRoute, private titleSvc: Title, private localisationSvc: LocalisationService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -102,6 +104,8 @@ export class ShipPage implements OnInit {
       this.jsonHref = `${environment.api}/ships/${shipClass}.json`;
 
       this.shipSvc.load(shipClass).then(ship => {
+
+        this.titleSvc.setTitle(`${this.localisationSvc.getText(ship.vehicleName)}`);
 
         let vehiclePorts = ship.findItemPorts(ip => ip instanceof ItemPort);
 

@@ -6,6 +6,8 @@ import { environment } from 'src/environments/environment';
 import { SCItem } from '../SCItem';
 import { PriceService } from '../price.service';
 import * as _ from 'lodash';
+import { LocalisationService } from '../Localisation';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-item-page',
@@ -18,7 +20,7 @@ export class ItemPage implements OnInit {
   prices: any[] = [];
   jsonHref: string = "";
 
-  constructor(private $http: HttpClient, private route: ActivatedRoute, private priceSvc: PriceService) { }
+  constructor(private $http: HttpClient, private route: ActivatedRoute, private priceSvc: PriceService, private titleSvc: Title, private localisationSvc: LocalisationService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -30,7 +32,11 @@ export class ItemPage implements OnInit {
 
       this.$http.get(`${environment.api}/items/${itemClass}.json`).toPromise().then(r => {
         var item = new SCItem(r);
+
+        this.titleSvc.setTitle(`${this.localisationSvc.getText(item.name) || item.className}`);
+
         this.item = item;
+
         console.log("Item", item);
 
         this.priceSvc.item$.subscribe(r => {
