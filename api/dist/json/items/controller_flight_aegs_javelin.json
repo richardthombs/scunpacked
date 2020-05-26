@@ -1,0 +1,82 @@
+{
+  "Raw": {
+    "Entity": {
+      "StaticEntityClassData": {},
+      "tags": [],
+      "Components": {
+        "SAttachableComponentParams": {
+          "AttachDef": {
+            "Type": "FlightController",
+            "SubType": "UNDEFINED",
+            "Size": 1,
+            "Grade": 1,
+            "Manufacturer": "00000000-0000-0000-0000-000000000000",
+            "Tags": "",
+            "RequiredTags": "",
+            "DisplayType": "",
+            "Localization": {
+              "Name": "@item_Name_FLGT_Controller",
+              "Description": "@LOC_EMPTY"
+            }
+          }
+        },
+        "IFCSParams": {
+          "maxSpeed": 50.0,
+          "maxAfterburnSpeed": 900.0,
+          "torqueDistanceThreshold": 30.0,
+          "refreshCachesOnLandingMode": false,
+          "coefficientOfLift": 0.3,
+          "centerOfLiftOffset": 0.0,
+          "centerOfPressureOffset": 0.0,
+          "linearTurbulenceAmplitude": 0.4,
+          "angularTurbulenceAmplitude": 0.1,
+          "groundTurbulenceAmplitude": 0.1,
+          "precisionMinDistance": 15.0,
+          "precisionMaxDistance": 150.0,
+          "precisionLandingMultiplier": 1.0
+        },
+        "SCItem": {
+          "turnedOnByDefault": false,
+          "attachToTileItemPort": "NoConnection",
+          "inheritModelTagFromHost": true,
+          "ItemPorts": []
+        },
+        "SEntityInteractableParams": {
+          "Interactable": {
+            "SharedInteractions": [
+              {
+                "Name": "EngineOn",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@ui_interactor_engine_on",
+                "DisplayType": "Show",
+                "GenericCursor": "Button",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "EngineOff",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@ui_interactor_engine_off",
+                "DisplayType": "Show",
+                "GenericCursor": "Button",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              }
+            ]
+          }
+        }
+      },
+      "ClassName": "Controller_Flight_AEGS_Javelin"
+    }
+  }
+}

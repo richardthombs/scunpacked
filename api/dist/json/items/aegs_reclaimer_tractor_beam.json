@@ -24,6 +24,37 @@
             }
           }
         },
+        "SHealthComponentParams": {
+          "Health": 3000.0,
+          "DamageResistances": {
+            "DamageResistance": {
+              "PhysicalResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "EnergyResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "DistortionResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "ThermalResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "BiochemicalResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "StunResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              }
+            }
+          }
+        },
         "EntityComponentPowerConnection": {
           "PowerBase": 0.0,
           "PowerDraw": 2.0,
@@ -77,7 +108,50 @@
               "PortFlags": "",
               "PortTags": "",
               "RequiredItemTags": "",
-              "Ports": []
+              "Ports": [
+                {
+                  "Name": "hardpoint_weapon_left",
+                  "DisplayName": "port_NameTurretGunSlot01",
+                  "PortTags": "",
+                  "RequiredPortTags": "",
+                  "Flags": "",
+                  "MinSize": 1,
+                  "MaxSize": 3,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": [
+                    {
+                      "Type": "WeaponGun",
+                      "SubTypes": [
+                        {
+                          "value": "Gun"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "hardpoint_weapon_right",
+                  "DisplayName": "port_NameTurretGunSlot02",
+                  "PortTags": "",
+                  "RequiredPortTags": "",
+                  "Flags": "",
+                  "MinSize": 3,
+                  "MaxSize": 3,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": [
+                    {
+                      "Type": "WeaponGun",
+                      "SubTypes": [
+                        {
+                          "value": "Gun"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -97,7 +171,7 @@
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
                 "DisplayName": "@ui_CIFPSWeaponChangeFireMode",
                 "DisplayType": "Show",
-                "GenericCursor": "SingleAction",
+                "GenericCursor": "Button",
                 "FocusModeOnly": false,
                 "Sendable": false,
                 "Linkable": true,
@@ -109,12 +183,12 @@
                 "Name": "AI_Use",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@usable_use",
+                "DisplayName": "@ui_interactor_turret_gyro",
                 "DisplayType": "Show",
-                "GenericCursor": "SingleAction",
+                "GenericCursor": "Button",
                 "FocusModeOnly": false,
                 "Sendable": false,
-                "Linkable": false,
+                "Linkable": true,
                 "LockedByLinks": false,
                 "RequiresAuthorizedUser": false,
                 "available": true
@@ -123,12 +197,40 @@
                 "Name": "RetractTurret",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@usable_use",
+                "DisplayName": "@ui_interactor_turret_sensitivity_increase",
                 "DisplayType": "Show",
-                "GenericCursor": "SingleAction",
+                "GenericCursor": "Button",
                 "FocusModeOnly": false,
                 "Sendable": false,
-                "Linkable": false,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Turret_Sensitivity_Decrease",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@ui_interactor_turret_sensitivity_decrease",
+                "DisplayType": "Show",
+                "GenericCursor": "Button",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Turret_Sensitivity_Reset",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@ui_interactor_turret_sensitivity_reset",
+                "DisplayType": "Show",
+                "GenericCursor": "Button",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": true,
                 "LockedByLinks": false,
                 "RequiresAuthorizedUser": false,
                 "available": true

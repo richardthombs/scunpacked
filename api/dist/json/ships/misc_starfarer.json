@@ -112,37 +112,37 @@
                 },
                 {
                   "itemPortName": "hardpoint_bed_captain",
-                  "entityClassName": "Bed_MISC_Starfarer_Captain",
+                  "entityClassName": "Bed_Single_Starfarer_Captain",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_bed_crew_1",
-                  "entityClassName": "Bed_MISC_Starfarer_Crew",
+                  "entityClassName": "Bed_Single_Starfarer_Crew",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_bed_crew_2",
-                  "entityClassName": "Bed_MISC_Starfarer_Crew",
+                  "entityClassName": "Bed_Single_Starfarer_Crew",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_bed_crew_3",
-                  "entityClassName": "Bed_MISC_Starfarer_Crew",
+                  "entityClassName": "Bed_Single_Starfarer_Crew",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_bed_crew_4",
-                  "entityClassName": "Bed_MISC_Starfarer_Crew",
+                  "entityClassName": "Bed_Single_Starfarer_Crew",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_bed_crew_5",
-                  "entityClassName": "Bed_MISC_Starfarer_Crew",
+                  "entityClassName": "Bed_Single_Starfarer_Crew",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_bed_crew_6",
-                  "entityClassName": "Bed_MISC_Starfarer_Crew",
+                  "entityClassName": "Bed_Single_Starfarer_Crew",
                   "loadout": {}
                 },
                 {
@@ -252,7 +252,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_controller_shield",
-                  "entityClassName": "Controller_Shield_Quadrant",
+                  "entityClassName": "Controller_Shield_MISC_Starfarer",
                   "loadout": {}
                 },
                 {
@@ -268,6 +268,11 @@
                 {
                   "itemPortName": "hardpoint_cargo_door",
                   "entityClassName": "Door_Ship_Exterior_Starfarer",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_ramp",
+                  "entityClassName": "Door_Ship_Exterior_Starfarer_Ramp_Attachable",
                   "loadout": {}
                 },
                 {
@@ -584,6 +589,11 @@
                   "itemPortName": "hardpoint_fuel_pod_R3",
                   "entityClassName": "MISC_FuelPod",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_paint",
+                  "entityClassName": "",
+                  "loadout": {}
                 }
               ]
             }
@@ -756,12 +766,15 @@
                     "minsize": 6,
                     "maxsize": 6,
                     "display_name": "port_NameNoseMount",
-                    "flags": "uneditable",
-                    "id": "modFuelIntake",
+                    "flags": "",
                     "Types": [
                       {
                         "type": "FuelIntake",
                         "subtypes": ""
+                      },
+                      {
+                        "type": "MissileLauncher",
+                        "subtypes": "MissileRack"
                       }
                     ],
                     "Connections": [
@@ -1843,6 +1856,24 @@
               "class": "AnimatedJoint",
               "skipPart": false,
               "Parts": [
+                {
+                  "name": "hardpoint_paint",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "port_NamePaint",
+                    "flags": "",
+                    "requiredTags": "Paint_Starfarer",
+                    "Types": [
+                      {
+                        "type": "Paints"
+                      }
+                    ]
+                  }
+                },
                 {
                   "name": "hardpoint_engine_main",
                   "damageMax": 0.0,
@@ -3449,6 +3480,22 @@
                   }
                 },
                 {
+                  "name": "hardpoint_ramp",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "$uneditable",
+                    "Types": [
+                      {
+                        "type": "Door"
+                      }
+                    ]
+                  }
+                },
+                {
                   "name": "hardpoint_bed_captain",
                   "damageMax": 0.0,
                   "class": "ItemPort",
@@ -3768,11 +3815,6 @@
               "idRef": "modmMass",
               "name": "mass",
               "value": "3583690.0"
-            },
-            {
-              "idRef": "modFuelIntake",
-              "name": "flags",
-              "value": "uneditable"
             },
             {
               "idRef": "modMissileRack",

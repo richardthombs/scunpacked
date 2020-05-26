@@ -77,6 +77,11 @@ namespace Loader
 				var entityParser = new EntityParser();
 				entity = entityParser.Parse(entityFilename, OnXmlLoadout);
 				if (entity == null) continue;
+				if (entity.Components.VehicleComponentParams == null)
+				{
+					Console.WriteLine("This doesn't seem to be a vehicle");
+					continue;
+				}
 
 				// Vehicle
 				var vehicleFilename = entity.Components?.VehicleComponentParams?.vehicleDefinition;

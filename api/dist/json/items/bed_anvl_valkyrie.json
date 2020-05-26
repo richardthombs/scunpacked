@@ -7,7 +7,7 @@
         "SEntityComponentDefaultLoadoutParams": {
           "loadout": {
             "SItemPortLoadoutXMLParams": {
-              "loadoutPath": "",
+              "loadoutPath": "bed_single_template_loadout.json",
               "__type": "SItemPortLoadoutBaseParams"
             }
           }
@@ -30,7 +30,7 @@
         },
         "SCItem": {
           "turnedOnByDefault": false,
-          "attachToTileItemPort": "NoConnection",
+          "attachToTileItemPort": "DefaultConnection",
           "inheritModelTagFromHost": true,
           "ItemPorts": [
             {
@@ -39,24 +39,7 @@
               "RequiredItemTags": "",
               "Ports": [
                 {
-                  "Name": "Bunk_Mattress",
-                  "DisplayName": "",
-                  "PortTags": "Sleep",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "Seat",
-                      "SubTypes": []
-                    }
-                  ]
-                },
-                {
-                  "Name": "Bunk_Mattress_2",
+                  "Name": "Mattress",
                   "DisplayName": "",
                   "PortTags": "Sleep",
                   "RequiredPortTags": "",
@@ -71,6 +54,18 @@
                       "SubTypes": []
                     }
                   ]
+                },
+                {
+                  "Name": "Pillow",
+                  "DisplayName": "",
+                  "PortTags": "",
+                  "RequiredPortTags": "",
+                  "Flags": "",
+                  "MinSize": 1,
+                  "MaxSize": 2,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": []
                 }
               ]
             }
@@ -80,15 +75,29 @@
           "Interactable": {
             "SharedInteractions": [
               {
-                "Name": "Enter",
+                "Name": "LieDown",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@ui_interactor_use_bed",
+                "DisplayName": "@interaction_liedown",
                 "DisplayType": "Show",
                 "GenericCursor": "SingleAction",
                 "FocusModeOnly": false,
                 "Sendable": true,
                 "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Sit",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_sit",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
                 "LockedByLinks": false,
                 "RequiresAuthorizedUser": false,
                 "available": true
@@ -97,14 +106,28 @@
                 "Name": "Exit",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@ui_interactor_exit_bed",
+                "DisplayName": "@interaction_getup",
                 "DisplayType": "Show",
                 "GenericCursor": "SingleAction",
                 "FocusModeOnly": false,
-                "Sendable": true,
-                "Linkable": true,
+                "Sendable": false,
+                "Linkable": false,
                 "LockedByLinks": false,
                 "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Sleep",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_sleep",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": true,
                 "available": true
               },
               {
@@ -113,7 +136,7 @@
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
                 "DisplayName": "@ui_interactor_logout",
                 "DisplayType": "Show",
-                "GenericCursor": "MultiAction",
+                "GenericCursor": "SingleAction",
                 "FocusModeOnly": false,
                 "Sendable": true,
                 "Linkable": true,

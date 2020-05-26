@@ -113,7 +113,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_controller_shield",
-                  "entityClassName": "Controller_Shield_Quadrant",
+                  "entityClassName": "Controller_Shield_ANVL_Hornet",
                   "loadout": {}
                 },
                 {
@@ -2002,8 +2002,19 @@
                             {
                               "name": "ANVL_Hornet_F7CR_RearAntenna",
                               "damageMax": 0.0,
-                              "class": "Animated",
-                              "skipPart": false
+                              "class": "ItemPort",
+                              "skipPart": false,
+                              "ItemPort": {
+                                "minsize": 1,
+                                "maxsize": 1,
+                                "display_name": "port_RearAntenna",
+                                "flags": "uneditable",
+                                "Types": [
+                                  {
+                                    "type": "Container"
+                                  }
+                                ]
+                              }
                             }
                           ]
                         }
@@ -2259,8 +2270,19 @@
                 {
                   "name": "ANVL_Hornet_F7CR_NoseCap",
                   "damageMax": 0.0,
-                  "class": "Animated",
-                  "skipPart": false
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "port_NoseCap",
+                    "flags": "uneditable",
+                    "Types": [
+                      {
+                        "type": "Container"
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -2295,6 +2317,11 @@
               "idRef": "modVehicleClass",
               "name": "displayname",
               "value": "Anvil Hornet F7A"
+            },
+            {
+              "idRef": "modVehicle",
+              "name": "landingOffset",
+              "value": "0,-0.5,-3.758"
             },
             {
               "idRef": "modVehicleClass",
@@ -2340,16 +2367,6 @@
               "idRef": "modVehicleClass",
               "name": "crossSectionMultiplier",
               "value": "0.45,0.42,0.35"
-            },
-            {
-              "idRef": "modF7CR_NoseCap",
-              "name": "filename",
-              "value": "Objects/Spaceships/Ships/ANVL/Hornet/F7C_R/ANVL_Hornet_F7CR_NoseCap.cga"
-            },
-            {
-              "idRef": "modF7CR_RearAntenna",
-              "name": "filename",
-              "value": "Objects/Spaceships/Ships/ANVL/Hornet/F7C_R/ANVL_Hornet_F7CR_RearAntenna.cga"
             },
             {
               "idRef": "modHoloGeometry_Default",

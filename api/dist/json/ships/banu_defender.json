@@ -117,7 +117,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_controller_shield",
-                  "entityClassName": "Controller_Shield_Quadrant",
+                  "entityClassName": "Controller_Shield_BANU_Defender",
                   "loadout": {}
                 },
                 {
@@ -388,6 +388,21 @@
                 {
                   "itemPortName": "hardpoint_door_exterior",
                   "entityClassName": "BANU_Defender_Door_Exterior",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_bed_left",
+                  "entityClassName": "Bed_Single_Defender_BANU_Right",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_bed_right",
+                  "entityClassName": "Bed_Single_Defender_BANU_Left",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_rack",
+                  "entityClassName": "",
                   "loadout": {}
                 }
               ]
@@ -1651,33 +1666,6 @@
                   }
                 },
                 {
-                  "name": "hardpoint_target_selector",
-                  "damageMax": 0.0,
-                  "class": "ItemPort",
-                  "skipPart": false,
-                  "ItemPort": {
-                    "minsize": 1,
-                    "maxsize": 1,
-                    "flags": "invisible",
-                    "Types": [
-                      {
-                        "type": "TargetSelector",
-                        "subtypes": ""
-                      }
-                    ],
-                    "Connections": [
-                      {
-                        "pipeClass": "Power",
-                        "pipe": "MainPower"
-                      },
-                      {
-                        "pipeClass": "Heat",
-                        "pipe": "MainHeat"
-                      }
-                    ]
-                  }
-                },
-                {
                   "name": "hardpoint_self_destruct",
                   "damageMax": 0.0,
                   "class": "ItemPort",
@@ -2219,6 +2207,57 @@
                   "skipPart": false
                 },
                 {
+                  "name": "hardpoint_bed_left",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "port_NameBed",
+                    "flags": "uneditable",
+                    "Types": [
+                      {
+                        "type": "Usable"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_bed_right",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "port_NameBed",
+                    "flags": "uneditable",
+                    "Types": [
+                      {
+                        "type": "Usable"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_weapon_rack",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "uneditable",
+                    "Types": [
+                      {
+                        "type": "Usable",
+                        "subtypes": ""
+                      }
+                    ]
+                  }
+                },
+                {
                   "name": "Wing_Hull_Left",
                   "damageMax": 2000.0,
                   "class": "AnimatedJoint",
@@ -2575,6 +2614,33 @@
                   "damageMax": 0.0,
                   "class": "AnimatedJoint",
                   "skipPart": false
+                },
+                {
+                  "name": "hardpoint_target_selector",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible",
+                    "Types": [
+                      {
+                        "type": "TargetSelector",
+                        "subtypes": ""
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ]
+                  }
                 }
               ]
             },
