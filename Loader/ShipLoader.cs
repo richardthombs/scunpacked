@@ -33,6 +33,16 @@ namespace Loader
 			"s42",
 			"hijacked",
 			"comms",
+			"ea_outlaw",
+			"ea_outlaws",
+			"ea_uee",
+			"tow",
+			"sdf_shields",
+			"mlhm1",
+			"microtech",
+			"shubin",
+			"shubin_c05",
+			"drug_01",
 
 			// Skin variants
 			"pink",
