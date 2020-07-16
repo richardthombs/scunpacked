@@ -95,7 +95,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_power_plant",
-                  "entityClassName": "POWR_TYDT_S01_SonicLite_SCItem",
+                  "entityClassName": "POWR_AMRS_S01_DynaFlux_SCItem",
                   "loadout": {}
                 },
                 {
@@ -105,12 +105,12 @@
                 },
                 {
                   "itemPortName": "hardpoint_cooler_left",
-                  "entityClassName": "COOL_TYDT_S01_HeatSafe_SCItem",
+                  "entityClassName": "COOL_AEGS_S01_Polar_SCItem",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_cooler_right",
-                  "entityClassName": "COOL_TYDT_S01_HeatSafe_SCItem",
+                  "entityClassName": "COOL_AEGS_S01_Polar_SCItem",
                   "loadout": {}
                 },
                 {
@@ -120,12 +120,12 @@
                 },
                 {
                   "itemPortName": "hardpoint_shield_generator_left",
-                  "entityClassName": "SHLD_ASAS_S01_Shimmer_SCItem",
+                  "entityClassName": "SHLD_GODI_S01_ForceWall_SCItem",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_shield_generator_right",
-                  "entityClassName": "SHLD_ASAS_S01_Shimmer_SCItem",
+                  "entityClassName": "SHLD_GODI_S01_ForceWall_SCItem",
                   "loadout": {}
                 },
                 {
@@ -255,13 +255,33 @@
                 },
                 {
                   "itemPortName": "hardpoint_gun_left",
-                  "entityClassName": "KLWE_LaserRepeater_S3",
-                  "loadout": {}
+                  "entityClassName": "Mount_Gimbal_S4",
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "hardpoint_class_2",
+                          "entityClassName": "KLWE_LaserRepeater_S3",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
                 },
                 {
                   "itemPortName": "hardpoint_gun_right",
-                  "entityClassName": "KLWE_LaserRepeater_S3",
-                  "loadout": {}
+                  "entityClassName": "Mount_Gimbal_S4",
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "hardpoint_class_2",
+                          "entityClassName": "KLWE_LaserRepeater_S3",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
                 },
                 {
                   "itemPortName": "hardpoint_countermeasures_left",
@@ -699,8 +719,8 @@
                   "class": "ItemPort",
                   "skipPart": false,
                   "ItemPort": {
-                    "minsize": 3,
-                    "maxsize": 3,
+                    "minsize": 4,
+                    "maxsize": 4,
                     "display_name": "port_NameWeaponSlot01",
                     "flags": "",
                     "defaultWeaponGroup": "1",
@@ -740,8 +760,8 @@
                   "class": "ItemPort",
                   "skipPart": false,
                   "ItemPort": {
-                    "minsize": 3,
-                    "maxsize": 3,
+                    "minsize": 4,
+                    "maxsize": 4,
                     "display_name": "port_NameWeaponSlot02",
                     "flags": "",
                     "defaultWeaponGroup": "1",
@@ -1209,7 +1229,7 @@
                 },
                 {
                   "name": "Sub_Frame",
-                  "damageMax": 200.0,
+                  "damageMax": 1000.0,
                   "class": "AnimatedJoint",
                   "skipPart": false,
                   "Parts": [
@@ -1271,19 +1291,19 @@
                     },
                     {
                       "name": "Wing_Left_Upper_Thruster_Shoulder",
-                      "damageMax": 50.0,
+                      "damageMax": 300.0,
                       "class": "AnimatedJoint",
                       "skipPart": false,
                       "Parts": [
                         {
                           "name": "Wing_Left_Upper_Thruster_Elbow",
-                          "damageMax": 50.0,
+                          "damageMax": 300.0,
                           "class": "AnimatedJoint",
                           "skipPart": false,
                           "Parts": [
                             {
                               "name": "Wing_Left_Upper_Thruster_Housing",
-                              "damageMax": 75.0,
+                              "damageMax": 500.0,
                               "class": "AnimatedJoint",
                               "skipPart": false,
                               "Parts": [
@@ -1477,7 +1497,7 @@
                           "Parts": [
                             {
                               "name": "Wing_Right_Lower_Thruster_Housing",
-                              "damageMax": 75.0,
+                              "damageMax": 500.0,
                               "class": "AnimatedJoint",
                               "skipPart": false,
                               "Parts": [
@@ -1650,7 +1670,7 @@
                     },
                     {
                       "name": "Wing_Left_Lower_Thruster_Shoulder",
-                      "damageMax": 500.0,
+                      "damageMax": 300.0,
                       "class": "AnimatedJoint",
                       "skipPart": false,
                       "Parts": [
@@ -2109,7 +2129,7 @@
                 },
                 {
                   "name": "body_nose",
-                  "damageMax": 2000.0,
+                  "damageMax": 1000.0,
                   "class": "AnimatedJoint",
                   "skipPart": false
                 },

@@ -102,6 +102,11 @@
                   "itemPortName": "hardpoint_paint",
                   "entityClassName": "",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_weapon",
+                  "entityClassName": "Controller_Weapon",
+                  "loadout": {}
                 }
               ]
             }
@@ -734,6 +739,53 @@
                     "subtypes": ""
                   }
                 ]
+              }
+            },
+            {
+              "name": "hardpoint_controller_weapon",
+              "damageMax": 0.0,
+              "class": "ItemPort",
+              "skipPart": false,
+              "ItemPort": {
+                "minsize": 1,
+                "maxsize": 1,
+                "flags": "invisible uneditable",
+                "Types": [
+                  {
+                    "type": "WeaponController"
+                  }
+                ],
+                "Connections": [
+                  {
+                    "pipeClass": "Power",
+                    "pipe": "MainPower"
+                  },
+                  {
+                    "pipeClass": "Heat",
+                    "pipe": "MainHeat"
+                  }
+                ],
+                "ControllerDef": {
+                  "UsableDef": {
+                    "PriorityGroups": [
+                      {
+                        "itemType": "Turret"
+                      },
+                      {
+                        "itemType": "WeaponGun"
+                      },
+                      {
+                        "itemType": "WeaponDefensive"
+                      },
+                      {
+                        "itemType": "MissileLauncher"
+                      },
+                      {
+                        "itemType": "Missile"
+                      }
+                    ]
+                  }
+                }
               }
             }
           ]

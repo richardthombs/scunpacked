@@ -8,6 +8,34 @@
       },
       "tags": [],
       "Components": {
+        "SEntityComponentDefaultLoadoutParams": {
+          "loadout": {
+            "SItemPortLoadoutManualParams": {
+              "entries": [
+                {
+                  "itemPortName": "BAR1",
+                  "entityClassName": "KLWE_MassDriver_Barrel_S2",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "MEC",
+                  "entityClassName": "KLWE_MassDriver_FiringMechanism_S2",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "POW",
+                  "entityClassName": "KLWE_MassDriver_PowerArray_S2",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "VEN",
+                  "entityClassName": "KLWE_MassDriver_Ventilation_S2",
+                  "loadout": {}
+                }
+              ]
+            }
+          }
+        },
         "SAttachableComponentParams": {
           "AttachDef": {
             "Type": "WeaponGun",
@@ -25,7 +53,7 @@
           }
         },
         "SHealthComponentParams": {
-          "Health": 1050.0,
+          "Health": 2050.0,
           "DamageResistances": {
             "DamageResistance": {
               "PhysicalResistance": {
@@ -113,13 +141,98 @@
               "PortFlags": "",
               "PortTags": "",
               "RequiredItemTags": "",
-              "Ports": []
+              "Ports": [
+                {
+                  "Name": "BAR1",
+                  "DisplayName": "Barrel Attachment 1",
+                  "PortTags": "",
+                  "RequiredPortTags": "",
+                  "Flags": "",
+                  "MinSize": 2,
+                  "MaxSize": 2,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": [
+                    {
+                      "Type": "WeaponAttachment",
+                      "SubTypes": [
+                        {
+                          "value": "Barrel"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "MEC",
+                  "DisplayName": "Firing Mechanism Attachment",
+                  "PortTags": "",
+                  "RequiredPortTags": "",
+                  "Flags": "",
+                  "MinSize": 2,
+                  "MaxSize": 2,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": [
+                    {
+                      "Type": "WeaponAttachment",
+                      "SubTypes": [
+                        {
+                          "value": "FiringMechanism"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "POW",
+                  "DisplayName": "Power Array Attachment",
+                  "PortTags": "",
+                  "RequiredPortTags": "",
+                  "Flags": "",
+                  "MinSize": 2,
+                  "MaxSize": 2,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": [
+                    {
+                      "Type": "WeaponAttachment",
+                      "SubTypes": [
+                        {
+                          "value": "PowerArray"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "VEN",
+                  "DisplayName": "Ventilation Attachment",
+                  "PortTags": "",
+                  "RequiredPortTags": "",
+                  "Flags": "",
+                  "MinSize": 2,
+                  "MaxSize": 2,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": [
+                    {
+                      "Type": "WeaponAttachment",
+                      "SubTypes": [
+                        {
+                          "value": "Ventilation"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
         "SAmmoContainerComponentParams": {
-          "initialAmmoCount": 240.0,
-          "maxAmmoCount": 240.0,
+          "initialAmmoCount": 300.0,
+          "maxAmmoCount": 300.0,
           "ammoParamsRecord": "bfcc6ff6-7b62-4ff6-86c3-130e027e0ab9"
         },
         "SCItemWeaponComponentParams": {

@@ -28,7 +28,7 @@
           "isGravlevVehicle": false,
           "incomingDamageModifierToAI": 1.0,
           "emergencyStatusDamageThreshold": 0.25,
-          "crewSize": 1,
+          "crewSize": 2,
           "vehicleName": "@vehicle_NameMISC_Starfarer_Gemini",
           "vehicleDescription": "@vehicle_DescMISC_Starfarer_Gemini",
           "vehicleCareer": "@vehicle_focus_support",
@@ -643,6 +643,11 @@
                 {
                   "itemPortName": "hardpoint_paint",
                   "entityClassName": "",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_door_catwalk",
+                  "entityClassName": "Door_Ship_Exterior_MISC_Starfarer_Catwalk",
                   "loadout": {}
                 }
               ]
@@ -3531,6 +3536,22 @@
                 },
                 {
                   "name": "hardpoint_ramp",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "$uneditable",
+                    "Types": [
+                      {
+                        "type": "Door"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_door_catwalk",
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "skipPart": false,

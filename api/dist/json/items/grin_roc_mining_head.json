@@ -14,18 +14,18 @@
             "SubType": "Gun",
             "Size": 0,
             "Grade": 1,
-            "Manufacturer": "b28a5c61-63a4-478b-8047-5fba545d5b8a",
+            "Manufacturer": "819545f4-18af-49a6-814e-ca4fd08f56e5",
             "Tags": "flightReady weaponMountUsable miningMount",
             "RequiredTags": "miningMount",
             "DisplayType": "",
             "Localization": {
-              "Name": "@LOC_PLACEHOLDER",
-              "Description": "@LOC_PLACEHOLDER"
+              "Name": "@item_Mining_MiningLaser_Greycat_Default_S0",
+              "Description": "@item_Mining_MiningLaser_Greycat_Default_S0_Desc"
             }
           }
         },
         "SHealthComponentParams": {
-          "Health": 800.0,
+          "Health": 8000.0,
           "DamageResistances": {
             "DamageResistance": {
               "PhysicalResistance": {
@@ -106,71 +106,7 @@
               "PortFlags": "",
               "PortTags": "",
               "RequiredItemTags": "",
-              "Ports": [
-                {
-                  "Name": "BONE_ItemPort_Consumable_1",
-                  "DisplayName": "Sub_Item_Slot",
-                  "PortTags": "miningConsumable",
-                  "RequiredPortTags": "miningConsumable",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "MiningModifier",
-                      "SubTypes": [
-                        {
-                          "value": "Gun"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "BONE_ItemPort_Consumable_2",
-                  "DisplayName": "Sub_Item_Slot",
-                  "PortTags": "miningConsumable",
-                  "RequiredPortTags": "miningConsumable",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "MiningModifier",
-                      "SubTypes": [
-                        {
-                          "value": "Gun"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "BONE_ItemPort_Consumable_3",
-                  "DisplayName": "Sub_Item_Slot",
-                  "PortTags": "miningConsumable",
-                  "RequiredPortTags": "miningConsumable",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "MiningModifier",
-                      "SubTypes": [
-                        {
-                          "value": "Gun"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
+              "Ports": []
             }
           ]
         },
@@ -249,8 +185,8 @@
               "fireHelper": "muzzle_out",
               "toggle": 0.0,
               "energyRate": 0.0,
-              "fullDamageRange": 30.0,
-              "zeroDamageRange": 150.0,
+              "fullDamageRange": 15.0,
+              "zeroDamageRange": 25.0,
               "heatPerSecond": 0.0,
               "hitType": "ElectricArc",
               "hitRadius": 0.1,
@@ -268,11 +204,15 @@
           }
         },
         "SEntityComponentMiningLaserParams": {
-          "globalParams": "a3c468d8-1194-44a3-b3e6-a8d65ecebd85",
+          "globalParams": "ac61fb9e-0ffb-4cac-b05c-dc039e665782",
           "throttleLerpSpeed": "10",
           "miningLaserModifiers": {
             "resistanceModifier": 0.0,
-            "laserInstability": {},
+            "laserInstability": {
+              "FloatModifierMultiplicative": {
+                "value": 0.0
+              }
+            },
             "optimalChargeWindowSizeModifier": {
               "FloatModifierMultiplicative": {
                 "value": 0.0

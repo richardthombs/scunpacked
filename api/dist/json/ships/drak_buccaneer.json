@@ -80,7 +80,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_power_plant",
-                  "entityClassName": "POWR_AMRS_S01_HyperGen_SCItem",
+                  "entityClassName": "POWR_AMRS_S01_JS300_SCItem",
                   "loadout": {}
                 },
                 {
@@ -90,12 +90,12 @@
                 },
                 {
                   "itemPortName": "hardpoint_cooler_left",
-                  "entityClassName": "COOL_WCPR_S01_Endo_SCItem",
+                  "entityClassName": "COOL_AEGS_S01_Polar_SCItem",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_cooler_right",
-                  "entityClassName": "COOL_WCPR_S01_Endo_SCItem",
+                  "entityClassName": "COOL_AEGS_S01_Polar_SCItem",
                   "loadout": {}
                 },
                 {
@@ -330,13 +330,43 @@
                 },
                 {
                   "itemPortName": "hardpoint_Right_Wing_S3",
-                  "entityClassName": "KLWE_LaserRepeater_S3",
-                  "loadout": {}
+                  "entityClassName": "MRCK_S03_BEHR_Dual_S02",
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "missile_01_attach",
+                          "entityClassName": "MISL_S02_CS_FSKI_Tempest",
+                          "loadout": {}
+                        },
+                        {
+                          "itemPortName": "missile_02_attach",
+                          "entityClassName": "MISL_S02_IR_FSKI_Ignite",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
                 },
                 {
                   "itemPortName": "hardpoint_Left_Wing_S03",
-                  "entityClassName": "KLWE_LaserRepeater_S3",
-                  "loadout": {}
+                  "entityClassName": "MRCK_S03_BEHR_Dual_S02",
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "missile_01_attach",
+                          "entityClassName": "MISL_S02_IR_FSKI_Ignite",
+                          "loadout": {}
+                        },
+                        {
+                          "itemPortName": "missile_02_attach",
+                          "entityClassName": "MISL_S02_CS_FSKI_Tempest",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
                 },
                 {
                   "itemPortName": "hardpoint_Right_Wingtip_S1",
@@ -350,43 +380,13 @@
                 },
                 {
                   "itemPortName": "hardpoint_Left_S3_Pylon",
-                  "entityClassName": "MRCK_S03_BEHR_Dual_S02",
-                  "loadout": {
-                    "SItemPortLoadoutManualParams": {
-                      "entries": [
-                        {
-                          "itemPortName": "missile_01_attach",
-                          "entityClassName": "MISL_S02_IR_NOVP_Rattler",
-                          "loadout": {}
-                        },
-                        {
-                          "itemPortName": "missile_02_attach",
-                          "entityClassName": "MISL_S02_IR_NOVP_Rattler",
-                          "loadout": {}
-                        }
-                      ]
-                    }
-                  }
+                  "entityClassName": "KLWE_LaserRepeater_S3",
+                  "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_Right_S3_Pylon",
-                  "entityClassName": "MRCK_S03_BEHR_Dual_S02",
-                  "loadout": {
-                    "SItemPortLoadoutManualParams": {
-                      "entries": [
-                        {
-                          "itemPortName": "missile_01_attach",
-                          "entityClassName": "MISL_S02_IR_NOVP_Rattler",
-                          "loadout": {}
-                        },
-                        {
-                          "itemPortName": "missile_02_attach",
-                          "entityClassName": "MISL_S02_IR_NOVP_Rattler",
-                          "loadout": {}
-                        }
-                      ]
-                    }
-                  }
+                  "entityClassName": "KLWE_LaserRepeater_S3",
+                  "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_cm_launcher_left",
@@ -1587,17 +1587,12 @@
                           "ItemPort": {
                             "minsize": 3,
                             "maxsize": 3,
-                            "display_name": "port_NameWeaponSlot02",
+                            "display_name": "port_NameWeaponSlot04",
                             "flags": "",
-                            "defaultWeaponGroup": "1",
                             "Types": [
                               {
-                                "type": "Turret",
-                                "subtypes": "GunTurret"
-                              },
-                              {
-                                "type": "WeaponGun",
-                                "subtypes": "Gun"
+                                "type": "MissileLauncher",
+                                "subtypes": "MissileRack"
                               }
                             ],
                             "Connections": [
@@ -1609,15 +1604,7 @@
                                 "pipeClass": "Heat",
                                 "pipe": "MainHeat"
                               }
-                            ],
-                            "Pitch": {
-                              "min": -30,
-                              "max": 5
-                            },
-                            "Yaw": {
-                              "min": -15,
-                              "max": 15
-                            }
+                            ]
                           }
                         },
                         {
@@ -1975,17 +1962,12 @@
                           "ItemPort": {
                             "minsize": 3,
                             "maxsize": 3,
-                            "display_name": "port_NameWeaponSlot02",
+                            "display_name": "port_NameWeaponSlot04",
                             "flags": "",
-                            "defaultWeaponGroup": "1",
                             "Types": [
                               {
-                                "type": "Turret",
-                                "subtypes": "GunTurret"
-                              },
-                              {
-                                "type": "WeaponGun",
-                                "subtypes": "Gun"
+                                "type": "MissileLauncher",
+                                "subtypes": "MissileRack"
                               }
                             ],
                             "Connections": [
@@ -1997,15 +1979,7 @@
                                 "pipeClass": "Heat",
                                 "pipe": "MainHeat"
                               }
-                            ],
-                            "Pitch": {
-                              "min": -30,
-                              "max": 5
-                            },
-                            "Yaw": {
-                              "min": -15,
-                              "max": 15
-                            }
+                            ]
                           }
                         },
                         {
@@ -2437,8 +2411,120 @@
                   }
                 },
                 {
+                  "name": "hardpoint_fuel_intake_left",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "FuelIntake"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "Fuel",
+                        "pipe": "IntakeFuel"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_fuel_tank_left",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "FuelTank"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Input",
+                        "pipe": "IntakeFuel"
+                      },
+                      {
+                        "pipeClass": "Output",
+                        "pipe": "MainFuel"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_fuel_intake_right",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "FuelIntake"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "Fuel",
+                        "pipe": "IntakeFuel"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_fuel_tank_right",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "FuelTank"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Input",
+                        "pipe": "IntakeFuel"
+                      },
+                      {
+                        "pipeClass": "Output",
+                        "pipe": "MainFuel"
+                      }
+                    ]
+                  }
+                },
+                {
                   "name": "intake_left",
-                  "damageMax": 40.0,
+                  "damageMax": 400.0,
                   "class": "AnimatedJoint",
                   "skipPart": false,
                   "Parts": [
@@ -2505,68 +2591,12 @@
                           }
                         ]
                       }
-                    },
-                    {
-                      "name": "hardpoint_fuel_intake_left",
-                      "damageMax": 0.0,
-                      "class": "ItemPort",
-                      "skipPart": false,
-                      "ItemPort": {
-                        "minsize": 1,
-                        "maxsize": 1,
-                        "flags": "invisible uneditable",
-                        "Types": [
-                          {
-                            "type": "FuelIntake"
-                          }
-                        ],
-                        "Connections": [
-                          {
-                            "pipeClass": "Power",
-                            "pipe": "MainPower"
-                          },
-                          {
-                            "pipeClass": "Heat",
-                            "pipe": "MainHeat"
-                          },
-                          {
-                            "pipeClass": "Fuel",
-                            "pipe": "IntakeFuel"
-                          }
-                        ]
-                      }
-                    },
-                    {
-                      "name": "hardpoint_fuel_tank_left",
-                      "damageMax": 0.0,
-                      "class": "ItemPort",
-                      "skipPart": false,
-                      "ItemPort": {
-                        "minsize": 1,
-                        "maxsize": 1,
-                        "flags": "invisible uneditable",
-                        "Types": [
-                          {
-                            "type": "FuelTank"
-                          }
-                        ],
-                        "Connections": [
-                          {
-                            "pipeClass": "Input",
-                            "pipe": "IntakeFuel"
-                          },
-                          {
-                            "pipeClass": "Output",
-                            "pipe": "MainFuel"
-                          }
-                        ]
-                      }
                     }
                   ]
                 },
                 {
                   "name": "intake_right",
-                  "damageMax": 40.0,
+                  "damageMax": 400.0,
                   "class": "AnimatedJoint",
                   "skipPart": false,
                   "Parts": [
@@ -2633,62 +2663,6 @@
                           }
                         ]
                       }
-                    },
-                    {
-                      "name": "hardpoint_fuel_intake_right",
-                      "damageMax": 0.0,
-                      "class": "ItemPort",
-                      "skipPart": false,
-                      "ItemPort": {
-                        "minsize": 1,
-                        "maxsize": 1,
-                        "flags": "invisible uneditable",
-                        "Types": [
-                          {
-                            "type": "FuelIntake"
-                          }
-                        ],
-                        "Connections": [
-                          {
-                            "pipeClass": "Power",
-                            "pipe": "MainPower"
-                          },
-                          {
-                            "pipeClass": "Heat",
-                            "pipe": "MainHeat"
-                          },
-                          {
-                            "pipeClass": "Fuel",
-                            "pipe": "IntakeFuel"
-                          }
-                        ]
-                      }
-                    },
-                    {
-                      "name": "hardpoint_fuel_tank_right",
-                      "damageMax": 0.0,
-                      "class": "ItemPort",
-                      "skipPart": false,
-                      "ItemPort": {
-                        "minsize": 1,
-                        "maxsize": 1,
-                        "flags": "invisible uneditable",
-                        "Types": [
-                          {
-                            "type": "FuelTank"
-                          }
-                        ],
-                        "Connections": [
-                          {
-                            "pipeClass": "Input",
-                            "pipe": "IntakeFuel"
-                          },
-                          {
-                            "pipeClass": "Output",
-                            "pipe": "MainFuel"
-                          }
-                        ]
-                      }
                     }
                   ]
                 },
@@ -2712,12 +2686,17 @@
                   "ItemPort": {
                     "minsize": 3,
                     "maxsize": 3,
-                    "display_name": "port_NameWeaponSlot04",
+                    "display_name": "port_NameWeaponSlot02",
                     "flags": "",
+                    "defaultWeaponGroup": "1",
                     "Types": [
                       {
-                        "type": "MissileLauncher",
-                        "subtypes": "MissileRack"
+                        "type": "Turret",
+                        "subtypes": "GunTurret"
+                      },
+                      {
+                        "type": "WeaponGun",
+                        "subtypes": "Gun"
                       }
                     ],
                     "Connections": [
@@ -2729,7 +2708,15 @@
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
                       }
-                    ]
+                    ],
+                    "Pitch": {
+                      "min": -30,
+                      "max": 5
+                    },
+                    "Yaw": {
+                      "min": -15,
+                      "max": 15
+                    }
                   }
                 },
                 {
@@ -2740,12 +2727,17 @@
                   "ItemPort": {
                     "minsize": 3,
                     "maxsize": 3,
-                    "display_name": "port_NameWeaponSlot04",
+                    "display_name": "port_NameWeaponSlot02",
                     "flags": "",
+                    "defaultWeaponGroup": "1",
                     "Types": [
                       {
-                        "type": "MissileLauncher",
-                        "subtypes": "MissileRack"
+                        "type": "Turret",
+                        "subtypes": "GunTurret"
+                      },
+                      {
+                        "type": "WeaponGun",
+                        "subtypes": "Gun"
                       }
                     ],
                     "Connections": [
@@ -2757,7 +2749,15 @@
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
                       }
-                    ]
+                    ],
+                    "Pitch": {
+                      "min": -30,
+                      "max": 5
+                    },
+                    "Yaw": {
+                      "min": -15,
+                      "max": 15
+                    }
                   }
                 }
               ]

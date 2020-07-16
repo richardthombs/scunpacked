@@ -167,6 +167,11 @@
                   "itemPortName": "hardpoint_shield_generator",
                   "entityClassName": "SHLD_SECO_S00_PIN_SCItem",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_radar_turretseat",
+                  "entityClassName": "RADR_GRNP_S00_Prevenir",
+                  "loadout": {}
                 }
               ]
             }
@@ -646,12 +651,6 @@
                       "UsableDef": {
                         "PriorityGroups": [
                           {
-                            "itemType": "Turret"
-                          },
-                          {
-                            "itemType": "WeaponGun"
-                          },
-                          {
                             "itemType": "WeaponDefensive"
                           },
                           {
@@ -975,6 +974,37 @@
                         "pipe": "MainHeat"
                       }
                     ]
+                  }
+                },
+                {
+                  "name": "hardpoint_radar_turretseat",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 0,
+                    "maxsize": 0,
+                    "display_name": "port_NameRadar",
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "Radar",
+                        "subtypes": "ShortRangeRadar,MidRangeRadar"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "turretSeat"
+                    }
                   }
                 },
                 {

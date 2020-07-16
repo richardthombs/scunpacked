@@ -205,11 +205,6 @@
                   "loadout": {}
                 },
                 {
-                  "itemPortName": "hardpoint_quantum_fuel_2",
-                  "entityClassName": "QTNK_ANVL_Carrack",
-                  "loadout": {}
-                },
-                {
                   "itemPortName": "hardpoint_controller_light",
                   "entityClassName": "Controller_Light",
                   "loadout": {}
@@ -217,16 +212,6 @@
                 {
                   "itemPortName": "hardpoint_controller_shield",
                   "entityClassName": "Controller_Shield_ANVL_Carrack",
-                  "loadout": {}
-                },
-                {
-                  "itemPortName": "hardpoint_shield_generator_l",
-                  "entityClassName": "SHLD_BASL_S03_Barbican_SCItem",
-                  "loadout": {}
-                },
-                {
-                  "itemPortName": "hardpoint_shield_generator_r",
-                  "entityClassName": "SHLD_BASL_S03_Barbican_SCItem",
                   "loadout": {}
                 },
                 {
@@ -455,16 +440,6 @@
                   "loadout": {}
                 },
                 {
-                  "itemPortName": "hardpoint_turret_left_turret_controller",
-                  "entityClassName": "Controller_Weapon",
-                  "loadout": {}
-                },
-                {
-                  "itemPortName": "hardpoint_turret_right_turret_controller",
-                  "entityClassName": "Controller_Weapon",
-                  "loadout": {}
-                },
-                {
                   "itemPortName": "hardpoint_turret_left_turret_radar",
                   "entityClassName": "RADR_GRNP_S01_Ecouter",
                   "loadout": {}
@@ -616,7 +591,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_paint",
-                  "entityClassName": "Paint_Carrack_Expedition",
+                  "entityClassName": "",
                   "loadout": {}
                 },
                 {
@@ -631,12 +606,37 @@
                 },
                 {
                   "itemPortName": "hardpoint_countermeasures_left",
-                  "entityClassName": "JOKR_Defcon_CML_Flare",
+                  "entityClassName": "Paint_Carrack_Expedition",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_countermeasures_right",
                   "entityClassName": "JOKR_Defcon_CML_Chaff",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_locker_01",
+                  "entityClassName": "Weapon_Rack_ANVL_Carrack_Armory_Large",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_locker_02",
+                  "entityClassName": "Weapon_Rack_ANVL_Carrack_Armory_Large",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_quantum_fuel_2",
+                  "entityClassName": "QTNK_ANVL_Carrack",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_shield_generator_l",
+                  "entityClassName": "SHLD_BASL_S03_Barbican_SCItem",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_shield_generator_r",
+                  "entityClassName": "SHLD_BASL_S03_Barbican_SCItem",
                   "loadout": {}
                 }
               ]
@@ -2070,56 +2070,6 @@
                       }
                     },
                     {
-                      "name": "hardpoint_turret_left_controller",
-                      "damageMax": 0.0,
-                      "class": "ItemPort",
-                      "skipPart": false,
-                      "ItemPort": {
-                        "minsize": 1,
-                        "maxsize": 1,
-                        "flags": "invisible uneditable",
-                        "Types": [
-                          {
-                            "type": "WeaponController"
-                          }
-                        ],
-                        "Connections": [
-                          {
-                            "pipeClass": "Power",
-                            "pipe": "MainPower"
-                          },
-                          {
-                            "pipeClass": "Heat",
-                            "pipe": "MainHeat"
-                          }
-                        ],
-                        "ControllerDef": {
-                          "controllableTags": "TurretSideLeft",
-                          "UsableDef": {
-                            "PriorityGroups": [
-                              {
-                                "itemType": "Turret",
-                                "defaultPriority": "no_control"
-                              },
-                              {
-                                "itemType": "WeaponGun",
-                                "defaultPriority": "no_control"
-                              },
-                              {
-                                "itemType": "WeaponDefensive"
-                              },
-                              {
-                                "itemType": "MissileLauncher"
-                              },
-                              {
-                                "itemType": "Missile"
-                              }
-                            ]
-                          }
-                        }
-                      }
-                    },
-                    {
                       "name": "hardpoint_turret_left_seat_access",
                       "damageMax": 0.0,
                       "class": "ItemPort",
@@ -2223,56 +2173,6 @@
                       }
                     },
                     {
-                      "name": "hardpoint_turret_right_controller",
-                      "damageMax": 0.0,
-                      "class": "ItemPort",
-                      "skipPart": false,
-                      "ItemPort": {
-                        "minsize": 1,
-                        "maxsize": 1,
-                        "flags": "invisible uneditable",
-                        "Types": [
-                          {
-                            "type": "WeaponController"
-                          }
-                        ],
-                        "Connections": [
-                          {
-                            "pipeClass": "Power",
-                            "pipe": "MainPower"
-                          },
-                          {
-                            "pipeClass": "Heat",
-                            "pipe": "MainHeat"
-                          }
-                        ],
-                        "ControllerDef": {
-                          "controllableTags": "TurretSideRight",
-                          "UsableDef": {
-                            "PriorityGroups": [
-                              {
-                                "itemType": "Turret",
-                                "defaultPriority": "no_control"
-                              },
-                              {
-                                "itemType": "WeaponGun",
-                                "defaultPriority": "no_control"
-                              },
-                              {
-                                "itemType": "WeaponDefensive"
-                              },
-                              {
-                                "itemType": "MissileLauncher"
-                              },
-                              {
-                                "itemType": "Missile"
-                              }
-                            ]
-                          }
-                        }
-                      }
-                    },
-                    {
                       "name": "hardpoint_turret_right_seat_access",
                       "damageMax": 0.0,
                       "class": "ItemPort",
@@ -2329,16 +2229,38 @@
                       }
                     },
                     {
-                      "name": "hardpoint_weapon_locker_left",
+                      "name": "hardpoint_weapon_locker_01",
                       "damageMax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false
+                      "skipPart": false,
+                      "ItemPort": {
+                        "minsize": 1,
+                        "maxsize": 1,
+                        "flags": "uneditable",
+                        "Types": [
+                          {
+                            "type": "Usable",
+                            "subtypes": ""
+                          }
+                        ]
+                      }
                     },
                     {
-                      "name": "hardpoint_weapon_locker_right",
+                      "name": "hardpoint_weapon_locker_02",
                       "damageMax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false
+                      "skipPart": false,
+                      "ItemPort": {
+                        "minsize": 1,
+                        "maxsize": 1,
+                        "flags": "uneditable",
+                        "Types": [
+                          {
+                            "type": "Usable",
+                            "subtypes": ""
+                          }
+                        ]
+                      }
                     }
                   ]
                 },

@@ -66,26 +66,6 @@
                   }
                 },
                 {
-                  "itemPortName": "hardpoint_turret_console_left",
-                  "entityClassName": "ANVL_Valkyrie_Turret_Console_Left",
-                  "loadout": {}
-                },
-                {
-                  "itemPortName": "hardpoint_turret_console_left_access",
-                  "entityClassName": "ANVL_Valkyrie_SCItem_Turret_Left_Access",
-                  "loadout": {}
-                },
-                {
-                  "itemPortName": "hardpoint_turret_console_right",
-                  "entityClassName": "ANVL_Valkyrie_Turret_Console_Right",
-                  "loadout": {}
-                },
-                {
-                  "itemPortName": "hardpoint_turret_console_right_access",
-                  "entityClassName": "ANVL_Valkyrie_SCItem_Turret_Right_Access",
-                  "loadout": {}
-                },
-                {
                   "itemPortName": "hardpoint_controller_door",
                   "entityClassName": "Controller_Door",
                   "loadout": {}
@@ -457,6 +437,36 @@
                 },
                 {
                   "itemPortName": "hardpoint_turret_bottom_radar",
+                  "entityClassName": "RADR_GRNP_S01_Ecouter",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_turret_console_left",
+                  "entityClassName": "ANVL_Valkyrie_Turret_Console_Left",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_turret_console_left_access",
+                  "entityClassName": "ANVL_Valkyrie_SCItem_Turret_Left_Access",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_turret_console_left_radar",
+                  "entityClassName": "RADR_GRNP_S01_Ecouter",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_turret_console_right",
+                  "entityClassName": "ANVL_Valkyrie_Turret_Console_Right",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_turret_console_right_access",
+                  "entityClassName": "ANVL_Valkyrie_SCItem_Turret_Right_Access",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_turret_console_right_radar",
                   "entityClassName": "RADR_GRNP_S01_Ecouter",
                   "loadout": {}
                 },
@@ -2034,6 +2044,36 @@
                   }
                 },
                 {
+                  "name": "hardpoint_turret_console_left_radar",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "Radar",
+                        "subtypes": "ShortRangeRadar,MidRangeRadar"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "remoteturret_radar_left"
+                    }
+                  }
+                },
+                {
                   "name": "hardpoint_turret_console_right",
                   "damageMax": 0.0,
                   "class": "ItemPort",
@@ -2094,6 +2134,36 @@
                         "pipe": "MainHeat"
                       }
                     ]
+                  }
+                },
+                {
+                  "name": "hardpoint_turret_console_right_radar",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "Radar",
+                        "subtypes": "ShortRangeRadar,MidRangeRadar"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "remoteturret_radar_right"
+                    }
                   }
                 },
                 {

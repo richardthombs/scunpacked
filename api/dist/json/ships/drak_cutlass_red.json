@@ -440,7 +440,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_Side_IntDoor_Right",
-                  "entityClassName": "DRAK_Cutlass_Red_Airlock_Door",
+                  "entityClassName": "DRAK_Cutlass_Red_Airlock_Door_Right",
                   "loadout": {}
                 },
                 {
@@ -2159,23 +2159,6 @@
                   }
                 },
                 {
-                  "name": "hardpoint_weapon_rack",
-                  "damageMax": 0.0,
-                  "class": "ItemPort",
-                  "skipPart": false,
-                  "ItemPort": {
-                    "minsize": 1,
-                    "maxsize": 1,
-                    "flags": "uneditable",
-                    "Types": [
-                      {
-                        "type": "Usable",
-                        "subtypes": ""
-                      }
-                    ]
-                  }
-                },
-                {
                   "name": "hardpoint_controller_door",
                   "damageMax": 0.0,
                   "class": "ItemPort",
@@ -2500,6 +2483,29 @@
                   }
                 },
                 {
+                  "name": "hardpoint_weapon_rack",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "uneditable",
+                    "Types": [
+                      {
+                        "type": "Usable",
+                        "subtypes": ""
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "Canopy",
+                  "damageMax": 3000.0,
+                  "class": "AnimatedJoint",
+                  "skipPart": false
+                },
+                {
                   "name": "hardpoint_Cutlass_Red_Int_Airlock",
                   "damageMax": 0.0,
                   "class": "ItemPort",
@@ -2630,7 +2636,7 @@
                       "UsableDef": {
                         "PriorityGroups": [
                           {
-                            "itemType": "Turret",
+                            "itemType": "TurretBase",
                             "defaultPriority": "no_control"
                           },
                           {
