@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
@@ -121,6 +121,14 @@ namespace Loader
 			};
 			var shops = shopLoader.Load();
 			File.WriteAllText(Path.Combine(outputRoot, "shops.json"), JsonConvert.SerializeObject(shops));
+
+			// Locations
+			var locationLoader = new LocationLoader
+			{
+				DataRoot = scDataRoot
+			};
+			var locationIndex = locationLoader.Load();
+			File.WriteAllText(Path.Combine(outputRoot, "locations.json"), JsonConvert.SerializeObject(locationIndex));
 		}
 	}
 }
