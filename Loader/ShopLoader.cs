@@ -113,6 +113,8 @@ namespace Loader
 							shopSellsThis = itemNode.TransactionTypes.Any(x => x.Data == "Buy"),
 							basePrice = product.BasePrice,
 							filename = product.Filename,
+							node_reference = itemNode.ID,
+							item_reference = itemNode.InventoryID
 						};
 
 						if (entity?.Components.SAttachableComponentParams != null)
