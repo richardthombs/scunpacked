@@ -331,12 +331,12 @@
                   "loadout": {}
                 },
                 {
-                  "itemPortName": "hardpoint_retro_left",
+                  "itemPortName": "hardpoint_retro_left_a",
                   "entityClassName": "MISC_Freelancer_MAX_Thruster_Retro",
                   "loadout": {}
                 },
                 {
-                  "itemPortName": "hardpoint_retro_right",
+                  "itemPortName": "hardpoint_retro_right_a",
                   "entityClassName": "MISC_Freelancer_MAX_Thruster_Retro",
                   "loadout": {}
                 },
@@ -579,6 +579,16 @@
                   "itemPortName": "hardpoint_engine_right2",
                   "entityClassName": "MISC_Freelancer_Thruster_Main_Right",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_retro_left_b",
+                  "entityClassName": "MISC_Freelancer_MAX_Thruster_Retro",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_retro_right_b",
+                  "entityClassName": "MISC_Freelancer_MAX_Thruster_Retro",
+                  "loadout": {}
                 }
               ]
             }
@@ -714,24 +724,6 @@
               "class": "AnimatedJoint",
               "skipPart": false,
               "Parts": [
-                {
-                  "name": "hardpoint_paint",
-                  "damageMax": 0.0,
-                  "class": "ItemPort",
-                  "skipPart": false,
-                  "ItemPort": {
-                    "minsize": 1,
-                    "maxsize": 1,
-                    "display_name": "port_NamePaint",
-                    "flags": "",
-                    "requiredTags": "Paint_Freelancer",
-                    "Types": [
-                      {
-                        "type": "Paints"
-                      }
-                    ]
-                  }
-                },
                 {
                   "name": "hardpoint_seat_copilot",
                   "damageMax": 0.0,
@@ -1761,6 +1753,12 @@
                           }
                         },
                         {
+                          "name": "hardpoint_heat_sink",
+                          "damageMax": 0.0,
+                          "class": "ItemPort",
+                          "skipPart": false
+                        },
+                        {
                           "name": "hardpoint_controller_shield",
                           "damageMax": 0.0,
                           "class": "ItemPort",
@@ -2046,14 +2044,14 @@
                               }
                             },
                             {
-                              "name": "hardpoint_retro_left",
+                              "name": "hardpoint_retro_left_a",
                               "damageMax": 0.0,
                               "class": "ItemPort",
                               "skipPart": false,
                               "ItemPort": {
                                 "minsize": 1,
                                 "maxsize": 3,
-                                "display_name": "port_NameThrustRetro01",
+                                "display_name": "port_NameThrusterRetroLa",
                                 "flags": "retro uneditable",
                                 "requiredTags": "",
                                 "Types": [
@@ -2145,34 +2143,6 @@
                                       }
                                     ]
                                   }
-                                },
-                                {
-                                  "name": "hardpoint_countermeasure_launcher_left",
-                                  "damageMax": 0.0,
-                                  "class": "ItemPort",
-                                  "skipPart": false,
-                                  "ItemPort": {
-                                    "minsize": 1,
-                                    "maxsize": 2,
-                                    "display_name": "port_NameCountermeasure01",
-                                    "flags": "uneditable",
-                                    "Types": [
-                                      {
-                                        "type": "WeaponDefensive",
-                                        "subtypes": "CountermeasureLauncher"
-                                      }
-                                    ],
-                                    "Connections": [
-                                      {
-                                        "pipeClass": "Power",
-                                        "pipe": "MainPower"
-                                      },
-                                      {
-                                        "pipeClass": "Heat",
-                                        "pipe": "MainHeat"
-                                      }
-                                    ]
-                                  }
                                 }
                               ]
                             },
@@ -2204,6 +2174,67 @@
                                   {
                                     "pipeClass": "Fuel",
                                     "pipe": "MainFuel"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "name": "hardpoint_retro_left_b",
+                              "damageMax": 0.0,
+                              "class": "ItemPort",
+                              "skipPart": false,
+                              "ItemPort": {
+                                "minsize": 1,
+                                "maxsize": 3,
+                                "display_name": "port_NameThrusterRetroLb",
+                                "flags": "retro uneditable",
+                                "requiredTags": "",
+                                "Types": [
+                                  {
+                                    "type": "ManneuverThruster",
+                                    "subtypes": ""
+                                  }
+                                ],
+                                "Connections": [
+                                  {
+                                    "pipeClass": "Power",
+                                    "pipe": "MainPower"
+                                  },
+                                  {
+                                    "pipeClass": "Heat",
+                                    "pipe": "MainHeat"
+                                  },
+                                  {
+                                    "pipeClass": "Fuel",
+                                    "pipe": "MainFuel"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "name": "hardpoint_countermeasure_launcher_left",
+                              "damageMax": 0.0,
+                              "class": "ItemPort",
+                              "skipPart": false,
+                              "ItemPort": {
+                                "minsize": 1,
+                                "maxsize": 2,
+                                "display_name": "port_NameCountermeasure01",
+                                "flags": "uneditable",
+                                "Types": [
+                                  {
+                                    "type": "WeaponDefensive",
+                                    "subtypes": "CountermeasureLauncher"
+                                  }
+                                ],
+                                "Connections": [
+                                  {
+                                    "pipeClass": "Power",
+                                    "pipe": "MainPower"
+                                  },
+                                  {
+                                    "pipeClass": "Heat",
+                                    "pipe": "MainHeat"
                                   }
                                 ]
                               }
@@ -2280,14 +2311,14 @@
                               }
                             },
                             {
-                              "name": "hardpoint_retro_right",
+                              "name": "hardpoint_retro_right_a",
                               "damageMax": 0.0,
                               "class": "ItemPort",
                               "skipPart": false,
                               "ItemPort": {
                                 "minsize": 1,
                                 "maxsize": 3,
-                                "display_name": "port_NameThrustRetro02",
+                                "display_name": "port_NameThrusterRetroRa",
                                 "flags": "retro uneditable",
                                 "requiredTags": "",
                                 "Types": [
@@ -2379,34 +2410,6 @@
                                       }
                                     ]
                                   }
-                                },
-                                {
-                                  "name": "hardpoint_countermeasure_launcher_right",
-                                  "damageMax": 0.0,
-                                  "class": "ItemPort",
-                                  "skipPart": false,
-                                  "ItemPort": {
-                                    "minsize": 1,
-                                    "maxsize": 2,
-                                    "display_name": "port_NameCountermeasure02",
-                                    "flags": "uneditable",
-                                    "Types": [
-                                      {
-                                        "type": "WeaponDefensive",
-                                        "subtypes": "CountermeasureLauncher"
-                                      }
-                                    ],
-                                    "Connections": [
-                                      {
-                                        "pipeClass": "Power",
-                                        "pipe": "MainPower"
-                                      },
-                                      {
-                                        "pipeClass": "Heat",
-                                        "pipe": "MainHeat"
-                                      }
-                                    ]
-                                  }
                                 }
                               ]
                             },
@@ -2438,6 +2441,67 @@
                                   {
                                     "pipeClass": "Fuel",
                                     "pipe": "MainFuel"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "name": "hardpoint_retro_right_b",
+                              "damageMax": 0.0,
+                              "class": "ItemPort",
+                              "skipPart": false,
+                              "ItemPort": {
+                                "minsize": 1,
+                                "maxsize": 3,
+                                "display_name": "port_NameThrusterRetroRb",
+                                "flags": "retro uneditable",
+                                "requiredTags": "",
+                                "Types": [
+                                  {
+                                    "type": "ManneuverThruster",
+                                    "subtypes": ""
+                                  }
+                                ],
+                                "Connections": [
+                                  {
+                                    "pipeClass": "Power",
+                                    "pipe": "MainPower"
+                                  },
+                                  {
+                                    "pipeClass": "Heat",
+                                    "pipe": "MainHeat"
+                                  },
+                                  {
+                                    "pipeClass": "Fuel",
+                                    "pipe": "MainFuel"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "name": "hardpoint_countermeasure_launcher_right",
+                              "damageMax": 0.0,
+                              "class": "ItemPort",
+                              "skipPart": false,
+                              "ItemPort": {
+                                "minsize": 1,
+                                "maxsize": 2,
+                                "display_name": "port_NameCountermeasure02",
+                                "flags": "uneditable",
+                                "Types": [
+                                  {
+                                    "type": "WeaponDefensive",
+                                    "subtypes": "CountermeasureLauncher"
+                                  }
+                                ],
+                                "Connections": [
+                                  {
+                                    "pipeClass": "Power",
+                                    "pipe": "MainPower"
+                                  },
+                                  {
+                                    "pipeClass": "Heat",
+                                    "pipe": "MainHeat"
                                   }
                                 ]
                               }
@@ -2835,91 +2899,6 @@
                         "pipe": "MainHeat"
                       }
                     ]
-                  }
-                },
-                {
-                  "name": "hardpoint_manual_override",
-                  "damageMax": 0.0,
-                  "class": "ItemPort",
-                  "skipPart": false,
-                  "ItemPort": {
-                    "minsize": 1,
-                    "maxsize": 1,
-                    "flags": "uneditable",
-                    "Types": [
-                      {
-                        "type": "ControlPanel"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "name": "hardpoint_controller_door",
-                  "damageMax": 0.0,
-                  "class": "ItemPort",
-                  "skipPart": false,
-                  "ItemPort": {
-                    "minsize": 1,
-                    "maxsize": 1,
-                    "flags": "invisible uneditable",
-                    "Types": [
-                      {
-                        "type": "DoorController"
-                      }
-                    ],
-                    "ControllerDef": {
-                      "UsableDef": {
-                        "PriorityGroups": [
-                          {
-                            "itemType": "Door",
-                            "defaultPriority": "exclusive_control"
-                          },
-                          {
-                            "itemType": "SeatAccess",
-                            "defaultPriority": "exclusive_control"
-                          }
-                        ]
-                      }
-                    }
-                  }
-                },
-                {
-                  "name": "hardpoint_controller_light",
-                  "damageMax": 0.0,
-                  "class": "ItemPort",
-                  "skipPart": false,
-                  "ItemPort": {
-                    "minsize": 1,
-                    "maxsize": 1,
-                    "flags": "invisible uneditable",
-                    "Types": [
-                      {
-                        "type": "LightController"
-                      }
-                    ],
-                    "Connections": [
-                      {
-                        "pipeClass": "Power",
-                        "pipe": "MainPower"
-                      },
-                      {
-                        "pipeClass": "Heat",
-                        "pipe": "MainHeat"
-                      },
-                      {
-                        "pipeClass": "Fuel",
-                        "pipe": "MainFuel"
-                      }
-                    ],
-                    "ControllerDef": {
-                      "UsableDef": {
-                        "PriorityGroups": [
-                          {
-                            "itemType": "Light"
-                          }
-                        ]
-                      }
-                    }
                   }
                 },
                 {
@@ -3596,6 +3575,24 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_paint",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "port_NamePaint",
+                    "flags": "",
+                    "requiredTags": "Paint_Freelancer",
+                    "Types": [
+                      {
+                        "type": "Paints"
                       }
                     ]
                   }
