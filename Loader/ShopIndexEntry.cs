@@ -8,6 +8,8 @@ namespace Loader
 		public string containerPath;
 		public bool acceptsStolenGoods;
 		public double profitMargin;
+		public string reference;
+		public string parent;
 
 		public ShopItem[] inventory;
 	}

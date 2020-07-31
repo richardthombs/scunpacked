@@ -44,6 +44,8 @@ namespace Loader
 					name = shopNode.Name,
 					profitMargin = shopNode.ProfitMargin,
 					acceptsStolenGoods = Convert.ToBoolean(shopNode.AcceptsStolenGoods),
+					reference = shopNode.ID,
+					parent = shopRootNode.ID,
 					containerPath = p
 				};
 
