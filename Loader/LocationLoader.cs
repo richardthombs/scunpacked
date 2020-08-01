@@ -9,6 +9,13 @@ namespace Loader
 	{
 		public string DataRoot { get; set; }
 
+		LocalisationService localisationService;
+
+		public LocationLoader(LocalisationService localisationService)
+		{
+			this.localisationService = localisationService;
+		}
+
 		public List<LocationIndexEntry> Load()
 		{
 			//Console.WriteLine(JsonConvert.SerializeObject(Directory.GetDirectories(Path.Combine(DataRoot, @"Data\Libs\Foundry\Records\starmap\pu"))));
@@ -33,8 +40,8 @@ namespace Loader
 
 				var indexEntry = new LocationIndexEntry
 				{
-					name = entity.name,
-					description = entity.description,
+					name = localisationService.GetText(entity.name),
+					description = localisationService.GetText(entity.description),
 					type = entity.type,
 					parent = entity.parent,
 					size = entity.size,

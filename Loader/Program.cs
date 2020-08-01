@@ -123,7 +123,7 @@ namespace Loader
 			File.WriteAllText(Path.Combine(outputRoot, "shops.json"), JsonConvert.SerializeObject(shops));
 
 			// Locations
-			var locationLoader = new LocationLoader
+			var locationLoader = new LocationLoader(new LocalisationService(labels))
 			{
 				DataRoot = scDataRoot
 			};
