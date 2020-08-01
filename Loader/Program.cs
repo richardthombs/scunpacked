@@ -84,7 +84,7 @@ namespace Loader
 			File.WriteAllText(Path.Combine(outputRoot, "labels.json"), JsonConvert.SerializeObject(labels));
 
 			// Manufacturers
-			var manufacturerLoader = new ManufacturerLoader
+			var manufacturerLoader = new ManufacturerLoader(new LocalisationService(labels))
 			{
 				DataRoot = scDataRoot
 			};
