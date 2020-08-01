@@ -36,6 +36,8 @@ namespace Loader
 					name = entity.name,
 					description = entity.description,
 					type = entity.type,
+					navIcon = entity.navIcon,
+					jurisdiction = entity.jurisdiction,
 					parent = entity.parent,
 					size = entity.size,
 					reference = entity.__ref,
