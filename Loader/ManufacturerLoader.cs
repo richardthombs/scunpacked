@@ -8,6 +8,13 @@ namespace Loader
 	{
 		public string DataRoot { get; set; }
 
+		LocalisationService localisationService;
+
+		public ManufacturerLoader(LocalisationService localisationService)
+		{
+			this.localisationService = localisationService;
+		}
+
 		public List<ManufacturerIndexEntry> Load()
 		{
 			var index = new List<ManufacturerIndexEntry>();
@@ -20,7 +27,7 @@ namespace Loader
 		{
 			var index = new List<ManufacturerIndexEntry>();
 
-			foreach (var entityFilename in Directory.EnumerateFiles(Path.Combine(DataRoot, entityFolder), "*.xml"))
+			foreach (var entityFilename in Directory.EnumerateFiles(Path.Combine(DataRoot, entityFolder), "*.xml", SearchOption.AllDirectories))
 			{
 				Console.WriteLine(entityFilename);
 
@@ -30,7 +37,7 @@ namespace Loader
 
 				var indexEntry = new ManufacturerIndexEntry
 				{
-					name = entity.Localization.Name,
+					name = localisationService.GetText(entity.Localization.Name),
 					code = entity.Code,
 					reference = entity.__ref
 				};

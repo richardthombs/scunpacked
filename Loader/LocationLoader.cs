@@ -23,16 +23,7 @@ namespace Loader
 		{
 			var index = new List<LocationIndexEntry>();
 
-			var directories = Directory.GetDirectories(Path.Combine(DataRoot, entityFolder));
-			if (directories != null && directories.Length != 0)
-			{
-				foreach (var directory in directories)
-				{
-					index.AddRange(Load(directory));
-				}
-			}
-
-			foreach (var entityFilename in Directory.EnumerateFiles(Path.Combine(DataRoot, entityFolder), "*.xml"))
+			foreach (var entityFilename in Directory.EnumerateFiles(Path.Combine(DataRoot, entityFolder), "*.xml", SearchOption.AllDirectories))
 			{
 				Console.WriteLine(entityFilename);
 
@@ -45,6 +36,8 @@ namespace Loader
 					name = entity.name,
 					description = entity.description,
 					type = entity.type,
+					navIcon = entity.navIcon,
+					jurisdiction = entity.jurisdiction,
 					parent = entity.parent,
 					size = entity.size,
 					reference = entity.__ref,

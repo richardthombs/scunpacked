@@ -14,6 +14,12 @@ namespace scdb.Xml.Entities
 		public string type;
 
 		[XmlAttribute]
+		public string navIcon;
+
+		[XmlAttribute]
+		public string jurisdiction;
+
+		[XmlAttribute]
 		public string parent;
 
 		[XmlAttribute]
