@@ -11,6 +11,15 @@ namespace scdb.Xml.Entities
 		public string description;
 
 		[XmlAttribute]
+		public string callout1;
+
+		[XmlAttribute]
+		public string callout2;
+
+		[XmlAttribute]
+		public string callout3;
+
+		[XmlAttribute]
 		public string type;
 
 		[XmlAttribute]

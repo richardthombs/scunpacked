@@ -5,36 +5,46 @@ using Newtonsoft.Json;
 
 namespace Loader
 {
-	public class LocationLoader
+	public class StarmapLoader
 	{
 		public string DataRoot { get; set; }
 
-		public List<LocationIndexEntry> Load()
+		LocalisationService localisationService;
+
+		public StarmapLoader(LocalisationService localisationService)
+		{
+			this.localisationService = localisationService;
+		}
+
+		public List<StarmapIndexEntry> Load()
 		{
 			//Console.WriteLine(JsonConvert.SerializeObject(Directory.GetDirectories(Path.Combine(DataRoot, @"Data\Libs\Foundry\Records\starmap\pu"))));
 
-			var index = new List<LocationIndexEntry>();
+			var index = new List<StarmapIndexEntry>();
 			index.AddRange(Load(@"Data\Libs\Foundry\Records\starmap\pu"));
 
 			return index;
 		}
 
-		List<LocationIndexEntry> Load(string entityFolder)
+		List<StarmapIndexEntry> Load(string entityFolder)
 		{
-			var index = new List<LocationIndexEntry>();
+			var index = new List<StarmapIndexEntry>();
 
 			foreach (var entityFilename in Directory.EnumerateFiles(Path.Combine(DataRoot, entityFolder), "*.xml", SearchOption.AllDirectories))
 			{
 				Console.WriteLine(entityFilename);
 
-				var parser = new LocationParser();
+				var parser = new StarmapParser();
 				var entity = parser.Parse(entityFilename);
 				if (entity == null) continue;
 
-				var indexEntry = new LocationIndexEntry
+				var indexEntry = new StarmapIndexEntry
 				{
-					name = entity.name,
-					description = entity.description,
+					name = localisationService.GetText(entity.name),
+					description = localisationService.GetText(entity.description),
+					callout1 = localisationService.GetText(entity.callout1),
+					callout2 = localisationService.GetText(entity.callout2),
+					callout3 = localisationService.GetText(entity.callout3),
 					type = entity.type,
 					navIcon = entity.navIcon,
 					jurisdiction = entity.jurisdiction,
