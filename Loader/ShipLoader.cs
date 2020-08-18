@@ -41,8 +41,7 @@ namespace Loader
 			"mlhm1",
 			"microtech",
 			"shubin",
-			"shubin_c05",
-			"drug_01",
+			"drug",
 
 			// Skin variants
 			"pink",
