@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace Loader
 {
-	public class LocationParser
+	public class StarmapParser
 	{
 		public SCLocation Parse(string fullXmlPath)
 		{

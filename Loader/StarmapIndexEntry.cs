@@ -1,9 +1,12 @@
 namespace Loader
 {
-	public class LocationIndexEntry
+	public class StarmapIndexEntry
 	{
 		public string name;
 		public string description;
+		public string callout1;
+		public string callout2;
+		public string callout3;
 		public string type;
 		public string navIcon;
 		public string jurisdiction;
