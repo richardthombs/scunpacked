@@ -18,8 +18,6 @@ namespace Loader
 
 		public List<StarmapIndexEntry> Load()
 		{
-			//Console.WriteLine(JsonConvert.SerializeObject(Directory.GetDirectories(Path.Combine(DataRoot, @"Data\Libs\Foundry\Records\starmap\pu"))));
-
 			var index = new List<StarmapIndexEntry>();
 			index.AddRange(Load(@"Data\Libs\Foundry\Records\starmap\pu"));
 

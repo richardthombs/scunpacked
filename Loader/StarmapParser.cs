@@ -9,7 +9,7 @@ namespace Loader
 {
 	public class StarmapParser
 	{
-		public SCLocation Parse(string fullXmlPath)
+		public StarMapObject Parse(string fullXmlPath)
 		{
 			if (!File.Exists(fullXmlPath))
 			{
@@ -20,7 +20,7 @@ namespace Loader
 			return ParseLocation(fullXmlPath);
 		}
 
-		SCLocation ParseLocation(string xmlFilename)
+		StarMapObject ParseLocation(string xmlFilename)
 		{
 			string rootNodeName;
 			using (var reader = XmlReader.Create(new StreamReader(xmlFilename)))
@@ -33,9 +33,9 @@ namespace Loader
 			var doc = new XmlDocument();
 			doc.LoadXml(xml);
 
-			var serialiser = new XmlSerializer(typeof(SCLocation), new XmlRootAttribute { ElementName = rootNodeName });
+			var serialiser = new XmlSerializer(typeof(StarMapObject), new XmlRootAttribute { ElementName = rootNodeName });
 			using var stream = new XmlNodeReader(doc);
-			var entity = (SCLocation)serialiser.Deserialize(stream);
+			var entity = (StarMapObject)serialiser.Deserialize(stream);
 
 			return entity;
 		}
