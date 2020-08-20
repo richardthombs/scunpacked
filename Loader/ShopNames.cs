@@ -11,7 +11,7 @@ namespace Loader
 		//
 		public static Dictionary<string, string> Lookup = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
 		{
-			{ "AdminOffice_Area18", "IO North Tower, Area 18" },
+			{ "AdminOffice_Area18", "IO-North Tower, Area 18" },
 			{ "AdminOffice_Grimhex", "Admin Office, GrimHEX" },
 			{ "AdminOffice_Levski", "Admin Office, Levski" },
 			{ "AdminOffice_Lorville", "L19 Admin Office, Lorville" },
