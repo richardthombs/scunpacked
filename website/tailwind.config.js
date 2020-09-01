@@ -28,4 +28,8 @@ module.exports = {
     require("tailwindcss-typography")(),
     require("tailwindcss-dark-mode")()
   ],
+
+  future: {
+    removeDeprecatedGapUtilities: true
+  }
 }
