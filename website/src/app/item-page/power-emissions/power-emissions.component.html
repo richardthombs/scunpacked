@@ -1,0 +1,5 @@
+<div class="grid grid-flow-row grid-cols-4">
+  <app-stat title="Power to EM ratio" [value]="item.powerConnection.PowerToEM" units="J/W"></app-stat>
+  <app-stat title="EM @ base draw" [value]="item.powerConnection.PowerBase * item.powerConnection.PowerToEM" units="J" si="true"></app-stat>
+  <app-stat title="EM @ full draw" [value]="item.powerConnection.PowerDraw * item.powerConnection.PowerToEM" units="J" si="true"></app-stat>
+</div>

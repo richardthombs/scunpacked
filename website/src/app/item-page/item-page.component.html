@@ -2,13 +2,13 @@
 
 <div class="container-outer">
 
-  <div class="container mx-auto container-inner">
+  <div class="container mx-auto container-inner space-y-5">
 
     <div class="flex">
       <div class="flex-grow">
         <h1 class="text-2xl smallcaps">{{item?.name | localise:item?.className}}</h1>
         <div class="smallcaps text-gray-600">
-          Size {{item?.size}} / Grade {{item?.grade}}
+          Size {{item?.size}} / Grade {{getGrade(item?.grade)}}
         </div>
       </div>
       <div>
@@ -16,101 +16,75 @@
       </div>
     </div>
 
-    <div class="itemStats">
+    <div class="itemStats space-y-4">
 
-      <div *ngIf="item?.quantumDrive" class="flex mt-3">
-        <div>Speed {{item?.driveSpeed | speed}}</div>
-        <div>PO to ArcCorp {{item?.secondsToArcCorp | si:'s'}}</div>
+      <div *ngIf="item?.quantumDrive">
+        <h2 class="text-xl smallcaps">Quantum drive</h2>
+        <app-quantum-drive [item]="item"></app-quantum-drive>
       </div>
 
-      <div *ngIf="item?.quantumDrive" class="flex mt-3">
-        <div>Fuel requirement {{item?.quantumFuelRequirement*1e9 | si:'l/Gm'}}</div>
-        <div>Efficiency {{item?.efficiency | si:'m/l'}}</div>
-        <div>Spool up time {{item?.quantumDrive.params.spoolUpTime | si:'s'}}</div>
+      <div *ngIf="item?.shieldGenerator">
+        <h2 class="text-xl smallcaps">Shield generator</h2>
+        <app-shield-stats [item]="item"></app-shield-stats>
       </div>
 
-      <div *ngIf="item?.shieldGenerator" class="flex mt-3">
-        <div>Shield health {{item?.maxShieldHealth | number:'1.0-0'}} HP</div>
-        <div>Regeneration {{item?.maxShieldRegen | number:'1.0-0'}} HP/s</div>
+      <div *ngIf="item?.powerConnection">
+        <h2 class="text-xl smallcaps">Power usage</h2>
+        <app-power-usage [item]="item"></app-power-usage>
       </div>
 
-      <div *ngIf="item?.powerConnection" class="flex mt-3">
-        <div>Standby power {{item?.powerConnection.PowerBase | number:'1.0-0'}} W</div>
-        <div>Maximum power {{item?.powerConnection.PowerDraw | number:'1.0-0'}} W</div>
+      <div *ngIf="item?.powerConnection || item?.heatConnection">
+        <h2 class="text-xl smallcaps">Emissions</h2>
+        <app-power-emissions *ngIf="item?.powerConnection" [item]="item"></app-power-emissions>
+        <app-heat-emissions *ngIf="item?.heatConnection" [item]="item" class="mt-2"></app-heat-emissions>
       </div>
 
-      <div *ngIf="item?.powerConnection" class="flex mt-3">
-        <div>Power to EM ratio {{item?.powerConnection.PowerToEM | number:'1.1-1'}} J/W</div>
-        <div>EM @ base draw {{item?.powerConnection.PowerBase * item?.powerConnection.PowerToEM | number:'1.1-1'}} J</div>
-        <div>EM @ full draw {{item?.powerConnection.PowerDraw * item?.powerConnection.PowerToEM | number:'1.1-1'}} J</div>
-      </div>
-
-      <div *ngIf="item?.heatConnection" class="flex mt-3">
-        <div>Thermal energy base {{item?.heatConnection.ThermalEnergyBase | number:'1.0-0'}}</div>
-        <div>Thermal energy draw {{item?.heatConnection.ThermalEnergyDraw | number:'1.0-0'}}</div>
-        <div>Temperature to IR ratio {{item?.heatConnection.TemperatureToIR | number:'1.1-1'}}</div>
-      </div>
-
-      <div class="flex mt-3">
-        <div>Component health {{item?.health | number:'1.0-0'}} HP</div>
-        <div>Lifetime {{item?.maxLifetime | number:'1.0-0'}} h</div>
-      </div>
-
-      <div *ngIf="item?.armor" class="flex mt-3">
+      <div *ngIf="item?.armor" class="space-y-5">
         <div *ngIf="item?.armor?.damageMultiplier?.DamageInfo">
-          <div class="text-gray-600">Armor multipliers</div>
-          <div class="grid grid-cols-2 w-64">
-            <div>Physical</div>
-            <div>{{item!.armor.damageMultiplier.DamageInfo.DamagePhysical | number:'1.2-2'}}</div>
-            <div>Energy</div>
-            <div>{{item!.armor.damageMultiplier.DamageInfo.DamageEnergy | number:'1.2-2'}}</div>
-            <div>Distortion</div>
-            <div>{{item!.armor.damageMultiplier.DamageInfo.DamageDistortion | number:'1.2-2'}}</div>
-            <div>Thermal</div>
-            <div>{{item!.armor.damageMultiplier.DamageInfo.DamageThermal | number:'1.2-2'}}</div>
-            <div>Biochemical</div>
-            <div>{{item!.armor.damageMultiplier.DamageInfo.DamageBiochemical | number:'1.2-2'}}</div>
-            <div>Stun</div>
-            <div>{{item!.armor.damageMultiplier.DamageInfo.DamageStun | number:'1.2-2'}}</div>
+          <h2 class="text-xl smallcaps">Damage multipliers</h2>
+          <div class="grid grid-flow-row grid-cols-6">
+            <app-stat title="Physical" [value]="item!.armor.damageMultiplier.DamageInfo.DamagePhysical" decimals="2"></app-stat>
+            <app-stat title="Energy" [value]="item!.armor.damageMultiplier.DamageInfo.DamageEnergy" decimals="2"></app-stat>
+            <app-stat title="Distortion" [value]="item!.armor.damageMultiplier.DamageInfo.DamageDistortion" decimals="2"></app-stat>
+            <app-stat title="Thermal" [value]="item!.armor.damageMultiplier.DamageInfo.DamageThermal" decimals="2"></app-stat>
+            <app-stat title="Biochemical" [value]="item!.armor.damageMultiplier.DamageInfo.DamageBiochemical" decimals="2"></app-stat>
+            <app-stat title="Stun" [value]="item!.armor.damageMultiplier.DamageInfo.DamageStun" decimals="2"></app-stat>
           </div>
         </div>
+
         <div>
-          <div class="text-gray-600">Signal multipliers</div>
-          <div class="grid grid-cols-2 w-64">
-            <div>Cross section</div>
-            <div>{{item!.armor.signalCrossSection | number:'1.2-2'}}</div>
-            <div>Infrared</div>
-            <div>{{item!.armor.signalInfrared | number:'1.2-2'}}</div>
-            <div>Electromagnetic</div>
-            <div>{{item!.armor.signalElectromagnetic | number:'1.2-2'}}</div>
+          <h2 class="text-xl smallcaps">Signal multipliers</h2>
+          <div class="grid grid-cols-6">
+            <app-stat title="Cross section" [value]="item!.armor.signalCrossSection" decimals="2"></app-stat>
+            <app-stat title="Infrared" [value]="item!.armor.signalInfrared" decimals="2"></app-stat>
+            <app-stat title="Electromagnetic" [value]="item!.armor.signalElectromagnetic" decimals="2"></app-stat>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="mt-5 text-gray-800">CIG says:</div>
-    <div class="text-gray-600 italic" style="white-space: pre-line;">
-      "{{item?.description | localise}}"
+    <div *ngIf="item">
+      <h2 class="text-xl smallcaps">Durability</h2>
+      <app-durability [item]="item"></app-durability>
     </div>
 
-    <div *ngIf="item?.Raw.Entity.Components.SEntityInteractableParams?.Interactable?.SharedInteractions?.length">
-      <h5 class="text-xl mt-5 mb-2">Interactions:</h5>
-      <div *ngFor="let i of item?.Raw.Entity.Components.SEntityInteractableParams.Interactable.SharedInteractions">
-        {{i.Name}} ({{i.DisplayName | localise}})
+    <div *ngIf="item?.description | localise">
+      <div class="text-xl smallcaps">Description</div>
+      <div class="text-gray-600 italic" style="white-space: pre-line;">
+        {{item?.description | localise}}
       </div>
     </div>
 
-    <h5 class="text-xl mt-5">Available at:</h5>
+    <div>
+      <h2 class="text-xl smallcaps">Sold at</h2>
 
-    <div *ngIf="prices?.length" class="border border-gray-400 mt-2">
-      <div *ngFor="let p of prices" class="px-4 py-2 border-b last:border-b-0 border-gray-400 flex justify-between">
-        <div>{{p.shop.name}}
-        </div>
-        <div>{{p.item.basePrice * (1+(p.item.basePriceOffsetPercentage/100)) | number:'1.0-0'}} aUEC</div>
+      <div class="grid grid-flow-row grid-cols-6 gap-2">
+        <app-stat *ngFor="let p of prices" [title]="p.shop.name" [value]="getActualPrice(p)" units="aUEC"></app-stat>
       </div>
-    </div>
-    <div *ngIf="!prices?.length">
-      Not for sale
+
+      <div *ngIf="!prices?.length" class="text-gray-600">
+        Not available for purchase in-game
+      </div>
     </div>
 
   </div>

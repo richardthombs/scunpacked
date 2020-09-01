@@ -1,0 +1,10 @@
+<div class="grid grid-flow-row grid-cols-4">
+  <app-stat title="Speed" [value]="item.driveSpeed" units="m/s" si="true"></app-stat>
+  <app-stat title="PO to ArcCorp" [value]="item.secondsToArcCorp" units="s" si="true"></app-stat>
+</div>
+
+<div class="grid grid-flow-row grid-cols-4 mt-2">
+  <app-stat title="Fuel requirement" [value]="item.quantumFuelRequirement*1e9" units="l/Gm" si="true"></app-stat>
+  <app-stat title="Efficiency" [value]="item.efficiency" units="m/l" si="true"></app-stat>
+  <app-stat title="Spool up time" [value]="item.quantumDrive.params.spoolUpTime" units="s"></app-stat>
+</div>

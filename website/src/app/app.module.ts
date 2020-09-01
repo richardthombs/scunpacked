@@ -37,6 +37,12 @@ import { StatComponent } from './stat/stat.component';
 import { CommoditiesComponent } from './commodities/commodities.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { PowerUsageComponent } from './item-page/power-usage/power-usage.component';
+import { PowerEmissionsComponent } from './item-page/power-emissions/power-emissions.component';
+import { HeatEmissionsComponent } from './item-page/heat-emissions/heat-emissions.component';
+import { DurabilityComponent } from './item-page/durability/durability.component';
+import { ShieldStatsComponent } from './item-page/shield-stats/shield-stats.component';
+import { QuantumDriveComponent } from './item-page/quantum-drive/quantum-drive.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +72,13 @@ import { environment } from '../environments/environment';
     ShoplistPage,
     NavbarComponent,
     StatComponent,
-    CommoditiesComponent
+    CommoditiesComponent,
+    PowerUsageComponent,
+    PowerEmissionsComponent,
+    HeatEmissionsComponent,
+    DurabilityComponent,
+    ShieldStatsComponent,
+    QuantumDriveComponent
   ],
   imports: [
     BrowserModule,

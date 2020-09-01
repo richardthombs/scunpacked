@@ -40,9 +40,18 @@ export class ItemPage implements OnInit {
         console.log("Item", item);
 
         this.priceSvc.item$.subscribe(r => {
-          this.prices = r[itemClass];
+          this.prices = _.orderBy(r[itemClass], p => this.getActualPrice(p));
         });
       });
     });
   }
+
+  getGrade(grade: number) {
+    return String.fromCharCode(65 + grade - 1);
+  }
+
+  getActualPrice(p: any) {
+    return p.item.basePrice * (1 + (p.item.basePriceOffsetPercentage / 100));
+  }
+
 }
