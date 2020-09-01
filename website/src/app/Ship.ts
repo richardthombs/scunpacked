@@ -128,6 +128,13 @@ export class Ship {
     return _.reduce(this.findParts(), (total, part) => 0 + total + parseInt(part.mass + ""), 0); // parseInt hack to fix bad Carrack data that has a "d" at the end
   }
 
+  get totalBeds(): number {
+    // Freelancer has SeatAccess and SeatDashboard marked as SaveGameLogOut (so we pick SeatAccess)
+    // 325A has Seat marked as SaveGameLogout
+    var logouts = this.findItemPorts(ip => ip.item != null && ip.item.isLogoutPoint && (ip.item.type == "SeatAccess" || ip.item.type == "Seat"));
+    return logouts.length;
+  }
+
   findParts(predicate?: (p: Part) => boolean): Part[] {
     var found: Part[] = [];
     this.Parts.forEach(part => {

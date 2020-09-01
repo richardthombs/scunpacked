@@ -19,11 +19,12 @@
       <div class="flex mt-5">
         <app-stat title="Size" [value]="ship?.vehicleSize"></app-stat>
         <app-stat title="Crew" [value]="ship?.crewSize"></app-stat>
+        <app-stat title="Beds" [value]="ship?.totalBeds"></app-stat>
         <app-stat title="Cargo" [value]="ship?.scu" units="SCU"></app-stat>
-        <app-stat title="Mass" [value]="ship?.mass" units="kg"></app-stat>
       </div>
 
       <div class="flex mt-5">
+        <app-stat title="Mass" [value]="ship?.mass" units="kg"></app-stat>
         <app-stat title="Chassis" [value]="ship?.hitPoints" units="HP"></app-stat>
         <app-stat title="Shield" [value]="ship?.maxShieldHealth" units="HP"></app-stat>
         <app-stat title="Shield regen" [value]="ship?.maxShieldRegen" units="HP/s"></app-stat>

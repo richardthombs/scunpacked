@@ -172,6 +172,11 @@ export class SCItem {
     return _.get(this.json, "Raw.Entity.Components.SCItemWeaponComponentParams");
   }
 
+  get isLogoutPoint(): boolean {
+    let interactions: any[] = _.get(this.json, "Raw.Entity.Components.SEntityInteractableParams.Interactable.SharedInteractions", []);
+    return !!_.find(interactions, x => x.Name.startsWith("SaveGameLogOut"));
+  }
+
   get itemPorts(): IItemPort[] {
     if (this._itemPorts === undefined) {
       let all: IItemPort[] = [];
