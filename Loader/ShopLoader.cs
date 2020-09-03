@@ -13,7 +13,6 @@ namespace Loader
 	public class ShopLoader
 	{
 		public string DataRoot { get; set; }
-		public Func<string, string> OnXmlLoadout { get; set; }
 
 		string[] avoids =
 		{
@@ -94,8 +93,8 @@ namespace Loader
 					if (product == null) Console.WriteLine($"Can't find product {itemNode.Name} ({itemNode.InventoryID}) ");
 					else
 					{
-						var parser = new EntityParser();
-						var entity = parser.Parse(Path.Combine(DataRoot, product.Filename), OnXmlLoadout);
+						var parser = new ClassParser<EntityClassDefinition>();
+						var entity = parser.Parse(Path.Combine(DataRoot, product.Filename));
 
 						var item = new ShopItem
 						{

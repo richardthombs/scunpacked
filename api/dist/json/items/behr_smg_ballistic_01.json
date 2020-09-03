@@ -1,0 +1,453 @@
+{
+  "magazine": {
+    "StaticEntityClassData": {
+      "DefaultEntitlementEntityParams": {
+        "entitlementPolicy": "9ff7bf08-e06e-4203-bced-753cbc8676fb"
+      }
+    },
+    "tags": [],
+    "Components": {
+      "SAttachableComponentParams": {
+        "AttachDef": {
+          "Type": "WeaponAttachment",
+          "SubType": "Magazine",
+          "Size": 1,
+          "Grade": 1,
+          "Manufacturer": "65a5d887-3b21-4046-a718-6912c0c7c3be",
+          "Tags": "behr_smg_ballistic_01",
+          "RequiredTags": "",
+          "DisplayType": "",
+          "Localization": {
+            "Name": "@item_Namebehr_smg_ballistic_01_mag",
+            "Description": "@item_Descbehr_smg_ballistic_01_mag"
+          }
+        }
+      },
+      "SCItem": {
+        "turnedOnByDefault": false,
+        "attachToTileItemPort": "NoConnection",
+        "inheritModelTagFromHost": true,
+        "ItemPorts": []
+      },
+      "SAmmoContainerComponentParams": {
+        "initialAmmoCount": 45.0,
+        "maxAmmoCount": 45.0,
+        "ammoParamsRecord": "22e64034-8039-47e5-a57b-f79b65a0116d"
+      }
+    },
+    "ClassName": "behr_smg_ballistic_01_mag",
+    "__ref": "90adb28a-049e-4357-8000-a4bb75bb7f6f",
+    "__type": "EntityClassDefinition"
+  },
+  "ammo": {
+    "className": "10mm_pistol_ballistic",
+    "reference": "22e64034-8039-47e5-a57b-f79b65a0116d",
+    "damage": {
+      "physical": 4.935,
+      "energy": 0.0,
+      "distortion": 0.0,
+      "thermal": 0.0,
+      "biochemical": 0.0,
+      "stun": 0.0
+    },
+    "speed": 500.0,
+    "range": 1500.0,
+    "detonates": false
+  },
+  "Raw": {
+    "Entity": {
+      "StaticEntityClassData": {
+        "DefaultEntitlementEntityParams": {
+          "entitlementPolicy": "086801b6-4827-47ea-b796-ef9706b5b694"
+        }
+      },
+      "tags": [
+        {
+          "value": "1f864cf6-c1ae-4bab-a05a-0ae0d019954c"
+        },
+        {
+          "value": "c959992f-d86d-4f77-8b70-609498aabec6"
+        },
+        {
+          "value": "9e1eece9-7ee3-477f-9a61-5a8bee2102d6"
+        },
+        {
+          "value": "755e8d4c-f0a2-4025-80aa-bd6002cd0697"
+        },
+        {
+          "value": "386f5ab5-4bde-49ef-a1dd-a8a2b7d1060d"
+        }
+      ],
+      "Components": {
+        "SEntityComponentDefaultLoadoutParams": {
+          "loadout": {
+            "SItemPortLoadoutManualParams": {
+              "entries": [
+                {
+                  "itemPortName": "magazine_attach",
+                  "entityClassName": "behr_smg_ballistic_01_mag",
+                  "loadout": {}
+                }
+              ]
+            }
+          }
+        },
+        "SAttachableComponentParams": {
+          "AttachDef": {
+            "Type": "WeaponPersonal",
+            "SubType": "Medium",
+            "Size": 2,
+            "Grade": 1,
+            "Manufacturer": "65a5d887-3b21-4046-a718-6912c0c7c3be",
+            "Tags": "stocked behr_smg_ballistic_01",
+            "RequiredTags": "",
+            "DisplayType": "",
+            "Localization": {
+              "Name": "@item_Namebehr_smg_ballistic_01",
+              "Description": "@item_Descbehr_smg_ballistic_01"
+            }
+          }
+        },
+        "SCItem": {
+          "turnedOnByDefault": false,
+          "attachToTileItemPort": "NoConnection",
+          "inheritModelTagFromHost": true,
+          "ItemPorts": [
+            {
+              "PortFlags": "",
+              "PortTags": "",
+              "RequiredItemTags": "",
+              "Ports": [
+                {
+                  "Name": "magazine_attach",
+                  "DisplayName": "Magazine Slot",
+                  "PortTags": "behr_smg_ballistic_01",
+                  "RequiredPortTags": "behr_smg_ballistic_01",
+                  "Flags": "",
+                  "MinSize": 1,
+                  "MaxSize": 1,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": [
+                    {
+                      "Type": "WeaponAttachment",
+                      "SubTypes": [
+                        {
+                          "value": "Magazine"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "optics_attach",
+                  "DisplayName": "OpticsSlot",
+                  "PortTags": "",
+                  "RequiredPortTags": "",
+                  "Flags": "",
+                  "MinSize": 1,
+                  "MaxSize": 1,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": [
+                    {
+                      "Type": "WeaponAttachment",
+                      "SubTypes": [
+                        {
+                          "value": "IronSight"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "barrel_attach",
+                  "DisplayName": "BarrelSlot",
+                  "PortTags": "",
+                  "RequiredPortTags": "FPS_Barrel ballistic_attach",
+                  "Flags": "",
+                  "MinSize": 1,
+                  "MaxSize": 1,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": [
+                    {
+                      "Type": "WeaponAttachment",
+                      "SubTypes": [
+                        {
+                          "value": "Barrel"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "underbarrel_attach",
+                  "DisplayName": "UnderbarrelSlot",
+                  "PortTags": "",
+                  "RequiredPortTags": "",
+                  "Flags": "",
+                  "MinSize": 1,
+                  "MaxSize": 1,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": [
+                    {
+                      "Type": "WeaponAttachment",
+                      "SubTypes": [
+                        {
+                          "value": "BottomAttachment"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "SCItemWeaponComponentParams": {
+          "ammoContainerRecord": "90adb28a-049e-4357-8000-a4bb75bb7f6f",
+          "connectionParams": {
+            "powerActiveCooldown": 1.0,
+            "heatRateOnline": 25.0,
+            "maxGlow": 100.0,
+            "noPowerStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 0.0,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            },
+            "underpowerStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 0.1,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            },
+            "overpowerStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 1.2,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            },
+            "overclockStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 1.5,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            },
+            "heatStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 1.0,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            }
+          },
+          "fireActions": {
+            "SWeaponActionFireRapidParams": {
+              "spinUpTime": 0.0,
+              "spinDownTime": 0.0,
+              "spinParam": "spin_speed",
+              "name": "Rapid",
+              "localisedName": "@FireMode_Rapid",
+              "fireRate": 800.0,
+              "heatPerShot": 0.0,
+              "launchParams": {
+                "SProjectileLauncher": {
+                  "ammoCost": 1.0,
+                  "pelletCount": 1.0,
+                  "spreadParams": {
+                    "min": 0.3,
+                    "max": 4.76,
+                    "firstAttack": 1.48,
+                    "attack": 1.23,
+                    "decay": 8.0
+                  }
+                }
+              }
+            }
+          }
+        },
+        "SEntityInteractableParams": {
+          "Interactable": {
+            "SharedInteractions": [
+              {
+                "Name": "Equip",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_equip",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Stow",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_stow",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "OffHandStow",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_stow",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Drop",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_drop",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Carry",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_carry",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Inspect",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@innerthought_inspect",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Place",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_place",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "VendorInspect",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@innerthought_inspect",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "VendorReturn",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@Armory_Return",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Customize",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_customize",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              }
+            ]
+          }
+        }
+      },
+      "ClassName": "behr_smg_ballistic_01",
+      "__ref": "bc644573-ea0f-4974-b23c-63b24425f639",
+      "__type": "EntityClassDefinition"
+    }
+  }
+}

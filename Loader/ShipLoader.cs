@@ -83,9 +83,15 @@ namespace Loader
 				Console.WriteLine(entityFilename);
 
 				// Entity
-				var entityParser = new EntityParser();
-				entity = entityParser.Parse(entityFilename, OnXmlLoadout);
+				var entityParser = new ClassParser<EntityClassDefinition>();
+				entity = entityParser.Parse(entityFilename);
 				if (entity == null) continue;
+
+				if (entity.Components?.SEntityComponentDefaultLoadoutParams?.loadout?.SItemPortLoadoutXMLParams != null)
+				{
+					entity.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutXMLParams.loadoutPath = OnXmlLoadout(entity.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutXMLParams.loadoutPath);
+				}
+
 				if (entity.Components.VehicleComponentParams == null)
 				{
 					Console.WriteLine("This doesn't seem to be a vehicle");

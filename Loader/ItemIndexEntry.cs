@@ -4,6 +4,7 @@
 	{
 		public string jsonFilename;
 		public string className;
+		public string reference;
 		public string itemName;
 		public string type;
 		public string subType;

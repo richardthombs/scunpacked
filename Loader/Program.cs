@@ -47,8 +47,8 @@ namespace Loader
 
 			if (itemFile != null)
 			{
-				var entityParser = new EntityParser();
-				var entity = entityParser.Parse(itemFile, x => x);
+				var entityParser = new ClassParser<scdb.Xml.Entities.EntityClassDefinition>();
+				var entity = entityParser.Parse(itemFile);
 				var json = JsonConvert.SerializeObject(entity);
 				Console.WriteLine(json);
 				return;
@@ -125,8 +125,7 @@ namespace Loader
 			// Prices
 			var shopLoader = new ShopLoader(new LocalisationService(labels))
 			{
-				DataRoot = scDataRoot,
-				OnXmlLoadout = path => loadoutLoader.Load(path)
+				DataRoot = scDataRoot
 			};
 			var shops = shopLoader.Load();
 			File.WriteAllText(Path.Combine(outputRoot, "shops.json"), JsonConvert.SerializeObject(shops));

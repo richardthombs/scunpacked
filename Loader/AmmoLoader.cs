@@ -4,6 +4,8 @@ using System.IO;
 
 using Newtonsoft.Json;
 
+using scdb.Xml.Entities;
+
 namespace Loader
 {
 	public class AmmoLoader
@@ -30,7 +32,7 @@ namespace Loader
 			{
 				Console.WriteLine(entityFilename);
 
-				var parser = new AmmoParser();
+				var parser = new ClassParser<AmmoParams>();
 				var entity = parser.Parse(entityFilename);
 				if (entity == null) continue;
 
@@ -47,8 +49,8 @@ namespace Loader
 
 				var indexEntry = new AmmoIndexEntry
 				{
-					reference = entity.__ref,
 					className = entity.ClassName,
+					reference = entity.__ref,
 					damage = Damage.FromDamageInfo(entity.projectileParams.BulletProjectileParams?.damage[0]),
 					speed = entity.speed,
 					range = entity.lifetime * entity.speed,

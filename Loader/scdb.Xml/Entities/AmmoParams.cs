@@ -2,10 +2,8 @@ using System.Xml.Serialization;
 
 namespace scdb.Xml.Entities
 {
-	public class AmmoParams
+	public class AmmoParams : ClassBase
 	{
-		public string ClassName;
-
 		[XmlAttribute]
 		public int size;
 
@@ -14,9 +12,6 @@ namespace scdb.Xml.Entities
 
 		[XmlAttribute]
 		public double speed;
-
-		[XmlAttribute]
-		public string __ref;
 
 		public ProjectileParams projectileParams;
 	}

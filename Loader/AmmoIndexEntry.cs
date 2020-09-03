@@ -2,8 +2,8 @@ namespace Loader
 {
 	public class AmmoIndexEntry
 	{
-		public string reference;
 		public string className;
+		public string reference;
 		public Damage damage;
 		public double speed;
 		public double range;
