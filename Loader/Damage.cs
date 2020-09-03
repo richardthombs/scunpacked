@@ -5,7 +5,7 @@ namespace Loader
 		public double physical;
 		public double energy;
 		public double distortion;
-		public double Thermal;
+		public double thermal;
 		public double biochemical;
 		public double stun;
 
@@ -18,7 +18,7 @@ namespace Loader
 				physical = info.DamagePhysical,
 				energy = info.DamageEnergy,
 				distortion = info.DamageDistortion,
-				Thermal = info.DamageThermal,
+				thermal = info.DamageThermal,
 				biochemical = info.DamageBiochemical,
 				stun = info.DamageStun
 			};
