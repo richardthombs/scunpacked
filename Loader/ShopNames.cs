@@ -125,7 +125,8 @@ namespace Loader
 			{ "RegalLuxury_NewBabbage", "Regal Luxury, New Babbage" },
 			{ "Aparelli_NewBabbage", "Aparelli, New Babbage" },
 			{ "OmegaPro_NewBabbage", "Omega Pro, New Babbage" },
-			{ "ShubinInterstellar_NewBabbage", "Shubin Interstellar, New Babbage" }
+			{ "ShubinInterstellar_NewBabbage", "Shubin Interstellar, New Babbage" },
+			{ "Skutters_Armor_Weap_GrimHex", "Skutters, GrimHEX" }
 		};
 	}
 }

@@ -173,21 +173,36 @@ export class SCItem {
   }
 
   get weaponFireAction(): FireAction {
-    console.log(this.json.Raw.Entity.Components.SCItemWeaponComponentParams.fireActions);
     return this.getFiringAction(this.json.Raw.Entity.Components.SCItemWeaponComponentParams.fireActions);
   }
 
   get weaponDamagePerShot(): DamageInfo {
     let ammo = this.ammoDamage;
     let action = this.weaponFireAction;
+    let pellets = action.launchParams?.SProjectileLauncher?.pelletCount || 1;
 
     return {
-      DamagePhysical: ammo.DamagePhysical * action.launchParams.SProjectileLauncher.pelletCount,
-      DamageEnergy: ammo.DamageEnergy * action.launchParams.SProjectileLauncher.pelletCount,
-      DamageDistortion: ammo.DamageDistortion * action.launchParams.SProjectileLauncher.pelletCount,
-      DamageThermal: ammo.DamageThermal * action.launchParams.SProjectileLauncher.pelletCount,
-      DamageBiochemical: ammo.DamageBiochemical * action.launchParams.SProjectileLauncher.pelletCount,
-      DamageStun: ammo.DamageStun * action.launchParams.SProjectileLauncher.pelletCount
+      DamagePhysical: ammo.DamagePhysical * pellets,
+      DamageEnergy: ammo.DamageEnergy * pellets,
+      DamageDistortion: ammo.DamageDistortion * pellets,
+      DamageThermal: ammo.DamageThermal * pellets,
+      DamageBiochemical: ammo.DamageBiochemical * pellets,
+      DamageStun: ammo.DamageStun * pellets
+    };
+  }
+
+  get weaponDetonationDamagePerShot(): DamageInfo {
+    let ammo = this.ammoDetonationDamage;
+    let action = this.weaponFireAction;
+    let pellets = action.launchParams?.SProjectileLauncher?.pelletCount || 1;
+
+    return {
+      DamagePhysical: ammo.DamagePhysical * pellets,
+      DamageEnergy: ammo.DamageEnergy * pellets,
+      DamageDistortion: ammo.DamageDistortion * pellets,
+      DamageThermal: ammo.DamageThermal * pellets,
+      DamageBiochemical: ammo.DamageBiochemical * pellets,
+      DamageStun: ammo.DamageStun * pellets
     };
   }
 
@@ -207,17 +222,41 @@ export class SCItem {
     };
   }
 
+  get ammoDetonationDamage(): DamageInfo {
+    let ammo = this.ammo;
+
+    if (!ammo.detonates || !ammo.detonationDamage) return {
+      DamagePhysical: 0,
+      DamageEnergy: 0,
+      DamageDistortion: 0,
+      DamageThermal: 0,
+      DamageBiochemical: 0,
+      DamageStun: 0
+    };
+
+    return {
+      DamagePhysical: ammo.detonationDamage.physical,
+      DamageEnergy: ammo.detonationDamage.energy,
+      DamageDistortion: ammo.detonationDamage.distortion,
+      DamageThermal: ammo.detonationDamage.thermal,
+      DamageBiochemical: ammo.detonationDamage.biochemical,
+      DamageStun: ammo.detonationDamage.stun
+    };
+
+  }
+
   get weaponDamagePerSecond(): DamageInfo {
     let perShot = this.weaponDamagePerShot;
+    let perShotDetonation = this.weaponDetonationDamagePerShot;
     let action = this.weaponFireAction;
 
     return {
-      DamagePhysical: perShot.DamagePhysical * action.fireRate / 60,
-      DamageEnergy: perShot.DamageEnergy * action.fireRate / 60,
-      DamageDistortion: perShot.DamageDistortion * action.fireRate / 60,
-      DamageThermal: perShot.DamageThermal * action.fireRate / 60,
-      DamageBiochemical: perShot.DamageBiochemical * action.fireRate / 60,
-      DamageStun: perShot.DamageStun * action.fireRate / 60
+      DamagePhysical: (perShot.DamagePhysical + perShotDetonation.DamagePhysical) * action.fireRate / 60,
+      DamageEnergy: (perShot.DamageEnergy + perShotDetonation.DamageEnergy) * action.fireRate / 60,
+      DamageDistortion: (perShot.DamageDistortion + perShotDetonation.DamageDistortion) * action.fireRate / 60,
+      DamageThermal: (perShot.DamageThermal + perShotDetonation.DamageThermal) * action.fireRate / 60,
+      DamageBiochemical: (perShot.DamageBiochemical + perShotDetonation.DamageBiochemical) * action.fireRate / 60,
+      DamageStun: (perShot.DamageStun + perShotDetonation.DamageStun) * action.fireRate / 60
     };
   }
 
@@ -254,6 +293,7 @@ export class SCItem {
     if (fireActionContainer.SWeaponActionFireSingleParams) return fireActionContainer.SWeaponActionFireSingleParams as FireAction;
     if (fireActionContainer.SWeaponActionFireRapidParams) return fireActionContainer.SWeaponActionFireRapidParams as FireAction;
     if (fireActionContainer.SWeaponActionSequenceParams) return this.getFiringAction(fireActionContainer.SWeaponActionSequenceParams.sequenceEntries[0].weaponAction);
+    if (fireActionContainer.SWeaponActionFireChargedParams) return this.getFiringAction(fireActionContainer.SWeaponActionFireChargedParams.weaponAction);
     return { fireRate: 0, heatPerShot: 0, launchParams: { SProjectileLauncher: { ammoCost: 0, pelletCount: 0 } } };
   }
 

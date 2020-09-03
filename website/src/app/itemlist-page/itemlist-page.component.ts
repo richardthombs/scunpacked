@@ -40,7 +40,12 @@ export class ItemlistPage implements OnInit {
     "WeaponGun.Gun": "Weapons",
     "WeaponGun.Rocket": "Rocket launchers",
     "WeaponGun.NoseMounted": "Weapons",
-    "WeaponMining.Gun": "Mining lasers"
+    "WeaponMining.Gun": "Mining lasers",
+    "WeaponPersonal.Small": "FPS weapons",
+    "WeaponPersonal.Medium": "FPS weapons",
+    "WeaponPersonal.Large": "FPS weapons",
+    "WeaponPersonal.Knife": "Knives",
+    "WeaponPersonal.Gadget": "Gadgets"
   }
 
   ngOnInit() {
