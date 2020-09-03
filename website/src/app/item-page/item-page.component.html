@@ -28,6 +28,49 @@
         <app-shield-stats [item]="item"></app-shield-stats>
       </div>
 
+      <div *ngIf="item?.weapon">
+        <h2 class="text-xl smallcaps">Damage per second</h2>
+        <div class="grid grid-cols-6">
+          <app-stat title="Physical" [value]="item!.weaponDamagePerSecond.DamagePhysical" units="/s"></app-stat>
+          <app-stat title="Energy" [value]="item!.weaponDamagePerSecond.DamageEnergy" units="/s"></app-stat>
+          <app-stat title="Distortion" [value]="item!.weaponDamagePerSecond.DamageDistortion" units="/s"></app-stat>
+          <app-stat title="Thermal" [value]="item!.weaponDamagePerSecond.DamageThermal" units="/s"></app-stat>
+          <app-stat title="Biochemical" [value]="item!.weaponDamagePerSecond.DamageBiochemical" units="/s"></app-stat>
+          <app-stat title="Stun" [value]="item!.weaponDamagePerSecond.DamageStun" units="/s"></app-stat>
+        </div>
+      </div>
+
+      <div *ngIf="item?.weapon">
+        <h2 class="text-xl smallcaps">Damage per shot</h2>
+        <div class="grid grid-cols-6">
+          <app-stat title="Physical" [value]="item!.weaponDamagePerShot.DamagePhysical" units="/shot"></app-stat>
+          <app-stat title="Energy" [value]="item!.weaponDamagePerShot.DamageEnergy" units="/shot"></app-stat>
+          <app-stat title="Distortion" [value]="item!.weaponDamagePerShot.DamageDistortion" units="/shot"></app-stat>
+          <app-stat title="Thermal" [value]="item!.weaponDamagePerShot.DamageThermal" units="/shot"></app-stat>
+          <app-stat title="Biochemical" [value]="item!.weaponDamagePerShot.DamageBiochemical" units="/s"></app-stat>
+          <app-stat title="Stun" [value]="item!.weaponDamagePerShot.DamageStun" units="/s"></app-stat>
+        </div>
+      </div>
+
+      <div *ngIf="item?.weapon">
+        <h2 class="text-xl smallcaps">Weapon performance</h2>
+        <div class="grid grid-cols-4">
+          <app-stat title="Rate of fire" [value]="item!.weaponFireAction.fireRate" units="shots/minute"></app-stat>
+          <app-stat title="Pellets" [value]="item!.weaponFireAction.launchParams.SProjectileLauncher.pelletCount" units="pellets/shot"></app-stat>
+          <app-stat *ngIf="item!.weaponFireAction.launchParams.SProjectileLauncher.ammoCost > 0" title="Ammo used" [value]="item!.weaponFireAction.launchParams.SProjectileLauncher.ammoCost" units="/shot"></app-stat>
+          <app-stat *ngIf="item!.weaponFireAction.launchParams.SProjectileLauncher.ammoCost == 0" title="Ammo used" [value]="false" bool="true"></app-stat>
+        </div>
+      </div>
+
+      <div *ngIf="item?.weapon">
+        <h2 class="text-xl smallcaps">Ammunition performance</h2>
+        <div class="grid grid-cols-4">
+          <app-stat title="Speed" [value]="item!.ammo.speed" units="m/s" si="true"></app-stat>
+          <app-stat title="Range" [value]="item!.ammo.range" units="m" si="true" decimals="1"></app-stat>
+          <app-stat title="Detonates" [value]="item!.ammo.detonates" bool="true"></app-stat>
+        </div>
+      </div>
+
       <div *ngIf="item?.powerConnection">
         <h2 class="text-xl smallcaps">Power usage</h2>
         <app-power-usage [item]="item"></app-power-usage>
@@ -78,7 +121,7 @@
     <div>
       <h2 class="text-xl smallcaps">Sold at</h2>
 
-      <div class="grid grid-flow-row grid-cols-6 gap-2">
+      <div class="grid grid-flow-row grid-cols-4 gap-2">
         <app-stat *ngFor="let p of prices" [title]="p.shop.name" [value]="getActualPrice(p)" units="aUEC"></app-stat>
       </div>
 

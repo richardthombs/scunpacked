@@ -172,6 +172,55 @@ export class SCItem {
     return _.get(this.json, "Raw.Entity.Components.SCItemWeaponComponentParams");
   }
 
+  get weaponFireAction(): FireAction {
+    console.log(this.json.Raw.Entity.Components.SCItemWeaponComponentParams.fireActions);
+    return this.getFiringAction(this.json.Raw.Entity.Components.SCItemWeaponComponentParams.fireActions);
+  }
+
+  get weaponDamagePerShot(): DamageInfo {
+    let ammo = this.ammoDamage;
+    let action = this.weaponFireAction;
+
+    return {
+      DamagePhysical: ammo.DamagePhysical * action.launchParams.SProjectileLauncher.pelletCount,
+      DamageEnergy: ammo.DamageEnergy * action.launchParams.SProjectileLauncher.pelletCount,
+      DamageDistortion: ammo.DamageDistortion * action.launchParams.SProjectileLauncher.pelletCount,
+      DamageThermal: ammo.DamageThermal * action.launchParams.SProjectileLauncher.pelletCount,
+      DamageBiochemical: ammo.DamageBiochemical * action.launchParams.SProjectileLauncher.pelletCount,
+      DamageStun: ammo.DamageStun * action.launchParams.SProjectileLauncher.pelletCount
+    };
+  }
+
+  get ammo(): AmmoIndexEntry {
+    return this.json.ammo as AmmoIndexEntry;
+  }
+
+  get ammoDamage(): DamageInfo {
+    let ammo = this.ammo;
+    return {
+      DamagePhysical: ammo.damage.physical,
+      DamageEnergy: ammo.damage.energy,
+      DamageDistortion: ammo.damage.distortion,
+      DamageThermal: ammo.damage.thermal,
+      DamageBiochemical: ammo.damage.biochemical,
+      DamageStun: ammo.damage.stun
+    };
+  }
+
+  get weaponDamagePerSecond(): DamageInfo {
+    let perShot = this.weaponDamagePerShot;
+    let action = this.weaponFireAction;
+
+    return {
+      DamagePhysical: perShot.DamagePhysical * action.fireRate / 60,
+      DamageEnergy: perShot.DamageEnergy * action.fireRate / 60,
+      DamageDistortion: perShot.DamageDistortion * action.fireRate / 60,
+      DamageThermal: perShot.DamageThermal * action.fireRate / 60,
+      DamageBiochemical: perShot.DamageBiochemical * action.fireRate / 60,
+      DamageStun: perShot.DamageStun * action.fireRate / 60
+    };
+  }
+
   get isLogoutPoint(): boolean {
     let interactions: any[] = _.get(this.json, "Raw.Entity.Components.SEntityInteractableParams.Interactable.SharedInteractions", []);
     return !!_.find(interactions, x => x.Name.startsWith("SaveGameLogOut"));
@@ -200,7 +249,52 @@ export class SCItem {
     return found;
   }
 
+  // This (wrongly?) assumes that all firing actions in a firing sequence will be the same
+  private getFiringAction(fireActionContainer: any): FireAction {
+    if (fireActionContainer.SWeaponActionFireSingleParams) return fireActionContainer.SWeaponActionFireSingleParams as FireAction;
+    if (fireActionContainer.SWeaponActionFireRapidParams) return fireActionContainer.SWeaponActionFireRapidParams as FireAction;
+    if (fireActionContainer.SWeaponActionSequenceParams) return this.getFiringAction(fireActionContainer.SWeaponActionSequenceParams.sequenceEntries[0].weaponAction);
+    return { fireRate: 0, heatPerShot: 0, launchParams: { SProjectileLauncher: { ammoCost: 0, pelletCount: 0 } } };
+  }
+
   get Raw(): any {
     return this.json.Raw;
   }
+}
+
+export type FireAction = {
+  fireRate: number;
+  heatPerShot: number;
+  launchParams: {
+    SProjectileLauncher: {
+      ammoCost: number,
+      pelletCount: number
+    }
+  }
+}
+
+export type DamageInfo = {
+  DamagePhysical: number;
+  DamageEnergy: number;
+  DamageDistortion: number;
+  DamageThermal: number;
+  DamageBiochemical: number;
+  DamageStun: number;
+}
+
+export type AmmoIndexEntry = {
+  range: number,
+  speed: number,
+  detonates: boolean,
+  damage: Damage,
+  detonationDamage: Damage
+}
+
+export type Damage = {
+  physical: number,
+  energy: number,
+  distortion: number,
+  thermal: number,
+  biochemical: number,
+  stun: number
 }
