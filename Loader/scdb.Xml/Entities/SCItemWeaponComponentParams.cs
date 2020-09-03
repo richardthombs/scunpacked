@@ -18,6 +18,7 @@ namespace scdb.Xml.Entities
 		public SWeaponActionFireRapidParams SWeaponActionFireRapidParams;
 		public SWeaponActionSequenceParams SWeaponActionSequenceParams;
 		public SWeaponActionFireBeamParams SWeaponActionFireBeamParams;
+		public SWeaponActionFireChargedParams SWeaponActionFireChargedParams;
 	}
 
 	public class SWeaponActionFireSingleParams
@@ -144,6 +145,32 @@ namespace scdb.Xml.Entities
 		public double hitRadius;
 
 		public DamagePerSecond damagePerSecond;
+	}
+
+	public class SWeaponActionFireChargedParams
+	{
+		[XmlAttribute]
+		public string name;
+
+		[XmlAttribute]
+		public string localisedName;
+
+		[XmlAttribute]
+		public string aiShootingMode;
+
+		[XmlAttribute]
+		public double chargeTime;
+
+		[XmlAttribute]
+		public double overchargeTime;
+
+		[XmlAttribute]
+		public double overchargedTime;
+
+		[XmlAttribute]
+		public double cooldownTime;
+
+		public fireActions weaponAction;
 	}
 
 	public class DamagePerSecond
