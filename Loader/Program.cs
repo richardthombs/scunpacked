@@ -101,13 +101,23 @@ namespace Loader
 
 			File.WriteAllText(Path.Combine(outputRoot, "ships.json"), JsonConvert.SerializeObject(shipIndex));
 
+			// Ammunition
+			var ammoLoader = new AmmoLoader
+			{
+				OutputFolder = Path.Combine(outputRoot, "ammo"),
+				DataRoot = scDataRoot
+			};
+			var ammoIndex = ammoLoader.Load();
+			File.WriteAllText(Path.Combine(outputRoot, "ammo.json"), JsonConvert.SerializeObject(ammoIndex));
+
 			// Items that go on ships
 			var itemLoader = new ItemLoader
 			{
 				OutputFolder = Path.Combine(outputRoot, "items"),
 				DataRoot = scDataRoot,
 				OnXmlLoadout = path => loadoutLoader.Load(path),
-				Manufacturers = manufacturerIndex
+				Manufacturers = manufacturerIndex,
+				Ammo = ammoIndex
 			};
 			var itemIndex = itemLoader.Load();
 			File.WriteAllText(Path.Combine(outputRoot, "items.json"), JsonConvert.SerializeObject(itemIndex));

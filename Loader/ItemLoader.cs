@@ -15,6 +15,7 @@ namespace Loader
 		public string DataRoot { get; set; }
 		public Func<string, string> OnXmlLoadout { get; set; }
 		public List<ManufacturerIndexEntry> Manufacturers { get; set; }
+		public List<AmmoIndexEntry> Ammo { get; set; }
 
 		string[] include = new string[] {
 			"ships",
@@ -59,9 +60,17 @@ namespace Loader
 				entity = entityParser.Parse(entityFilename, OnXmlLoadout);
 				if (entity == null) continue;
 
+				// If it has ammo
+				AmmoIndexEntry ammoEntry = null;
+				if (!String.IsNullOrEmpty(entity.Components?.SAmmoContainerComponentParams?.ammoParamsRecord))
+				{
+					ammoEntry = Ammo.FirstOrDefault(x => x.reference == entity.Components.SAmmoContainerComponentParams.ammoParamsRecord);
+				}
+
 				var jsonFilename = Path.Combine(OutputFolder, $"{entity.ClassName.ToLower()}.json");
 				var json = JsonConvert.SerializeObject(new
 				{
+					ammo = ammoEntry,
 					Raw = new
 					{
 						Entity = entity,

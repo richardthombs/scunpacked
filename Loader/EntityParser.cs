@@ -23,7 +23,6 @@ namespace Loader
 				return cached;
 			}
 
-			Console.WriteLine(fullXmlPath);
 			if (!File.Exists(fullXmlPath))
 			{
 				Console.WriteLine("Entity definition file does not exist");

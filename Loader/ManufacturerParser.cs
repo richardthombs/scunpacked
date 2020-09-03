@@ -13,7 +13,7 @@ namespace Loader
 		{
 			if (!File.Exists(fullXmlPath))
 			{
-				Console.WriteLine("Manufacturer  file does not exist");
+				Console.WriteLine("Manufacturer file does not exist");
 				return null;
 			}
 
