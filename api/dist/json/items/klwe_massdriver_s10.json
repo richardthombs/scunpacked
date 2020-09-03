@@ -204,7 +204,38 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {}
+          "fireActions": {
+            "SWeaponActionFireChargedParams": {
+              "name": "Charge",
+              "localisedName": "@FireMode_Charge",
+              "aiShootingMode": "Single",
+              "chargeTime": 10.0,
+              "overchargeTime": 10.0,
+              "overchargedTime": 20.0,
+              "cooldownTime": 5.0,
+              "weaponAction": {
+                "SWeaponActionFireSingleParams": {
+                  "name": "Single",
+                  "localisedName": "@FireMode_Single",
+                  "fireRate": 18.0,
+                  "heatPerShot": 8457625.0,
+                  "launchParams": {
+                    "SProjectileLauncher": {
+                      "ammoCost": 1.0,
+                      "pelletCount": 1.0,
+                      "spreadParams": {
+                        "min": 0.0,
+                        "max": 0.0,
+                        "firstAttack": 0.0,
+                        "attack": 0.0,
+                        "decay": 0.0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       },
       "ClassName": "KLWE_MassDriver_S10"
