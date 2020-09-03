@@ -36,7 +36,7 @@ namespace Loader
 				var entity = parser.Parse(entityFilename);
 				if (entity == null) continue;
 
-				var jsonFilename = Path.Combine(OutputFolder, $"{entity.__ref.ToLower()}.json");
+				var jsonFilename = Path.Combine(OutputFolder, $"{entity.ClassName.ToLower()}.json");
 				var json = JsonConvert.SerializeObject(new
 				{
 					Raw = new
