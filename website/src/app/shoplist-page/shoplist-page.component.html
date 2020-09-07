@@ -16,7 +16,7 @@
     <ng-container *ngIf="searchText.length >= 3">
       <div *ngFor="let item of filtered | keyvalue" class="border border-gray-400 dark:border-gray-700 mt-5">
         <div class="text-gray-800 dark:text-gray-400 bg-gray-400 dark:bg-gray-800 px-4 py-2">
-          {{item.value[0].item.displayName}} ({{item.value[0].item.type || "Commodity"}}) [{{item.value[0].item.tags?.join(", ")}}]
+          <a [routerLink]="['/items', item.value[0].item.name.toLowerCase()]">{{item.value[0].item.displayName}}</a> ({{item.value[0].item.type || "Commodity"}}) [{{item.value[0].item.tags?.join(", ")}}]
         </div>
         <ng-container *ngIf="!item.collapsed">
           <div *ngFor="let x of item.value" class="flex bg-white dark:bg-black border-b last:border-b-0 border-gray-400 dark:border-gray-700 px-4 py-2">
