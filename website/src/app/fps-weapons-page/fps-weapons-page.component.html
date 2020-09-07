@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+
+<div class="bg-white-alpha-80 dark:bg-black-alpha-20">
+  <nav class="flex flex-row text-center text-gray-600 dark:text-gray-500 whitespace-no-wrap md:flex-wrap overflow-auto md:overflow-none">
+    <a *ngFor="let type of byType | keyvalue" routerLink="/fps-weapons" [queryParams]="{type: type.key}" routerLinkActive="text-white bg-primary" class="px-5 py-3 flex-grow hover:text-black dark-hover:text-white">{{type.key}}</a>
+  </nav>
+</div>
+
+<div class="container-outer">
+
+  <div class="container mx-auto container-inner">
+
+    <div *ngIf="selectedType" class="role-container">
+      <div class="role-inner">
+        <h5>{{selectedType.key}}
+          <a [routerLink]="['/fps-weapons/compare']" [queryParams]="{items:itemsInRole(selectedType.value)}">Compare</a>
+        </h5>
+        <div class="flex flex-wrap subrole-container">
+          <div *ngFor="let subRole of selectedType.value | keyvalue" class="subrole-inner">
+            <h6>
+              {{subRole.key}}
+              <a *ngIf="subRole.value.length > 1" [routerLink]="['/fps-weapons/compare']" [queryParams]="{items:itemsInSubRole(subRole.value)}">Compare</a>
+            </h6>
+            <div *ngFor="let item of subRole.value">
+              <a [routerLink]="['/fps-weapons', item.className.toLowerCase()]" [title]="item.name | localise">{{item.manufacturer || "CIG"}}: {{item.name | localise:item.className}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -43,6 +43,7 @@ import { HeatEmissionsComponent } from './item-page/heat-emissions/heat-emission
 import { DurabilityComponent } from './item-page/durability/durability.component';
 import { ShieldStatsComponent } from './item-page/shield-stats/shield-stats.component';
 import { QuantumDriveComponent } from './item-page/quantum-drive/quantum-drive.component';
+import { FpsWeaponsPageComponent } from './fps-weapons-page/fps-weapons-page.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { QuantumDriveComponent } from './item-page/quantum-drive/quantum-drive.c
     HeatEmissionsComponent,
     DurabilityComponent,
     ShieldStatsComponent,
-    QuantumDriveComponent
+    QuantumDriveComponent,
+    FpsWeaponsPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,17 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import * as _ from "lodash";
 
-import { doubleGroupedList } from "../shiplist-page/shiplist-page.component";
+import * as _ from 'lodash';
+
+import { doubleGroupedList } from '../shiplist-page/shiplist-page.component';
 import { ItemIndexEntry } from '../ItemIndexEntry';
 
 @Component({
-  selector: 'app-itemlist',
-  templateUrl: './itemlist-page.component.html',
-  styleUrls: ['./itemlist-page.component.scss']
+  selector: 'app-fps-weapons-page',
+  templateUrl: './fps-weapons-page.component.html',
+  styles: [
+    `
+      :host {
+        display: block;
+      }
+    `
+  ]
 })
-export class ItemlistPage implements OnInit {
+export class FpsWeaponsPageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
@@ -22,31 +29,33 @@ export class ItemlistPage implements OnInit {
   selectedType: any;
 
   typeMap: { [id: string]: string } = {
-    "Armor.Light": "Armor",
-    "Armor.Medium": "Armor",
-    "Cooler.UNDEFINED": "Coolers",
-    "EMP.UNDEFINED": "EMPs",
-    "Missile.Missile": "Missiles",
-    "Missile.Torpedo": "Torpedos",
-    "Missile.Rocket": "Rockets",
-    "PowerPlant.Power": "Power plants",
-    "QuantumDrive.UNDEFINED": "Quantum drives",
-    "QuantumInterdictionGenerator.UNDEFINED": "Quantum interdiction",
-    "Radar.MidRangeRadar": "Radars",
-    "Scanner.Scanner": "Scanners",
-    "Scanner.UNDEFINED": "Scanners",
-    "Shield.UNDEFINED": "Shields",
-    "WeaponDefensive.CountermeasureLauncher": "Countermeasures",
-    "WeaponGun.Gun": "Weapons",
-    "WeaponGun.Rocket": "Rocket launchers",
-    "WeaponGun.NoseMounted": "Weapons",
-    "WeaponMining.Gun": "Mining lasers",
-    "WeaponPersonal.Small": "skip",
-    "WeaponPersonal.Medium": "skip",
-    "WeaponPersonal.Large": "skip",
-    "WeaponPersonal.Knife": "skip",
-    "WeaponPersonal.Gadget": "skip",
-    "Light.Weapon": "skip"
+    "WeaponPersonal.Small": "Guns",
+    "WeaponPersonal.Medium": "Guns",
+    "WeaponPersonal.Large": "Guns",
+    "WeaponPersonal.Knife": "Knives",
+    "WeaponPersonal.Gadget": "Tools",
+    "Light.Weapon": "Weapon attachments",
+    "WeaponAttachment.IronSights": "Scopes",
+
+    "Armor.Light": "skip",
+    "Armor.Medium": "skip",
+    "Cooler.UNDEFINED": "skip",
+    "EMP.UNDEFINED": "skip",
+    "Missile.Missile": "skip",
+    "Missile.Torpedo": "skip",
+    "Missile.Rocket": "skip",
+    "PowerPlant.Power": "skip",
+    "QuantumDrive.UNDEFINED": "skip",
+    "QuantumInterdictionGenerator.UNDEFINED": "skip",
+    "Radar.MidRangeRadar": "skip",
+    "Scanner.Scanner": "skip",
+    "Scanner.UNDEFINED": "skip",
+    "Shield.UNDEFINED": "skip",
+    "WeaponDefensive.CountermeasureLauncher": "skip",
+    "WeaponGun.Gun": "skip",
+    "WeaponGun.Rocket": "skip",
+    "WeaponGun.NoseMounted": "skip",
+    "WeaponMining.Gun": "skip"
   }
 
   ngOnInit() {
@@ -75,7 +84,7 @@ export class ItemlistPage implements OnInit {
       console.log(r);
       let type = r.get("type");
       if (type) this.selectType({ key: type, value: this.byType[type] });
-      else this.router.navigateByUrl("/items?type=Armor");
+      else this.router.navigateByUrl("/fps-weapons?type=Guns");
 
     }));
   }

@@ -12,17 +12,21 @@ import { ShoplistPage } from './shoplist-page/shoplist-page.component';
 import { ShipsResolver } from "./ShipsResolver";
 import { ItemsResolver } from './ItemsResolver';
 import { CommoditiesComponent } from './commodities/commodities.component';
+import { FpsWeaponsPageComponent } from './fps-weapons-page/fps-weapons-page.component';
 
 const routes: Routes = [
   { path: "", component: HomePage, data: { title: "Star Citizen Unpacked" } },
-  { path: "ships", component: ShiplistPage, resolve: { ships: ShipsResolver }, data: { title: "Ship explorer" } },
+  { path: "ships", component: ShiplistPage, resolve: { ships: ShipsResolver }, data: { title: "Ships" } },
   { path: "ships/compare", component: CompareShipsPage },
   { path: "ships/:name", component: ShipPage },
-  { path: "items", component: ItemlistPage, resolve: { items: ItemsResolver }, data: { title: "Item explorer" } },
+  { path: "items", component: ItemlistPage, resolve: { items: ItemsResolver }, data: { title: "Ship items" } },
   { path: "items/compare", component: CompareItemsPage },
   { path: "items/:name", component: ItemPage },
   { path: "shops", component: ShoplistPage, data: { title: "Shops and prices" } },
-  { path: "commodities", component: CommoditiesComponent, data: { title: "Commodity prices" } }
+  { path: "commodities", component: CommoditiesComponent, data: { title: "Commodity prices" } },
+  { path: "fps-weapons", component: FpsWeaponsPageComponent, resolve: { items: ItemsResolver }, data: { title: "FPS weapons" } },
+  { path: "fps-weapons/compare", component: CompareItemsPage },
+  { path: "fps-weapons/:name", component: ItemPage }
 ];
 
 @NgModule({
