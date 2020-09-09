@@ -3,6 +3,7 @@
 	public class ItemIndexEntry
 	{
 		public string jsonFilename;
+		public string xmlFilename;
 		public string className;
 		public string reference;
 		public string itemName;

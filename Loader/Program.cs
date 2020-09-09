@@ -122,6 +122,21 @@ namespace Loader
 			var itemIndex = itemLoader.Load();
 			File.WriteAllText(Path.Combine(outputRoot, "items.json"), JsonConvert.SerializeObject(itemIndex));
 
+			// Create an index file for each different item type
+			var typeIndicies = new Dictionary<string, List<ItemIndexEntry>>();
+			foreach (var entry in itemIndex)
+			{
+				var type = entry.type ?? "unknown";
+
+				if (!typeIndicies.ContainsKey(type)) typeIndicies.Add(type, new List<ItemIndexEntry>());
+				var typeIndex = typeIndicies[type];
+				typeIndex.Add(entry);
+			}
+			foreach (var pair in typeIndicies)
+			{
+				File.WriteAllText(Path.Combine(outputRoot, pair.Key.ToLower() + ".json"), JsonConvert.SerializeObject(pair.Value));
+			}
+
 			// Prices
 			var shopLoader = new ShopLoader(new LocalisationService(labels))
 			{
