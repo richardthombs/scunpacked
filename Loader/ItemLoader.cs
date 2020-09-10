@@ -159,32 +159,11 @@ namespace Loader
 			var index = new List<ItemIndexEntry>();
 			index.AddRange(Load(@"Data\Libs\Foundry\Records\entities\scitem"));
 
-			return index;
-		}
-
-		List<ItemIndexEntry> Load(string itemsFolder)
-		{
-			var folderPath = Path.Combine(DataRoot, itemsFolder);
-			var index = new List<ItemIndexEntry>();
-
-			foreach (var entityFilename in Directory.EnumerateFiles(folderPath, "*.xml", SearchOption.AllDirectories))
+			// Once all the items have been loaded, we have to spin through them again looking for
+			// any that use ammunition magazines so we can load the magazine and then load the ammunition it uses
+			foreach (var item in index)
 			{
-				if (avoidFile(entityFilename)) continue;
-
-				EntityClassDefinition entity = null;
-
-				// Entity
-				Console.WriteLine(entityFilename);
-				var entityParser = new ClassParser<EntityClassDefinition>();
-				entity = entityParser.Parse(entityFilename);
-				if (entity == null) continue;
-				if (avoidType(entity.Components?.SAttachableComponentParams?.AttachDef.Type)) continue;
-
-				// If the entity has a loadout file, then load it
-				if (entity.Components?.SEntityComponentDefaultLoadoutParams?.loadout?.SItemPortLoadoutXMLParams != null)
-				{
-					entity.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutXMLParams.loadoutPath = OnXmlLoadout(entity.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutXMLParams.loadoutPath);
-				}
+				var entity = ClassParser<EntityClassDefinition>.ClassByNameCache[item.className];
 
 				// If uses an ammunition magazine, then load it
 				EntityClassDefinition magazine = null;
@@ -213,6 +192,34 @@ namespace Loader
 					}
 				});
 				File.WriteAllText(jsonFilename, json);
+			}
+
+			return index;
+		}
+
+		List<ItemIndexEntry> Load(string itemsFolder)
+		{
+			var folderPath = Path.Combine(DataRoot, itemsFolder);
+			var index = new List<ItemIndexEntry>();
+
+			foreach (var entityFilename in Directory.EnumerateFiles(folderPath, "*.xml", SearchOption.AllDirectories))
+			{
+				if (avoidFile(entityFilename)) continue;
+
+				EntityClassDefinition entity = null;
+
+				// Entity
+				Console.WriteLine(entityFilename);
+				var entityParser = new ClassParser<EntityClassDefinition>();
+				entity = entityParser.Parse(entityFilename);
+				if (entity == null) continue;
+				if (avoidType(entity.Components?.SAttachableComponentParams?.AttachDef.Type)) continue;
+
+				// If the entity has a loadout file, then load it
+				if (entity.Components?.SEntityComponentDefaultLoadoutParams?.loadout?.SItemPortLoadoutXMLParams != null)
+				{
+					entity.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutXMLParams.loadoutPath = OnXmlLoadout(entity.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutXMLParams.loadoutPath);
+				}
 
 				var indexEntry = CreateIndexEntry(entity);
 				indexEntry.jsonUrl = $"/api/items/{entity.ClassName.ToLower()}.json";
@@ -276,6 +283,11 @@ namespace Loader
 			}
 
 			throw new ApplicationException("Item didn't get picked up by the default match for some reason");
+		}
+
+		public void LoadAmmunitionIfNeeded(EntityClassDefinition entity)
+		{
+
 		}
 	}
 }

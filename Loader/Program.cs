@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 using Newtonsoft.Json;
 using NDesk.Options;
+using scdb.Xml.Entities;
 
 namespace Loader
 {
@@ -110,7 +111,7 @@ namespace Loader
 			var ammoIndex = ammoLoader.Load();
 			File.WriteAllText(Path.Combine(outputRoot, "ammo.json"), JsonConvert.SerializeObject(ammoIndex));
 
-			// Items that go on ships
+			// Items
 			var itemLoader = new ItemLoader
 			{
 				OutputFolder = Path.Combine(outputRoot, "items"),
