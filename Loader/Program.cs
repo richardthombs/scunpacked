@@ -126,15 +126,16 @@ namespace Loader
 			var typeIndicies = new Dictionary<string, List<ItemIndexEntry>>();
 			foreach (var entry in itemIndex)
 			{
-				var type = entry.type ?? "unknown";
+				if (String.IsNullOrEmpty(entry.classification)) continue;
 
+				var type = entry.classification.Split('.')[0];
 				if (!typeIndicies.ContainsKey(type)) typeIndicies.Add(type, new List<ItemIndexEntry>());
 				var typeIndex = typeIndicies[type];
 				typeIndex.Add(entry);
 			}
 			foreach (var pair in typeIndicies)
 			{
-				File.WriteAllText(Path.Combine(outputRoot, pair.Key.ToLower() + ".json"), JsonConvert.SerializeObject(pair.Value));
+				File.WriteAllText(Path.Combine(outputRoot, pair.Key.ToLower() + "-items.json"), JsonConvert.SerializeObject(pair.Value));
 			}
 
 			// Prices

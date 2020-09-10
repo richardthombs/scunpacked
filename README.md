@@ -40,13 +40,15 @@ loader.exe -scdata=c:\scdata\3.7.2 -output=c:\scdata\3.7.2-json
 Now you will have a folder `c:\scdata\3.7.2-json` which contains:
 
 ```
-items        - Folder containing all Items, named after the class name
-loadouts     - Folder containing loadouts for ships and items named after the loadout filename
-ships        - Folder containing all ships, named after the class name
-ammo.json    - Index of all the ammunition fired by weapons and countermeasures
-items.json   - Index of all the items
-labels.json  - English translations of all labels
-ships.json   - Index of all the ships
-shops.json   - Index of all shops and everything that they sell or buy
-starmap.json - Index of the locations in the star map
+items           - Folder containing the json for each item in Star Citizen, named after the class name (there are a lot)
+loadouts        - Folder containing loadouts for ships and items named after the loadout filename (CIG seem to be moving away from loadout files)
+ships           - Folder containing the json for each ships, named after the class name
+ammo.json       - Index of all the ammunition fired by weapons and countermeasures
+items.json      - Index of pretty much all the items in Star Citizen (this is quite large)
+fps-items.json  - Index of player equipment
+ship-items.json - Index of ship equipment
+labels.json     - English translations of all labels
+ships.json      - Index of all the ships
+shops.json      - Index of all shops and everything that they sell or buy
+starmap.json    - Index of the locations in the star map
 ```
