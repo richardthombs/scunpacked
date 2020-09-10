@@ -29,33 +29,25 @@ export class FpsWeaponsPageComponent implements OnInit {
   selectedType: any;
 
   typeMap: { [id: string]: string } = {
-    "WeaponPersonal.Small": "Guns",
-    "WeaponPersonal.Medium": "Guns",
-    "WeaponPersonal.Large": "Guns",
-    "WeaponPersonal.Knife": "Knives",
-    "WeaponPersonal.Gadget": "Tools",
-    "Light.Weapon": "Weapon attachments",
-    "WeaponAttachment.IronSights": "Scopes",
-
-    "Armor.Light": "skip",
-    "Armor.Medium": "skip",
-    "Cooler.UNDEFINED": "skip",
-    "EMP.UNDEFINED": "skip",
-    "Missile.Missile": "skip",
-    "Missile.Torpedo": "skip",
-    "Missile.Rocket": "skip",
-    "PowerPlant.Power": "skip",
-    "QuantumDrive.UNDEFINED": "skip",
-    "QuantumInterdictionGenerator.UNDEFINED": "skip",
-    "Radar.MidRangeRadar": "skip",
-    "Scanner.Scanner": "skip",
-    "Scanner.UNDEFINED": "skip",
-    "Shield.UNDEFINED": "skip",
-    "WeaponDefensive.CountermeasureLauncher": "skip",
-    "WeaponGun.Gun": "skip",
-    "WeaponGun.Rocket": "skip",
-    "WeaponGun.NoseMounted": "skip",
-    "WeaponMining.Gun": "skip"
+    "FPS.Armor.Arms": "Armor",
+    "FPS.Armor.Helmet": "Armor",
+    "FPS.Armor.Legs": "Armor",
+    "FPS.Armor.Torso": "Armor",
+    "FPS.Armor.Undersuit": "Undersuits",
+    "FPS.Weapon.Gadget": "Gadgets",
+    "FPS.Weapon.Grenade": "Grenades",
+    "FPS.Weapon.Knife": "Knives",
+    "FPS.Weapon.Large": "Guns",
+    "FPS.Weapon.Medium": "Guns",
+    "FPS.Weapon.Small": "Guns",
+    "FPS.Weapon.MedPack": "Med Pack",
+    "FPS.WeaponAttachment.BarrelAttachment": "Weapon attachments",
+    "FPS.WeaponAttachment.BottomAttachment": "Weapon attachments",
+    "FPS.WeaponAttachment.IronSight": "Weapon attachments",
+    "FPS.WeaponAttachment.Light": "Weapon attachments",
+    "FPS.WeaponAttachment.Magazine": "Weapon attachments",
+    "FPS.WeaponAttachment.Missile": "Weapon attachments",
+    "FPS.WeaponAttachment.Utility": "Weapon attachments",
   }
 
   ngOnInit() {
@@ -63,8 +55,7 @@ export class FpsWeaponsPageComponent implements OnInit {
     this.subs.push(this.route.data.subscribe(data => {
 
       data.items.forEach((i: ItemIndexEntry) => {
-        let type = this.typeMap[`${i.type || "UNDEFINED"}.${i.subType || "UNDEFINED"}`] || "Unknown";
-        if (type == "skip") return;
+        let type = this.typeMap[i.classification] || i.classification;
 
         let size = `Size ${i.size || 0}`;
         let manu = i.manufacturer || "CIG";

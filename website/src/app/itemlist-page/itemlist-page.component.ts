@@ -22,31 +22,28 @@ export class ItemlistPage implements OnInit {
   selectedType: any;
 
   typeMap: { [id: string]: string } = {
-    "Armor.Light": "Armor",
-    "Armor.Medium": "Armor",
-    "Cooler.UNDEFINED": "Coolers",
-    "EMP.UNDEFINED": "EMPs",
-    "Missile.Missile": "Missiles",
-    "Missile.Torpedo": "Torpedos",
-    "Missile.Rocket": "Rockets",
-    "PowerPlant.Power": "Power plants",
-    "QuantumDrive.UNDEFINED": "Quantum drives",
-    "QuantumInterdictionGenerator.UNDEFINED": "Quantum interdiction",
-    "Radar.MidRangeRadar": "Radars",
-    "Scanner.Scanner": "Scanners",
-    "Scanner.UNDEFINED": "Scanners",
-    "Shield.UNDEFINED": "Shields",
-    "WeaponDefensive.CountermeasureLauncher": "Countermeasures",
-    "WeaponGun.Gun": "Weapons",
-    "WeaponGun.Rocket": "Rocket launchers",
-    "WeaponGun.NoseMounted": "Weapons",
-    "WeaponMining.Gun": "Mining lasers",
-    "WeaponPersonal.Small": "skip",
-    "WeaponPersonal.Medium": "skip",
-    "WeaponPersonal.Large": "skip",
-    "WeaponPersonal.Knife": "skip",
-    "WeaponPersonal.Gadget": "skip",
-    "Light.Weapon": "skip"
+    "Ship.Armor.Light": "Armor",
+    "Ship.Armor.Medium": "Armor",
+    "Ship.Cooler.UNDEFINED": "Coolers",
+    "Ship.EMP.UNDEFINED": "EMP",
+    "Ship.Mining.Gun": "Mining",
+    "Ship.Missile.Missile": "Missiles",
+    "Ship.Missile.Rocket": "Rockets",
+    "Ship.Missile.Torpedo": "Missiles",
+    "Ship.PowerPlant.Power": "Power plants",
+    "Ship.QuantumDrive.UNDEFINED": "Quantum drives",
+    "Ship.QuantumInterdictionGenerator.UNDEFINED": "Quantum interdiction",
+    "Ship.Radar.MidRangeRadar": "Radars",
+    "Ship.Scanner.Scanner": "Scanners",
+    "Ship.Shield.UNDEFINED": "Shields",
+    "Ship.Weapon.Gun": "Weapons",
+    "Ship.Weapon.NoseMounted": "Weapons",
+    "Ship.Weapon.Rocket": "Rockets",
+    "Ship.WeaponAttachment.Barrel": "Weapon attachments",
+    "Ship.WeaponAttachment.FiringMechanism": "Weapon attachments",
+    "Ship.WeaponAttachment.PowerArray": "Weapon attachments",
+    "Ship.WeaponAttachment.Ventilation": "Weapon attachments",
+    "Ship.WeaponDefensive.CountermeasureLauncher": "Countermeasures"
   }
 
   ngOnInit() {
@@ -54,8 +51,7 @@ export class ItemlistPage implements OnInit {
     this.subs.push(this.route.data.subscribe(data => {
 
       data.items.forEach((i: ItemIndexEntry) => {
-        let type = this.typeMap[`${i.type || "UNDEFINED"}.${i.subType || "UNDEFINED"}`] || "Unknown";
-        if (type == "skip") return;
+        let type = this.typeMap[i.classification] || i.classification;
 
         let size = `Size ${i.size || 0}`;
         let manu = i.manufacturer || "CIG";
