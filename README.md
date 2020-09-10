@@ -6,7 +6,7 @@ _This is an unofficial Star Citizen fansite, not affiliated with the Cloud Imper
 
 ## Introduction
 
-This projects is made up of three parts:
+This project is made up of three parts:
 
 1. `loader` - this is a .NET Core application which parses XML data extracted from the Star Citizen game files and produces a set of JSON files.
 
@@ -36,8 +36,9 @@ Run the loader:
 ```
 loader.exe -scdata=c:\scdata\3.7.2 -output=c:\scdata\3.7.2-json
 ```
+> Note: The loader will take a while to run as it now loads virtually every in-game item
 
-Now you will have a folder `c:\scdata\3.7.2-json` which contains:
+You will now have a folder `c:\scdata\3.7.2-json` which contains:
 
 ```
 ammo/              - Folder containing the json for each type of ammunition
@@ -54,3 +55,8 @@ ships.json         - Index of all the ships
 shops.json         - Index of all shops and everything that they sell or buy
 starmap.json       - Index of the locations in the star map
 ```
+
+## How to use it
+It is up to you! But to give you a starting point, the scunpacked website uses `ships.json`, `ship-items.json` and `fps-items.json` to construct menus and lists. Then it loads more detailed information, item-by-item as they needed from `items/<itemname>.json`.
+
+> If you are publishing a derrivative work, don't forget to include the CIG attribution & disclaimer that they require you to use!
