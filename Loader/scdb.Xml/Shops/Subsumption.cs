@@ -145,9 +145,17 @@ namespace scdb.Xml.Shops
 		public double RefreshRatePercentagePerMinute;
 
 		public TransactionType[] TransactionTypes;
+
+		public ID[] RentalTemplates;
 	}
 
 	public class TransactionType
+	{
+		[XmlText]
+		public string Data;
+	}
+
+	public class ID
 	{
 		[XmlText]
 		public string Data;
