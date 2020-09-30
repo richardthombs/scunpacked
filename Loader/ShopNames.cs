@@ -8,6 +8,16 @@ namespace Loader
 		//
 		// Note to contributors: please include the planet / moon / lagrange point name in the description.
 		// Eg: "Jumptown, Yela" rather than just "Jumptown"
+		// Stanton1 = Hurston
+		// Stanton1, LEO1 = Everus Harbor
+		// Stanton1, L1 = HUR L1
+
+		// Stanton2 = Crusader
+
+		// Stanton3 = ArcCorp
+		// Stanton3, LEO1 = Baijini Point
+
+		// Stanton4 = Microtech
 		//
 		public static Dictionary<string, string> Lookup = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
 		{
@@ -126,7 +136,127 @@ namespace Loader
 			{ "Aparelli_NewBabbage", "Aparelli, New Babbage" },
 			{ "OmegaPro_NewBabbage", "Omega Pro, New Babbage" },
 			{ "ShubinInterstellar_NewBabbage", "Shubin Interstellar, New Babbage" },
-			{ "Skutters_Armor_Weap_GrimHex", "Skutters, GrimHEX" }
+			{ "Skutters_Armor_Weap_GrimHex", "Skutters, GrimHEX" },
+			{ "CasabaOutlet_PortO", "Casaba Outlet, Port Olisar" },
+			{ "CasabaOutlet_Stanton1_L1", "Casaba Outlet, Hurston L1" },
+			{ "CasabaOutlet_Stanton4_L1", "Casaba Outlet, Microtech L1" },
+			{ "CasabaOutlet_Stanton4_LEO1", "Casaba Outlet, Port Tressler" },
+			{ "CasabaOutlet_Area18", "Casaba Outlet, Area 18" }
+		};
+	}
+
+	public class MapEntry
+	{
+		public string Name;
+		public List<MapEntry> OrbitedBy;
+		public List<MapEntry> Destinations;
+		public List<MapEntry> Shops;
+	}
+
+	public static class Map
+	{
+		public static MapEntry TheUniverse = new MapEntry
+		{
+			Name = "Stanton",
+			OrbitedBy = new List<MapEntry>
+			{
+				new MapEntry
+				{
+					Name = "Hurston",
+					OrbitedBy = new List<MapEntry>
+					{
+						new MapEntry { Name = "Arial" },
+						new MapEntry { Name = "Magda" },
+						new MapEntry { Name = "Aberdeen" },
+						new MapEntry { Name = "Ita" }
+					}
+				},
+				new MapEntry
+				{
+					Name = "HUR L3",
+					Destinations = new List<MapEntry>
+					{
+						new MapEntry
+						{
+							Name = "R&R",
+							Shops = new List<MapEntry>
+							{
+								new MapEntry { Name = "Casaba Outlet "}
+							}
+						}
+					}
+				},
+				new MapEntry { Name = "HUR L4" },
+				new MapEntry { Name = "HUR L5" },
+
+				new MapEntry
+				{
+					Name = "Crusader",
+					OrbitedBy = new List<MapEntry>
+					{
+						new MapEntry
+						{
+							Name = "Port Olisar",
+							Shops = new List<MapEntry>
+							{
+								new MapEntry { Name = "Casaba Outlet" },
+								new MapEntry { Name = "Admin Office" }
+							}
+						},
+						new MapEntry
+						{
+							Name = "Cellin",
+							OrbitedBy = new List<MapEntry>
+							{
+								new MapEntry { Name = "Security Post Kareah" }
+							}
+						},
+						new MapEntry
+						{
+							Name = "Daymar",
+							OrbitedBy = new List<MapEntry>
+							{
+								new MapEntry { Name = "Covalex" }
+							}
+						},
+						new MapEntry
+						{
+							Name = "Yela",
+							OrbitedBy = new List<MapEntry>
+							{
+								new MapEntry { Name = "GrimHEX" }
+							}
+						}
+					},
+				},
+				new MapEntry { Name = "CRU L3" },
+				new MapEntry { Name = "CRU L4" },
+				new MapEntry { Name = "CRU L5" },
+
+				new MapEntry
+				{
+					Name = "ArcCorp",
+					OrbitedBy = new List<MapEntry>
+					{
+						new MapEntry { Name = "Wala" },
+						new MapEntry { Name = "Lyria" }
+					},
+					Destinations = new List<MapEntry>
+					{
+						new MapEntry
+						{
+							Name ="Area 18",
+							Shops = new List<MapEntry>
+							{
+								new MapEntry { Name = "Casaba Outlet "}
+							}
+						}
+					}
+				},
+				new MapEntry { Name = "ARC L3" },
+				new MapEntry { Name = "ARC L4" },
+				new MapEntry { Name = "ARC L5" }
+			},
 		};
 	}
 }
