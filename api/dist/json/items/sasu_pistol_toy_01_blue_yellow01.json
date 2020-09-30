@@ -1,0 +1,373 @@
+{
+  "magazine": {
+    "StaticEntityClassData": {
+      "DefaultEntitlementEntityParams": {
+        "entitlementPolicy": "9ff7bf08-e06e-4203-bced-753cbc8676fb"
+      }
+    },
+    "tags": [],
+    "Components": {
+      "SAttachableComponentParams": {
+        "AttachDef": {
+          "Type": "WeaponAttachment",
+          "SubType": "Magazine",
+          "Size": 1,
+          "Grade": 1,
+          "Manufacturer": "40c59850-8fb5-4a0e-ab61-7fd3871a632a",
+          "Tags": "sasu_pistol_toy_01",
+          "RequiredTags": "",
+          "DisplayType": "",
+          "Localization": {
+            "Name": "@item_Namesasu_pistol_toy_01_mag",
+            "Description": "@item_Descsasu_pistol_toy_01_mag"
+          }
+        }
+      },
+      "SCItem": {
+        "turnedOnByDefault": false,
+        "attachToTileItemPort": "NoConnection",
+        "inheritModelTagFromHost": true,
+        "ItemPorts": []
+      },
+      "SAmmoContainerComponentParams": {
+        "initialAmmoCount": 10.0,
+        "maxAmmoCount": 10.0,
+        "ammoParamsRecord": "9bbc1b76-6347-4309-8bbd-42bb8b9c44d9"
+      }
+    },
+    "ClassName": "sasu_pistol_toy_01_mag",
+    "__ref": "db3a7de3-3e4c-49f6-98fd-7541c963f380",
+    "__type": "EntityClassDefinition"
+  },
+  "ammo": {
+    "className": "toy_pistol",
+    "reference": "9bbc1b76-6347-4309-8bbd-42bb8b9c44d9",
+    "damage": {
+      "physical": 0.0,
+      "energy": 0.0,
+      "distortion": 0.0,
+      "thermal": 0.0,
+      "biochemical": 0.0,
+      "stun": 0.0
+    },
+    "speed": 20.0,
+    "range": 300.0,
+    "detonates": false
+  },
+  "Raw": {
+    "Entity": {
+      "StaticEntityClassData": {
+        "DefaultEntitlementEntityParams": {
+          "entitlementPolicy": "8a1fdd48-7896-4774-a110-2466190e1a07"
+        }
+      },
+      "tags": [
+        {
+          "value": "e6471cdd-5456-4a7c-91f3-8088c5bc067b"
+        },
+        {
+          "value": "042205a5-fe47-4486-8702-3ae5c62217f4"
+        },
+        {
+          "value": "82af979c-ec5d-440f-916c-3033e40a1101"
+        },
+        {
+          "value": "25992b0c-49d9-490f-96f9-4eb12d137475"
+        },
+        {
+          "value": "386f5ab5-4bde-49ef-a1dd-a8a2b7d1060d"
+        }
+      ],
+      "Components": {
+        "SEntityComponentDefaultLoadoutParams": {
+          "loadout": {
+            "SItemPortLoadoutManualParams": {
+              "entries": [
+                {
+                  "itemPortName": "magazine_attach",
+                  "entityClassName": "sasu_pistol_toy_01_mag",
+                  "loadout": {}
+                }
+              ]
+            }
+          }
+        },
+        "SAttachableComponentParams": {
+          "AttachDef": {
+            "Type": "WeaponPersonal",
+            "SubType": "Small",
+            "Size": 1,
+            "Grade": 1,
+            "Manufacturer": "40c59850-8fb5-4a0e-ab61-7fd3871a632a",
+            "Tags": "pistol",
+            "RequiredTags": "",
+            "DisplayType": "",
+            "Localization": {
+              "Name": "@item_Namesasu_pistol_toy_01_blue",
+              "Description": "@item_Descsasu_pistol_toy_01_shared"
+            }
+          }
+        },
+        "SCItem": {
+          "turnedOnByDefault": false,
+          "attachToTileItemPort": "NoConnection",
+          "inheritModelTagFromHost": true,
+          "ItemPorts": [
+            {
+              "PortFlags": "",
+              "PortTags": "",
+              "RequiredItemTags": "",
+              "Ports": [
+                {
+                  "Name": "magazine_attach",
+                  "DisplayName": "Magazine Slot",
+                  "PortTags": "",
+                  "RequiredPortTags": "sasu_pistol_toy_01",
+                  "Flags": "",
+                  "MinSize": 1,
+                  "MaxSize": 1,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": [
+                    {
+                      "Type": "WeaponAttachment",
+                      "SubTypes": [
+                        {
+                          "value": "Magazine"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "SCItemWeaponComponentParams": {
+          "ammoContainerRecord": "db3a7de3-3e4c-49f6-98fd-7541c963f380",
+          "connectionParams": {
+            "powerActiveCooldown": 1.0,
+            "heatRateOnline": 25.0,
+            "maxGlow": 100.0,
+            "noPowerStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 0.0,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            },
+            "underpowerStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 0.1,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            },
+            "overpowerStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 1.2,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            },
+            "overclockStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 1.5,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            },
+            "heatStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 1.0,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            }
+          },
+          "fireActions": {
+            "SWeaponActionFireSingleParams": {
+              "name": "Single",
+              "localisedName": "@FireMode_Single",
+              "fireRate": 63.0,
+              "heatPerShot": 0.0,
+              "launchParams": {
+                "SProjectileLauncher": {
+                  "ammoCost": 1.0,
+                  "pelletCount": 1.0,
+                  "spreadParams": {
+                    "min": 0.1,
+                    "max": 3.22,
+                    "firstAttack": 1.35,
+                    "attack": 1.35,
+                    "decay": 3.0
+                  }
+                }
+              }
+            }
+          }
+        },
+        "SEntityInteractableParams": {
+          "Interactable": {
+            "SharedInteractions": [
+              {
+                "Name": "Equip",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_equip",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Stow",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_stow",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "OffHandStow",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_stow",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Drop",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_drop",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Carry",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_carry",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Inspect",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@innerthought_inspect",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Place",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_place",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "VendorInspect",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@innerthought_inspect",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "VendorReturn",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@Armory_Return",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              }
+            ]
+          }
+        }
+      },
+      "ClassName": "sasu_pistol_toy_01_blue_yellow01",
+      "__ref": "32c131f6-e2d2-4651-bc4f-ff2706c367d8",
+      "__type": "EntityClassDefinition"
+    }
+  }
+}

@@ -447,12 +447,12 @@
                 },
                 {
                   "itemPortName": "hardpoint_countermeasure_launcher_left",
-                  "entityClassName": "JOKR_Defcon_CML_Flare",
+                  "entityClassName": "CML_Decoy_Small_Template",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_countermeasure_launcher_right",
-                  "entityClassName": "JOKR_Defcon_CML_Chaff",
+                  "entityClassName": "CML_Noise_Small_Template",
                   "loadout": {}
                 },
                 {
@@ -676,7 +676,7 @@
             "Size": 4,
             "Grade": 1,
             "Manufacturer": "4ecc1a24-d228-4dd5-8857-21ba6145a1d3",
-            "Tags": "",
+            "Tags": "ESPR_Prowler",
             "RequiredTags": "",
             "DisplayType": "",
             "Localization": {
@@ -759,7 +759,7 @@
       "name": "ESPR_Prowler",
       "displayname": "ESPR Prowler",
       "subType": "Vehicle_Spaceship",
-      "size": 2,
+      "size": 3,
       "requiredItemTags": "",
       "itemPortTags": "ESPR_Prowler_Base",
       "Parts": [
@@ -1404,47 +1404,6 @@
                           },
                           {
                             "itemType": "Missile"
-                          }
-                        ]
-                      }
-                    }
-                  }
-                },
-                {
-                  "name": "hardpoint_controller_weapon_copilot",
-                  "damageMax": 0.0,
-                  "class": "ItemPort",
-                  "skipPart": false,
-                  "ItemPort": {
-                    "minsize": 1,
-                    "maxsize": 1,
-                    "flags": "invisible uneditable",
-                    "Types": [
-                      {
-                        "type": "WeaponController"
-                      }
-                    ],
-                    "Connections": [
-                      {
-                        "pipeClass": "Power",
-                        "pipe": "MainPower"
-                      },
-                      {
-                        "pipeClass": "Heat",
-                        "pipe": "MainHeat"
-                      }
-                    ],
-                    "ControllerDef": {
-                      "controllableTags": "copilotSeat",
-                      "UsableDef": {
-                        "PriorityGroups": [
-                          {
-                            "itemType": "Turret",
-                            "defaultPriority": "20"
-                          },
-                          {
-                            "itemType": "WeaponGun",
-                            "defaultPriority": "20"
                           }
                         ]
                       }
@@ -2485,6 +2444,7 @@
                       "ItemPort": {
                         "minsize": 2,
                         "maxsize": 2,
+                        "display_name": "port_NameCooler01",
                         "flags": "invisible",
                         "Types": [
                           {
@@ -2512,6 +2472,7 @@
                       "ItemPort": {
                         "minsize": 2,
                         "maxsize": 2,
+                        "display_name": "port_NameCooler02",
                         "flags": "invisible",
                         "Types": [
                           {
@@ -2539,6 +2500,7 @@
                       "ItemPort": {
                         "minsize": 2,
                         "maxsize": 2,
+                        "display_name": "port_NamePowerplant01",
                         "flags": "invisible",
                         "Types": [
                           {
@@ -2566,6 +2528,7 @@
                       "ItemPort": {
                         "minsize": 2,
                         "maxsize": 2,
+                        "display_name": "port_NameShieldGen01",
                         "flags": "invisible",
                         "Types": [
                           {
@@ -2597,6 +2560,7 @@
                       "ItemPort": {
                         "minsize": 2,
                         "maxsize": 2,
+                        "display_name": "port_NameShieldGen02",
                         "flags": "invisible",
                         "Types": [
                           {
@@ -2654,6 +2618,7 @@
                       "ItemPort": {
                         "minsize": 2,
                         "maxsize": 2,
+                        "display_name": "port_NameQDrive",
                         "flags": "invisible",
                         "Types": [
                           {
@@ -3519,7 +3484,7 @@
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 1,
-                        "display_name": "Paint",
+                        "display_name": "port_NamePaint",
                         "flags": "uneditable",
                         "requiredTags": "Prowler_Paint",
                         "Types": [
@@ -4126,28 +4091,69 @@
                   }
                 },
                 {
-                  "name": "landingpad_helper",
+                  "name": "Hardpoint_VehicleDestroyed",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false
+                },
+                {
+                  "name": "hardpoint_controller_weapon_copilot",
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
-                    "flags": "uneditable",
+                    "flags": "invisible uneditable",
                     "Types": [
                       {
-                        "type": "LandingSystem"
+                        "type": "WeaponController"
                       }
-                    ]
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "copilotSeat",
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "Turret",
+                            "defaultPriority": "20"
+                          },
+                          {
+                            "itemType": "WeaponGun",
+                            "defaultPriority": "20"
+                          }
+                        ]
+                      }
+                    }
                   }
-                },
-                {
-                  "name": "Hardpoint_VehicleDestroyed",
-                  "damageMax": 0.0,
-                  "class": "ItemPort",
-                  "skipPart": false
                 }
               ]
+            },
+            {
+              "name": "landingpad_helper",
+              "damageMax": 0.0,
+              "class": "ItemPort",
+              "skipPart": false,
+              "ItemPort": {
+                "minsize": 1,
+                "maxsize": 1,
+                "flags": "uneditable",
+                "Types": [
+                  {
+                    "type": "LandingSystem"
+                  }
+                ]
+              }
             }
           ]
         }

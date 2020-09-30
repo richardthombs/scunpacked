@@ -47,11 +47,13 @@ namespace Loader
 
 				File.WriteAllText(jsonFilename, json);
 
+				BulletProjectileParams projectiles = entity.projectileParams.BulletProjectileParams;
+
 				var indexEntry = new AmmoIndexEntry
 				{
 					className = entity.ClassName,
 					reference = entity.__ref,
-					damage = Damage.FromDamageInfo(entity.projectileParams.BulletProjectileParams?.damage[0]),
+					damage = Damage.FromDamageInfo(projectiles != null && projectiles.damage.Length > 0 ? projectiles.damage[0] : new DamageInfo()),
 					speed = entity.speed,
 					range = entity.lifetime * entity.speed,
 					detonates = entity.projectileParams.BulletProjectileParams?.detonationParams?.ProjectileDetonationParams?.explosionParams != null,

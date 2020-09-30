@@ -637,12 +637,12 @@
                 },
                 {
                   "itemPortName": "hardpoint_cm_launcher_right_top",
-                  "entityClassName": "JOKR_Defcon_CML_Flare",
+                  "entityClassName": "CML_Decoy_Small_Template",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_cm_launcher_left_top",
-                  "entityClassName": "JOKR_Defcon_CML_Chaff",
+                  "entityClassName": "CML_Noise_Small_Template",
                   "loadout": {}
                 },
                 {
@@ -1913,6 +1913,7 @@
                       "ItemPort": {
                         "minsize": 2,
                         "maxsize": 2,
+                        "display_name": "port_NameQDrive",
                         "flags": "invisible",
                         "Types": [
                           {
@@ -1964,7 +1965,7 @@
                       "ItemPort": {
                         "minsize": 2,
                         "maxsize": 2,
-                        "display_name": "port_NameShieldGen",
+                        "display_name": "port_NameShieldGen01",
                         "flags": "invisible",
                         "Types": [
                           {
@@ -2628,7 +2629,7 @@
                       "ItemPort": {
                         "minsize": 2,
                         "maxsize": 2,
-                        "display_name": "port_NameShieldGen",
+                        "display_name": "port_NameShieldGen02",
                         "flags": "invisible",
                         "Types": [
                           {
@@ -2668,6 +2669,38 @@
               "class": "AnimatedJoint",
               "skipPart": false,
               "Parts": [
+                {
+                  "name": "hardpoint_docking_collar_left",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 4,
+                    "flags": "$uneditable",
+                    "Types": [
+                      {
+                        "type": ""
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_docking_collar_right",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 4,
+                    "flags": "$uneditable",
+                    "Types": [
+                      {
+                        "type": ""
+                      }
+                    ]
+                  }
+                },
                 {
                   "name": "misslerack_arm_body_left_arm",
                   "damageMax": 1750.0,
@@ -2952,8 +2985,8 @@
                           "controllableTags": "gunNacelle"
                         },
                         "Pitch": {
-                          "min": 0,
-                          "max": 0
+                          "min": -5,
+                          "max": 5
                         },
                         "Yaw": {
                           "min": -5,
@@ -3359,8 +3392,8 @@
                           "controllableTags": "gunNacelle"
                         },
                         "Pitch": {
-                          "min": 0,
-                          "max": 0
+                          "min": -5,
+                          "max": 5
                         },
                         "Yaw": {
                           "min": -5,
@@ -3599,6 +3632,44 @@
                   "skipPart": false,
                   "Parts": [
                     {
+                      "name": "hardpoint_seat_merlin",
+                      "damageMax": 0.0,
+                      "class": "ItemPort",
+                      "skipPart": false,
+                      "ItemPort": {
+                        "minsize": 1,
+                        "maxsize": 1,
+                        "display_name": "port_NameSeat01",
+                        "flags": "uneditable",
+                        "Types": [
+                          {
+                            "type": "Seat"
+                          }
+                        ],
+                        "Connections": [
+                          {
+                            "pipeClass": "Power",
+                            "pipe": "MainPower"
+                          },
+                          {
+                            "pipeClass": "Heat",
+                            "pipe": "MainHeat"
+                          }
+                        ],
+                        "ControllerDef": {
+                          "controllableTags": "merlinSeat",
+                          "UsableDef": {
+                            "PriorityGroups": [
+                              {
+                                "itemType": "Seat",
+                                "defaultPriority": "no_control"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
                       "name": "misslerack_arm_tail_left_arm",
                       "damageMax": 1750.0,
                       "class": "AnimatedJoint",
@@ -3781,8 +3852,8 @@
                                   "controllableTags": "gunNacelle"
                                 },
                                 "Pitch": {
-                                  "min": 0,
-                                  "max": 0
+                                  "min": -5,
+                                  "max": 5
                                 },
                                 "Yaw": {
                                   "min": -5,
@@ -4064,8 +4135,8 @@
                                   "controllableTags": "gunNacelle"
                                 },
                                 "Pitch": {
-                                  "min": 0,
-                                  "max": 0
+                                  "min": -5,
+                                  "max": 5
                                 },
                                 "Yaw": {
                                   "min": -5,
@@ -4237,41 +4308,19 @@
                       ]
                     },
                     {
-                      "name": "hardpoint_seat_merlin",
+                      "name": "hardpoint_docking_collar_rear",
                       "damageMax": 0.0,
                       "class": "ItemPort",
                       "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
-                        "maxsize": 1,
-                        "display_name": "port_NameSeat01",
-                        "flags": "uneditable",
+                        "maxsize": 4,
+                        "flags": "$uneditable",
                         "Types": [
                           {
-                            "type": "Seat"
+                            "type": ""
                           }
-                        ],
-                        "Connections": [
-                          {
-                            "pipeClass": "Power",
-                            "pipe": "MainPower"
-                          },
-                          {
-                            "pipeClass": "Heat",
-                            "pipe": "MainHeat"
-                          }
-                        ],
-                        "ControllerDef": {
-                          "controllableTags": "merlinSeat",
-                          "UsableDef": {
-                            "PriorityGroups": [
-                              {
-                                "itemType": "Seat",
-                                "defaultPriority": "no_control"
-                              }
-                            ]
-                          }
-                        }
+                        ]
                       }
                     },
                     {
@@ -4659,7 +4708,6 @@
         },
         {
           "name": "Taurus",
-          "patchFile": "Modifications/RSI_Constellation_Hangar_Taurus",
           "Elems": [
             {
               "idRef": "modVehicle",
@@ -4667,24 +4715,24 @@
               "value": "RSI Constellation Taurus"
             },
             {
+              "idRef": "modVehicle",
+              "name": "landingOffset",
+              "value": "0,0,-4.82"
+            },
+            {
               "idRef": "modName",
               "name": "mass",
-              "value": "416009.0"
+              "value": "427001.0"
             },
             {
-              "idRef": "modMannequin",
-              "name": "controllerDef",
-              "value": "Animations/Mannequin/ADB/Spaceships/Ships/RSI/Constellation_Hangar/RSI_Constellation_ControllerDefs.xml"
+              "idRef": "modShipGeometry",
+              "name": "filename",
+              "value": "Objects/Spaceships/Ships/RSI/Constellation/Constellation_Taurus/RSI_Constellation_Taurus.cga"
             },
             {
-              "idRef": "modMannequin",
-              "name": "vehicleADB",
-              "value": "Animations/Mannequin/ADB/Spaceships/Ships/RSI/Constellation_Hangar/RSI_Constellation_TaurusAnims.adb"
-            },
-            {
-              "idRef": "modMannequin",
-              "name": "passengerADB",
-              "value": "Animations/Mannequin/ADB/Spaceships/Ships/RSI/Constellation_Hangar/RSI_Constellation_HumanAnims.adb"
+              "idRef": "modFlairConference",
+              "name": "skippart",
+              "value": "0"
             }
           ]
         },

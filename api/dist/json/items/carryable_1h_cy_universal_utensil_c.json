@@ -10,8 +10,8 @@
       "Components": {
         "SAttachableComponentParams": {
           "AttachDef": {
-            "Type": "Misc",
-            "SubType": "UNDEFINED",
+            "Type": "WeaponPersonal",
+            "SubType": "Knife",
             "Size": 1,
             "Grade": 1,
             "Manufacturer": "00000000-0000-0000-0000-000000000000",
@@ -28,7 +28,14 @@
           "turnedOnByDefault": false,
           "attachToTileItemPort": "NoConnection",
           "inheritModelTagFromHost": true,
-          "ItemPorts": []
+          "ItemPorts": [
+            {
+              "PortFlags": "",
+              "PortTags": "",
+              "RequiredItemTags": "",
+              "Ports": []
+            }
+          ]
         },
         "SEntityInteractableParams": {
           "Interactable": {
@@ -94,6 +101,20 @@
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
                 "DisplayName": "@interaction_stow",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "PlaceOnTray",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_place",
                 "DisplayType": "Show",
                 "GenericCursor": "SingleAction",
                 "FocusModeOnly": false,

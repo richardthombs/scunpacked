@@ -10,9 +10,24 @@
       "Components": {
         "SEntityComponentDefaultLoadoutParams": {
           "loadout": {
-            "SItemPortLoadoutXMLParams": {
-              "loadoutPath": "",
-              "__type": "SItemPortLoadoutBaseParams"
+            "SItemPortLoadoutManualParams": {
+              "entries": [
+                {
+                  "itemPortName": "Seat_01",
+                  "entityClassName": "Seat_Chair_Template",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "Seat_02",
+                  "entityClassName": "Seat_Chair_Template",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "Seat_03",
+                  "entityClassName": "Seat_Chair_Template",
+                  "loadout": {}
+                }
+              ]
             }
           }
         },
@@ -43,140 +58,76 @@
               "RequiredItemTags": "",
               "Ports": [
                 {
-                  "Name": "tray_1",
+                  "Name": "Glass_01",
                   "DisplayName": "",
-                  "PortTags": "Tray",
+                  "PortTags": "Glass_01",
                   "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
+                  "Flags": "nophys",
+                  "MinSize": 0,
                   "MaxSize": 1,
                   "InteractionPointSize": -1.0,
                   "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "Misc",
-                      "SubTypes": []
-                    }
-                  ]
+                  "Types": []
                 },
                 {
-                  "Name": "tray_2",
+                  "Name": "Glass_02",
                   "DisplayName": "",
-                  "PortTags": "Tray",
+                  "PortTags": "Glass_02",
                   "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
+                  "Flags": "nophys",
+                  "MinSize": 0,
                   "MaxSize": 1,
                   "InteractionPointSize": -1.0,
                   "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "Misc",
-                      "SubTypes": []
-                    }
-                  ]
+                  "Types": []
                 },
                 {
-                  "Name": "tray_3",
+                  "Name": "Seat_01",
                   "DisplayName": "",
-                  "PortTags": "Tray",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
+                  "PortTags": "",
+                  "RequiredPortTags": "Seat_01",
+                  "Flags": "nophys",
+                  "MinSize": 0,
                   "MaxSize": 1,
                   "InteractionPointSize": -1.0,
                   "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "Misc",
-                      "SubTypes": []
-                    }
-                  ]
+                  "Types": []
                 },
                 {
-                  "Name": "tray_4",
+                  "Name": "Seat_02",
                   "DisplayName": "",
-                  "PortTags": "Tray",
+                  "PortTags": "Seat_02",
                   "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
+                  "Flags": "nophys",
+                  "MinSize": 0,
                   "MaxSize": 1,
                   "InteractionPointSize": -1.0,
                   "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "Misc",
-                      "SubTypes": []
-                    }
-                  ]
+                  "Types": []
                 },
                 {
-                  "Name": "tray_5",
+                  "Name": "Glass_03",
                   "DisplayName": "",
-                  "PortTags": "Tray",
+                  "PortTags": "Glass_03",
                   "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
+                  "Flags": "nophys",
+                  "MinSize": 0,
                   "MaxSize": 1,
                   "InteractionPointSize": -1.0,
                   "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "Misc",
-                      "SubTypes": []
-                    }
-                  ]
+                  "Types": []
                 },
                 {
-                  "Name": "tray_6",
+                  "Name": "Seat_03",
                   "DisplayName": "",
-                  "PortTags": "Tray",
+                  "PortTags": "Seat_03",
                   "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
+                  "Flags": "nophys",
+                  "MinSize": 0,
                   "MaxSize": 1,
                   "InteractionPointSize": -1.0,
                   "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "Misc",
-                      "SubTypes": []
-                    }
-                  ]
-                },
-                {
-                  "Name": "tray_7",
-                  "DisplayName": "",
-                  "PortTags": "Tray",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "Misc",
-                      "SubTypes": []
-                    }
-                  ]
-                },
-                {
-                  "Name": "tray_8",
-                  "DisplayName": "",
-                  "PortTags": "Tray",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "Misc",
-                      "SubTypes": []
-                    }
-                  ]
+                  "Types": []
                 }
               ]
             }
@@ -184,134 +135,7 @@
         },
         "SEntityInteractableParams": {
           "Interactable": {
-            "SharedInteractions": [
-              {
-                "Name": "Sit",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "f2e9ef0d-87d3-4182-9a61-6d3df2e2a4b6",
-                "DisplayName": "@interaction_sit",
-                "DisplayType": "Show",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": false,
-                "Linkable": false,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "Exit",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@interaction_getup",
-                "DisplayType": "Show",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": false,
-                "Linkable": false,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "Drink",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "2ec1d698-9223-487a-9114-032f25a048af",
-                "DisplayName": "@interaction_drink",
-                "DisplayType": "Hide",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": false,
-                "Linkable": false,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "Eat",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "aef0abdb-71bf-4809-ae24-188622923a9a",
-                "DisplayName": "@usable_use",
-                "DisplayType": "Hide",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": false,
-                "Linkable": false,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "Place",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@usable_use",
-                "DisplayType": "Hide",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": false,
-                "Linkable": false,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "Lean_Back",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@usable_use",
-                "DisplayType": "Hide",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": false,
-                "Linkable": false,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "Lean_Left",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@usable_use",
-                "DisplayType": "Hide",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": false,
-                "Linkable": false,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "Lean_Right",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@usable_use",
-                "DisplayType": "Hide",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": false,
-                "Linkable": false,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "Lean_Front",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@usable_use",
-                "DisplayType": "Hide",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": false,
-                "Linkable": false,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              }
-            ]
+            "SharedInteractions": []
           }
         }
       },

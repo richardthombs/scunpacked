@@ -2,20 +2,8 @@
   "Raw": {
     "Entity": {
       "StaticEntityClassData": {},
-      "tags": [
-        {
-          "value": "ffea63ba-9234-426f-a9c6-125162309401"
-        }
-      ],
+      "tags": [],
       "Components": {
-        "SEntityComponentDefaultLoadoutParams": {
-          "loadout": {
-            "SItemPortLoadoutXMLParams": {
-              "loadoutPath": "",
-              "__type": "SItemPortLoadoutBaseParams"
-            }
-          }
-        },
         "SAttachableComponentParams": {
           "AttachDef": {
             "Type": "Usable",
@@ -33,61 +21,19 @@
           }
         },
         "SCItem": {
-          "turnedOnByDefault": true,
+          "turnedOnByDefault": false,
           "attachToTileItemPort": "NoConnection",
           "inheritModelTagFromHost": true,
-          "ItemPorts": [
-            {
-              "PortFlags": "",
-              "PortTags": "",
-              "RequiredItemTags": "",
-              "Ports": [
-                {
-                  "Name": "Bunk_Mattress",
-                  "DisplayName": "",
-                  "PortTags": "Sleep",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "Seat",
-                      "SubTypes": []
-                    }
-                  ]
-                },
-                {
-                  "Name": "Bunk_Mattress_2",
-                  "DisplayName": "",
-                  "PortTags": "Sleep",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 2,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "Seat",
-                      "SubTypes": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "ItemPorts": []
         },
         "SEntityInteractableParams": {
           "Interactable": {
             "SharedInteractions": [
               {
-                "Name": "Open",
+                "Name": "Sit",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@ui_interactor_open",
+                "DisplayName": "@interaction_sit",
                 "DisplayType": "Show",
                 "GenericCursor": "SingleAction",
                 "FocusModeOnly": false,
@@ -98,29 +44,15 @@
                 "available": true
               },
               {
-                "Name": "Close",
+                "Name": "Exit",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@ui_interactor_close",
-                "DisplayType": "Show",
-                "GenericCursor": "SingleAction",
-                "FocusModeOnly": false,
-                "Sendable": true,
-                "Linkable": false,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "EnterSeat",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@ui_interactor_generic_seat",
+                "DisplayName": "@interaction_getup",
                 "DisplayType": "Show",
                 "GenericCursor": "SingleAction",
                 "FocusModeOnly": false,
                 "Sendable": false,
-                "Linkable": true,
+                "Linkable": false,
                 "LockedByLinks": false,
                 "RequiresAuthorizedUser": false,
                 "available": true

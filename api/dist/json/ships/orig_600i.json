@@ -447,7 +447,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_missilerack_upper_right",
-                  "entityClassName": "MRCK_S05_ORIG_600i_Quad_S03",
+                  "entityClassName": "MRCK_S05_ORIG_600i_Quad_S03_Upper_Right",
                   "loadout": {
                     "SItemPortLoadoutManualParams": {
                       "entries": [
@@ -477,7 +477,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_missilerack_lower_left",
-                  "entityClassName": "MRCK_S05_ORIG_600i_Quad_S03",
+                  "entityClassName": "MRCK_S05_ORIG_600i_Quad_S03_Lower_Left",
                   "loadout": {
                     "SItemPortLoadoutManualParams": {
                       "entries": [
@@ -507,7 +507,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_missilerack_lower_right",
-                  "entityClassName": "MRCK_S05_ORIG_600i_Quad_S03",
+                  "entityClassName": "MRCK_S05_ORIG_600i_Quad_S03_Lower_Right",
                   "loadout": {
                     "SItemPortLoadoutManualParams": {
                       "entries": [
@@ -583,6 +583,16 @@
                 {
                   "itemPortName": "hardpoint_cargogrid_module_right",
                   "entityClassName": "ORIG_600_CargoGrid_Module_Small",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_rack_1",
+                  "entityClassName": "Weapon_Rack_ORIG_600i_Armory",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_rack_2",
+                  "entityClassName": "Weapon_Rack_ORIG_600i_Armory",
                   "loadout": {}
                 }
               ]
@@ -721,6 +731,40 @@
               "class": "AnimatedJoint",
               "skipPart": false,
               "Parts": [
+                {
+                  "name": "hardpoint_weapon_rack_1",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "uneditable",
+                    "Types": [
+                      {
+                        "type": "Usable",
+                        "subtypes": ""
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_weapon_rack_2",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "uneditable",
+                    "Types": [
+                      {
+                        "type": "Usable",
+                        "subtypes": ""
+                      }
+                    ]
+                  }
+                },
                 {
                   "name": "underpanel_rear_b",
                   "damageMax": 0.0,
@@ -1248,6 +1292,7 @@
                   "ItemPort": {
                     "minsize": 3,
                     "maxsize": 3,
+                    "display_name": "port_NamePowerplant01",
                     "flags": "invisible",
                     "Types": [
                       {
@@ -1417,6 +1462,7 @@
                   "ItemPort": {
                     "minsize": 3,
                     "maxsize": 3,
+                    "display_name": "port_NameCooler01",
                     "flags": "invisible",
                     "Types": [
                       {
@@ -1444,6 +1490,7 @@
                   "ItemPort": {
                     "minsize": 2,
                     "maxsize": 2,
+                    "display_name": "port_NameQDrive",
                     "flags": "invisible",
                     "Types": [
                       {
@@ -1501,6 +1548,7 @@
                   "ItemPort": {
                     "minsize": 3,
                     "maxsize": 3,
+                    "display_name": "port_NameShieldGen01",
                     "flags": "invisible",
                     "Types": [
                       {
@@ -1611,7 +1659,7 @@
                   "ItemPort": {
                     "minsize": 5,
                     "maxsize": 5,
-                    "display_name": "port_NameMissileRack01",
+                    "display_name": "port_NameMissileRack02",
                     "flags": "lowerleft",
                     "Types": [
                       {
@@ -1639,7 +1687,7 @@
                   "ItemPort": {
                     "minsize": 5,
                     "maxsize": 5,
-                    "display_name": "port_NameMissileRack01",
+                    "display_name": "port_NameMissileRack03",
                     "flags": "lowerright",
                     "Types": [
                       {
@@ -1667,7 +1715,7 @@
                   "ItemPort": {
                     "minsize": 5,
                     "maxsize": 5,
-                    "display_name": "port_NameMissileRack01",
+                    "display_name": "port_NameMissileRack04",
                     "flags": "upperright",
                     "Types": [
                       {
@@ -1712,6 +1760,7 @@
                   "ItemPort": {
                     "minsize": 5,
                     "maxsize": 5,
+                    "display_name": "port_NameWeaponLeft",
                     "defaultWeaponGroup": "1",
                     "requiredTags": "",
                     "Types": [
@@ -1742,12 +1791,12 @@
                       "controllableTags": "weaponPilot"
                     },
                     "Pitch": {
-                      "min": -30,
-                      "max": 30
+                      "min": 90,
+                      "max": 1
                     },
                     "Yaw": {
-                      "min": -90,
-                      "max": 90
+                      "min": -25,
+                      "max": 25
                     }
                   }
                 },
@@ -1759,6 +1808,7 @@
                   "ItemPort": {
                     "minsize": 5,
                     "maxsize": 5,
+                    "display_name": "port_NameWeaponRight",
                     "defaultWeaponGroup": "1",
                     "requiredTags": "",
                     "Types": [
@@ -1789,12 +1839,12 @@
                       "controllableTags": "weaponPilot"
                     },
                     "Pitch": {
-                      "min": -30,
-                      "max": 30
+                      "min": 90,
+                      "max": 1
                     },
                     "Yaw": {
-                      "min": -90,
-                      "max": 90
+                      "min": -25,
+                      "max": 25
                     }
                   }
                 },
@@ -3435,6 +3485,7 @@
                       "ItemPort": {
                         "minsize": 5,
                         "maxsize": 5,
+                        "display_name": "port_NameWeaponTop",
                         "defaultWeaponGroup": "1",
                         "requiredTags": "",
                         "Types": [
@@ -3465,8 +3516,8 @@
                           "controllableTags": "weaponPilot"
                         },
                         "Pitch": {
-                          "min": -30,
-                          "max": 30
+                          "min": 90,
+                          "max": 1
                         },
                         "Yaw": {
                           "min": -90,
