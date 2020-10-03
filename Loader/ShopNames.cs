@@ -45,6 +45,7 @@ namespace Loader
 			{ "CargoOffice_ARC_LEO1", "Cargo Office, Baijini Point" },
 			{ "CargoOffice_HUR_LEO1", "Cargo Office, Everus Harbor" },
 			{ "CargoOffice_MIC_LEO1", "Cargo Office, Port Tressler" },
+			{ "CasabaOutlet_Area18", "Casaba Outlet, Area 18" },
 			{ "CasabaOutlet_PortO", "Casaba Outlet, Port Olisar" },
 			{ "CasabaOutlet_Stanton1_L1", "Casaba Outlet, Hurston L1" },
 			{ "CasabaOutlet_Stanton4_L1", "Casaba Outlet, Microtech L1" },
