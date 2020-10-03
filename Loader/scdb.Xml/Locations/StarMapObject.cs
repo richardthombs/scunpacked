@@ -26,6 +26,9 @@ namespace scdb.Xml.Entities
 		public string navIcon;
 
 		[XmlAttribute]
+		public string hideInStarmap;
+
+		[XmlAttribute]
 		public string jurisdiction;
 
 		[XmlAttribute]

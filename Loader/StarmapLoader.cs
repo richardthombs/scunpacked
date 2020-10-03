@@ -45,6 +45,7 @@ namespace Loader
 					callout3 = localisationService.GetText(entity.callout3),
 					type = entity.type,
 					navIcon = entity.navIcon,
+					hideInStarmap = entity.hideInStarmap,
 					jurisdiction = entity.jurisdiction,
 					parent = entity.parent,
 					size = entity.size,
