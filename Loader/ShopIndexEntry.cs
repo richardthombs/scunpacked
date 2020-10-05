@@ -1,4 +1,5 @@
 using scdb.Xml.Entities;
+using System.Collections.Generic;
 
 namespace Loader
 {
@@ -30,10 +31,12 @@ namespace Loader
 		public double refreshRatePercentagePerMinute;
 		public bool shopBuysThis;
 		public bool shopSellsThis;
+		public bool shopRentThis;
 		public string filename;
 		public string type;
 		public string subType;
 		public string[] tags;
+		public List<ShopRentalTemplate> rentalTemplates;
 		public string node_reference;
 		public string item_reference;
 

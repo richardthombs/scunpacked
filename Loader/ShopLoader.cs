@@ -23,6 +23,7 @@ namespace Loader
 		};
 
 		LocalisationService localisationService;
+		List<RentalTemplate> rentalTemplates;
 
 		public ShopLoader(LocalisationService localisationService)
 		{
@@ -35,6 +36,18 @@ namespace Loader
 
 			var productList = Parse<Node>(Path.Combine(DataRoot, @"Data\Libs\Subsumption\Shops\RetailProductPrices.xml"));
 			var shopRootNode = Parse<ShopLayoutNode>(Path.Combine(DataRoot, @"Data\Libs\Subsumption\Shops\ShopLayouts.xml"));
+			var rentalTemplatesFolder = @"Data\Libs\Subsumption\Shops\Templates";
+
+			this.rentalTemplates = new List<RentalTemplate>();
+
+			foreach (var templateFilename in Directory.EnumerateFiles(Path.Combine(DataRoot, rentalTemplatesFolder), "*.xml", SearchOption.AllDirectories))
+			{
+				var rentalTemplateParser = new RentalTemplateParser();
+				RentalTemplate entity = rentalTemplateParser.Parse(templateFilename);
+				if (entity == null) continue;
+
+				this.rentalTemplates.Add(entity);
+			}
 
 			foreach (var (shopNode, p) in GetShops(shopRootNode))
 			{
@@ -110,11 +123,21 @@ namespace Loader
 							refreshRatePercentagePerMinute = itemNode.RefreshRatePercentagePerMinute,
 							shopBuysThis = itemNode.TransactionTypes.Any(x => x.Data == "Sell"),
 							shopSellsThis = itemNode.TransactionTypes.Any(x => x.Data == "Buy"),
+							shopRentThis = itemNode.TransactionTypes.Any(x => x.Data == "Rent"),
 							basePrice = product.BasePrice,
 							filename = product.Filename,
 							node_reference = itemNode.ID,
-							item_reference = itemNode.InventoryID
+							item_reference = itemNode.InventoryID,
+							rentalTemplates = new List<ShopRentalTemplate>()
 						};
+
+						foreach (var rentalTemplate in itemNode.RentalTemplates)
+						{
+							var template = rentalTemplates.Find(y => y.ShopRentalTemplate.ID == rentalTemplate.Data);
+							if (template != null) {
+								item.rentalTemplates.Add(template.ShopRentalTemplate);
+							}
+						}
 
 						if (entity?.Components.SAttachableComponentParams != null)
 						{
