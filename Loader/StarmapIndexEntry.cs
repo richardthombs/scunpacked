@@ -9,6 +9,7 @@ namespace Loader
 		public string callout3;
 		public string type;
 		public string navIcon;
+		public string hideInStarmap;
 		public string jurisdiction;
 		public string parent;
 		public string size;
