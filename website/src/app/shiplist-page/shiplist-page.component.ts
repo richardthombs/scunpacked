@@ -51,7 +51,7 @@ export class ShiplistPage implements OnInit {
 
       let role = queryParamMap.get("role");
       if (role) this.selectRole({ key: role, value: this.byRoles[role] });
-      else this.router.navigateByUrl("/ships?role=Combat");
+      else this.router.navigateByUrl("/ships?role=By manufacturer");
     });
   }
 

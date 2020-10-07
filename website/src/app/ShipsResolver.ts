@@ -27,7 +27,10 @@ export class ShipsResolver implements Resolve<ShipIndexEntry> {
           s.roles = [{ role: this.localisationSvc.getText(s.career, "Under development"), subRole: this.localisationSvc.getText(s.role, "General") }];
           // Add a by size role and sub-role
           if (s.isSpaceship)
-            s.roles.push({ role: "Ships by size", subRole: `Size ${s.size || 0}` });
+            s.roles.push({ role: "By size", subRole: `Size ${s.size || 0}` });
+
+          // Add a manufacturer role
+          s.roles.push({ role: "By manufacturer", subRole: s.manufacturerName })
         }
       });
 
