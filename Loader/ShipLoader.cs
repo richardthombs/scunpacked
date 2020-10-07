@@ -15,6 +15,7 @@ namespace Loader
 		public string OutputFolder { get; set; }
 		public string DataRoot { get; set; }
 		public Func<string, string> OnXmlLoadout { get; set; }
+		public List<ManufacturerIndexEntry> Manufacturers;
 
 		string[] avoids =
 		{
@@ -138,7 +139,9 @@ namespace Loader
 					isGroundVehicle = isGroundVehicle,
 					isGravlevVehicle = isGravlevVehicle,
 					isSpaceship = isSpaceship,
-					noParts = vehicle == null || vehicle.Parts == null || vehicle.Parts.Length == 0
+					noParts = vehicle == null || vehicle.Parts == null || vehicle.Parts.Length == 0,
+					manufacturerCode = Manufacturers.Where(x => x.reference == entity.Components.VehicleComponentParams.manufacturer).FirstOrDefault()?.code,
+					manufacturerName = Manufacturers.Where(x => x.reference == entity.Components.VehicleComponentParams.manufacturer).FirstOrDefault()?.name
 				};
 
 				index.Add(indexEntry);

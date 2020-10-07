@@ -96,7 +96,8 @@ namespace Loader
 			{
 				OutputFolder = Path.Combine(outputRoot, "ships"),
 				DataRoot = scDataRoot,
-				OnXmlLoadout = path => loadoutLoader.Load(path)
+				OnXmlLoadout = path => loadoutLoader.Load(path),
+				Manufacturers = manufacturerIndex
 			};
 			var shipIndex = shipLoader.Load();
 
