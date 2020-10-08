@@ -371,6 +371,11 @@
                   "loadout": {}
                 },
                 {
+                  "itemPortName": "hardpoint_fuel_tank_b",
+                  "entityClassName": "HTNK_ORIG_100i",
+                  "loadout": {}
+                },
+                {
                   "itemPortName": "hardpoint_blankingplate",
                   "entityClassName": "ORIG_100i_Cover_Back",
                   "loadout": {}
@@ -693,6 +698,32 @@
                 },
                 {
                   "name": "hardpoint_fuel_tank",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "FuelTank"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Input",
+                        "pipe": "IntakeFuel"
+                      },
+                      {
+                        "pipeClass": "Output",
+                        "pipe": "MainFuel"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_fuel_tank_b",
                   "damageMax": 0.0,
                   "class": "ItemPort",
                   "skipPart": false,
