@@ -31,5 +31,6 @@ namespace scdb.Xml.Entities
 		public SEntityComponentMiningLaserParams SEntityComponentMiningLaserParams;
 		public CommodityComponentParams CommodityComponentParams;
 		public SEntityInteractableParams SEntityInteractableParams;
+		public SCItemClothingParams SCItemClothingParams;
 	}
 }
