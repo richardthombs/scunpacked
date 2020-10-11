@@ -1,10 +1,8 @@
-using System;
-using System.IO;
-using System.Collections.Generic;
-
-using Newtonsoft.Json;
 using NDesk.Options;
-using scdb.Xml.Entities;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Loader
 {
@@ -72,6 +70,7 @@ namespace Loader
 			};
 
 			// Localisation
+			Console.WriteLine("Load Localisation");
 			var labels = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 			using (var ini = new StreamReader(Path.Combine(scDataRoot, @"Data\Localization\english\global.ini")))
 			{
@@ -82,8 +81,9 @@ namespace Loader
 				}
 			}
 			File.WriteAllText(Path.Combine(outputRoot, "labels.json"), JsonConvert.SerializeObject(labels));
-
+			
 			// Manufacturers
+			Console.WriteLine("Load Manufacturers");
 			var manufacturerLoader = new ManufacturerLoader(new LocalisationService(labels))
 			{
 				DataRoot = scDataRoot
@@ -91,19 +91,8 @@ namespace Loader
 			var manufacturerIndex = manufacturerLoader.Load();
 			File.WriteAllText(Path.Combine(outputRoot, "manufacturers.json"), JsonConvert.SerializeObject(manufacturerIndex));
 
-			// Ships and ground vehicles
-			var shipLoader = new ShipLoader
-			{
-				OutputFolder = Path.Combine(outputRoot, "ships"),
-				DataRoot = scDataRoot,
-				OnXmlLoadout = path => loadoutLoader.Load(path),
-				Manufacturers = manufacturerIndex
-			};
-			var shipIndex = shipLoader.Load();
-
-			File.WriteAllText(Path.Combine(outputRoot, "ships.json"), JsonConvert.SerializeObject(shipIndex));
-
 			// Ammunition
+			Console.WriteLine("Load Ammunition");
 			var ammoLoader = new AmmoLoader
 			{
 				OutputFolder = Path.Combine(outputRoot, "ammo"),
@@ -113,6 +102,7 @@ namespace Loader
 			File.WriteAllText(Path.Combine(outputRoot, "ammo.json"), JsonConvert.SerializeObject(ammoIndex));
 
 			// Items
+			Console.WriteLine("Load Items");
 			var itemLoader = new ItemLoader
 			{
 				OutputFolder = Path.Combine(outputRoot, "items"),
@@ -140,7 +130,20 @@ namespace Loader
 				File.WriteAllText(Path.Combine(outputRoot, pair.Key.ToLower() + "-items.json"), JsonConvert.SerializeObject(pair.Value));
 			}
 
+			// Ships and ground vehicles
+			Console.WriteLine("Load Ships and ground vehicles");
+			var shipLoader = new ShipLoader(new LocalisationService(labels))
+			{
+				OutputFolder = Path.Combine(outputRoot, "ships"),
+				DataRoot = scDataRoot,
+				OnXmlLoadout = path => loadoutLoader.Load(path)
+			};
+			var shipIndex = shipLoader.Load();
+
+			File.WriteAllText(Path.Combine(outputRoot, "ships.json"), JsonConvert.SerializeObject(shipIndex));
+
 			// Prices
+			Console.WriteLine("Load Shops");
 			var shopLoader = new ShopLoader(new LocalisationService(labels))
 			{
 				DataRoot = scDataRoot
@@ -149,6 +152,7 @@ namespace Loader
 			File.WriteAllText(Path.Combine(outputRoot, "shops.json"), JsonConvert.SerializeObject(shops));
 
 			// Starmap
+			Console.WriteLine("Load Starmap");
 			var starmapLoader = new StarmapLoader(new LocalisationService(labels))
 			{
 				DataRoot = scDataRoot

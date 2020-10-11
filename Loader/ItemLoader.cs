@@ -147,6 +147,19 @@ namespace Loader
 		public List<ItemIndexEntry> Load()
 		{
 			Directory.CreateDirectory(OutputFolder);
+			var damageResistanceMacroFolder = @"Data\Libs\Foundry\Records\damage";
+			var damageResistanceMacros = new List<DamageResistanceMacro>();
+
+			foreach (var damageMacroFilename in Directory.EnumerateFiles(Path.Combine(DataRoot, damageResistanceMacroFolder), "*.xml", SearchOption.AllDirectories))
+			{
+				Console.WriteLine(damageMacroFilename);
+				var damageResistanceMacroParser = new DamageResistanceMacroParser();
+				DamageResistanceMacro entity = damageResistanceMacroParser.Parse(damageMacroFilename);
+				Console.WriteLine(entity.__ref);
+				if (entity == null) continue;
+
+				damageResistanceMacros.Add(entity);
+			}
 
 			var index = new List<ItemIndexEntry>();
 			index.AddRange(Load(@"Data\Libs\Foundry\Records\entities\scitem"));
@@ -161,7 +174,7 @@ namespace Loader
 				EntityClassDefinition magazine = null;
 				if (!String.IsNullOrEmpty(entity.Components?.SCItemWeaponComponentParams?.ammoContainerRecord))
 				{
-					magazine = ClassParser<EntityClassDefinition>.ClassByRefCache.GetValueOrDefault(entity.Components?.SCItemWeaponComponentParams.ammoContainerRecord);
+					magazine = ClassParser<EntityClassDefinition>.ClassByRefCache.GetValueOrDefault(entity.Components.SCItemWeaponComponentParams.ammoContainerRecord);
 				}
 
 				// If it is an ammo container or if it has a magazine then load the ammo properties
@@ -170,6 +183,16 @@ namespace Loader
 				if (!String.IsNullOrEmpty(ammoRef))
 				{
 					ammoEntry = Ammo.FirstOrDefault(x => x.reference == ammoRef);
+				}
+
+				var damageResistances = new DamageResistance();
+				if (!String.IsNullOrEmpty(entity.Components?.SCItemSuitArmorParams?.damageResistance))
+				{
+					var damageMacro = damageResistanceMacros.Find(y => y.__ref == entity.Components.SCItemSuitArmorParams.damageResistance);
+					if (damageMacro != null)
+					{
+						damageResistances = damageMacro.damageResistance;
+					}
 				}
 
 				// Write the JSON of this entity to its own file
@@ -181,7 +204,8 @@ namespace Loader
 					Raw = new
 					{
 						Entity = entity,
-					}
+					},
+					damageResistances = damageResistances
 				});
 				File.WriteAllText(jsonFilename, json);
 			}
