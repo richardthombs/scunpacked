@@ -35,7 +35,6 @@ namespace Loader
 			using var stream = new XmlNodeReader(doc);
 			var entity = (DamageResistanceMacro)serialiser.Deserialize(stream);
 
-			//System.Environment.Exit(1);
 			return entity;
 		}
 	}
