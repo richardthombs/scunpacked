@@ -32,5 +32,6 @@ namespace scdb.Xml.Entities
 		public CommodityComponentParams CommodityComponentParams;
 		public SEntityInteractableParams SEntityInteractableParams;
 		public SCItemClothingParams SCItemClothingParams;
+		public SCItemSuitArmorParams SCItemSuitArmorParams;
 	}
 }
