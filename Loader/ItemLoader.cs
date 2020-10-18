@@ -148,19 +148,7 @@ namespace Loader
 		{
 			Directory.CreateDirectory(Path.Combine(OutputFolder, "items"));
 
-			var damageResistanceMacroFolder = @"Data\Libs\Foundry\Records\damage";
-			var damageResistanceMacros = new List<DamageResistanceMacro>();
-
-			foreach (var damageMacroFilename in Directory.EnumerateFiles(Path.Combine(DataRoot, damageResistanceMacroFolder), "*.xml", SearchOption.AllDirectories))
-			{
-				Console.WriteLine(damageMacroFilename);
-				var damageResistanceMacroParser = new DamageResistanceMacroParser();
-				DamageResistanceMacro entity = damageResistanceMacroParser.Parse(damageMacroFilename);
-				Console.WriteLine(entity.__ref);
-				if (entity == null) continue;
-
-				damageResistanceMacros.Add(entity);
-			}
+			var damageResistanceMacros = LoadDamageResistanceMacros();
 
 			var index = new List<ItemIndexEntry>();
 			index.AddRange(Load(@"Data\Libs\Foundry\Records\entities\scitem"));
@@ -186,14 +174,11 @@ namespace Loader
 					ammoEntry = Ammo.FirstOrDefault(x => x.reference == ammoRef);
 				}
 
-				var damageResistances = new DamageResistance();
+				DamageResistance damageResistances = null;
 				if (!String.IsNullOrEmpty(entity.Components?.SCItemSuitArmorParams?.damageResistance))
 				{
 					var damageMacro = damageResistanceMacros.Find(y => y.__ref == entity.Components.SCItemSuitArmorParams.damageResistance);
-					if (damageMacro != null)
-					{
-						damageResistances = damageMacro.damageResistance;
-					}
+					damageResistances = damageMacro?.damageResistance;
 				}
 
 				// Write the JSON of this entity to its own file
@@ -231,6 +216,23 @@ namespace Loader
 
 
 			return index;
+		}
+
+		private List<DamageResistanceMacro> LoadDamageResistanceMacros()
+		{
+			var damageResistanceMacroFolder = @"Data\Libs\Foundry\Records\damage";
+			var damageResistanceMacros = new List<DamageResistanceMacro>();
+
+			foreach (var damageMacroFilename in Directory.EnumerateFiles(Path.Combine(DataRoot, damageResistanceMacroFolder), "*.xml", SearchOption.AllDirectories))
+			{
+				var damageResistanceMacroParser = new DamageResistanceMacroParser();
+				DamageResistanceMacro entity = damageResistanceMacroParser.Parse(damageMacroFilename);
+				if (entity == null) continue;
+
+				damageResistanceMacros.Add(entity);
+			}
+
+			return damageResistanceMacros;
 		}
 
 		List<ItemIndexEntry> Load(string itemsFolder)
@@ -319,11 +321,6 @@ namespace Loader
 			}
 
 			throw new ApplicationException("Item didn't get picked up by the default match for some reason");
-		}
-
-		public void LoadAmmunitionIfNeeded(EntityClassDefinition entity)
-		{
-
 		}
 	}
 }

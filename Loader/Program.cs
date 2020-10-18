@@ -1,8 +1,9 @@
-using NDesk.Options;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+
+using NDesk.Options;
+using Newtonsoft.Json;
 
 namespace Loader
 {
@@ -73,26 +74,23 @@ namespace Loader
 			// A loadout loader to help with any XML loadouts we encounter while parsing entities
 			var loadoutLoader = new LoadoutLoader
 			{
-				OutputFolder = Path.Combine(outputRoot, "loadouts"),
+				OutputFolder = outputRoot,
 				DataRoot = scDataRoot
 			};
 
 			// Localisation
 			Console.WriteLine("Load Localisation");
-			var labels = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-			using (var ini = new StreamReader(Path.Combine(scDataRoot, @"Data\Localization\english\global.ini")))
+			var labelLoader = new LabelsLoader
 			{
-				for (var line = ini.ReadLine(); line != null; line = ini.ReadLine())
-				{
-					var split = line.Split('=', 2);
-					labels.Add(split[0], split[1]);
-				}
-			}
-			File.WriteAllText(Path.Combine(outputRoot, "labels.json"), JsonConvert.SerializeObject(labels));
+				OutputFolder = outputRoot,
+				DataRoot = scDataRoot
+			};
+			var labels = labelLoader.Load("english");
+			var localisationSvc = new LocalisationService(labels);
 
 			// Manufacturers
 			Console.WriteLine("Load Manufacturers");
-			var manufacturerLoader = new ManufacturerLoader(new LocalisationService(labels))
+			var manufacturerLoader = new ManufacturerLoader(localisationSvc)
 			{
 				OutputFolder = outputRoot,
 				DataRoot = scDataRoot
@@ -120,13 +118,13 @@ namespace Loader
 					Manufacturers = manufacturerIndex,
 					Ammo = ammoIndex
 				};
-				var itemIndex = itemLoader.Load();
+				itemLoader.Load();
 			}
 
-			// Ships and ground vehicles
+			// Ships and vehicles
 			if (loadShips)
 			{
-				Console.WriteLine("Load Ships and ground vehicles");
+				Console.WriteLine("Load Ships and Vehicles");
 				var shipLoader = new ShipLoader
 				{
 					OutputFolder = outputRoot,
@@ -134,31 +132,31 @@ namespace Loader
 					OnXmlLoadout = path => loadoutLoader.Load(path),
 					Manufacturers = manufacturerIndex
 				};
-				var shipIndex = shipLoader.Load();
+				shipLoader.Load();
 			}
 
 			// Prices
 			if (loadShops)
 			{
 				Console.WriteLine("Load Shops");
-				var shopLoader = new ShopLoader(new LocalisationService(labels))
+				var shopLoader = new ShopLoader(localisationSvc)
 				{
 					OutputFolder = outputRoot,
 					DataRoot = scDataRoot
 				};
-				var shops = shopLoader.Load();
+				shopLoader.Load();
 			}
 
 			// Starmap
 			if (loadStarmap)
 			{
 				Console.WriteLine("Load Starmap");
-				var starmapLoader = new StarmapLoader(new LocalisationService(labels))
+				var starmapLoader = new StarmapLoader(localisationSvc)
 				{
 					OutputFolder = outputRoot,
 					DataRoot = scDataRoot
 				};
-				var starmapIndex = starmapLoader.Load();
+				starmapLoader.Load();
 			}
 		}
 	}

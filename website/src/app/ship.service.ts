@@ -96,7 +96,7 @@ export class ShipService {
   }
 
   private async getXmlLoadout(params: SItemPortLoadoutXMLParams): Promise<JsonLoadout[]> {
-    let loadouts = await this.$http.get<any>(`${environment.api}/loadouts/${params.loadoutPath}`).toPromise().catch(e => { });
+    let loadouts = await this.$http.get<any>(`${environment.api}/${params.loadoutPath}`).toPromise().catch(e => { });
 
     if (loadouts) console.log("Loaded loadout", params.loadoutPath);
     else console.error("Could not load loadout", params.loadoutPath);

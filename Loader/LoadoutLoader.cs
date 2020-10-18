@@ -12,7 +12,7 @@ namespace Loader
 
 		public string Load(string loadoutXmlPath)
 		{
-			Directory.CreateDirectory(OutputFolder);
+			Directory.CreateDirectory(Path.Combine(OutputFolder, "loadouts"));
 
 			if (String.IsNullOrWhiteSpace(loadoutXmlPath)) return "";
 
@@ -22,11 +22,11 @@ namespace Loader
 			var loadoutParser = new DefaultLoadoutParser();
 			var defaultLoadout = loadoutParser.Parse(Path.Combine(DataRoot, "Data", windowsPath));
 
-			var jsonFilename = Path.Combine(OutputFolder, $"{Path.GetFileNameWithoutExtension(loadoutXmlPath)}.json");
+			var jsonFilename = Path.Combine(OutputFolder, "loadouts", $"{Path.GetFileNameWithoutExtension(loadoutXmlPath)}.json");
 			var json = JsonConvert.SerializeObject(defaultLoadout);
 			File.WriteAllText(jsonFilename, json);
 
-			return Path.GetRelativePath(OutputFolder, jsonFilename);
+			return Path.GetRelativePath(OutputFolder, jsonFilename).Replace("\\", "/");
 		}
 	}
 }
