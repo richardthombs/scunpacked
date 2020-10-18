@@ -22,7 +22,7 @@ Create a folder to store the extracted Star Citizen data:
 mkdir c:\scdata\3.7.2
 ```
 
-Download and run the [extraction tools](https://github.com/dolkensp/unp4k):
+Download and run Peter Dolkens' excellent [extraction tools](https://github.com/dolkensp/unp4k):
 
 ```
 cd c:\scdata\3.7.2
@@ -34,7 +34,7 @@ unforge.exe .
 Run the loader:
 
 ```
-loader.exe -scdata=c:\scdata\3.7.2 -output=c:\scdata\3.7.2-json
+loader.exe --input=c:\scdata\3.7.2 --output=c:\scdata\3.7.2-json
 ```
 > Note: The loader will take a while to run as it now loads virtually every in-game item
 
@@ -60,3 +60,6 @@ starmap.json       - Index of the locations in the star map
 It is up to you! But to give you a starting point, the scunpacked website uses `ships.json`, `ship-items.json` and `fps-items.json` to construct menus and lists. Then it loads more detailed information, item-by-item as they needed from `items/<itemname>.json`.
 
 > If you are publishing a derrivative work, don't forget to include the CIG attribution & disclaimer that they require you to use!
+
+## Credits
+- [unp4k](https://github.com/dolkensp/unp4k) by [Peter Dolkens](https://github.com/dolkensp)
