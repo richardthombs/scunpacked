@@ -146,7 +146,8 @@ namespace Loader
 
 		public List<ItemIndexEntry> Load()
 		{
-			Directory.CreateDirectory(OutputFolder);
+			Directory.CreateDirectory(Path.Combine(OutputFolder, "items"));
+
 			var damageResistanceMacroFolder = @"Data\Libs\Foundry\Records\damage";
 			var damageResistanceMacros = new List<DamageResistanceMacro>();
 
@@ -196,7 +197,7 @@ namespace Loader
 				}
 
 				// Write the JSON of this entity to its own file
-				var jsonFilename = Path.Combine(OutputFolder, $"{entity.ClassName.ToLower()}.json");
+				var jsonFilename = Path.Combine(OutputFolder, "items", $"{entity.ClassName.ToLower()}.json");
 				var json = JsonConvert.SerializeObject(new
 				{
 					magazine = magazine,
@@ -209,6 +210,25 @@ namespace Loader
 				});
 				File.WriteAllText(jsonFilename, json);
 			}
+
+			File.WriteAllText(Path.Combine(OutputFolder, "items.json"), JsonConvert.SerializeObject(index));
+
+			// Create an index file for each different item type
+			var typeIndicies = new Dictionary<string, List<ItemIndexEntry>>();
+			foreach (var entry in index)
+			{
+				if (String.IsNullOrEmpty(entry.classification)) continue;
+
+				var type = entry.classification.Split('.')[0];
+				if (!typeIndicies.ContainsKey(type)) typeIndicies.Add(type, new List<ItemIndexEntry>());
+				var typeIndex = typeIndicies[type];
+				typeIndex.Add(entry);
+			}
+			foreach (var pair in typeIndicies)
+			{
+				File.WriteAllText(Path.Combine(OutputFolder, pair.Key.ToLower() + "-items.json"), JsonConvert.SerializeObject(pair.Value));
+			}
+
 
 			return index;
 		}

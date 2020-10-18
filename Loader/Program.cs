@@ -13,13 +13,21 @@ namespace Loader
 			string scDataRoot = null;
 			string outputRoot = null;
 			string itemFile = null;
+			bool loadItems = true;
+			bool loadShips = true;
+			bool loadShops = true;
+			bool loadStarmap = true;
 
 			var p = new OptionSet
 			{
 				{ "scdata=", v => scDataRoot = v },
 				{ "input=",  v => scDataRoot = v },
 				{ "output=",  v => outputRoot = v },
-				{ "itemfile=", v => itemFile = v }
+				{ "itemfile=", v => itemFile = v },
+				{ "noitems", v => loadItems = false },
+				{ "noships", v=> loadShips = false },
+				{ "noshops", v => loadShops = false },
+				{ "nostarmap", v => loadStarmap = false }
 			};
 
 			var extra = p.Parse(args);
@@ -86,80 +94,72 @@ namespace Loader
 			Console.WriteLine("Load Manufacturers");
 			var manufacturerLoader = new ManufacturerLoader(new LocalisationService(labels))
 			{
+				OutputFolder = outputRoot,
 				DataRoot = scDataRoot
 			};
 			var manufacturerIndex = manufacturerLoader.Load();
-			File.WriteAllText(Path.Combine(outputRoot, "manufacturers.json"), JsonConvert.SerializeObject(manufacturerIndex));
 
 			// Ammunition
 			Console.WriteLine("Load Ammunition");
 			var ammoLoader = new AmmoLoader
 			{
-				OutputFolder = Path.Combine(outputRoot, "ammo"),
+				OutputFolder = outputRoot,
 				DataRoot = scDataRoot
 			};
 			var ammoIndex = ammoLoader.Load();
-			File.WriteAllText(Path.Combine(outputRoot, "ammo.json"), JsonConvert.SerializeObject(ammoIndex));
 
 			// Items
-			Console.WriteLine("Load Items");
-			var itemLoader = new ItemLoader
+			if (loadItems)
 			{
-				OutputFolder = Path.Combine(outputRoot, "items"),
-				DataRoot = scDataRoot,
-				OnXmlLoadout = path => loadoutLoader.Load(path),
-				Manufacturers = manufacturerIndex,
-				Ammo = ammoIndex
-			};
-			var itemIndex = itemLoader.Load();
-			File.WriteAllText(Path.Combine(outputRoot, "items.json"), JsonConvert.SerializeObject(itemIndex));
-
-			// Create an index file for each different item type
-			var typeIndicies = new Dictionary<string, List<ItemIndexEntry>>();
-			foreach (var entry in itemIndex)
-			{
-				if (String.IsNullOrEmpty(entry.classification)) continue;
-
-				var type = entry.classification.Split('.')[0];
-				if (!typeIndicies.ContainsKey(type)) typeIndicies.Add(type, new List<ItemIndexEntry>());
-				var typeIndex = typeIndicies[type];
-				typeIndex.Add(entry);
-			}
-			foreach (var pair in typeIndicies)
-			{
-				File.WriteAllText(Path.Combine(outputRoot, pair.Key.ToLower() + "-items.json"), JsonConvert.SerializeObject(pair.Value));
+				Console.WriteLine("Load Items");
+				var itemLoader = new ItemLoader
+				{
+					OutputFolder = outputRoot,
+					DataRoot = scDataRoot,
+					OnXmlLoadout = path => loadoutLoader.Load(path),
+					Manufacturers = manufacturerIndex,
+					Ammo = ammoIndex
+				};
+				var itemIndex = itemLoader.Load();
 			}
 
 			// Ships and ground vehicles
-			Console.WriteLine("Load Ships and ground vehicles");
-			var shipLoader = new ShipLoader
+			if (loadShips)
 			{
-				OutputFolder = Path.Combine(outputRoot, "ships"),
-				DataRoot = scDataRoot,
-				OnXmlLoadout = path => loadoutLoader.Load(path),
-				Manufacturers = manufacturerIndex
-			};
-			var shipIndex = shipLoader.Load();
-
-			File.WriteAllText(Path.Combine(outputRoot, "ships.json"), JsonConvert.SerializeObject(shipIndex));
+				Console.WriteLine("Load Ships and ground vehicles");
+				var shipLoader = new ShipLoader
+				{
+					OutputFolder = outputRoot,
+					DataRoot = scDataRoot,
+					OnXmlLoadout = path => loadoutLoader.Load(path),
+					Manufacturers = manufacturerIndex
+				};
+				var shipIndex = shipLoader.Load();
+			}
 
 			// Prices
-			Console.WriteLine("Load Shops");
-			var shopLoader = new ShopLoader(new LocalisationService(labels))
+			if (loadShops)
 			{
-				DataRoot = scDataRoot
-			};
-			var shops = shopLoader.Load();
-			File.WriteAllText(Path.Combine(outputRoot, "shops.json"), JsonConvert.SerializeObject(shops));
+				Console.WriteLine("Load Shops");
+				var shopLoader = new ShopLoader(new LocalisationService(labels))
+				{
+					OutputFolder = outputRoot,
+					DataRoot = scDataRoot
+				};
+				var shops = shopLoader.Load();
+			}
 
 			// Starmap
-			Console.WriteLine("Load Starmap");
-			var starmapLoader = new StarmapLoader(new LocalisationService(labels))
+			if (loadStarmap)
 			{
-				DataRoot = scDataRoot
-			};
-			var starmapIndex = starmapLoader.Load();
-			File.WriteAllText(Path.Combine(outputRoot, "starmap.json"), JsonConvert.SerializeObject(starmapIndex));
+				Console.WriteLine("Load Starmap");
+				var starmapLoader = new StarmapLoader(new LocalisationService(labels))
+				{
+					OutputFolder = outputRoot,
+					DataRoot = scDataRoot
+				};
+				var starmapIndex = starmapLoader.Load();
+			}
 		}
 	}
 }

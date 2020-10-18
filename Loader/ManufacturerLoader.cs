@@ -2,11 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
+using Newtonsoft.Json;
+
 namespace Loader
 {
 	public class ManufacturerLoader
 	{
 		public string DataRoot { get; set; }
+		public string OutputFolder { get; set; }
 
 		LocalisationService localisationService;
 
@@ -19,6 +22,8 @@ namespace Loader
 		{
 			var index = new List<ManufacturerIndexEntry>();
 			index.AddRange(Load(@"Data\Libs\Foundry\Records\scitemmanufacturer"));
+
+			File.WriteAllText(Path.Combine(OutputFolder, "manufacturers.json"), JsonConvert.SerializeObject(index));
 
 			return index;
 		}

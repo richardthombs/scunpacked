@@ -5,6 +5,8 @@ using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 
+using Newtonsoft.Json;
+
 using scdb.Xml.Shops;
 using scdb.Xml.Entities;
 
@@ -12,6 +14,7 @@ namespace Loader
 {
 	public class ShopLoader
 	{
+		public string OutputFolder { get; set; }
 		public string DataRoot { get; set; }
 
 		string[] avoids =
@@ -70,6 +73,8 @@ namespace Loader
 					Console.WriteLine($@"{(i.shopBuysThis ? "Buys" : "")} {(i.shopSellsThis ? "Sells" : "")} {i.name} {i.basePrice} {i.basePriceOffsetPercentage:n0}%");
 				}
 			}
+
+			File.WriteAllText(Path.Combine(OutputFolder, "shops.json"), JsonConvert.SerializeObject(shops));
 
 			return shops;
 		}
@@ -134,7 +139,8 @@ namespace Loader
 						foreach (var rentalTemplate in itemNode.RentalTemplates)
 						{
 							var template = rentalTemplates.Find(y => y.ShopRentalTemplate.ID == rentalTemplate.Data);
-							if (template != null) {
+							if (template != null)
+							{
 								item.rentalTemplates.Add(template.ShopRentalTemplate);
 							}
 						}

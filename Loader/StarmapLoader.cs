@@ -7,6 +7,7 @@ namespace Loader
 {
 	public class StarmapLoader
 	{
+		public string OutputFolder { get; set; }
 		public string DataRoot { get; set; }
 
 		LocalisationService localisationService;
@@ -20,6 +21,8 @@ namespace Loader
 		{
 			var index = new List<StarmapIndexEntry>();
 			index.AddRange(Load(@"Data\Libs\Foundry\Records\starmap\pu"));
+
+			File.WriteAllText(Path.Combine(OutputFolder, "starmap.json"), JsonConvert.SerializeObject(index));
 
 			return index;
 		}

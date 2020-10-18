@@ -15,11 +15,13 @@ namespace Loader
 
 		public List<AmmoIndexEntry> Load()
 		{
-			Directory.CreateDirectory(OutputFolder);
+			Directory.CreateDirectory(Path.Combine(OutputFolder, "ammo"));
 
 			var index = new List<AmmoIndexEntry>();
 			index.AddRange(Load(@"Data\Libs\Foundry\Records\ammoparams\vehicle"));
 			index.AddRange(Load(@"Data\Libs\Foundry\Records\ammoparams\fps"));
+
+			File.WriteAllText(Path.Combine(OutputFolder, "ammo.json"), JsonConvert.SerializeObject(index));
 
 			return index;
 		}
@@ -36,7 +38,7 @@ namespace Loader
 				var entity = parser.Parse(entityFilename);
 				if (entity == null) continue;
 
-				var jsonFilename = Path.Combine(OutputFolder, $"{entity.__ref.ToLower()}.json");
+				var jsonFilename = Path.Combine(OutputFolder, "ammo", $"{entity.__ref.ToLower()}.json");
 				var json = JsonConvert.SerializeObject(new
 				{
 					Raw = new

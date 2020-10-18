@@ -61,11 +61,14 @@ namespace Loader
 
 		public List<ShipIndexEntry> Load()
 		{
-			Directory.CreateDirectory(OutputFolder);
+			Directory.CreateDirectory(Path.Combine(OutputFolder, "ships"));
 
 			var index = new List<ShipIndexEntry>();
 			index.AddRange(Load(@"Data\Libs\Foundry\Records\entities\spaceships"));
 			index.AddRange(Load(@"Data\Libs\Foundry\Records\entities\groundvehicles"));
+
+			File.WriteAllText(Path.Combine(OutputFolder, "ships.json"), JsonConvert.SerializeObject(index));
+
 			return index;
 		}
 
@@ -111,7 +114,7 @@ namespace Loader
 					vehicle = vehicleParser.Parse(vehicleFilename, vehicleModification);
 				}
 
-				var jsonFilename = Path.Combine(OutputFolder, $"{entity.ClassName.ToLower()}.json");
+				var jsonFilename = Path.Combine(OutputFolder, "ships", $"{entity.ClassName.ToLower()}.json");
 				var json = JsonConvert.SerializeObject(new
 				{
 					Raw = new
