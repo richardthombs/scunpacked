@@ -14,10 +14,7 @@ namespace Loader
 			string scDataRoot = null;
 			string outputRoot = null;
 			string itemFile = null;
-			bool loadItems = true;
-			bool loadShips = true;
-			bool loadShops = true;
-			bool loadStarmap = true;
+			bool shipsOnly = false;
 
 			var p = new OptionSet
 			{
@@ -25,10 +22,7 @@ namespace Loader
 				{ "input=",  v => scDataRoot = v },
 				{ "output=",  v => outputRoot = v },
 				{ "itemfile=", v => itemFile = v },
-				{ "noitems", v => loadItems = false },
-				{ "noships", v=> loadShips = false },
-				{ "noshops", v => loadShops = false },
-				{ "nostarmap", v => loadStarmap = false }
+				{ "shipsonly", v => shipsOnly = true }
 			};
 
 			var extra = p.Parse(args);
@@ -42,7 +36,7 @@ namespace Loader
 			{
 				Console.WriteLine("Usage:");
 				Console.WriteLine("    Loader.exe -input=<path to extracted Star Citizen data> -output=<path to JSON output folder>");
-				Console.WriteLine(" or Loader.exe -itemfile=<path to an SCItem XML file");
+				Console.WriteLine(" or Loader.exe -itemfile=<path to an SCItem XML file>");
 				Console.WriteLine();
 				return;
 			}
@@ -63,7 +57,7 @@ namespace Loader
 			}
 
 			// Prep the output folder
-			if (Directory.Exists(outputRoot))
+			if (Directory.Exists(outputRoot) && !shipsOnly)
 			{
 				var info = new DirectoryInfo(outputRoot);
 				foreach (var file in info.GetFiles()) file.Delete();
@@ -107,7 +101,7 @@ namespace Loader
 			var ammoIndex = ammoLoader.Load();
 
 			// Items
-			if (loadItems)
+			if (!shipsOnly)
 			{
 				Console.WriteLine("Load Items");
 				var itemLoader = new ItemLoader
@@ -122,21 +116,18 @@ namespace Loader
 			}
 
 			// Ships and vehicles
-			if (loadShips)
+			Console.WriteLine("Load Ships and Vehicles");
+			var shipLoader = new ShipLoader
 			{
-				Console.WriteLine("Load Ships and Vehicles");
-				var shipLoader = new ShipLoader
-				{
-					OutputFolder = outputRoot,
-					DataRoot = scDataRoot,
-					OnXmlLoadout = path => loadoutLoader.Load(path),
-					Manufacturers = manufacturerIndex
-				};
-				shipLoader.Load();
-			}
+				OutputFolder = outputRoot,
+				DataRoot = scDataRoot,
+				OnXmlLoadout = path => loadoutLoader.Load(path),
+				Manufacturers = manufacturerIndex
+			};
+			shipLoader.Load();
 
 			// Prices
-			if (loadShops)
+			if (!shipsOnly)
 			{
 				Console.WriteLine("Load Shops");
 				var shopLoader = new ShopLoader(localisationSvc)
@@ -148,7 +139,7 @@ namespace Loader
 			}
 
 			// Starmap
-			if (loadStarmap)
+			if (!shipsOnly)
 			{
 				Console.WriteLine("Load Starmap");
 				var starmapLoader = new StarmapLoader(localisationSvc)
@@ -158,6 +149,8 @@ namespace Loader
 				};
 				starmapLoader.Load();
 			}
+
+			Console.WriteLine("Finished!");
 		}
 	}
 }
