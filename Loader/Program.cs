@@ -81,7 +81,7 @@ namespace Loader
 				}
 			}
 			File.WriteAllText(Path.Combine(outputRoot, "labels.json"), JsonConvert.SerializeObject(labels));
-			
+
 			// Manufacturers
 			Console.WriteLine("Load Manufacturers");
 			var manufacturerLoader = new ManufacturerLoader(new LocalisationService(labels))
@@ -132,11 +132,12 @@ namespace Loader
 
 			// Ships and ground vehicles
 			Console.WriteLine("Load Ships and ground vehicles");
-			var shipLoader = new ShipLoader(new LocalisationService(labels))
+			var shipLoader = new ShipLoader
 			{
 				OutputFolder = Path.Combine(outputRoot, "ships"),
 				DataRoot = scDataRoot,
-				OnXmlLoadout = path => loadoutLoader.Load(path)
+				OnXmlLoadout = path => loadoutLoader.Load(path),
+				Manufacturers = manufacturerIndex
 			};
 			var shipIndex = shipLoader.Load();
 
