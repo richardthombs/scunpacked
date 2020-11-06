@@ -29,7 +29,7 @@ export class CompareItemsPage implements OnInit {
       title: "Quantum speed",
       visibleFn: items => !!_.find(items, i => i.quantumDrive),
       fields: [
-        new ComparisonField({ title: "PO to ArcCorp (time)", units: "s", valueFn: i => i.secondsToArcCorp, formatFn: v => typeof v === "number" ? `${Math.floor(v / 60)}m ${Math.round(v % 60)}s` : "?", sortDirection: "desc" }),
+        new ComparisonField({ title: "PO to ArcCorp (time)", units: "s", valueFn: i => i.secondsToArcCorp, formatFn: v => typeof v === "number" ? `${Math.floor(v / 60)}m ${Math.round(v % 60)}s` : "?" }),
         new ComparisonField({ title: "Quantum speed", units: "m/s", siPrefix: true, valueFn: i => i.driveSpeed, sortDirection: "desc" }),
         new ComparisonField({ title: "Phase 1 acceleration", units: "m/s", valueFn: i => _.get(i, "quantumDrive.params.stageOneAccelRate"), sortDirection: "desc" }),
         new ComparisonField({ title: "Phase 2 acceleration", units: "m/s", siPrefix: true, decimals: 1, valueFn: i => _.get(i, "quantumDrive.params.stageTwoAccelRate"), sortDirection: "desc" }),
@@ -125,6 +125,19 @@ export class CompareItemsPage implements OnInit {
         new ComparisonField({ title: "Stun damage", valueFn: i => i.missile.explosionParams.damage[0].DamageStun, sortDirection: "desc" }),
       ]
     }),
+
+    new ComparisonGroup({
+      title: "Missile range",
+      visibleFn: items => !!_.find(items, i => !!i.missile),
+      fields: [
+        new ComparisonField({ title: "Signal type", valueFn: i => i.missile.targetingParams.trackingSignalType }),
+        new ComparisonField({ title: "Minimum tracking signal", valueFn: i => i.missile.targetingParams.trackingSignalMin }),
+        new ComparisonField({ title: "Lock time", valueFn: i => i.missile.targetingParams.lockTime }),
+        new ComparisonField({ title: "Maximum tracking distance", valueFn: i => i.missile.targetingParams.trackingDistanceMax, units: "m", sortDirection: "desc" }),
+        new ComparisonField({ title: "Tracking angle", valueFn: i => i.missile.targetingParams.trackingAngle, units: "°", sortDirection: "desc" })
+      ]
+    }),
+
     new ComparisonGroup({
       title: "Mining laser",
       visibleFn: items => !!_.find(items, i => !!i.miningLaser),
