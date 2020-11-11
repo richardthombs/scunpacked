@@ -52,7 +52,7 @@ jobs:
        env:
          DIGITALOCEAN_ACCESS_TOKEN: ${{secrets.DIGITALOCEAN_ACCESS_TOKEN}}
        with:
-         args: kubernetes cluster kubeconfig show gearstone > $GITHUB_WORKSPACE/.kubeconfig
+         args: kubernetes cluster kubeconfig show gs2 > $GITHUB_WORKSPACE/.kubeconfig
 
      - name: Deploy to Kubernetes
        run: |
