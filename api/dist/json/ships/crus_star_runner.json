@@ -563,7 +563,7 @@
             "DisplayType": "",
             "Localization": {
               "Name": "@vehicle_NameCRUS_Star_Runner",
-              "Description": "@LOC_EMPTY"
+              "Description": "@vehicle_DescCRUS_Star_Runner"
             }
           }
         },
@@ -678,23 +678,6 @@
           "class": "Animated",
           "skipPart": false,
           "Parts": [
-            {
-              "name": "landingpad_helper",
-              "damageMax": 0.0,
-              "class": "ItemPort",
-              "skipPart": false,
-              "ItemPort": {
-                "minsize": 1,
-                "maxsize": 1,
-                "display_name": "Landing System",
-                "flags": "uneditable",
-                "Types": [
-                  {
-                    "type": "LandingSystem"
-                  }
-                ]
-              }
-            },
             {
               "name": "nose",
               "damageMax": 41000.0,
@@ -1666,39 +1649,6 @@
                           }
                         },
                         {
-                          "name": "hardpoint_thruster_retro_right",
-                          "damageMax": 0.0,
-                          "class": "ItemPort",
-                          "skipPart": false,
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "display_name": "port_NameThrusterRetroR",
-                            "flags": "-Y retro uneditable right",
-                            "requiredTags": "",
-                            "Types": [
-                              {
-                                "type": "ManneuverThruster",
-                                "subtypes": ""
-                              }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              },
-                              {
-                                "pipeClass": "Fuel",
-                                "pipe": "MainFuel"
-                              }
-                            ]
-                          }
-                        },
-                        {
                           "name": "hardpoint_thruster_mav_rear_top_right",
                           "damageMax": 0.0,
                           "class": "ItemPort",
@@ -1844,6 +1794,39 @@
                               "min": -45,
                               "max": 45
                             }
+                          }
+                        },
+                        {
+                          "name": "hardpoint_thruster_retro_right",
+                          "damageMax": 0.0,
+                          "class": "ItemPort",
+                          "skipPart": false,
+                          "ItemPort": {
+                            "minsize": 1,
+                            "maxsize": 1,
+                            "display_name": "port_NameThrusterRetroR",
+                            "flags": "-Y retro uneditable right",
+                            "requiredTags": "",
+                            "Types": [
+                              {
+                                "type": "ManneuverThruster",
+                                "subtypes": ""
+                              }
+                            ],
+                            "Connections": [
+                              {
+                                "pipeClass": "Power",
+                                "pipe": "MainPower"
+                              },
+                              {
+                                "pipeClass": "Heat",
+                                "pipe": "MainHeat"
+                              },
+                              {
+                                "pipeClass": "Fuel",
+                                "pipe": "MainFuel"
+                              }
+                            ]
                           }
                         }
                       ]
@@ -2063,39 +2046,6 @@
                           }
                         },
                         {
-                          "name": "hardpoint_thruster_retro_left",
-                          "damageMax": 0.0,
-                          "class": "ItemPort",
-                          "skipPart": false,
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "display_name": "port_NameThrusterRetroL",
-                            "flags": "-Y retro uneditable left",
-                            "requiredTags": "",
-                            "Types": [
-                              {
-                                "type": "ManneuverThruster",
-                                "subtypes": ""
-                              }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              },
-                              {
-                                "pipeClass": "Fuel",
-                                "pipe": "MainFuel"
-                              }
-                            ]
-                          }
-                        },
-                        {
                           "name": "hardpoint_thruster_mav_rear_top_left",
                           "damageMax": 0.0,
                           "class": "ItemPort",
@@ -2242,6 +2192,39 @@
                               "max": 45
                             }
                           }
+                        },
+                        {
+                          "name": "hardpoint_thruster_retro_left",
+                          "damageMax": 0.0,
+                          "class": "ItemPort",
+                          "skipPart": false,
+                          "ItemPort": {
+                            "minsize": 1,
+                            "maxsize": 1,
+                            "display_name": "port_NameThrusterRetroL",
+                            "flags": "-Y retro uneditable left",
+                            "requiredTags": "",
+                            "Types": [
+                              {
+                                "type": "ManneuverThruster",
+                                "subtypes": ""
+                              }
+                            ],
+                            "Connections": [
+                              {
+                                "pipeClass": "Power",
+                                "pipe": "MainPower"
+                              },
+                              {
+                                "pipeClass": "Heat",
+                                "pipe": "MainHeat"
+                              },
+                              {
+                                "pipeClass": "Fuel",
+                                "pipe": "MainFuel"
+                              }
+                            ]
+                          }
                         }
                       ]
                     },
@@ -2369,12 +2352,6 @@
                           }
                         },
                         {
-                          "name": "hardpoint_turret_top",
-                          "damageMax": 0.0,
-                          "class": "ItemPort",
-                          "skipPart": false
-                        },
-                        {
                           "name": "hardpoint_seat_access_turret_top",
                           "damageMax": 0.0,
                           "class": "ItemPort",
@@ -2499,12 +2476,6 @@
                               "max": 180
                             }
                           }
-                        },
-                        {
-                          "name": "hardpoint_turret_bottom",
-                          "damageMax": 0.0,
-                          "class": "ItemPort",
-                          "skipPart": false
                         },
                         {
                           "name": "hardpoint_seat_access_turret_bottom",
@@ -3347,6 +3318,23 @@
                       "skipPart": false
                     }
                   ]
+                },
+                {
+                  "name": "landingpad_helper",
+                  "damageMax": 0.0,
+                  "class": "ItemPort",
+                  "skipPart": false,
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "Landing System",
+                    "flags": "uneditable",
+                    "Types": [
+                      {
+                        "type": "LandingSystem"
+                      }
+                    ]
+                  }
                 }
               ]
             }
