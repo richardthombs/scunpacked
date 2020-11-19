@@ -43,7 +43,9 @@ export class ItemlistPage implements OnInit {
     "Ship.WeaponAttachment.FiringMechanism": "Weapon attachments",
     "Ship.WeaponAttachment.PowerArray": "Weapon attachments",
     "Ship.WeaponAttachment.Ventilation": "Weapon attachments",
-    "Ship.WeaponDefensive.CountermeasureLauncher": "Countermeasures"
+    "Ship.WeaponDefensive.CountermeasureLauncher": "Countermeasures",
+    "Ship.Paints.Personal": "Paints",
+    "Ship.Paints.UNDEFINED": "Paints"
   }
 
   ngOnInit() {
