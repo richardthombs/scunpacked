@@ -1,0 +1,69 @@
+{
+  "Raw": {
+    "Entity": {
+      "StaticEntityClassData": {},
+      "tags": [],
+      "Components": {
+        "SAttachableComponentParams": {
+          "AttachDef": {
+            "Type": "SeatAccess",
+            "SubType": "UNDEFINED",
+            "Size": 1,
+            "Grade": 1,
+            "Manufacturer": "ec227ef3-fb08-4897-abdb-579eb4e87c25",
+            "Tags": "flightReady",
+            "RequiredTags": "",
+            "DisplayType": "",
+            "Localization": {
+              "Name": "@LOC_PLACEHOLDER",
+              "Description": "@LOC_EMPTY"
+            }
+          }
+        },
+        "SCItem": {
+          "turnedOnByDefault": false,
+          "attachToTileItemPort": "NoConnection",
+          "inheritModelTagFromHost": true,
+          "ItemPorts": []
+        },
+        "SEntityInteractableParams": {
+          "Interactable": {
+            "SharedInteractions": [
+              {
+                "Name": "PilotEnter",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@ui_interactor_enter_pilot_seat",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "PilotExit",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@ui_interactor_exit",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              }
+            ]
+          }
+        }
+      },
+      "ClassName": "CNOU_Nomad_SeatAccess_Pilot",
+      "__ref": "82dc9e5e-57ec-40f1-b14c-6597e26b3167",
+      "__type": "EntityClassDefinition"
+    }
+  }
+}
