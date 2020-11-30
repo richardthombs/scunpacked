@@ -1,4 +1,15 @@
-module.exports = {
+module.exports = (isProd) => ({
+  purge: {
+    enabled: isProd,
+    mode: "layers",
+    content: [
+      "./src/**/*.html",
+      "./src/**/*.component.ts"
+    ],
+    options: {
+      safelist: ".dark"
+    }
+  },
   theme: {
     extend: {
       colors: {
@@ -30,6 +41,14 @@ module.exports = {
   ],
 
   future: {
-    removeDeprecatedGapUtilities: true
+    defaultLineHeights: true,
+    purgeLayersByDefault: true,
+    removeDeprecatedGapUtilities: true,
+  },
+
+  experimental: {
+    additionalBreakpoint: true,
+    extendedFontSizeScale: true,
+    extendedSpacingScale: true,
   }
-}
+});

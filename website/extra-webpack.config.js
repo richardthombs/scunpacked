@@ -1,16 +1,8 @@
-const purgecss = require('@fullhuman/postcss-purgecss')({
+module.exports = (config) => {
 
-  whitelist: [".dark"],
+  const isProd = config.mode == "production";
+  const tailwindConfig = require("./tailwind.config.js")(isProd);
 
-  // Specify the paths to all of the template files in your project
-  content: ['./src/**/*.html', './src/**/*.component.ts'],
-
-  // Include any special characters you're using in this regular expression
-  defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
-});
-
-module.exports = (config, options) => {
-  console.log(`Using '${config.mode}' mode`);
   config.module.rules.push({
     test: /\.scss$/,
     use: [
@@ -18,10 +10,11 @@ module.exports = (config, options) => {
         loader: 'postcss-loader',
         options: {
           postcssOptions: {
+            ident: "postcss",
+            syntax: "postcss-scss",
             plugins: [
-              require('tailwindcss')('./tailwind.config.js'),
-              require('autoprefixer'),
-              ...(config.mode === 'production' ? [purgecss] : [])
+              require('tailwindcss')(tailwindConfig),
+              require('autoprefixer')
             ]
           }
         }
