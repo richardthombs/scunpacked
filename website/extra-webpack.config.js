@@ -17,11 +17,13 @@ module.exports = (config, options) => {
       {
         loader: 'postcss-loader',
         options: {
-          plugins: [
-            require('tailwindcss')('./tailwind.config.js'),
-            require('autoprefixer'),
-            ...(config.mode === 'production' ? [purgecss] : [])
-          ]
+          postcssOptions: {
+            plugins: [
+              require('tailwindcss')('./tailwind.config.js'),
+              require('autoprefixer'),
+              ...(config.mode === 'production' ? [purgecss] : [])
+            ]
+          }
         }
       }
     ]
