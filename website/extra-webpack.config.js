@@ -12,7 +12,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
 module.exports = (config, options) => {
   console.log(`Using '${config.mode}' mode`);
   config.module.rules.push({
-    test: /tailwind\.scss$/,
+    test: /\.scss$/,
     use: [
       {
         loader: 'postcss-loader',
