@@ -2,8 +2,6 @@
 {
 	public class ItemIndexEntry
 	{
-		public string jsonUrl;
-		public string xmlSource;
 		public string className;
 		public string reference;
 		public string itemName;
@@ -17,5 +15,6 @@
 		public string majorClass;
 		public string minorClass;
 		public string classification;
+		public StandardisedItem stdItem;
 	}
 }

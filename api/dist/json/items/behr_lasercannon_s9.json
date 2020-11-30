@@ -1,18 +1,26 @@
 {
   "ammo": {
-    "className": "BEHR_LaserCannon_S9_AMMO",
-    "reference": "65bf3a51-bd24-4000-9d3f-01d7afd13eb1",
-    "damage": {
-      "physical": 0.0,
-      "energy": 7805.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 9,
+    "lifetime": 5.85,
     "speed": 1306.0,
-    "range": 7640.099999999999,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 7805.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "BEHR_LaserCannon_S9_AMMO",
+    "__ref": "65bf3a51-bd24-4000-9d3f-01d7afd13eb1",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -217,10 +225,8 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionSequenceParams": {
-              "name": "",
-              "localisedName": "@LOC_PLACEHOLDER",
+          "fireActions": [
+            {
               "mode": "Looping",
               "sequenceEntries": [
                 {
@@ -228,10 +234,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Rapid",
-                      "fireRate": 30.0,
                       "heatPerShot": 2542372.0,
+                      "fireRate": 30.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 0.0,
@@ -244,13 +248,19 @@
                             "decay": 0.05
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Rapid",
+                      "aiShootingMode": "Single"
                     }
                   }
                 }
-              ]
+              ],
+              "name": "",
+              "localisedName": "@LOC_PLACEHOLDER",
+              "aiShootingMode": "Single"
             }
-          }
+          ]
         }
       },
       "ClassName": "BEHR_LaserCannon_S9",

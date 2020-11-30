@@ -1,20 +1,18 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 
-using Newtonsoft.Json;
+using scdb.Xml.DefaultLoadouts;
 
 namespace Loader
 {
 	public class LoadoutLoader
 	{
-		public string OutputFolder { get; set; }
 		public string DataRoot { get; set; }
 
-		public string Load(string loadoutXmlPath)
+		public List<StandardisedLoadoutEntry> Load(string loadoutXmlPath)
 		{
-			Directory.CreateDirectory(Path.Combine(OutputFolder, "loadouts"));
-
-			if (String.IsNullOrWhiteSpace(loadoutXmlPath)) return "";
+			if (String.IsNullOrWhiteSpace(loadoutXmlPath)) return null;
 
 			var windowsPath = loadoutXmlPath.Replace("/", "\\");
 			Console.WriteLine(windowsPath);
@@ -22,11 +20,27 @@ namespace Loader
 			var loadoutParser = new DefaultLoadoutParser();
 			var defaultLoadout = loadoutParser.Parse(Path.Combine(DataRoot, "Data", windowsPath));
 
-			var jsonFilename = Path.Combine(OutputFolder, "loadouts", $"{Path.GetFileNameWithoutExtension(loadoutXmlPath)}.json");
-			var json = JsonConvert.SerializeObject(defaultLoadout);
-			File.WriteAllText(jsonFilename, json);
+			return BuildStandardLoadout(defaultLoadout.Items);
+		}
 
-			return Path.GetRelativePath(OutputFolder, jsonFilename).Replace("\\", "/");
+		List<StandardisedLoadoutEntry> BuildStandardLoadout(Item[] loadoutItems)
+		{
+			var stdLoadout = new List<StandardisedLoadoutEntry>();
+
+			if (loadoutItems != null)
+			{
+				foreach (var entry in loadoutItems)
+				{
+					stdLoadout.Add(new StandardisedLoadoutEntry
+					{
+						ClassName = entry.itemName,
+						PortName = entry.portName,
+						Entries = BuildStandardLoadout(entry.Items)
+					});
+				}
+			}
+
+			return stdLoadout;
 		}
 	}
 }

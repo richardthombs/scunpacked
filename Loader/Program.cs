@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 
 using NDesk.Options;
+
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Loader
 {
@@ -13,30 +15,33 @@ namespace Loader
 		{
 			string scDataRoot = null;
 			string outputRoot = null;
-			string itemFile = null;
-			bool shipsOnly = false;
+			bool doShips = true;
+			bool doItems = true;
+			bool doShops = true;
+			bool doStarmap = true;
+			bool noCache = false;
+			string typeFilter = null;
 
 			var p = new OptionSet
 			{
 				{ "scdata=", v => scDataRoot = v },
 				{ "input=",  v => scDataRoot = v },
 				{ "output=",  v => outputRoot = v },
-				{ "itemfile=", v => itemFile = v },
-				{ "shipsonly", v => shipsOnly = true }
+				{ "noships", v => doShips = false },
+				{ "noitems", v => doItems = false },
+				{ "noshops", v => doShops = false },
+				{ "nomap", v => doStarmap = false },
+				{ "nocache", v => noCache = true },
+				{ "types=", v => typeFilter = v }
 			};
 
 			var extra = p.Parse(args);
 
-			var badArgs = false;
-			if (extra.Count > 0) badArgs = true;
-			else if (!String.IsNullOrEmpty(itemFile) && (!String.IsNullOrEmpty(scDataRoot) || !String.IsNullOrEmpty(outputRoot))) badArgs = true;
-			else if (String.IsNullOrEmpty(itemFile) && (String.IsNullOrEmpty(scDataRoot) || String.IsNullOrEmpty(outputRoot))) badArgs = true;
-
+			var badArgs = extra.Count > 0;
 			if (badArgs)
 			{
 				Console.WriteLine("Usage:");
 				Console.WriteLine("    Loader.exe -input=<path to extracted Star Citizen data> -output=<path to JSON output folder>");
-				Console.WriteLine(" or Loader.exe -itemfile=<path to an SCItem XML file>");
 				Console.WriteLine();
 				return;
 			}
@@ -44,20 +49,14 @@ namespace Loader
 			JsonConvert.DefaultSettings = () => new JsonSerializerSettings
 			{
 				Formatting = Formatting.Indented,
-				NullValueHandling = NullValueHandling.Ignore
+				NullValueHandling = NullValueHandling.Ignore,
+				Converters = new List<JsonConverter> { new StringEnumConverter() }
 			};
 
-			if (itemFile != null)
-			{
-				var entityParser = new ClassParser<scdb.Xml.Entities.EntityClassDefinition>();
-				var entity = entityParser.Parse(itemFile);
-				var json = JsonConvert.SerializeObject(entity);
-				Console.WriteLine(json);
-				return;
-			}
+			bool incremental = !doShips || !doItems || !doShops || !doStarmap;
 
 			// Prep the output folder
-			if (Directory.Exists(outputRoot) && !shipsOnly)
+			if (Directory.Exists(outputRoot) && !incremental)
 			{
 				var info = new DirectoryInfo(outputRoot);
 				foreach (var file in info.GetFiles()) file.Delete();
@@ -65,12 +64,12 @@ namespace Loader
 			}
 			else Directory.CreateDirectory(outputRoot);
 
-			// A loadout loader to help with any XML loadouts we encounter while parsing entities
-			var loadoutLoader = new LoadoutLoader
+			var entitySvc = new EntityService
 			{
 				OutputFolder = outputRoot,
 				DataRoot = scDataRoot
 			};
+			entitySvc.Initialise(noCache);
 
 			// Localisation
 			Console.WriteLine("Load Localisation");
@@ -90,6 +89,7 @@ namespace Loader
 				DataRoot = scDataRoot
 			};
 			var manufacturerIndex = manufacturerLoader.Load();
+			var manufacturerSvc = new ManufacturerService(manufacturerIndex);
 
 			// Ammunition
 			Console.WriteLine("Load Ammunition");
@@ -99,38 +99,41 @@ namespace Loader
 				DataRoot = scDataRoot
 			};
 			var ammoIndex = ammoLoader.Load();
+			var ammoSvc = new AmmoService(ammoIndex);
+
+			// The item builder is used by the item loader and the ship loader to create standardised versions of entities
+			var itemBuilder = new ItemBuilder(localisationSvc, manufacturerSvc, ammoSvc, entitySvc);
 
 			// Items
-			if (!shipsOnly)
+			if (doItems)
 			{
 				Console.WriteLine("Load Items");
-				var itemLoader = new ItemLoader
+				var itemLoader = new ItemLoader(itemBuilder, manufacturerSvc, entitySvc, ammoSvc)
 				{
 					OutputFolder = outputRoot,
 					DataRoot = scDataRoot,
-					OnXmlLoadout = path => loadoutLoader.Load(path),
-					Manufacturers = manufacturerIndex,
-					Ammo = ammoIndex
 				};
-				itemLoader.Load();
+				itemLoader.Load(typeFilter);
 			}
 
 			// Ships and vehicles
-			Console.WriteLine("Load Ships and Vehicles");
-			var shipLoader = new ShipLoader
+			if (doShips)
 			{
-				OutputFolder = outputRoot,
-				DataRoot = scDataRoot,
-				OnXmlLoadout = path => loadoutLoader.Load(path),
-				Manufacturers = manufacturerIndex
-			};
-			shipLoader.Load();
+				Console.WriteLine("Load Ships and Vehicles");
+				var loadoutLoader = new LoadoutLoader { DataRoot = scDataRoot };
+				var shipLoader = new ShipLoader(itemBuilder, manufacturerSvc, localisationSvc, loadoutLoader, entitySvc)
+				{
+					OutputFolder = outputRoot,
+					DataRoot = scDataRoot,
+				};
+				shipLoader.Load();
+			}
 
 			// Prices
-			if (!shipsOnly)
+			if (doShops)
 			{
 				Console.WriteLine("Load Shops");
-				var shopLoader = new ShopLoader(localisationSvc)
+				var shopLoader = new ShopLoader(localisationSvc, entitySvc)
 				{
 					OutputFolder = outputRoot,
 					DataRoot = scDataRoot
@@ -139,7 +142,7 @@ namespace Loader
 			}
 
 			// Starmap
-			if (!shipsOnly)
+			if (doStarmap)
 			{
 				Console.WriteLine("Load Starmap");
 				var starmapLoader = new StarmapLoader(localisationSvc)

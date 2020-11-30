@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+
 using Newtonsoft.Json;
 
 namespace Loader
@@ -11,6 +12,7 @@ namespace Loader
 		public string DataRoot { get; set; }
 
 		LocalisationService localisationService;
+		bool verbose = false;
 
 		public StarmapLoader(LocalisationService localisationService)
 		{
@@ -33,7 +35,7 @@ namespace Loader
 
 			foreach (var entityFilename in Directory.EnumerateFiles(Path.Combine(DataRoot, entityFolder), "*.xml", SearchOption.AllDirectories))
 			{
-				Console.WriteLine(entityFilename);
+				if (verbose) Console.WriteLine($"StarmapLoader: {entityFilename}");
 
 				var parser = new StarmapParser();
 				var entity = parser.Parse(entityFilename);

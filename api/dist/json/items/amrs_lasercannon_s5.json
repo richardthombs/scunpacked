@@ -1,18 +1,26 @@
 {
   "ammo": {
-    "className": "AMRS_LaserCannon_S5_AMMO",
-    "reference": "9912eaa7-eda1-4902-ae23-89ca0700f788",
-    "damage": {
-      "physical": 0.0,
-      "energy": 892.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 4,
+    "lifetime": 3.6,
     "speed": 1512.0,
-    "range": 5443.2,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 892.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "AMRS_LaserCannon_S5_AMMO",
+    "__ref": "9912eaa7-eda1-4902-ae23-89ca0700f788",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -217,10 +225,8 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionSequenceParams": {
-              "name": "",
-              "localisedName": "@LOC_PLACEHOLDER",
+          "fireActions": [
+            {
               "mode": "Looping",
               "sequenceEntries": [
                 {
@@ -228,10 +234,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Rapid",
-                      "fireRate": 51.0,
                       "heatPerShot": 121500.0,
+                      "fireRate": 51.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 0.0,
@@ -244,13 +248,19 @@
                             "decay": 0.05
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Rapid",
+                      "aiShootingMode": "Single"
                     }
                   }
                 }
-              ]
+              ],
+              "name": "",
+              "localisedName": "@LOC_PLACEHOLDER",
+              "aiShootingMode": "Single"
             }
-          }
+          ]
         }
       },
       "ClassName": "AMRS_LaserCannon_S5",

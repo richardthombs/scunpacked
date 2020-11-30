@@ -1,18 +1,26 @@
 {
   "ammo": {
-    "className": "GATS_BallisticCannon_S3_AMMO",
-    "reference": "5c27d801-ef80-4efe-8583-41fb955babad",
-    "damage": {
-      "physical": 294.0,
-      "energy": 0.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 3.15,
     "speed": 990.0,
-    "range": 3118.5,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 294.0,
+            "DamageEnergy": 0.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "GATS_BallisticCannon_S3_AMMO",
+    "__ref": "5c27d801-ef80-4efe-8583-41fb955babad",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -317,10 +325,8 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionSequenceParams": {
-              "name": "",
-              "localisedName": "@LOC_PLACEHOLDER",
+          "fireActions": [
+            {
               "mode": "Looping",
               "sequenceEntries": [
                 {
@@ -328,10 +334,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Rapid",
-                      "fireRate": 80.0,
                       "heatPerShot": 16200.0,
+                      "fireRate": 80.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 1.0,
@@ -344,13 +348,19 @@
                             "decay": 0.05
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Rapid",
+                      "aiShootingMode": "Single"
                     }
                   }
                 }
-              ]
+              ],
+              "name": "",
+              "localisedName": "@LOC_PLACEHOLDER",
+              "aiShootingMode": "Single"
             }
-          }
+          ]
         }
       },
       "ClassName": "GATS_BallisticCannon_S3",

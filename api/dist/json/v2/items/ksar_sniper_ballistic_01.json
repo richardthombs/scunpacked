@@ -1,0 +1,88 @@
+{
+  "ClassName": "ksar_sniper_ballistic_01",
+  "Size": 3,
+  "Grade": 1,
+  "Type": "WeaponPersonal.Medium",
+  "Classification": "FPS.Weapon.Medium",
+  "Name": "Scalpel Sniper Rifle",
+  "Description": "Manufacturer: Kastak Arms\nItem Type: Sniper Rifle\nClass: Ballistic\n\nMagazine Size: 8\nRate Of Fire: 30 rpm\nEffective Range: 120 m\n\nAttachments: Optics (S3), Barrel (N/A), Underbarrel (S2)\n\nThe Scalpel is a unique and versatile sniper rifle from Kastak Arms. Designed with two barrels stacked atop of each other, it has two fire modes so you can adapt your shot to the situation. It can deliver a single, powerful shot from a long distance, or fire both barrels in quick succession to create a double-shot burst.",
+  "Manufacturer": {
+    "Code": "KSAR",
+    "Name": "Kastak Arms"
+  },
+  "Tags": [
+    "stocked",
+    "sniper"
+  ],
+  "Weapon": {
+    "Ammunition": {
+      "Speed": 800.0,
+      "Range": 1600.0,
+      "Size": 1.0,
+      "ImpactDamage": {
+        "Physical": 16.0
+      }
+    },
+    "Modes": [
+      {
+        "Name": "Burst",
+        "LocalisedName": "[BURST]",
+        "RoundsPerMinute": 600.0,
+        "FireType": "sequence",
+        "AmmoPerShot": 1.0,
+        "PelletsPerShot": 1.0,
+        "DamagePerShot": {
+          "Physical": 16.0
+        },
+        "DamagePerSecond": {
+          "Physical": 160.0
+        }
+      },
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 60.0,
+        "FireType": "sequence",
+        "AmmoPerShot": 1.0,
+        "PelletsPerShot": 1.0,
+        "DamagePerShot": {
+          "Physical": 16.0
+        },
+        "DamagePerSecond": {
+          "Physical": 16.0
+        }
+      }
+    ]
+  },
+  "Ammunition": {
+    "Speed": 800.0,
+    "Range": 1600.0,
+    "Size": 1.0,
+    "ImpactDamage": {
+      "Physical": 16.0
+    }
+  },
+  "Ports": [
+    {
+      "PortName": "magazine_attach",
+      "Size": 1,
+      "Types": [
+        "WeaponAttachment.Magazine"
+      ]
+    },
+    {
+      "PortName": "optics_attach",
+      "Size": 3,
+      "Types": [
+        "WeaponAttachment.IronSight"
+      ]
+    },
+    {
+      "PortName": "underbarrel_attach",
+      "Size": 2,
+      "Types": [
+        "WeaponAttachment.BottomAttachment"
+      ]
+    }
+  ]
+}

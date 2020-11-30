@@ -1,0 +1,88 @@
+{
+  "ClassName": "gmni_shotgun_ballistic_01",
+  "Size": 3,
+  "Grade": 1,
+  "Type": "WeaponPersonal.Medium",
+  "Classification": "FPS.Weapon.Medium",
+  "Name": "R97 Shotgun",
+  "Description": "Manufacturer: Gemini\nItem Type: Shotgun\nClass: Ballistic\n\nMagazine Size: 10\nRate Of Fire: 120 rpm / 60 rpm\nEffective Range: 15 m / 35 m\n\nAttachments: Optics (S1), Barrel (N/A), Underbarrel (S2)\n\nThe R97 combines sleek design and stopping power for an elegant and effective close quarters weapon. This ballistic shotgun from Gemini features two distinct fire modes — a semi-auto wide spread mode ideal for dealing quick damage and a focused mode that offers increased range at the expense of some power. This combat flexibility has made the R97 a popular personal defense weapon across the Empire.  ",
+  "Manufacturer": {
+    "Code": "GEM",
+    "Name": "Gemini"
+  },
+  "Tags": [
+    "stocked",
+    "shotgun"
+  ],
+  "Weapon": {
+    "Ammunition": {
+      "Speed": 300.0,
+      "Range": 600.0,
+      "Size": 1.0,
+      "ImpactDamage": {
+        "Physical": 3.0
+      }
+    },
+    "Modes": [
+      {
+        "Name": "Shotgun",
+        "LocalisedName": "[SHOTGUN]",
+        "RoundsPerMinute": 300.0,
+        "FireType": "sequence",
+        "AmmoPerShot": 1.0,
+        "PelletsPerShot": 8.0,
+        "DamagePerShot": {
+          "Physical": 24.0
+        },
+        "DamagePerSecond": {
+          "Physical": 120.0
+        }
+      },
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 120.0,
+        "FireType": "single",
+        "AmmoPerShot": 1.0,
+        "PelletsPerShot": 8.0,
+        "DamagePerShot": {
+          "Physical": 24.0
+        },
+        "DamagePerSecond": {
+          "Physical": 48.0
+        }
+      }
+    ]
+  },
+  "Ammunition": {
+    "Speed": 300.0,
+    "Range": 600.0,
+    "Size": 1.0,
+    "ImpactDamage": {
+      "Physical": 3.0
+    }
+  },
+  "Ports": [
+    {
+      "PortName": "magazine_attach",
+      "Size": 1,
+      "Types": [
+        "WeaponAttachment.Magazine"
+      ]
+    },
+    {
+      "PortName": "optics_attach",
+      "Size": 1,
+      "Types": [
+        "WeaponAttachment.IronSight"
+      ]
+    },
+    {
+      "PortName": "underbarrel_attach",
+      "Size": 2,
+      "Types": [
+        "WeaponAttachment.BottomAttachment"
+      ]
+    }
+  ]
+}

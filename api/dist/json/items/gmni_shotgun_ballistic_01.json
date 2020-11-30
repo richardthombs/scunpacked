@@ -40,19 +40,27 @@
     "__type": "EntityClassDefinition"
   },
   "ammo": {
-    "className": "12g_ballistic",
-    "reference": "7dba8ba2-d7f7-477d-82af-b139cc30af98",
-    "damage": {
-      "physical": 3.0,
-      "energy": 0.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 2.0,
     "speed": 300.0,
-    "range": 600.0,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 3.0,
+            "DamageEnergy": 0.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "12g_ballistic",
+    "__ref": "7dba8ba2-d7f7-477d-82af-b139cc30af98",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -252,29 +260,8 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionFireSingleParams": {
-              "name": "Single",
-              "localisedName": "@FireMode_Single",
-              "fireRate": 120.0,
-              "heatPerShot": 0.0,
-              "launchParams": {
-                "SProjectileLauncher": {
-                  "ammoCost": 1.0,
-                  "pelletCount": 8.0,
-                  "spreadParams": {
-                    "min": 4.2,
-                    "max": 10.0,
-                    "firstAttack": 5.88,
-                    "attack": 5.88,
-                    "decay": 5.0
-                  }
-                }
-              }
-            },
-            "SWeaponActionSequenceParams": {
-              "name": "Shotgun",
-              "localisedName": "@FireMode_Shotgun",
+          "fireActions": [
+            {
               "mode": "Looping",
               "sequenceEntries": [
                 {
@@ -282,10 +269,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Shotgun",
-                      "localisedName": "@FireMode_Shotgun",
-                      "fireRate": 300.0,
                       "heatPerShot": 0.0,
+                      "fireRate": 300.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 1.0,
@@ -298,13 +283,39 @@
                             "decay": 4.78
                           }
                         }
-                      }
+                      },
+                      "name": "Shotgun",
+                      "localisedName": "@FireMode_Shotgun",
+                      "aiShootingMode": "Rapid"
                     }
                   }
                 }
-              ]
+              ],
+              "name": "Shotgun",
+              "localisedName": "@FireMode_Shotgun",
+              "aiShootingMode": "Single"
+            },
+            {
+              "heatPerShot": 0.0,
+              "fireRate": 120.0,
+              "launchParams": {
+                "SProjectileLauncher": {
+                  "ammoCost": 1.0,
+                  "pelletCount": 8.0,
+                  "spreadParams": {
+                    "min": 4.2,
+                    "max": 10.0,
+                    "firstAttack": 5.88,
+                    "attack": 5.88,
+                    "decay": 5.0
+                  }
+                }
+              },
+              "name": "Single",
+              "localisedName": "@FireMode_Single",
+              "aiShootingMode": "Single"
             }
-          }
+          ]
         },
         "SEntityInteractableParams": {
           "Interactable": {

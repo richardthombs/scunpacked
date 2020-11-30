@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
-
-using scdb.Xml.Entities;
+using System.Linq;
 
 namespace Loader
 {
@@ -14,13 +13,21 @@ namespace Loader
 			this.labels = labels;
 		}
 
-		public string GetText(string label)
+		public string GetText(string label, string fallback = null)
 		{
 			var key = label.StartsWith("@") ? label.Substring(1) : label;
 
-			if (labels.ContainsKey(key)) return labels[key];
+			if (key == "LOC_EMPTY") return fallback;
+			if (key == "LOC_UNINITIALIZED") return fallback;
 
-			return null;
+			if (!labels.ContainsKey(key)) return fallback;
+
+			var text = labels[key].Replace("\\n", "\n");
+
+			if (text == "<= PLACEHOLDER =>") return fallback ?? label;
+			if (String.IsNullOrWhiteSpace(text)) return fallback ?? label;
+
+			return text;
 		}
 	}
 }

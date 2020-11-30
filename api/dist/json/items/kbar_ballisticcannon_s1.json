@@ -1,18 +1,26 @@
 {
   "ammo": {
-    "className": "KBAR_BallisticCannon_S1_AMMO",
-    "reference": "6764916d-2c17-40f7-81b8-2cffa0bdf85f",
-    "damage": {
-      "physical": 94.0,
-      "energy": 0.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 1.28,
     "speed": 907.0,
-    "range": 1160.96,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 94.0,
+            "DamageEnergy": 0.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "KBAR_BallisticCannon_S1_AMMO",
+    "__ref": "6764916d-2c17-40f7-81b8-2cffa0bdf85f",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -217,10 +225,8 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionSequenceParams": {
-              "name": "",
-              "localisedName": "@LOC_PLACEHOLDER",
+          "fireActions": [
+            {
               "mode": "Looping",
               "sequenceEntries": [
                 {
@@ -228,10 +234,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Rapid",
-                      "fireRate": 98.0,
                       "heatPerShot": 3857.14,
+                      "fireRate": 98.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 1.0,
@@ -244,13 +248,19 @@
                             "decay": 0.05
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Rapid",
+                      "aiShootingMode": "Single"
                     }
                   }
                 }
-              ]
+              ],
+              "name": "",
+              "localisedName": "@LOC_PLACEHOLDER",
+              "aiShootingMode": "Single"
             }
-          }
+          ]
         }
       },
       "ClassName": "KBAR_BallisticCannon_S1",

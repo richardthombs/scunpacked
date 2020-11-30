@@ -1,18 +1,26 @@
 {
   "ammo": {
-    "className": "KRON_LaserCannon_S3_AMMO",
-    "reference": "3dd75bf5-e4ab-4d68-9622-7222e7c0c16d",
-    "damage": {
-      "physical": 0.0,
-      "energy": 300.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 3,
+    "lifetime": 3.15,
     "speed": 1100.0,
-    "range": 3465.0,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 300.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "KRON_LaserCannon_S3_AMMO",
+    "__ref": "3dd75bf5-e4ab-4d68-9622-7222e7c0c16d",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -317,10 +325,8 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionSequenceParams": {
-              "name": "",
-              "localisedName": "@LOC_PLACEHOLDER",
+          "fireActions": [
+            {
               "mode": "Looping",
               "sequenceEntries": [
                 {
@@ -328,10 +334,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Rapid",
-                      "fireRate": 75.0,
                       "heatPerShot": 20160.0,
+                      "fireRate": 75.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 0.0,
@@ -344,13 +348,19 @@
                             "decay": 0.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Rapid",
+                      "aiShootingMode": "Single"
                     }
                   }
                 }
-              ]
+              ],
+              "name": "",
+              "localisedName": "@LOC_PLACEHOLDER",
+              "aiShootingMode": "Single"
             }
-          }
+          ]
         }
       },
       "ClassName": "KRON_LaserCannon_S3",

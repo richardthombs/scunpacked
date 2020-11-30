@@ -19,22 +19,7 @@ namespace Loader
 			}
 
 			var vehicleBase = ParseVehicle(fullXmlPath, modificationName);
-			if (!String.IsNullOrWhiteSpace(modificationName))
-			{
-				var modification = vehicleBase.Modifications.FirstOrDefault(x => x.name == modificationName);
-				if (modification != null)
-				{
-					if (!String.IsNullOrWhiteSpace(modification.patchFile))
-					{
-						var patchFilename = Path.ChangeExtension(Path.Combine(Path.GetDirectoryName(fullXmlPath), modification.patchFile.Replace("/", "\\")), ".xml");
-						Console.WriteLine(patchFilename);
-						var patches = ParsePatchFile(patchFilename);
-						if (patches.Parts != null) vehicleBase.Parts = patches.Parts;
-						if (patches.MovementParams != null) vehicleBase.MovementParams = patches.MovementParams;
-					}
-				}
-				else Console.WriteLine($"Could not process vehicle modification '{modificationName}'");
-			}
+
 			return vehicleBase;
 		}
 
@@ -42,7 +27,11 @@ namespace Loader
 		{
 			var doc = LoadVehicleXml(vehiclePath);
 
-			if (!String.IsNullOrWhiteSpace(modificationName)) ProcessModificationElems(doc, modificationName);
+			if (!String.IsNullOrWhiteSpace(modificationName))
+			{
+				ProcessPatchFile(doc, modificationName, vehiclePath);
+				ProcessModificationElems(doc, modificationName);
+			}
 
 			var serialiser = new XmlSerializer(typeof(Vehicle));
 			using (var stream = new XmlNodeReader(doc))
@@ -58,6 +47,30 @@ namespace Loader
 			var doc = new XmlDocument();
 			doc.LoadXml(xml);
 			return doc;
+		}
+
+		void ProcessPatchFile(XmlDocument doc, string modificationName, string vehiclePath)
+		{
+			var modificationNode = doc.SelectNodes($"//Modifications/Modification[@name='{modificationName}']")[0];
+			var patchFile = modificationNode.Attributes["patchFile"]?.Value;
+			if (String.IsNullOrEmpty(patchFile)) return;
+
+			var patchFilename = Path.ChangeExtension(Path.Combine(Path.GetDirectoryName(vehiclePath), patchFile.Replace("/", "\\")), ".xml");
+			Console.WriteLine(patchFilename);
+
+			var patchDocText = File.ReadAllText(patchFilename);
+			var patchDoc = new XmlDocument();
+			patchDoc.LoadXml(patchDocText);
+
+			foreach (XmlNode patchNode in patchDoc.DocumentElement.ChildNodes)
+			{
+				var id = patchNode.Attributes["id"].Value;
+				var nodes = doc.SelectNodes($"//*[@id='{id}']");
+				foreach (XmlNode node in nodes)
+				{
+					node.InnerXml = patchNode.InnerXml;
+				}
+			}
 		}
 
 		void ProcessModificationElems(XmlDocument doc, string modificationName)

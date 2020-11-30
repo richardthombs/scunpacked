@@ -721,21 +721,20 @@
         {
           "name": "ORIG_600i",
           "mass": "1613414",
-          "damageMax": 0.0,
+          "damagemax": 0.0,
           "class": "Animated",
-          "skipPart": false,
           "Parts": [
             {
               "name": "Body",
               "damageMax": 7400.0,
+              "damagemax": 0.0,
               "class": "AnimatedJoint",
-              "skipPart": false,
+              "detachRatio": 1.0,
               "Parts": [
                 {
                   "name": "hardpoint_weapon_rack_1",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -750,9 +749,8 @@
                 },
                 {
                   "name": "hardpoint_weapon_rack_2",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -767,21 +765,22 @@
                 },
                 {
                   "name": "underpanel_rear_b",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "AnimatedJoint",
-                  "skipPart": false,
+                  "detachRatio": 1.0,
                   "Parts": [
                     {
                       "name": "Wing_Left",
                       "damageMax": 1625.0,
+                      "damagemax": 0.0,
                       "class": "AnimatedJoint",
-                      "skipPart": false,
+                      "detachRatio": 1.0,
                       "Parts": [
                         {
                           "name": "hardpoint_thruster_mav_rear_top_left",
                           "damageMax": 50.0,
+                          "damagemax": 0.0,
                           "class": "ItemPort",
-                          "skipPart": false,
                           "ItemPort": {
                             "minsize": 1,
                             "maxsize": 2,
@@ -812,8 +811,8 @@
                         {
                           "name": "hardpoint_thruster_mav_rear_side_left",
                           "damageMax": 50.0,
+                          "damagemax": 0.0,
                           "class": "ItemPort",
-                          "skipPart": false,
                           "ItemPort": {
                             "minsize": 1,
                             "maxsize": 2,
@@ -846,14 +845,15 @@
                     {
                       "name": "Wing_Right",
                       "damageMax": 1625.0,
+                      "damagemax": 0.0,
                       "class": "AnimatedJoint",
-                      "skipPart": false,
+                      "detachRatio": 1.0,
                       "Parts": [
                         {
                           "name": "hardpoint_thruster_mav_rear_top_right",
                           "damageMax": 50.0,
+                          "damagemax": 0.0,
                           "class": "ItemPort",
-                          "skipPart": false,
                           "ItemPort": {
                             "minsize": 1,
                             "maxsize": 2,
@@ -884,8 +884,8 @@
                         {
                           "name": "hardpoint_thruster_mav_rear_side_right",
                           "damageMax": 50.0,
+                          "damagemax": 0.0,
                           "class": "ItemPort",
-                          "skipPart": false,
                           "ItemPort": {
                             "minsize": 1,
                             "maxsize": 2,
@@ -918,8 +918,8 @@
                     {
                       "name": "hardpoint_thruster_mav_rear_bottom_left",
                       "damageMax": 50.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 2,
@@ -950,8 +950,8 @@
                     {
                       "name": "hardpoint_thruster_mav_rear_bottom_right",
                       "damageMax": 50.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 2,
@@ -982,8 +982,8 @@
                     {
                       "name": "hardpoint_thruster_mav_rear_bottom_back",
                       "damageMax": 50.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 2,
@@ -1011,13 +1011,63 @@
                         ]
                       }
                     }
+                  ],
+                  "DamageBehaviors": [
+                    {
+                      "class": "DetachPart",
+                      "damageRatioMin": 1.0,
+                      "DetachPart": [
+                        {
+                          "name": "Wing_Left",
+                          "damagemax": 0.0,
+                          "Probability": 0.4
+                        },
+                        {
+                          "name": "Wing_Right",
+                          "damagemax": 0.0,
+                          "Probability": 0.6
+                        },
+                        {
+                          "name": "underpanel_rear_a",
+                          "damagemax": 0.0,
+                          "Probability": 0.3
+                        },
+                        {
+                          "name": "underpanel_rear_b",
+                          "damagemax": 0.0,
+                          "Probability": 0.4
+                        },
+                        {
+                          "name": "underpanel_front_a",
+                          "damagemax": 0.0,
+                          "Probability": 0.6
+                        },
+                        {
+                          "name": "underpanel_front_b",
+                          "damagemax": 0.0,
+                          "Probability": 0.2
+                        },
+                        {
+                          "name": "Body",
+                          "damagemax": 0.0
+                        },
+                        {
+                          "name": "Nose",
+                          "damagemax": 0.0
+                        },
+                        {
+                          "name": "Front",
+                          "damagemax": 0.0
+                        }
+                      ]
+                    }
                   ]
                 },
                 {
                   "name": "hardpoint_thruster_retro_left",
                   "damageMax": 50.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 2,
@@ -1048,8 +1098,8 @@
                 {
                   "name": "hardpoint_thruster_retro_right",
                   "damageMax": 50.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 2,
@@ -1079,9 +1129,8 @@
                 },
                 {
                   "name": "animated_armoury",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -1096,9 +1145,8 @@
                 },
                 {
                   "name": "hardpoint_armour",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -1113,9 +1161,8 @@
                 },
                 {
                   "name": "hardpoint_selfdestruct",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -1136,9 +1183,8 @@
                 },
                 {
                   "name": "hardpoint_radar",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 2,
                     "maxsize": 2,
@@ -1166,9 +1212,8 @@
                 },
                 {
                   "name": "hardpoint_radar_bridge_left",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 2,
                     "maxsize": 2,
@@ -1196,9 +1241,8 @@
                 },
                 {
                   "name": "hardpoint_radar_bridge_right",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 2,
                     "maxsize": 2,
@@ -1226,9 +1270,8 @@
                 },
                 {
                   "name": "hardpoint_radar_turret_top",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 2,
                     "maxsize": 2,
@@ -1256,9 +1299,8 @@
                 },
                 {
                   "name": "hardpoint_radar_turret_bottom",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 2,
                     "maxsize": 2,
@@ -1286,9 +1328,8 @@
                 },
                 {
                   "name": "hardpoint_powerplant_01",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 3,
                     "maxsize": 3,
@@ -1315,8 +1356,8 @@
                 {
                   "name": "hardpoint_fuel_tank_left",
                   "damageMax": 50.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -1341,8 +1382,8 @@
                 {
                   "name": "hardpoint_fuel_tank_right",
                   "damageMax": 50.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -1367,8 +1408,8 @@
                 {
                   "name": "hardpoint_fuel_intake_left",
                   "damageMax": 50.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -1397,8 +1438,8 @@
                 {
                   "name": "hardpoint_fuel_intake_right",
                   "damageMax": 50.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -1427,8 +1468,8 @@
                 {
                   "name": "hardpoint_fuel_intake_center",
                   "damageMax": 50.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -1456,9 +1497,8 @@
                 },
                 {
                   "name": "hardpoint_cooler",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 3,
                     "maxsize": 3,
@@ -1484,9 +1524,8 @@
                 },
                 {
                   "name": "hardpoint_quantum_drive",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 2,
                     "maxsize": 2,
@@ -1519,9 +1558,8 @@
                 },
                 {
                   "name": "hardpoint_quantum_fuel_tank",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 2,
@@ -1542,9 +1580,8 @@
                 },
                 {
                   "name": "hardpoint_shield_generator",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 3,
                     "maxsize": 3,
@@ -1574,9 +1611,8 @@
                 },
                 {
                   "name": "hardpoint_cargogrid_module_centre",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -1591,9 +1627,8 @@
                 },
                 {
                   "name": "hardpoint_cargogrid_module_left",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -1608,9 +1643,8 @@
                 },
                 {
                   "name": "hardpoint_cargogrid_module_right",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -1625,9 +1659,8 @@
                 },
                 {
                   "name": "hardpoint_missilerack_upper_left",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 5,
                     "maxsize": 5,
@@ -1653,9 +1686,8 @@
                 },
                 {
                   "name": "hardpoint_missilerack_lower_left",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 5,
                     "maxsize": 5,
@@ -1681,9 +1713,8 @@
                 },
                 {
                   "name": "hardpoint_missilerack_lower_right",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 5,
                     "maxsize": 5,
@@ -1709,9 +1740,8 @@
                 },
                 {
                   "name": "hardpoint_missilerack_upper_right",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 5,
                     "maxsize": 5,
@@ -1737,9 +1767,8 @@
                 },
                 {
                   "name": "landingpad_helper",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -1754,9 +1783,8 @@
                 },
                 {
                   "name": "hardpoint_weapon_left",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 5,
                     "maxsize": 5,
@@ -1802,9 +1830,8 @@
                 },
                 {
                   "name": "hardpoint_weapon_right",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 5,
                     "maxsize": 5,
@@ -1851,14 +1878,14 @@
                 {
                   "name": "Tail",
                   "damageMax": 4700.0,
+                  "damagemax": 0.0,
                   "class": "AnimatedJoint",
-                  "skipPart": false,
+                  "detachRatio": 1.0,
                   "Parts": [
                     {
                       "name": "hardpoint_cargogrid_main_left",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 1,
@@ -1873,9 +1900,8 @@
                     },
                     {
                       "name": "hardpoint_cargogrid_main_right",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 1,
@@ -1890,9 +1916,8 @@
                     },
                     {
                       "name": "hardpoint_countermeasures_left",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 2,
@@ -1918,9 +1943,8 @@
                     },
                     {
                       "name": "hardpoint_countermeasures_right",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 2,
@@ -1947,8 +1971,8 @@
                     {
                       "name": "hardpoint_main_upper_left",
                       "damageMax": 50.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 2,
@@ -1979,8 +2003,8 @@
                     {
                       "name": "hardpoint_main_upper_right",
                       "damageMax": 50.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 2,
@@ -2011,8 +2035,8 @@
                     {
                       "name": "hardpoint_main_lower_right",
                       "damageMax": 50.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 2,
@@ -2043,8 +2067,8 @@
                     {
                       "name": "hardpoint_main_lower_left",
                       "damageMax": 50.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 2,
@@ -2074,9 +2098,8 @@
                     },
                     {
                       "name": "hardpoint_remote_turret_top",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 2,
                         "maxsize": 6,
@@ -2111,27 +2134,185 @@
                         }
                       }
                     }
+                  ],
+                  "DamageBehaviors": [
+                    {
+                      "class": "DetachPart",
+                      "damageRatioMin": 1.0,
+                      "DetachPart": [
+                        {
+                          "name": "Wing_Left",
+                          "damagemax": 0.0,
+                          "Probability": 1.0
+                        },
+                        {
+                          "name": "Wing_Right",
+                          "damagemax": 0.0,
+                          "Probability": 1.0
+                        },
+                        {
+                          "name": "underpanel_rear_a",
+                          "damagemax": 0.0,
+                          "Probability": 1.0
+                        },
+                        {
+                          "name": "underpanel_rear_b",
+                          "damagemax": 0.0,
+                          "Probability": 1.0
+                        },
+                        {
+                          "name": "underpanel_front_a",
+                          "damagemax": 0.0,
+                          "Probability": 1.0
+                        },
+                        {
+                          "name": "underpanel_front_b",
+                          "damagemax": 0.0,
+                          "Probability": 1.0
+                        },
+                        {
+                          "name": "Tail",
+                          "damagemax": 0.0,
+                          "Probability": 1.0
+                        }
+                      ]
+                    }
                   ]
                 },
                 {
                   "name": "underpanel_rear_a",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "AnimatedJoint",
-                  "skipPart": false
+                  "detachRatio": 1.0,
+                  "DamageBehaviors": [
+                    {
+                      "class": "DetachPart",
+                      "damageRatioMin": 1.0,
+                      "DetachPart": [
+                        {
+                          "name": "Wing_Left",
+                          "damagemax": 0.0,
+                          "Probability": 0.3
+                        },
+                        {
+                          "name": "Wing_Right",
+                          "damagemax": 0.0,
+                          "Probability": 0.5
+                        },
+                        {
+                          "name": "underpanel_rear_a",
+                          "damagemax": 0.0,
+                          "Probability": 0.4
+                        },
+                        {
+                          "name": "underpanel_rear_b",
+                          "damagemax": 0.0,
+                          "Probability": 0.4
+                        },
+                        {
+                          "name": "underpanel_front_a",
+                          "damagemax": 0.0,
+                          "Probability": 0.4
+                        },
+                        {
+                          "name": "underpanel_front_b",
+                          "damagemax": 0.0,
+                          "Probability": 0.4
+                        },
+                        {
+                          "name": "Body",
+                          "damagemax": 0.0
+                        },
+                        {
+                          "name": "Nose",
+                          "damagemax": 0.0
+                        },
+                        {
+                          "name": "Front",
+                          "damagemax": 0.0
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DamageBehaviors": [
+                {
+                  "class": "DetachPart",
+                  "damageRatioMin": 1.0,
+                  "DetachPart": [
+                    {
+                      "name": "Wing_Left",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    },
+                    {
+                      "name": "Wing_Right",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    },
+                    {
+                      "name": "underpanel_rear_a",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    },
+                    {
+                      "name": "underpanel_rear_b",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    },
+                    {
+                      "name": "underpanel_front_a",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    },
+                    {
+                      "name": "underpanel_front_b",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    },
+                    {
+                      "name": "Tail",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    },
+                    {
+                      "name": "Nose",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    },
+                    {
+                      "name": "Front",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    },
+                    {
+                      "name": "Body",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    }
+                  ]
+                },
+                {
+                  "class": "Group",
+                  "damageRatioMin": 1.0,
+                  "Group": {
+                    "name": "Destroy"
+                  }
                 }
               ]
             },
             {
               "name": "Nose",
               "damageMax": 5700.0,
+              "damagemax": 0.0,
               "class": "AnimatedJoint",
-              "skipPart": false,
+              "detachRatio": 1.0,
               "Parts": [
                 {
                   "name": "hardpoint_lights_ext",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 0,
                     "maxsize": 1,
@@ -2152,8 +2333,8 @@
                 {
                   "name": "hardpoint_thruster_mav_front_top_left",
                   "damageMax": 50.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 2,
@@ -2184,8 +2365,8 @@
                 {
                   "name": "hardpoint_thruster_mav_front_top_right",
                   "damageMax": 50.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 2,
@@ -2215,9 +2396,8 @@
                 },
                 {
                   "name": "animated_bridge",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -2232,9 +2412,8 @@
                 },
                 {
                   "name": "hardpoint_seat_pilot",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 0,
                     "maxsize": 3,
@@ -2274,9 +2453,8 @@
                 },
                 {
                   "name": "hardpoint_seat_access_pilot",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 4,
@@ -2300,9 +2478,8 @@
                 },
                 {
                   "name": "hardpoint_dashboard_pilot",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 4,
@@ -2336,9 +2513,8 @@
                 },
                 {
                   "name": "hardpoint_seat_bridge_right",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 0,
                     "maxsize": 3,
@@ -2378,9 +2554,8 @@
                 },
                 {
                   "name": "hardpoint_seat_access_bridge_right",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 4,
@@ -2404,9 +2579,8 @@
                 },
                 {
                   "name": "hardpoint_dashboard_bridge_right",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 4,
@@ -2433,9 +2607,8 @@
                 },
                 {
                   "name": "hardpoint_seat_bridge_left",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 0,
                     "maxsize": 3,
@@ -2475,9 +2648,8 @@
                 },
                 {
                   "name": "hardpoint_seat_access_bridge_left",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 4,
@@ -2501,9 +2673,8 @@
                 },
                 {
                   "name": "hardpoint_dashboard_bridge_left",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 4,
@@ -2530,9 +2701,8 @@
                 },
                 {
                   "name": "hardpoint_controller_door",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -2564,9 +2734,8 @@
                 },
                 {
                   "name": "hardpoint_controller_flight",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -2612,9 +2781,8 @@
                 },
                 {
                   "name": "hardpoint_controller_light",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -2651,9 +2819,8 @@
                 },
                 {
                   "name": "hardpoint_controller_comms",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -2676,9 +2843,8 @@
                 },
                 {
                   "name": "hardpoint_controller_cooler",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -2701,9 +2867,8 @@
                 },
                 {
                   "name": "hardpoint_controller_shield",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -2740,9 +2905,8 @@
                 },
                 {
                   "name": "hardpoint_controller_weapon",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -2790,9 +2954,8 @@
                 },
                 {
                   "name": "hardpoint_controller_energy",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -2835,9 +2998,8 @@
                 },
                 {
                   "name": "hardpoint_controller_weapon_bridge_right",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -2876,9 +3038,8 @@
                 },
                 {
                   "name": "hardpoint_controller_weapon_bridge_left",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -2917,9 +3078,8 @@
                 },
                 {
                   "name": "hardpoint_paint",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -2936,9 +3096,8 @@
                 },
                 {
                   "name": "hardpoint_scanner",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -2962,9 +3121,8 @@
                 },
                 {
                   "name": "hardpoint_ping",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -2988,9 +3146,8 @@
                 },
                 {
                   "name": "hardpoint_transponder",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -3015,20 +3172,21 @@
                 {
                   "name": "Front",
                   "damageMax": 6700.0,
+                  "damagemax": 0.0,
                   "class": "AnimatedJoint",
-                  "skipPart": false,
+                  "detachRatio": 1.0,
                   "Parts": [
                     {
                       "name": "underpanel_front_a",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "AnimatedJoint",
-                      "skipPart": false,
+                      "detachRatio": 1.0,
                       "Parts": [
                         {
                           "name": "hardpoint_thruster_mav_front_bottom_left",
                           "damageMax": 50.0,
+                          "damagemax": 0.0,
                           "class": "ItemPort",
-                          "skipPart": false,
                           "ItemPort": {
                             "minsize": 1,
                             "maxsize": 2,
@@ -3059,8 +3217,8 @@
                         {
                           "name": "hardpoint_thruster_mav_front_bottom_right",
                           "damageMax": 50.0,
+                          "damagemax": 0.0,
                           "class": "ItemPort",
-                          "skipPart": false,
                           "ItemPort": {
                             "minsize": 1,
                             "maxsize": 2,
@@ -3088,13 +3246,63 @@
                             ]
                           }
                         }
+                      ],
+                      "DamageBehaviors": [
+                        {
+                          "class": "DetachPart",
+                          "damageRatioMin": 1.0,
+                          "DetachPart": [
+                            {
+                              "name": "Wing_Left",
+                              "damagemax": 0.0,
+                              "Probability": 0.5
+                            },
+                            {
+                              "name": "Wing_Right",
+                              "damagemax": 0.0,
+                              "Probability": 0.5
+                            },
+                            {
+                              "name": "underpanel_rear_a",
+                              "damagemax": 0.0,
+                              "Probability": 0.1
+                            },
+                            {
+                              "name": "underpanel_rear_b",
+                              "damagemax": 0.0,
+                              "Probability": 0.1
+                            },
+                            {
+                              "name": "underpanel_front_a",
+                              "damagemax": 0.0,
+                              "Probability": 0.1
+                            },
+                            {
+                              "name": "underpanel_front_b",
+                              "damagemax": 0.0,
+                              "Probability": 0.1
+                            },
+                            {
+                              "name": "Body",
+                              "damagemax": 0.0
+                            },
+                            {
+                              "name": "Nose",
+                              "damagemax": 0.0
+                            },
+                            {
+                              "name": "Front",
+                              "damagemax": 0.0
+                            }
+                          ]
+                        }
                       ]
                     },
                     {
                       "name": "hardpoint_thruster_mav_front_side_right",
                       "damageMax": 50.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 2,
@@ -3125,8 +3333,8 @@
                     {
                       "name": "hardpoint_thruster_mav_front_side_left",
                       "damageMax": 50.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 2,
@@ -3156,9 +3364,8 @@
                     },
                     {
                       "name": "animated_module",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 1,
@@ -3173,9 +3380,8 @@
                     },
                     {
                       "name": "animated_module_tour",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 1,
@@ -3190,9 +3396,8 @@
                     },
                     {
                       "name": "hardpoint_droplift",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 1,
@@ -3206,9 +3411,8 @@
                     },
                     {
                       "name": "hardpoint_module_seat_left",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 0,
                         "maxsize": 3,
@@ -3248,9 +3452,8 @@
                     },
                     {
                       "name": "hardpoint_module_seat_right",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 0,
                         "maxsize": 3,
@@ -3290,9 +3493,8 @@
                     },
                     {
                       "name": "hardpoint_module_dashboard_right",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 4,
@@ -3319,9 +3521,8 @@
                     },
                     {
                       "name": "hardpoint_module_seataccess_right",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 4,
@@ -3345,9 +3546,8 @@
                     },
                     {
                       "name": "hardpoint_module_seataccess_left",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 4,
@@ -3371,9 +3571,8 @@
                     },
                     {
                       "name": "hardpoint_module_dashboard_left",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 4,
@@ -3400,9 +3599,8 @@
                     },
                     {
                       "name": "hardpoint_remote_turret_bottom",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 2,
                         "maxsize": 6,
@@ -3439,15 +3637,15 @@
                     },
                     {
                       "name": "underpanel_front_b",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "AnimatedJoint",
-                      "skipPart": false,
+                      "detachRatio": 1.0,
                       "Parts": [
                         {
                           "name": "hardpoint_thruster_mav_rear_bottom_front",
                           "damageMax": 50.0,
+                          "damagemax": 0.0,
                           "class": "ItemPort",
-                          "skipPart": false,
                           "ItemPort": {
                             "minsize": 1,
                             "maxsize": 2,
@@ -3475,13 +3673,62 @@
                             ]
                           }
                         }
+                      ],
+                      "DamageBehaviors": [
+                        {
+                          "class": "DetachPart",
+                          "damageRatioMin": 1.0,
+                          "DetachPart": [
+                            {
+                              "name": "Wing_Left",
+                              "damagemax": 0.0,
+                              "Probability": 0.1
+                            },
+                            {
+                              "name": "Wing_Right",
+                              "damagemax": 0.0,
+                              "Probability": 0.7
+                            },
+                            {
+                              "name": "underpanel_rear_a",
+                              "damagemax": 0.0,
+                              "Probability": 0.3
+                            },
+                            {
+                              "name": "underpanel_rear_b",
+                              "damagemax": 0.0,
+                              "Probability": 0.4
+                            },
+                            {
+                              "name": "underpanel_front_a",
+                              "damagemax": 0.0,
+                              "Probability": 0.5
+                            },
+                            {
+                              "name": "underpanel_front_b",
+                              "damagemax": 0.0,
+                              "Probability": 0.7
+                            },
+                            {
+                              "name": "Body",
+                              "damagemax": 0.0
+                            },
+                            {
+                              "name": "Nose",
+                              "damagemax": 0.0
+                            },
+                            {
+                              "name": "Front",
+                              "damagemax": 0.0
+                            }
+                          ]
+                        }
                       ]
                     },
                     {
                       "name": "hardpoint_weapon_centre",
-                      "damageMax": 0.0,
+                      "damagemax": 0.0,
                       "class": "ItemPort",
-                      "skipPart": false,
                       "ItemPort": {
                         "minsize": 5,
                         "maxsize": 5,
@@ -3525,7 +3772,137 @@
                         }
                       }
                     }
+                  ],
+                  "DamageBehaviors": [
+                    {
+                      "class": "DetachPart",
+                      "damageRatioMin": 1.0,
+                      "DetachPart": [
+                        {
+                          "name": "Wing_Left",
+                          "damagemax": 0.0,
+                          "Probability": 0.7
+                        },
+                        {
+                          "name": "Wing_Right",
+                          "damagemax": 0.0,
+                          "Probability": 1.0
+                        },
+                        {
+                          "name": "underpanel_rear_a",
+                          "damagemax": 0.0,
+                          "Probability": 0.8
+                        },
+                        {
+                          "name": "underpanel_rear_b",
+                          "damagemax": 0.0,
+                          "Probability": 0.9
+                        },
+                        {
+                          "name": "underpanel_front_a",
+                          "damagemax": 0.0,
+                          "Probability": 1.0
+                        },
+                        {
+                          "name": "underpanel_front_b",
+                          "damagemax": 0.0,
+                          "Probability": 1.0
+                        },
+                        {
+                          "name": "Tail",
+                          "damagemax": 0.0,
+                          "Probability": 1.0
+                        },
+                        {
+                          "name": "Body",
+                          "damagemax": 0.0,
+                          "Probability": 1.0
+                        },
+                        {
+                          "name": "Nose",
+                          "damagemax": 0.0,
+                          "Probability": 1.0
+                        },
+                        {
+                          "name": "Front",
+                          "damagemax": 0.0,
+                          "Probability": 1.0
+                        }
+                      ]
+                    },
+                    {
+                      "class": "Group",
+                      "damageRatioMin": 1.0,
+                      "Group": {
+                        "name": "Destroy"
+                      }
+                    }
                   ]
+                }
+              ],
+              "DamageBehaviors": [
+                {
+                  "class": "DetachPart",
+                  "damageRatioMin": 1.0,
+                  "DetachPart": [
+                    {
+                      "name": "Wing_Left",
+                      "damagemax": 0.0,
+                      "Probability": 0.5
+                    },
+                    {
+                      "name": "Wing_Right",
+                      "damagemax": 0.0,
+                      "Probability": 0.5
+                    },
+                    {
+                      "name": "underpanel_rear_a",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    },
+                    {
+                      "name": "underpanel_rear_b",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    },
+                    {
+                      "name": "underpanel_front_a",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    },
+                    {
+                      "name": "underpanel_front_b",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    },
+                    {
+                      "name": "Tail",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    },
+                    {
+                      "name": "Body",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    },
+                    {
+                      "name": "Front",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    },
+                    {
+                      "name": "Nose",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    }
+                  ]
+                },
+                {
+                  "class": "Group",
+                  "damageRatioMin": 1.0,
+                  "Group": {
+                    "name": "Destroy"
+                  }
                 }
               ]
             }

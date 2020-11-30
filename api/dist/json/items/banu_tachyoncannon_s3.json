@@ -1,26 +1,56 @@
 {
   "ammo": {
-    "className": "BANU_TachyonCannon_S3_AMMO",
-    "reference": "e47e5363-3031-48dd-a515-f739fa760981",
-    "damage": {
-      "physical": 90.0,
-      "energy": 150.0,
-      "distortion": 40.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 1.35,
     "speed": 2000.0,
-    "range": 2700.0,
-    "detonates": true,
-    "detonationDamage": {
-      "physical": 0.0,
-      "energy": 0.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    }
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 90.0,
+            "DamageEnergy": 150.0,
+            "DamageDistortion": 40.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {
+          "ProjectileDetonationParams": {
+            "explosionParams": {
+              "friendlyFire": "None",
+              "minRadius": 2.5,
+              "maxRadius": 5.0,
+              "soundRadius": 50.0,
+              "minPhysRadius": 2.5,
+              "maxPhysRadius": 5.0,
+              "pressure": 200.0,
+              "holeSize": 0.0,
+              "terrainHoleSize": 3.0,
+              "maxblurdist": 10.0,
+              "effectScale": 1.0,
+              "useRandomScale": 0.0,
+              "effectScaleMin": 1.0,
+              "effectScaleMax": 1.0,
+              "hitType": "explosion",
+              "damage": [
+                {
+                  "DamagePhysical": 0.0,
+                  "DamageEnergy": 0.0,
+                  "DamageDistortion": 0.0,
+                  "DamageThermal": 0.0,
+                  "DamageBiochemical": 0.0,
+                  "DamageStun": 0.0
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "ClassName": "BANU_TachyonCannon_S3_AMMO",
+    "__ref": "e47e5363-3031-48dd-a515-f739fa760981",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -325,12 +355,10 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionFireSingleParams": {
-              "name": "Single",
-              "localisedName": "@FireMode_Single",
-              "fireRate": 45.0,
+          "fireActions": [
+            {
               "heatPerShot": 44800.0,
+              "fireRate": 45.0,
               "launchParams": {
                 "SProjectileLauncher": {
                   "ammoCost": 0.0,
@@ -343,22 +371,20 @@
                     "decay": 0.0
                   }
                 }
-              }
+              },
+              "name": "Single",
+              "localisedName": "@FireMode_Single",
+              "aiShootingMode": "Single"
             },
-            "SWeaponActionFireChargedParams": {
-              "name": "Charge",
-              "localisedName": "@FireMode_Charge",
-              "aiShootingMode": "Charge",
+            {
               "chargeTime": 2.5,
               "overchargeTime": 5.0,
               "overchargedTime": 3.0,
               "cooldownTime": 2.0,
               "weaponAction": {
                 "SWeaponActionFireSingleParams": {
-                  "name": "Single",
-                  "localisedName": "@FireMode_Single",
-                  "fireRate": 90.0,
                   "heatPerShot": 0.0,
+                  "fireRate": 90.0,
                   "launchParams": {
                     "SProjectileLauncher": {
                       "ammoCost": 0.0,
@@ -371,11 +397,17 @@
                         "decay": 0.0
                       }
                     }
-                  }
+                  },
+                  "name": "Single",
+                  "localisedName": "@FireMode_Single",
+                  "aiShootingMode": "Single"
                 }
-              }
+              },
+              "name": "Charge",
+              "localisedName": "@FireMode_Charge",
+              "aiShootingMode": "Charge"
             }
-          }
+          ]
         }
       },
       "ClassName": "BANU_TachyonCannon_S3",

@@ -1,18 +1,26 @@
 {
   "ammo": {
-    "className": "BEHR_LaserRepeater_VNG_S2_AMMO",
-    "reference": "a7e3e153-7118-4b67-a9ba-8cc9dc026ca9",
-    "damage": {
-      "physical": 0.0,
-      "energy": 55.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 2,
+    "lifetime": 2.4,
     "speed": 1005.0,
-    "range": 2412.0,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 55.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "BEHR_LaserRepeater_VNG_S2_AMMO",
+    "__ref": "a7e3e153-7118-4b67-a9ba-8cc9dc026ca9",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -204,10 +212,8 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionSequenceParams": {
-              "name": "Rapid",
-              "localisedName": "@FireMode_Rapid",
+          "fireActions": [
+            {
               "mode": "Looping",
               "sequenceEntries": [
                 {
@@ -215,10 +221,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Single",
-                      "fireRate": 310.0,
                       "heatPerShot": 2800.0,
+                      "fireRate": 310.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 0.0,
@@ -231,7 +235,10 @@
                             "decay": 2.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Single",
+                      "aiShootingMode": "Single"
                     }
                   }
                 },
@@ -240,10 +247,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Single",
-                      "fireRate": 310.0,
                       "heatPerShot": 2800.0,
+                      "fireRate": 310.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 0.0,
@@ -256,13 +261,19 @@
                             "decay": 0.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Single",
+                      "aiShootingMode": "Single"
                     }
                   }
                 }
-              ]
+              ],
+              "name": "Rapid",
+              "localisedName": "@FireMode_Rapid",
+              "aiShootingMode": "Rapid"
             }
-          }
+          ]
         }
       },
       "ClassName": "BEHR_LaserRepeater_VNG_S2",

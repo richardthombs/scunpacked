@@ -1,18 +1,26 @@
 {
   "ammo": {
-    "className": "APAR_BallisticScatterGun_S1_AMMO",
-    "reference": "05806814-03b0-4fa7-9358-0471484e2f8b",
-    "damage": {
-      "physical": 31.0,
-      "energy": 0.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 1.5,
     "speed": 1005.0,
-    "range": 1507.5,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 31.0,
+            "DamageEnergy": 0.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "APAR_BallisticScatterGun_S1_AMMO",
+    "__ref": "05806814-03b0-4fa7-9358-0471484e2f8b",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -204,12 +212,10 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionFireSingleParams": {
-              "name": "Single",
-              "localisedName": "@FireMode_Single",
-              "fireRate": 120.0,
+          "fireActions": [
+            {
               "heatPerShot": 3150.0,
+              "fireRate": 120.0,
               "launchParams": {
                 "SProjectileLauncher": {
                   "ammoCost": 1.0,
@@ -222,9 +228,12 @@
                     "decay": 0.6
                   }
                 }
-              }
+              },
+              "name": "Single",
+              "localisedName": "@FireMode_Single",
+              "aiShootingMode": "Single"
             }
-          }
+          ]
         }
       },
       "ClassName": "APAR_BallisticScatterGun_S1_Shark",

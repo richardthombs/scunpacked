@@ -1,18 +1,26 @@
 {
   "ammo": {
-    "className": "BEHR_BallisticRepeater_S3_AMMO",
-    "reference": "3475867f-3de3-4752-ac41-1382cf7510d0",
-    "damage": {
-      "physical": 112.0,
-      "energy": 0.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 2.4,
     "speed": 1139.0,
-    "range": 2733.6,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 112.0,
+            "DamageEnergy": 0.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "BEHR_BallisticRepeater_S3_AMMO",
+    "__ref": "3475867f-3de3-4752-ac41-1382cf7510d0",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -317,10 +325,8 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionSequenceParams": {
-              "name": "Rapid",
-              "localisedName": "@FireMode_Rapid",
+          "fireActions": [
+            {
               "mode": "Looping",
               "sequenceEntries": [
                 {
@@ -328,10 +334,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Single",
-                      "fireRate": 240.0,
                       "heatPerShot": 5400.0,
+                      "fireRate": 240.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 1.0,
@@ -344,7 +348,10 @@
                             "decay": 2.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Single",
+                      "aiShootingMode": "Single"
                     }
                   }
                 },
@@ -353,10 +360,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Single",
-                      "fireRate": 240.0,
                       "heatPerShot": 5400.0,
+                      "fireRate": 240.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 1.0,
@@ -369,13 +374,19 @@
                             "decay": 2.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Single",
+                      "aiShootingMode": "Single"
                     }
                   }
                 }
-              ]
+              ],
+              "name": "Rapid",
+              "localisedName": "@FireMode_Rapid",
+              "aiShootingMode": "Rapid"
             }
-          }
+          ]
         }
       },
       "ClassName": "BEHR_BallisticRepeater_S3",

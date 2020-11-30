@@ -1,26 +1,56 @@
 {
   "ammo": {
-    "className": "40mm_glauncher_ballistic",
-    "reference": "16396d69-cdf1-4375-8d57-641df1522c06",
-    "damage": {
-      "physical": 10.0,
-      "energy": 0.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 4.0,
     "speed": 50.0,
-    "range": 200.0,
-    "detonates": true,
-    "detonationDamage": {
-      "physical": 14.0,
-      "energy": 0.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    }
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 10.0,
+            "DamageEnergy": 0.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {
+          "ProjectileDetonationParams": {
+            "explosionParams": {
+              "friendlyFire": "None",
+              "minRadius": 0.25,
+              "maxRadius": 4.0,
+              "soundRadius": 50.0,
+              "minPhysRadius": 1.0,
+              "maxPhysRadius": 4.0,
+              "pressure": 250.0,
+              "holeSize": 0.0,
+              "terrainHoleSize": 3.0,
+              "maxblurdist": 10.0,
+              "effectScale": 1.0,
+              "useRandomScale": 0.0,
+              "effectScaleMin": 1.0,
+              "effectScaleMax": 1.0,
+              "hitType": "explosion",
+              "damage": [
+                {
+                  "DamagePhysical": 14.0,
+                  "DamageEnergy": 0.0,
+                  "DamageDistortion": 0.0,
+                  "DamageThermal": 0.0,
+                  "DamageBiochemical": 0.0,
+                  "DamageStun": 0.0
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "ClassName": "40mm_glauncher_ballistic",
+    "__ref": "16396d69-cdf1-4375-8d57-641df1522c06",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {

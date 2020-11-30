@@ -1,18 +1,26 @@
 {
   "ammo": {
-    "className": "KLWE_LaserRepeater_S1_AMMO",
-    "reference": "a6621417-3895-401b-b538-b7fff623ea98",
-    "damage": {
-      "physical": 0.0,
-      "energy": 36.2,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 1.1,
     "speed": 1206.0,
-    "range": 1326.6000000000001,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 36.2,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "KLWE_LaserRepeater_S1_AMMO",
+    "__ref": "a6621417-3895-401b-b538-b7fff623ea98",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -289,10 +297,8 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionSequenceParams": {
-              "name": "Rapid",
-              "localisedName": "@FireMode_Rapid",
+          "fireActions": [
+            {
               "mode": "Looping",
               "sequenceEntries": [
                 {
@@ -300,10 +306,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Single",
-                      "fireRate": 325.0,
                       "heatPerShot": 1550.769,
+                      "fireRate": 325.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 0.0,
@@ -316,7 +320,10 @@
                             "decay": 2.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Single",
+                      "aiShootingMode": "Single"
                     }
                   }
                 },
@@ -325,10 +332,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Single",
-                      "fireRate": 325.0,
                       "heatPerShot": 1550.769,
+                      "fireRate": 325.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 0.0,
@@ -341,7 +346,10 @@
                             "decay": 2.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Single",
+                      "aiShootingMode": "Single"
                     }
                   }
                 },
@@ -350,10 +358,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Single",
-                      "fireRate": 325.0,
                       "heatPerShot": 1550.769,
+                      "fireRate": 325.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 0.0,
@@ -366,13 +372,19 @@
                             "decay": 2.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Single",
+                      "aiShootingMode": "Single"
                     }
                   }
                 }
-              ]
+              ],
+              "name": "Rapid",
+              "localisedName": "@FireMode_Rapid",
+              "aiShootingMode": "Rapid"
             }
-          }
+          ]
         }
       },
       "ClassName": "KLWE_LaserRepeater_S1",

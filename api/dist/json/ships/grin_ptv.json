@@ -234,28 +234,25 @@
         {
           "name": "GRIN_PTV",
           "mass": "1500",
-          "damageMax": 0.0,
+          "damagemax": 500.0,
           "class": "Animated",
-          "skipPart": false,
           "Parts": [
             {
               "name": "massBox",
               "mass": "500",
-              "damageMax": 0.0,
-              "class": "MassBox",
-              "skipPart": false
+              "damagemax": 0.0,
+              "class": "MassBox"
             },
             {
               "name": "body",
               "damageMax": 200.0,
+              "damagemax": 0.0,
               "class": "AnimatedJoint",
-              "skipPart": false,
               "Parts": [
                 {
                   "name": "hardpoint_seat_driver",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -291,9 +288,8 @@
                 },
                 {
                   "name": "hardpoint_seat_passenger",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -329,9 +325,8 @@
                 },
                 {
                   "name": "hardpoint_controller_wheel",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -355,9 +350,8 @@
                 },
                 {
                   "name": "hardpoint_controller_energy",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -392,9 +386,8 @@
                 },
                 {
                   "name": "hardpoint_controller_cooler",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -417,9 +410,8 @@
                 },
                 {
                   "name": "hardpoint_controller_light",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -456,9 +448,8 @@
                 },
                 {
                   "name": "hardpoint_cooler",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 0,
                     "maxsize": 0,
@@ -484,9 +475,8 @@
                 },
                 {
                   "name": "hardpoint_fuel_intake",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -515,9 +505,8 @@
                 },
                 {
                   "name": "hardpoint_fuel_tank",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
@@ -542,9 +531,8 @@
                 },
                 {
                   "name": "hardpoint_powerplant",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 0,
                     "maxsize": 0,
@@ -570,9 +558,8 @@
                 },
                 {
                   "name": "hardpoint_seat_access",
-                  "damageMax": 0.0,
+                  "damagemax": 0.0,
                   "class": "ItemPort",
-                  "skipPart": false,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 4,
@@ -594,125 +581,160 @@
                     ]
                   }
                 }
+              ],
+              "DamageBehaviors": [
+                {
+                  "class": "DetachPart",
+                  "damageRatioMin": 1.0,
+                  "DetachPart": [
+                    {
+                      "name": "body",
+                      "damagemax": 0.0,
+                      "Probability": 1.0
+                    }
+                  ]
+                },
+                {
+                  "class": "DamagePart",
+                  "damageRatioMin": 1.0
+                },
+                {
+                  "class": "Group",
+                  "damageRatioMin": 1.0,
+                  "Group": {
+                    "name": "Destroy"
+                  }
+                }
               ]
             },
             {
               "name": "wheel1",
               "mass": "80",
-              "damageMax": 0.0,
+              "damagemax": 10.0,
               "class": "SubPartWheel",
-              "skipPart": false
+              "detachRatio": 1.0,
+              "DamageBehaviors": [
+                {
+                  "class": "BlowTire",
+                  "damageRatioMin": 1.0
+                }
+              ]
             },
             {
               "name": "wheel2",
               "mass": "80",
-              "damageMax": 0.0,
+              "damagemax": 10.0,
               "class": "SubPartWheel",
-              "skipPart": false
+              "detachRatio": 1.0,
+              "DamageBehaviors": [
+                {
+                  "class": "BlowTire",
+                  "damageRatioMin": 1.0
+                }
+              ]
             },
             {
               "name": "wheel3",
               "mass": "80",
-              "damageMax": 0.0,
+              "damagemax": 10.0,
               "class": "SubPartWheel",
-              "skipPart": false
+              "detachRatio": 1.0,
+              "DamageBehaviors": [
+                {
+                  "class": "BlowTire",
+                  "damageRatioMin": 1.0
+                }
+              ]
             },
             {
               "name": "wheel4",
               "mass": "80",
-              "damageMax": 0.0,
+              "damagemax": 10.0,
               "class": "SubPartWheel",
-              "skipPart": false
+              "detachRatio": 1.0,
+              "DamageBehaviors": [
+                {
+                  "class": "BlowTire",
+                  "damageRatioMin": 1.0
+                }
+              ]
             },
             {
               "name": "wheel1_bottom_wishbone",
               "mass": "10",
-              "damageMax": 0.0,
-              "class": "SuspensionPart",
-              "skipPart": false
+              "damagemax": 0.0,
+              "class": "SuspensionPart"
             },
             {
               "name": "wheel1_top_wishbone",
               "mass": "10",
-              "damageMax": 0.0,
-              "class": "SuspensionPart",
-              "skipPart": false
+              "damagemax": 0.0,
+              "class": "SuspensionPart"
             },
             {
               "name": "wheel1_damper",
               "mass": "10",
-              "damageMax": 0.0,
-              "class": "SuspensionPart",
-              "skipPart": false
+              "damagemax": 0.0,
+              "class": "SuspensionPart"
             },
             {
               "name": "wheel2_bottom_wishbone",
               "mass": "10",
-              "damageMax": 0.0,
-              "class": "SuspensionPart",
-              "skipPart": false
+              "damagemax": 0.0,
+              "class": "SuspensionPart"
             },
             {
               "name": "wheel2_top_wishbone",
               "mass": "10",
-              "damageMax": 0.0,
-              "class": "SuspensionPart",
-              "skipPart": false
+              "damagemax": 0.0,
+              "class": "SuspensionPart"
             },
             {
               "name": "wheel2_damper",
               "mass": "10",
-              "damageMax": 0.0,
-              "class": "SuspensionPart",
-              "skipPart": false
+              "damagemax": 0.0,
+              "class": "SuspensionPart"
             },
             {
               "name": "wheel3_bottom_wishbone",
               "mass": "10",
-              "damageMax": 0.0,
-              "class": "SuspensionPart",
-              "skipPart": false
+              "damagemax": 0.0,
+              "class": "SuspensionPart"
             },
             {
               "name": "wheel3_top_wishbone",
               "mass": "10",
-              "damageMax": 0.0,
-              "class": "SuspensionPart",
-              "skipPart": false
+              "damagemax": 0.0,
+              "class": "SuspensionPart"
             },
             {
               "name": "wheel3_damper",
               "mass": "10",
-              "damageMax": 0.0,
-              "class": "SuspensionPart",
-              "skipPart": false
+              "damagemax": 0.0,
+              "class": "SuspensionPart"
             },
             {
               "name": "wheel4_bottom_wishbone",
               "mass": "10",
-              "damageMax": 0.0,
-              "class": "SuspensionPart",
-              "skipPart": false
+              "damagemax": 0.0,
+              "class": "SuspensionPart"
             },
             {
               "name": "wheel4_top_wishbone",
               "mass": "10",
-              "damageMax": 0.0,
-              "class": "SuspensionPart",
-              "skipPart": false
+              "damagemax": 0.0,
+              "class": "SuspensionPart"
             },
             {
               "name": "wheel4_damper",
               "mass": "10",
-              "damageMax": 0.0,
-              "class": "SuspensionPart",
-              "skipPart": false
+              "damagemax": 0.0,
+              "class": "SuspensionPart"
             },
             {
               "name": "hardpoint_paint",
-              "damageMax": 0.0,
+              "damagemax": 0.0,
               "class": "ItemPort",
-              "skipPart": false,
               "ItemPort": {
                 "minsize": 1,
                 "maxsize": 1,
@@ -728,9 +750,8 @@
             },
             {
               "name": "hardpoint_ObjectContainer",
-              "damageMax": 0.0,
+              "damagemax": 0.0,
               "class": "ItemPort",
-              "skipPart": false,
               "ItemPort": {
                 "minsize": 1,
                 "maxsize": 1,
@@ -745,9 +766,8 @@
             },
             {
               "name": "hardpoint_controller_weapon",
-              "damageMax": 0.0,
+              "damagemax": 0.0,
               "class": "ItemPort",
-              "skipPart": false,
               "ItemPort": {
                 "minsize": 1,
                 "maxsize": 1,

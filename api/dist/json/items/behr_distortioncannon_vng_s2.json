@@ -1,26 +1,56 @@
 {
   "ammo": {
-    "className": "BEHR_DistortionCannon_VNG_S2_AMMO",
-    "reference": "046922c9-c0e4-4db5-82f6-979808475052",
-    "damage": {
-      "physical": 0.0,
-      "energy": 0.0,
-      "distortion": 1.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 2.5,
     "speed": 840.0,
-    "range": 2100.0,
-    "detonates": true,
-    "detonationDamage": {
-      "physical": 0.0,
-      "energy": 0.0,
-      "distortion": 480.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    }
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 0.0,
+            "DamageDistortion": 1.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {
+          "ProjectileDetonationParams": {
+            "explosionParams": {
+              "friendlyFire": "None",
+              "minRadius": 5.0,
+              "maxRadius": 7.5,
+              "soundRadius": 50.0,
+              "minPhysRadius": 2.5,
+              "maxPhysRadius": 5.0,
+              "pressure": 200.0,
+              "holeSize": 0.0,
+              "terrainHoleSize": 3.0,
+              "maxblurdist": 10.0,
+              "effectScale": 1.0,
+              "useRandomScale": 0.0,
+              "effectScaleMin": 1.0,
+              "effectScaleMax": 1.0,
+              "hitType": "explosion",
+              "damage": [
+                {
+                  "DamagePhysical": 0.0,
+                  "DamageEnergy": 0.0,
+                  "DamageDistortion": 480.0,
+                  "DamageThermal": 0.0,
+                  "DamageBiochemical": 0.0,
+                  "DamageStun": 0.0
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "ClassName": "BEHR_DistortionCannon_VNG_S2_AMMO",
+    "__ref": "046922c9-c0e4-4db5-82f6-979808475052",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -212,10 +242,8 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionSequenceParams": {
-              "name": "",
-              "localisedName": "@LOC_PLACEHOLDER",
+          "fireActions": [
+            {
               "mode": "Looping",
               "sequenceEntries": [
                 {
@@ -223,10 +251,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Rapid",
-                      "fireRate": 88.0,
                       "heatPerShot": 10500.0,
+                      "fireRate": 88.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 0.0,
@@ -239,13 +265,19 @@
                             "decay": 0.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Rapid",
+                      "aiShootingMode": "Single"
                     }
                   }
                 }
-              ]
+              ],
+              "name": "",
+              "localisedName": "@LOC_PLACEHOLDER",
+              "aiShootingMode": "Single"
             }
-          }
+          ]
         }
       },
       "ClassName": "BEHR_DistortionCannon_VNG_S2",

@@ -1,18 +1,26 @@
 {
   "ammo": {
-    "className": "BEHR_BallisticGatling_S4_AMMO",
-    "reference": "5a9bee40-c82f-4efb-9b05-992ac83b35e7",
-    "damage": {
-      "physical": 100.0,
-      "energy": 0.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 4,
+    "lifetime": 2.21,
     "speed": 1680.0,
-    "range": 3712.7999999999997,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 100.0,
+            "DamageEnergy": 0.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "BEHR_BallisticGatling_S4_AMMO",
+    "__ref": "5a9bee40-c82f-4efb-9b05-992ac83b35e7",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -317,15 +325,13 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionFireRapidParams": {
+          "fireActions": [
+            {
               "spinUpTime": 0.8,
               "spinDownTime": 1.5,
               "spinParam": "spin_speed",
-              "name": "Rapid",
-              "localisedName": "@FireMode_Rapid",
-              "fireRate": 1300.0,
               "heatPerShot": 2051.07,
+              "fireRate": 1300.0,
               "launchParams": {
                 "SProjectileLauncher": {
                   "ammoCost": 1.0,
@@ -338,9 +344,12 @@
                     "decay": 0.01
                   }
                 }
-              }
+              },
+              "name": "Rapid",
+              "localisedName": "@FireMode_Rapid",
+              "aiShootingMode": "Rapid"
             }
-          }
+          ]
         }
       },
       "ClassName": "BEHR_BallisticGatling_S4",

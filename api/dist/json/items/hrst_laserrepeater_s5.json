@@ -1,18 +1,26 @@
 {
   "ammo": {
-    "className": "HRST_LaserRepeater_S5_AMMO",
-    "reference": "29b47e6c-114f-4ee7-8bde-f8e3c114ef32",
-    "damage": {
-      "physical": 0.0,
-      "energy": 206.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 2.4,
     "speed": 1875.0,
-    "range": 4500.0,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 206.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "HRST_LaserRepeater_S5_AMMO",
+    "__ref": "29b47e6c-114f-4ee7-8bde-f8e3c114ef32",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -317,10 +325,8 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionSequenceParams": {
-              "name": "Rapid",
-              "localisedName": "@FireMode_Rapid",
+          "fireActions": [
+            {
               "mode": "Looping",
               "sequenceEntries": [
                 {
@@ -328,10 +334,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Single",
-                      "fireRate": 270.0,
                       "heatPerShot": 22950.0,
+                      "fireRate": 270.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 0.0,
@@ -344,7 +348,10 @@
                             "decay": 2.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Single",
+                      "aiShootingMode": "Single"
                     }
                   }
                 },
@@ -353,10 +360,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Single",
-                      "fireRate": 270.0,
                       "heatPerShot": 22950.0,
+                      "fireRate": 270.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 0.0,
@@ -369,13 +374,19 @@
                             "decay": 2.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Single",
+                      "aiShootingMode": "Single"
                     }
                   }
                 }
-              ]
+              ],
+              "name": "Rapid",
+              "localisedName": "@FireMode_Rapid",
+              "aiShootingMode": "Rapid"
             }
-          }
+          ]
         }
       },
       "ClassName": "HRST_LaserRepeater_S5",

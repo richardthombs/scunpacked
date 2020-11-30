@@ -40,19 +40,27 @@
     "__type": "EntityClassDefinition"
   },
   "ammo": {
-    "className": "6mm_pistol_laser",
-    "reference": "3df54597-132f-4817-ac0c-337c6410c620",
-    "damage": {
-      "physical": 0.0,
-      "energy": 5.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 2.0,
     "speed": 600.0,
-    "range": 1200.0,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 5.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "6mm_pistol_laser",
+    "__ref": "3df54597-132f-4817-ac0c-337c6410c620",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -269,15 +277,13 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionFireRapidParams": {
+          "fireActions": [
+            {
               "spinUpTime": 0.0,
               "spinDownTime": 0.0,
               "spinParam": "spin_speed",
-              "name": "Rapid",
-              "localisedName": "@FireMode_Rapid",
-              "fireRate": 800.0,
               "heatPerShot": 0.0,
+              "fireRate": 800.0,
               "launchParams": {
                 "SProjectileLauncher": {
                   "ammoCost": 1.0,
@@ -290,19 +296,44 @@
                     "decay": 8.0
                   }
                 }
-              }
+              },
+              "name": "Rapid",
+              "localisedName": "@FireMode_Rapid",
+              "aiShootingMode": "Rapid"
             },
-            "SWeaponActionFireChargedParams": {
-              "name": "Charge",
-              "localisedName": "@FireMode_Charge",
-              "aiShootingMode": "Charge",
+            {
               "chargeTime": 3.0,
               "overchargeTime": 4.0,
               "overchargedTime": 2.0,
               "cooldownTime": 0.8,
-              "weaponAction": {}
+              "weaponAction": {
+                "SWeaponActionFireBurstParams": {
+                  "shotCount": 3.0,
+                  "heatPerShot": 0.0,
+                  "fireRate": 900.0,
+                  "launchParams": {
+                    "SProjectileLauncher": {
+                      "ammoCost": 1.0,
+                      "pelletCount": 1.0,
+                      "spreadParams": {
+                        "min": 0.1,
+                        "max": 3.5,
+                        "firstAttack": 1.13,
+                        "attack": 1.02,
+                        "decay": 8.0
+                      }
+                    }
+                  },
+                  "name": "Burst",
+                  "localisedName": "@FireMode_Burst",
+                  "aiShootingMode": "Burst"
+                }
+              },
+              "name": "Charge",
+              "localisedName": "@FireMode_Charge",
+              "aiShootingMode": "Charge"
             }
-          }
+          ]
         },
         "SEntityInteractableParams": {
           "Interactable": {

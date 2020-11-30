@@ -1,18 +1,12 @@
 {
   "ammo": {
-    "className": "JOKR_Chaff",
-    "reference": "6c4fdf64-425c-4722-b286-dfedb06e8cfb",
-    "damage": {
-      "physical": 0.0,
-      "energy": 0.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 0,
+    "lifetime": 0.8,
     "speed": 180.0,
-    "range": 144.0,
-    "detonates": false
+    "projectileParams": {},
+    "ClassName": "JOKR_Chaff",
+    "__ref": "6c4fdf64-425c-4722-b286-dfedb06e8cfb",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -161,12 +155,10 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionFireSingleParams": {
-              "name": "Single",
-              "localisedName": "@FireMode_Single",
-              "fireRate": 50.0,
+          "fireActions": [
+            {
               "heatPerShot": 0.0,
+              "fireRate": 50.0,
               "launchParams": {
                 "SProjectileLauncher": {
                   "ammoCost": 1.0,
@@ -179,9 +171,12 @@
                     "decay": 0.0
                   }
                 }
-              }
+              },
+              "name": "Single",
+              "localisedName": "@FireMode_Single",
+              "aiShootingMode": "Single"
             }
-          }
+          ]
         }
       },
       "ClassName": "AEGS_Hammerhead_CML_Chaff",

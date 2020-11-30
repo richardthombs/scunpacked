@@ -1,18 +1,26 @@
 {
   "ammo": {
-    "className": "KLWE_MassDriver_S1_AMMO",
-    "reference": "0a5aaecf-9884-4a9f-9087-03a269dcb26c",
-    "damage": {
-      "physical": 100.0,
-      "energy": 0.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 2.25,
     "speed": 1054.0,
-    "range": 2371.5,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 100.0,
+            "DamageEnergy": 0.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "KLWE_MassDriver_S1_AMMO",
+    "__ref": "0a5aaecf-9884-4a9f-9087-03a269dcb26c",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -317,12 +325,10 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionFireSingleParams": {
-              "name": "Single",
-              "localisedName": "@FireMode_Single",
-              "fireRate": 66.0,
+          "fireActions": [
+            {
               "heatPerShot": 14000.0,
+              "fireRate": 66.0,
               "launchParams": {
                 "SProjectileLauncher": {
                   "ammoCost": 1.0,
@@ -335,9 +341,12 @@
                     "decay": 0.05
                   }
                 }
-              }
+              },
+              "name": "Single",
+              "localisedName": "@FireMode_Single",
+              "aiShootingMode": "Single"
             }
-          }
+          ]
         }
       },
       "ClassName": "KLWE_MassDriver_S1",

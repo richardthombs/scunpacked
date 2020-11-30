@@ -40,19 +40,27 @@
     "__type": "EntityClassDefinition"
   },
   "ammo": {
-    "className": "10mm_lmg_laser",
-    "reference": "c8c17e99-19c3-4687-ac70-a98d133b0900",
-    "damage": {
-      "physical": 0.0,
-      "energy": 7.9,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 4.0,
     "speed": 600.0,
-    "range": 2400.0,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 7.9,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "10mm_lmg_laser",
+    "__ref": "c8c17e99-19c3-4687-ac70-a98d133b0900",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -270,15 +278,13 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionFireRapidParams": {
+          "fireActions": [
+            {
               "spinUpTime": 0.0,
               "spinDownTime": 0.0,
               "spinParam": "spin_speed",
-              "name": "Rapid",
-              "localisedName": "@FireMode_Rapid",
-              "fireRate": 400.0,
               "heatPerShot": 0.0,
+              "fireRate": 400.0,
               "launchParams": {
                 "SProjectileLauncher": {
                   "ammoCost": 1.0,
@@ -291,9 +297,12 @@
                     "decay": 8.0
                   }
                 }
-              }
+              },
+              "name": "Rapid",
+              "localisedName": "@FireMode_Rapid",
+              "aiShootingMode": "Rapid"
             }
-          }
+          ]
         },
         "SEntityInteractableParams": {
           "Interactable": {

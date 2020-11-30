@@ -40,19 +40,27 @@
     "__type": "EntityClassDefinition"
   },
   "ammo": {
-    "className": "12g_ballistic_1",
-    "reference": "d905c52f-ac42-41b8-818a-bbbda6481819",
-    "damage": {
-      "physical": 5.0,
-      "energy": 0.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 2.0,
     "speed": 300.0,
-    "range": 600.0,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 5.0,
+            "DamageEnergy": 0.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "12g_ballistic_1",
+    "__ref": "d905c52f-ac42-41b8-818a-bbbda6481819",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -252,10 +260,8 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionSequenceParams": {
-              "name": "Single",
-              "localisedName": "@FireMode_Single",
+          "fireActions": [
+            {
               "mode": "Looping",
               "sequenceEntries": [
                 {
@@ -263,10 +269,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Single",
-                      "fireRate": 105.0,
                       "heatPerShot": 0.0,
+                      "fireRate": 105.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 1.0,
@@ -279,7 +283,10 @@
                             "decay": 5.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Single",
+                      "aiShootingMode": "Single"
                     }
                   }
                 },
@@ -288,10 +295,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Single",
-                      "fireRate": 105.0,
                       "heatPerShot": 0.0,
+                      "fireRate": 105.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 1.0,
@@ -304,13 +309,79 @@
                             "decay": 5.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Single",
+                      "aiShootingMode": "Single"
                     }
                   }
                 }
-              ]
+              ],
+              "name": "Single",
+              "localisedName": "@FireMode_Single",
+              "aiShootingMode": "Single"
+            },
+            {
+              "mode": "Automatically",
+              "sequenceEntries": [
+                {
+                  "delay": 90.0,
+                  "unit": "RPM",
+                  "weaponAction": {
+                    "SWeaponActionFireSingleParams": {
+                      "heatPerShot": 0.0,
+                      "fireRate": 800.0,
+                      "launchParams": {
+                        "SProjectileLauncher": {
+                          "ammoCost": 1.0,
+                          "pelletCount": 8.0,
+                          "spreadParams": {
+                            "min": 5.0,
+                            "max": 9.0,
+                            "firstAttack": 2.5,
+                            "attack": 2.2,
+                            "decay": 5.0
+                          }
+                        }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Single",
+                      "aiShootingMode": "Single"
+                    }
+                  }
+                },
+                {
+                  "delay": 0.0,
+                  "unit": "Seconds",
+                  "weaponAction": {
+                    "SWeaponActionFireSingleParams": {
+                      "heatPerShot": 0.0,
+                      "fireRate": 800.0,
+                      "launchParams": {
+                        "SProjectileLauncher": {
+                          "ammoCost": 1.0,
+                          "pelletCount": 8.0,
+                          "spreadParams": {
+                            "min": 5.0,
+                            "max": 9.0,
+                            "firstAttack": 2.5,
+                            "attack": 2.2,
+                            "decay": 5.0
+                          }
+                        }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Single",
+                      "aiShootingMode": "Single"
+                    }
+                  }
+                }
+              ],
+              "name": "Burst",
+              "localisedName": "@FireMode_Burst",
+              "aiShootingMode": "Single"
             }
-          }
+          ]
         },
         "SEntityInteractableParams": {
           "Interactable": {

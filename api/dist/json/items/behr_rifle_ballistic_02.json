@@ -218,34 +218,13 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionFireSingleParams": {
-              "name": "Single",
-              "localisedName": "@FireMode_Single",
-              "fireRate": 400.0,
-              "heatPerShot": 0.0,
-              "launchParams": {
-                "SProjectileLauncher": {
-                  "ammoCost": 1.0,
-                  "pelletCount": 1.0,
-                  "spreadParams": {
-                    "min": 0.05,
-                    "max": 1.92,
-                    "firstAttack": 1.48,
-                    "attack": 1.34,
-                    "decay": 3.8
-                  }
-                }
-              }
-            },
-            "SWeaponActionFireRapidParams": {
+          "fireActions": [
+            {
               "spinUpTime": 0.0,
               "spinDownTime": 0.0,
               "spinParam": "spin_speed",
-              "name": "Rapid",
-              "localisedName": "@FireMode_Rapid",
-              "fireRate": 600.0,
               "heatPerShot": 0.0,
+              "fireRate": 600.0,
               "launchParams": {
                 "SProjectileLauncher": {
                   "ammoCost": 1.0,
@@ -258,9 +237,32 @@
                     "decay": 6.2
                   }
                 }
-              }
+              },
+              "name": "Rapid",
+              "localisedName": "@FireMode_Rapid",
+              "aiShootingMode": "Rapid"
+            },
+            {
+              "heatPerShot": 0.0,
+              "fireRate": 400.0,
+              "launchParams": {
+                "SProjectileLauncher": {
+                  "ammoCost": 1.0,
+                  "pelletCount": 1.0,
+                  "spreadParams": {
+                    "min": 0.05,
+                    "max": 1.92,
+                    "firstAttack": 1.48,
+                    "attack": 1.34,
+                    "decay": 3.8
+                  }
+                }
+              },
+              "name": "Single",
+              "localisedName": "@FireMode_Single",
+              "aiShootingMode": "Single"
             }
-          }
+          ]
         },
         "SEntityInteractableParams": {
           "Interactable": {

@@ -40,19 +40,27 @@
     "__type": "EntityClassDefinition"
   },
   "ammo": {
-    "className": "10mm_rifle_laser",
-    "reference": "ee8f19ed-edd8-44ce-baa1-743afd10d5ce",
-    "damage": {
-      "physical": 0.0,
-      "energy": 6.24,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 4.0,
     "speed": 600.0,
-    "range": 2400.0,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 6.24,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "10mm_rifle_laser",
+    "__ref": "ee8f19ed-edd8-44ce-baa1-743afd10d5ce",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -269,15 +277,13 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionFireRapidParams": {
+          "fireActions": [
+            {
               "spinUpTime": 0.0,
               "spinDownTime": 0.0,
               "spinParam": "spin_speed",
-              "name": "Rapid",
-              "localisedName": "@FireMode_Rapid",
-              "fireRate": 451.0,
               "heatPerShot": 0.0,
+              "fireRate": 451.0,
               "launchParams": {
                 "SProjectileLauncher": {
                   "ammoCost": 1.0,
@@ -290,9 +296,33 @@
                     "decay": 6.1
                   }
                 }
-              }
+              },
+              "name": "Rapid",
+              "localisedName": "@FireMode_Rapid",
+              "aiShootingMode": "Rapid"
+            },
+            {
+              "shotCount": 5.0,
+              "heatPerShot": 0.0,
+              "fireRate": 700.0,
+              "launchParams": {
+                "SProjectileLauncher": {
+                  "ammoCost": 1.0,
+                  "pelletCount": 1.0,
+                  "spreadParams": {
+                    "min": 0.05,
+                    "max": 2.41,
+                    "firstAttack": 1.21,
+                    "attack": 1.03,
+                    "decay": 5.0
+                  }
+                }
+              },
+              "name": "Burst",
+              "localisedName": "@FireMode_Burst",
+              "aiShootingMode": "Burst"
             }
-          }
+          ]
         },
         "SEntityInteractableParams": {
           "Interactable": {

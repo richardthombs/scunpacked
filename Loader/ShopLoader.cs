@@ -26,11 +26,13 @@ namespace Loader
 		};
 
 		LocalisationService localisationService;
+		EntityService entitySvc;
 		List<RentalTemplate> rentalTemplates;
 
-		public ShopLoader(LocalisationService localisationService)
+		public ShopLoader(LocalisationService localisationService, EntityService entitySvc)
 		{
 			this.localisationService = localisationService;
+			this.entitySvc = entitySvc;
 		}
 
 		public List<Shop> Load()
@@ -67,11 +69,7 @@ namespace Loader
 				shop.inventory = GetInventory(productList, shopNode).ToArray();
 				shops.Add(shop);
 
-				Console.WriteLine($"{shop.containerPath}: {shop.name}, {shop.inventory.Length} items");
-				foreach (var i in shop.inventory)
-				{
-					Console.WriteLine($@"{(i.shopBuysThis ? "Buys" : "")} {(i.shopSellsThis ? "Sells" : "")} {i.name} {i.basePrice} {i.basePriceOffsetPercentage:n0}%");
-				}
+				Console.WriteLine($"ShopLoader: {shop.containerPath}");
 			}
 
 			File.WriteAllText(Path.Combine(OutputFolder, "shops.json"), JsonConvert.SerializeObject(shops));
@@ -108,11 +106,10 @@ namespace Loader
 				foreach (var itemNode in shopNode.ShopInventoryNodes)
 				{
 					var product = FindInventoryNode(prices, itemNode.InventoryID);
-					if (product == null) Console.WriteLine($"Can't find product {itemNode.Name} ({itemNode.InventoryID}) ");
+					if (product == null) Console.WriteLine($"ShopLoader: Can't find product {itemNode.Name} ({itemNode.InventoryID}) ");
 					else
 					{
-						var parser = new ClassParser<EntityClassDefinition>();
-						var entity = parser.Parse(Path.Combine(DataRoot, product.Filename));
+						var entity = entitySvc.GetByFilename(Path.Combine(DataRoot, product.Filename));
 
 						var item = new ShopItem
 						{
@@ -207,7 +204,7 @@ namespace Loader
 		{
 			if (ShopNames.Lookup.ContainsKey(internalName)) return ShopNames.Lookup[internalName];
 
-			Console.WriteLine($"Don't know the friendly name for shop '{internalName}'");
+			Console.WriteLine($"ShopLoader: Don't know the friendly name for shop '{internalName}'");
 			return internalName;
 		}
 	}

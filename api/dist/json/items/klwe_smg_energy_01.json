@@ -40,19 +40,27 @@
     "__type": "EntityClassDefinition"
   },
   "ammo": {
-    "className": "6mm_pistol_laser",
-    "reference": "3df54597-132f-4817-ac0c-337c6410c620",
-    "damage": {
-      "physical": 0.0,
-      "energy": 5.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 2.0,
     "speed": 600.0,
-    "range": 1200.0,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 5.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "6mm_pistol_laser",
+    "__ref": "3df54597-132f-4817-ac0c-337c6410c620",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -273,20 +281,43 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionSequenceParams": {
-              "name": "Burst",
-              "localisedName": "@ui_weapons_firemode_burst",
+          "fireActions": [
+            {
               "mode": "Looping",
               "sequenceEntries": [
                 {
                   "delay": 0.5,
                   "unit": "Seconds",
-                  "weaponAction": {}
+                  "weaponAction": {
+                    "SWeaponActionFireBurstParams": {
+                      "shotCount": 5.0,
+                      "heatPerShot": 0.0,
+                      "fireRate": 1125.0,
+                      "launchParams": {
+                        "SProjectileLauncher": {
+                          "ammoCost": 1.0,
+                          "pelletCount": 1.0,
+                          "spreadParams": {
+                            "min": 0.06,
+                            "max": 3.25,
+                            "firstAttack": 1.11,
+                            "attack": 1.09,
+                            "decay": 4.0
+                          }
+                        }
+                      },
+                      "name": "Burst",
+                      "localisedName": "@FireMode_Burst",
+                      "aiShootingMode": "Burst"
+                    }
+                  }
                 }
-              ]
+              ],
+              "name": "Burst",
+              "localisedName": "@ui_weapons_firemode_burst",
+              "aiShootingMode": "Single"
             }
-          }
+          ]
         },
         "SEntityInteractableParams": {
           "Interactable": {

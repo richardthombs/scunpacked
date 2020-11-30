@@ -1,18 +1,26 @@
 {
   "ammo": {
-    "className": "KLWE_MassDriver_S10_AMMO",
-    "reference": "b9bcc6b8-1233-42c1-8a89-ed8bc7459fb5",
-    "damage": {
-      "physical": 10000.0,
-      "energy": 0.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 9.3,
     "speed": 1675.0,
-    "range": 15577.500000000002,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 10000.0,
+            "DamageEnergy": 0.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "KLWE_MassDriver_S10_AMMO",
+    "__ref": "b9bcc6b8-1233-42c1-8a89-ed8bc7459fb5",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -204,21 +212,16 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionFireChargedParams": {
-              "name": "Charge",
-              "localisedName": "@FireMode_Charge",
-              "aiShootingMode": "Charge",
+          "fireActions": [
+            {
               "chargeTime": 10.0,
               "overchargeTime": 10.0,
               "overchargedTime": 20.0,
               "cooldownTime": 5.0,
               "weaponAction": {
                 "SWeaponActionFireSingleParams": {
-                  "name": "Single",
-                  "localisedName": "@FireMode_Single",
-                  "fireRate": 18.0,
                   "heatPerShot": 8457625.0,
+                  "fireRate": 18.0,
                   "launchParams": {
                     "SProjectileLauncher": {
                       "ammoCost": 1.0,
@@ -231,11 +234,17 @@
                         "decay": 0.0
                       }
                     }
-                  }
+                  },
+                  "name": "Single",
+                  "localisedName": "@FireMode_Single",
+                  "aiShootingMode": "Single"
                 }
-              }
+              },
+              "name": "Charge",
+              "localisedName": "@FireMode_Charge",
+              "aiShootingMode": "Charge"
             }
-          }
+          ]
         }
       },
       "ClassName": "KLWE_MassDriver_S10",

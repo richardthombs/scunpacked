@@ -1,26 +1,56 @@
 {
   "ammo": {
-    "className": "ASAD_DistortionRepeater_S3_AMMO",
-    "reference": "dc127a3f-4b16-4a82-a493-5c070e1d1190",
-    "damage": {
-      "physical": 0.0,
-      "energy": 0.0,
-      "distortion": 1.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 1.5,
     "speed": 1541.0,
-    "range": 2311.5,
-    "detonates": true,
-    "detonationDamage": {
-      "physical": 0.0,
-      "energy": 0.0,
-      "distortion": 160.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    }
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 0.0,
+            "DamageDistortion": 1.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {
+          "ProjectileDetonationParams": {
+            "explosionParams": {
+              "friendlyFire": "None",
+              "minRadius": 2.0,
+              "maxRadius": 5.0,
+              "soundRadius": 50.0,
+              "minPhysRadius": 2.5,
+              "maxPhysRadius": 5.0,
+              "pressure": 200.0,
+              "holeSize": 0.0,
+              "terrainHoleSize": 3.0,
+              "maxblurdist": 10.0,
+              "effectScale": 1.0,
+              "useRandomScale": 0.0,
+              "effectScaleMin": 1.0,
+              "effectScaleMax": 1.0,
+              "hitType": "explosion",
+              "damage": [
+                {
+                  "DamagePhysical": 0.0,
+                  "DamageEnergy": 0.0,
+                  "DamageDistortion": 160.0,
+                  "DamageThermal": 0.0,
+                  "DamageBiochemical": 0.0,
+                  "DamageStun": 0.0
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "ClassName": "ASAD_DistortionRepeater_S3_AMMO",
+    "__ref": "dc127a3f-4b16-4a82-a493-5c070e1d1190",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -325,10 +355,8 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionSequenceParams": {
-              "name": "Rapid",
-              "localisedName": "@FireMode_Rapid",
+          "fireActions": [
+            {
               "mode": "Looping",
               "sequenceEntries": [
                 {
@@ -336,10 +364,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Single",
-                      "fireRate": 280.0,
                       "heatPerShot": 5400.0,
+                      "fireRate": 280.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 0.0,
@@ -352,7 +378,10 @@
                             "decay": 2.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Single",
+                      "aiShootingMode": "Single"
                     }
                   }
                 },
@@ -361,10 +390,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Single",
-                      "fireRate": 280.0,
                       "heatPerShot": 5400.0,
+                      "fireRate": 280.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 0.0,
@@ -377,13 +404,19 @@
                             "decay": 2.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Single",
+                      "aiShootingMode": "Single"
                     }
                   }
                 }
-              ]
+              ],
+              "name": "Rapid",
+              "localisedName": "@FireMode_Rapid",
+              "aiShootingMode": "Rapid"
             }
-          }
+          ]
         }
       },
       "ClassName": "ASAD_DistortionRepeater_S3",

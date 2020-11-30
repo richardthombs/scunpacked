@@ -40,19 +40,27 @@
     "__type": "EntityClassDefinition"
   },
   "ammo": {
-    "className": "12g_plasma",
-    "reference": "745b77f9-7064-4d98-98a9-95cfe948605c",
-    "damage": {
-      "physical": 0.0,
-      "energy": 6.5,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 2.0,
     "speed": 300.0,
-    "range": 600.0,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 6.5,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "12g_plasma",
+    "__ref": "745b77f9-7064-4d98-98a9-95cfe948605c",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -273,21 +281,16 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionFireChargedParams": {
-              "name": "Charge",
-              "localisedName": "@FireMode_Charge",
-              "aiShootingMode": "Charge",
+          "fireActions": [
+            {
               "chargeTime": 3.0,
               "overchargeTime": 5.0,
               "overchargedTime": 2.0,
               "cooldownTime": 1.0,
               "weaponAction": {
                 "SWeaponActionFireSingleParams": {
-                  "name": "Single",
-                  "localisedName": "@FireMode_Single",
-                  "fireRate": 60.0,
                   "heatPerShot": 0.0,
+                  "fireRate": 60.0,
                   "launchParams": {
                     "SProjectileLauncher": {
                       "ammoCost": 1.0,
@@ -300,11 +303,17 @@
                         "decay": 3.0
                       }
                     }
-                  }
+                  },
+                  "name": "Single",
+                  "localisedName": "@FireMode_Single",
+                  "aiShootingMode": "Single"
                 }
-              }
+              },
+              "name": "Charge",
+              "localisedName": "@FireMode_Charge",
+              "aiShootingMode": "Charge"
             }
-          }
+          ]
         },
         "SEntityInteractableParams": {
           "Interactable": {

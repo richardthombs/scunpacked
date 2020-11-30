@@ -1,18 +1,26 @@
 {
   "ammo": {
-    "className": "VNCL_PlasmaCannon_S5_AMMO",
-    "reference": "39f6b291-9dc3-42dc-83c1-866cfcc3c7a9",
-    "damage": {
-      "physical": 0.0,
-      "energy": 979.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 4.86,
     "speed": 935.0,
-    "range": 4544.1,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 979.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "VNCL_PlasmaCannon_S5_AMMO",
+    "__ref": "39f6b291-9dc3-42dc-83c1-866cfcc3c7a9",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -204,10 +212,8 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionSequenceParams": {
-              "name": "Single",
-              "localisedName": "@FireMode_Single",
+          "fireActions": [
+            {
               "mode": "Looping",
               "sequenceEntries": [
                 {
@@ -215,10 +221,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Rapid",
-                      "fireRate": 47.0,
                       "heatPerShot": 131840.4,
+                      "fireRate": 47.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 0.0,
@@ -231,13 +235,19 @@
                             "decay": 0.05
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Rapid",
+                      "aiShootingMode": "Single"
                     }
                   }
                 }
-              ]
+              ],
+              "name": "Single",
+              "localisedName": "@FireMode_Single",
+              "aiShootingMode": "Single"
             }
-          }
+          ]
         }
       },
       "ClassName": "VNCL_PlasmaCannon_S5",

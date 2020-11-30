@@ -1,26 +1,56 @@
 {
   "ammo": {
-    "className": "JOKR_DistortionCannon_S1_AMMO",
-    "reference": "ca6ef1f4-3d39-4588-ba73-5b0a3a32c59a",
-    "damage": {
-      "physical": 0.0,
-      "energy": 0.0,
-      "distortion": 1.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 1.32,
     "speed": 950.0,
-    "range": 1254.0,
-    "detonates": true,
-    "detonationDamage": {
-      "physical": 0.0,
-      "energy": 0.0,
-      "distortion": 330.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    }
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 0.0,
+            "DamageDistortion": 1.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {
+          "ProjectileDetonationParams": {
+            "explosionParams": {
+              "friendlyFire": "None",
+              "minRadius": 2.5,
+              "maxRadius": 5.0,
+              "soundRadius": 50.0,
+              "minPhysRadius": 2.5,
+              "maxPhysRadius": 5.0,
+              "pressure": 200.0,
+              "holeSize": 0.0,
+              "terrainHoleSize": 3.0,
+              "maxblurdist": 10.0,
+              "effectScale": 1.0,
+              "useRandomScale": 0.0,
+              "effectScaleMin": 1.0,
+              "effectScaleMax": 1.0,
+              "hitType": "explosion",
+              "damage": [
+                {
+                  "DamagePhysical": 0.0,
+                  "DamageEnergy": 0.0,
+                  "DamageDistortion": 330.0,
+                  "DamageThermal": 0.0,
+                  "DamageBiochemical": 0.0,
+                  "DamageStun": 0.0
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "ClassName": "JOKR_DistortionCannon_S1_AMMO",
+    "__ref": "ca6ef1f4-3d39-4588-ba73-5b0a3a32c59a",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -325,10 +355,8 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionSequenceParams": {
-              "name": "",
-              "localisedName": "@LOC_PLACEHOLDER",
+          "fireActions": [
+            {
               "mode": "Looping",
               "sequenceEntries": [
                 {
@@ -336,10 +364,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Rapid",
-                      "fireRate": 93.0,
                       "heatPerShot": 4741.935,
+                      "fireRate": 93.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 0.0,
@@ -352,13 +378,19 @@
                             "decay": 0.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Rapid",
+                      "aiShootingMode": "Single"
                     }
                   }
                 }
-              ]
+              ],
+              "name": "",
+              "localisedName": "@LOC_PLACEHOLDER",
+              "aiShootingMode": "Single"
             }
-          }
+          ]
         }
       },
       "ClassName": "JOKR_DistortionCannon_S1",

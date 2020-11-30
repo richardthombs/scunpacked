@@ -36,19 +36,27 @@
     "__type": "EntityClassDefinition"
   },
   "ammo": {
-    "className": "50cal_sniper_ballistic",
-    "reference": "4301f98b-0f06-462f-8fda-27bc37dc06fd",
-    "damage": {
-      "physical": 22.0,
-      "energy": 0.0,
-      "distortion": 0.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 2.0,
     "speed": 900.0,
-    "range": 1800.0,
-    "detonates": false
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 22.0,
+            "DamageEnergy": 0.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "50cal_sniper_ballistic",
+    "__ref": "4301f98b-0f06-462f-8fda-27bc37dc06fd",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -274,12 +282,10 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionFireSingleParams": {
-              "name": "Single",
-              "localisedName": "@FireMode_Single",
-              "fireRate": 90.0,
+          "fireActions": [
+            {
               "heatPerShot": 0.0,
+              "fireRate": 90.0,
               "launchParams": {
                 "SProjectileLauncher": {
                   "ammoCost": 1.0,
@@ -292,9 +298,12 @@
                     "decay": 4.0
                   }
                 }
-              }
+              },
+              "name": "Single",
+              "localisedName": "@FireMode_Single",
+              "aiShootingMode": "Single"
             }
-          }
+          ]
         },
         "SEntityInteractableParams": {
           "Interactable": {

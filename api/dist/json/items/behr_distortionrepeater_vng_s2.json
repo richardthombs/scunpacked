@@ -1,26 +1,56 @@
 {
   "ammo": {
-    "className": "BEHR_DistortionRepeater_VNG_S2_AMMO",
-    "reference": "e75e0dd6-7d55-44ce-af31-58d6a1d17d51",
-    "damage": {
-      "physical": 0.0,
-      "energy": 0.0,
-      "distortion": 1.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    },
+    "size": 1,
+    "lifetime": 2.6,
     "speed": 1210.0,
-    "range": 3146.0,
-    "detonates": true,
-    "detonationDamage": {
-      "physical": 0.0,
-      "energy": 0.0,
-      "distortion": 130.0,
-      "thermal": 0.0,
-      "biochemical": 0.0,
-      "stun": 0.0
-    }
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 0.0,
+            "DamageDistortion": 1.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {
+          "ProjectileDetonationParams": {
+            "explosionParams": {
+              "friendlyFire": "None",
+              "minRadius": 2.0,
+              "maxRadius": 5.0,
+              "soundRadius": 50.0,
+              "minPhysRadius": 2.5,
+              "maxPhysRadius": 5.0,
+              "pressure": 200.0,
+              "holeSize": 0.0,
+              "terrainHoleSize": 3.0,
+              "maxblurdist": 10.0,
+              "effectScale": 1.0,
+              "useRandomScale": 0.0,
+              "effectScaleMin": 1.0,
+              "effectScaleMax": 1.0,
+              "hitType": "explosion",
+              "damage": [
+                {
+                  "DamagePhysical": 0.0,
+                  "DamageEnergy": 0.0,
+                  "DamageDistortion": 130.0,
+                  "DamageThermal": 0.0,
+                  "DamageBiochemical": 0.0,
+                  "DamageStun": 0.0
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "ClassName": "BEHR_DistortionRepeater_VNG_S2_AMMO",
+    "__ref": "e75e0dd6-7d55-44ce-af31-58d6a1d17d51",
+    "__type": "AmmoParams"
   },
   "Raw": {
     "Entity": {
@@ -212,10 +242,8 @@
               "useAlternateProjectileVisuals": false
             }
           },
-          "fireActions": {
-            "SWeaponActionSequenceParams": {
-              "name": "Rapid",
-              "localisedName": "@FireMode_Rapid",
+          "fireActions": [
+            {
               "mode": "Looping",
               "sequenceEntries": [
                 {
@@ -223,10 +251,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Single",
-                      "fireRate": 295.0,
                       "heatPerShot": 2600.0,
+                      "fireRate": 295.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 0.0,
@@ -239,7 +265,10 @@
                             "decay": 2.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Single",
+                      "aiShootingMode": "Single"
                     }
                   }
                 },
@@ -248,10 +277,8 @@
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "name": "Single",
-                      "localisedName": "@FireMode_Single",
-                      "fireRate": 295.0,
                       "heatPerShot": 2600.0,
+                      "fireRate": 295.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 0.0,
@@ -264,13 +291,19 @@
                             "decay": 2.0
                           }
                         }
-                      }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Single",
+                      "aiShootingMode": "Single"
                     }
                   }
                 }
-              ]
+              ],
+              "name": "Rapid",
+              "localisedName": "@FireMode_Rapid",
+              "aiShootingMode": "Rapid"
             }
-          }
+          ]
         }
       },
       "ClassName": "BEHR_DistortionRepeater_VNG_S2",

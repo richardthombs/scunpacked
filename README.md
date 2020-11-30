@@ -54,7 +54,25 @@ ship-items.json    - Index of ship equipment
 ships.json         - Index of all the ships
 shops.json         - Index of all shops and everything that they sell or buy
 starmap.json       - Index of the locations in the star map
+
+v2/items/          - Items in v2 format
+v2/ships/          - Ships in v2 format
+v2/items.json      - Item index in v2 format
+v2/ships.json      - Ship index in v2 format
 ```
+
+### Entity cache
+The first time the loader runs, it creates a cache of all the entities it has discovered. This can make subsequent runs much faster. Once the cache has been built, try using these additional options for quicker extraction. If any
+of these flags are present on the command line, then the output folder is NOT deleted, allowing for incremental rebuilds.
+
+```
+-noitems    - Don't proccess item data
+-noships    - Don't process ship data
+-noshops    - Don't process shop data
+-nomap      - Don't process the star map
+```
+
+If you want to force the cache to be rebuilt then use `-nocache`. This shouldn't be necessary unless you are playing with the caching code.
 
 ## How to use it
 It is up to you! But to give you a starting point, the scunpacked website uses `ships.json`, `ship-items.json` and `fps-items.json` to construct menus and lists. Then it loads more detailed information, item-by-item as they needed from `items/<itemname>.json`.

@@ -14,15 +14,23 @@ namespace Loader
 		public Dictionary<string, string> Load(string language)
 		{
 			var labels = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-			using (var ini = new StreamReader(Path.Combine(DataRoot, $@"Data\Localization\{language}\global.ini")))
+
+			try
 			{
-				for (var line = ini.ReadLine(); line != null; line = ini.ReadLine())
+				using (var ini = new StreamReader(Path.Combine(DataRoot, $@"Data\Localization\{language}\global.ini")))
 				{
-					var split = line.Split('=', 2);
-					labels.Add(split[0], split[1]);
+					for (var line = ini.ReadLine(); line != null; line = ini.ReadLine())
+					{
+						var split = line.Split('=', 2);
+						labels.Add(split[0], split[1]);
+					}
 				}
+				File.WriteAllText(Path.Combine(OutputFolder, "labels.json"), JsonConvert.SerializeObject(labels));
 			}
-			File.WriteAllText(Path.Combine(OutputFolder, "labels.json"), JsonConvert.SerializeObject(labels));
+			catch (DirectoryNotFoundException)
+			{ }
+			catch (FileNotFoundException)
+			{ }
 
 			return labels;
 		}

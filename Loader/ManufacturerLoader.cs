@@ -12,6 +12,7 @@ namespace Loader
 		public string OutputFolder { get; set; }
 
 		LocalisationService localisationService;
+		bool verbose = false;
 
 		public ManufacturerLoader(LocalisationService localisationService)
 		{
@@ -31,20 +32,20 @@ namespace Loader
 		List<ManufacturerIndexEntry> Load(string entityFolder)
 		{
 			var index = new List<ManufacturerIndexEntry>();
+			var parser = new ManufacturerParser();
 
 			foreach (var entityFilename in Directory.EnumerateFiles(Path.Combine(DataRoot, entityFolder), "*.xml", SearchOption.AllDirectories))
 			{
-				Console.WriteLine(entityFilename);
+				if (verbose) Console.WriteLine(entityFilename);
 
-				var parser = new ManufacturerParser();
-				var entity = parser.Parse(entityFilename);
-				if (entity == null) continue;
+				var manufacturer = parser.Parse(entityFilename);
+				if (manufacturer == null) continue;
 
 				var indexEntry = new ManufacturerIndexEntry
 				{
-					name = localisationService.GetText(entity.Localization.Name),
-					code = entity.Code,
-					reference = entity.__ref
+					name = localisationService.GetText(manufacturer.Localization.Name),
+					code = manufacturer.Code,
+					reference = manufacturer.__ref
 				};
 
 				index.Add(indexEntry);
