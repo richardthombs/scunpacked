@@ -24,18 +24,22 @@ export class ItemlistPage implements OnInit {
   typeMap: { [id: string]: string } = {
     "Ship.Armor.Light": "Armor",
     "Ship.Armor.Medium": "Armor",
-    "Ship.Cooler.UNDEFINED": "Coolers",
-    "Ship.EMP.UNDEFINED": "EMP",
+    "Ship.Cooler": "Coolers",
+    "Ship.EMP": "EMP",
     "Ship.Mining.Gun": "Mining",
+    "Ship.MissileLauncher.MissileRack": "Missile racks",
     "Ship.Missile.Missile": "Missiles",
     "Ship.Missile.Rocket": "Rockets",
     "Ship.Missile.Torpedo": "Missiles",
     "Ship.PowerPlant.Power": "Power plants",
-    "Ship.QuantumDrive.UNDEFINED": "Quantum drives",
-    "Ship.QuantumInterdictionGenerator.UNDEFINED": "Quantum interdiction",
+    "Ship.QuantumDrive": "Quantum drives",
+    "Ship.QuantumInterdictionGenerator": "Quantum interdiction",
+    "Ship.Radar": "Radars",
+    "Ship.Radar.ShortRangeRadar": "Radars",
     "Ship.Radar.MidRangeRadar": "Radars",
+    "Ship.Scanner": "Scanners",
     "Ship.Scanner.Scanner": "Scanners",
-    "Ship.Shield.UNDEFINED": "Shields",
+    "Ship.Shield": "Shields",
     "Ship.Weapon.Gun": "Weapons",
     "Ship.Weapon.NoseMounted": "Weapons",
     "Ship.Weapon.Rocket": "Rockets",
@@ -45,7 +49,7 @@ export class ItemlistPage implements OnInit {
     "Ship.WeaponAttachment.Ventilation": "Weapon attachments",
     "Ship.WeaponDefensive.CountermeasureLauncher": "Countermeasures",
     "Ship.Paints.Personal": "Paints",
-    "Ship.Paints.UNDEFINED": "Paints"
+    "Ship.Paints": "Paints"
   }
 
   ngOnInit() {
