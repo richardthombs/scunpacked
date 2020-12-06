@@ -1,6 +1,6 @@
 <div class="flex justify-between">
-  <div hidden>{{item?.jumpRange | distance}}</div>
-  <div>{{item?.driveSpeed | speed}}</div>
-  <div>{{item?.quantumFuelRequirement*1e9 | si:'l/Gm'}}</div>
-  <div>{{item?.quantumDrive.params.spoolUpTime | si:'s'}}</div>
+  <div hidden>{{item?.QuantumDrive.JumpRange | distance}}</div>
+  <div>{{item?.QuantumDrive.StandardJump.Speed | speed}}</div>
+  <div>{{item?.QuantumDrive.FuelRequirement*1e9 | si:'l/Gm'}}</div>
+  <div>{{item?.QuantumDrive.StandardJump.SpoolUpTime | si:'s'}}</div>
 </div>

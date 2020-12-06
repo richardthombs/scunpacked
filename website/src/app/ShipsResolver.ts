@@ -16,21 +16,21 @@ export class ShipsResolver implements Resolve<ShipIndexEntry> {
 
   resolve(): Observable<any> {
 
-    return this.$http.get<ShipIndexEntry[]>(`${environment.api}/ships.json`).pipe(map(r => {
+    return this.$http.get<ShipIndexEntry[]>(`${environment.api}/v2/ships.json`).pipe(map(r => {
       // Fix ships without names
-      r.forEach(s => s.name = (s.name == "@LOC_PLACEHOLDER" || s.name == "@LOC_UNINITIALIZED") ? s.className : s.name);
+      //r.forEach(s => s.Name = (s.Name == "<= PLACEHOLDER =>" || s.Name == "<= UNINITIALIZED =>") ? s.ClassName : s.Name);
       // Figure out roles and sub-roles
       r.forEach(s => {
-        if (!s.dogFightEnabled || s.career == "@LOC_PLACEHOLDER" || s.noParts)
+        if (s.Career == "@LOC_PLACEHOLDER")
           s.roles = [{ role: "Under development", subRole: "General" }];
         else {
-          s.roles = [{ role: this.localisationSvc.getText(s.career, "Under development"), subRole: this.localisationSvc.getText(s.role, "General") }];
+          s.roles = [{ role: s.Career || "Under development", subRole: s.Role || "General" }];
           // Add a by size role and sub-role
-          if (s.isSpaceship)
-            s.roles.push({ role: "By size", subRole: `Size ${s.size || 0}` });
+          if (s.IsSpaceship)
+            s.roles.push({ role: "By size", subRole: `Size ${s.Size || 0}` });
 
           // Add a manufacturer role
-          s.roles.push({ role: "By manufacturer", subRole: s.manufacturerName })
+          s.roles.push({ role: "By manufacturer", subRole: s.Manufacturer.Name })
         }
       });
 

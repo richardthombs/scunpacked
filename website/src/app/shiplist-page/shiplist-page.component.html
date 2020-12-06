@@ -1,32 +1,30 @@
 <app-navbar></app-navbar>
 
-<div class="bg-white-alpha-80 dark:bg-black-alpha-20">
-  <nav class="flex flex-row text-center text-gray-600 dark:text-gray-500 whitespace-no-wrap md:flex-wrap overflow-auto md:overflow-none">
-    <a *ngFor="let role of byRoles | keyvalue" routerLink="/ships" [queryParams]="{role: role.key}" routerLinkActive="text-white bg-primary" class="px-5 py-3 flex-grow hover:text-black dark-hover:text-white">{{role.key}}</a>
+<div class="bg-black bg-opacity-40">
+  <nav class="flex flex-row text-center text-gray-400 whitespace-no-wrap md:flex-wrap overflow-auto md:overflow-none">
+    <a *ngFor="let role of byRoles | keyvalue" routerLink="/ships" [queryParams]="{role: role.key}" routerLinkActive="text-white bg-primary" class="px-5 py-3 flex-grow hover:text-white">{{role.key}}</a>
   </nav>
 </div>
 
-<div class="container-outer">
+<div class="container mx-auto bg-black bg-opacity-80 text-white text-opacity-80 p-10 my-10">
 
-  <div class="container mx-auto container-inner">
+  <div *ngIf="selectedRole">
 
-    <div *ngIf="selectedRole" class="role-container">
-      <div class="role-inner">
-        <h5>{{selectedRole.key}}
-          <a [routerLink]="['/ships/compare']" [queryParams]="{ships:shipsInRole(selectedRole.value)}">Compare</a>
-        </h5>
-        <div class="flex flex-wrap subrole-container">
-          <div *ngFor="let subRole of selectedRole.value | keyvalue" class="subrole-inner">
-            <h6>
-              {{subRole.key}}
-              <a *ngIf="subRole.value.length > 1" [routerLink]="['/ships/compare']" [queryParams]="{ships:shipsInSubRole(subRole.value)}">Compare</a>
-            </h6>
-            <div *ngFor="let ship of subRole.value">
-              <a [routerLink]="['/ships', ship.className.toLowerCase()]" [title]="ship.name | localise">{{ship.name | localise}}</a>
-            </div>
-          </div>
+    <div class="grid lg:grid-cols-5 gap-10">
+
+      <div *ngFor="let subRole of selectedRole.value | keyvalue">
+
+        <h6 class="text-lg border-b border-gray-400 mb-2">
+          {{subRole.key}}
+          <a *ngIf="subRole.value.length > 1" [routerLink]="['/ships/compare']" [queryParams]="{ships:shipsInSubRole(subRole.value)}" class="text-primary text-xs">Compare</a>
+        </h6>
+
+        <div *ngFor="let ship of subRole.value">
+          <a [routerLink]="['/ships', ship.ClassName.toLowerCase()]" [title]="ship.Name" class="text-primary">{{ship.Name}}</a>
         </div>
+
       </div>
+
     </div>
 
   </div>

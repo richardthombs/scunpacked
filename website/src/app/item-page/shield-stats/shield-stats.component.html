@@ -1,6 +1,6 @@
-<div class="grid grid-flow-row grid-cols-4">
-  <app-stat title="Shield health" [value]="item.maxShieldHealth" units="HP"></app-stat>
-  <app-stat title="Regeneration" [value]="item.maxShieldRegen" units="HP/s"></app-stat>
-  <app-stat title="Damaged regeneration delay" [value]="item.shieldGenerator.DamagedRegenDelay" units="s"></app-stat>
-  <app-stat title="Downed regeneration delay" [value]="item.shieldGenerator.DownedRegenDelay" units="s"></app-stat>
+<div class="grid grid-cols-4 gap-5">
+  <app-stat title="Shield health" [value]="item.Shield.HitPoints" units="HP"></app-stat>
+  <app-stat title="Regeneration" [value]="item.Shield.Regeneration" units="HP/s"></app-stat>
+  <app-stat title="Damaged regeneration delay" [value]="item.Shield.DamagedDelay" units="s"></app-stat>
+  <app-stat title="Downed regeneration delay" [value]="item.Shield.DownedDelay" units="s"></app-stat>
 </div>

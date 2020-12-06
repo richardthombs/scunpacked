@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SCItem } from 'src/app/SCItem';
+import { SCItem, StandardisedItem } from 'src/app/SCItem';
 
 @Component({
   selector: 'app-power-usage',
@@ -11,7 +11,7 @@ import { SCItem } from 'src/app/SCItem';
 export class PowerUsageComponent implements OnInit {
 
   @Input()
-  item!: SCItem;
+  item!: StandardisedItem;
 
   constructor() { }
 

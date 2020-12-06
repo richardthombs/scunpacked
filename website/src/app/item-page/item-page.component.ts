@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
 import { environment } from 'src/environments/environment';
-import { SCItem } from '../SCItem';
+import { SCItem, StandardisedItem } from '../SCItem';
 import { PriceService } from '../price.service';
 import * as _ from 'lodash';
 import { LocalisationService } from '../Localisation';
@@ -11,12 +11,11 @@ import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-item-page',
-  templateUrl: './item-page.component.html',
-  styleUrls: ['./item-page.component.scss']
+  templateUrl: './item-page.component.html'
 })
 export class ItemPage implements OnInit {
 
-  item: SCItem | undefined;
+  item: StandardisedItem | undefined;
   prices: any[] = [];
   jsonHref: string = "";
 
@@ -28,13 +27,10 @@ export class ItemPage implements OnInit {
       let itemClass = params.get("name") || "";
       if (!itemClass) return;
 
-      this.jsonHref = `${environment.api}/items/${itemClass}.json`;
+      this.jsonHref = `${environment.api}/v2/items/${itemClass}.json`;
 
-      this.$http.get(`${environment.api}/items/${itemClass}.json`).toPromise().then(r => {
-        var item = new SCItem(r);
-
-        this.titleSvc.setTitle(`${this.localisationSvc.getText(item.name) || item.className}`);
-
+      this.$http.get<StandardisedItem>(this.jsonHref).toPromise().then(item => {
+        this.titleSvc.setTitle(item.Name || item.ClassName);
         this.item = item;
 
         console.log("Item", item);

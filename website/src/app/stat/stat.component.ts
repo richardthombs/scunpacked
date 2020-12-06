@@ -26,25 +26,27 @@ export class StatComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     if (this.value === null) return;
-
-    if (this.bool) {
-      this.formattedValue = this.value ? "Yes" : "No";
-    }
+    if (this.value === undefined) return;
+    if (this.value == Infinity) this.formattedValue = "∞";
+    else if (this.bool) this.formattedValue = this.value ? "Yes" : "No";
     else {
-
       let numeric = this.value as number;
+      if (numeric.toFixed) {
+        if (this.si) {
+          let siInfo = SiPipe.siPrefix(numeric);
+          this.formattedValue = siInfo.value.toFixed(siInfo.value < 10 ? this.decimals || 1 : 0);
+          this.siPrefix = siInfo.prefix;
+        }
+        else {
+          this.formattedValue = numeric.toFixed(numeric < 10 ? this.decimals || 1 : 0);
+        }
 
-      if (this.si) {
-        let siInfo = SiPipe.siPrefix(numeric);
-        this.formattedValue = siInfo.value.toFixed(siInfo.value < 10 ? this.decimals || 1 : 0);
-        this.siPrefix = siInfo.prefix;
+        if (this.decimals === undefined) {
+          this.formattedValue = parseFloat(this.formattedValue).toLocaleString();
+        }
       }
       else {
-        this.formattedValue = numeric.toFixed(numeric < 10 ? this.decimals || 1 : 0);
-      }
-
-      if (this.decimals === undefined) {
-        this.formattedValue = parseFloat(this.formattedValue).toLocaleString();
+        this.formattedValue = this.value.toString();
       }
     }
   }

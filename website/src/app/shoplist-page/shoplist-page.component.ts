@@ -8,8 +8,7 @@ import { environment } from "../../environments/environment";
 
 @Component({
   selector: 'app-shoplist-page',
-  templateUrl: './shoplist-page.component.html',
-  styleUrls: ['./shoplist-page.component.scss']
+  templateUrl: './shoplist-page.component.html'
 })
 export class ShoplistPage implements OnInit {
 

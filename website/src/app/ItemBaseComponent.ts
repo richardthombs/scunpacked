@@ -1,9 +1,9 @@
 import { Input, Directive } from '@angular/core';
 
-import { SCItem } from './SCItem';
+import { StandardisedItem } from './SCItem';
 
 @Directive()
 export class ItemBaseComponent {
   @Input()
-  item: SCItem | undefined;
+  item: StandardisedItem | undefined;
 }

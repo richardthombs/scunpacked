@@ -1,88 +1,100 @@
 <app-navbar></app-navbar>
 
-<div class="container-outer">
-  <div class="container mx-auto container-inner">
-    <div class="flex">
-      <div class="flex-1">
-        <h1 class="text-2xl smallcaps">{{ship?.vehicleName | localise:ship?.className}}</h1>
-        <div class="smallcaps text-gray-600">
-          {{ship?.vehicleCareer | localise:'No career'}} / {{ship?.vehicleRole | localise:'No role'}}
-        </div>
-      </div>
-      <div>
-        <a [href]="jsonHref" title="Click to download the JSON">JSON</a>
+<div class="container mx-auto bg-black bg-opacity-80 text-white text-opacity-80 p-10 my-10">
+  <div class="flex">
+    <div class="flex-grow">
+      <h1 class="text-2xl">{{ship?.Name || ship?.ClassName}}</h1>
+      <div class="text-gray-600">
+        {{ship?.Career || "No career"}} / {{ship?.Role || 'No role'}}
       </div>
     </div>
-
-    <div class="vehicleStats">
-
-      <div class="flex mt-5">
-        <app-stat title="Size" [value]="ship?.vehicleSize"></app-stat>
-        <app-stat title="Crew" [value]="ship?.crewSize"></app-stat>
-        <app-stat title="Beds" [value]="ship?.totalBeds"></app-stat>
-        <app-stat title="Cargo" [value]="ship?.scu" units="SCU"></app-stat>
-      </div>
-
-      <div class="flex mt-5">
-        <app-stat title="Mass" [value]="ship?.mass" units="kg"></app-stat>
-        <app-stat title="Chassis" [value]="ship?.hitPoints" units="HP"></app-stat>
-        <app-stat title="Shield" [value]="ship?.maxShieldHealth" units="HP"></app-stat>
-        <app-stat title="Shield regen" [value]="ship?.maxShieldRegen" units="HP/s"></app-stat>
-      </div>
-
-      <div class="flex mt-5">
-        <app-stat title="Quantum speed" [value]="ship?.quantumSpeed" units="m/s" si="true"></app-stat>
-        <app-stat title="Quantum range" [value]="ship?.quantumRange" units="m" si="true"></app-stat>
-        <app-stat title="Quantum tank" [value]="ship?.quantumFuelCapacity" units="l" si="true"></app-stat>
-      </div>
-
-      <div class="flex mt-5">
-        <app-stat title="PO to ArcCorp (time)" [value]="ship?.secondsToArcCorp" units="s"></app-stat>
-        <app-stat title="PO to ArcCorp (fuel)" [value]="ship?.fuelToArcCorp" units="l" si="true"></app-stat>
-        <app-stat title="PO to ArcCorp and back" [value]="ship?.timesToArcCorpAndBack" units="times"></app-stat>
-      </div>
-
-      <div class="flex mt-5">
-        <app-stat title="Maximum speed" [value]="ship?.maxSpeed" units="m/s"></app-stat>
-        <app-stat title="SCM speed" [value]="ship?.scmSpeed" units="m/s"></app-stat>
-      </div>
-
-      <div class="flex mt-5">
-        <app-stat title="Main engine fuel usage" [value]="ship?.mainThrusterBurnRate" units="l/s" si="true"></app-stat>
-        <app-stat title="Thruster fuel usage" [value]="ship?.manneuverThrusterBurnRate" units="l/s" si="true"></app-stat>
-        <app-stat title="Hydrogen tank" [value]="ship?.fuelCapacity" units="l" si="true"></app-stat>
-        <app-stat title="Fuel intake rate" [value]="ship?.fuelIntakePushRate" units="l/s" si="true"></app-stat>
-      </div>
-
-    </div>
-
-    <div class="mt-10">CIG says:</div>
-    <div class="text-gray-600 italic" style="white-space: pre-line;">
-      "{{ship?.vehicleDescription | localise}}"
-    </div>
-
-    <div class="mt-10">
-      <app-itemgroup *ngFor="let g of groups" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
-
-      <div class="mt-3">
-        <button class="btn btn-outline-secondary" (click)="toggleBoring()" *ngIf="!includeBoring">Show the boring bits</button>
-      </div>
-
-      <app-itemgroup *ngFor="let g of unexpectedGroups()" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
+    <div>
+      <a [href]="jsonHref" title="Click to download the JSON" class="text-primary">JSON</a>
     </div>
   </div>
 
-  <div hidden class="container mt-3">
-    <h6>Debug - all item ports</h6>
-    <table class="table">
-      <tr *ngFor="let itemPort of ItemPorts">
-        <td>
-          <app-itemport [itemPort]="itemPort"></app-itemport>
-        </td>
-        <td hidden>{{itemPort.types.join(", ")}}</td>
-        <td>{{itemPort.item?.type}}<span *ngIf="itemPort.item?.subType">.{{itemPort.item?.subType}}</span></td>
-      </tr>
-    </table>
+  <div class="vehicleStats">
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
+      <app-stat title="Size" [value]="ship?.Size"></app-stat>
+      <app-stat title="Cargo" [value]="ship?.Cargo" units="SCU"></app-stat>
+      <app-stat title="Mass" [value]="ship?.Mass" units="kg"></app-stat>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
+      <app-stat title="Weapons crew" [value]="ship?.WeaponCrew"></app-stat>
+      <app-stat title="Operations crew" [value]="ship?.OperationsCrew"></app-stat>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
+      <app-stat *ngFor="let p of ship?.DamageBeforeDestruction | keyvalue" [title]="p.key" [value]="p.value" units="HP"></app-stat>
+      <app-stat title="Shield" [value]="totalShieldHealth" units="HP"></app-stat>
+      <app-stat title="Shield regen" [value]="totalShieldRegen" units="HP/s"></app-stat>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
+      <app-stat title="Quantum speed" [value]="ship?.QuantumTravel.Speed" units="m/s" si="true"></app-stat>
+      <app-stat title="Quantum range" [value]="ship?.QuantumTravel.Range" units="m" si="true"></app-stat>
+      <app-stat title="Quantum tank" [value]="ship?.QuantumTravel.FuelCapacity" units="l"></app-stat>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
+      <app-stat title="PO to ArcCorp (time)" [value]="ship?.QuantumTravel.PortOlisarToArcCorpTime" units="s"></app-stat>
+      <app-stat title="PO to ArcCorp (fuel)" [value]="ship?.QuantumTravel.PortOlisarToArcCorpFuel" units="l" si="true"></app-stat>
+      <app-stat title="PO to ArcCorp and back" [value]="ship?.QuantumTravel.PortOlisarToArcCorpAndBack" units="times"></app-stat>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
+      <app-stat title="SCM speed" [value]="ship?.FlightCharacteristics.ScmSpeed" units="m/s"></app-stat>
+      <app-stat title="Maximum speed" [value]="ship?.FlightCharacteristics.MaxSpeed" units="m/s"></app-stat>
+      <app-stat title="Zero to max" [value]="ship?.FlightCharacteristics.ZeroToMax" units="s"></app-stat>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
+      <app-stat title="Main acceleration" [value]="ship?.FlightCharacteristics.AccelerationG.Main" units="G"></app-stat>
+      <app-stat *ngIf="ship?.FlightCharacteristics.AccelerationG.Retro" title="Retro acceleration" [value]="ship?.FlightCharacteristics.AccelerationG.Retro" units="G"></app-stat>
+      <app-stat *ngIf="ship?.FlightCharacteristics.AccelerationG.Vtol" title="VTOL acceleration" [value]="ship?.FlightCharacteristics.AccelerationG.Vtol" units="G"></app-stat>
+      <app-stat title="Maneuvering acceleration" [value]="ship?.FlightCharacteristics.AccelerationG.Maneuvering" units="G"></app-stat>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
+      <app-stat title="Main consumption" [value]="ship?.Propulsion.FuelUsage.Main" units="l/s" si="true"></app-stat>
+      <app-stat *ngIf="ship?.Propulsion.FuelUsage.Retro" title="Retro consumption" [value]="ship?.Propulsion.FuelUsage.Retro" units="l/s" si="true"></app-stat>
+      <app-stat *ngIf="ship?.Propulsion.FuelUsage.Vtol" title="Vtol consumption" [value]="ship?.Propulsion.FuelUsage.Vtol" units="l/s" si="true"></app-stat>
+      <app-stat title="Maneuvering consumption" [value]="ship?.Propulsion.FuelUsage.Maneuvering" units="l/s" si="true"></app-stat>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
+      <app-stat title="Hydrogen tank" [value]="ship?.Propulsion.FuelCapacity" units="l" si="true"></app-stat>
+      <app-stat title="Fuel intake rate" [value]="ship?.Propulsion.FuelIntakeRate" units="l/s" si="true"></app-stat>
+      <app-stat title="Time till empty" [value]="ship?.Propulsion.ManeuveringTimeTillEmpty" units="s"></app-stat>
+    </div>
   </div>
 
+  <div class="mt-10">CIG says:</div>
+  <div class="text-gray-400 italic" style="white-space: pre-line;">
+    "{{ship?.Description}}"
+  </div>
+
+  <div class="mt-10">
+    <app-itemgroup *ngFor="let g of groups" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
+
+    <div class="mt-3">
+      <button class="btn btn-outline-secondary" (click)="toggleBoring()" *ngIf="!includeBoring">Show the boring bits</button>
+    </div>
+
+    <app-itemgroup *ngFor="let g of unexpectedGroups()" [groupName]="g" [groupItems]="grouped[g]"></app-itemgroup>
+  </div>
+</div>
+
+<div hidden class="container mt-3">
+  <h6>Debug - all item ports</h6>
+  <table class="table">
+    <tr *ngFor="let itemPort of ItemPorts">
+      <td>
+        <app-itemport [itemPort]="itemPort"></app-itemport>
+      </td>
+      <td hidden>{{itemPort.types.join(", ")}}</td>
+      <td>{{itemPort.item?.type}}<span *ngIf="itemPort.item?.subType">.{{itemPort.item?.subType}}</span></td>
+    </tr>
+  </table>
 </div>

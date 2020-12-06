@@ -8,8 +8,7 @@ import { ItemIndexEntry } from '../ItemIndexEntry';
 
 @Component({
   selector: 'app-itemlist',
-  templateUrl: './itemlist-page.component.html',
-  styleUrls: ['./itemlist-page.component.scss']
+  templateUrl: './itemlist-page.component.html'
 })
 export class ItemlistPage implements OnInit {
 

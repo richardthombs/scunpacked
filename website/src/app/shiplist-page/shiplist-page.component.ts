@@ -14,8 +14,7 @@ export type doubleGroupedList<T> = {
 
 @Component({
   selector: 'app-shiplist',
-  templateUrl: './shiplist-page.component.html',
-  styleUrls: ['./shiplist-page.component.scss']
+  templateUrl: './shiplist-page.component.html'
 })
 export class ShiplistPage implements OnInit {
 
@@ -62,12 +61,12 @@ export class ShiplistPage implements OnInit {
 
   shipsInRole(role: { [id: string]: ShipIndexEntry[] }): string {
     let ships: string[] = [];
-    _.map(role, subRole => ships = ships.concat(_.map(subRole, s => s.className.toLowerCase())));
+    _.map(role, subRole => ships = ships.concat(_.map(subRole, s => s.ClassName.toLowerCase())));
     return ships.join(",");
   }
 
   shipsInSubRole(ships: ShipIndexEntry[]): string {
-    return _.map(ships, s => s.className.toLowerCase()).join(",");
+    return _.map(ships, s => s.ClassName.toLowerCase()).join(",");
   }
 
 }

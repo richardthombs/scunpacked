@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SCItem } from 'src/app/SCItem';
+import { SCItem, StandardisedItem } from 'src/app/SCItem';
 
 @Component({
   selector: 'app-quantum-drive',
@@ -15,7 +15,7 @@ import { SCItem } from 'src/app/SCItem';
 export class QuantumDriveComponent implements OnInit {
 
   @Input()
-  item!: SCItem;
+  item!: StandardisedItem;
 
   constructor() { }
 

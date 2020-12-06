@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemeService, Theme } from './theme.service';
 import { SwUpdate } from '@angular/service-worker';
 import { Router, NavigationEnd, Data, ActivatedRoute } from '@angular/router';
 import { filter, map, mergeMap } from 'rxjs/operators';
@@ -7,8 +6,7 @@ import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
 
@@ -30,23 +28,11 @@ export class AppComponent implements OnInit {
     "https://robertsspaceindustries.com/media/ajdt01mm8dccdr/source/Squadron-42-Star-Citizen-Screenshot-20200130-03244964.jpg"
   ]
   background: string = "";
-  theme: Theme = "light";
 
-  constructor(private themeSvc: ThemeService, private swUpdate: SwUpdate, private router: Router, private route: ActivatedRoute, private titleSvc: Title) { }
+  constructor(private swUpdate: SwUpdate, private router: Router, private route: ActivatedRoute, private titleSvc: Title) { }
 
   ngOnInit() {
     this.background = `url(${this.backgrounds[Math.floor(Math.random() * this.backgrounds.length)]})`;
-
-    this.themeSvc.theme$.subscribe(themeSetting => {
-      let nextTheme: Theme;
-
-      if (themeSetting == "auto") {
-        const mq = window.matchMedia("(prefers-color-scheme: dark)");
-        nextTheme = mq.matches ? "dark" : "light";
-      } else nextTheme = themeSetting;
-
-      this.theme = nextTheme;
-    });
 
     this.swUpdate.available.subscribe(event => {
       console.log("SwUpdate.available", event);

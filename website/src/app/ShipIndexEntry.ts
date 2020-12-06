@@ -1,19 +1,17 @@
 export interface ShipIndexEntry {
-  jsonFilename: string;
-  name: string;
-  career: string;
-  role: string;
-  className: string;
-  type: string;
-  subType: string;
-  dogFightEnabled: boolean;
-  size?: number;
-  isGroundVehicle: boolean;
-  isGravlevVehicle: boolean;
-  isSpaceship: boolean;
-  noParts: boolean;
-  manufacturerCode: string;
-  manufacturerName: string;
+  ClassName: string;
+  Name: string;
+  Description: string;
+  Career: string;
+  Role: string;
+  Size?: number;
+  IsVehicle: boolean;
+  IsGravlev: boolean;
+  IsSpaceship: boolean;
+  Manufacturer: {
+    Code: string;
+    Name: string;
+  },
 
   // We add these fields as we parse what we download from the API
   roles: {

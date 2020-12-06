@@ -5,6 +5,94 @@ import { IItemPort } from "./IItemPort";
 
 const distanceBetweenPOandArcCorp = 41927351070;
 
+export interface StandardisedItem {
+  ClassName: string;
+  Size: number;
+  Grade: number;
+  Type: string;
+  Classification: string;
+  Name: string;
+  Description: string;
+  Manufacturer: {
+    Code: string;
+    Name: string;
+  };
+  Tags: string[];
+  Shield: {
+    HitPoints: number,
+    Regeneration: number,
+    DamagedDelay: number,
+    DownedDelay: number
+  };
+  QuantumDrive: {
+    FuelRate: number,
+    JumpRange: number,
+    StandardJump: {
+      Speed: number,
+      Cooldown: number,
+      SpoolUpTime: number
+    }
+  };
+  PowerPlant: {
+    Output: number;
+  };
+  Cooler: {
+    Rate: number;
+  };
+  Thruster: {};
+  Durability: {
+    Health: number;
+    Lifetime: number;
+  };
+  CargoGrid: {};
+  HydrogenFuelTank: {};
+  QuantumFuelTank: {};
+  HydrogenFuelIntake: {};
+  Armor: {};
+  Emp: {
+    ChargeTime: number;
+    Damage: number;
+    Radius: number;
+    CooldownTime: number;
+  };
+  MissileRack: {};
+  QuantumInterdiction: {
+    JammingRange: number;
+    InterdictionRange: number;
+  };
+  Ifcs: {};
+  PowerConnection: {
+    PowerBase: number;
+    PowerDraw: number;
+  };
+  HeatConnection: {
+    ThermalEnergyBase: number;
+    ThermalEnergyDraw: number;
+    CoolingRate: number;
+  };
+  Weapon: {
+    Modes: {
+      Name: string;
+      LocalisedName: string;
+      RoundsPerMinute: number;
+      FireType: string;
+      AmmoPerShot: number;
+      PelletsPerShot: number;
+      DamagePerShot: StandardisedDamage;
+      DamagePerSecond: StandardisedDamage;
+    }[];
+  }
+}
+
+export interface StandardisedDamage {
+  Physical: number;
+  Energy: number;
+  Distortion: number;
+  Thermal: number;
+  Biochemical: number;
+  Stun: number;
+}
+
 export class SCItem {
 
   private _itemPorts?: IItemPort[];
