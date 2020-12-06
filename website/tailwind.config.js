@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = (isProd) => ({
   purge: {
     enabled: isProd,
@@ -14,6 +16,9 @@ module.exports = (isProd) => ({
     extend: {
       colors: {
         primary: "deeppink"
+      },
+      fontFamily: {
+        sans: ["Inter var", ...defaultTheme.fontFamily.sans]
       }
     },
 
@@ -38,17 +43,5 @@ module.exports = (isProd) => ({
     require("tailwindcss-bg-alpha")(),
     require("tailwindcss-typography")(),
     require("tailwindcss-dark-mode")()
-  ],
-
-  future: {
-    defaultLineHeights: true,
-    purgeLayersByDefault: true,
-    removeDeprecatedGapUtilities: true,
-  },
-
-  experimental: {
-    additionalBreakpoint: true,
-    extendedFontSizeScale: true,
-    extendedSpacingScale: true,
-  }
+  ]
 });

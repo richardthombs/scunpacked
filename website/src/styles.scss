@@ -1,3 +1,16 @@
+/* Set up the Inter font */
+@use "~inter-ui/default" with (
+  $inter-font-display: block,
+  $inter-font-path: '~inter-ui/Inter (web)'
+);
+@use "~inter-ui/variable" with (
+  $inter-font-display: block,
+  $inter-font-path: '~inter-ui/Inter (web)'
+);
+@include default.all;
+@include variable.all;
+
+
 /* Fontawesome */
 $fa-font-path : '~@fortawesome/fontawesome-free/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
