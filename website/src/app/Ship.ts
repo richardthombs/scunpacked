@@ -39,6 +39,7 @@ export interface Ship {
       Maneuvering: number;
     },
     ManeuveringTimeTillEmpty: number;
+    TimeForIntakesToFillTank: number;
   };
 
   FlightCharacteristics: {
