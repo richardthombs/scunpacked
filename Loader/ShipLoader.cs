@@ -656,7 +656,7 @@ namespace Loader
 			};
 			shipSummary.Propulsion.IntakeToMainFuelRatio = shipSummary.Propulsion.FuelIntakeRate / shipSummary.Propulsion.FuelUsage.Main;
 			shipSummary.Propulsion.IntakeToTankCapacityRatio = shipSummary.Propulsion.FuelIntakeRate / shipSummary.Propulsion.FuelCapacity;
-			shipSummary.Propulsion.TimeForIntakesToFilllTank = shipSummary.Propulsion.FuelCapacity / shipSummary.Propulsion.FuelIntakeRate;
+			shipSummary.Propulsion.TimeForIntakesToFillTank = shipSummary.Propulsion.FuelCapacity / shipSummary.Propulsion.FuelIntakeRate;
 			shipSummary.Propulsion.ManeuveringTimeTillEmpty = shipSummary.Propulsion.FuelCapacity / (shipSummary.Propulsion.FuelUsage.Main + shipSummary.Propulsion.FuelUsage.Maneuvering / 2 - shipSummary.Propulsion.FuelIntakeRate);
 
 			// Flight characteristics
