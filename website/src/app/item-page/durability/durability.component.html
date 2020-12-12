@@ -1,4 +1,4 @@
 <div class="grid grid-cols-4 gap-5">
   <app-stat title="Health" [value]="item.Durability.Health" units="HP"></app-stat>
-  <app-stat title="Lifetime" [value]="item.Durability.Lifetime" units="hours"></app-stat>
+  <app-stat *ngIf="item.Durability.Lifetime" title="Lifetime" [value]="item.Durability.Lifetime" units="hours"></app-stat>
 </div>

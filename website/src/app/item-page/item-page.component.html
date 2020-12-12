@@ -79,6 +79,17 @@
         </div>
       </div>
       -->
+    <div *ngIf="item?.Missile">
+      <h2 class="text-xl">Missile</h2>
+      <div class="grid grid-cols-6 gap-5">
+        <app-stat *ngIf="item!.Missile.Damage?.Physical" title="Physical" [value]="item!.Missile.Damage?.Physical" units="/shot"></app-stat>
+        <app-stat *ngIf="item!.Missile.Damage?.Energy" title="Energy" [value]="item!.Missile.Damage?.Energy" units="/shot"></app-stat>
+        <app-stat *ngIf="item!.Missile.Damage?.Distortion" title="Distortion" [value]="item!.Missile.Damage?.Distortion" units="/shot"></app-stat>
+        <app-stat *ngIf="item!.Missile.Damage?.Thermal" title="Thermal" [value]="item!.Missile.Damage?.Thermal" units="/shot"></app-stat>
+        <app-stat *ngIf="item!.Missile.Damage?.Biochemical" title="Biochemical" [value]="item!.Missile.Damage?.Biochemical" units="/s"></app-stat>
+        <app-stat *ngIf="item!.Missile.Damage?.Stun" title="Stun" [value]="item!.Missile.Damage?.Stun" units="/s"></app-stat>
+      </div>
+    </div>
     <div *ngIf="item?.QuantumInterdiction">
       <h2 class="text-xl">Quantum Interdiction Generator</h2>
       <div class="grid grid-cols-4 gap-5">

@@ -55,6 +55,7 @@ namespace Loader
 			stdItem.PowerConnection = BuildPowerConnectionInfo(entity);
 			stdItem.Weapon = BuildWeaponInfo(entity);
 			stdItem.Ammunition = BuildAmmunitionInfo(entity);
+			stdItem.Missile = BuildMissileInfo(entity);
 
 			return stdItem;
 		}
@@ -507,6 +508,21 @@ namespace Loader
 			};
 		}
 
+		StandardisedDamage ConvertDamage(DamageInfo damage)
+		{
+			if (damage == null) return null;
+
+			return new StandardisedDamage
+			{
+				Physical = damage.DamagePhysical,
+				Energy = damage.DamageEnergy,
+				Distortion = damage.DamageDistortion,
+				Thermal = damage.DamageThermal,
+				Biochemical = damage.DamageBiochemical,
+				Stun = damage.DamageStun
+			};
+		}
+
 		AmmoParams GetAmmoParams(EntityClassDefinition item)
 		{
 			// If this a weapon that contains its own ammo, or if it is a magazine, then it will have an SCAmmoContainerComponentParams component.
@@ -521,6 +537,19 @@ namespace Loader
 
 			// And the magazine's SAmmoContainerComponentParams will tell us about the ammo
 			return ammoSvc.GetByReference(mag.Components.SAmmoContainerComponentParams.ammoParamsRecord);
+		}
+
+		StandardisedMissile BuildMissileInfo(EntityClassDefinition item)
+		{
+			var missile = item.Components.SCItemMissileParams;
+			if (missile == null) return null;
+
+			var info = new StandardisedMissile
+			{
+				Damage = ConvertDamage(missile.explosionParams.damage[0])
+			};
+
+			return info;
 		}
 	}
 }

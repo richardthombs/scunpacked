@@ -81,6 +81,9 @@ export interface StandardisedItem {
       DamagePerShot: StandardisedDamage;
       DamagePerSecond: StandardisedDamage;
     }[];
+  },
+  Missile: {
+    Damage: StandardisedDamage;
   }
 }
 
