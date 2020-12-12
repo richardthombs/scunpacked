@@ -10,10 +10,10 @@
         "value": "88ed4ceb-6819-414e-b6f2-7c93f13c527f"
       },
       {
-        "value": "85114e38-fbee-49e2-9845-954e307d5c5d"
+        "value": "33e0472e-e3ad-4701-951a-915bf5f8a691"
       },
       {
-        "value": "aa687902-f049-47c0-9045-8725ecf395cf"
+        "value": "905cadaf-6447-4c6d-83a3-122c3a069aef"
       }
     ],
     "Components": {
@@ -583,6 +583,26 @@
                 "itemPortName": "hardpoint_paint",
                 "entityClassName": "",
                 "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_rack_FL",
+                "entityClassName": "Weapon_Rack_AEGS_3slots",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_rack_RL",
+                "entityClassName": "Weapon_Rack_AEGS_3slots",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_rack_FR",
+                "entityClassName": "Weapon_Rack_AEGS_3slots",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_rack_RR",
+                "entityClassName": "Weapon_Rack_AEGS_3slots",
+                "loadout": {}
               }
             ]
           }
@@ -734,6 +754,20 @@
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0,
                     "Parts": [
+                      {
+                        "name": "$LOD1_front_left_wing_damage",
+                        "damageMax": 1.0,
+                        "damagemax": 0.0,
+                        "class": "AnimatedJoint",
+                        "detachRatio": 1.0
+                      },
+                      {
+                        "name": "$LOD2_front_left_wing_damage",
+                        "damageMax": 1.0,
+                        "damagemax": 0.0,
+                        "class": "AnimatedJoint",
+                        "detachRatio": 1.0
+                      },
                       {
                         "name": "front_left_wing_flp_geom",
                         "damageMax": 1.0,
@@ -1655,6 +1689,30 @@
                         ]
                       },
                       {
+                        "name": "wing_left_rl_geom",
+                        "damageMax": 240.0,
+                        "damagemax": 0.0,
+                        "class": "AnimatedJoint",
+                        "Parts": [
+                          {
+                            "name": "wing_left_rl_damage",
+                            "damageMax": 480.0,
+                            "damagemax": 0.0,
+                            "class": "AnimatedJoint",
+                            "detachRatio": 1.0,
+                            "Parts": [
+                              {
+                                "name": "wing_left_rl_fin_geom",
+                                "damageMax": 50.0,
+                                "damagemax": 0.0,
+                                "class": "AnimatedJoint",
+                                "detachRatio": 1.0
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
                         "name": "hardpoint_thruster_maneuver_backbottomleft",
                         "damageMax": 50.0,
                         "damagemax": 0.0,
@@ -1803,30 +1861,6 @@
                             }
                           ]
                         }
-                      },
-                      {
-                        "name": "wing_left_rl_geom",
-                        "damageMax": 240.0,
-                        "damagemax": 0.0,
-                        "class": "AnimatedJoint",
-                        "Parts": [
-                          {
-                            "name": "wing_left_rl_damage",
-                            "damageMax": 480.0,
-                            "damagemax": 0.0,
-                            "class": "AnimatedJoint",
-                            "detachRatio": 1.0,
-                            "Parts": [
-                              {
-                                "name": "wing_left_rl_fin_geom",
-                                "damageMax": 50.0,
-                                "damagemax": 0.0,
-                                "class": "AnimatedJoint",
-                                "detachRatio": 1.0
-                              }
-                            ]
-                          }
-                        ]
                       },
                       {
                         "name": "wing_left_m_geom",
@@ -2092,21 +2126,6 @@
                         "detachRatio": 1.0
                       },
                       {
-                        "name": "wing_right_m_geom",
-                        "damageMax": 480.0,
-                        "damagemax": 0.0,
-                        "class": "AnimatedJoint",
-                        "Parts": [
-                          {
-                            "name": "wing_right_m_damage",
-                            "damageMax": 2800.0,
-                            "damagemax": 0.0,
-                            "class": "AnimatedJoint",
-                            "detachRatio": 1.0
-                          }
-                        ]
-                      },
-                      {
                         "name": "hardpoint_thruster_maneuver_backbottomright",
                         "damageMax": 50.0,
                         "damagemax": 0.0,
@@ -2305,6 +2324,21 @@
                             }
                           ]
                         }
+                      },
+                      {
+                        "name": "wing_right_m_geom",
+                        "damageMax": 480.0,
+                        "damagemax": 0.0,
+                        "class": "AnimatedJoint",
+                        "Parts": [
+                          {
+                            "name": "wing_right_m_damage",
+                            "damageMax": 2800.0,
+                            "damagemax": 0.0,
+                            "class": "AnimatedJoint",
+                            "detachRatio": 1.0
+                          }
+                        ]
                       }
                     ]
                   },
@@ -3989,6 +4023,70 @@
                   "Types": [
                     {
                       "type": "Room",
+                      "subtypes": ""
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_rack_FL",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "uneditable",
+                  "Types": [
+                    {
+                      "type": "Usable",
+                      "subtypes": ""
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_rack_RL",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "uneditable",
+                  "Types": [
+                    {
+                      "type": "Usable",
+                      "subtypes": ""
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_rack_FR",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "uneditable",
+                  "Types": [
+                    {
+                      "type": "Usable",
+                      "subtypes": ""
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_rack_RR",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "uneditable",
+                  "Types": [
+                    {
+                      "type": "Usable",
                       "subtypes": ""
                     }
                   ]

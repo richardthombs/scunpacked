@@ -1,0 +1,271 @@
+{
+  "ammo": {
+    "size": 2,
+    "lifetime": 1.86,
+    "speed": 907.0,
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 307.05,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "MXOX_NeutronCannon_S2_AMMO",
+    "__ref": "5bb60eef-3ad7-4842-b3cb-5f928b77654a",
+    "__type": "AmmoParams"
+  },
+  "Raw": {
+    "Entity": {
+      "StaticEntityClassData": {
+        "DefaultEntitlementEntityParams": {
+          "entitlementPolicy": "6df1749c-48ea-43e5-bae5-8084d9fe5aca"
+        }
+      },
+      "tags": [],
+      "Components": {
+        "SAttachableComponentParams": {
+          "AttachDef": {
+            "Type": "WeaponGun",
+            "SubType": "Gun",
+            "Size": 2,
+            "Grade": 1,
+            "Manufacturer": "de0d3594-9f18-42c0-8a90-6edd723d80f8",
+            "Tags": "MXOX NeutronCannon flightReady weaponMountUsable",
+            "RequiredTags": "",
+            "DisplayType": "",
+            "Localization": {
+              "Name": "@item_NameMXOX_NeutronCannon_S2",
+              "Description": "@item_DescMXOX_NeutronCannon_S2"
+            }
+          }
+        },
+        "SHealthComponentParams": {
+          "Health": 850.0,
+          "DamageResistances": {
+            "DamageResistance": {
+              "PhysicalResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "EnergyResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "DistortionResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "ThermalResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "BiochemicalResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "StunResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              }
+            }
+          }
+        },
+        "SDegradationParams": {
+          "MaxLifetimeHours": 20.0,
+          "InitialAgeRatio": 0.0,
+          "DegradeOnlyWhenAttached": true
+        },
+        "EntityComponentPowerConnection": {
+          "PowerBase": 74.0,
+          "PowerDraw": 213.0,
+          "TimeToReachDrawRequest": 0.0,
+          "SafeguardPriority": 20.0,
+          "DisplayedInPoweredItemList": true,
+          "IsThrottleable": true,
+          "IsOverclockable": true,
+          "OverclockThresholdMin": 0.4,
+          "OverclockThresholdMax": 0.63,
+          "OverpowerPerformance": 0.32,
+          "OverclockPerformance": 0.22,
+          "PowerToEM": 2.28,
+          "DecayRateOfEM": 0.1,
+          "WarningDelayTime": 0.3,
+          "WarningDisplayTime": 8.0
+        },
+        "EntityComponentHeatConnection": {
+          "TemperatureToIR": 7.2,
+          "OverpowerHeat": 0.72,
+          "OverclockThresholdMinHeat": 0.48,
+          "OverclockThresholdMaxHeat": 0.68,
+          "ThermalEnergyBase": 100.0,
+          "ThermalEnergyDraw": 200.0,
+          "ThermalConductivity": 0.05,
+          "SpecificHeatCapacity": 0.5,
+          "Mass": 280.0,
+          "SurfaceArea": 0.05,
+          "StartCoolingTemperature": 300.0,
+          "MaxCoolingRate": 86.66,
+          "MaxTemperature": 700.0,
+          "OverheatTemperature": 650.0,
+          "RecoveryTemperature": 550.0,
+          "MinTemperature": 0.0,
+          "MisfireMinTemperature": 370.0,
+          "MisfireMaxTemperature": 600.0
+        },
+        "SDistortionParams": {
+          "DecayRate": 36.0,
+          "Maximum": 857.0,
+          "OverloadRatio": 0.71,
+          "RecoveryRatio": 0.53,
+          "RecoveryTime": 1.24
+        },
+        "SCItem": {
+          "turnedOnByDefault": false,
+          "attachToTileItemPort": "NoConnection",
+          "inheritModelTagFromHost": true,
+          "ItemPorts": [
+            {
+              "PortFlags": "",
+              "PortTags": "",
+              "RequiredItemTags": "",
+              "Ports": [
+                {
+                  "Name": "magazine_attach",
+                  "DisplayName": "Magazine Slot",
+                  "PortTags": "",
+                  "RequiredPortTags": "",
+                  "Flags": "",
+                  "MinSize": 0,
+                  "MaxSize": 0,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": []
+                }
+              ]
+            }
+          ]
+        },
+        "SAmmoContainerComponentParams": {
+          "initialAmmoCount": 0.0,
+          "maxAmmoCount": 0.0,
+          "ammoParamsRecord": "5bb60eef-3ad7-4842-b3cb-5f928b77654a"
+        },
+        "SCItemWeaponComponentParams": {
+          "ammoContainerRecord": "00000000-0000-0000-0000-000000000000",
+          "connectionParams": {
+            "powerActiveCooldown": 0.7,
+            "heatRateOnline": 60.0,
+            "maxGlow": 100.0,
+            "noPowerStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 0.0,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            },
+            "underpowerStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 0.1,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            },
+            "overpowerStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 1.2,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            },
+            "overclockStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 1.5,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            },
+            "heatStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 1.0,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            }
+          },
+          "fireActions": [
+            {
+              "mode": "Looping",
+              "sequenceEntries": [
+                {
+                  "delay": 50.0,
+                  "unit": "RPM",
+                  "weaponAction": {
+                    "SWeaponActionFireSingleParams": {
+                      "heatPerShot": 11200.0,
+                      "fireRate": 50.0,
+                      "launchParams": {
+                        "SProjectileLauncher": {
+                          "ammoCost": 0.0,
+                          "pelletCount": 1.0,
+                          "spreadParams": {
+                            "min": 0.0,
+                            "max": 0.25,
+                            "firstAttack": 0.025,
+                            "attack": 0.025,
+                            "decay": 0.05
+                          }
+                        }
+                      },
+                      "name": "Single",
+                      "localisedName": "@FireMode_Rapid",
+                      "aiShootingMode": "Single"
+                    }
+                  }
+                }
+              ],
+              "name": "",
+              "localisedName": "@LOC_PLACEHOLDER",
+              "aiShootingMode": "Single"
+            }
+          ]
+        }
+      },
+      "ClassName": "MXOX_NeutronCannon_S3",
+      "__ref": "231fd67b-49a6-40e9-8eef-20268cfc0b2c",
+      "__type": "EntityClassDefinition"
+    }
+  }
+}

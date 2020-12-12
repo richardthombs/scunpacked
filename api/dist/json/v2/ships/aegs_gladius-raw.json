@@ -7,16 +7,13 @@
     },
     "tags": [
       {
+        "value": "9314b308-b5dd-44ce-8e81-61e1764cbd57"
+      },
+      {
         "value": "ef734509-be28-47c9-87df-2775db104d38"
       },
       {
-        "value": "85114e38-fbee-49e2-9845-954e307d5c5d"
-      },
-      {
         "value": "6d52269e-1bfb-40ee-9458-ea4431f33421"
-      },
-      {
-        "value": "9314b308-b5dd-44ce-8e81-61e1764cbd57"
       }
     ],
     "Components": {
@@ -98,12 +95,12 @@
                 "loadout": {}
               },
               {
-                "itemPortName": "hardpoint_cooler_left",
+                "itemPortName": "Hardpoint_cooler_left",
                 "entityClassName": "COOL_AEGS_S01_Bracer_SCItem",
                 "loadout": {}
               },
               {
-                "itemPortName": "hardpoint_cooler_right",
+                "itemPortName": "Hardpoint_cooler_right",
                 "entityClassName": "COOL_AEGS_S01_Bracer_SCItem",
                 "loadout": {}
               },
@@ -355,6 +352,21 @@
               {
                 "itemPortName": "hardpoint_weapon_rack",
                 "entityClassName": "Weapon_Rack_AEGS_Gladius",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "Hardpoint_Battery",
+                "entityClassName": "BATT_AMRS_S01_FortCell",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "Hardpoint_Life_Support",
+                "entityClassName": "LFSP_Gladius",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "Hardpoint_Avionics",
+                "entityClassName": "COMP_BEHR_S01_CSR-RP",
                 "loadout": {}
               }
             ]
@@ -774,7 +786,7 @@
               },
               {
                 "name": "FrontWing_Left",
-                "damageMax": 25.0,
+                "damageMax": 50.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
                 "detachRatio": 1.0,
@@ -788,7 +800,7 @@
               },
               {
                 "name": "FrontWing_Right",
-                "damageMax": 1.0,
+                "damageMax": 50.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
                 "detachRatio": 1.0,
@@ -953,11 +965,36 @@
                 "ItemPort": {
                   "minsize": 1,
                   "maxsize": 1,
-                  "flags": "invisible uneditable",
+                  "flags": "uneditable",
                   "Types": [
                     {
                       "type": "Radar",
                       "subtypes": "ShortRangeRadar,MidRangeRadar"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "Hardpoint_Avionics",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "uneditable",
+                  "Types": [
+                    {
+                      "type": "Misc"
                     }
                   ],
                   "Connections": [
@@ -1482,28 +1519,28 @@
                 "Parts": [
                   {
                     "name": "WingLeft_Tip",
-                    "damageMax": 160.0,
+                    "damageMax": 260.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0,
                     "Parts": [
                       {
                         "name": "TipWing_Left_B",
-                        "damageMax": 1.0,
+                        "damageMax": 50.0,
                         "damagemax": 0.0,
                         "class": "AnimatedJoint",
                         "detachRatio": 1.0
                       },
                       {
                         "name": "TipWing_Left_A",
-                        "damageMax": 1.0,
+                        "damageMax": 50.0,
                         "damagemax": 0.0,
                         "class": "AnimatedJoint",
                         "detachRatio": 1.0
                       },
                       {
                         "name": "WingLeft_Mid_Flap",
-                        "damageMax": 1.0,
+                        "damageMax": 50.0,
                         "damagemax": 0.0,
                         "class": "AnimatedJoint",
                         "detachRatio": 1.0
@@ -1839,28 +1876,28 @@
                   },
                   {
                     "name": "WingRight_Tip",
-                    "damageMax": 160.0,
+                    "damageMax": 260.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0,
                     "Parts": [
                       {
                         "name": "TipWing_Right_A",
-                        "damageMax": 1.0,
+                        "damageMax": 50.0,
                         "damagemax": 0.0,
                         "class": "AnimatedJoint",
                         "detachRatio": 1.0
                       },
                       {
                         "name": "TipWing_Right_B",
-                        "damageMax": 1.0,
+                        "damageMax": 50.0,
                         "damagemax": 0.0,
                         "class": "AnimatedJoint",
                         "detachRatio": 1.0
                       },
                       {
                         "name": "WingRight_Mid_Flap",
-                        "damageMax": 1.0,
+                        "damageMax": 50.0,
                         "damagemax": 0.0,
                         "class": "AnimatedJoint",
                         "detachRatio": 1.0
@@ -1973,14 +2010,14 @@
                 "Parts": [
                   {
                     "name": "Belly_Wing_Left",
-                    "damageMax": 1.0,
+                    "damageMax": 150.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0
                   },
                   {
                     "name": "Belly_Wing_Right",
-                    "damageMax": 1.0,
+                    "damageMax": 150.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0
@@ -2059,14 +2096,14 @@
               },
               {
                 "name": "Rudder_Right",
-                "damageMax": 1.0,
+                "damageMax": 50.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
                 "detachRatio": 1.0,
                 "Parts": [
                   {
                     "name": "Rudder_Right_Flap",
-                    "damageMax": 1.0,
+                    "damageMax": 50.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0
@@ -2075,14 +2112,14 @@
               },
               {
                 "name": "RearWingRight",
-                "damageMax": 1.0,
+                "damageMax": 50.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
                 "detachRatio": 1.0,
                 "Parts": [
                   {
                     "name": "RearWingRight_Flap",
-                    "damageMax": 1.0,
+                    "damageMax": 50.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0
@@ -2091,14 +2128,14 @@
               },
               {
                 "name": "RearWingLeft",
-                "damageMax": 1.0,
+                "damageMax": 50.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
                 "detachRatio": 1.0,
                 "Parts": [
                   {
                     "name": "RearWingLeft_Flap",
-                    "damageMax": 1.0,
+                    "damageMax": 50.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0
@@ -2169,14 +2206,14 @@
               },
               {
                 "name": "Rudder_Left",
-                "damageMax": 1.0,
+                "damageMax": 50.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
                 "detachRatio": 1.0,
                 "Parts": [
                   {
                     "name": "Rudder_Left_Flap",
-                    "damageMax": 1.0,
+                    "damageMax": 50.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0
@@ -2184,14 +2221,14 @@
                 ]
               },
               {
-                "name": "hardpoint_cooler_left",
+                "name": "Hardpoint_cooler_left",
                 "damagemax": 0.0,
                 "class": "ItemPort",
                 "ItemPort": {
                   "minsize": 1,
                   "maxsize": 1,
                   "display_name": "port_NameCooler01",
-                  "flags": "invisible",
+                  "flags": "",
                   "Types": [
                     {
                       "type": "Cooler",
@@ -2211,14 +2248,14 @@
                 }
               },
               {
-                "name": "hardpoint_cooler_right",
+                "name": "Hardpoint_cooler_right",
                 "damagemax": 0.0,
                 "class": "ItemPort",
                 "ItemPort": {
                   "minsize": 1,
                   "maxsize": 1,
                   "display_name": "port_NameCooler02",
-                  "flags": "invisible",
+                  "flags": "",
                   "Types": [
                     {
                       "type": "Cooler",
@@ -2269,11 +2306,61 @@
                   "minsize": 1,
                   "maxsize": 1,
                   "display_name": "port_NamePowerplant01",
-                  "flags": "invisible",
+                  "flags": "",
                   "Types": [
                     {
                       "type": "PowerPlant",
                       "subtypes": ""
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "Hardpoint_Battery",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "uneditable",
+                  "Types": [
+                    {
+                      "type": "Misc"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "Hardpoint_Life_Support",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "uneditable",
+                  "Types": [
+                    {
+                      "type": "Misc"
                     }
                   ],
                   "Connections": [
@@ -2340,7 +2427,7 @@
                   "minsize": 1,
                   "maxsize": 1,
                   "display_name": "port_NameShieldGen01",
-                  "flags": "invisible",
+                  "flags": "",
                   "Types": [
                     {
                       "type": "Shield",
@@ -2371,7 +2458,7 @@
                   "minsize": 1,
                   "maxsize": 1,
                   "display_name": "port_NameShieldGen02",
-                  "flags": "invisible",
+                  "flags": "",
                   "Types": [
                     {
                       "type": "Shield",
@@ -2594,7 +2681,7 @@
                   "minsize": 1,
                   "maxsize": 1,
                   "display_name": "port_NameQDrive01",
-                  "flags": "invisible",
+                  "flags": "",
                   "Types": [
                     {
                       "type": "QuantumDrive",
@@ -3277,7 +3364,7 @@
           {
             "idRef": "modPart_main",
             "name": "mass",
-            "value": "501.51"
+            "value": "501.51‬"
           }
         ]
       }

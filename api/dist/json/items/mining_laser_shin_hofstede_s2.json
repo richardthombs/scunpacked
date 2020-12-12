@@ -127,6 +127,27 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "Name": "BONE_ItemPort_Consumable_2",
+                  "DisplayName": "Sub_Item_Slot",
+                  "PortTags": "miningConsumable Consumable2",
+                  "RequiredPortTags": "miningConsumable",
+                  "Flags": "",
+                  "MinSize": 1,
+                  "MaxSize": 1,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": [
+                    {
+                      "Type": "MiningModifier",
+                      "SubTypes": [
+                        {
+                          "value": "Gun"
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             }
@@ -212,7 +233,7 @@
               "damagePerSecond": {
                 "DamageInfo": {
                   "DamagePhysical": 0.0,
-                  "DamageEnergy": 2000.0,
+                  "DamageEnergy": 1900.0,
                   "DamageDistortion": 0.0,
                   "DamageThermal": 0.0,
                   "DamageBiochemical": 0.0,
@@ -235,7 +256,7 @@
               "damagePerSecond": {
                 "DamageInfo": {
                   "DamagePhysical": 0.0,
-                  "DamageEnergy": 1000.0,
+                  "DamageEnergy": 1400.0,
                   "DamageDistortion": 0.0,
                   "DamageThermal": 0.0,
                   "DamageBiochemical": 0.0,
@@ -250,32 +271,32 @@
         },
         "SEntityComponentMiningLaserParams": {
           "globalParams": "a3c468d8-1194-44a3-b3e6-a8d65ecebd85",
-          "throttleLerpSpeed": "10",
+          "throttleLerpSpeed": "5",
           "miningLaserModifiers": {
-            "resistanceModifier": 0.0,
+            "resistanceModifier": -0.1,
             "laserInstability": {
               "FloatModifierMultiplicative": {
-                "value": -50.0
+                "value": -30.0
               }
             },
             "optimalChargeWindowSizeModifier": {
               "FloatModifierMultiplicative": {
-                "value": 0.0
+                "value": 10.0
               }
             },
             "shatterdamageModifier": {
               "FloatModifierMultiplicative": {
-                "value": 0.0
+                "value": 75.0
               }
             },
             "optimalChargeWindowRateModifier": {
               "FloatModifierMultiplicative": {
-                "value": 0.0
+                "value": 20.0
               }
             },
             "catastrophicChargeWindowRateModifier": {
               "FloatModifierMultiplicative": {
-                "value": 0.0
+                "value": 20.0
               }
             }
           }

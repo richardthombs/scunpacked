@@ -1,0 +1,442 @@
+{
+  "magazine": {
+    "StaticEntityClassData": {
+      "DefaultEntitlementEntityParams": {
+        "entitlementPolicy": "9ff7bf08-e06e-4203-bced-753cbc8676fb"
+      }
+    },
+    "tags": [
+      {
+        "value": "7cc0441f-5832-4df2-8655-4cb6a70478a5"
+      }
+    ],
+    "Components": {
+      "SAttachableComponentParams": {
+        "AttachDef": {
+          "Type": "WeaponAttachment",
+          "SubType": "Magazine",
+          "Size": 1,
+          "Grade": 1,
+          "Manufacturer": "98bb2e9e-fcc7-46e5-9ba6-d34c42c414e0",
+          "Tags": "lbco_pistol_energy_01",
+          "RequiredTags": "",
+          "DisplayType": "",
+          "Localization": {
+            "Name": "@item_Namelbco_pistol_energy_01_mag",
+            "Description": "@item_Desclbco_pistol_energy_01_mag"
+          }
+        }
+      },
+      "SCItem": {
+        "turnedOnByDefault": false,
+        "attachToTileItemPort": "NoConnection",
+        "inheritModelTagFromHost": true,
+        "ItemPorts": []
+      },
+      "SAmmoContainerComponentParams": {
+        "initialAmmoCount": 10.0,
+        "maxAmmoCount": 10.0,
+        "ammoParamsRecord": "3fd06a3d-6d80-4636-bfaf-57faf063b8ea"
+      }
+    },
+    "ClassName": "lbco_pistol_energy_01_mag",
+    "__ref": "9dc383ba-2686-46d0-abf9-1bc764aec0b6",
+    "__type": "EntityClassDefinition"
+  },
+  "ammo": {
+    "size": 1,
+    "lifetime": 2.0,
+    "speed": 500.0,
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 0.0,
+            "DamageEnergy": 5.5,
+            "DamageDistortion": 4.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 3.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "pistol_electron",
+    "__ref": "3fd06a3d-6d80-4636-bfaf-57faf063b8ea",
+    "__type": "AmmoParams"
+  },
+  "Raw": {
+    "Entity": {
+      "StaticEntityClassData": {
+        "DefaultEntitlementEntityParams": {
+          "entitlementPolicy": "086801b6-4827-47ea-b796-ef9706b5b694"
+        }
+      },
+      "tags": [
+        {
+          "value": "e6471cdd-5456-4a7c-91f3-8088c5bc067b"
+        },
+        {
+          "value": "042205a5-fe47-4486-8702-3ae5c62217f4"
+        },
+        {
+          "value": "8be3a3c2-2d94-4243-b9ac-81440498aae1"
+        },
+        {
+          "value": "b9593d0c-24d7-42ba-a565-8a231e9fe646"
+        },
+        {
+          "value": "23086369-834c-4903-87d6-36ba33c171ce"
+        }
+      ],
+      "Components": {
+        "SEntityComponentDefaultLoadoutParams": {
+          "loadout": {
+            "SItemPortLoadoutManualParams": {
+              "entries": [
+                {
+                  "itemPortName": "magazine_attach",
+                  "entityClassName": "lbco_pistol_energy_01_mag",
+                  "loadout": {}
+                }
+              ]
+            }
+          }
+        },
+        "SAttachableComponentParams": {
+          "AttachDef": {
+            "Type": "WeaponPersonal",
+            "SubType": "Small",
+            "Size": 1,
+            "Grade": 1,
+            "Manufacturer": "98bb2e9e-fcc7-46e5-9ba6-d34c42c414e0",
+            "Tags": "pistol",
+            "RequiredTags": "",
+            "DisplayType": "",
+            "Localization": {
+              "Name": "@item_Namelbco_pistol_energy_01_acid01",
+              "Description": "@item_Desclbco_pistol_energy_01_acid01"
+            }
+          }
+        },
+        "SCItem": {
+          "turnedOnByDefault": false,
+          "attachToTileItemPort": "NoConnection",
+          "inheritModelTagFromHost": true,
+          "ItemPorts": [
+            {
+              "PortFlags": "",
+              "PortTags": "",
+              "RequiredItemTags": "",
+              "Ports": [
+                {
+                  "Name": "magazine_attach",
+                  "DisplayName": "Magazine Slot",
+                  "PortTags": "lbco_pistol_energy_01",
+                  "RequiredPortTags": "lbco_pistol_energy_01",
+                  "Flags": "",
+                  "MinSize": 1,
+                  "MaxSize": 1,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": [
+                    {
+                      "Type": "WeaponAttachment",
+                      "SubTypes": [
+                        {
+                          "value": "Magazine"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "optics_attach",
+                  "DisplayName": "OpticsSlot",
+                  "PortTags": "",
+                  "RequiredPortTags": "",
+                  "Flags": "",
+                  "MinSize": 1,
+                  "MaxSize": 1,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": [
+                    {
+                      "Type": "WeaponAttachment",
+                      "SubTypes": [
+                        {
+                          "value": "IronSight"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "underbarrel_attach",
+                  "DisplayName": "UnderbarrelSlot",
+                  "PortTags": "",
+                  "RequiredPortTags": "",
+                  "Flags": "",
+                  "MinSize": 1,
+                  "MaxSize": 1,
+                  "InteractionPointSize": -1.0,
+                  "DefaultWeaponGroup": "UNDEFINED",
+                  "Types": [
+                    {
+                      "Type": "WeaponAttachment",
+                      "SubTypes": [
+                        {
+                          "value": "BottomAttachment"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "SCItemWeaponComponentParams": {
+          "ammoContainerRecord": "9dc383ba-2686-46d0-abf9-1bc764aec0b6",
+          "connectionParams": {
+            "powerActiveCooldown": 1.0,
+            "heatRateOnline": 25.0,
+            "maxGlow": 100.0,
+            "noPowerStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 0.0,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            },
+            "underpowerStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 0.1,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            },
+            "overpowerStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 1.2,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            },
+            "overclockStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 1.5,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            },
+            "heatStats": {
+              "fireRate": 0.0,
+              "fireRateMultiplier": 1.0,
+              "damageMultiplier": 1.0,
+              "pellets": 0.0,
+              "burstShots": 0.0,
+              "ammoCost": 0.0,
+              "ammoCostMultiplier": 1.0,
+              "heatGenerationMultiplier": 1.0,
+              "soundRadiusMultiplier": 1.0,
+              "useAlternateProjectileVisuals": false
+            }
+          },
+          "fireActions": [
+            {
+              "heatPerShot": 0.0,
+              "fireRate": 350.0,
+              "launchParams": {
+                "SProjectileLauncher": {
+                  "ammoCost": 1.0,
+                  "pelletCount": 1.0,
+                  "spreadParams": {
+                    "min": 0.0,
+                    "max": 3.0,
+                    "firstAttack": 1.5,
+                    "attack": 1.5,
+                    "decay": 2.0
+                  }
+                }
+              },
+              "name": "Single",
+              "localisedName": "@FireMode_Single",
+              "aiShootingMode": "Single"
+            }
+          ]
+        },
+        "SEntityInteractableParams": {
+          "Interactable": {
+            "SharedInteractions": [
+              {
+                "Name": "Equip",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_equip",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Stow",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_stow",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "OffHandStow",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_stow",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Drop",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_drop",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Carry",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_carry",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Inspect",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@innerthought_inspect",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Place",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_place",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "VendorInspect",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@innerthought_inspect",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "VendorReturn",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@Armory_Return",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Customize",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_customize",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              }
+            ]
+          }
+        }
+      },
+      "ClassName": "lbco_pistol_energy_01_acid01",
+      "__ref": "19e3192c-60a3-44ba-816c-625dd6729379",
+      "__type": "EntityClassDefinition"
+    }
+  }
+}

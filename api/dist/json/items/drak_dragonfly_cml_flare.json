@@ -10,7 +10,11 @@
   },
   "Raw": {
     "Entity": {
-      "StaticEntityClassData": {},
+      "StaticEntityClassData": {
+        "DefaultEntitlementEntityParams": {
+          "entitlementPolicy": "8a1fdd48-7896-4774-a110-2466190e1a07"
+        }
+      },
       "tags": [],
       "Components": {
         "SAttachableComponentParams": {
@@ -157,24 +161,25 @@
           },
           "fireActions": [
             {
+              "shotCount": 1.0,
               "heatPerShot": 0.0,
-              "fireRate": 50.0,
+              "fireRate": 450.0,
               "launchParams": {
                 "SProjectileLauncher": {
                   "ammoCost": 1.0,
                   "pelletCount": 1.0,
                   "spreadParams": {
-                    "min": 0.0,
-                    "max": 0.0,
+                    "min": 4.0,
+                    "max": 10.0,
                     "firstAttack": 0.0,
                     "attack": 0.0,
                     "decay": 0.0
                   }
                 }
               },
-              "name": "Single",
-              "localisedName": "@FireMode_Single",
-              "aiShootingMode": "Single"
+              "name": "Burst",
+              "localisedName": "@FireMode_Burst",
+              "aiShootingMode": "Burst"
             }
           ]
         }

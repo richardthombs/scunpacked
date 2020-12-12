@@ -375,6 +375,35 @@
                 "Port": {
                   "PortName": "hardpoint_cooler_right",
                   "Size": 1,
+                  "Loadout": "COOL_ACOM_S01_IcePlunge_SCItem",
+                  "InstalledItem": {
+                    "ClassName": "COOL_ACOM_S01_IcePlunge_SCItem",
+                    "Size": 1,
+                    "Grade": 3,
+                    "Type": "Cooler.UNDEFINED",
+                    "Name": "IcePlunge",
+                    "Description": "Item Type: Cooler\nManufacturer: ACOM\nSize: 1\nGrade: C\nClass: Competition\n\nWhen you’re pushing your ship to the limit during that frantic last lap, you’ll be glad you have ACOM’s IcePlunge to keep things cool. ",
+                    "Manufacturer": {
+                      "Code": "ACOM",
+                      "Name": "ACOM"
+                    },
+                    "Cooler": {
+                      "Rate": 232000.0
+                    },
+                    "Durability": {
+                      "Health": 375.0,
+                      "Lifetime": 15.0
+                    },
+                    "PowerConnection": {
+                      "PowerBase": 8.0,
+                      "PowerDraw": 12.0
+                    },
+                    "HeatConnection": {
+                      "ThermalEnergyBase": 10.0,
+                      "ThermalEnergyDraw": 20.0,
+                      "CoolingRate": 1.0
+                    }
+                  },
                   "Types": [
                     "Cooler"
                   ],
@@ -921,7 +950,7 @@
                 "ClassName": "ORIG_85X_Turret",
                 "Size": 3,
                 "Grade": 1,
-                "Type": "Turret.BallTurret",
+                "Type": "Turret.GunTurret",
                 "Name": "Origin Jumpworks 85X Remote Turret",
                 "Description": "[PH] Origin Jumpworks 85X Remote Turret",
                 "Manufacturer": {
@@ -989,7 +1018,7 @@
                             "Distortion": 1.0
                           },
                           "DetonationDamage": {
-                            "Distortion": 65.0
+                            "Distortion": 38.0
                           }
                         },
                         "Modes": [
@@ -1001,10 +1030,10 @@
                             "AmmoPerShot": 0.0,
                             "PelletsPerShot": 1.0,
                             "DamagePerShot": {
-                              "Distortion": 66.0
+                              "Distortion": 39.0
                             },
                             "DamagePerSecond": {
-                              "Distortion": 352.0
+                              "Distortion": 208.0
                             }
                           }
                         ]
@@ -1018,7 +1047,7 @@
                           "Distortion": 1.0
                         },
                         "DetonationDamage": {
-                          "Distortion": 65.0
+                          "Distortion": 38.0
                         }
                       },
                       "Ports": [
@@ -1109,7 +1138,7 @@
                             "Distortion": 1.0
                           },
                           "DetonationDamage": {
-                            "Distortion": 65.0
+                            "Distortion": 38.0
                           }
                         },
                         "Modes": [
@@ -1121,10 +1150,10 @@
                             "AmmoPerShot": 0.0,
                             "PelletsPerShot": 1.0,
                             "DamagePerShot": {
-                              "Distortion": 66.0
+                              "Distortion": 39.0
                             },
                             "DamagePerSecond": {
-                              "Distortion": 352.0
+                              "Distortion": 208.0
                             }
                           }
                         ]
@@ -1138,7 +1167,7 @@
                           "Distortion": 1.0
                         },
                         "DetonationDamage": {
-                          "Distortion": 65.0
+                          "Distortion": 38.0
                         }
                       },
                       "Ports": [
@@ -1188,7 +1217,7 @@
                 ]
               },
               "Types": [
-                "Turret.BallTurret"
+                "Turret.GunTurret"
               ],
               "Flags": [
                 "$uneditable",
@@ -1692,6 +1721,30 @@
             }
           },
           {
+            "Name": "hardpoint_controller_weapon_remote_turret",
+            "Port": {
+              "PortName": "hardpoint_controller_weapon_remote_turret",
+              "Size": 1,
+              "Loadout": "Controller_Weapon",
+              "InstalledItem": {
+                "ClassName": "Controller_Weapon",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponController.UNDEFINED",
+                "Name": "WEAPONS"
+              },
+              "Types": [
+                "WeaponController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
             "Name": "hardpoint_scanner",
             "Port": {
               "PortName": "hardpoint_scanner",
@@ -1778,6 +1831,64 @@
             "Name": "hardpoint_radar",
             "Port": {
               "PortName": "hardpoint_radar",
+              "Size": 1,
+              "Loadout": "RADR_NAVE_S01_SNSR6",
+              "InstalledItem": {
+                "ClassName": "RADR_NAVE_S01_SNSR6",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "Radar.MidRangeRadar",
+                "Name": "SNS-R6",
+                "Description": "Item Type: Radar\nManufacturer: Nav-E7\nSize: 1\nGrade: C\nClass: Competition\n\nIncreased power and performance makes the SNS-R6 stand out from other radars in its class. Get yours today to see why pilots the Empire over love components from Nav-E7 Gadgets.",
+                "Manufacturer": {
+                  "Code": "NAVE",
+                  "Name": "Nav-E7 Gadgets"
+                },
+                "Tags": [
+                  "flightReady"
+                ],
+                "Durability": {
+                  "Lifetime": 720.0
+                },
+                "PowerConnection": {
+                  "PowerBase": 0.0,
+                  "PowerDraw": 1.0
+                },
+                "HeatConnection": {
+                  "ThermalEnergyBase": 10.0,
+                  "ThermalEnergyDraw": 20.0,
+                  "CoolingRate": 1.0
+                },
+                "Ports": [
+                  {
+                    "PortName": "BatteryPort",
+                    "Size": 2,
+                    "Types": [
+                      "Battery"
+                    ],
+                    "Flags": [
+                      "invisible"
+                    ],
+                    "Category": "Batteries"
+                  }
+                ]
+              },
+              "Types": [
+                "Radar.ShortRangeRadar",
+                "Radar.MidRangeRadar"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "Radar",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_radar_remote",
+            "Port": {
+              "PortName": "hardpoint_radar_remote",
               "Size": 1,
               "Loadout": "RADR_NAVE_S01_SNSR6",
               "InstalledItem": {
@@ -2082,14 +2193,14 @@
                 "Port": {
                   "PortName": "hardpoint_countermeasures_2",
                   "Size": 1,
-                  "Loadout": "ORIG_M50_CML_Chaff",
+                  "Loadout": "ORIG_CML_Noise_Small",
                   "InstalledItem": {
-                    "ClassName": "ORIG_M50_CML_Chaff",
-                    "Size": 1,
+                    "ClassName": "ORIG_CML_Noise_Small",
+                    "Size": 2,
                     "Grade": 1,
                     "Type": "WeaponDefensive.CountermeasureLauncher",
-                    "Name": "Origin Jumpworks Chaff Launcher",
-                    "Description": "[PH] Origin Jumpworks Chaff Launcher",
+                    "Name": "Origin Jumpworks Noise Launcher",
+                    "Description": "[PH] Origin Jumpworks Noise Launcher",
                     "Manufacturer": {
                       "Code": "ORIG",
                       "Name": "Origin Jumpworks"
@@ -2145,14 +2256,14 @@
                 "Port": {
                   "PortName": "hardpoint_countermeasures_1",
                   "Size": 1,
-                  "Loadout": "ORIG_M50_CML_Flare",
+                  "Loadout": "ORIG_CML_Decoy_Small",
                   "InstalledItem": {
-                    "ClassName": "ORIG_M50_CML_Flare",
-                    "Size": 1,
+                    "ClassName": "ORIG_CML_Decoy_Small",
+                    "Size": 2,
                     "Grade": 1,
                     "Type": "WeaponDefensive.CountermeasureLauncher",
-                    "Name": "Origin Jumpworks Chaff Launcher",
-                    "Description": "[PH] Origin Jumpworks Chaff Launcher",
+                    "Name": "Origin Jumpworks Noise Launcher",
+                    "Description": "[PH] Origin Jumpworks Noise Launcher",
                     "Manufacturer": {
                       "Code": "ORIG",
                       "Name": "Origin Jumpworks"
@@ -2176,7 +2287,7 @@
                         {
                           "Name": "Burst",
                           "LocalisedName": "[BURST]",
-                          "RoundsPerMinute": 250.0,
+                          "RoundsPerMinute": 450.0,
                           "FireType": "burst",
                           "AmmoPerShot": 1.0,
                           "PelletsPerShot": 1.0,

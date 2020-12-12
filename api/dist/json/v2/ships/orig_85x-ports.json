@@ -318,7 +318,7 @@
         "ClassName": "ORIG_85X_Turret",
         "Size": 3,
         "Grade": 1,
-        "Type": "Turret.BallTurret",
+        "Type": "Turret.GunTurret",
         "Name": "Origin Jumpworks 85X Remote Turret",
         "Description": "[PH] Origin Jumpworks 85X Remote Turret",
         "Manufacturer": {
@@ -386,7 +386,7 @@
                     "Distortion": 1.0
                   },
                   "DetonationDamage": {
-                    "Distortion": 65.0
+                    "Distortion": 38.0
                   }
                 },
                 "Modes": [
@@ -398,10 +398,10 @@
                     "AmmoPerShot": 0.0,
                     "PelletsPerShot": 1.0,
                     "DamagePerShot": {
-                      "Distortion": 66.0
+                      "Distortion": 39.0
                     },
                     "DamagePerSecond": {
-                      "Distortion": 352.0
+                      "Distortion": 208.0
                     }
                   }
                 ]
@@ -415,7 +415,7 @@
                   "Distortion": 1.0
                 },
                 "DetonationDamage": {
-                  "Distortion": 65.0
+                  "Distortion": 38.0
                 }
               },
               "Ports": [
@@ -506,7 +506,7 @@
                     "Distortion": 1.0
                   },
                   "DetonationDamage": {
-                    "Distortion": 65.0
+                    "Distortion": 38.0
                   }
                 },
                 "Modes": [
@@ -518,10 +518,10 @@
                     "AmmoPerShot": 0.0,
                     "PelletsPerShot": 1.0,
                     "DamagePerShot": {
-                      "Distortion": 66.0
+                      "Distortion": 39.0
                     },
                     "DamagePerSecond": {
-                      "Distortion": 352.0
+                      "Distortion": 208.0
                     }
                   }
                 ]
@@ -535,7 +535,7 @@
                   "Distortion": 1.0
                 },
                 "DetonationDamage": {
-                  "Distortion": 65.0
+                  "Distortion": 38.0
                 }
               },
               "Ports": [
@@ -585,7 +585,7 @@
         ]
       },
       "Types": [
-        "Turret.BallTurret"
+        "Turret.GunTurret"
       ],
       "Flags": [
         "$uneditable",
@@ -606,14 +606,14 @@
     {
       "PortName": "hardpoint_countermeasures_2",
       "Size": 1,
-      "Loadout": "ORIG_M50_CML_Chaff",
+      "Loadout": "ORIG_CML_Noise_Small",
       "InstalledItem": {
-        "ClassName": "ORIG_M50_CML_Chaff",
-        "Size": 1,
+        "ClassName": "ORIG_CML_Noise_Small",
+        "Size": 2,
         "Grade": 1,
         "Type": "WeaponDefensive.CountermeasureLauncher",
-        "Name": "Origin Jumpworks Chaff Launcher",
-        "Description": "[PH] Origin Jumpworks Chaff Launcher",
+        "Name": "Origin Jumpworks Noise Launcher",
+        "Description": "[PH] Origin Jumpworks Noise Launcher",
         "Manufacturer": {
           "Code": "ORIG",
           "Name": "Origin Jumpworks"
@@ -666,14 +666,14 @@
     {
       "PortName": "hardpoint_countermeasures_1",
       "Size": 1,
-      "Loadout": "ORIG_M50_CML_Flare",
+      "Loadout": "ORIG_CML_Decoy_Small",
       "InstalledItem": {
-        "ClassName": "ORIG_M50_CML_Flare",
-        "Size": 1,
+        "ClassName": "ORIG_CML_Decoy_Small",
+        "Size": 2,
         "Grade": 1,
         "Type": "WeaponDefensive.CountermeasureLauncher",
-        "Name": "Origin Jumpworks Chaff Launcher",
-        "Description": "[PH] Origin Jumpworks Chaff Launcher",
+        "Name": "Origin Jumpworks Noise Launcher",
+        "Description": "[PH] Origin Jumpworks Noise Launcher",
         "Manufacturer": {
           "Code": "ORIG",
           "Name": "Origin Jumpworks"
@@ -697,7 +697,7 @@
             {
               "Name": "Burst",
               "LocalisedName": "[BURST]",
-              "RoundsPerMinute": 250.0,
+              "RoundsPerMinute": 450.0,
               "FireType": "burst",
               "AmmoPerShot": 1.0,
               "PelletsPerShot": 1.0,
@@ -899,6 +899,35 @@
     {
       "PortName": "hardpoint_cooler_right",
       "Size": 1,
+      "Loadout": "COOL_ACOM_S01_IcePlunge_SCItem",
+      "InstalledItem": {
+        "ClassName": "COOL_ACOM_S01_IcePlunge_SCItem",
+        "Size": 1,
+        "Grade": 3,
+        "Type": "Cooler.UNDEFINED",
+        "Name": "IcePlunge",
+        "Description": "Item Type: Cooler\nManufacturer: ACOM\nSize: 1\nGrade: C\nClass: Competition\n\nWhen you’re pushing your ship to the limit during that frantic last lap, you’ll be glad you have ACOM’s IcePlunge to keep things cool. ",
+        "Manufacturer": {
+          "Code": "ACOM",
+          "Name": "ACOM"
+        },
+        "Cooler": {
+          "Rate": 232000.0
+        },
+        "Durability": {
+          "Health": 375.0,
+          "Lifetime": 15.0
+        },
+        "PowerConnection": {
+          "PowerBase": 8.0,
+          "PowerDraw": 12.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        }
+      },
       "Types": [
         "Cooler"
       ],

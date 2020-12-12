@@ -56,6 +56,8 @@ namespace Loader
 			if (String.IsNullOrEmpty(patchFile)) return;
 
 			var patchFilename = Path.ChangeExtension(Path.Combine(Path.GetDirectoryName(vehiclePath), patchFile.Replace("/", "\\")), ".xml");
+			if (!File.Exists(patchFilename)) return;
+
 			Console.WriteLine(patchFilename);
 
 			var patchDocText = File.ReadAllText(patchFilename);

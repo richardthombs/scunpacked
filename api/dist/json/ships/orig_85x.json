@@ -8,16 +8,16 @@
       },
       "tags": [
         {
+          "value": "9314b308-b5dd-44ce-8e81-61e1764cbd57"
+        },
+        {
           "value": "ef734509-be28-47c9-87df-2775db104d38"
         },
         {
-          "value": "85114e38-fbee-49e2-9845-954e307d5c5d"
+          "value": "d3a2810c-e031-4766-846b-9c0e89d1158e"
         },
         {
-          "value": "aa687902-f049-47c0-9045-8725ecf395cf"
-        },
-        {
-          "value": "9314b308-b5dd-44ce-8e81-61e1764cbd57"
+          "value": "5270ca17-cdcd-40f1-bdb9-f79d177317d3"
         }
       ],
       "Components": {
@@ -150,7 +150,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_cooler_right",
-                  "entityClassName": "",
+                  "entityClassName": "COOL_ACOM_S01_IcePlunge_SCItem",
                   "loadout": {}
                 },
                 {
@@ -335,12 +335,22 @@
                 },
                 {
                   "itemPortName": "hardpoint_countermeasures_1",
-                  "entityClassName": "ORIG_M50_CML_Flare",
+                  "entityClassName": "ORIG_CML_Decoy_Small",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_countermeasures_2",
-                  "entityClassName": "ORIG_M50_CML_Chaff",
+                  "entityClassName": "ORIG_CML_Noise_Small",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_radar_remote",
+                  "entityClassName": "RADR_NAVE_S01_SNSR6",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_weapon_remote_turret",
+                  "entityClassName": "Controller_Weapon",
                   "loadout": {}
                 }
               ]
@@ -1014,7 +1024,7 @@
                     "Types": [
                       {
                         "type": "Turret",
-                        "subtypes": "BallTurret"
+                        "subtypes": "GunTurret"
                       }
                     ],
                     "Connections": [
@@ -1027,6 +1037,9 @@
                         "pipe": "MainHeat"
                       }
                     ],
+                    "ControllerDef": {
+                      "controllableTags": "Remote_Turret"
+                    },
                     "Pitch": {
                       "min": -10,
                       "max": 50
@@ -1450,6 +1463,46 @@
                   }
                 },
                 {
+                  "name": "hardpoint_controller_weapon_remote_turret",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponController"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "weapon_controller_copilot",
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "Turret",
+                            "defaultPriority": "no_control"
+                          },
+                          {
+                            "itemType": "WeaponGun",
+                            "defaultPriority": "no_control"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
                   "name": "hardpoint_scanner",
                   "damagemax": 0.0,
                   "class": "ItemPort",
@@ -1548,7 +1601,40 @@
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
                       }
-                    ]
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "pilotSeat"
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_radar_remote",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "Radar",
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "Radar",
+                        "subtypes": "ShortRangeRadar,MidRangeRadar"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "copilot_radar"
+                    }
                   }
                 },
                 {

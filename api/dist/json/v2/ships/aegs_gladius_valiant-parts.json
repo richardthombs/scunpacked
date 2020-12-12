@@ -321,23 +321,23 @@
           },
           {
             "Name": "FrontWing_Left",
-            "MaximumDamage": 25.0,
+            "MaximumDamage": 50.0,
             "Parts": [
               {
                 "Name": "FrontWing_Left_Flap"
               }
             ],
-            "PartDetachDamage": 25.0
+            "PartDetachDamage": 50.0
           },
           {
             "Name": "FrontWing_Right",
-            "MaximumDamage": 1.0,
+            "MaximumDamage": 50.0,
             "Parts": [
               {
                 "Name": "FrontWing_Right_Flap"
               }
             ],
-            "PartDetachDamage": 1.0
+            "PartDetachDamage": 50.0
           },
           {
             "Name": "Canopy",
@@ -602,10 +602,25 @@
                 "Radar.MidRangeRadar"
               ],
               "Flags": [
-                "invisible",
                 "uneditable"
               ],
               "Category": "Radar",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "Hardpoint_Avionics",
+            "Port": {
+              "PortName": "Hardpoint_Avionics",
+              "Size": 1,
+              "Loadout": "COMP_BEHR_S01_CSR-RP",
+              "Types": [
+                "Misc"
+              ],
+              "Flags": [
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
               "Uneditable": true
             }
           },
@@ -667,6 +682,11 @@
                         "Types": [
                           "Display"
                         ],
+                        "Category": "UNKNOWN"
+                      },
+                      {
+                        "PortName": "Display_HUD",
+                        "Size": 1,
                         "Category": "UNKNOWN"
                       }
                     ]
@@ -1120,8 +1140,8 @@
                 "Size": 1,
                 "Grade": 1,
                 "Type": "WeaponDefensive.CountermeasureLauncher",
-                "Name": "Aegis Gladius - Chaff Launcher",
-                "Description": "[PH] Aegis Gladius - Chaff Launcher",
+                "Name": "Aegis Gladius - Noise Launcher",
+                "Description": "[PH] Aegis Gladius - Noise Launcher",
                 "Manufacturer": {
                   "Code": "AEG",
                   "Name": "Aegis Dynamics"
@@ -1184,8 +1204,8 @@
                 "Size": 1,
                 "Grade": 1,
                 "Type": "WeaponDefensive.CountermeasureLauncher",
-                "Name": "Aegis Gladius - Flare Launcher",
-                "Description": "[PH] Aegis Gladius - Flare Launcher",
+                "Name": "Aegis Gladius - Decoy Launcher",
+                "Description": "[PH] Aegis Gladius - Decoy Launcher",
                 "Manufacturer": {
                   "Code": "AEG",
                   "Name": "Aegis Dynamics"
@@ -1209,7 +1229,7 @@
                     {
                       "Name": "Burst",
                       "LocalisedName": "[BURST]",
-                      "RoundsPerMinute": 250.0,
+                      "RoundsPerMinute": 450.0,
                       "FireType": "burst",
                       "AmmoPerShot": 1.0,
                       "PelletsPerShot": 1.0,
@@ -1243,22 +1263,22 @@
             "Parts": [
               {
                 "Name": "WingLeft_Tip",
-                "MaximumDamage": 160.0,
+                "MaximumDamage": 260.0,
                 "Parts": [
                   {
                     "Name": "TipWing_Left_B",
-                    "MaximumDamage": 1.0,
-                    "PartDetachDamage": 1.0
+                    "MaximumDamage": 50.0,
+                    "PartDetachDamage": 50.0
                   },
                   {
                     "Name": "TipWing_Left_A",
-                    "MaximumDamage": 1.0,
-                    "PartDetachDamage": 1.0
+                    "MaximumDamage": 50.0,
+                    "PartDetachDamage": 50.0
                   },
                   {
                     "Name": "WingLeft_Mid_Flap",
-                    "MaximumDamage": 1.0,
-                    "PartDetachDamage": 1.0
+                    "MaximumDamage": 50.0,
+                    "PartDetachDamage": 50.0
                   },
                   {
                     "Name": "hardpoint_missilerack_left_wing_outer",
@@ -1423,7 +1443,7 @@
                     }
                   }
                 ],
-                "PartDetachDamage": 160.0
+                "PartDetachDamage": 260.0
               },
               {
                 "Name": "hardpoint_thruster_wing_left_top",
@@ -1860,22 +1880,22 @@
               },
               {
                 "Name": "WingRight_Tip",
-                "MaximumDamage": 160.0,
+                "MaximumDamage": 260.0,
                 "Parts": [
                   {
                     "Name": "TipWing_Right_A",
-                    "MaximumDamage": 1.0,
-                    "PartDetachDamage": 1.0
+                    "MaximumDamage": 50.0,
+                    "PartDetachDamage": 50.0
                   },
                   {
                     "Name": "TipWing_Right_B",
-                    "MaximumDamage": 1.0,
-                    "PartDetachDamage": 1.0
+                    "MaximumDamage": 50.0,
+                    "PartDetachDamage": 50.0
                   },
                   {
                     "Name": "WingRight_Mid_Flap",
-                    "MaximumDamage": 1.0,
-                    "PartDetachDamage": 1.0
+                    "MaximumDamage": 50.0,
+                    "PartDetachDamage": 50.0
                   },
                   {
                     "Name": "hardpoint_missilerack_right_wing_outer",
@@ -2040,7 +2060,7 @@
                     }
                   }
                 ],
-                "PartDetachDamage": 160.0
+                "PartDetachDamage": 260.0
               },
               {
                 "Name": "hardpoint_gun_right_wing",
@@ -2143,13 +2163,13 @@
             "Parts": [
               {
                 "Name": "Belly_Wing_Left",
-                "MaximumDamage": 1.0,
-                "PartDetachDamage": 1.0
+                "MaximumDamage": 150.0,
+                "PartDetachDamage": 150.0
               },
               {
                 "Name": "Belly_Wing_Right",
-                "MaximumDamage": 1.0,
-                "PartDetachDamage": 1.0
+                "MaximumDamage": 150.0,
+                "PartDetachDamage": 150.0
               },
               {
                 "Name": "FuelHole"
@@ -2201,39 +2221,39 @@
           },
           {
             "Name": "Rudder_Right",
-            "MaximumDamage": 1.0,
+            "MaximumDamage": 50.0,
             "Parts": [
               {
                 "Name": "Rudder_Right_Flap",
-                "MaximumDamage": 1.0,
-                "PartDetachDamage": 1.0
+                "MaximumDamage": 50.0,
+                "PartDetachDamage": 50.0
               }
             ],
-            "PartDetachDamage": 1.0
+            "PartDetachDamage": 50.0
           },
           {
             "Name": "RearWingRight",
-            "MaximumDamage": 1.0,
+            "MaximumDamage": 50.0,
             "Parts": [
               {
                 "Name": "RearWingRight_Flap",
-                "MaximumDamage": 1.0,
-                "PartDetachDamage": 1.0
+                "MaximumDamage": 50.0,
+                "PartDetachDamage": 50.0
               }
             ],
-            "PartDetachDamage": 1.0
+            "PartDetachDamage": 50.0
           },
           {
             "Name": "RearWingLeft",
-            "MaximumDamage": 1.0,
+            "MaximumDamage": 50.0,
             "Parts": [
               {
                 "Name": "RearWingLeft_Flap",
-                "MaximumDamage": 1.0,
-                "PartDetachDamage": 1.0
+                "MaximumDamage": 50.0,
+                "PartDetachDamage": 50.0
               }
             ],
-            "PartDetachDamage": 1.0
+            "PartDetachDamage": 50.0
           },
           {
             "Name": "hardpoint_thruster_main_left",
@@ -2325,20 +2345,20 @@
           },
           {
             "Name": "Rudder_Left",
-            "MaximumDamage": 1.0,
+            "MaximumDamage": 50.0,
             "Parts": [
               {
                 "Name": "Rudder_Left_Flap",
-                "MaximumDamage": 1.0,
-                "PartDetachDamage": 1.0
+                "MaximumDamage": 50.0,
+                "PartDetachDamage": 50.0
               }
             ],
-            "PartDetachDamage": 1.0
+            "PartDetachDamage": 50.0
           },
           {
-            "Name": "hardpoint_cooler_left",
+            "Name": "Hardpoint_cooler_left",
             "Port": {
-              "PortName": "hardpoint_cooler_left",
+              "PortName": "Hardpoint_cooler_left",
               "Size": 1,
               "Loadout": "COOL_AEGS_S01_Bracer_SCItem",
               "InstalledItem": {
@@ -2371,17 +2391,14 @@
               },
               "Types": [
                 "Cooler"
-              ],
-              "Flags": [
-                "invisible"
               ],
               "Category": "Coolers"
             }
           },
           {
-            "Name": "hardpoint_cooler_right",
+            "Name": "Hardpoint_cooler_right",
             "Port": {
-              "PortName": "hardpoint_cooler_right",
+              "PortName": "Hardpoint_cooler_right",
               "Size": 1,
               "Loadout": "COOL_AEGS_S01_Bracer_SCItem",
               "InstalledItem": {
@@ -2414,9 +2431,6 @@
               },
               "Types": [
                 "Cooler"
-              ],
-              "Flags": [
-                "invisible"
               ],
               "Category": "Coolers"
             }
@@ -2482,10 +2496,84 @@
               "Types": [
                 "PowerPlant"
               ],
-              "Flags": [
-                "invisible"
-              ],
               "Category": "Power plants"
+            }
+          },
+          {
+            "Name": "Hardpoint_Battery",
+            "Port": {
+              "PortName": "Hardpoint_Battery",
+              "Size": 1,
+              "Loadout": "BATT_AMRS_S01_FortCell",
+              "InstalledItem": {
+                "ClassName": "BATT_AMRS_S01_FortCell",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "Misc.UNDEFINED",
+                "Name": "BATT_AMRS_S01_FortCell",
+                "Manufacturer": {
+                  "Code": "ESPR",
+                  "Name": "Esperia"
+                },
+                "Tags": [
+                  "ESPR_Talon_Base"
+                ],
+                "Durability": {
+                  "Health": 1.0
+                }
+              },
+              "Types": [
+                "Misc"
+              ],
+              "Flags": [
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "Hardpoint_Life_Support",
+            "Port": {
+              "PortName": "Hardpoint_Life_Support",
+              "Size": 1,
+              "Loadout": "LFSP_Gladius",
+              "InstalledItem": {
+                "ClassName": "LFSP_Gladius",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "Misc.UNDEFINED",
+                "Name": "LFSP_Gladius",
+                "Manufacturer": {
+                  "Code": "ESPR",
+                  "Name": "Esperia"
+                },
+                "Tags": [
+                  "ESPR_Talon_Base"
+                ],
+                "Durability": {
+                  "Health": 1.0
+                },
+                "Ports": [
+                  {
+                    "PortName": "hardpoint_weapon_gun_left_wing",
+                    "Size": 1,
+                    "Types": [
+                      "WeaponGun.Gun",
+                      "Turret.GunTurret"
+                    ],
+                    "Category": "Weapon hardpoints"
+                  }
+                ]
+              },
+              "Types": [
+                "Misc"
+              ],
+              "Flags": [
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
             }
           },
           {
@@ -2552,9 +2640,6 @@
               "Types": [
                 "Shield"
               ],
-              "Flags": [
-                "invisible"
-              ],
               "Category": "Shield generators"
             }
           },
@@ -2597,9 +2682,6 @@
               },
               "Types": [
                 "Shield"
-              ],
-              "Flags": [
-                "invisible"
               ],
               "Category": "Shield generators"
             }
@@ -2844,9 +2926,6 @@
               },
               "Types": [
                 "QuantumDrive.QDrive"
-              ],
-              "Flags": [
-                "invisible"
               ],
               "Category": "Quantum drives"
             }

@@ -15,6 +15,16 @@
                 "MaximumDamage": 1.0,
                 "Parts": [
                   {
+                    "Name": "$LOD1_front_left_wing_damage",
+                    "MaximumDamage": 1.0,
+                    "PartDetachDamage": 1.0
+                  },
+                  {
+                    "Name": "$LOD2_front_left_wing_damage",
+                    "MaximumDamage": 1.0,
+                    "PartDetachDamage": 1.0
+                  },
+                  {
                     "Name": "front_left_wing_flp_geom",
                     "MaximumDamage": 1.0,
                     "PartDetachDamage": 1.0
@@ -1114,8 +1124,8 @@
                         "Size": 1,
                         "Grade": 1,
                         "Type": "WeaponDefensive.CountermeasureLauncher",
-                        "Name": "Aegis Gladius - Flare Launcher",
-                        "Description": "[PH] Aegis Gladius - Flare Launcher",
+                        "Name": "Aegis Gladius - Decoy Launcher",
+                        "Description": "[PH] Aegis Gladius - Decoy Launcher",
                         "Manufacturer": {
                           "Code": "AEG",
                           "Name": "Aegis Dynamics"
@@ -1139,7 +1149,7 @@
                             {
                               "Name": "Burst",
                               "LocalisedName": "[BURST]",
-                              "RoundsPerMinute": 250.0,
+                              "RoundsPerMinute": 450.0,
                               "FireType": "burst",
                               "AmmoPerShot": 1.0,
                               "PelletsPerShot": 1.0,
@@ -1178,8 +1188,8 @@
                         "Size": 1,
                         "Grade": 1,
                         "Type": "WeaponDefensive.CountermeasureLauncher",
-                        "Name": "Aegis Gladius - Chaff Launcher",
-                        "Description": "[PH] Aegis Gladius - Chaff Launcher",
+                        "Name": "Aegis Gladius - Noise Launcher",
+                        "Description": "[PH] Aegis Gladius - Noise Launcher",
                         "Manufacturer": {
                           "Code": "AEG",
                           "Name": "Aegis Dynamics"
@@ -1654,6 +1664,24 @@
                     ]
                   },
                   {
+                    "Name": "wing_left_rl_geom",
+                    "MaximumDamage": 240.0,
+                    "Parts": [
+                      {
+                        "Name": "wing_left_rl_damage",
+                        "MaximumDamage": 480.0,
+                        "Parts": [
+                          {
+                            "Name": "wing_left_rl_fin_geom",
+                            "MaximumDamage": 50.0,
+                            "PartDetachDamage": 50.0
+                          }
+                        ],
+                        "PartDetachDamage": 480.0
+                      }
+                    ]
+                  },
+                  {
                     "Name": "hardpoint_thruster_maneuver_backbottomleft",
                     "MaximumDamage": 50.0,
                     "Port": {
@@ -1873,24 +1901,6 @@
                     }
                   },
                   {
-                    "Name": "wing_left_rl_geom",
-                    "MaximumDamage": 240.0,
-                    "Parts": [
-                      {
-                        "Name": "wing_left_rl_damage",
-                        "MaximumDamage": 480.0,
-                        "Parts": [
-                          {
-                            "Name": "wing_left_rl_fin_geom",
-                            "MaximumDamage": 50.0,
-                            "PartDetachDamage": 50.0
-                          }
-                        ],
-                        "PartDetachDamage": 480.0
-                      }
-                    ]
-                  },
-                  {
                     "Name": "wing_left_m_geom",
                     "MaximumDamage": 480.0,
                     "Parts": [
@@ -1961,8 +1971,8 @@
                         "Size": 1,
                         "Grade": 1,
                         "Type": "WeaponDefensive.CountermeasureLauncher",
-                        "Name": "Aegis Gladius - Flare Launcher",
-                        "Description": "[PH] Aegis Gladius - Flare Launcher",
+                        "Name": "Aegis Gladius - Decoy Launcher",
+                        "Description": "[PH] Aegis Gladius - Decoy Launcher",
                         "Manufacturer": {
                           "Code": "AEG",
                           "Name": "Aegis Dynamics"
@@ -1986,7 +1996,7 @@
                             {
                               "Name": "Burst",
                               "LocalisedName": "[BURST]",
-                              "RoundsPerMinute": 250.0,
+                              "RoundsPerMinute": 450.0,
                               "FireType": "burst",
                               "AmmoPerShot": 1.0,
                               "PelletsPerShot": 1.0,
@@ -2025,8 +2035,8 @@
                         "Size": 1,
                         "Grade": 1,
                         "Type": "WeaponDefensive.CountermeasureLauncher",
-                        "Name": "Aegis Gladius - Chaff Launcher",
-                        "Description": "[PH] Aegis Gladius - Chaff Launcher",
+                        "Name": "Aegis Gladius - Noise Launcher",
+                        "Description": "[PH] Aegis Gladius - Noise Launcher",
                         "Manufacturer": {
                           "Code": "AEG",
                           "Name": "Aegis Dynamics"
@@ -2256,17 +2266,6 @@
                     "Name": "right_wing_rs_geom",
                     "MaximumDamage": 50.0,
                     "PartDetachDamage": 50.0
-                  },
-                  {
-                    "Name": "wing_right_m_geom",
-                    "MaximumDamage": 480.0,
-                    "Parts": [
-                      {
-                        "Name": "wing_right_m_damage",
-                        "MaximumDamage": 2800.0,
-                        "PartDetachDamage": 2800.0
-                      }
-                    ]
                   },
                   {
                     "Name": "hardpoint_thruster_maneuver_backbottomright",
@@ -2743,6 +2742,17 @@
                       ],
                       "Category": "Seat access"
                     }
+                  },
+                  {
+                    "Name": "wing_right_m_geom",
+                    "MaximumDamage": 480.0,
+                    "Parts": [
+                      {
+                        "Name": "wing_right_m_damage",
+                        "MaximumDamage": 2800.0,
+                        "PartDetachDamage": 2800.0
+                      }
+                    ]
                   }
                 ]
               },
@@ -5265,6 +5275,202 @@
                 "uneditable"
               ],
               "Category": "Rooms",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_rack_FL",
+            "Port": {
+              "PortName": "hardpoint_rack_FL",
+              "Size": 1,
+              "Loadout": "Weapon_Rack_AEGS_3slots",
+              "InstalledItem": {
+                "ClassName": "Weapon_Rack_AEGS_3slots",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "UNDEFINED.UNDEFINED",
+                "Name": "Weapon_Rack_AEGS_3slots",
+                "Ports": [
+                  {
+                    "PortName": "$proxy_weapon_01",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$proxy_weapon_02",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$proxy_weapon_03",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  }
+                ]
+              },
+              "Types": [
+                "Usable"
+              ],
+              "Flags": [
+                "uneditable"
+              ],
+              "Category": "Usables",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_rack_RL",
+            "Port": {
+              "PortName": "hardpoint_rack_RL",
+              "Size": 1,
+              "Loadout": "Weapon_Rack_AEGS_3slots",
+              "InstalledItem": {
+                "ClassName": "Weapon_Rack_AEGS_3slots",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "UNDEFINED.UNDEFINED",
+                "Name": "Weapon_Rack_AEGS_3slots",
+                "Ports": [
+                  {
+                    "PortName": "$proxy_weapon_01",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$proxy_weapon_02",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$proxy_weapon_03",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  }
+                ]
+              },
+              "Types": [
+                "Usable"
+              ],
+              "Flags": [
+                "uneditable"
+              ],
+              "Category": "Usables",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_rack_FR",
+            "Port": {
+              "PortName": "hardpoint_rack_FR",
+              "Size": 1,
+              "Loadout": "Weapon_Rack_AEGS_3slots",
+              "InstalledItem": {
+                "ClassName": "Weapon_Rack_AEGS_3slots",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "UNDEFINED.UNDEFINED",
+                "Name": "Weapon_Rack_AEGS_3slots",
+                "Ports": [
+                  {
+                    "PortName": "$proxy_weapon_01",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$proxy_weapon_02",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$proxy_weapon_03",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  }
+                ]
+              },
+              "Types": [
+                "Usable"
+              ],
+              "Flags": [
+                "uneditable"
+              ],
+              "Category": "Usables",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_rack_RR",
+            "Port": {
+              "PortName": "hardpoint_rack_RR",
+              "Size": 1,
+              "Loadout": "Weapon_Rack_AEGS_3slots",
+              "InstalledItem": {
+                "ClassName": "Weapon_Rack_AEGS_3slots",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "UNDEFINED.UNDEFINED",
+                "Name": "Weapon_Rack_AEGS_3slots",
+                "Ports": [
+                  {
+                    "PortName": "$proxy_weapon_01",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$proxy_weapon_02",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$proxy_weapon_03",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  }
+                ]
+              },
+              "Types": [
+                "Usable"
+              ],
+              "Flags": [
+                "uneditable"
+              ],
+              "Category": "Usables",
               "Uneditable": true
             }
           }
