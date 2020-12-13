@@ -29,8 +29,8 @@
   <div class="flex-1">
     <!-- Item name -->
     <div *ngIf="itemPort.InstalledItem" class="mr-4">
-      <a [routerLink]="['/items', itemPort.Loadout.toLowerCase()]">{{itemPort.InstalledItem.Name || itemPort.Loadout}}</a>
-      <small class="ml-2"><a [routerLink]="['/items/compare']" [queryParams]="{type: itemPort.InstalledItem.Type, size: itemPort.InstalledItem.Size, selected: itemPort.Loadout}">Compare</a></small>
+      <a [routerLink]="['/items', itemPort.Loadout.toLowerCase()]" class="text-primary">{{itemPort.InstalledItem.Name || itemPort.Loadout}}</a>
+      <span class="text-xs text-primary ml-2"><a [routerLink]="['/items/compare']" [queryParams]="{type: itemPort.InstalledItem.Type, size: itemPort.InstalledItem.Size, selected: itemPort.Loadout}">Compare</a></span>
     </div>
 
     <!-- Installed item info -->
