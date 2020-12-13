@@ -25,6 +25,14 @@
     {
       "PortName": "hardpoint_aimodule",
       "Size": 10,
+      "Loadout": "AIModule_Unmanned_PU_PSec_GreenzoneTurret_Large",
+      "InstalledItem": {
+        "ClassName": "AIModule_Unmanned_PU_PSec_GreenzoneTurret_Large",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "AIModule.UNDEFINED",
+        "Name": "AIModule_Unmanned_PU_PSec_GreenzoneTurret_Large"
+      },
       "Types": [
         "AIModule"
       ],
@@ -37,6 +45,102 @@
     {
       "PortName": "hardpoint_weaponcenter",
       "Size": 10,
+      "Loadout": "BEHR_LaserRepeater_S10",
+      "InstalledItem": {
+        "ClassName": "BEHR_LaserRepeater_S10",
+        "Size": 10,
+        "Grade": 1,
+        "Type": "WeaponGun.Gun",
+        "Name": "GVSR Repeater",
+        "Description": "Manufacturer: Behring\nItem Type: Laser Repeater\nSize: 2\n\nAegis commissioned Behring to design a laser repeater specifically for their Vanguard line-up. The result was the GVSR, which met Aegis exacting standards by delivering a steady rate of fire without overtaxing the ship's power plant. ",
+        "Manufacturer": {
+          "Code": "BEH",
+          "Name": "Behring"
+        },
+        "Tags": [
+          "flightReady",
+          "weaponMountUsable",
+          "VanguardNose"
+        ],
+        "Durability": {
+          "Lifetime": 20.0
+        },
+        "PowerConnection": {
+          "PowerBase": 99.0,
+          "PowerDraw": 273.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 100.0,
+          "ThermalEnergyDraw": 200.0,
+          "CoolingRate": 300.0
+        },
+        "Weapon": {
+          "Ammunition": {
+            "Speed": 666.0,
+            "Range": 3330.0,
+            "Size": 10.0,
+            "Capacity": 0.0,
+            "ImpactDamage": {
+              "Energy": 10000.0
+            }
+          },
+          "Modes": [
+            {
+              "Name": "Single",
+              "LocalisedName": "[SEMI]",
+              "RoundsPerMinute": 120.0,
+              "FireType": "sequence",
+              "AmmoPerShot": 0.0,
+              "PelletsPerShot": 1.0,
+              "DamagePerShot": {
+                "Energy": 10000.0
+              },
+              "DamagePerSecond": {
+                "Energy": 20000.0
+              }
+            }
+          ]
+        },
+        "Ammunition": {
+          "Speed": 666.0,
+          "Range": 3330.0,
+          "Size": 10.0,
+          "Capacity": 0.0,
+          "ImpactDamage": {
+            "Energy": 10000.0
+          }
+        },
+        "Ports": [
+          {
+            "PortName": "BAR1",
+            "Size": 10,
+            "Types": [
+              "WeaponAttachment.Barrel"
+            ]
+          },
+          {
+            "PortName": "MEC",
+            "Size": 10,
+            "Types": [
+              "WeaponAttachment.FiringMechanism"
+            ]
+          },
+          {
+            "PortName": "POW",
+            "Size": 10,
+            "Types": [
+              "WeaponAttachment.PowerArray"
+            ]
+          },
+          {
+            "PortName": "VEN",
+            "Size": 10,
+            "Types": [
+              "WeaponAttachment.Ventilation"
+            ]
+          }
+        ]
+      },
       "Types": [
         "WeaponGun"
       ],
@@ -48,6 +152,35 @@
     {
       "PortName": "hardpoint_powerplant",
       "Size": 3,
+      "Loadout": "POWR_AEGS_S03_Fulgur_SCItem",
+      "InstalledItem": {
+        "ClassName": "POWR_AEGS_S03_Fulgur_SCItem",
+        "Size": 3,
+        "Grade": 2,
+        "Type": "PowerPlant.Power",
+        "Name": "Fulgur",
+        "Description": "Item Type: Power Plant\nManufacturer: Aegis Dynamics\nSize: 3\nGrade: B\nClass: Military\n\nTried and tested by the UEE Navy on the Vanduul front, the Fulgur large power plant from Aegis Dynamics is now available for all to put to use protecting what’s important.",
+        "Manufacturer": {
+          "Code": "AEG",
+          "Name": "Aegis Dynamics"
+        },
+        "PowerPlant": {
+          "Output": 40000.0
+        },
+        "Durability": {
+          "Health": 3600.0,
+          "Lifetime": 46.0
+        },
+        "PowerConnection": {
+          "PowerBase": 0.0,
+          "PowerDraw": 40000.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 377696.1,
+          "ThermalEnergyDraw": 400000.0,
+          "CoolingRate": 289.7723
+        }
+      },
       "Flags": [
         "invisible",
         "uneditable"
@@ -57,6 +190,35 @@
     {
       "PortName": "hardpoint_cooler",
       "Size": 3,
+      "Loadout": "COOL_AEGS_S03_Blizzard_SCItem",
+      "InstalledItem": {
+        "ClassName": "COOL_AEGS_S03_Blizzard_SCItem",
+        "Size": 3,
+        "Grade": 1,
+        "Type": "Cooler.UNDEFINED",
+        "Name": "Blizzard",
+        "Description": "Item Type: Cooler\nManufacturer: Aegis Dynamics\nSize: 3\nGrade: A \nClass: Military\n\nNavy mechanics worked with Aegis engineers to ensure the Blizzard met their specific needs. When it reached the commercial market, this top of the line, military-grade cooler became one of Aegis’ top selling components.",
+        "Manufacturer": {
+          "Code": "AEG",
+          "Name": "Aegis Dynamics"
+        },
+        "Cooler": {
+          "Rate": 11600000.0
+        },
+        "Durability": {
+          "Health": 1850.0,
+          "Lifetime": 192.0
+        },
+        "PowerConnection": {
+          "PowerBase": 32.0,
+          "PowerDraw": 48.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        }
+      },
       "Flags": [
         "invisible",
         "uneditable"

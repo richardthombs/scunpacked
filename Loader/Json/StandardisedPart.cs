@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Loader
 {
-	class StandardisedPart
+	public class StandardisedPart
 	{
 		public string Name { get; set; }
 		public double? MaximumDamage { get; set; }

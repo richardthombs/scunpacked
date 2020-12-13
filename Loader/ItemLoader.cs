@@ -20,6 +20,8 @@ namespace Loader
 		LoadoutLoader loadoutLoader;
 		EntityService entitySvc;
 		AmmoService ammoSvc;
+		ItemInstaller itemInstaller;
+		LoadoutBuilder loadoutBuilder;
 
 		// Don't dump items with these types
 		string[] type_avoids =
@@ -48,13 +50,15 @@ namespace Loader
 			"shopdisplay"
 		};
 
-		public ItemLoader(ItemBuilder itemBuilder, ManufacturerService manufacturerSvc, EntityService entitySvc, AmmoService ammoSvc)
+		public ItemLoader(ItemBuilder itemBuilder, ManufacturerService manufacturerSvc, EntityService entitySvc, AmmoService ammoSvc, ItemInstaller itemInstaller, LoadoutBuilder loadoutBuilder)
 		{
 			this.itemBuilder = itemBuilder;
 			this.manufacturerSvc = manufacturerSvc;
 			this.itemClassifier = new ItemClassifier();
 			this.entitySvc = entitySvc;
 			this.ammoSvc = ammoSvc;
+			this.itemInstaller = itemInstaller;
+			this.loadoutBuilder = loadoutBuilder;
 		}
 
 		public List<ItemIndexEntry> Load(string typeFilter = null)
@@ -97,6 +101,9 @@ namespace Loader
 				}
 
 				var stdItem = itemBuilder.BuildItem(entity);
+				var loadout = loadoutBuilder.BuildLoadout(entity);
+				itemInstaller.InstallLoadout(stdItem, loadout);
+
 				stdItem.Classification = item.classification;
 				item.stdItem = stdItem;
 
@@ -199,6 +206,52 @@ namespace Loader
 		{
 			if (type == null) return true;
 			return type_avoids.Contains(type, StringComparer.OrdinalIgnoreCase);
+		}
+	}
+
+	public class LoadoutBuilder
+	{
+		public List<StandardisedLoadoutEntry> BuildLoadout(EntityClassDefinition entity)
+		{
+			var loadout = entity.Components.SEntityComponentDefaultLoadoutParams;
+			if (loadout == null) return new List<StandardisedLoadoutEntry>();
+
+			return BuildLoadout(loadout.loadout);
+		}
+
+		public List<StandardisedLoadoutEntry> BuildLoadout(loadout cigLoadout)
+		{
+			var entries = new List<StandardisedLoadoutEntry>();
+
+			if (cigLoadout.SItemPortLoadoutManualParams != null)
+			{
+				foreach (var cigEntry in cigLoadout.SItemPortLoadoutManualParams.entries)
+				{
+					entries.Add(BuildLoadout(cigEntry));
+				}
+			}
+
+			return entries;
+		}
+
+		StandardisedLoadoutEntry BuildLoadout(SItemPortLoadoutEntryParams cigLoadoutEntry)
+		{
+			var entry = new StandardisedLoadoutEntry
+			{
+				PortName = cigLoadoutEntry.itemPortName,
+				ClassName = cigLoadoutEntry.entityClassName,
+				Entries = new List<StandardisedLoadoutEntry>()
+			};
+
+			if (cigLoadoutEntry.loadout.SItemPortLoadoutManualParams != null)
+			{
+				foreach (var e in cigLoadoutEntry.loadout.SItemPortLoadoutManualParams.entries)
+				{
+					entry.Entries.Add(BuildLoadout(e));
+				}
+			}
+
+			return entry;
 		}
 	}
 }

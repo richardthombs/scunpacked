@@ -68,14 +68,18 @@ namespace Loader
 		LocalisationService localisationSvc;
 		LoadoutLoader loadoutLoader;
 		EntityService entitySvc;
+		ItemInstaller itemInstaller;
+		LoadoutBuilder loadoutBuilder;
 
-		public ShipLoader(ItemBuilder itemBuilder, ManufacturerService manufacturerSvc, LocalisationService localisationSvc, LoadoutLoader loadoutLoader, EntityService entitySvc)
+		public ShipLoader(ItemBuilder itemBuilder, ManufacturerService manufacturerSvc, LocalisationService localisationSvc, LoadoutLoader loadoutLoader, EntityService entitySvc, ItemInstaller itemInstaller, LoadoutBuilder loadoutBuilder)
 		{
 			this.itemBuilder = itemBuilder;
 			this.manufacturerSvc = manufacturerSvc;
 			this.localisationSvc = localisationSvc;
 			this.loadoutLoader = loadoutLoader;
 			this.entitySvc = entitySvc;
+			this.itemInstaller = itemInstaller;
+			this.loadoutBuilder = loadoutBuilder;
 		}
 
 		public List<(ShipIndexEntry, StandardisedShip)> Load()
@@ -284,61 +288,15 @@ namespace Loader
 		{
 			var loadout = entity.Components.SEntityComponentDefaultLoadoutParams.loadout;
 
-			var stdLoadout = BuildLoadout(loadout);
+			var stdLoadout = loadoutBuilder.BuildLoadout(loadout);
 
 			var partList = vehicle != null ? BuildPartList(vehicle.Parts) : DeducePartList(stdLoadout);
 
-			InstallItems(partList, stdLoadout);
+			itemInstaller.InstallLoadout(partList, stdLoadout);
+
 			InstallFakeItems(partList);
 
 			return partList;
-		}
-
-		void InstallItems(List<StandardisedPart> parts, List<StandardisedLoadoutEntry> loadout)
-		{
-			foreach (var part in parts)
-			{
-				InstallItems(part, loadout);
-			}
-		}
-
-		void InstallItems(StandardisedPart part, List<StandardisedLoadoutEntry> loadout)
-		{
-			if (part.Port != null) InstallItem(part.Port, loadout);
-			InstallItems(part.Parts, loadout);
-		}
-
-		void InstallItems(List<StandardisedItemPort> ports, List<StandardisedLoadoutEntry> loadout)
-		{
-			foreach (var port in ports)
-			{
-				InstallItem(port, loadout);
-			}
-		}
-
-		void InstallItem(StandardisedItemPort port, List<StandardisedLoadoutEntry> loadout)
-		{
-			var loadoutEntry = FindLoadoutEntry(port.PortName, loadout);
-			if (String.IsNullOrEmpty(loadoutEntry?.ClassName)) return;
-
-			port.Loadout = loadoutEntry.ClassName;
-
-			var item = entitySvc.GetByClassName(loadoutEntry.ClassName);
-			if (item == null) return;
-
-			var standardisedItem = itemBuilder.BuildItem(item);
-			port.InstalledItem = standardisedItem;
-
-			// Handle XML loadout files
-			if (!String.IsNullOrEmpty(item.Components.SEntityComponentDefaultLoadoutParams?.loadout.SItemPortLoadoutXMLParams?.loadoutPath))
-			{
-				var loadoutFilename = item.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutXMLParams.loadoutPath;
-				var newLoadout = loadoutLoader.Load(loadoutFilename);
-
-				if (newLoadout != null) loadoutEntry.Entries.AddRange(newLoadout);
-			}
-
-			InstallItems(standardisedItem.Ports, loadoutEntry.Entries);
 		}
 
 		List<StandardisedPart> BuildPartList(Part[] parts)
@@ -461,47 +419,6 @@ namespace Loader
 			}
 
 			return flags;
-		}
-
-		StandardisedLoadoutEntry FindLoadoutEntry(string portName, List<StandardisedLoadoutEntry> loadout)
-		{
-			var loadoutEntry = loadout.FirstOrDefault(x => String.Equals(x.PortName, portName, StringComparison.OrdinalIgnoreCase));
-			return loadoutEntry;
-		}
-
-		List<StandardisedLoadoutEntry> BuildLoadout(loadout cigLoadout)
-		{
-			var entries = new List<StandardisedLoadoutEntry>();
-
-			if (cigLoadout.SItemPortLoadoutManualParams != null)
-			{
-				foreach (var cigEntry in cigLoadout.SItemPortLoadoutManualParams.entries)
-				{
-					entries.Add(BuildLoadout(cigEntry));
-				}
-			}
-
-			return entries;
-		}
-
-		StandardisedLoadoutEntry BuildLoadout(SItemPortLoadoutEntryParams cigLoadoutEntry)
-		{
-			var entry = new StandardisedLoadoutEntry
-			{
-				PortName = cigLoadoutEntry.itemPortName,
-				ClassName = cigLoadoutEntry.entityClassName,
-				Entries = new List<StandardisedLoadoutEntry>()
-			};
-
-			if (cigLoadoutEntry.loadout.SItemPortLoadoutManualParams != null)
-			{
-				foreach (var e in cigLoadoutEntry.loadout.SItemPortLoadoutManualParams.entries)
-				{
-					entry.Entries.Add(BuildLoadout(e));
-				}
-			}
-
-			return entry;
 		}
 
 		IEnumerable<(StandardisedPart, int)> FindParts(List<StandardisedPart> parts, Predicate<StandardisedPart> predicate, int depth = 0)
@@ -851,15 +768,5 @@ namespace Loader
 				if (port.Size == 0) port.Size = port.InstalledItem.Size;
 			}
 		}
-	}
-
-	class JsonSCItem
-	{
-		public RawEntity Raw { get; set; }
-	}
-
-	class RawEntity
-	{
-		public EntityClassDefinition Entity { get; set; }
 	}
 }

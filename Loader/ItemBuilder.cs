@@ -26,12 +26,12 @@ namespace Loader
 			var stdItem = new StandardisedItem
 			{
 				ClassName = entity.ClassName,
-				Size = entity.Components.SAttachableComponentParams.AttachDef.Size,
-				Grade = entity.Components.SAttachableComponentParams.AttachDef.Grade,
-				Type = BuildTypeName(entity.Components.SAttachableComponentParams.AttachDef.Type, entity.Components.SAttachableComponentParams.AttachDef.SubType),
-				Name = localisationSvc.GetText(entity.Components.SAttachableComponentParams.AttachDef.Localization.Name, entity.ClassName),
-				Description = localisationSvc.GetText(entity.Components.SAttachableComponentParams.AttachDef.Localization.Description),
-				Manufacturer = manufacturerSvc.GetManufacturer(entity.Components.SAttachableComponentParams.AttachDef.Manufacturer, entity.ClassName),
+				Size = entity.Components.SAttachableComponentParams?.AttachDef.Size ?? 0,
+				Grade = entity.Components.SAttachableComponentParams?.AttachDef.Grade ?? 0,
+				Type = BuildTypeName(entity.Components.SAttachableComponentParams?.AttachDef.Type, entity.Components.SAttachableComponentParams?.AttachDef.SubType),
+				Name = localisationSvc.GetText(entity.Components.SAttachableComponentParams?.AttachDef.Localization.Name, entity.ClassName),
+				Description = localisationSvc.GetText(entity.Components.SAttachableComponentParams?.AttachDef.Localization.Description),
+				Manufacturer = manufacturerSvc.GetManufacturer(entity.Components.SAttachableComponentParams?.AttachDef.Manufacturer, entity.ClassName),
 				Ports = BuildPortList(entity),
 				Tags = BuildTagList(entity)
 			};
@@ -62,6 +62,7 @@ namespace Loader
 
 		public string BuildTypeName(string major, string minor)
 		{
+			if (String.IsNullOrEmpty(major)) return "UNKNOWN";
 			if (String.IsNullOrWhiteSpace(minor) || minor == "UNKNOWN") return major;
 			else return $"{major}.{minor}";
 		}
@@ -253,10 +254,10 @@ namespace Loader
 
 		StandardisedFuelTank BuildQuantumFuelTankInfo(EntityClassDefinition item)
 		{
-			if (item.Components.SAttachableComponentParams.AttachDef.Type != "QuantumFuelTank") return null;
-
 			var tank = item.Components.SCItemFuelTankParams;
 			if (tank == null) return null;
+
+			if (item.Components.SAttachableComponentParams.AttachDef.Type != "QuantumFuelTank") return null;
 
 			return new StandardisedFuelTank
 			{
@@ -266,10 +267,10 @@ namespace Loader
 
 		StandardisedFuelTank BuildHydrogenFuelTankInfo(EntityClassDefinition item)
 		{
-			if (item.Components.SAttachableComponentParams.AttachDef.Type != "FuelTank") return null;
-
 			var tank = item.Components.SCItemFuelTankParams;
 			if (tank == null) return null;
+
+			if (item.Components.SAttachableComponentParams.AttachDef.Type != "FuelTank") return null;
 
 			return new StandardisedFuelTank
 			{
@@ -330,8 +331,8 @@ namespace Loader
 
 		StandardisedMissileRack BuildMissileRackInfo(EntityClassDefinition item)
 		{
-			if (item.Components.SAttachableComponentParams.AttachDef.Type != "MissileLauncher") return null;
-			if (item.Components.SAttachableComponentParams.AttachDef.SubType != "MissileRack") return null;
+			if (item.Components.SAttachableComponentParams?.AttachDef.Type != "MissileLauncher") return null;
+			if (item.Components.SAttachableComponentParams?.AttachDef.SubType != "MissileRack") return null;
 
 			var rootPort = item.Components.SCItem?.ItemPorts;
 			if (rootPort == null || rootPort.Length == 0) return null;

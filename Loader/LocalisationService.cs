@@ -15,6 +15,8 @@ namespace Loader
 
 		public string GetText(string label, string fallback = null)
 		{
+			if (label == null) return fallback;
+
 			var key = label.StartsWith("@") ? label.Substring(1) : label;
 
 			if (key == "LOC_EMPTY") return fallback;

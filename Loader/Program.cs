@@ -101,14 +101,16 @@ namespace Loader
 			var ammoIndex = ammoLoader.Load();
 			var ammoSvc = new AmmoService(ammoIndex);
 
-			// The item builder is used by the item loader and the ship loader to create standardised versions of entities
 			var itemBuilder = new ItemBuilder(localisationSvc, manufacturerSvc, ammoSvc, entitySvc);
+			var loadoutLoader = new LoadoutLoader { DataRoot = scDataRoot };
+			var itemInstaller = new ItemInstaller(entitySvc, loadoutLoader, itemBuilder);
+			var loadoutBuilder = new LoadoutBuilder();
 
 			// Items
 			if (doItems)
 			{
 				Console.WriteLine("Load Items");
-				var itemLoader = new ItemLoader(itemBuilder, manufacturerSvc, entitySvc, ammoSvc)
+				var itemLoader = new ItemLoader(itemBuilder, manufacturerSvc, entitySvc, ammoSvc, itemInstaller, loadoutBuilder)
 				{
 					OutputFolder = outputRoot,
 					DataRoot = scDataRoot,
@@ -120,8 +122,7 @@ namespace Loader
 			if (doShips)
 			{
 				Console.WriteLine("Load Ships and Vehicles");
-				var loadoutLoader = new LoadoutLoader { DataRoot = scDataRoot };
-				var shipLoader = new ShipLoader(itemBuilder, manufacturerSvc, localisationSvc, loadoutLoader, entitySvc)
+				var shipLoader = new ShipLoader(itemBuilder, manufacturerSvc, localisationSvc, loadoutLoader, entitySvc, itemInstaller, loadoutBuilder)
 				{
 					OutputFolder = outputRoot,
 					DataRoot = scDataRoot,
