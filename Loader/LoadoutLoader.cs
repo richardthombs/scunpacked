@@ -1,46 +1,40 @@
-using System;
 using System.Collections.Generic;
-using System.IO;
 
-using scdb.Xml.DefaultLoadouts;
+using scdb.Xml.Entities;
 
 namespace Loader
 {
 	public class LoadoutLoader
 	{
-		public string DataRoot { get; set; }
+		XmlLoadoutLoader xmlLoader;
+		ManualLoadoutLoader manualLoader;
 
-		public List<StandardisedLoadoutEntry> Load(string loadoutXmlPath)
+		public LoadoutLoader(XmlLoadoutLoader xmlLoader, ManualLoadoutLoader manualLoader)
 		{
-			if (String.IsNullOrWhiteSpace(loadoutXmlPath)) return null;
-
-			var windowsPath = loadoutXmlPath.Replace("/", "\\");
-			Console.WriteLine(windowsPath);
-
-			var loadoutParser = new DefaultLoadoutParser();
-			var defaultLoadout = loadoutParser.Parse(Path.Combine(DataRoot, "Data", windowsPath));
-
-			return BuildStandardLoadout(defaultLoadout.Items);
+			this.xmlLoader = xmlLoader;
+			this.manualLoader = manualLoader;
 		}
 
-		List<StandardisedLoadoutEntry> BuildStandardLoadout(Item[] loadoutItems)
+		public List<StandardisedLoadoutEntry> Load(EntityClassDefinition entity)
 		{
-			var stdLoadout = new List<StandardisedLoadoutEntry>();
+			var loadout = new List<StandardisedLoadoutEntry>();
 
-			if (loadoutItems != null)
-			{
-				foreach (var entry in loadoutItems)
-				{
-					stdLoadout.Add(new StandardisedLoadoutEntry
-					{
-						ClassName = entry.itemName,
-						PortName = entry.portName,
-						Entries = BuildStandardLoadout(entry.Items)
-					});
-				}
-			}
+			var loadoutParams = entity.Components.SEntityComponentDefaultLoadoutParams?.loadout;
 
-			return stdLoadout;
+			if (loadoutParams?.SItemPortLoadoutManualParams != null) loadout.AddRange(LoadManualLoadout(loadoutParams.SItemPortLoadoutManualParams));
+			if (loadoutParams?.SItemPortLoadoutXMLParams != null) loadout.AddRange(LoadXmlLoadout(loadoutParams.SItemPortLoadoutXMLParams));
+
+			return loadout;
+		}
+
+		List<StandardisedLoadoutEntry> LoadManualLoadout(SItemPortLoadoutManualParams manualParams)
+		{
+			return manualLoader.BuildLoadout(manualParams);
+		}
+
+		List<StandardisedLoadoutEntry> LoadXmlLoadout(SItemPortLoadoutXMLParams xmlParams)
+		{
+			return xmlLoader.Load(xmlParams.loadoutPath);
 		}
 	}
 }

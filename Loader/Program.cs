@@ -101,16 +101,17 @@ namespace Loader
 			var ammoIndex = ammoLoader.Load();
 			var ammoSvc = new AmmoService(ammoIndex);
 
+			var xmlLoadoutLoader = new XmlLoadoutLoader { DataRoot = scDataRoot };
+			var manualLoadoutLoader = new ManualLoadoutLoader();
+			var loadoutLoader = new LoadoutLoader(xmlLoadoutLoader, manualLoadoutLoader);
 			var itemBuilder = new ItemBuilder(localisationSvc, manufacturerSvc, ammoSvc, entitySvc);
-			var loadoutLoader = new LoadoutLoader { DataRoot = scDataRoot };
 			var itemInstaller = new ItemInstaller(entitySvc, loadoutLoader, itemBuilder);
-			var loadoutBuilder = new LoadoutBuilder();
 
 			// Items
 			if (doItems)
 			{
 				Console.WriteLine("Load Items");
-				var itemLoader = new ItemLoader(itemBuilder, manufacturerSvc, entitySvc, ammoSvc, itemInstaller, loadoutBuilder)
+				var itemLoader = new ItemLoader(itemBuilder, manufacturerSvc, entitySvc, ammoSvc, itemInstaller, loadoutLoader)
 				{
 					OutputFolder = outputRoot,
 					DataRoot = scDataRoot,
@@ -122,7 +123,7 @@ namespace Loader
 			if (doShips)
 			{
 				Console.WriteLine("Load Ships and Vehicles");
-				var shipLoader = new ShipLoader(itemBuilder, manufacturerSvc, localisationSvc, loadoutLoader, entitySvc, itemInstaller, loadoutBuilder)
+				var shipLoader = new ShipLoader(itemBuilder, manufacturerSvc, localisationSvc, entitySvc, itemInstaller, loadoutLoader)
 				{
 					OutputFolder = outputRoot,
 					DataRoot = scDataRoot,

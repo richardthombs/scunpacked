@@ -66,20 +66,18 @@ namespace Loader
 		ItemBuilder itemBuilder;
 		ManufacturerService manufacturerSvc;
 		LocalisationService localisationSvc;
-		LoadoutLoader loadoutLoader;
 		EntityService entitySvc;
 		ItemInstaller itemInstaller;
-		LoadoutBuilder loadoutBuilder;
+		LoadoutLoader loadoutLoader;
 
-		public ShipLoader(ItemBuilder itemBuilder, ManufacturerService manufacturerSvc, LocalisationService localisationSvc, LoadoutLoader loadoutLoader, EntityService entitySvc, ItemInstaller itemInstaller, LoadoutBuilder loadoutBuilder)
+		public ShipLoader(ItemBuilder itemBuilder, ManufacturerService manufacturerSvc, LocalisationService localisationSvc, EntityService entitySvc, ItemInstaller itemInstaller, LoadoutLoader loadoutLoader)
 		{
 			this.itemBuilder = itemBuilder;
 			this.manufacturerSvc = manufacturerSvc;
 			this.localisationSvc = localisationSvc;
-			this.loadoutLoader = loadoutLoader;
 			this.entitySvc = entitySvc;
 			this.itemInstaller = itemInstaller;
-			this.loadoutBuilder = loadoutBuilder;
+			this.loadoutLoader = loadoutLoader;
 		}
 
 		public List<(ShipIndexEntry, StandardisedShip)> Load()
@@ -286,13 +284,11 @@ namespace Loader
 
 		List<StandardisedPart> InitialiseShip(EntityClassDefinition entity, Vehicle vehicle)
 		{
-			var loadout = entity.Components.SEntityComponentDefaultLoadoutParams.loadout;
+			var loadout = loadoutLoader.Load(entity);
 
-			var stdLoadout = loadoutBuilder.BuildLoadout(loadout);
+			var partList = vehicle != null ? BuildPartList(vehicle.Parts) : DeducePartList(loadout);
 
-			var partList = vehicle != null ? BuildPartList(vehicle.Parts) : DeducePartList(stdLoadout);
-
-			itemInstaller.InstallLoadout(partList, stdLoadout);
+			itemInstaller.InstallLoadout(partList, loadout);
 
 			InstallFakeItems(partList);
 

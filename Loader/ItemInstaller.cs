@@ -60,14 +60,9 @@ namespace Loader
 			var standardisedItem = itemBuilder.BuildItem(item);
 			port.InstalledItem = standardisedItem;
 
-			// Handle XML loadout files
-			if (!String.IsNullOrEmpty(item.Components.SEntityComponentDefaultLoadoutParams?.loadout.SItemPortLoadoutXMLParams?.loadoutPath))
-			{
-				var loadoutFilename = item.Components.SEntityComponentDefaultLoadoutParams.loadout.SItemPortLoadoutXMLParams.loadoutPath;
-				var newLoadout = loadoutLoader.Load(loadoutFilename);
-
-				if (newLoadout != null) loadoutEntry.Entries.AddRange(newLoadout);
-			}
+			// Update the loadout with anything this item brings with it
+			var newLoadout = loadoutLoader.Load(item);
+			loadoutEntry.Entries.AddRange(newLoadout);
 
 			InstallLoadout(standardisedItem.Ports, loadoutEntry.Entries);
 		}

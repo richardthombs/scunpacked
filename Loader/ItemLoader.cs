@@ -17,11 +17,10 @@ namespace Loader
 		ItemBuilder itemBuilder;
 		ManufacturerService manufacturerSvc;
 		ItemClassifier itemClassifier;
-		LoadoutLoader loadoutLoader;
 		EntityService entitySvc;
 		AmmoService ammoSvc;
 		ItemInstaller itemInstaller;
-		LoadoutBuilder loadoutBuilder;
+		LoadoutLoader loadoutLoader;
 
 		// Don't dump items with these types
 		string[] type_avoids =
@@ -50,7 +49,7 @@ namespace Loader
 			"shopdisplay"
 		};
 
-		public ItemLoader(ItemBuilder itemBuilder, ManufacturerService manufacturerSvc, EntityService entitySvc, AmmoService ammoSvc, ItemInstaller itemInstaller, LoadoutBuilder loadoutBuilder)
+		public ItemLoader(ItemBuilder itemBuilder, ManufacturerService manufacturerSvc, EntityService entitySvc, AmmoService ammoSvc, ItemInstaller itemInstaller, LoadoutLoader loadoutLoader)
 		{
 			this.itemBuilder = itemBuilder;
 			this.manufacturerSvc = manufacturerSvc;
@@ -58,7 +57,7 @@ namespace Loader
 			this.entitySvc = entitySvc;
 			this.ammoSvc = ammoSvc;
 			this.itemInstaller = itemInstaller;
-			this.loadoutBuilder = loadoutBuilder;
+			this.loadoutLoader = loadoutLoader;
 		}
 
 		public List<ItemIndexEntry> Load(string typeFilter = null)
@@ -101,14 +100,14 @@ namespace Loader
 				}
 
 				var stdItem = itemBuilder.BuildItem(entity);
-				var loadout = loadoutBuilder.BuildLoadout(entity);
+				var loadout = loadoutLoader.Load(entity);
 				itemInstaller.InstallLoadout(stdItem, loadout);
 
 				stdItem.Classification = item.classification;
 				item.stdItem = stdItem;
 
-				var newFilename = Path.Combine(OutputFolder, "v2", "items", $"{entity.ClassName.ToLower()}.json");
-				File.WriteAllText(newFilename, JsonConvert.SerializeObject(stdItem));
+				File.WriteAllText(Path.Combine(OutputFolder, "v2", "items", $"{entity.ClassName.ToLower()}.json"), JsonConvert.SerializeObject(stdItem));
+				File.WriteAllText(Path.Combine(OutputFolder, "v2", "items", $"{entity.ClassName.ToLower()}-raw.json"), JsonConvert.SerializeObject(entity));
 
 				// Write the JSON of this entity to its own file
 				var jsonFilename = Path.Combine(OutputFolder, "items", $"{entity.ClassName.ToLower()}.json");
@@ -206,52 +205,6 @@ namespace Loader
 		{
 			if (type == null) return true;
 			return type_avoids.Contains(type, StringComparer.OrdinalIgnoreCase);
-		}
-	}
-
-	public class LoadoutBuilder
-	{
-		public List<StandardisedLoadoutEntry> BuildLoadout(EntityClassDefinition entity)
-		{
-			var loadout = entity.Components.SEntityComponentDefaultLoadoutParams;
-			if (loadout == null) return new List<StandardisedLoadoutEntry>();
-
-			return BuildLoadout(loadout.loadout);
-		}
-
-		public List<StandardisedLoadoutEntry> BuildLoadout(loadout cigLoadout)
-		{
-			var entries = new List<StandardisedLoadoutEntry>();
-
-			if (cigLoadout.SItemPortLoadoutManualParams != null)
-			{
-				foreach (var cigEntry in cigLoadout.SItemPortLoadoutManualParams.entries)
-				{
-					entries.Add(BuildLoadout(cigEntry));
-				}
-			}
-
-			return entries;
-		}
-
-		StandardisedLoadoutEntry BuildLoadout(SItemPortLoadoutEntryParams cigLoadoutEntry)
-		{
-			var entry = new StandardisedLoadoutEntry
-			{
-				PortName = cigLoadoutEntry.itemPortName,
-				ClassName = cigLoadoutEntry.entityClassName,
-				Entries = new List<StandardisedLoadoutEntry>()
-			};
-
-			if (cigLoadoutEntry.loadout.SItemPortLoadoutManualParams != null)
-			{
-				foreach (var e in cigLoadoutEntry.loadout.SItemPortLoadoutManualParams.entries)
-				{
-					entry.Entries.Add(BuildLoadout(e));
-				}
-			}
-
-			return entry;
 		}
 	}
 }
