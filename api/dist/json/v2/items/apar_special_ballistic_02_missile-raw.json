@@ -1,0 +1,81 @@
+{
+  "StaticEntityClassData": {
+    "DefaultEntitlementEntityParams": {
+      "entitlementPolicy": "8a1fdd48-7896-4774-a110-2466190e1a07"
+    }
+  },
+  "tags": [],
+  "Components": {
+    "SAttachableComponentParams": {
+      "AttachDef": {
+        "Type": "WeaponAttachment",
+        "SubType": "Missile",
+        "Size": 1,
+        "Grade": 1,
+        "Manufacturer": "70ac7035-10a0-4bbb-90b0-9bddf047b504",
+        "Tags": "apar_special_ballistic_02 SM_RestrictedWep flightReady",
+        "RequiredTags": "",
+        "DisplayType": "",
+        "Localization": {
+          "Name": "@LOC_PLACEHOLDER",
+          "Description": "@LOC_PLACEHOLDER"
+        }
+      }
+    },
+    "SCItem": {
+      "turnedOnByDefault": false,
+      "attachToTileItemPort": "NoConnection",
+      "inheritModelTagFromHost": true,
+      "ItemPorts": []
+    },
+    "SCItemMissileParams": {
+      "safeDistance": 0.0,
+      "igniteTime": 0.1,
+      "irSignalMinValue": 1500.0,
+      "irSignalMaxValue": 1500.0,
+      "irSignalRiseRate": 1500.0,
+      "irSignalDecayRate": 1.0,
+      "projectileProximity": 0.0,
+      "targetingParams": {
+        "trackingSignalType": "CrossSection",
+        "trackingSignalMin": 11.2,
+        "trackingDistanceMax": 5000.0,
+        "trackingSignalAmplifier": 1.0,
+        "trackingSignalAmplifierSeeking": 1.0,
+        "trackingAngle": 179.0,
+        "trackingNoiseAmplifier": 1.0,
+        "lockTime": 3.0
+      },
+      "explosionParams": {
+        "friendlyFire": "None",
+        "minRadius": 2.0,
+        "maxRadius": 3.0,
+        "soundRadius": 50.0,
+        "minPhysRadius": 1.0,
+        "maxPhysRadius": 2.0,
+        "pressure": 2000.0,
+        "holeSize": 0.0,
+        "terrainHoleSize": 3.0,
+        "maxblurdist": 10.0,
+        "effectScale": 1.0,
+        "useRandomScale": 0.0,
+        "effectScaleMin": 2.0,
+        "effectScaleMax": 1.0,
+        "hitType": "explosion",
+        "damage": [
+          {
+            "DamagePhysical": 300.0,
+            "DamageEnergy": 800.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ]
+      }
+    }
+  },
+  "ClassName": "apar_special_ballistic_02_missile",
+  "__ref": "ccaa28df-74dd-4ecb-87ae-40e04195a4aa",
+  "__type": "EntityClassDefinition"
+}

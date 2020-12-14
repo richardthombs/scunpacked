@@ -1,0 +1,149 @@
+{
+  "StaticEntityClassData": {
+    "DefaultEntitlementEntityParams": {
+      "entitlementPolicy": "6df1749c-48ea-43e5-bae5-8084d9fe5aca"
+    }
+  },
+  "tags": [],
+  "Components": {
+    "SAttachableComponentParams": {
+      "AttachDef": {
+        "Type": "PowerPlant",
+        "SubType": "Power",
+        "Size": 2,
+        "Grade": 4,
+        "Manufacturer": "cf4a74bf-eb2c-462a-9b78-f7f2724c31d2",
+        "Tags": "",
+        "RequiredTags": "",
+        "DisplayType": "",
+        "Localization": {
+          "Name": "@item_NamePOWR_AEGS_S02_Vortex",
+          "Description": "@item_DescPOWR_AEGS_S02_Vortex"
+        }
+      }
+    },
+    "SHealthComponentParams": {
+      "Health": 1000.0,
+      "DamageResistances": {
+        "DamageResistance": {
+          "PhysicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "EnergyResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "DistortionResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "ThermalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "BiochemicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "StunResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          }
+        }
+      }
+    },
+    "SDegradationParams": {
+      "MaxLifetimeHours": 40.0,
+      "InitialAgeRatio": 0.0,
+      "DegradeOnlyWhenAttached": true
+    },
+    "EntityComponentPowerConnection": {
+      "PowerBase": 0.0,
+      "PowerDraw": 8750.0,
+      "TimeToReachDrawRequest": 16.25,
+      "SafeguardPriority": 100.0,
+      "DisplayedInPoweredItemList": true,
+      "IsThrottleable": true,
+      "IsOverclockable": true,
+      "OverclockThresholdMin": 0.34,
+      "OverclockThresholdMax": 0.43,
+      "OverpowerPerformance": 0.05,
+      "OverclockPerformance": 0.476,
+      "PowerToEM": 3.885,
+      "DecayRateOfEM": 0.18,
+      "WarningDelayTime": 0.3,
+      "WarningDisplayTime": 8.0
+    },
+    "EntityComponentHeatConnection": {
+      "TemperatureToIR": 3.885,
+      "OverpowerHeat": 0.3,
+      "OverclockThresholdMinHeat": 0.64,
+      "OverclockThresholdMaxHeat": 0.77,
+      "ThermalEnergyBase": 91964.29,
+      "ThermalEnergyDraw": 100000.0,
+      "ThermalConductivity": 0.05,
+      "SpecificHeatCapacity": 0.3,
+      "Mass": 1575.0,
+      "SurfaceArea": 0.05,
+      "StartCoolingTemperature": 300.0,
+      "MaxCoolingRate": 208.2388,
+      "MaxTemperature": 700.0,
+      "OverheatTemperature": 600.0,
+      "RecoveryTemperature": 670.0,
+      "MinTemperature": 0.0,
+      "MisfireMinTemperature": 300.0,
+      "MisfireMaxTemperature": 900.0
+    },
+    "SDistortionParams": {
+      "DecayRate": 180.0,
+      "Maximum": 1800.0,
+      "OverloadRatio": 0.9,
+      "RecoveryRatio": 0.7,
+      "RecoveryTime": 1.0
+    },
+    "SCItem": {
+      "turnedOnByDefault": false,
+      "attachToTileItemPort": "NoConnection",
+      "inheritModelTagFromHost": true,
+      "ItemPorts": []
+    },
+    "SEntityInteractableParams": {
+      "Interactable": {
+        "SharedInteractions": [
+          {
+            "Name": "EnablePowerPlant",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "DisablePowerPlant",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          }
+        ]
+      }
+    }
+  },
+  "ClassName": "POWR_AEGS_S02_Vortex_SCItem",
+  "__ref": "75d69d04-429b-47e1-b439-4d8e9e4e6bce",
+  "__type": "EntityClassDefinition"
+}

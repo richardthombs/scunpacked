@@ -1,0 +1,93 @@
+{
+  "StaticEntityClassData": {},
+  "tags": [],
+  "Components": {
+    "SEntityComponentDefaultLoadoutParams": {
+      "loadout": {
+        "SItemPortLoadoutXMLParams": {
+          "loadoutPath": "scripts/loadouts/objects/usables/sustenance/sustenance_coffeemachine_template_loadout.xml",
+          "__type": "SItemPortLoadoutBaseParams"
+        }
+      }
+    },
+    "SAttachableComponentParams": {
+      "AttachDef": {
+        "Type": "Cargo",
+        "SubType": "UNDEFINED",
+        "Size": 1,
+        "Grade": 1,
+        "Manufacturer": "00000000-0000-0000-0000-000000000000",
+        "Tags": "",
+        "RequiredTags": "",
+        "DisplayType": "",
+        "Localization": {
+          "Name": "@LOC_PLACEHOLDER",
+          "Description": "@LOC_EMPTY"
+        }
+      }
+    },
+    "SCItem": {
+      "turnedOnByDefault": false,
+      "attachToTileItemPort": "NoConnection",
+      "inheritModelTagFromHost": true,
+      "ItemPorts": [
+        {
+          "PortFlags": "",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": [
+            {
+              "Name": "$IP_slot_1",
+              "DisplayName": "$IP_slot_1",
+              "PortTags": "Mug",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 0,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": []
+            }
+          ]
+        }
+      ]
+    },
+    "SEntityInteractableParams": {
+      "Interactable": {
+        "SharedInteractions": [
+          {
+            "Name": "MakeCoffee",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_makecoffee",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Place",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_place",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          }
+        ]
+      }
+    }
+  },
+  "ClassName": "Sustenance_CoffeeMachine_Lorville_Habitat",
+  "__ref": "3b48df9e-3f33-4f6e-941b-dff2c8fe639e",
+  "__type": "EntityClassDefinition"
+}

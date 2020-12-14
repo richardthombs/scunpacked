@@ -1,0 +1,149 @@
+{
+  "StaticEntityClassData": {
+    "DefaultEntitlementEntityParams": {
+      "entitlementPolicy": "6df1749c-48ea-43e5-bae5-8084d9fe5aca"
+    }
+  },
+  "tags": [],
+  "Components": {
+    "SAttachableComponentParams": {
+      "AttachDef": {
+        "Type": "PowerPlant",
+        "SubType": "Power",
+        "Size": 2,
+        "Grade": 4,
+        "Manufacturer": "d7cc897f-b760-4a73-93c0-27e23c52db0a",
+        "Tags": "",
+        "RequiredTags": "",
+        "DisplayType": "",
+        "Localization": {
+          "Name": "@item_NamePOWR_JUST_S02_Trommel_SCItem",
+          "Description": "@item_DescPOWR_JUST_S02_Trommel"
+        }
+      }
+    },
+    "SHealthComponentParams": {
+      "Health": 300.0,
+      "DamageResistances": {
+        "DamageResistance": {
+          "PhysicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "EnergyResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "DistortionResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "ThermalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "BiochemicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "StunResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          }
+        }
+      }
+    },
+    "SDegradationParams": {
+      "MaxLifetimeHours": 60.8,
+      "InitialAgeRatio": 0.0,
+      "DegradeOnlyWhenAttached": true
+    },
+    "EntityComponentPowerConnection": {
+      "PowerBase": 0.0,
+      "PowerDraw": 11875.0,
+      "TimeToReachDrawRequest": 18.75,
+      "SafeguardPriority": 100.0,
+      "DisplayedInPoweredItemList": true,
+      "IsThrottleable": true,
+      "IsOverclockable": true,
+      "OverclockThresholdMin": 0.017,
+      "OverclockThresholdMax": 0.0215,
+      "OverpowerPerformance": 0.0025,
+      "OverclockPerformance": 0.017,
+      "PowerToEM": 4.41,
+      "DecayRateOfEM": 0.01,
+      "WarningDelayTime": 0.3,
+      "WarningDisplayTime": 8.0
+    },
+    "EntityComponentHeatConnection": {
+      "TemperatureToIR": 4.41,
+      "OverpowerHeat": 0.17,
+      "OverclockThresholdMinHeat": 0.3,
+      "OverclockThresholdMaxHeat": 0.64,
+      "ThermalEnergyBase": 228088.2,
+      "ThermalEnergyDraw": 237500.0,
+      "ThermalConductivity": 0.05,
+      "SpecificHeatCapacity": 0.4,
+      "Mass": 2400.0,
+      "SurfaceArea": 0.05,
+      "StartCoolingTemperature": 300.0,
+      "MaxCoolingRate": 245.435,
+      "MaxTemperature": 700.0,
+      "OverheatTemperature": 600.0,
+      "RecoveryTemperature": 670.0,
+      "MinTemperature": 0.0,
+      "MisfireMinTemperature": 300.0,
+      "MisfireMaxTemperature": 900.0
+    },
+    "SDistortionParams": {
+      "DecayRate": 66.0,
+      "Maximum": 4560.0,
+      "OverloadRatio": 0.2,
+      "RecoveryRatio": 0.2,
+      "RecoveryTime": 1.4
+    },
+    "SCItem": {
+      "turnedOnByDefault": false,
+      "attachToTileItemPort": "NoConnection",
+      "inheritModelTagFromHost": true,
+      "ItemPorts": []
+    },
+    "SEntityInteractableParams": {
+      "Interactable": {
+        "SharedInteractions": [
+          {
+            "Name": "EnablePowerPlant",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "DisablePowerPlant",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          }
+        ]
+      }
+    }
+  },
+  "ClassName": "POWR_JUST_S02_Trommel_SCItem",
+  "__ref": "aa15e2df-d7b1-4e97-9e0d-7623a3a096b0",
+  "__type": "EntityClassDefinition"
+}

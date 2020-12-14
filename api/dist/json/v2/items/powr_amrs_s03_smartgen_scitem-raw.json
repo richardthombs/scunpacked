@@ -1,0 +1,149 @@
+{
+  "StaticEntityClassData": {
+    "DefaultEntitlementEntityParams": {
+      "entitlementPolicy": "6df1749c-48ea-43e5-bae5-8084d9fe5aca"
+    }
+  },
+  "tags": [],
+  "Components": {
+    "SAttachableComponentParams": {
+      "AttachDef": {
+        "Type": "PowerPlant",
+        "SubType": "Power",
+        "Size": 3,
+        "Grade": 4,
+        "Manufacturer": "eccba58a-f6d9-42e8-95c6-d0a65763e583",
+        "Tags": "",
+        "RequiredTags": "",
+        "DisplayType": "",
+        "Localization": {
+          "Name": "@item_Name_POWR_AMRS_S03_SmartGen",
+          "Description": "@item_Desc_POWR_AMRS_S03_SmartGen"
+        }
+      }
+    },
+    "SHealthComponentParams": {
+      "Health": 3262.5,
+      "DamageResistances": {
+        "DamageResistance": {
+          "PhysicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "EnergyResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "DistortionResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "ThermalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "BiochemicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "StunResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          }
+        }
+      }
+    },
+    "SDegradationParams": {
+      "MaxLifetimeHours": 56.0,
+      "InitialAgeRatio": 0.0,
+      "DegradeOnlyWhenAttached": true
+    },
+    "EntityComponentPowerConnection": {
+      "PowerBase": 0.0,
+      "PowerDraw": 35000.0,
+      "TimeToReachDrawRequest": 13.125,
+      "SafeguardPriority": 100.0,
+      "DisplayedInPoweredItemList": true,
+      "IsThrottleable": true,
+      "IsOverclockable": true,
+      "OverclockThresholdMin": 0.34,
+      "OverclockThresholdMax": 0.43,
+      "OverpowerPerformance": 0.05,
+      "OverclockPerformance": 0.476,
+      "PowerToEM": 4.41,
+      "DecayRateOfEM": 0.25,
+      "WarningDelayTime": 0.3,
+      "WarningDisplayTime": 8.0
+    },
+    "EntityComponentHeatConnection": {
+      "TemperatureToIR": 3.5,
+      "OverpowerHeat": 0.3,
+      "OverclockThresholdMinHeat": 0.64,
+      "OverclockThresholdMaxHeat": 0.77,
+      "ThermalEnergyBase": 506428.6,
+      "ThermalEnergyDraw": 525000.0,
+      "ThermalConductivity": 0.05,
+      "SpecificHeatCapacity": 0.2,
+      "Mass": 5850.0,
+      "SurfaceArea": 0.05,
+      "StartCoolingTemperature": 300.0,
+      "MaxCoolingRate": 445.5433,
+      "MaxTemperature": 700.0,
+      "OverheatTemperature": 600.0,
+      "RecoveryTemperature": 670.0,
+      "MinTemperature": 0.0,
+      "MisfireMinTemperature": 300.0,
+      "MisfireMaxTemperature": 900.0
+    },
+    "SDistortionParams": {
+      "DecayRate": 252.0,
+      "Maximum": 5075.0,
+      "OverloadRatio": 0.65,
+      "RecoveryRatio": 0.3,
+      "RecoveryTime": 1.4
+    },
+    "SCItem": {
+      "turnedOnByDefault": false,
+      "attachToTileItemPort": "NoConnection",
+      "inheritModelTagFromHost": true,
+      "ItemPorts": []
+    },
+    "SEntityInteractableParams": {
+      "Interactable": {
+        "SharedInteractions": [
+          {
+            "Name": "EnablePowerPlant",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "DisablePowerPlant",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          }
+        ]
+      }
+    }
+  },
+  "ClassName": "POWR_AMRS_S03_SmartGen_SCItem",
+  "__ref": "39e271e4-e9f4-421d-9673-063726b72c8b",
+  "__type": "EntityClassDefinition"
+}

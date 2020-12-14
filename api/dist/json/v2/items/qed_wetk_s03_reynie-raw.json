@@ -1,0 +1,212 @@
+{
+  "StaticEntityClassData": {
+    "DefaultEntitlementEntityParams": {
+      "entitlementPolicy": "8a1fdd48-7896-4774-a110-2466190e1a07"
+    }
+  },
+  "tags": [
+    {
+      "value": "980ce6e8-afa2-4084-b13b-b0d01e5d7848"
+    }
+  ],
+  "Components": {
+    "SAttachableComponentParams": {
+      "AttachDef": {
+        "Type": "QuantumInterdictionGenerator",
+        "SubType": "UNDEFINED",
+        "Size": 3,
+        "Grade": 3,
+        "Manufacturer": "0f9ffe57-8542-4d83-a246-72568a5f2f91",
+        "Tags": "",
+        "RequiredTags": "",
+        "DisplayType": "",
+        "Localization": {
+          "Name": "@item_NameQED_WETK_S03_Reynie",
+          "Description": "@item_DescQED_WETK_S03_Reynie"
+        }
+      }
+    },
+    "EntityComponentPowerConnection": {
+      "PowerBase": 500.0,
+      "PowerDraw": 1100.0,
+      "TimeToReachDrawRequest": 0.0,
+      "SafeguardPriority": 25.0,
+      "DisplayedInPoweredItemList": true,
+      "IsThrottleable": false,
+      "IsOverclockable": false,
+      "OverclockThresholdMin": 0.0,
+      "OverclockThresholdMax": 0.0,
+      "OverpowerPerformance": 0.0,
+      "OverclockPerformance": 0.0,
+      "PowerToEM": 5.0,
+      "DecayRateOfEM": 0.15,
+      "WarningDelayTime": 0.3,
+      "WarningDisplayTime": 8.0
+    },
+    "EntityComponentHeatConnection": {
+      "TemperatureToIR": 2.3,
+      "OverpowerHeat": 0.0,
+      "OverclockThresholdMinHeat": 0.0,
+      "OverclockThresholdMaxHeat": 0.0,
+      "ThermalEnergyBase": 12600.0,
+      "ThermalEnergyDraw": 16500.0,
+      "ThermalConductivity": 0.05,
+      "SpecificHeatCapacity": 0.5,
+      "Mass": 468.0,
+      "SurfaceArea": 0.05,
+      "StartCoolingTemperature": 300.0,
+      "MaxCoolingRate": 67.17949,
+      "MaxTemperature": 700.0,
+      "OverheatTemperature": 650.0,
+      "RecoveryTemperature": 550.0,
+      "MinTemperature": 0.0,
+      "MisfireMinTemperature": 300.0,
+      "MisfireMaxTemperature": 900.0
+    },
+    "SCItem": {
+      "turnedOnByDefault": false,
+      "attachToTileItemPort": "NoConnection",
+      "inheritModelTagFromHost": true,
+      "ItemPorts": []
+    },
+    "SCItemQuantumInterdictionGeneratorParams": {
+      "jammerSettings": [
+        {
+          "jammerRange": 2000.0,
+          "maxPowerDraw": 200.0,
+          "greenZoneCheckRange": 4000.0,
+          "setJammerSwitchOn": "Interactable.SharedInteractions[5]",
+          "setJammerSwitchOff": "Interactable.SharedInteractions[6]"
+        }
+      ],
+      "quantumInterdictionPulseSettings": [
+        {
+          "chargeTimeSecs": 30.0,
+          "dischargeTimeSecs": 15.0,
+          "cooldownTimeSecs": 120.0,
+          "radiusMeters": 20000.0,
+          "decreaseChargeRateTimeSeconds": 1.5,
+          "increaseChargeRateTimeSeconds": 3.5,
+          "activationPhaseDuration_seconds": 3.0,
+          "disperseChargeTimeSeconds": 5.0,
+          "maxPowerDraw": 1100.0,
+          "stopChargingPowerDrawFraction": 0.2,
+          "maxChargeRatePowerDrawFraction": 0.85,
+          "activePowerDrawFraction": 0.95,
+          "tetheringPowerDrawFraction": 0.8,
+          "greenZoneCheckRange": 30000.0,
+          "startChargingIP": "Interactable.SharedInteractions[2]",
+          "cancelChargingIP": "Interactable.SharedInteractions[3]",
+          "disperseChargeIP": "Interactable.SharedInteractions[4]"
+        }
+      ]
+    },
+    "SEntityInteractableParams": {
+      "Interactable": {
+        "SharedInteractions": [
+          {
+            "Name": "MainDeviceSwitchOn",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_QED_On",
+            "DisplayType": "Show",
+            "GenericCursor": "Button",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "MainDeviceSwitchOff",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_QED_Off",
+            "DisplayType": "Show",
+            "GenericCursor": "Button",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "StartChargeInteraction",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_QSnare_Charge",
+            "DisplayType": "Show",
+            "GenericCursor": "Button",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "CancelChargeInteraction",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_QSnare_Cancel",
+            "DisplayType": "Show",
+            "GenericCursor": "Button",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "DisperseInteraction",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_QSnare_Initiate",
+            "DisplayType": "Show",
+            "GenericCursor": "Button",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "SetJammerSwitchOn",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_QDampener_Activate",
+            "DisplayType": "Show",
+            "GenericCursor": "Button",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "SetJammerSwitchOff",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_QDampener_Deactivate",
+            "DisplayType": "Show",
+            "GenericCursor": "Button",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          }
+        ]
+      }
+    }
+  },
+  "ClassName": "QED_WETK_S03_Reynie",
+  "__ref": "06cc3878-1310-4ada-9c7a-97feecb47fb4",
+  "__type": "EntityClassDefinition"
+}

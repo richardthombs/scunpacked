@@ -1,0 +1,149 @@
+{
+  "StaticEntityClassData": {
+    "DefaultEntitlementEntityParams": {
+      "entitlementPolicy": "6df1749c-48ea-43e5-bae5-8084d9fe5aca"
+    }
+  },
+  "tags": [],
+  "Components": {
+    "SAttachableComponentParams": {
+      "AttachDef": {
+        "Type": "PowerPlant",
+        "SubType": "Power",
+        "Size": 1,
+        "Grade": 2,
+        "Manufacturer": "60d0f346-0c22-4869-81d3-1168b526a258",
+        "Tags": "",
+        "RequiredTags": "",
+        "DisplayType": "",
+        "Localization": {
+          "Name": "@item_NamePOWR_LPLT_S01_IonBurst",
+          "Description": "@item_DescPOWR_LPLT_S01_IonBurst"
+        }
+      }
+    },
+    "SHealthComponentParams": {
+      "Health": 525.0,
+      "DamageResistances": {
+        "DamageResistance": {
+          "PhysicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "EnergyResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "DistortionResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "ThermalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "BiochemicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "StunResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          }
+        }
+      }
+    },
+    "SDegradationParams": {
+      "MaxLifetimeHours": 21.0,
+      "InitialAgeRatio": 0.0,
+      "DegradeOnlyWhenAttached": true
+    },
+    "EntityComponentPowerConnection": {
+      "PowerBase": 0.0,
+      "PowerDraw": 2313.85,
+      "TimeToReachDrawRequest": 13.75,
+      "SafeguardPriority": 100.0,
+      "DisplayedInPoweredItemList": true,
+      "IsThrottleable": true,
+      "IsOverclockable": true,
+      "OverclockThresholdMin": 0.357,
+      "OverclockThresholdMax": 0.4515,
+      "OverpowerPerformance": 0.0525,
+      "OverclockPerformance": 0.357,
+      "PowerToEM": 2.205,
+      "DecayRateOfEM": 0.21,
+      "WarningDelayTime": 0.3,
+      "WarningDisplayTime": 8.0
+    },
+    "EntityComponentHeatConnection": {
+      "TemperatureToIR": 2.205,
+      "OverpowerHeat": 0.06,
+      "OverclockThresholdMinHeat": 0.43,
+      "OverclockThresholdMaxHeat": 0.51,
+      "ThermalEnergyBase": 14540.59,
+      "ThermalEnergyDraw": 18406.5,
+      "ThermalConductivity": 0.05,
+      "SpecificHeatCapacity": 0.5,
+      "Mass": 510.3,
+      "SurfaceArea": 0.05,
+      "StartCoolingTemperature": 300.0,
+      "MaxCoolingRate": 69.10961,
+      "MaxTemperature": 700.0,
+      "OverheatTemperature": 600.0,
+      "RecoveryTemperature": 670.0,
+      "MinTemperature": 0.0,
+      "MisfireMinTemperature": 300.0,
+      "MisfireMaxTemperature": 900.0
+    },
+    "SDistortionParams": {
+      "DecayRate": 126.0,
+      "Maximum": 2520.0,
+      "OverloadRatio": 0.525,
+      "RecoveryRatio": 0.39,
+      "RecoveryTime": 1.1
+    },
+    "SCItem": {
+      "turnedOnByDefault": false,
+      "attachToTileItemPort": "NoConnection",
+      "inheritModelTagFromHost": true,
+      "ItemPorts": []
+    },
+    "SEntityInteractableParams": {
+      "Interactable": {
+        "SharedInteractions": [
+          {
+            "Name": "EnablePowerPlant",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "DisablePowerPlant",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          }
+        ]
+      }
+    }
+  },
+  "ClassName": "POWR_LPLT_S01_IonBurst_SCItem",
+  "__ref": "e5ce3ff8-e9a6-4f5c-872f-edf082422d39",
+  "__type": "EntityClassDefinition"
+}

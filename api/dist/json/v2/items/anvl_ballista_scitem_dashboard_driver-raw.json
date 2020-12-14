@@ -1,0 +1,104 @@
+{
+  "StaticEntityClassData": {},
+  "tags": [],
+  "Components": {
+    "SAttachableComponentParams": {
+      "AttachDef": {
+        "Type": "SeatDashboard",
+        "SubType": "UNDEFINED",
+        "Size": 1,
+        "Grade": 1,
+        "Manufacturer": "b922abdb-0634-4358-9eee-60118f3cf3a7",
+        "Tags": "",
+        "RequiredTags": "",
+        "DisplayType": "",
+        "Localization": {
+          "Name": "@LOC_PLACEHOLDER",
+          "Description": "@LOC_EMPTY"
+        }
+      }
+    },
+    "SCItem": {
+      "turnedOnByDefault": false,
+      "attachToTileItemPort": "NoConnection",
+      "inheritModelTagFromHost": true,
+      "ItemPorts": [
+        {
+          "PortFlags": "",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": [
+            {
+              "Name": "hardpoint_cockpit_radar",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 0,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "Display",
+                  "SubTypes": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "SEntityInteractableParams": {
+      "Interactable": {
+        "SharedInteractions": [
+          {
+            "Name": "FlightReady",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_engage_systems",
+            "DisplayType": "Show",
+            "GenericCursor": "MultiAction",
+            "FocusModeOnly": false,
+            "Sendable": true,
+            "Linkable": false,
+            "LockedByLinks": true,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "OpenMissiles",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_deploy_missile",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": true,
+            "Linkable": false,
+            "LockedByLinks": true,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "CloseMissiles",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_retract_missile",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": true,
+            "Linkable": false,
+            "LockedByLinks": true,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          }
+        ]
+      }
+    }
+  },
+  "ClassName": "ANVL_Ballista_SCItem_Dashboard_Driver",
+  "__ref": "251739b0-8bf7-4e87-86c2-e57ad3dd1bdb",
+  "__type": "EntityClassDefinition"
+}

@@ -1558,39 +1558,44 @@
   "InterdictionHardpoints": [],
   "CargoGrids": [
     {
-      "PortName": "Hardpoint_Cargo_Rack",
-      "Size": 4,
-      "Loadout": "RSI_Aurora_Cargo_Rack",
+      "PortName": "hardpoint_cargo_grid",
+      "Size": 1,
+      "Loadout": "RSI_Aurora_CL_CargoGrid_Main",
       "InstalledItem": {
-        "ClassName": "RSI_Aurora_Cargo_Rack",
-        "Size": 4,
+        "ClassName": "RSI_Aurora_CL_CargoGrid_Main",
+        "Size": 1,
         "Grade": 1,
-        "Type": "Container.Cargo",
-        "Name": "RSI_Aurora_Cargo_Rack",
+        "Type": "Cargo.UNDEFINED",
+        "Name": "RSI_Aurora_CL_CargoGrid_Main",
         "Manufacturer": {
           "Code": "RSI",
           "Name": "Roberts Space Industries"
         },
-        "Ports": [
-          {
-            "PortName": "hardpoint_cargo_grid",
-            "Size": 1,
-            "Types": [
-              "Cargo"
-            ],
-            "Flags": [
-              "invisible",
-              "uneditable"
-            ],
-            "Category": "Cargo grids",
-            "Uneditable": true
-          }
-        ]
+        "CargoGrid": {
+          "Capacity": 6.0,
+          "Width": 1.25,
+          "Height": 1.25,
+          "Depth": 7.5
+        },
+        "PowerConnection": {
+          "PowerBase": 0.0,
+          "PowerDraw": 1.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        }
       },
       "Types": [
-        "Container.Cargo"
+        "Cargo"
       ],
-      "Category": "Cargo containers"
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Category": "Cargo grids",
+      "Uneditable": true
     }
   ]
 }

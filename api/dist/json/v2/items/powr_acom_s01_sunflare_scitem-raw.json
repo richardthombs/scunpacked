@@ -1,0 +1,149 @@
+{
+  "StaticEntityClassData": {
+    "DefaultEntitlementEntityParams": {
+      "entitlementPolicy": "6df1749c-48ea-43e5-bae5-8084d9fe5aca"
+    }
+  },
+  "tags": [],
+  "Components": {
+    "SAttachableComponentParams": {
+      "AttachDef": {
+        "Type": "PowerPlant",
+        "SubType": "Power",
+        "Size": 1,
+        "Grade": 3,
+        "Manufacturer": "5d616e6f-3257-4d19-90c3-11ab974f12e7",
+        "Tags": "",
+        "RequiredTags": "",
+        "DisplayType": "",
+        "Localization": {
+          "Name": "@item_NamePOWR_ACOM_S01_SunFlare_SCItem",
+          "Description": "@item_DescPOWR_ACOM_S01_Sunflare"
+        }
+      }
+    },
+    "SHealthComponentParams": {
+      "Health": 500.0,
+      "DamageResistances": {
+        "DamageResistance": {
+          "PhysicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "EnergyResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "DistortionResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "ThermalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "BiochemicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "StunResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          }
+        }
+      }
+    },
+    "SDegradationParams": {
+      "MaxLifetimeHours": 16.0,
+      "InitialAgeRatio": 0.0,
+      "DegradeOnlyWhenAttached": true
+    },
+    "EntityComponentPowerConnection": {
+      "PowerBase": 0.0,
+      "PowerDraw": 1051.75,
+      "TimeToReachDrawRequest": 6.25,
+      "SafeguardPriority": 100.0,
+      "DisplayedInPoweredItemList": true,
+      "IsThrottleable": true,
+      "IsOverclockable": true,
+      "OverclockThresholdMin": 0.34,
+      "OverclockThresholdMax": 0.43,
+      "OverpowerPerformance": 0.255,
+      "OverclockPerformance": 0.05,
+      "PowerToEM": 3.36,
+      "DecayRateOfEM": 0.15,
+      "WarningDelayTime": 0.3,
+      "WarningDisplayTime": 8.0
+    },
+    "EntityComponentHeatConnection": {
+      "TemperatureToIR": 3.36,
+      "OverpowerHeat": 0.32,
+      "OverclockThresholdMinHeat": 0.55,
+      "OverclockThresholdMaxHeat": 0.81,
+      "ThermalEnergyBase": 28516.5,
+      "ThermalEnergyDraw": 31554.0,
+      "ThermalConductivity": 0.05,
+      "SpecificHeatCapacity": 0.5,
+      "Mass": 291.6,
+      "SurfaceArea": 0.05,
+      "StartCoolingTemperature": 300.0,
+      "MaxCoolingRate": 212.2531,
+      "MaxTemperature": 700.0,
+      "OverheatTemperature": 600.0,
+      "RecoveryTemperature": 670.0,
+      "MinTemperature": 0.0,
+      "MisfireMinTemperature": 300.0,
+      "MisfireMaxTemperature": 900.0
+    },
+    "SDistortionParams": {
+      "DecayRate": 120.0,
+      "Maximum": 1200.0,
+      "OverloadRatio": 0.8,
+      "RecoveryRatio": 0.3,
+      "RecoveryTime": 1.4
+    },
+    "SCItem": {
+      "turnedOnByDefault": false,
+      "attachToTileItemPort": "NoConnection",
+      "inheritModelTagFromHost": true,
+      "ItemPorts": []
+    },
+    "SEntityInteractableParams": {
+      "Interactable": {
+        "SharedInteractions": [
+          {
+            "Name": "EnablePowerPlant",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "DisablePowerPlant",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          }
+        ]
+      }
+    }
+  },
+  "ClassName": "POWR_ACOM_S01_SunFlare_SCItem",
+  "__ref": "8e828c4f-b435-4db5-aab4-318dead98403",
+  "__type": "EntityClassDefinition"
+}

@@ -1,0 +1,198 @@
+{
+  "StaticEntityClassData": {},
+  "tags": [],
+  "Components": {
+    "SEntityComponentDefaultLoadoutParams": {
+      "loadout": {
+        "SItemPortLoadoutManualParams": {
+          "entries": [
+            {
+              "itemPortName": "hardpoint_cargo_grid",
+              "entityClassName": "TMBL_Cyclone_CargoGrid_Main",
+              "loadout": {}
+            },
+            {
+              "itemPortName": "hardpoint_door_ramp",
+              "entityClassName": "TMBL_Cyclone_Ramp",
+              "loadout": {}
+            }
+          ]
+        }
+      }
+    },
+    "SAttachableComponentParams": {
+      "AttachDef": {
+        "Type": "Container",
+        "SubType": "Cargo",
+        "Size": 3,
+        "Grade": 1,
+        "Manufacturer": "bb1024bc-b82e-491c-820c-36662c36feb3",
+        "Tags": "TMBL_Cyclone_Module",
+        "RequiredTags": "",
+        "DisplayType": "",
+        "Localization": {
+          "Name": "@itemPort_hardpoint_turret",
+          "Description": "@LOC_EMPTY"
+        }
+      }
+    },
+    "SHealthComponentParams": {
+      "Health": 200.0,
+      "DamageResistances": {
+        "DamageResistance": {
+          "PhysicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "EnergyResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "DistortionResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "ThermalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "BiochemicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "StunResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          }
+        }
+      }
+    },
+    "SCItem": {
+      "turnedOnByDefault": true,
+      "attachToTileItemPort": "ExteriorConnection",
+      "inheritModelTagFromHost": true,
+      "ItemPorts": [
+        {
+          "PortFlags": "",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": [
+            {
+              "Name": "hardpoint_cargo_grid",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "selfphys uneditable",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "Cargo",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_door_ramp",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "uneditable",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "Door",
+                  "SubTypes": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "SEntityInteractableParams": {
+      "Interactable": {
+        "SharedInteractions": [
+          {
+            "Name": "Open",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_open",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": true,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Close",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_close",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": true,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Lock",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": true,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Override",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": true,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "OverrideClose",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": true,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          }
+        ]
+      }
+    }
+  },
+  "ClassName": "TMBL_Cyclone_Module_Cargo",
+  "__ref": "9ec50960-3cea-4dd1-b2cb-bbeb33a65ca5",
+  "__type": "EntityClassDefinition"
+}

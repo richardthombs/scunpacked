@@ -1,0 +1,211 @@
+{
+  "StaticEntityClassData": {},
+  "tags": [
+    {
+      "value": "3bd04823-41ba-4bdb-a908-36096e6cdc51"
+    },
+    {
+      "value": "c57f93eb-6e55-498f-9ff3-c19821c83ed8"
+    },
+    {
+      "value": "cff03434-9310-4f20-889f-b64209438abc"
+    },
+    {
+      "value": "635cf5f5-484f-4899-8be0-4f6c56f6c26f"
+    },
+    {
+      "value": "dfef0fc9-e650-486c-9126-7823a9800b69"
+    }
+  ],
+  "Components": {
+    "SEntityComponentDefaultLoadoutParams": {
+      "loadout": {
+        "SItemPortLoadoutManualParams": {
+          "entries": [
+            {
+              "itemPortName": "clothes_torso_itemport",
+              "entityClassName": "",
+              "loadout": {}
+            },
+            {
+              "itemPortName": "clothes_legs_itemport",
+              "entityClassName": "",
+              "loadout": {}
+            },
+            {
+              "itemPortName": "clothes_feet_itemport",
+              "entityClassName": "",
+              "loadout": {}
+            }
+          ]
+        }
+      }
+    },
+    "SAttachableComponentParams": {
+      "AttachDef": {
+        "Type": "Misc",
+        "SubType": "UNDEFINED",
+        "Size": 3,
+        "Grade": 1,
+        "Manufacturer": "00000000-0000-0000-0000-000000000000",
+        "Tags": "locker",
+        "RequiredTags": "",
+        "DisplayType": "",
+        "Localization": {
+          "Name": "@LOC_PLACEHOLDER",
+          "Description": "@LOC_EMPTY"
+        }
+      }
+    },
+    "SCItem": {
+      "turnedOnByDefault": false,
+      "attachToTileItemPort": "NoConnection",
+      "inheritModelTagFromHost": true,
+      "ItemPorts": [
+        {
+          "PortFlags": "",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": [
+            {
+              "Name": "clothes_torso_itemport",
+              "DisplayName": "clothes_torso_itemport",
+              "PortTags": "torso",
+              "RequiredPortTags": "",
+              "Flags": "Hanging Male",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "Char_Body",
+                  "SubTypes": [
+                    {
+                      "value": "Magazine"
+                    }
+                  ]
+                },
+                {
+                  "Type": "Char_Clothing_Torso_0",
+                  "SubTypes": []
+                },
+                {
+                  "Type": "Char_Clothing_Torso_1",
+                  "SubTypes": []
+                },
+                {
+                  "Type": "Char_Clothing_Torso_2",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "clothes_legs_itemport",
+              "DisplayName": "clothes_legs_itemport",
+              "PortTags": "legs",
+              "RequiredPortTags": "",
+              "Flags": "Hanging",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "Char_Armor_Legs",
+                  "SubTypes": []
+                },
+                {
+                  "Type": "Char_Clothing_Legs",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "clothes_feet_itemport",
+              "DisplayName": "clothes_feet_itemport",
+              "PortTags": "feet",
+              "RequiredPortTags": "",
+              "Flags": "Hanging",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "Char_Clothing_Feet",
+                  "SubTypes": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "SEntityInteractableParams": {
+      "Interactable": {
+        "SharedInteractions": [
+          {
+            "Name": "Open",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_open",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Close",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_close",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Change",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@LOC_EMPTY",
+            "DisplayType": "Hide",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Swap Outfit",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@innerthought_equip",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          }
+        ]
+      }
+    }
+  },
+  "ClassName": "Locker_Shallow_WallLeft_AEGS_Pilot_Room",
+  "__ref": "41de0db2-99dc-4ee1-a591-1c52ca10a027",
+  "__type": "EntityClassDefinition"
+}
