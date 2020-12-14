@@ -496,7 +496,7 @@ namespace Loader
 			portSummary.PowerPlants = FindItemPorts(parts, x => x.Category == "Power plants", true).Select(x => x.Item1).ToList();
 			portSummary.Coolers = FindItemPorts(parts, x => x.Category == "Coolers", true).Select(x => x.Item1).ToList();
 			portSummary.Shields = FindItemPorts(parts, x => x.Category == "Shield generators", true).Select(x => x.Item1).ToList();
-			portSummary.CargoGrids = FindItemPorts(parts, x => x.Category == "Cargo grids" || x.Category == "Cargo containers", true).Select(x => x.Item1).ToList();
+			portSummary.CargoGrids = FindItemPorts(parts, x => x.Category == "Cargo grids", true).Select(x => x.Item1).ToList();
 			portSummary.Countermeasures = FindItemPorts(parts, x => x.Category == "Countermeasures", true).Select(x => x.Item1).ToList();
 			portSummary.MainThrusters = FindItemPorts(parts, x => x.Category == "Main thrusters", true).Select(x => x.Item1).ToList();
 			portSummary.RetroThrusters = FindItemPorts(parts, x => x.Category == "Retro thrusters", true).Select(x => x.Item1).ToList();
@@ -525,7 +525,10 @@ namespace Loader
 				WeaponCrew = portSummary.MannedTurrets.Count + portSummary.RemoteTurrets.Count,
 				OperationsCrew = Math.Max(portSummary.MiningTurrets.Count, portSummary.UtilityTurrets.Count),
 				Mass = FindParts(parts, x => true).Sum((x) => x.Item1.Mass ?? 0),
-				Cargo = (int)(portSummary.CargoGrids.Sum(x => x.InstalledItem?.CargoGrid?.Capacity ?? 0)),
+				Cargo = (int)(portSummary.CargoGrids
+					.Where(x => x.InstalledItem?.CargoGrid != null)
+					.Where(x => !x.InstalledItem.CargoGrid.MiningOnly)
+					.Sum(x => x.InstalledItem.CargoGrid.Capacity)),
 			};
 
 			shipSummary.IsVehicle = entity.Components?.VehicleComponentParams.vehicleCareer == "@vehicle_focus_ground";

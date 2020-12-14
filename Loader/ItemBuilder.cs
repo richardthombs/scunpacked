@@ -248,7 +248,8 @@ namespace Loader
 				Width = cargo.dimensions.x,
 				Height = cargo.dimensions.z,
 				Depth = cargo.dimensions.y,
-				Capacity = Math.Floor(cargo.dimensions.x / 1.25) * Math.Floor(cargo.dimensions.y / 1.25) * Math.Floor(cargo.dimensions.z / 1.25)
+				Capacity = Math.Floor(cargo.dimensions.x / 1.25) * Math.Floor(cargo.dimensions.y / 1.25) * Math.Floor(cargo.dimensions.z / 1.25),
+				MiningOnly = cargo.miningOnly
 			};
 		}
 
