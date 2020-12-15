@@ -73,12 +73,12 @@ namespace Loader
 
 			// Avionics
 			if (port.Accepts("Avionics.Motherboard")) return ("Avionics", "Computers");
-			if (port.Accepts("Radar")) return ("Avionics", "Radar");
-			if (port.Accepts("Radar.ShortRangeRadar")) return ("Avionics", "Radar");
-			if (port.Accepts("Radar.MidRangeRadar")) return ("Avionics", "Radar");
+			if (port.Accepts("Radar")) return ("Avionics", "Radars");
+			if (port.Accepts("Radar.ShortRangeRadar")) return ("Avionics", "Radars");
+			if (port.Accepts("Radar.MidRangeRadar")) return ("Avionics", "Radars");
 			if (port.Accepts("Scanner")) return ("Avionics", "Scanners");
 			if (port.Accepts("Scanner.Gun")) return ("Avionics", "Scanners");
-			if (port.Accepts("Ping")) return ("Avionics", "Ping");
+			if (port.Accepts("Ping")) return ("Avionics", "Pings");
 			if (port.Accepts("Transponder")) return ("Avionics", "Transponders");
 			if (port.Accepts("SelfDestruct")) return ("Avionics", "Self destruct");
 

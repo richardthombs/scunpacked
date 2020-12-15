@@ -28,6 +28,7 @@ namespace Loader
 			HydogenFuelIntakes = new List<StandardisedItemPort>();
 			InterdictionHardpoints = new List<StandardisedItemPort>();
 			CargoGrids = new List<StandardisedItemPort>();
+			Avionics = new List<StandardisedItemPort>();
 		}
 
 		public List<StandardisedItemPort> PilotHardpoints { get; set; }
@@ -52,5 +53,6 @@ namespace Loader
 		public List<StandardisedItemPort> HydogenFuelIntakes { get; set; }
 		public List<StandardisedItemPort> InterdictionHardpoints { get; set; }
 		public List<StandardisedItemPort> CargoGrids { get; set; }
+		public List<StandardisedItemPort> Avionics { get; set; }
 	}
 }

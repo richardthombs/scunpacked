@@ -39,6 +39,8 @@ namespace Loader
 			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "QuantumInterdictionGenerator.*"), Classifier = (t,s) => $"Ship.{t}.{s}" },
 			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "Radar.*"), Classifier = (t,s) => $"Ship.{t}.{s}" },
 			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "Scanner.*"), Classifier = (t,s) => $"Ship.{t}.{s}" },
+			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "Ping.*"), Classifier = (t,s) => $"Ship.{t}.{s}" },
+			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "Transponder.*"), Classifier = (t,s) => $"Ship.{t}.{s}" },
 			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "Shield.*"), Classifier = (t,s) => $"Ship.{t}.{s}" },
 			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "Paints.*"), Classifier = (t,s) => $"Ship.{t}.{s}" },
 

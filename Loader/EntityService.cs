@@ -24,7 +24,7 @@ namespace Loader
 		// Avoid filenames that have these endings
 		string[] file_avoids =
 		{
-			"test",
+			//"test",
 			"template",
 			"s42",
 			"tow"

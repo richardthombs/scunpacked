@@ -1860,5 +1860,132 @@
     }
   ],
   "InterdictionHardpoints": [],
-  "CargoGrids": []
+  "CargoGrids": [],
+  "Avionics": [
+    {
+      "PortName": "hardpoint_scanner",
+      "Size": 1,
+      "Loadout": "test_scanner",
+      "InstalledItem": {
+        "ClassName": "test_scanner",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "Scanner.UNDEFINED",
+        "Name": "test_scanner",
+        "Tags": [
+          "flightReady"
+        ]
+      },
+      "Types": [
+        "Scanner"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Category": "Scanners",
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_ping",
+      "Size": 1,
+      "Loadout": "test_ping",
+      "InstalledItem": {
+        "ClassName": "test_ping",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "Ping.UNDEFINED",
+        "Name": "Ping",
+        "Description": "Ping",
+        "Tags": [
+          "flightReady"
+        ],
+        "Durability": {
+          "Lifetime": 720.0
+        },
+        "PowerConnection": {
+          "PowerBase": 50.0,
+          "PowerDraw": 550.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        }
+      },
+      "Types": [
+        "Ping"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Category": "Pings",
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_transponder",
+      "Size": 1,
+      "Types": [
+        "Transponder"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Category": "Transponders",
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_radar",
+      "Size": 1,
+      "Loadout": "RADR_GRNP_S01_Ecouter",
+      "InstalledItem": {
+        "ClassName": "RADR_GRNP_S01_Ecouter",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "Radar.MidRangeRadar",
+        "Name": "Ecouter",
+        "Description": "Item Type: Radar\nManufacturer: GNP\nSize: 1\nGrade: C\nClass: Military\n\nSpace is vast and unknowable, that’s why discerning pilots rely on the Ecouter small radar from GNP to keep them in the know about what’s around them.",
+        "Tags": [
+          "flightReady"
+        ],
+        "Durability": {
+          "Lifetime": 720.0
+        },
+        "PowerConnection": {
+          "PowerBase": 0.0,
+          "PowerDraw": 1.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        },
+        "Ports": [
+          {
+            "PortName": "BatteryPort",
+            "Size": 2,
+            "Types": [
+              "Battery"
+            ],
+            "Flags": [
+              "invisible"
+            ],
+            "Category": "Batteries"
+          }
+        ]
+      },
+      "Types": [
+        "Radar.ShortRangeRadar",
+        "Radar.MidRangeRadar"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Category": "Radars",
+      "Uneditable": true
+    }
+  ]
 }

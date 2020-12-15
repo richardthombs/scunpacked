@@ -11,7 +11,6 @@ namespace Loader
 		public List<string> Types { get; set; }
 		public List<string> Flags { get; set; }
 		public string Category { get; set; }
-
 		public bool Uneditable { get; set; }
 
 		public override string ToString()

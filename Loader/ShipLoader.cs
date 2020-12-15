@@ -506,6 +506,7 @@ namespace Loader
 			portSummary.HydrogenFuelTanks = FindItemPorts(parts, x => x.Category == "Fuel tanks", true).Select(x => x.Item1).ToList();
 			portSummary.QuantumDrives = FindItemPorts(parts, x => x.Category == "Quantum drives", true).Select(x => x.Item1).ToList();
 			portSummary.QuantumFuelTanks = FindItemPorts(parts, x => x.Category == "Quantum fuel tanks", true).Select(x => x.Item1).ToList();
+			portSummary.Avionics = FindItemPorts(parts, x => x.Category == "Scanners" || x.Category == "Pings" || x.Category == "Radars" || x.Category == "Transponders", true).Select(x => x.Item1).ToList();
 
 			return portSummary;
 		}
