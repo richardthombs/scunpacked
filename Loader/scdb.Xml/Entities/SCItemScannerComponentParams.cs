@@ -7,12 +7,7 @@ namespace scdb.Xml.Entities
 		[XmlAttribute]
 		public string scanGroupFilter;
 
-		[XmlAnyAttribute]
+		[XmlAttribute]
 		public double scanRange;
-	}
-
-	public class SGlobalContactBlobParams
-	{
-
 	}
 }

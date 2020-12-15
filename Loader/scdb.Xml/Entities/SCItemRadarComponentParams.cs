@@ -11,8 +11,8 @@ namespace scdb.Xml.Entities
 		public double altitudeCeiling;
 
 		[XmlAttribute]
-		public double enableCrossSectionOcclusion;
+		public bool enableCrossSectionOcclusion;
 
-		public SCItemRadarComponentSignatureParams[] signatureParams;
+		public SCItemRadarSignatureDetectionParams[] signatureDetection;
 	}
 }

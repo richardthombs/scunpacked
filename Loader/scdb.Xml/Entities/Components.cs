@@ -34,5 +34,6 @@ namespace scdb.Xml.Entities
 		public SCItemClothingParams SCItemClothingParams;
 		public SCItemSuitArmorParams SCItemSuitArmorParams;
 		public SSCItemPingComponentParams SSCItemPingComponentParams;
+		public SCItemScannerComponentParams SSCItemScannerComponentParams;
 	}
 }

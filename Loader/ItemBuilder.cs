@@ -56,6 +56,9 @@ namespace Loader
 			stdItem.Weapon = BuildWeaponInfo(entity);
 			stdItem.Ammunition = BuildAmmunitionInfo(entity);
 			stdItem.Missile = BuildMissileInfo(entity);
+			stdItem.Scanner = BuildScannerInfo(entity);
+			stdItem.Radar = BuildRadarInfo(entity);
+			stdItem.Ping = BuildPingInfo(entity);
 
 			return stdItem;
 		}
@@ -549,6 +552,66 @@ namespace Loader
 			var info = new StandardisedMissile
 			{
 				Damage = ConvertDamage(missile.explosionParams.damage[0])
+			};
+
+			return info;
+		}
+
+		StandardisedScanner BuildScannerInfo(EntityClassDefinition item)
+		{
+			var scanner = item.Components.SSCItemScannerComponentParams;
+			if (scanner == null) return null;
+
+			var info = new StandardisedScanner
+			{
+				Range = scanner.scanRange
+			};
+
+			return info;
+		}
+
+		StandardisedRadar BuildRadarInfo(EntityClassDefinition item)
+		{
+			var radar = item.Components.SCItemRadarComponentParams;
+			if (radar == null) return null;
+
+			var info = new StandardisedRadar
+			{
+				DetectionLifetime = radar.detectionLifetime,
+				AltitudeCeiling = radar.altitudeCeiling,
+				CrossSectionOcclusion = radar.enableCrossSectionOcclusion,
+				Signatures = BuildDetectionSignatures(item)
+			};
+
+			return info;
+		}
+
+		List<StandardisedSignatureDetection> BuildDetectionSignatures(EntityClassDefinition item)
+		{
+			var detections = new List<StandardisedSignatureDetection>();
+
+			foreach (var detection in item.Components.SCItemRadarComponentParams.signatureDetection)
+			{
+				detections.Add(new StandardisedSignatureDetection
+				{
+					Detectable = detection.detectable,
+					Sensitivity = detection.sensitivity,
+					AmbientPiercing = detection.ambientPiercing
+				});
+			}
+
+			return detections;
+		}
+
+		StandardisedPing BuildPingInfo(EntityClassDefinition item)
+		{
+			var ping = item.Components.SSCItemPingComponentParams;
+			if (ping == null) return null;
+
+			var info = new StandardisedPing
+			{
+				ChargeTime = ping.maximumChargeTime,
+				CooldownTime = ping.maximumCooldownTime
 			};
 
 			return info;

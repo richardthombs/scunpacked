@@ -33,6 +33,9 @@ namespace Loader
 		public StandardisedWeapon Weapon { get; set; }
 		public StandardisedAmmunition Ammunition { get; set; }
 		public StandardisedMissile Missile { get; set; }
+		public StandardisedScanner Scanner { get; set; }
+		public StandardisedRadar Radar { get; set; }
+		public StandardisedPing Ping { get; set; }
 
 		public List<StandardisedItemPort> Ports { get; set; }
 
