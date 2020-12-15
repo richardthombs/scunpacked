@@ -108,6 +108,30 @@
       </div>
     </div>
 
+    <div *ngIf="item?.Radar">
+      <h2 class="text-xl">Radar</h2>
+      <div class="grid grid-cols-4 gap-5">
+        <app-stat title="Detection lifetime" [value]="item!.Radar.DetectionLifetime" units="s"></app-stat>
+        <app-stat title="Altitude ceiling" [value]="item!.Radar.AltitudeCeiling" units="m"></app-stat>
+        <app-stat title="Cross section occlusion" [value]="item!.Radar.CrossSectionOcclusion" bool="true"></app-stat>
+      </div>
+    </div>
+
+    <div *ngIf="item?.Scanner">
+      <h2 class="text-xl">Scanner</h2>
+      <div class="grid grid-cols-4 gap-5">
+        <app-stat title="Range" [value]="item!.Scanner.Range" units="m"></app-stat>
+      </div>
+    </div>
+
+    <div *ngIf="item?.Ping">
+      <h2 class="text-xl">Ping</h2>
+      <div class="grid grid-cols-4 gap-5">
+        <app-stat title="Charge time" [value]="item!.Ping.ChargeTime" units="s"></app-stat>
+        <app-stat title="Cooldown time" [value]="item!.Ping.CooldownTime" units="s"></app-stat>
+      </div>
+    </div>
+
     <div *ngIf="item?.PowerConnection">
       <h2 class="text-xl">Power connection</h2>
       <app-power-usage [item]="item"></app-power-usage>

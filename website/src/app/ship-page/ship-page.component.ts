@@ -51,6 +51,11 @@ export class ShipPage implements OnInit {
 
     "Shield generators": { category: "Defence", kind: "Shield generators" },
     "Countermeasures": { category: "Defence", kind: "Countermeasures" },
+
+    "Radars": { category: "Avionics", kind: "Radars" },
+    "Pings": { category: "Avionics", kind: "Pings" },
+    "Scanners": { category: "Avionics", kind: "Scanners" },
+    "Transponders": { category: "Avionics", kind: "Transponders" }
   }
 
   groups: string[] = [
@@ -58,6 +63,7 @@ export class ShipPage implements OnInit {
     "Defence",
     "Utility",
     "Systems",
+    "Avionics",
     "Cargo",
     "Propulsion",
     "Quantum travel",
@@ -117,6 +123,7 @@ export class ShipPage implements OnInit {
         vehiclePorts.push(...ports.HydogenFuelIntakes);
         vehiclePorts.push(...ports.InterdictionHardpoints);
         vehiclePorts.push(...ports.CargoGrids);
+        vehiclePorts.push(...ports.Avionics);
 
         // Classify each Item Port
         let classifiedPorts: ClassifiedItemPort[] = [];

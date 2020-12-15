@@ -38,6 +38,7 @@ export class ItemlistPage implements OnInit {
     "Ship.Radar.MidRangeRadar": "Radars",
     "Ship.Scanner": "Scanners",
     "Ship.Scanner.Scanner": "Scanners",
+    "Ship.Ping": "Pings",
     "Ship.Shield": "Shields",
     "Ship.Weapon.Gun": "Weapons",
     "Ship.Weapon.NoseMounted": "Weapons",

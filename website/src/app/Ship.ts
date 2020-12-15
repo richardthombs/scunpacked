@@ -82,6 +82,7 @@ export interface StandardisedPortSummary {
   HydogenFuelIntakes: StandardisedItemPort[];
   InterdictionHardpoints: StandardisedItemPort[];
   CargoGrids: StandardisedItemPort[];
+  Avionics: StandardisedItemPort[];
 }
 
 export interface StandardisedItemPort {

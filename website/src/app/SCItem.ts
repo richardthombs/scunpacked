@@ -84,6 +84,23 @@ export interface StandardisedItem {
   },
   Missile: {
     Damage: StandardisedDamage;
+  },
+  Radar: {
+    DetectionLifetime: number,
+    AltitudeCeiling: number,
+    CrossSectionOcclusion: boolean,
+    Signatures: {
+      Detectable: boolean,
+      Sensitivity: number,
+      AmbientPiercing: boolean
+    }[]
+  },
+  Ping: {
+    ChargeTime: number,
+    CooldownTime: number
+  },
+  Scanner: {
+    Range: number
   }
 }
 
