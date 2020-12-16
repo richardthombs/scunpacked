@@ -101,6 +101,10 @@ export interface StandardisedItem {
   },
   Scanner: {
     Range: number
+  },
+  Armour: {
+    DamageMultipliers: StandardisedDamage,
+    SignalMultipliers: StandardisedSignature
   }
 }
 
@@ -111,6 +115,12 @@ export interface StandardisedDamage {
   Thermal: number;
   Biochemical: number;
   Stun: number;
+}
+
+export interface StandardisedSignature {
+  CrossSection: number;
+  Infrared: number;
+  Electromagnetic: number;
 }
 
 export class SCItem {

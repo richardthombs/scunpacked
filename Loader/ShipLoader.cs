@@ -43,6 +43,7 @@ namespace Loader
 			"microtech",
 			"shubin",
 			"drug",
+			"advocacy",
 
 			// Skin variants
 			"pink",

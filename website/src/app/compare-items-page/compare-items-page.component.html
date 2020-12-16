@@ -1,43 +1,41 @@
 <app-navbar></app-navbar>
 
-<div class="container-outer">
-  <div class="w-fit mx-auto container-inner">
+<div class="w-fit mx-auto p-10 mt-10 bg-black bg-opacity-80">
 
-    <table>
-      <ng-container *ngFor="let g of fields; index as gIndex">
-        <ng-container *ngIf="g.visibleFn && g.visibleFn(items)">
-          <tr>
-            <td (click)="toggleCollapse(g)" class="flex justify-between">
-              <div class="field-group-title">{{g.title}}</div>
-              <div class="ml-3 self-end"><i *ngIf="gIndex > 0" [class]="g.collapsed? 'fas fa-chevron-right' : 'fas fa-chevron-down'"></i></div>
-            </td>
-          </tr>
-          <ng-container *ngIf="!g.collapsed">
-            <tr *ngFor="let f of g.fields; index as fIndex">
-              <td (click)=sortBy(f)>{{f.title}}</td>
-              <ng-container *ngFor="let i of items; index as iIndex">
-                <ng-container *ngIf="!f.linkFn && f.compareFn">
-                  <td class="text-right" [class.font-weight-bold]="gIndex == 0 && fIndex == 0">
-                    <span [class]="f.compareClass(items,i)">{{f.formattedValue(i)}}</span>
-                  </td>
-                  <td class="text-right">
-                    <small [class]="f.differenceClass(items, i)" *ngIf="f.compareFn">{{f.formattedCompareValue(items, i)}}</small>
-                  </td>
-                </ng-container>
-                <td *ngIf="!f.linkFn && !f.compareFn" colspan="2" class="text-left">
-                  {{f.formattedValue(i)}}
+  <table>
+    <ng-container *ngFor="let g of fields; index as gIndex">
+      <ng-container *ngIf="g.visibleFn && g.visibleFn(items)">
+        <tr>
+          <td (click)="toggleCollapse(g)" class="flex justify-between">
+            <div class="field-group-title">{{g.title}}</div>
+            <div class="ml-3 self-end"><i *ngIf="gIndex > 0" [class]="g.collapsed? 'fas fa-chevron-right' : 'fas fa-chevron-down'"></i></div>
+          </td>
+        </tr>
+        <ng-container *ngIf="!g.collapsed">
+          <tr *ngFor="let f of g.fields; index as fIndex">
+            <td (click)=sortBy(f)>{{f.title}}</td>
+            <ng-container *ngFor="let i of items; index as iIndex">
+              <ng-container *ngIf="!f.linkFn && f.compareFn">
+                <td class="text-right" [class.font-weight-bold]="gIndex == 0 && fIndex == 0">
+                  <span [class]="f.compareClass(items,i)">{{f.formattedValue(i)}}</span>
                 </td>
-                <td *ngIf="f.linkFn" colspan="2">
-                  <div class="font-bold" style="border-bottom: 1px solid rgba(255,255,255,0.5);">
-                    <a [routerLink]="f.linkFn(i)">{{f.formattedValue(i)}}</a>
-                  </div>
+                <td class="text-right">
+                  <small [class]="f.differenceClass(items, i)" *ngIf="f.compareFn">{{f.formattedCompareValue(items, i)}}</small>
                 </td>
               </ng-container>
-            </tr>
-          </ng-container>
+              <td *ngIf="!f.linkFn && !f.compareFn" colspan="2" class="text-left">
+                {{f.formattedValue(i)}}
+              </td>
+              <td *ngIf="f.linkFn" colspan="2">
+                <div class="font-bold" style="border-bottom: 1px solid rgba(255,255,255,0.5);">
+                  <a [routerLink]="f.linkFn(i)">{{f.formattedValue(i)}}</a>
+                </div>
+              </td>
+            </ng-container>
+          </tr>
         </ng-container>
       </ng-container>
-    </table>
+    </ng-container>
+  </table>
 
-  </div>
 </div>

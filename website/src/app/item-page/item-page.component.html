@@ -152,30 +152,26 @@
         <app-heat-emissions *ngIf="item?.HeatConnection" [item]="item" class="mt-2"></app-heat-emissions>
       </div>
 -->
-    <div *ngIf="item?.Armor" class="space-y-5">
-      <!--
-        <div *ngIf="item?.Armor?.damageMultiplier?.DamageInfo">
-          <h2 class="text-xl">Damage multipliers</h2>
-          <div class="grid grid-flow-row grid-cols-6">
-            <app-stat title="Physical" [value]="item!.Armor.damageMultiplier.DamageInfo.DamagePhysical" decimals="2"></app-stat>
-            <app-stat title="Energy" [value]="item!.Armor.damageMultiplier.DamageInfo.DamageEnergy" decimals="2"></app-stat>
-            <app-stat title="Distortion" [value]="item!.Armor.damageMultiplier.DamageInfo.DamageDistortion" decimals="2"></app-stat>
-            <app-stat title="Thermal" [value]="item!.Armor.damageMultiplier.DamageInfo.DamageThermal" decimals="2"></app-stat>
-            <app-stat title="Biochemical" [value]="item!.Armor.damageMultiplier.DamageInfo.DamageBiochemical" decimals="2"></app-stat>
-            <app-stat title="Stun" [value]="item!.Armor.damageMultiplier.DamageInfo.DamageStun" decimals="2"></app-stat>
-          </div>
+    <div *ngIf="item?.Armour" class="space-y-5">
+      <div *ngIf="item?.Armour?.DamageMultipliers">
+        <h2 class="text-xl">Damage multipliers</h2>
+        <div class="grid grid-flow-row grid-cols-6">
+          <app-stat title="Physical" [value]="item!.Armour.DamageMultipliers.Physical" decimals="2"></app-stat>
+          <app-stat title="Energy" [value]="item!.Armour.DamageMultipliers.Energy" decimals="2"></app-stat>
+          <app-stat title="Distortion" [value]="item!.Armour.DamageMultipliers.Distortion" decimals="2"></app-stat>
+          <app-stat title="Thermal" [value]="item!.Armour.DamageMultipliers.Thermal" decimals="2"></app-stat>
+          <app-stat title="Biochemical" [value]="item!.Armour.DamageMultipliers.Biochemical" decimals="2"></app-stat>
         </div>
--->
-      <!--
-        <div>
-          <h2 class="text-xl">Signal multipliers</h2>
-          <div class="grid grid-cols-6">
-            <app-stat title="Cross section" [value]="item!.Armor.signalCrossSection" decimals="2"></app-stat>
-            <app-stat title="Infrared" [value]="item!.Armor.signalInfrared" decimals="2"></app-stat>
-            <app-stat title="Electromagnetic" [value]="item!.Armor.signalElectromagnetic" decimals="2"></app-stat>
-          </div>
+      </div>
+
+      <div *ngIf="item?.Armour?.SignalMultipliers">
+        <h2 class="text-xl">Signal multipliers</h2>
+        <div class="grid grid-cols-6">
+          <app-stat title="Cross section" [value]="item!.Armour.SignalMultipliers.CrossSection" decimals="2"></app-stat>
+          <app-stat title="Infrared" [value]="item!.Armour.SignalMultipliers.Infrared" decimals="2"></app-stat>
+          <app-stat title="Electromagnetic" [value]="item!.Armour.SignalMultipliers.Electromagnetic" decimals="2"></app-stat>
         </div>
--->
+      </div>
     </div>
 
     <div *ngIf="item?.Durability">

@@ -27,6 +27,7 @@ namespace Loader
 		public List<StandardisedWeaponFitting> PilotWeapons { get; set; }
 		public List<StandardisedWeaponFitting> MannedTurrets { get; set; }
 		public List<StandardisedWeaponFitting> RemoteTurrets { get; set; }
+		public StandardisedArmour Armour { get; set; }
 
 		public bool ShouldSerializeIsVehicle() => IsVehicle;
 		public bool ShouldSerializeIsGravlev() => IsGravlev;

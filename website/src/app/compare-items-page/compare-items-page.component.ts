@@ -65,7 +65,6 @@ export class CompareItemsPage implements OnInit {
         new ComparisonField({ title: "Distortion", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[2].Max }),
         new ComparisonField({ title: "Thermal", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[3].Max }),
         new ComparisonField({ title: "Biochemical", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[4].Max }),
-        new ComparisonField({ title: "Stun", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[5].Max }),
       ]
     }),
     new ComparisonGroup({
@@ -86,7 +85,6 @@ export class CompareItemsPage implements OnInit {
         new ComparisonField({ title: "Distortion", decimals: 2, valueFn: i => i.armor.damageMultiplier.DamageInfo.DamageDistortion }),
         new ComparisonField({ title: "Thermal", decimals: 2, valueFn: i => i.armor.damageMultiplier.DamageInfo.DamageThermal }),
         new ComparisonField({ title: "Biochemical", decimals: 2, valueFn: i => i.armor.damageMultiplier.DamageInfo.DamageBiochemical }),
-        new ComparisonField({ title: "Stun", decimals: 2, valueFn: i => i.armor.damageMultiplier.DamageInfo.DamageStun }),
       ]
     }),
     new ComparisonGroup({
