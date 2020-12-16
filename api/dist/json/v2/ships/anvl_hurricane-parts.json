@@ -294,6 +294,38 @@
                   "ThermalEnergyDraw": 20.0,
                   "CoolingRate": 1.0
                 },
+                "Radar": {
+                  "DetectionLifetime": 60.0,
+                  "AltitudeCeiling": 5000.0,
+                  "CrossSectionOcclusion": false,
+                  "Signatures": [
+                    {
+                      "Detectable": true,
+                      "Sensitivity": 0.5,
+                      "AmbientPiercing": false
+                    },
+                    {
+                      "Detectable": true,
+                      "Sensitivity": 0.5,
+                      "AmbientPiercing": false
+                    },
+                    {
+                      "Detectable": false,
+                      "Sensitivity": 1.0,
+                      "AmbientPiercing": false
+                    },
+                    {
+                      "Detectable": false,
+                      "Sensitivity": 1.0,
+                      "AmbientPiercing": false
+                    },
+                    {
+                      "Detectable": true,
+                      "Sensitivity": 0.5,
+                      "AmbientPiercing": false
+                    }
+                  ]
+                },
                 "Ports": [
                   {
                     "PortName": "BatteryPort",
@@ -753,6 +785,38 @@
                   "ThermalEnergyDraw": 20.0,
                   "CoolingRate": 1.0
                 },
+                "Radar": {
+                  "DetectionLifetime": 60.0,
+                  "AltitudeCeiling": 5000.0,
+                  "CrossSectionOcclusion": false,
+                  "Signatures": [
+                    {
+                      "Detectable": true,
+                      "Sensitivity": 0.75,
+                      "AmbientPiercing": false
+                    },
+                    {
+                      "Detectable": true,
+                      "Sensitivity": 0.75,
+                      "AmbientPiercing": false
+                    },
+                    {
+                      "Detectable": false,
+                      "Sensitivity": 1.0,
+                      "AmbientPiercing": false
+                    },
+                    {
+                      "Detectable": false,
+                      "Sensitivity": 1.0,
+                      "AmbientPiercing": false
+                    },
+                    {
+                      "Detectable": true,
+                      "Sensitivity": 0.75,
+                      "AmbientPiercing": false
+                    }
+                  ]
+                },
                 "Ports": [
                   {
                     "PortName": "BatteryPort",
@@ -1037,7 +1101,10 @@
                 "Name": "test_scanner",
                 "Tags": [
                   "flightReady"
-                ]
+                ],
+                "Scanner": {
+                  "Range": 1.0
+                }
               },
               "Types": [
                 "Scanner"
@@ -1077,6 +1144,10 @@
                   "ThermalEnergyBase": 10.0,
                   "ThermalEnergyDraw": 20.0,
                   "CoolingRate": 1.0
+                },
+                "Ping": {
+                  "ChargeTime": 2.0,
+                  "CooldownTime": 10.0
                 }
               },
               "Types": [

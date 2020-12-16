@@ -1,4 +1,27 @@
 {
+  "ammo": {
+    "size": 1,
+    "lifetime": 1.5,
+    "speed": 1005.0,
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 65.0,
+            "DamageEnergy": 0.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "APAR_BallisticScatterGun_S3_AMMO",
+    "__ref": "472e98c4-f539-441c-83c4-300dc8af020d",
+    "__type": "AmmoParams"
+  },
   "Raw": {
     "Entity": {
       "StaticEntityClassData": {
@@ -10,22 +33,22 @@
       "Components": {
         "SAttachableComponentParams": {
           "AttachDef": {
-            "Type": "WeaponMining",
+            "Type": "WeaponGun",
             "SubType": "Gun",
-            "Size": 0,
+            "Size": 3,
             "Grade": 1,
-            "Manufacturer": "b28a5c61-63a4-478b-8047-5fba545d5b8a",
-            "Tags": "flightReady weaponMountUsable miningMount",
-            "RequiredTags": "miningMount",
+            "Manufacturer": "77f7999a-b23b-4812-94c2-09b5e15e1b0e",
+            "Tags": "APAR ScatterGun flightReady weaponMountUsable",
+            "RequiredTags": "",
             "DisplayType": "",
             "Localization": {
-              "Name": "@item_Mining_MiningLaser_Greycat_Default_S1",
-              "Description": "@item_Mining_MiningLaser_Greycat_Default_S1_Desc"
+              "Name": "@item_NameAPAR_BallisticScatterGun_S3",
+              "Description": "@item_DescAPAR_BallisticScatterGun_S3"
             }
           }
         },
         "SHealthComponentParams": {
-          "Health": 8000.0,
+          "Health": 1550.0,
           "DamageResistances": {
             "DamageResistance": {
               "PhysicalResistance": {
@@ -56,46 +79,53 @@
           }
         },
         "SDegradationParams": {
-          "MaxLifetimeHours": 100.0,
+          "MaxLifetimeHours": 20.0,
           "InitialAgeRatio": 0.0,
           "DegradeOnlyWhenAttached": true
         },
         "EntityComponentPowerConnection": {
-          "PowerBase": 500.0,
-          "PowerDraw": 1000.0,
+          "PowerBase": 80.0,
+          "PowerDraw": 200.0,
           "TimeToReachDrawRequest": 0.0,
           "SafeguardPriority": 20.0,
           "DisplayedInPoweredItemList": true,
           "IsThrottleable": true,
           "IsOverclockable": true,
-          "OverclockThresholdMin": 0.25,
-          "OverclockThresholdMax": 0.53,
-          "OverpowerPerformance": 0.3,
-          "OverclockPerformance": 0.24,
-          "PowerToEM": 2.0,
-          "DecayRateOfEM": 0.15,
+          "OverclockThresholdMin": 0.23,
+          "OverclockThresholdMax": 0.39,
+          "OverpowerPerformance": 0.2,
+          "OverclockPerformance": 0.23,
+          "PowerToEM": 0.66,
+          "DecayRateOfEM": 0.5,
           "WarningDelayTime": 0.3,
           "WarningDisplayTime": 8.0
         },
         "EntityComponentHeatConnection": {
-          "TemperatureToIR": 6.0,
-          "OverpowerHeat": 0.0,
-          "OverclockThresholdMinHeat": 0.0,
-          "OverclockThresholdMaxHeat": 0.0,
-          "ThermalEnergyBase": 10.0,
-          "ThermalEnergyDraw": 20.0,
-          "ThermalConductivity": 3.0,
-          "SpecificHeatCapacity": 13.0,
-          "Mass": 200.0,
-          "SurfaceArea": 50.0,
+          "TemperatureToIR": 5.7,
+          "OverpowerHeat": 0.76,
+          "OverclockThresholdMinHeat": 0.38,
+          "OverclockThresholdMaxHeat": 0.52,
+          "ThermalEnergyBase": 100.0,
+          "ThermalEnergyDraw": 200.0,
+          "ThermalConductivity": 0.05,
+          "SpecificHeatCapacity": 0.5,
+          "Mass": 320.0,
+          "SurfaceArea": 0.05,
           "StartCoolingTemperature": 300.0,
-          "MaxCoolingRate": 1.0,
-          "MaxTemperature": 450.0,
-          "OverheatTemperature": 370.0,
-          "RecoveryTemperature": 350.0,
+          "MaxCoolingRate": 122.5,
+          "MaxTemperature": 700.0,
+          "OverheatTemperature": 650.0,
+          "RecoveryTemperature": 550.0,
           "MinTemperature": 0.0,
           "MisfireMinTemperature": 370.0,
           "MisfireMaxTemperature": 600.0
+        },
+        "SDistortionParams": {
+          "DecayRate": 27.0,
+          "Maximum": 686.0,
+          "OverloadRatio": 0.82,
+          "RecoveryRatio": 0.63,
+          "RecoveryTime": 1.05
         },
         "SCItem": {
           "turnedOnByDefault": false,
@@ -110,11 +140,16 @@
             }
           ]
         },
+        "SAmmoContainerComponentParams": {
+          "initialAmmoCount": 160.0,
+          "maxAmmoCount": 160.0,
+          "ammoParamsRecord": "472e98c4-f539-441c-83c4-300dc8af020d"
+        },
         "SCItemWeaponComponentParams": {
           "ammoContainerRecord": "00000000-0000-0000-0000-000000000000",
           "connectionParams": {
-            "powerActiveCooldown": 1.0,
-            "heatRateOnline": 110.0,
+            "powerActiveCooldown": 0.42,
+            "heatRateOnline": 37.0,
             "maxGlow": 100.0,
             "noPowerStats": {
               "fireRate": 0.0,
@@ -179,65 +214,30 @@
           },
           "fireActions": [
             {
-              "fireHelper": "muzzle_out",
-              "toggle": 0.0,
-              "energyRate": 0.0,
-              "fullDamageRange": 10.0,
-              "zeroDamageRange": 15.0,
-              "heatPerSecond": 0.0,
-              "hitType": "ElectricArc",
-              "hitRadius": 0.1,
-              "damagePerSecond": {
-                "DamageInfo": {
-                  "DamagePhysical": 9.0,
-                  "DamageEnergy": 1.0,
-                  "DamageDistortion": 0.0,
-                  "DamageThermal": 0.0,
-                  "DamageBiochemical": 0.0,
-                  "DamageStun": 0.0
+              "heatPerShot": 16200.0,
+              "fireRate": 80.0,
+              "launchParams": {
+                "SProjectileLauncher": {
+                  "ammoCost": 0.0,
+                  "pelletCount": 40.0,
+                  "spreadParams": {
+                    "min": 5.0,
+                    "max": 9.5,
+                    "firstAttack": 0.5,
+                    "attack": 0.5,
+                    "decay": 0.6
+                  }
                 }
               },
-              "name": "",
-              "localisedName": "@LOC_PLACEHOLDER",
+              "name": "Single",
+              "localisedName": "@FireMode_Single",
               "aiShootingMode": "Single"
             }
           ]
-        },
-        "SEntityComponentMiningLaserParams": {
-          "globalParams": "a3c468d8-1194-44a3-b3e6-a8d65ecebd85",
-          "throttleLerpSpeed": "10",
-          "miningLaserModifiers": {
-            "resistanceModifier": 0.0,
-            "laserInstability": {
-              "FloatModifierMultiplicative": {
-                "value": 0.0
-              }
-            },
-            "optimalChargeWindowSizeModifier": {
-              "FloatModifierMultiplicative": {
-                "value": 0.0
-              }
-            },
-            "shatterdamageModifier": {
-              "FloatModifierMultiplicative": {
-                "value": 0.0
-              }
-            },
-            "optimalChargeWindowRateModifier": {
-              "FloatModifierMultiplicative": {
-                "value": 0.0
-              }
-            },
-            "catastrophicChargeWindowRateModifier": {
-              "FloatModifierMultiplicative": {
-                "value": 0.0
-              }
-            }
-          }
         }
       },
-      "ClassName": "Mining_Laser_GRIN_Arbor_S0",
-      "__ref": "fbb62ed7-1dbc-4728-a0f1-3b649f33b8d2",
+      "ClassName": "APAR_BallisticScatterGun_S6",
+      "__ref": "4e925f84-6751-45e7-ad6c-b48e8ad9da85",
       "__type": "EntityClassDefinition"
     }
   }

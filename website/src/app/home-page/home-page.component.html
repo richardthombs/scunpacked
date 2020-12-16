@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-<div class="container mx-auto max-w-7xl p-10 mt-10 bg-black bg-opacity-80">
+<div class="container mx-auto max-w-7xl p-10 mt-10 bg-black bg-opacity-80 hidden">
 
   <h4 class="text-2xl">
     Welcome to Star Citizen® Unpacked!
@@ -26,7 +26,7 @@
 
 </div>
 
-<div class="container mx-auto max-w-7xl p-10 bg-black bg-opacity-80">
+<div class="container mx-auto max-w-7xl p-10 mt-10 bg-black bg-opacity-80">
 
   <h2 class="text-2xl">Latest updates</h2>
 
@@ -42,10 +42,81 @@
         </svg>
       </div>
 
-      <div class="lg:ml-10 w-48 flex-shrink-0 text-gray-400">14th December</div>
-      <div class="mb-5">
+      <div class="lg:ml-10 w-48 flex-shrink-0 text-gray-400">3.12.0j PTU</div>
+      <div class="mb-10">
+        <div class="text-xl">Unoffical patch notes</div>
+        <div class="text-gray-400 space-y-2">
+          <p>
+            The <span class="text-white">Constellation</span> series has received hull buffs. All critical sections of the ship have had their health buffed by a factor of 2 or even 4!
+            It will be much harder to detach the nacelles too.
+            Acceleration been has improved on all thrusters, but this has come at a cost: the SCunpacked estimated time till the tanks run empty has dropped from 7,600 seconds to just 2,961.
+            Tweaks have also been made to "ground turbulence" and "precision max distance & landing multiplier", whatever they are :)
+          </p>
+          <p>
+            The <span class="text-white">Terrapin</span> thrusters have been improved, the maneuvering thrusters in particular.
+            Fuel capacity has been doubled to compensate for the increased fuel consumption.
+          </p>
+          <p>
+            The maneuvering thrusters on the <span class="text-white">Herald</span> have been substantially buffed.
+            No matching increase in fuel tank capacity though.
+          </p>
+          <p>
+            The stock loadouts on the <span class="text-white">Talon</span> and <span class="text-white">Shrike</span> have been updated with different armour, coolers, powerplants, shields and quantum drive.
+            The thrusters have received cooling improvements.
+          </p>
+          <p>
+            The retro and maneuvering thrusters on the <span class="text-white">Prospector</span> have been buffed.
+            No improvements to tank capacity or intake rate means the time to empty has dropped from 2,600 seconds to 2,100 seconds.
+          </p>
+          <p>
+            The <span class="text-white">Apocalypse Arms Predator Scattergun</span> has been added with 3466 physical damage per second.
+          </p>
+          <p>
+            The <span class="text-white">MaxOx NDB-30 Repeater</span> has been added with 532 energy damage per second.
+          </p>
+          <p>
+            The size 1 Banu shield (also called <span class="text-white">Sukoran</span>) has been added. 6000 health, 270 regeneration.
+          </p>
+        </div>
+      </div>
+
+    </li>
+
+    <li class="lg:flex">
+
+      <div class="hidden lg:block overflow-hidden flex-shrink-0">
+        <svg viewbox="0 0 24 24" class="w-6 h-6 text-primary overflow-visible">
+          <circle cx="12" cy="12" r="6" fill="currentColor"></circle>
+          <path d="M 12 24 V 500" fill="none" stroke-width="2" stroke="currentColor" class="text-primary text-opacity-50"></path>
+        </svg>
+      </div>
+
+      <div class="lg:ml-10 w-48 flex-shrink-0 text-gray-400">Website</div>
+      <div class="mb-10">
+        <div class="text-xl">Radars, scanners and pings</div>
+        <div class="text-gray-400">
+          The website now includes basic information about radars, scanners and pings. It looks like there is a lot of detail to
+          decode, so more information will be added later.
+        </div>
+      </div>
+
+    </li>
+
+    <li class="lg:flex">
+
+      <div class="hidden lg:block overflow-hidden flex-shrink-0">
+        <svg viewbox="0 0 24 24" class="w-6 h-6 text-primary overflow-visible">
+          <circle cx="12" cy="12" r="6" fill="currentColor"></circle>
+          <path d="M 12 24 V 500" fill="none" stroke-width="2" stroke="currentColor" class="text-primary text-opacity-50"></path>
+        </svg>
+      </div>
+
+      <div class="lg:ml-10 w-48 flex-shrink-0 text-gray-400">API</div>
+      <div class="mb-10">
         <div class="text-xl">Cargo capacity corrections</div>
-        <div class="text-gray-400">It turns out that some cargo grids are flagged as "MiningOnly", meaning that they can't be used to store actual cargo.</div>
+        <div class="text-gray-400">
+          It turns out that some cargo grids are flagged as "MiningOnly", meaning that they can't be used to store actual cargo.
+        </div>
       </div>
 
     </li>
@@ -59,12 +130,12 @@
         </svg>
       </div>
 
-      <div class="lg:ml-10 w-48 flex-shrink-0 text-gray-400">13th December</div>
+      <div class="lg:ml-10 w-48 flex-shrink-0 text-gray-400">API</div>
 
       <div class="mb-0">
-        <div class="text-xl">Sub-components always loaded</div>
+        <div class="text-xl">Loadout improvements</div>
         <p class="text-gray-400">
-          In cases where a ship's loadout didn't fully specify the loadout of an component with sub-components the loadout of the component itself is now used.
+          In cases where a ship's didn't fully specify the loadout of a component with sub-components, the loadout of the component itself is now used.
           This means that the cluster munitions in Rattler II missiles and a few strangely configured cargo grids are now correctly loaded.
         </p>
       </div>
