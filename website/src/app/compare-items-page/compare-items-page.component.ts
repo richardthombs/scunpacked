@@ -60,11 +60,11 @@ export class CompareItemsPage implements OnInit {
       title: "Shield absorption",
       visibleFn: items => !!_.find(items, i => i.shieldGenerator),
       fields: [
-        new ComparisonField({ title: "Physical", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[0].Max }),
-        new ComparisonField({ title: "Energy", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[1].Max }),
-        new ComparisonField({ title: "Distortion", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[2].Max }),
-        new ComparisonField({ title: "Thermal", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[3].Max }),
-        new ComparisonField({ title: "Biochemical", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[4].Max }),
+        new ComparisonField({ title: "Physical", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[0].Max, sortDirection: "desc" }),
+        new ComparisonField({ title: "Energy", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[1].Max, sortDirection: "desc" }),
+        new ComparisonField({ title: "Distortion", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[2].Max, sortDirection: "desc" }),
+        new ComparisonField({ title: "Thermal", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[3].Max, sortDirection: "desc" }),
+        new ComparisonField({ title: "Biochemical", decimals: 2, valueFn: i => i.shieldGenerator.ShieldAbsorption[4].Max, sortDirection: "desc" }),
       ]
     }),
     new ComparisonGroup({

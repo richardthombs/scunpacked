@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { StandardisedShieldAbsorptionRange } from '../SCItem';
 import { SiPipe } from '../si.pipe';
 
 @Component({
@@ -6,29 +7,28 @@ import { SiPipe } from '../si.pipe';
   templateUrl: './stat.component.html',
   styles: []
 })
-export class StatComponent implements OnInit, OnChanges {
+export class StatComponent implements OnChanges {
 
   @Input() title: string = "";
-  @Input() value: number | boolean = 0;
+  @Input() value?: number | boolean;
   @Input() units: string = "";
   @Input() si: boolean = false;
   @Input() decimals?: number = undefined;
   @Input() bool: boolean = false;
+  @Input() percent: boolean = false;
 
   formattedValue: string = "";
   siPrefix: string = "";
-
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   ngOnChanges(): void {
     if (this.value === null) return;
     if (this.value === undefined) return;
     if (this.value == Infinity) this.formattedValue = "∞";
     else if (this.bool) this.formattedValue = this.value ? "Yes" : "No";
+    else if (this.percent) {
+      this.formattedValue = `${this.value as number * 100}`;
+      this.units = "%";
+    }
     else {
       let numeric = this.value as number;
       if (numeric.toFixed) {

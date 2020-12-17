@@ -19,10 +19,18 @@ export interface StandardisedItem {
   };
   Tags: string[];
   Shield: {
-    HitPoints: number,
+    Health: number,
     Regeneration: number,
     DamagedDelay: number,
-    DownedDelay: number
+    DownedDelay: number,
+    Absorption: {
+      Physical: StandardisedShieldAbsorptionRange,
+      Energy: StandardisedShieldAbsorptionRange,
+      Distortion: StandardisedShieldAbsorptionRange,
+      Thermal: StandardisedShieldAbsorptionRange,
+      Biochemical: StandardisedShieldAbsorptionRange,
+      Stun: StandardisedShieldAbsorptionRange
+    }
   };
   QuantumDrive: {
     FuelRate: number,
@@ -121,6 +129,11 @@ export interface StandardisedSignature {
   CrossSection: number;
   Infrared: number;
   Electromagnetic: number;
+}
+
+export interface StandardisedShieldAbsorptionRange {
+  Minimum: number;
+  Maximum: number;
 }
 
 export class SCItem {

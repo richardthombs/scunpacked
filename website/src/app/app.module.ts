@@ -34,6 +34,7 @@ import { NoZeroPipe } from './no-zero.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LocalisationService, LabelsApi } from "./Localisation";
 import { StatComponent } from './stat/stat.component';
+import { RangeStatComponent } from './rangestat/rangestat.component';
 import { CommoditiesComponent } from './commodities/commodities.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -73,6 +74,7 @@ import { FpsWeaponsPageComponent } from './fps-weapons-page/fps-weapons-page.com
     ShoplistPage,
     NavbarComponent,
     StatComponent,
+    RangeStatComponent,
     CommoditiesComponent,
     PowerUsageComponent,
     PowerEmissionsComponent,

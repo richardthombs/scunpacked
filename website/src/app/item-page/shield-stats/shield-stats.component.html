@@ -1,6 +1,15 @@
 <div class="grid grid-cols-4 gap-5">
-  <app-stat title="Shield health" [value]="item.Shield.HitPoints" units="HP"></app-stat>
+  <app-stat title="Shield health" [value]="item.Shield.Health" units="HP"></app-stat>
   <app-stat title="Regeneration" [value]="item.Shield.Regeneration" units="HP/s"></app-stat>
   <app-stat title="Damaged regeneration delay" [value]="item.Shield.DamagedDelay" units="s"></app-stat>
   <app-stat title="Downed regeneration delay" [value]="item.Shield.DownedDelay" units="s"></app-stat>
+</div>
+
+<h2 class="text-xl mt-5">Damage absorption</h2>
+<div class="grid  grid-cols-5 gap-5">
+  <app-rangestat title="Physical" [value]="item!.Shield.Absorption.Physical" percent="true"></app-rangestat>
+  <app-rangestat title="Energy" [value]="item!.Shield.Absorption.Energy" percent="true"></app-rangestat>
+  <app-rangestat title="Distortion" [value]="item!.Shield.Absorption.Distortion" percent="true"></app-rangestat>
+  <app-rangestat title="Thermal" [value]="item!.Shield.Absorption.Thermal" percent="true"></app-rangestat>
+  <app-rangestat title="Biochemical" [value]="item!.Shield.Absorption.Biochemical" percent="true"></app-rangestat>
 </div>

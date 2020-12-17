@@ -155,7 +155,7 @@
     <div *ngIf="item?.Armour" class="space-y-5">
       <div *ngIf="item?.Armour?.DamageMultipliers">
         <h2 class="text-xl">Damage multipliers</h2>
-        <div class="grid grid-flow-row grid-cols-6">
+        <div class="grid grid-flow-row grid-cols-5">
           <app-stat title="Physical" [value]="item!.Armour.DamageMultipliers.Physical" decimals="2"></app-stat>
           <app-stat title="Energy" [value]="item!.Armour.DamageMultipliers.Energy" decimals="2"></app-stat>
           <app-stat title="Distortion" [value]="item!.Armour.DamageMultipliers.Distortion" decimals="2"></app-stat>
@@ -166,7 +166,7 @@
 
       <div *ngIf="item?.Armour?.SignalMultipliers">
         <h2 class="text-xl">Signal multipliers</h2>
-        <div class="grid grid-cols-6">
+        <div class="grid grid-cols-5">
           <app-stat title="Cross section" [value]="item!.Armour.SignalMultipliers.CrossSection" decimals="2"></app-stat>
           <app-stat title="Infrared" [value]="item!.Armour.SignalMultipliers.Infrared" decimals="2"></app-stat>
           <app-stat title="Electromagnetic" [value]="item!.Armour.SignalMultipliers.Electromagnetic" decimals="2"></app-stat>
