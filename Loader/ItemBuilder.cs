@@ -150,15 +150,24 @@ namespace Loader
 
 		StandardisedShield BuildShieldInfo(EntityClassDefinition item)
 		{
-			var shieldComponent = item.Components.SCItemShieldGeneratorParams;
-			if (shieldComponent == null) return null;
+			var shield = item.Components.SCItemShieldGeneratorParams;
+			if (shield == null) return null;
 
 			return new StandardisedShield
 			{
-				HitPoints = shieldComponent.MaxShieldHealth,
-				Regeneration = shieldComponent.MaxShieldRegen,
-				DownedDelay = shieldComponent.DownedRegenDelay,
-				DamagedDelay = shieldComponent.DamagedRegenDelay
+				Health = shield.MaxShieldHealth,
+				Regeneration = shield.MaxShieldRegen,
+				DownedDelay = shield.DownedRegenDelay,
+				DamagedDelay = shield.DamagedRegenDelay,
+				Absorption = new StandardisedShieldAbsorption
+				{
+					Physical = new StandardisedShieldAbsorptionRange { Minimum = shield.ShieldAbsorption[0].Min, Maximum = shield.ShieldAbsorption[0].Max },
+					Energy = new StandardisedShieldAbsorptionRange { Minimum = shield.ShieldAbsorption[1].Min, Maximum = shield.ShieldAbsorption[1].Max },
+					Distortion = new StandardisedShieldAbsorptionRange { Minimum = shield.ShieldAbsorption[2].Min, Maximum = shield.ShieldAbsorption[2].Max },
+					Thermal = new StandardisedShieldAbsorptionRange { Minimum = shield.ShieldAbsorption[3].Min, Maximum = shield.ShieldAbsorption[3].Max },
+					Biochemical = new StandardisedShieldAbsorptionRange { Minimum = shield.ShieldAbsorption[4].Min, Maximum = shield.ShieldAbsorption[4].Max },
+					Stun = new StandardisedShieldAbsorptionRange { Minimum = shield.ShieldAbsorption[5].Min, Maximum = shield.ShieldAbsorption[5].Max }
+				}
 			};
 		}
 
