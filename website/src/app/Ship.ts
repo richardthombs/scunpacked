@@ -55,7 +55,13 @@ export interface Ship {
     MaxToZero: number,
     ZeroToScm: number,
     ScmToZero: number
-  }
+  };
+
+  Insurance: {
+    StandardClaimTime: number;
+    ExpeditedClaimTime: number;
+    ExpeditedCost: number;
+  };
 }
 
 export interface StandardisedPortSummary {

@@ -69,6 +69,12 @@
       <app-stat title="Time till empty" [value]="ship?.Propulsion.ManeuveringTimeTillEmpty" units="s"></app-stat>
       <app-stat title="Intake fill time" [value]="ship?.Propulsion.TimeForIntakesToFillTank" units="s"></app-stat>
     </div>
+
+    <div class="grid gris-cols-2 lg:grid-cols-4 gap-5 mt-5">
+      <app-stat title="Claim time" [value]="ship?.Insurance.StandardClaimTime" units="minutes"></app-stat>
+      <app-stat title="Expedited time" [value]="ship?.Insurance.ExpeditedClaimTime" units="minutes"></app-stat>
+      <app-stat title="Expedited fee" [value]="ship?.Insurance.ExpeditedCost" units="aUEC"></app-stat>
+    </div>
   </div>
 
   <div class="mt-10">CIG says:</div>

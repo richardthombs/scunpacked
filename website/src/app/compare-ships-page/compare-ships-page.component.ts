@@ -78,6 +78,14 @@ export class CompareShipsPage implements OnInit {
         new ComparisonField({ title: "PO to ArcCorp (fuel)", units: "l", valueFn: s => s.QuantumTravel.PortOlisarToArcCorpFuel }),
         new ComparisonField({ title: "PO to ArcCorp and back", decimals: 1, units: "times", valueFn: s => s.QuantumTravel.PortOlisarToArcCorpAndBack, sortDirection: "desc" }),
       ]
+    }),
+    new ComparisonGroup({
+      title: "Insurance",
+      fields: [
+        new ComparisonField({ title: "Claim time", units: "minutes", valueFn: s => s.Insurance.StandardClaimTime }),
+        new ComparisonField({ title: "Expedited time", units: "minutes", valueFn: s => s.Insurance.ExpeditedClaimTime }),
+        new ComparisonField({ title: "Expedited cost", units: "aUEC", valueFn: s => s.Insurance.ExpeditedCost }),
+      ]
     })
 
   ]
