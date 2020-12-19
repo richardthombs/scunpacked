@@ -101,6 +101,15 @@ namespace Loader
 			var ammoIndex = ammoLoader.Load();
 			var ammoSvc = new AmmoService(ammoIndex);
 
+			// Insurance
+			Console.WriteLine("Load Insurance");
+			var insuranceLoader = new InsuranceLoader()
+			{
+				DataRoot = scDataRoot
+			};
+			var insurancePrices = insuranceLoader.Load();
+			var insuranceSvc = new InsuranceService(insurancePrices);
+
 			var xmlLoadoutLoader = new XmlLoadoutLoader { DataRoot = scDataRoot };
 			var manualLoadoutLoader = new ManualLoadoutLoader();
 			var loadoutLoader = new LoadoutLoader(xmlLoadoutLoader, manualLoadoutLoader);
@@ -123,7 +132,7 @@ namespace Loader
 			if (doShips)
 			{
 				Console.WriteLine("Load Ships and Vehicles");
-				var shipLoader = new ShipLoader(itemBuilder, manufacturerSvc, localisationSvc, entitySvc, itemInstaller, loadoutLoader)
+				var shipLoader = new ShipLoader(itemBuilder, manufacturerSvc, localisationSvc, entitySvc, itemInstaller, loadoutLoader, insuranceSvc)
 				{
 					OutputFolder = outputRoot,
 					DataRoot = scDataRoot,

@@ -44,6 +44,7 @@ namespace Loader
 			"shubin",
 			"drug",
 			"advocacy",
+			"derelict",
 
 			// Skin variants
 			"pink",
@@ -70,8 +71,9 @@ namespace Loader
 		EntityService entitySvc;
 		ItemInstaller itemInstaller;
 		LoadoutLoader loadoutLoader;
+		InsuranceService insuranceSvc;
 
-		public ShipLoader(ItemBuilder itemBuilder, ManufacturerService manufacturerSvc, LocalisationService localisationSvc, EntityService entitySvc, ItemInstaller itemInstaller, LoadoutLoader loadoutLoader)
+		public ShipLoader(ItemBuilder itemBuilder, ManufacturerService manufacturerSvc, LocalisationService localisationSvc, EntityService entitySvc, ItemInstaller itemInstaller, LoadoutLoader loadoutLoader, InsuranceService insuranceSvc)
 		{
 			this.itemBuilder = itemBuilder;
 			this.manufacturerSvc = manufacturerSvc;
@@ -79,6 +81,7 @@ namespace Loader
 			this.entitySvc = entitySvc;
 			this.itemInstaller = itemInstaller;
 			this.loadoutLoader = loadoutLoader;
+			this.insuranceSvc = insuranceSvc;
 		}
 
 		public List<(ShipIndexEntry, StandardisedShip)> Load()
@@ -531,6 +534,7 @@ namespace Loader
 					.Where(x => x.InstalledItem?.CargoGrid != null)
 					.Where(x => !x.InstalledItem.CargoGrid.MiningOnly)
 					.Sum(x => x.InstalledItem.CargoGrid.Capacity)),
+				Insurance = insuranceSvc.GetInsurance(entity.ClassName)
 			};
 
 			shipSummary.IsVehicle = entity.Components?.VehicleComponentParams.vehicleCareer == "@vehicle_focus_ground";
