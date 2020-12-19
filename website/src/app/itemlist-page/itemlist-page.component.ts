@@ -43,10 +43,10 @@ export class ItemlistPage implements OnInit {
     "Ship.Weapon.Gun": "Weapons",
     "Ship.Weapon.NoseMounted": "Weapons",
     "Ship.Weapon.Rocket": "Rockets",
-    "Ship.WeaponAttachment.Barrel": "Weapon attachments",
-    "Ship.WeaponAttachment.FiringMechanism": "Weapon attachments",
-    "Ship.WeaponAttachment.PowerArray": "Weapon attachments",
-    "Ship.WeaponAttachment.Ventilation": "Weapon attachments",
+    "Ship.WeaponAttachment.Barrel": "SKIP",
+    "Ship.WeaponAttachment.FiringMechanism": "SKIP",
+    "Ship.WeaponAttachment.PowerArray": "SKIP",
+    "Ship.WeaponAttachment.Ventilation": "SKIP",
     "Ship.WeaponDefensive.CountermeasureLauncher": "Countermeasures",
     "Ship.Paints.Personal": "Paints",
     "Ship.Paints": "Paints"
@@ -58,9 +58,9 @@ export class ItemlistPage implements OnInit {
 
       data.items.forEach((i: ItemIndexEntry) => {
         let type = this.typeMap[i.classification] || i.classification;
+        if (type == "SKIP") return;
 
         let size = `Size ${i.size || 0}`;
-        let manu = i.manufacturer || "CIG";
 
         let level1 = type;
         let level2 = size;
