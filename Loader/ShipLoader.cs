@@ -45,6 +45,8 @@ namespace Loader
 			"drug",
 			"advocacy",
 			"derelict",
+			"drone",
+			"eaobjectivedestructable",
 
 			// Skin variants
 			"pink",
