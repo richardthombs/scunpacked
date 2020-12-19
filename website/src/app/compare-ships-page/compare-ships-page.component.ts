@@ -82,9 +82,9 @@ export class CompareShipsPage implements OnInit {
     new ComparisonGroup({
       title: "Insurance",
       fields: [
-        new ComparisonField({ title: "Claim time", units: "minutes", valueFn: s => s.Insurance.StandardClaimTime }),
-        new ComparisonField({ title: "Expedited time", units: "minutes", valueFn: s => s.Insurance.ExpeditedClaimTime }),
-        new ComparisonField({ title: "Expedited cost", units: "aUEC", valueFn: s => s.Insurance.ExpeditedCost }),
+        new ComparisonField({ title: "Claim time", units: "minutes", valueFn: s => s.Insurance?.StandardClaimTime }),
+        new ComparisonField({ title: "Expedited time", units: "minutes", valueFn: s => s.Insurance?.ExpeditedClaimTime }),
+        new ComparisonField({ title: "Expedited cost", units: "aUEC", valueFn: s => s.Insurance?.ExpeditedCost }),
       ]
     })
 
