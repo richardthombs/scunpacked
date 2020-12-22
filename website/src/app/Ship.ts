@@ -62,6 +62,14 @@ export interface Ship {
     ExpeditedClaimTime: number;
     ExpeditedCost: number;
   };
+
+  PilotHardpoints: {
+    Size: number,
+    Fixed: boolean,
+    Gimballed: boolean,
+    Turret: boolean,
+    WeaponSizes: number[]
+  }[];
 }
 
 export interface StandardisedPortSummary {
