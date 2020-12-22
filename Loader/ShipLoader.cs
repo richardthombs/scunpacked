@@ -86,14 +86,14 @@ namespace Loader
 			this.insuranceSvc = insuranceSvc;
 		}
 
-		public List<(ShipIndexEntry, StandardisedShip)> Load()
+		public List<(ShipIndexEntry, StandardisedShip)> Load(string shipFilter)
 		{
 			Directory.CreateDirectory(Path.Combine(OutputFolder, "ships"));
 			Directory.CreateDirectory(Path.Combine(OutputFolder, "v2", "ships"));
 
 			var index = new List<(ShipIndexEntry, StandardisedShip)>();
-			index.AddRange(LoadFolder(@"Data\Libs\Foundry\Records\entities\spaceships"));
-			index.AddRange(LoadFolder(@"Data\Libs\Foundry\Records\entities\groundvehicles"));
+			index.AddRange(LoadFolder(@"Data\Libs\Foundry\Records\entities\spaceships", shipFilter));
+			index.AddRange(LoadFolder(@"Data\Libs\Foundry\Records\entities\groundvehicles", shipFilter));
 
 			var oldIndexItems = index.Select(x => x.Item1).ToList();
 			var newIndexItems = index.Select(x => x.Item2).ToList();
@@ -118,13 +118,14 @@ namespace Loader
 			return index;
 		}
 
-		List<(ShipIndexEntry, StandardisedShip)> LoadFolder(string entityFolder)
+		List<(ShipIndexEntry, StandardisedShip)> LoadFolder(string entityFolder, string shipFilter)
 		{
 			var shiplist = new List<(ShipIndexEntry, StandardisedShip)>();
 
 			foreach (var entityFilename in Directory.EnumerateFiles(Path.Combine(DataRoot, entityFolder), "*.xml"))
 			{
 				if (avoidFile(entityFilename)) continue;
+				if (shipFilter != null && !entityFilename.Contains(shipFilter, StringComparison.OrdinalIgnoreCase)) continue;
 
 				var shipTuple = LoadShip(entityFilename);
 				if (shipTuple == null)
@@ -621,7 +622,7 @@ namespace Loader
 				.ToDictionary(x => x.Item1.Name, x => x.Item1.PartDetachDamage ?? 0);
 
 			// Weapon fittings
-			shipSummary.PilotWeapons = CalculateWeaponFittings(portSummary.PilotHardpoints);
+			shipSummary.PilotHardpoints = CalculateWeaponFittings(portSummary.PilotHardpoints);
 			shipSummary.MannedTurrets = CalculateWeaponFittings(portSummary.MannedTurrets);
 			shipSummary.RemoteTurrets = CalculateWeaponFittings(portSummary.RemoteTurrets);
 
@@ -642,38 +643,41 @@ namespace Loader
 
 		StandardisedWeaponFitting CalculateWeaponFitting(StandardisedItemPort port)
 		{
-			// In cases like the Andromeda and Freelancer where they have an uneditable gimbal in the hardpoint
-			if (port.InstalledItem?.Type == "Turret.GunTurret" && port.Uneditable) return new StandardisedWeaponFitting
+			// If the turret or gimbal can't be removed
+			if ((port.Uneditable || !AcceptsWeapon(port)) && (IsTurret(port) || IsGimbal(port))) return new StandardisedWeaponFitting
 			{
 				Size = port.Size,
-				Gimballed = true,
-				WeaponSizes = CalculateWeaponSizes(port)
-			};
-
-			// If the port has a gimbal in it and we can edit it, then report it as a fixed weapon fitting
-			if (port.InstalledItem?.Type == "Turret.GunTurret") return new StandardisedWeaponFitting
-			{
-				Size = port.Size,
-				Fixed = true,
-				WeaponSizes = new List<int> { port.Size }
-			};
-
-			// If the port has a turret in it and we can edit it, then report it as a fixed weapon fitting
-			if (IsTurret(port) && !port.Uneditable) return new StandardisedWeaponFitting
-			{
-				Size = port.Size,
-				Fixed = true,
-				WeaponSizes = new List<int> { port.Size }
-			};
-
-			var fitting = new StandardisedWeaponFitting
-			{
-				Size = port.Size,
+				Gimballed = IsGimbal(port),
 				Turret = IsTurret(port),
-				Fixed = !IsTurret(port),
-				WeaponSizes = CalculateWeaponSizes(port)
+				WeaponSizes = ListTurretPortSizes(port)
 			};
-			return fitting;
+
+			// If the turret or gimbal can be removed and replaced with a weapon
+			if ((IsTurret(port) || IsGimbal(port)) && AcceptsWeapon(port)) return new StandardisedWeaponFitting
+			{
+				Size = port.Size,
+				Fixed = true,
+				WeaponSizes = new List<int> { port.Size }
+			};
+
+			// Otherwise it is probably a regular weapon
+			return new StandardisedWeaponFitting
+			{
+				Size = port.Size,
+				Fixed = true,
+				WeaponSizes = new List<int> { port.Size }
+			};
+		}
+
+		bool IsGimbal(StandardisedItemPort port)
+		{
+			switch (port.InstalledItem?.Type)
+			{
+				case "Turret.GunTurret":
+					return true;
+			}
+
+			return false;
 		}
 
 		bool IsTurret(StandardisedItemPort port)
@@ -692,14 +696,20 @@ namespace Loader
 			return false;
 		}
 
-		List<int> CalculateWeaponSizes(StandardisedItemPort port)
+		bool AcceptsWeapon(StandardisedItemPort port)
 		{
-			if (port.InstalledItem == null || port.InstalledItem.Ports.Count == 0) return new List<int> { port.Size };
+			if (port.Types.Contains("WeaponGun")) return true;
+			if (port.Types.Contains("WeaponGun.Gun")) return true;
+			if (port.Types.Contains("WeaponMining.Gun")) return true;
+			return false;
+		}
 
+		List<int> ListTurretPortSizes(StandardisedItemPort port)
+		{
 			var sizes = new List<int>();
 			foreach (var subPort in port.InstalledItem.Ports)
 			{
-				sizes.Add(subPort.Size);
+				if (AcceptsWeapon(subPort)) sizes.Add(subPort.Size);
 			}
 			return sizes;
 		}

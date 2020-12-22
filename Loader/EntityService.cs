@@ -45,7 +45,7 @@ namespace Loader
 			"shopdisplays",
 			"spawning",
 			"starmarine",
-			"template",
+			"template"
 		};
 
 		public void Initialise(bool rebuildCache)

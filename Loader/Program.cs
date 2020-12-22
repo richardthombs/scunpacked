@@ -21,6 +21,7 @@ namespace Loader
 			bool doStarmap = true;
 			bool noCache = false;
 			string typeFilter = null;
+			string shipFilter = null;
 
 			var p = new OptionSet
 			{
@@ -32,7 +33,8 @@ namespace Loader
 				{ "noshops", v => doShops = false },
 				{ "nomap", v => doStarmap = false },
 				{ "nocache", v => noCache = true },
-				{ "types=", v => typeFilter = v }
+				{ "types=", v => typeFilter = v },
+				{ "ships=", v=> shipFilter = v }
 			};
 
 			var extra = p.Parse(args);
@@ -137,7 +139,7 @@ namespace Loader
 					OutputFolder = outputRoot,
 					DataRoot = scDataRoot,
 				};
-				shipLoader.Load();
+				shipLoader.Load(shipFilter);
 			}
 
 			// Prices

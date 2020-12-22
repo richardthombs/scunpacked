@@ -8,17 +8,23 @@ namespace Loader
 	{
 		public (string, string) ClassifyPort(StandardisedItemPort port)
 		{
-			if (port.Types == null) return ("DISABLED", "DISABLED");
-
 			/*
 				The order here is very important to try and catch obscure corner cases
 			*/
+
+			if (port.Types == null && port.InstalledItem == null) return ("DISABLED", "DISABLED");
 
 			// Tractor beams
 			if (FuzzyNameMatch(port, "tractor")) return ("Utility", "Utility hardpoints");
 
 			// Utility hardpoints
 			if (FuzzyNameMatch(port, "utility")) return ("Utility", "Utility hardpoints");
+
+			if (port.Uneditable && port.InstalledItem != null)
+			{
+				var guess = GuessByInstalledItem(port);
+				if (guess != null) return guess.Value;
+			}
 
 			// Mining
 			if (port.Accepts("WeaponMining.Gun")) return ("Mining", "Mining hardpoints");
@@ -115,6 +121,23 @@ namespace Loader
 			return ("UNKNOWN", "UNKNOWN");
 		}
 
+		(string, string)? GuessByInstalledItem(StandardisedItemPort port)
+		{
+			switch (port.InstalledItem.Type)
+			{
+				case "WeaponGun.Gun":
+					return ("Weapons", "Weapon hardpoints");
+
+				case "TurretBase.MannedTurret":
+					if (port.InstalledItem.Ports.Any(x => x.InstalledItem?.Type == "WeaponMining.Gun")) return ("Mining", "Mining turrets"); // Argo Mole
+					return ("Weapons", "Manned turrets");
+
+				case "Container.Cargo": return ("Cargo", "Cargo containers");
+			}
+
+			return null;
+		}
+
 		public static bool FuzzyNameMatch(StandardisedItemPort port, string lookFor)
 		{
 			if (port.PortName.Contains(lookFor, StringComparison.OrdinalIgnoreCase)) return true;
@@ -149,6 +172,8 @@ namespace Loader
 
 		public static bool TypeMatch(List<string> types, string typePattern)
 		{
+			if (types == null) return false;
+
 			foreach (var type in types)
 			{
 				if (TypeMatch(type, typePattern)) return true;
