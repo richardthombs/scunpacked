@@ -153,7 +153,7 @@ export class ShipPage implements OnInit {
         this.ship = ship;
         this.grouped = grouped;
 
-        this.totalShieldHealth = _.sumBy(ports.Shields, "InstalledItem.Shield.HitPoints");
+        this.totalShieldHealth = _.sumBy(ports.Shields, "InstalledItem.Shield.Health");
         this.totalShieldRegen = _.sumBy(ports.Shields, "InstalledItem.Shield.Regeneration");
         this.quantumDriveSpeed = ports.QuantumDrives.length ? ports.QuantumDrives[0].InstalledItem.QuantumDrive.StandardJump.Speed : 0;
         this.quantumDriveRange = ports.QuantumDrives.length ? ports.QuantumDrives[0].InstalledItem.QuantumDrive.JumpRange : 0;
