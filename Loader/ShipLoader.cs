@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 using Newtonsoft.Json;
 
@@ -343,7 +344,7 @@ namespace Loader
 				if (Char.IsDigit(c) || c == '.') hacked += c;
 			}
 
-			return double.Parse(hacked);
+			return double.Parse(hacked, CultureInfo.InvariantCulture);
 		}
 
 		double? CalculateDamageToDestroyShip(Part part)
