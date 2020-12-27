@@ -2,7 +2,7 @@
 
 <div class="bg-gray-900">
   <nav class="xl:container xl:mx-auto flex flex-row whitespace-nowrap text-sm text-center text-gray-400 whitespace-no-wrap md:flex-wrap overflow-auto md:overflow-none">
-    <a *ngFor="let role of byRoles | keyvalue" routerLink="/ships" [queryParams]="{role: role.key}" routerLinkActive="text-white border-primary" class="px-3 py-3 border-b-2 border-transparent hover:text-white">{{role.key}}</a>
+    <a *ngFor="let role of byRoles | keyvalue" routerLink="/ships" [queryParams]="{role: role.key}" routerLinkActive="text-white border-primary" class="px-3 py-3 border-b-2 border-transparent hover:text-white hover:border-gray-500">{{role.key}}</a>
   </nav>
 </div>
 
@@ -14,7 +14,7 @@
 
       <div *ngFor="let subRole of selectedRole.value | keyvalue">
 
-        <h6 class="text-lg border-b border-gray-400 mb-2">
+        <h6 class="text-lg border-b border-gray-600 mb-2">
           {{subRole.key}}
           <a *ngIf="subRole.value.length > 1" [routerLink]="['/ships/compare']" [queryParams]="{ships:shipsInSubRole(subRole.value)}" class="text-primary text-xs">Compare</a>
         </h6>
