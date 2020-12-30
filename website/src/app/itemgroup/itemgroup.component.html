@@ -4,13 +4,13 @@
 
   <ng-container *ngFor="let class of groupItems | keyvalue">
 
-    <div (click)="toggleItems(class.key)" class="flex border-gray-600 border-b last:border-b-0 cursor-pointer items-center pl-4">
+    <div (click)="toggleItems(class.key)" class="flex flex-col md:flex-row border-gray-600 border-b last:border-b-0 cursor-pointer items-center">
 
       <!-- Item group name -->
-      <div class="flex-grow font-bold">{{class.key}}</div>
+      <div class="flex-grow md:pl-4 font-bold">{{class.key}}</div>
 
       <!-- Size boxes -->
-      <div class="flex-shrink-0 flex">
+      <div class="flex-shrink-0 flex overflow-auto w-full md:w-auto">
         <div *ngFor="let size of class.value.bySize; let s = index" class="size-box border-gray-600 border-l">
           <div *ngIf="size.length" class="size-box-inner bg-primary">
             <span class="text-xs text-white text-opacity-80">S{{s}}</span><br>
