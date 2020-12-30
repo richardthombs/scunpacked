@@ -40,27 +40,29 @@ a:hover {
   }
 }
 
-// Scrollbar
-html {
-  --scrollbarBG: transparent;
-  --thumbBG: rgba(255, 20, 147, 0.7);
-}
+/***** Scrollbar *****/
+@media (min-width: 768px) {
+	html {
+	  --scrollbarBG: transparent;
+	  --thumbBG: rgba(255, 20, 147, 0.7);
+	}
 
-*::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
+	*::-webkit-scrollbar {
+	  width: 6px;
+	  height: 6px;
+	}
 
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
-}
+	* {
+	  scrollbar-width: thin;
+	  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+	}
 
-*::-webkit-scrollbar-track {
-  background: var(--scrollbarBG);
-}
+	*::-webkit-scrollbar-track {
+	  background: var(--scrollbarBG);
+	}
 
-*::-webkit-scrollbar-thumb {
-  background-color: var(--thumbBG);
-  border: 3px solid var(--scrollbarBG);
+	*::-webkit-scrollbar-thumb {
+	  background-color: var(--thumbBG);
+	  border: 3px solid var(--scrollbarBG);
+	}
 }
