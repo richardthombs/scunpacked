@@ -1,7 +1,7 @@
-<div *ngIf="itemPort.Category !== 'Weapon attachments'" class="flex items-center">
+<div *ngIf="itemPort.Category !== 'Weapon attachments'" class="flex items-center overflow-auto whitespace-nowrap md:whitespace-normal hover:bg-white hover:bg-opacity-5">
 
   <!-- Size box -->
-  <div class="size-box-inner flex-shrink-0 flex items-center justify-center w-8 h-8 my-2 mr-4 text-xs" [class.bg-primary]="itemPort.InstalledItem" [class.bg-gray-900]="!itemPort.InstalledItem">
+  <div class="size-box-inner flex-shrink-0 flex items-center justify-center w-12 h-12 p-2 mr-4 border-gray-800 border-t border-r text-sm" [class.bg-primary]="itemPort.InstalledItem" [class.bg-gray-900]="!itemPort.InstalledItem">
     <span class="text-white text-opacity-80">S{{itemPort.Size}}</span>
   </div>
 
@@ -29,8 +29,8 @@
   <div class="flex-1">
     <!-- Item name -->
     <div *ngIf="itemPort.InstalledItem" class="mr-4">
-      <a [routerLink]="['/items', itemPort.Loadout.toLowerCase()]" class="text-primary">{{itemPort.InstalledItem.Name || itemPort.Loadout}}</a>
-      <span class="text-xs text-primary ml-2"><a [routerLink]="['/items/compare']" [queryParams]="{type: itemPort.InstalledItem.Type, size: itemPort.InstalledItem.Size, selected: itemPort.Loadout}">Compare</a></span>
+      <a [routerLink]="['/items', itemPort.Loadout.toLowerCase()]" class="text-primary hover:text-pink-400 font-semibold">{{itemPort.InstalledItem.Name || itemPort.Loadout}}</a>
+      <span class="text-xs text-primary ml-2"><a class="hover:text-pink-400" [routerLink]="['/items/compare']" [queryParams]="{type: itemPort.InstalledItem.Type, size: itemPort.InstalledItem.Size, selected: itemPort.Loadout}">Compare</a></span>
     </div>
 
     <!-- Installed item info -->
