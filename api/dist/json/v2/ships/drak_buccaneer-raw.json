@@ -448,6 +448,11 @@
           }
         }
       },
+      "SDegradationParams": {
+        "MaxLifetimeHours": 25.0,
+        "InitialAgeRatio": 0.0,
+        "DegradeOnlyWhenAttached": false
+      },
       "SEntityInteractableParams": {
         "Interactable": {
           "SharedInteractions": [
@@ -481,6 +486,12 @@
             }
           ]
         }
+      },
+      "SItemPortContainerComponentParams": {
+        "PortFlags": "",
+        "PortTags": "DRAK_Buccaneer_Base",
+        "RequiredItemTags": "",
+        "Ports": []
       }
     },
     "ClassName": "DRAK_Buccaneer",
@@ -518,6 +529,14 @@
       {
         "name": "Shield",
         "class": "Shield"
+      },
+      {
+        "name": "WeaponRegenCrew",
+        "class": "WeaponRegen"
+      },
+      {
+        "name": "WeaponRegenTurret",
+        "class": "WeaponRegen"
       }
     ],
     "Parts": [
@@ -1321,7 +1340,7 @@
             "Parts": [
               {
                 "name": "Engine_Left",
-                "damageMax": 240.0,
+                "damageMax": 440.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
                 "detachRatio": 1.0,
@@ -1609,7 +1628,7 @@
                   },
                   {
                     "name": "Wing_Left",
-                    "damageMax": 200.0,
+                    "damageMax": 400.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0,
@@ -1669,6 +1688,10 @@
                             {
                               "pipeClass": "Heat",
                               "pipe": "MainHeat"
+                            },
+                            {
+                              "pipeClass": "WeaponRegen",
+                              "pipe": "WeaponRegenCrew"
                             }
                           ],
                           "Pitch": {
@@ -1705,7 +1728,7 @@
               },
               {
                 "name": "Engine_Right",
-                "damageMax": 240.0,
+                "damageMax": 440.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
                 "detachRatio": 1.0,
@@ -1993,7 +2016,7 @@
                   },
                   {
                     "name": "Wing_Right",
-                    "damageMax": 200.0,
+                    "damageMax": 400.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0,
@@ -2053,6 +2076,10 @@
                             {
                               "pipeClass": "Heat",
                               "pipe": "MainHeat"
+                            },
+                            {
+                              "pipeClass": "WeaponRegen",
+                              "pipe": "WeaponRegenCrew"
                             }
                           ],
                           "Pitch": {
@@ -2445,6 +2472,10 @@
                     {
                       "pipeClass": "Heat",
                       "pipe": "MainHeat"
+                    },
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenCrew"
                     }
                   ],
                   "Pitch": {
@@ -2749,6 +2780,10 @@
                     {
                       "pipeClass": "Heat",
                       "pipe": "MainHeat"
+                    },
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenCrew"
                     }
                   ],
                   "Pitch": {
@@ -2789,6 +2824,10 @@
                     {
                       "pipeClass": "Heat",
                       "pipe": "MainHeat"
+                    },
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenCrew"
                     }
                   ],
                   "Pitch": {
@@ -2799,6 +2838,21 @@
                     "min": -15,
                     "max": 15
                   }
+                }
+              },
+              {
+                "name": "hardpoint_controller_missile",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "MissileController"
+                    }
+                  ]
                 }
               }
             ],

@@ -1,71 +1,4 @@
 {
-  "magazine": {
-    "StaticEntityClassData": {
-      "DefaultEntitlementEntityParams": {
-        "entitlementPolicy": "9ff7bf08-e06e-4203-bced-753cbc8676fb"
-      }
-    },
-    "tags": [
-      {
-        "value": "7cc0441f-5832-4df2-8655-4cb6a70478a5"
-      }
-    ],
-    "Components": {
-      "SAttachableComponentParams": {
-        "AttachDef": {
-          "Type": "WeaponAttachment",
-          "SubType": "Magazine",
-          "Size": 1,
-          "Grade": 1,
-          "Manufacturer": "819545f4-18af-49a6-814e-ca4fd08f56e5",
-          "Tags": "grin_multitool_energy_01",
-          "RequiredTags": "",
-          "DisplayType": "",
-          "Localization": {
-            "Name": "@item_Namegrin_energy_multitool_01_mag",
-            "Description": "@item_Descgrin_energy_multitool_01_mag"
-          }
-        }
-      },
-      "SCItem": {
-        "turnedOnByDefault": false,
-        "attachToTileItemPort": "NoConnection",
-        "inheritModelTagFromHost": true,
-        "ItemPorts": []
-      },
-      "SAmmoContainerComponentParams": {
-        "initialAmmoCount": 100.0,
-        "maxAmmoCount": 100.0,
-        "ammoParamsRecord": "3df54597-132f-4817-ac0c-337c6410c620"
-      }
-    },
-    "ClassName": "grin_multitool_energy_01_mag",
-    "__ref": "f1073c2c-900c-4c62-a866-46aa402ee1b2",
-    "__type": "EntityClassDefinition"
-  },
-  "ammo": {
-    "size": 1,
-    "lifetime": 2.0,
-    "speed": 600.0,
-    "projectileParams": {
-      "BulletProjectileParams": {
-        "damage": [
-          {
-            "DamagePhysical": 0.0,
-            "DamageEnergy": 5.0,
-            "DamageDistortion": 0.0,
-            "DamageThermal": 0.0,
-            "DamageBiochemical": 0.0,
-            "DamageStun": 0.0
-          }
-        ],
-        "detonationParams": {}
-      }
-    },
-    "ClassName": "6mm_pistol_laser",
-    "__ref": "3df54597-132f-4817-ac0c-337c6410c620",
-    "__type": "AmmoParams"
-  },
   "Raw": {
     "Entity": {
       "StaticEntityClassData": {
@@ -125,106 +58,8 @@
           "WarningDelayTime": 0.3,
           "WarningDisplayTime": 8.0
         },
-        "SCItem": {
-          "turnedOnByDefault": false,
-          "attachToTileItemPort": "NoConnection",
-          "inheritModelTagFromHost": true,
-          "ItemPorts": [
-            {
-              "PortFlags": "",
-              "PortTags": "",
-              "RequiredItemTags": "",
-              "Ports": [
-                {
-                  "Name": "weapon_action_attachment",
-                  "DisplayName": "WeaponActionAttachment",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "Personal"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "module_attach",
-                  "DisplayName": "ModuleSlot",
-                  "PortTags": "grin_multitool_01",
-                  "RequiredPortTags": "grin_multitool_01",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "Utility"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "grapple_attach",
-                  "DisplayName": "GrappleSlot",
-                  "PortTags": "grin_multitool_01",
-                  "RequiredPortTags": "grin_multitool_01",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "Utility"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "magazine_attach",
-                  "DisplayName": "Magazine Slot",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 0,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "Magazine"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
         "SCItemWeaponComponentParams": {
-          "ammoContainerRecord": "f1073c2c-900c-4c62-a866-46aa402ee1b2",
+          "ammoContainerRecord": "00000000-0000-0000-0000-000000000000",
           "connectionParams": {
             "powerActiveCooldown": 1.0,
             "heatRateOnline": 25.0,
@@ -478,6 +313,20 @@
                 "LockedByLinks": false,
                 "RequiresAuthorizedUser": false,
                 "available": true
+              },
+              {
+                "Name": "BespokePlace",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_place",
+                "DisplayType": "Hide",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
               }
             ]
           }
@@ -485,6 +334,97 @@
         "SSCItemScannerComponentParams": {
           "scanGroupFilter": "471f922b-0d0e-49ea-9719-ac955d5844a5",
           "scanRange": 10.0
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": [
+            {
+              "Name": "weapon_action_attachment",
+              "DisplayName": "WeaponActionAttachment",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "Personal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "module_attach",
+              "DisplayName": "ModuleSlot",
+              "PortTags": "grin_multitool_01",
+              "RequiredPortTags": "grin_multitool_01",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "Utility"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "grapple_attach",
+              "DisplayName": "GrappleSlot",
+              "PortTags": "grin_multitool_01",
+              "RequiredPortTags": "grin_multitool_01",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "Utility"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "magazine_attach",
+              "DisplayName": "Magazine Slot",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 0,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "Magazine"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       },
       "ClassName": "grin_multitool_01",

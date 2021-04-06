@@ -871,12 +871,12 @@
               },
               {
                 "itemPortName": "hardpoint_docking_collar_left",
-                "entityClassName": "",
+                "entityClassName": "ORIG_890Jump_DockingTube",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_docking_collar_right",
-                "entityClassName": "",
+                "entityClassName": "ORIG_890Jump_DockingTube",
                 "loadout": {}
               },
               {
@@ -897,6 +897,16 @@
               {
                 "itemPortName": "hardpoint_weapon_locker_04",
                 "entityClassName": "Weapon_Rack_ORIG_890Jump_Armory",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_air_traffic_controller",
+                "entityClassName": "ORIG_890Jump_ShipATCDataManager",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_missile",
+                "entityClassName": "",
                 "loadout": {}
               }
             ]
@@ -950,6 +960,11 @@
           }
         }
       },
+      "SDegradationParams": {
+        "MaxLifetimeHours": 25.0,
+        "InitialAgeRatio": 0.0,
+        "DegradeOnlyWhenAttached": false
+      },
       "SEntityInteractableParams": {
         "Interactable": {
           "SharedInteractions": [
@@ -983,6 +998,12 @@
             }
           ]
         }
+      },
+      "SItemPortContainerComponentParams": {
+        "PortFlags": "",
+        "PortTags": "ORIG_890Jump",
+        "RequiredItemTags": "",
+        "Ports": []
       }
     },
     "ClassName": "ORIG_890Jump",
@@ -1019,6 +1040,14 @@
       {
         "name": "Shield",
         "class": "Shield"
+      },
+      {
+        "name": "WeaponRegenCrew",
+        "class": "WeaponRegen"
+      },
+      {
+        "name": "WeaponRegenTurret",
+        "class": "WeaponRegen"
       }
     ],
     "Parts": [
@@ -1104,7 +1133,7 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 1,
-                      "flags": "$uneditable",
+                      "flags": "$uneditable dockingport2",
                       "Types": [
                         {
                           "type": "Door"
@@ -1119,7 +1148,7 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 1,
-                      "flags": "$uneditable",
+                      "flags": "$uneditable dockingport1",
                       "Types": [
                         {
                           "type": "Door"
@@ -1134,10 +1163,11 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 1,
-                      "flags": "$uneditable",
+                      "display_name": "@dockingcollar_left",
+                      "flags": "$uneditable dockingport2",
                       "Types": [
                         {
-                          "type": ""
+                          "type": "DockingCollar"
                         }
                       ]
                     }
@@ -1149,10 +1179,27 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 1,
+                      "display_name": "@dockingcollar_right",
+                      "flags": "$uneditable dockingport1",
+                      "Types": [
+                        {
+                          "type": "DockingCollar"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "name": "hardpoint_air_traffic_controller",
+                    "damagemax": 0.0,
+                    "class": "ItemPort",
+                    "ItemPort": {
+                      "minsize": 1,
+                      "maxsize": 4,
+                      "display_name": "@atc_rear",
                       "flags": "$uneditable",
                       "Types": [
                         {
-                          "type": ""
+                          "type": "AirTrafficController"
                         }
                       ]
                     }
@@ -1180,6 +1227,10 @@
                         {
                           "pipeClass": "Heat",
                           "pipe": "MainHeat"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenTurret"
                         }
                       ],
                       "ControllerDef": {
@@ -1218,6 +1269,10 @@
                         {
                           "pipeClass": "Heat",
                           "pipe": "MainHeat"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenTurret"
                         }
                       ],
                       "ControllerDef": {
@@ -1256,6 +1311,10 @@
                         {
                           "pipeClass": "Heat",
                           "pipe": "MainHeat"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenTurret"
                         }
                       ],
                       "ControllerDef": {
@@ -2775,6 +2834,10 @@
                             {
                               "pipeClass": "Heat",
                               "pipe": "MainHeat"
+                            },
+                            {
+                              "pipeClass": "WeaponRegen",
+                              "pipe": "WeaponRegenTurret"
                             }
                           ],
                           "ControllerDef": {
@@ -3088,6 +3151,21 @@
                         {
                           "type": "Usable",
                           "subtypes": ""
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "name": "hardpoint_controller_missile",
+                    "damagemax": 0.0,
+                    "class": "ItemPort",
+                    "ItemPort": {
+                      "minsize": 1,
+                      "maxsize": 1,
+                      "flags": "invisible uneditable",
+                      "Types": [
+                        {
+                          "type": "MissileController"
                         }
                       ]
                     }
@@ -3701,6 +3779,10 @@
                         {
                           "pipeClass": "Heat",
                           "pipe": "MainHeat"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenTurret"
                         }
                       ],
                       "ControllerDef": {
@@ -3739,6 +3821,10 @@
                         {
                           "pipeClass": "Heat",
                           "pipe": "MainHeat"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenTurret"
                         }
                       ],
                       "ControllerDef": {
@@ -4409,17 +4495,17 @@
                   {
                     "name": "Nose",
                     "damagemax": 0.0,
-                    "Probability": 0.4
+                    "Probability": 0.2
                   },
                   {
                     "name": "Front",
                     "damagemax": 0.0,
-                    "Probability": 0.9
+                    "Probability": 0.45
                   },
                   {
                     "name": "Body",
                     "damagemax": 0.0,
-                    "Probability": 0.6
+                    "Probability": 0.3
                   },
                   {
                     "name": "Body_Front",

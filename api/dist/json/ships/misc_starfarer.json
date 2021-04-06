@@ -605,6 +605,11 @@
                   "itemPortName": "hardpoint_door_catwalk",
                   "entityClassName": "Door_Ship_Exterior_MISC_Starfarer_Catwalk",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_missile",
+                  "entityClassName": "",
+                  "loadout": {}
                 }
               ]
             }
@@ -657,6 +662,11 @@
             }
           }
         },
+        "SDegradationParams": {
+          "MaxLifetimeHours": 25.0,
+          "InitialAgeRatio": 0.0,
+          "DegradeOnlyWhenAttached": false
+        },
         "SEntityInteractableParams": {
           "Interactable": {
             "SharedInteractions": [
@@ -690,6 +700,12 @@
               }
             ]
           }
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "MISC_Starfarer_Base",
+          "RequiredItemTags": "",
+          "Ports": []
         }
       },
       "ClassName": "MISC_Starfarer",
@@ -726,6 +742,14 @@
         {
           "name": "Shield",
           "class": "Shield"
+        },
+        {
+          "name": "WeaponRegenCrew",
+          "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponRegenTurret",
+          "class": "WeaponRegen"
         }
       ],
       "Parts": [
@@ -1187,6 +1211,10 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenCrew"
                       }
                     ],
                     "Pitch": {
@@ -1222,6 +1250,10 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenCrew"
                       }
                     ],
                     "Pitch": {
@@ -2321,6 +2353,10 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
                       }
                     ],
                     "ControllerDef": {
@@ -2522,6 +2558,10 @@
                           {
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -2643,7 +2683,7 @@
                       "ItemPort": {
                         "minsize": 4,
                         "maxsize": 4,
-                        "display_name": "",
+                        "display_name": "port_NameThrusterMavORR",
                         "flags": "maneuver uneditable",
                         "Types": [
                           {
@@ -2909,6 +2949,10 @@
                           {
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -3023,7 +3067,7 @@
                       "ItemPort": {
                         "minsize": 4,
                         "maxsize": 4,
-                        "display_name": "",
+                        "display_name": "port_NameThrusterMavORL",
                         "flags": "maneuver uneditable",
                         "Types": [
                           {
@@ -3704,7 +3748,7 @@
                   "ItemPort": {
                     "minsize": 4,
                     "maxsize": 4,
-                    "display_name": "",
+                    "display_name": "port_NameThrusterMavOFL",
                     "flags": "maneuver uneditable",
                     "Types": [
                       {
@@ -3736,7 +3780,7 @@
                   "ItemPort": {
                     "minsize": 4,
                     "maxsize": 4,
-                    "display_name": "",
+                    "display_name": "port_NameThrusterMavOFR",
                     "flags": "maneuver uneditable",
                     "Types": [
                       {
@@ -3776,6 +3820,21 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_missile",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "MissileController"
                       }
                     ]
                   }

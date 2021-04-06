@@ -35,103 +35,6 @@
         "z": 1.0
       }
     },
-    "SCItem": {
-      "turnedOnByDefault": false,
-      "attachToTileItemPort": "NoConnection",
-      "inheritModelTagFromHost": true,
-      "ItemPorts": [
-        {
-          "PortFlags": "",
-          "PortTags": "",
-          "RequiredItemTags": "",
-          "Ports": [
-            {
-              "Name": "medPen_attach_2",
-              "DisplayName": "medPen_attach_2",
-              "PortTags": "",
-              "RequiredPortTags": "",
-              "Flags": "body_attach nophys inventory",
-              "MinSize": 1,
-              "MaxSize": 1,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
-                {
-                  "Type": "Gadget",
-                  "SubTypes": [
-                    {
-                      "value": "MedPack"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Name": "utility_attach_2",
-              "DisplayName": "utility_attach_2",
-              "PortTags": "",
-              "RequiredPortTags": "",
-              "Flags": "body_attach nophys inventory",
-              "MinSize": 1,
-              "MaxSize": 1,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
-                {
-                  "Type": "WeaponPersonal",
-                  "SubTypes": [
-                    {
-                      "value": "Knife"
-                    },
-                    {
-                      "value": "Gadget"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Name": "Material_Variant",
-              "DisplayName": "Material_Variant",
-              "PortTags": "",
-              "RequiredPortTags": "",
-              "Flags": "nontransferable",
-              "MinSize": 1,
-              "MaxSize": 1,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
-                {
-                  "Type": "Paints",
-                  "SubTypes": []
-                }
-              ]
-            },
-            {
-              "Name": "oxyPen_attach_2",
-              "DisplayName": "oxyPen_attach_2",
-              "PortTags": "",
-              "RequiredPortTags": "",
-              "Flags": "body_attach nophys inventory",
-              "MinSize": 1,
-              "MaxSize": 1,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
-                {
-                  "Type": "Gadget",
-                  "SubTypes": [
-                    {
-                      "value": "OxygenCap"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
     "SCItemClothingParams": {
       "TemperatureResistance": {
         "MinResistance": "-55",
@@ -140,6 +43,96 @@
     },
     "SCItemSuitArmorParams": {
       "damageResistance": "6380c701-7466-42ef-8c31-5fa7cb59117c"
+    },
+    "SItemPortContainerComponentParams": {
+      "PortFlags": "",
+      "PortTags": "",
+      "RequiredItemTags": "",
+      "Ports": [
+        {
+          "Name": "medPen_attach_2",
+          "DisplayName": "medPen_attach_2",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "body_attach nophys inventory",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "FPS_Consumable",
+              "SubTypes": [
+                {
+                  "value": "MedPack"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "utility_attach_2",
+          "DisplayName": "utility_attach_2",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "body_attach nophys inventory",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "WeaponPersonal",
+              "SubTypes": [
+                {
+                  "value": "Knife"
+                },
+                {
+                  "value": "Gadget"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Material_Variant",
+          "DisplayName": "Material_Variant",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "nontransferable",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "Paints",
+              "SubTypes": []
+            }
+          ]
+        },
+        {
+          "Name": "oxyPen_attach_2",
+          "DisplayName": "oxyPen_attach_2",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "body_attach nophys inventory",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "FPS_Consumable",
+              "SubTypes": [
+                {
+                  "value": "OxygenCap"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "ClassName": "cds_legacy_armor_medium_legs_01_01_16",

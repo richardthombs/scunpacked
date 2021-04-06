@@ -50,60 +50,53 @@
           }
         }
       },
-      "SCItem": {
-        "turnedOnByDefault": false,
-        "attachToTileItemPort": "NoConnection",
-        "inheritModelTagFromHost": true,
-        "ItemPorts": [
-          {
-            "PortFlags": "",
-            "PortTags": "",
-            "RequiredItemTags": "",
-            "Ports": [
-              {
-                "Name": "missile_01",
-                "DisplayName": "Missile 1",
-                "PortTags": "",
-                "RequiredPortTags": "",
-                "Flags": "",
-                "MinSize": 0,
-                "MaxSize": 1,
-                "InteractionPointSize": -1.0,
-                "DefaultWeaponGroup": "UNDEFINED",
-                "Types": []
-              },
-              {
-                "Name": "missile_02",
-                "DisplayName": "Missile 2",
-                "PortTags": "",
-                "RequiredPortTags": "",
-                "Flags": "",
-                "MinSize": 0,
-                "MaxSize": 1,
-                "InteractionPointSize": -1.0,
-                "DefaultWeaponGroup": "UNDEFINED",
-                "Types": []
-              },
-              {
-                "Name": "missile_03",
-                "DisplayName": "Missile 3",
-                "PortTags": "",
-                "RequiredPortTags": "",
-                "Flags": "",
-                "MinSize": 0,
-                "MaxSize": 1,
-                "InteractionPointSize": -1.0,
-                "DefaultWeaponGroup": "UNDEFINED",
-                "Types": []
-              }
-            ]
-          }
-        ]
-      },
       "SAmmoContainerComponentParams": {
         "initialAmmoCount": 0.0,
         "maxAmmoCount": 0.0,
         "ammoParamsRecord": "31057a9c-8a2d-41e5-a130-1651e34f3541"
+      },
+      "SItemPortContainerComponentParams": {
+        "PortFlags": "",
+        "PortTags": "",
+        "RequiredItemTags": "",
+        "Ports": [
+          {
+            "Name": "missile_01",
+            "DisplayName": "Missile 1",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 0,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": []
+          },
+          {
+            "Name": "missile_02",
+            "DisplayName": "Missile 2",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 0,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": []
+          },
+          {
+            "Name": "missile_03",
+            "DisplayName": "Missile 3",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 0,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": []
+          }
+        ]
       }
     },
     "ClassName": "apar_special_ballistic_02_mag",
@@ -216,113 +209,6 @@
               "Description": "@item_Descapar_special_ballistic_02"
             }
           }
-        },
-        "SCItem": {
-          "turnedOnByDefault": false,
-          "attachToTileItemPort": "NoConnection",
-          "inheritModelTagFromHost": true,
-          "ItemPorts": [
-            {
-              "PortFlags": "",
-              "PortTags": "",
-              "RequiredItemTags": "",
-              "Ports": [
-                {
-                  "Name": "magazine_attach",
-                  "DisplayName": "Magazine Slot",
-                  "PortTags": "",
-                  "RequiredPortTags": "apar_special_ballistic_02",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "Magazine"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "missile_attach_01",
-                  "DisplayName": "Missile 1",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 0,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "Missile"
-                        },
-                        {
-                          "value": "Rocket"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "missile_attach_02",
-                  "DisplayName": "Missile 2",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 0,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "Missile"
-                        },
-                        {
-                          "value": "Rocket"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "missile_attach_03",
-                  "DisplayName": "Missile 3",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 0,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "Missile"
-                        },
-                        {
-                          "value": "Rocket"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
         },
         "SCItemWeaponComponentParams": {
           "ammoContainerRecord": "2308fcbc-cc02-41c1-9a5e-3a14507fc4f4",
@@ -602,9 +488,123 @@
                 "LockedByLinks": false,
                 "RequiresAuthorizedUser": false,
                 "available": true
+              },
+              {
+                "Name": "BespokePlace",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_place",
+                "DisplayType": "Hide",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
               }
             ]
           }
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": [
+            {
+              "Name": "magazine_attach",
+              "DisplayName": "Magazine Slot",
+              "PortTags": "",
+              "RequiredPortTags": "apar_special_ballistic_02",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "Magazine"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "missile_attach_01",
+              "DisplayName": "Missile 1",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 0,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "Missile"
+                    },
+                    {
+                      "value": "Rocket"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "missile_attach_02",
+              "DisplayName": "Missile 2",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 0,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "Missile"
+                    },
+                    {
+                      "value": "Rocket"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "missile_attach_03",
+              "DisplayName": "Missile 3",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 0,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "Missile"
+                    },
+                    {
+                      "value": "Rocket"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       },
       "ClassName": "apar_special_ballistic_02",

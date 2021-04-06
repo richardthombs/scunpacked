@@ -49,42 +49,35 @@
         }
       }
     },
-    "SCItem": {
-      "turnedOnByDefault": false,
-      "attachToTileItemPort": "NoConnection",
-      "inheritModelTagFromHost": true,
-      "ItemPorts": [
+    "SItemPortContainerComponentParams": {
+      "PortFlags": "",
+      "PortTags": "",
+      "RequiredItemTags": "",
+      "Ports": [
         {
-          "PortFlags": "",
+          "Name": "hardpoint_weapon_gun_right_wing",
+          "DisplayName": "port_NameWeaponRightWing",
           "PortTags": "",
-          "RequiredItemTags": "",
-          "Ports": [
+          "RequiredPortTags": "",
+          "Flags": "",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
             {
-              "Name": "hardpoint_weapon_gun_right_wing",
-              "DisplayName": "port_NameWeaponRightWing",
-              "PortTags": "",
-              "RequiredPortTags": "",
-              "Flags": "",
-              "MinSize": 1,
-              "MaxSize": 1,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
+              "Type": "WeaponGun",
+              "SubTypes": [
                 {
-                  "Type": "WeaponGun",
-                  "SubTypes": [
-                    {
-                      "value": "Gun"
-                    }
-                  ]
-                },
+                  "value": "Gun"
+                }
+              ]
+            },
+            {
+              "Type": "Turret",
+              "SubTypes": [
                 {
-                  "Type": "Turret",
-                  "SubTypes": [
-                    {
-                      "value": "GunTurret"
-                    }
-                  ]
+                  "value": "GunTurret"
                 }
               ]
             }

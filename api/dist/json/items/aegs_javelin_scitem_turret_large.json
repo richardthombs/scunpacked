@@ -124,77 +124,6 @@
           "MisfireMinTemperature": 370.0,
           "MisfireMaxTemperature": 600.0
         },
-        "SCItem": {
-          "turnedOnByDefault": false,
-          "attachToTileItemPort": "NoConnection",
-          "inheritModelTagFromHost": true,
-          "ItemPorts": [
-            {
-              "PortFlags": "",
-              "PortTags": "",
-              "RequiredItemTags": "",
-              "Ports": [
-                {
-                  "Name": "turret_left",
-                  "DisplayName": "port_NameTurretGunSlot01",
-                  "PortTags": "outer",
-                  "RequiredPortTags": "",
-                  "Flags": "$uneditable",
-                  "MinSize": 9,
-                  "MaxSize": 9,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponGun",
-                      "SubTypes": [
-                        {
-                          "value": "Gun"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "turret_right",
-                  "DisplayName": "port_NameTurretGunSlot02",
-                  "PortTags": "inner",
-                  "RequiredPortTags": "",
-                  "Flags": "$uneditable",
-                  "MinSize": 9,
-                  "MaxSize": 9,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": []
-                },
-                {
-                  "Name": "turret_left_top",
-                  "DisplayName": "port_NameTurretGunSlot03",
-                  "PortTags": "inner",
-                  "RequiredPortTags": "",
-                  "Flags": "$uneditable",
-                  "MinSize": 9,
-                  "MaxSize": 9,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": []
-                },
-                {
-                  "Name": "turret_right_top",
-                  "DisplayName": "port_NameTurretGunSlot04",
-                  "PortTags": "inner",
-                  "RequiredPortTags": "",
-                  "Flags": "$uneditable",
-                  "MinSize": 9,
-                  "MaxSize": 9,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": []
-                }
-              ]
-            }
-          ]
-        },
         "SCItemTurretParams": {
           "rotationStyle": "SingleAxis",
           "inputLevelUnderOneRate": 0.0,
@@ -235,6 +164,70 @@
               }
             ]
           }
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": [
+            {
+              "Name": "turret_left",
+              "DisplayName": "port_NameTurretGunSlot01",
+              "PortTags": "outer",
+              "RequiredPortTags": "",
+              "Flags": "$uneditable",
+              "MinSize": 9,
+              "MaxSize": 9,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponGun",
+                  "SubTypes": [
+                    {
+                      "value": "Gun"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "turret_right",
+              "DisplayName": "port_NameTurretGunSlot02",
+              "PortTags": "inner",
+              "RequiredPortTags": "",
+              "Flags": "$uneditable",
+              "MinSize": 9,
+              "MaxSize": 9,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": []
+            },
+            {
+              "Name": "turret_left_top",
+              "DisplayName": "port_NameTurretGunSlot03",
+              "PortTags": "inner",
+              "RequiredPortTags": "",
+              "Flags": "$uneditable",
+              "MinSize": 9,
+              "MaxSize": 9,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": []
+            },
+            {
+              "Name": "turret_right_top",
+              "DisplayName": "port_NameTurretGunSlot04",
+              "PortTags": "inner",
+              "RequiredPortTags": "",
+              "Flags": "$uneditable",
+              "MinSize": 9,
+              "MaxSize": 9,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": []
+            }
+          ]
         }
       },
       "ClassName": "AEGS_Javelin_SCItem_Turret_Large",

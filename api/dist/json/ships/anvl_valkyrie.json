@@ -566,6 +566,11 @@
             }
           }
         },
+        "SDegradationParams": {
+          "MaxLifetimeHours": 25.0,
+          "InitialAgeRatio": 0.0,
+          "DegradeOnlyWhenAttached": false
+        },
         "SEntityInteractableParams": {
           "Interactable": {
             "SharedInteractions": [
@@ -599,6 +604,12 @@
               }
             ]
           }
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "ANVL_Valkyrie",
+          "RequiredItemTags": "",
+          "Ports": []
         }
       },
       "ClassName": "ANVL_Valkyrie",
@@ -635,6 +646,14 @@
         {
           "name": "Shield",
           "class": "Shield"
+        },
+        {
+          "name": "WeaponRegenCrew",
+          "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponRegenTurret",
+          "class": "WeaponRegen"
         }
       ],
       "Parts": [
@@ -658,7 +677,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 6,
-                    "display_name": "Fuel Tank 3",
+                    "display_name": "port_NameFuelTank03",
                     "flags": "invisible uneditable",
                     "Types": [
                       {
@@ -1233,7 +1252,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 6,
-                    "display_name": "Fuel Tank 1",
+                    "display_name": "port_NameFuelTank01",
                     "flags": "invisible uneditable",
                     "Types": [
                       {
@@ -1259,7 +1278,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 6,
-                    "display_name": "Fuel Tank 2",
+                    "display_name": "port_NameFuelTank02",
                     "flags": "invisible uneditable",
                     "Types": [
                       {
@@ -1285,7 +1304,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 6,
-                    "display_name": "Fuel Tank 4",
+                    "display_name": "port_NameFuelTank04",
                     "flags": "invisible uneditable",
                     "Types": [
                       {
@@ -1446,7 +1465,7 @@
                   "ItemPort": {
                     "minsize": 4,
                     "maxsize": 4,
-                    "display_name": "Bottom Turret",
+                    "display_name": "port_NameTurret01",
                     "flags": "$uneditable lower",
                     "Types": [
                       {
@@ -1462,6 +1481,10 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
                       }
                     ],
                     "ControllerDef": {
@@ -1661,7 +1684,7 @@
                   "ItemPort": {
                     "minsize": 4,
                     "maxsize": 4,
-                    "display_name": "Top Turret",
+                    "display_name": "port_NameTurret02",
                     "flags": "$uneditable",
                     "Types": [
                       {
@@ -1677,6 +1700,10 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
                       }
                     ],
                     "ControllerDef": {
@@ -1825,7 +1852,7 @@
                   "ItemPort": {
                     "minsize": 2,
                     "maxsize": 2,
-                    "display_name": "UI",
+                    "display_name": "port_NameRadar",
                     "flags": "invisible uneditable",
                     "Types": [
                       {
@@ -1896,7 +1923,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 5,
-                    "display_name": "Port Fuel Intake",
+                    "display_name": "port_NameFuelIntake01",
                     "flags": "invisible uneditable",
                     "Types": [
                       {
@@ -1926,7 +1953,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 5,
-                    "display_name": "Starboard Fuel Intake",
+                    "display_name": "port_NameFuelIntake02",
                     "flags": "invisible uneditable",
                     "Types": [
                       {
@@ -2160,6 +2187,10 @@
                       {
                         "pipeClass": "Fuel",
                         "pipe": "MainFuel"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenCrew"
                       }
                     ],
                     "Pitch": {
@@ -2388,7 +2419,7 @@
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 1,
-                        "display_name": "Countermeasures 2",
+                        "display_name": "port_NameCountermeasure02",
                         "flags": "uneditable",
                         "Types": [
                           {
@@ -2447,7 +2478,7 @@
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 1,
-                        "display_name": "Countermeasures 1",
+                        "display_name": "port_NameCountermeasure01",
                         "flags": "uneditable",
                         "Types": [
                           {
@@ -2586,7 +2617,7 @@
                       "ItemPort": {
                         "minsize": 3,
                         "maxsize": 3,
-                        "display_name": "Starboard Door Turret",
+                        "display_name": "port_NameTurret03",
                         "flags": "uneditable",
                         "Types": [
                           {
@@ -2602,6 +2633,10 @@
                           {
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -2636,7 +2671,7 @@
                       "ItemPort": {
                         "minsize": 3,
                         "maxsize": 3,
-                        "display_name": "Port Door Turret",
+                        "display_name": "port_NameTurret04",
                         "flags": "uneditable",
                         "Types": [
                           {
@@ -2652,6 +2687,10 @@
                           {
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -3229,7 +3268,6 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
-                    "display_name": "Self Destruct",
                     "flags": "invisible uneditable",
                     "Types": [
                       {
@@ -3431,7 +3469,6 @@
               "ItemPort": {
                 "minsize": 1,
                 "maxsize": 1,
-                "display_name": "Landing System",
                 "flags": "uneditable",
                 "Types": [
                   {

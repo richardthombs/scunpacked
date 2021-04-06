@@ -65,6 +65,11 @@
             }
           }
         },
+        "SDegradationParams": {
+          "MaxLifetimeHours": 25.0,
+          "InitialAgeRatio": 0.0,
+          "DegradeOnlyWhenAttached": true
+        },
         "EntityComponentPowerConnection": {
           "PowerBase": 0.0,
           "PowerDraw": 2.0,
@@ -108,78 +113,6 @@
           "OverloadRatio": 0.995,
           "RecoveryRatio": 0.7,
           "RecoveryTime": 0.0
-        },
-        "SCItem": {
-          "turnedOnByDefault": false,
-          "attachToTileItemPort": "NoConnection",
-          "inheritModelTagFromHost": true,
-          "ItemPorts": [
-            {
-              "PortFlags": "",
-              "PortTags": "",
-              "RequiredItemTags": "",
-              "Ports": [
-                {
-                  "Name": "turret_left",
-                  "DisplayName": "port_NameTurretGunSlot01",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 2,
-                  "MaxSize": 2,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponGun",
-                      "SubTypes": [
-                        {
-                          "value": "Gun"
-                        }
-                      ]
-                    },
-                    {
-                      "Type": "WeaponGun",
-                      "SubTypes": [
-                        {
-                          "value": "Rocket"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "turret_right",
-                  "DisplayName": "port_NameTurretGunSlot02",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 2,
-                  "MaxSize": 2,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponGun",
-                      "SubTypes": [
-                        {
-                          "value": "Gun"
-                        }
-                      ]
-                    },
-                    {
-                      "Type": "WeaponGun",
-                      "SubTypes": [
-                        {
-                          "value": "Rocket"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
         },
         "SCItemTurretParams": {
           "rotationStyle": "SingleAxis",
@@ -263,6 +196,71 @@
               }
             ]
           }
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": [
+            {
+              "Name": "turret_left",
+              "DisplayName": "port_NameTurretGunSlot01",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 2,
+              "MaxSize": 2,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponGun",
+                  "SubTypes": [
+                    {
+                      "value": "Gun"
+                    }
+                  ]
+                },
+                {
+                  "Type": "WeaponGun",
+                  "SubTypes": [
+                    {
+                      "value": "Rocket"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "turret_right",
+              "DisplayName": "port_NameTurretGunSlot02",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 2,
+              "MaxSize": 2,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponGun",
+                  "SubTypes": [
+                    {
+                      "value": "Gun"
+                    }
+                  ]
+                },
+                {
+                  "Type": "WeaponGun",
+                  "SubTypes": [
+                    {
+                      "value": "Rocket"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       },
       "ClassName": "AEGS_Vanguard_SCItem_Turret",

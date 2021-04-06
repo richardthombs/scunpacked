@@ -910,6 +910,16 @@
               },
               {
                 "itemPortName": "hardpoint_docking_collar",
+                "entityClassName": "AEGS_Hammerhead_Front_DockingTube",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_air_traffic_controller",
+                "entityClassName": "AEGS_Hammerhead_ShipATCDataManager",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_missile",
                 "entityClassName": "",
                 "loadout": {}
               }
@@ -925,7 +935,7 @@
           "Grade": 1,
           "Manufacturer": "cf4a74bf-eb2c-462a-9b78-f7f2724c31d2",
           "Tags": "AEGS_Hammerhead",
-          "RequiredTags": "",
+          "RequiredTags": "Station_Dock_Large",
           "DisplayType": "",
           "Localization": {
             "Name": "@vehicle_NameAEGS_Hammerhead",
@@ -964,6 +974,11 @@
           }
         }
       },
+      "SDegradationParams": {
+        "MaxLifetimeHours": 25.0,
+        "InitialAgeRatio": 0.0,
+        "DegradeOnlyWhenAttached": false
+      },
       "SEntityInteractableParams": {
         "Interactable": {
           "SharedInteractions": [
@@ -997,6 +1012,12 @@
             }
           ]
         }
+      },
+      "SItemPortContainerComponentParams": {
+        "PortFlags": "",
+        "PortTags": "AEGS_Hammerhead",
+        "RequiredItemTags": "",
+        "Ports": []
       }
     },
     "ClassName": "AEGS_Hammerhead",
@@ -1034,6 +1055,14 @@
       {
         "name": "Shield",
         "class": "Shield"
+      },
+      {
+        "name": "WeaponRegenCrew",
+        "class": "WeaponRegen"
+      },
+      {
+        "name": "WeaponRegenTurret",
+        "class": "WeaponRegen"
       }
     ],
     "Parts": [
@@ -1044,28 +1073,28 @@
         "class": "Animated",
         "Parts": [
           {
-            "name": "landingpad_helper",
-            "damagemax": 0.0,
-            "class": "ItemPort",
-            "ItemPort": {
-              "minsize": 1,
-              "maxsize": 1,
-              "display_name": "Landing System",
-              "flags": "uneditable",
-              "Types": [
-                {
-                  "type": "LandingSystem"
-                }
-              ]
-            }
-          },
-          {
             "name": "Body",
             "damageMax": 18000.0,
             "damagemax": 0.0,
             "class": "AnimatedJoint",
             "detachRatio": 1.0,
             "Parts": [
+              {
+                "name": "landingpad_helper",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "Landing System",
+                  "flags": "uneditable",
+                  "Types": [
+                    {
+                      "type": "LandingSystem"
+                    }
+                  ]
+                }
+              },
               {
                 "name": "animated_interior_body",
                 "damagemax": 0.0,
@@ -1089,7 +1118,7 @@
                 "ItemPort": {
                   "minsize": 5,
                   "maxsize": 5,
-                  "display_name": "Starboard Aft Turret",
+                  "display_name": "itemPort_port_NameTurret04",
                   "flags": "$uneditable",
                   "Types": [
                     {
@@ -1109,6 +1138,10 @@
                     {
                       "pipeClass": "Avionics",
                       "pipe": "Avionics"
+                    },
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenTurret"
                     }
                   ],
                   "ControllerDef": {
@@ -1135,7 +1168,7 @@
                 "ItemPort": {
                   "minsize": 5,
                   "maxsize": 5,
-                  "display_name": "Port Aft Turret",
+                  "display_name": "itemPort_port_NameTurret03",
                   "flags": "$uneditable",
                   "Types": [
                     {
@@ -1155,6 +1188,10 @@
                     {
                       "pipeClass": "Avionics",
                       "pipe": "Avionics"
+                    },
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenTurret"
                     }
                   ],
                   "ControllerDef": {
@@ -1181,7 +1218,7 @@
                 "ItemPort": {
                   "minsize": 5,
                   "maxsize": 5,
-                  "display_name": "Top Turret",
+                  "display_name": "itemPort_port_NameTurret05",
                   "flags": "$uneditable",
                   "Types": [
                     {
@@ -1201,6 +1238,10 @@
                     {
                       "pipeClass": "Avionics",
                       "pipe": "Avionics"
+                    },
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenTurret"
                     }
                   ],
                   "ControllerDef": {
@@ -1509,7 +1550,6 @@
                 "ItemPort": {
                   "minsize": 1,
                   "maxsize": 1,
-                  "display_name": "Self Destruct",
                   "flags": "invisible uneditable",
                   "Types": [
                     {
@@ -1531,7 +1571,7 @@
                 "ItemPort": {
                   "minsize": 2,
                   "maxsize": 2,
-                  "display_name": "Radar",
+                  "display_name": "itemPort_port_NameRadar",
                   "flags": "invisible uneditable",
                   "Types": [
                     {
@@ -1652,7 +1692,7 @@
                 "ItemPort": {
                   "minsize": 1,
                   "maxsize": 6,
-                  "display_name": "Fuel Tank 1",
+                  "display_name": "itemPort_port_NameFuelTank01",
                   "flags": "invisible uneditable",
                   "Types": [
                     {
@@ -1678,7 +1718,7 @@
                 "ItemPort": {
                   "minsize": 1,
                   "maxsize": 6,
-                  "display_name": "Fuel Tank 2",
+                  "display_name": "itemPort_port_NameFuelTank02",
                   "flags": "invisible uneditable",
                   "Types": [
                     {
@@ -1704,7 +1744,7 @@
                 "ItemPort": {
                   "minsize": 1,
                   "maxsize": 5,
-                  "display_name": "Fuel Intake 1",
+                  "display_name": "itemPort_port_NameFuelIntake01",
                   "flags": "invisible uneditable",
                   "Types": [
                     {
@@ -1734,7 +1774,7 @@
                 "ItemPort": {
                   "minsize": 1,
                   "maxsize": 5,
-                  "display_name": "Fuel Intake 2",
+                  "display_name": "itemPort_port_NameFuelIntake02",
                   "flags": "invisible uneditable",
                   "Types": [
                     {
@@ -2142,6 +2182,22 @@
                   "ControllerDef": {
                     "controllableTags": "CaptainDashBoard"
                   }
+                }
+              },
+              {
+                "name": "hardpoint_air_traffic_controller",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 4,
+                  "display_name": "@atc_hammerhead",
+                  "flags": "$uneditable",
+                  "Types": [
+                    {
+                      "type": "AirTrafficController"
+                    }
+                  ]
                 }
               },
               {
@@ -2612,7 +2668,7 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 5,
-                      "display_name": "Fore Port Side Thruster",
+                      "display_name": "port_NameThrusterMavFLS",
                       "flags": "maneuver orientation +X uneditable",
                       "requiredTags": "",
                       "Types": [
@@ -2644,7 +2700,7 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 5,
-                      "display_name": "Fore Starboard Side Thruster",
+                      "display_name": "port_NameThrusterMavFLT",
                       "flags": "maneuver orientation -Z uneditable",
                       "requiredTags": "",
                       "Types": [
@@ -2745,7 +2801,7 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 1,
-                      "display_name": "Port Countermeasures 2",
+                      "display_name": "itemPort_port_NameCountermeasure02",
                       "flags": "left uneditable",
                       "Types": [
                         {
@@ -2812,10 +2868,11 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 4,
-                      "flags": "$uneditable",
+                      "display_name": "@dockingcollar_nose",
+                      "flags": "$uneditable dockingport1",
                       "Types": [
                         {
-                          "type": ""
+                          "type": "DockingCollar"
                         }
                       ]
                     }
@@ -3032,7 +3089,7 @@
                     "ItemPort": {
                       "minsize": 5,
                       "maxsize": 5,
-                      "display_name": "Port Fore Turret",
+                      "display_name": "itemPort_port_NameTurret01",
                       "flags": "$uneditable",
                       "Types": [
                         {
@@ -3052,6 +3109,10 @@
                         {
                           "pipeClass": "Avionics",
                           "pipe": "Avionics"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenTurret"
                         }
                       ],
                       "ControllerDef": {
@@ -3078,7 +3139,7 @@
                     "ItemPort": {
                       "minsize": 5,
                       "maxsize": 5,
-                      "display_name": "Starboard Fore Turret",
+                      "display_name": "itemPort_port_NameTurret02",
                       "flags": "$uneditable",
                       "Types": [
                         {
@@ -3098,6 +3159,10 @@
                         {
                           "pipeClass": "Avionics",
                           "pipe": "Avionics"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenTurret"
                         }
                       ],
                       "ControllerDef": {
@@ -3140,7 +3205,7 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 5,
-                      "display_name": "Starboard Retro Thruster",
+                      "display_name": "port_NameThrusterRetroR",
                       "flags": "maneuver orientation -y retro uneditable",
                       "requiredTags": "",
                       "Types": [
@@ -3172,7 +3237,7 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 5,
-                      "display_name": "Port Retro Thruster",
+                      "display_name": "port_NameThrusterRetroL",
                       "flags": "maneuver orientation -y retro uneditable",
                       "requiredTags": "",
                       "Types": [
@@ -3204,7 +3269,7 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 5,
-                      "display_name": "Bottom Fore Starboard Thruster",
+                      "display_name": "port_NameThrusterMavFRB",
                       "flags": "maneuver orientation +Z uneditable",
                       "requiredTags": "",
                       "Types": [
@@ -3236,7 +3301,7 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 5,
-                      "display_name": "Bottom Fore Port Thruster",
+                      "display_name": "port_NameThrusterMavFLB",
                       "flags": "maneuver orientation +Z uneditable",
                       "requiredTags": "",
                       "Types": [
@@ -3311,7 +3376,7 @@
                         "ItemPort": {
                           "minsize": 1,
                           "maxsize": 5,
-                          "display_name": "Starboard Fore Side Thruster",
+                          "display_name": "port_NameThrusterMavFRS",
                           "flags": "maneuver orientation -X uneditable",
                           "requiredTags": "",
                           "Types": [
@@ -3343,7 +3408,7 @@
                         "ItemPort": {
                           "minsize": 1,
                           "maxsize": 5,
-                          "display_name": "Starboard Fore Top Thruster",
+                          "display_name": "port_NameThrusterMavFRT",
                           "flags": "maneuver orientation -Z uneditable",
                           "requiredTags": "",
                           "Types": [
@@ -3428,7 +3493,7 @@
                         "ItemPort": {
                           "minsize": 1,
                           "maxsize": 1,
-                          "display_name": "Starboard Countermeasures 2",
+                          "display_name": "itemPort_port_NameCountermeasure03",
                           "flags": "right uneditable",
                           "Types": [
                             {
@@ -3463,10 +3528,10 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 1,
-                      "flags": "uneditable",
+                      "flags": "uneditable dockingport1",
                       "Types": [
                         {
-                          "type": "Door",
+                          "type": "DockingAnimator",
                           "subtypes": ""
                         }
                       ]
@@ -3618,7 +3683,7 @@
                     "ItemPort": {
                       "minsize": 5,
                       "maxsize": 5,
-                      "display_name": "Turret Rear",
+                      "display_name": "itemPort_port_NameTurret06",
                       "flags": "$uneditable",
                       "Types": [
                         {
@@ -3638,6 +3703,10 @@
                         {
                           "pipeClass": "Avionics",
                           "pipe": "Avionics"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenTurret"
                         }
                       ],
                       "ControllerDef": {
@@ -3680,7 +3749,7 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 5,
-                      "display_name": "Aft Starboard Side Thruster",
+                      "display_name": "port_NameThrusterMavRRS",
                       "flags": "maneuver orientation -X uneditable",
                       "requiredTags": "",
                       "Types": [
@@ -3712,7 +3781,7 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 5,
-                      "display_name": "Aft Port Side Thruster",
+                      "display_name": "port_NameThrusterMavRLS",
                       "flags": "maneuver orientation +X uneditable",
                       "requiredTags": "",
                       "Types": [
@@ -3744,7 +3813,7 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 5,
-                      "display_name": "Aft Starboard Bottom Thruster",
+                      "display_name": "port_NameThrusterMavRRB",
                       "flags": "maneuver orientation +Z uneditable",
                       "requiredTags": "",
                       "Types": [
@@ -3776,7 +3845,7 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 5,
-                      "display_name": "Aft Port Bottom Thruster",
+                      "display_name": "port_NameThrusterMavRLB",
                       "flags": "maneuver orientation +Z uneditable",
                       "requiredTags": "",
                       "Types": [
@@ -3808,7 +3877,7 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 5,
-                      "display_name": "Aft Starboard Top Thruster",
+                      "display_name": "port_NameThrusterMavRRT",
                       "flags": "maneuver orientation -Z uneditable",
                       "requiredTags": "",
                       "Types": [
@@ -3840,7 +3909,7 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 5,
-                      "display_name": "Aft Port Top Thruster",
+                      "display_name": "port_NameThrusterMavRLT",
                       "flags": "maneuver orientation -Z uneditable",
                       "requiredTags": "",
                       "Types": [
@@ -3878,7 +3947,7 @@
                         "ItemPort": {
                           "minsize": 6,
                           "maxsize": 6,
-                          "display_name": "Bottom Port Main Engine",
+                          "display_name": "port_NameThrusterMainLL",
                           "flags": "right maneuver orientation +Y uneditable",
                           "requiredTags": "",
                           "Types": [
@@ -3918,7 +3987,7 @@
                         "ItemPort": {
                           "minsize": 6,
                           "maxsize": 6,
-                          "display_name": "Top Port Main Engine",
+                          "display_name": "port_NameThrusterMainUL",
                           "flags": "left maneuver orientation +Y uneditable",
                           "requiredTags": "",
                           "Types": [
@@ -3958,7 +4027,7 @@
                         "ItemPort": {
                           "minsize": 6,
                           "maxsize": 6,
-                          "display_name": "Bottom Starboard Main Engine",
+                          "display_name": "port_NameThrusterMainLR",
                           "flags": "left maneuver orientation +Y uneditable",
                           "requiredTags": "",
                           "Types": [
@@ -3998,7 +4067,7 @@
                         "ItemPort": {
                           "minsize": 6,
                           "maxsize": 6,
-                          "display_name": "Top Starboard Main Engine",
+                          "display_name": "port_NameThrusterMainUR",
                           "flags": "right maneuver orientation +Y uneditable",
                           "requiredTags": "",
                           "Types": [
@@ -4151,7 +4220,7 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 1,
-                      "display_name": "Starboard Countermeasures 2",
+                      "display_name": "itemPort_port_NameCountermeasure01",
                       "flags": "right uneditable",
                       "Types": [
                         {
@@ -4178,7 +4247,7 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 1,
-                      "display_name": "Port Countermeasures 2",
+                      "display_name": "itemPort_port_NameCountermeasure04",
                       "flags": "left uneditable",
                       "Types": [
                         {
@@ -4289,6 +4358,21 @@
                   "Types": [
                     {
                       "type": "Paints"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_controller_missile",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "MissileController"
                     }
                   ]
                 }

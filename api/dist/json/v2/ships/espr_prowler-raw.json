@@ -712,6 +712,11 @@
           }
         }
       },
+      "SDegradationParams": {
+        "MaxLifetimeHours": 25.0,
+        "InitialAgeRatio": 0.0,
+        "DegradeOnlyWhenAttached": false
+      },
       "SEntityInteractableParams": {
         "Interactable": {
           "SharedInteractions": [
@@ -745,6 +750,12 @@
             }
           ]
         }
+      },
+      "SItemPortContainerComponentParams": {
+        "PortFlags": "",
+        "PortTags": "ESPR_Prowler_Base",
+        "RequiredItemTags": "",
+        "Ports": []
       }
     },
     "ClassName": "ESPR_Prowler",
@@ -758,6 +769,40 @@
     "size": 3,
     "requiredItemTags": "",
     "itemPortTags": "ESPR_Prowler_Base",
+    "Pipes": [
+      {
+        "name": "MainPower",
+        "class": "Power"
+      },
+      {
+        "name": "MainHeat",
+        "class": "Heat"
+      },
+      {
+        "name": "MainFuel",
+        "class": "Fuel"
+      },
+      {
+        "name": "IntakeFuel",
+        "class": "Fuel"
+      },
+      {
+        "name": "QuantumFuel",
+        "class": "Fuel"
+      },
+      {
+        "name": "Shield",
+        "class": "Shield"
+      },
+      {
+        "name": "WeaponRegenCrew",
+        "class": "WeaponRegen"
+      },
+      {
+        "name": "WeaponRegenTurret",
+        "class": "WeaponRegen"
+      }
+    ],
     "Parts": [
       {
         "name": "ESPR_Prowler",
@@ -3437,6 +3482,10 @@
                         {
                           "pipeClass": "Fuel",
                           "pipe": "MainFuel"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenCrew"
                         }
                       ],
                       "ControllerDef": {
@@ -3583,6 +3632,10 @@
                         {
                           "pipeClass": "Heat",
                           "pipe": "MainHeat"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenCrew"
                         }
                       ],
                       "Pitch": {
@@ -3790,6 +3843,10 @@
                         {
                           "pipeClass": "Heat",
                           "pipe": "MainHeat"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenCrew"
                         }
                       ],
                       "Pitch": {

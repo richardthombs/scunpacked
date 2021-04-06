@@ -401,6 +401,11 @@
                 "itemPortName": "hardpoint_countermeasure_right",
                 "entityClassName": "ANVL_CML_Noise_Small",
                 "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_missile",
+                "entityClassName": "",
+                "loadout": {}
               }
             ]
           }
@@ -453,6 +458,11 @@
           }
         }
       },
+      "SDegradationParams": {
+        "MaxLifetimeHours": 25.0,
+        "InitialAgeRatio": 0.0,
+        "DegradeOnlyWhenAttached": false
+      },
       "SEntityInteractableParams": {
         "Interactable": {
           "SharedInteractions": [
@@ -486,6 +496,12 @@
             }
           ]
         }
+      },
+      "SItemPortContainerComponentParams": {
+        "PortFlags": "",
+        "PortTags": "ANVL_Hornet_Base",
+        "RequiredItemTags": "",
+        "Ports": []
       }
     },
     "ClassName": "ANVL_Hornet_F7CM_Heartseeker",
@@ -524,6 +540,14 @@
       {
         "name": "Shield",
         "class": "Shield"
+      },
+      {
+        "name": "WeaponRegenCrew",
+        "class": "WeaponRegen"
+      },
+      {
+        "name": "WeaponRegenTurret",
+        "class": "WeaponRegen"
       }
     ],
     "Parts": [
@@ -998,6 +1022,10 @@
                     {
                       "pipeClass": "Heat",
                       "pipe": "MainHeat"
+                    },
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenTurret"
                     }
                   ],
                   "ControllerDef": {
@@ -1558,6 +1586,10 @@
                             {
                               "pipeClass": "Heat",
                               "pipe": "MainHeat"
+                            },
+                            {
+                              "pipeClass": "WeaponRegen",
+                              "pipe": "WeaponRegenCrew"
                             }
                           ],
                           "Pitch": {
@@ -2002,6 +2034,10 @@
                         {
                           "pipeClass": "Heat",
                           "pipe": "MainHeat"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenCrew"
                         }
                       ],
                       "Pitch": {
@@ -2347,6 +2383,10 @@
                             {
                               "pipeClass": "Heat",
                               "pipe": "MainHeat"
+                            },
+                            {
+                              "pipeClass": "WeaponRegen",
+                              "pipe": "WeaponRegenCrew"
                             }
                           ],
                           "Pitch": {

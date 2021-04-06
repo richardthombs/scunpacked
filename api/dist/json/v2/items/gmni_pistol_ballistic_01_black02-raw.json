@@ -51,104 +51,6 @@
         }
       }
     },
-    "SCItem": {
-      "turnedOnByDefault": false,
-      "attachToTileItemPort": "NoConnection",
-      "inheritModelTagFromHost": true,
-      "ItemPorts": [
-        {
-          "PortFlags": "",
-          "PortTags": "",
-          "RequiredItemTags": "",
-          "Ports": [
-            {
-              "Name": "magazine_attach",
-              "DisplayName": "Magazine Slot",
-              "PortTags": "",
-              "RequiredPortTags": "gmni_pistol_ballistic_01",
-              "Flags": "",
-              "MinSize": 1,
-              "MaxSize": 1,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
-                {
-                  "Type": "WeaponAttachment",
-                  "SubTypes": [
-                    {
-                      "value": "Magazine"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Name": "optics_attach",
-              "DisplayName": "OpticsSlot",
-              "PortTags": "",
-              "RequiredPortTags": "",
-              "Flags": "",
-              "MinSize": 1,
-              "MaxSize": 1,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
-                {
-                  "Type": "WeaponAttachment",
-                  "SubTypes": [
-                    {
-                      "value": "IronSight"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Name": "barrel_attach",
-              "DisplayName": "BarrelSlot",
-              "PortTags": "",
-              "RequiredPortTags": "FPS_Barrel ballistic_attach",
-              "Flags": "",
-              "MinSize": 1,
-              "MaxSize": 1,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
-                {
-                  "Type": "WeaponAttachment",
-                  "SubTypes": [
-                    {
-                      "value": "Barrel"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Name": "underbarrel_attach",
-              "DisplayName": "UnderbarrelSlot",
-              "PortTags": "",
-              "RequiredPortTags": "",
-              "Flags": "",
-              "MinSize": 1,
-              "MaxSize": 1,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
-                {
-                  "Type": "WeaponAttachment",
-                  "SubTypes": [
-                    {
-                      "value": "BottomAttachment"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
     "SCItemWeaponComponentParams": {
       "ammoContainerRecord": "068c28b8-3ea3-409a-b08d-1d53ae1e3303",
       "connectionParams": {
@@ -381,9 +283,114 @@
             "LockedByLinks": false,
             "RequiresAuthorizedUser": false,
             "available": true
+          },
+          {
+            "Name": "BespokePlace",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_place",
+            "DisplayType": "Hide",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
           }
         ]
       }
+    },
+    "SItemPortContainerComponentParams": {
+      "PortFlags": "",
+      "PortTags": "",
+      "RequiredItemTags": "",
+      "Ports": [
+        {
+          "Name": "magazine_attach",
+          "DisplayName": "Magazine Slot",
+          "PortTags": "",
+          "RequiredPortTags": "gmni_pistol_ballistic_01",
+          "Flags": "",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "WeaponAttachment",
+              "SubTypes": [
+                {
+                  "value": "Magazine"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "optics_attach",
+          "DisplayName": "OpticsSlot",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "WeaponAttachment",
+              "SubTypes": [
+                {
+                  "value": "IronSight"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "barrel_attach",
+          "DisplayName": "BarrelSlot",
+          "PortTags": "",
+          "RequiredPortTags": "FPS_Barrel ballistic_attach",
+          "Flags": "",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "WeaponAttachment",
+              "SubTypes": [
+                {
+                  "value": "Barrel"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "underbarrel_attach",
+          "DisplayName": "UnderbarrelSlot",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "WeaponAttachment",
+              "SubTypes": [
+                {
+                  "value": "BottomAttachment"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "ClassName": "gmni_pistol_ballistic_01_black02",

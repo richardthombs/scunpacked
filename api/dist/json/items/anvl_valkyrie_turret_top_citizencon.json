@@ -62,6 +62,11 @@
             }
           }
         },
+        "SDegradationParams": {
+          "MaxLifetimeHours": 25.0,
+          "InitialAgeRatio": 0.0,
+          "DegradeOnlyWhenAttached": true
+        },
         "EntityComponentPowerConnection": {
           "PowerBase": 0.0,
           "PowerDraw": 2.0,
@@ -105,62 +110,6 @@
           "OverloadRatio": 0.995,
           "RecoveryRatio": 0.7,
           "RecoveryTime": 0.0
-        },
-        "SCItem": {
-          "turnedOnByDefault": false,
-          "attachToTileItemPort": "NoConnection",
-          "inheritModelTagFromHost": false,
-          "ItemPorts": [
-            {
-              "PortFlags": "",
-              "PortTags": "",
-              "RequiredItemTags": "",
-              "Ports": [
-                {
-                  "Name": "turret_left",
-                  "DisplayName": "port_NameTurretGunSlot01",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 3,
-                  "MaxSize": 3,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponGun",
-                      "SubTypes": [
-                        {
-                          "value": "Gun"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "turret_right",
-                  "DisplayName": "port_NameTurretGunSlot02",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 3,
-                  "MaxSize": 3,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponGun",
-                      "SubTypes": [
-                        {
-                          "value": "Gun"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
         },
         "SCItemTurretParams": {
           "rotationStyle": "SingleAxis",
@@ -244,6 +193,55 @@
               }
             ]
           }
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": [
+            {
+              "Name": "turret_left",
+              "DisplayName": "port_NameTurretGunSlot01",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 3,
+              "MaxSize": 3,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponGun",
+                  "SubTypes": [
+                    {
+                      "value": "Gun"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "turret_right",
+              "DisplayName": "port_NameTurretGunSlot02",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 3,
+              "MaxSize": 3,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponGun",
+                  "SubTypes": [
+                    {
+                      "value": "Gun"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       },
       "ClassName": "ANVL_Valkyrie_Turret_Top_CitizenCon",

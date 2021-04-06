@@ -27,12 +27,6 @@
           }
         }
       },
-      "SCItem": {
-        "turnedOnByDefault": false,
-        "attachToTileItemPort": "NoConnection",
-        "inheritModelTagFromHost": true,
-        "ItemPorts": []
-      },
       "SAmmoContainerComponentParams": {
         "initialAmmoCount": 12.0,
         "maxAmmoCount": 12.0,
@@ -119,104 +113,6 @@
               "Description": "@item_Descksar_shotgun_energy_01"
             }
           }
-        },
-        "SCItem": {
-          "turnedOnByDefault": false,
-          "attachToTileItemPort": "NoConnection",
-          "inheritModelTagFromHost": true,
-          "ItemPorts": [
-            {
-              "PortFlags": "",
-              "PortTags": "",
-              "RequiredItemTags": "",
-              "Ports": [
-                {
-                  "Name": "magazine_attach",
-                  "DisplayName": "Magazine Slot",
-                  "PortTags": "ksar_shotgun_energy_01",
-                  "RequiredPortTags": "ksar_shotgun_energy_01",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "Magazine"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "optics_attach",
-                  "DisplayName": "OpticsSlot",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "IronSight"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "barrel_attach",
-                  "DisplayName": "BarrelSlot",
-                  "PortTags": "",
-                  "RequiredPortTags": "FPS_Barrel energy_attach",
-                  "Flags": "energy_barrel",
-                  "MinSize": 3,
-                  "MaxSize": 3,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "Barrel"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "underbarrel_attach",
-                  "DisplayName": "UnderbarrelSlot",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 2,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "BottomAttachment"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
         },
         "SCItemWeaponComponentParams": {
           "ammoContainerRecord": "86eec5f7-3dd0-40f2-a433-3dc143c0d231",
@@ -461,9 +357,114 @@
                 "LockedByLinks": false,
                 "RequiresAuthorizedUser": false,
                 "available": true
+              },
+              {
+                "Name": "BespokePlace",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_place",
+                "DisplayType": "Hide",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
               }
             ]
           }
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": [
+            {
+              "Name": "magazine_attach",
+              "DisplayName": "Magazine Slot",
+              "PortTags": "ksar_shotgun_energy_01",
+              "RequiredPortTags": "ksar_shotgun_energy_01",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "Magazine"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "optics_attach",
+              "DisplayName": "OpticsSlot",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "IronSight"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "barrel_attach",
+              "DisplayName": "BarrelSlot",
+              "PortTags": "",
+              "RequiredPortTags": "FPS_Barrel energy_attach",
+              "Flags": "energy_barrel",
+              "MinSize": 3,
+              "MaxSize": 3,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "Barrel"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "underbarrel_attach",
+              "DisplayName": "UnderbarrelSlot",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 2,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "BottomAttachment"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       },
       "ClassName": "ksar_shotgun_energy_01_black02",

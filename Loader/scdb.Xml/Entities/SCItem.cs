@@ -21,7 +21,5 @@ namespace scdb.Xml.Entities
 
 		[XmlAttribute]
 		public bool inheritModelTagFromHost;
-
-		public SItemPortCoreParams[] ItemPorts;
 	}
 }

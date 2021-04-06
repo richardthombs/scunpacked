@@ -541,6 +541,11 @@
             }
           }
         },
+        "SDegradationParams": {
+          "MaxLifetimeHours": 25.0,
+          "InitialAgeRatio": 0.0,
+          "DegradeOnlyWhenAttached": false
+        },
         "SEntityInteractableParams": {
           "Interactable": {
             "SharedInteractions": [
@@ -588,6 +593,12 @@
               }
             ]
           }
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": []
         }
       },
       "ClassName": "ARGO_MOLE",
@@ -625,6 +636,14 @@
         {
           "name": "Shield",
           "class": "Shield"
+        },
+        {
+          "name": "WeaponRegenCrew",
+          "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponRegenTurret",
+          "class": "WeaponRegen"
         }
       ],
       "Parts": [
@@ -1033,7 +1052,7 @@
                       "ItemPort": {
                         "minsize": 4,
                         "maxsize": 4,
-                        "display_name": "Top Turret",
+                        "display_name": "port_NameTurret02",
                         "flags": "$uneditable",
                         "Types": [
                           {
@@ -1049,6 +1068,10 @@
                           {
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -1104,7 +1127,7 @@
                       "ItemPort": {
                         "minsize": 4,
                         "maxsize": 4,
-                        "display_name": "Top Turret",
+                        "display_name": "port_NameTurret03",
                         "flags": "$uneditable",
                         "Types": [
                           {
@@ -1120,6 +1143,10 @@
                           {
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -2018,6 +2045,10 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenCrew"
                       }
                     ]
                   }
@@ -2046,6 +2077,10 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenCrew"
                       }
                     ]
                   }
@@ -2062,7 +2097,7 @@
                   "ItemPort": {
                     "minsize": 4,
                     "maxsize": 4,
-                    "display_name": "Top Turret",
+                    "display_name": "port_NameTurret01",
                     "flags": "$uneditable",
                     "Types": [
                       {
@@ -2078,6 +2113,10 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
                       }
                     ],
                     "ControllerDef": {

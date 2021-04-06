@@ -347,6 +347,11 @@
                   "itemPortName": "Intake_Hardpoint_CounterMeasure_Right",
                   "entityClassName": "ANVL_CML_Noise_Small",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_missile",
+                  "entityClassName": "",
+                  "loadout": {}
                 }
               ]
             }
@@ -399,6 +404,11 @@
             }
           }
         },
+        "SDegradationParams": {
+          "MaxLifetimeHours": 25.0,
+          "InitialAgeRatio": 0.0,
+          "DegradeOnlyWhenAttached": false
+        },
         "SEntityInteractableParams": {
           "Interactable": {
             "SharedInteractions": [
@@ -432,6 +442,12 @@
               }
             ]
           }
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "ANVL_Hornet_Base",
+          "RequiredItemTags": "",
+          "Ports": []
         }
       },
       "ClassName": "ANVL_Hornet_F7CS",
@@ -470,6 +486,14 @@
         {
           "name": "Shield",
           "class": "Shield"
+        },
+        {
+          "name": "WeaponRegenCrew",
+          "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponRegenTurret",
+          "class": "WeaponRegen"
         }
       ],
       "Parts": [
@@ -1178,6 +1202,10 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenCrew"
                       }
                     ],
                     "Pitch": {
@@ -1188,6 +1216,21 @@
                       "min": -180,
                       "max": 180
                     }
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_missile",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "MissileController"
+                      }
+                    ]
                   }
                 },
                 {
@@ -1298,6 +1341,10 @@
                                   {
                                     "pipeClass": "Heat",
                                     "pipe": "MainHeat"
+                                  },
+                                  {
+                                    "pipeClass": "WeaponRegen",
+                                    "pipe": "WeaponRegenCrew"
                                   }
                                 ],
                                 "Pitch": {
@@ -1387,6 +1434,10 @@
                                   {
                                     "pipeClass": "Heat",
                                     "pipe": "MainHeat"
+                                  },
+                                  {
+                                    "pipeClass": "WeaponRegen",
+                                    "pipe": "WeaponRegenCrew"
                                   }
                                 ],
                                 "Pitch": {

@@ -89,24 +89,21 @@ namespace Loader
 		{
 			var ports = new List<StandardisedItemPort>();
 
-			if (entity.Components.SCItem?.ItemPorts == null) return ports;
+			if (entity.Components.SItemPortContainerComponentParams == null) return ports;
 
-			foreach (var itemPort in entity.Components.SCItem.ItemPorts)
+			foreach (var port in entity.Components.SItemPortContainerComponentParams.Ports)
 			{
-				foreach (var port in itemPort.Ports)
+				var stdPort = new StandardisedItemPort
 				{
-					var stdPort = new StandardisedItemPort
-					{
-						PortName = port.Name,
-						Size = port.MaxSize,
-						Types = BuildPortTypes(port),
-						Flags = BuildPortFlags(port)
-					};
+					PortName = port.Name,
+					Size = port.MaxSize,
+					Types = BuildPortTypes(port),
+					Flags = BuildPortFlags(port)
+				};
 
-					stdPort.Uneditable = stdPort.Flags.Contains("$uneditable") || stdPort.Flags.Contains("uneditable");
+				stdPort.Uneditable = stdPort.Flags.Contains("$uneditable") || stdPort.Flags.Contains("uneditable");
 
-					ports.Add(stdPort);
-				}
+				ports.Add(stdPort);
 			}
 
 			return ports;
@@ -347,10 +344,10 @@ namespace Loader
 			if (item.Components.SAttachableComponentParams?.AttachDef.Type != "MissileLauncher") return null;
 			if (item.Components.SAttachableComponentParams?.AttachDef.SubType != "MissileRack") return null;
 
-			var rootPort = item.Components.SCItem?.ItemPorts;
-			if (rootPort == null || rootPort.Length == 0) return null;
+			var rootPort = item.Components.SItemPortContainerComponentParams;
+			if (rootPort == null) return null;
 
-			var rackPorts = rootPort[0].Ports;
+			var rackPorts = rootPort.Ports;
 			if (rackPorts == null || rackPorts.Length == 0) return null;
 
 			return new StandardisedMissileRack
@@ -453,8 +450,8 @@ namespace Loader
 				case SWeaponActionFireRapidParams p:
 					mode.RoundsPerMinute = p.fireRate;
 					mode.FireType = "rapid";
-					mode.AmmoPerShot = p.launchParams.SProjectileLauncher.ammoCost;
-					mode.PelletsPerShot = p.launchParams.SProjectileLauncher.pelletCount;
+					mode.AmmoPerShot = p.launchParams.SProjectileLauncher?.ammoCost ?? 1;
+					mode.PelletsPerShot = p.launchParams.SProjectileLauncher?.pelletCount ?? 1;
 					break;
 
 				case SWeaponActionFireBeamParams p:

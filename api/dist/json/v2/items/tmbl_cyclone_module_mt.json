@@ -1,0 +1,273 @@
+{
+  "ClassName": "TMBL_Cyclone_Module_MT",
+  "Size": 3,
+  "Grade": 1,
+  "Type": "TurretBase.MannedTurret",
+  "Name": "Turret",
+  "Manufacturer": {
+    "Code": "TMBL",
+    "Name": "Tumbril Land Systems"
+  },
+  "Tags": [
+    "TMBL_Cyclone_Module"
+  ],
+  "Durability": {
+    "Health": 1000.0
+  },
+  "PowerConnection": {
+    "PowerBase": 0.0,
+    "PowerDraw": 1.0
+  },
+  "Ports": [
+    {
+      "PortName": "turret_weapon",
+      "Size": 1,
+      "Types": [
+        "WeaponGun.Gun"
+      ]
+    },
+    {
+      "PortName": "hardpoint_door_ramp",
+      "Size": 1,
+      "Loadout": "TMBL_Cyclone_Ramp_TR",
+      "InstalledItem": {
+        "ClassName": "TMBL_Cyclone_Ramp_TR",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "Door.UNDEFINED",
+        "Name": "TMBL_Cyclone_Ramp_TR",
+        "Manufacturer": {
+          "Code": "TMBL",
+          "Name": "Tumbril Land Systems"
+        },
+        "Durability": {
+          "Health": 200.0
+        },
+        "PowerConnection": {
+          "PowerBase": 0.0,
+          "PowerDraw": 1.0
+        },
+        "Ports": [
+          {
+            "PortName": "control_panel_a",
+            "Size": 10,
+            "Types": [
+              "ControlPanel.DoorPart"
+            ]
+          },
+          {
+            "PortName": "control_panel_b",
+            "Size": 10,
+            "Types": [
+              "ControlPanel.DoorPart"
+            ]
+          },
+          {
+            "PortName": "charge_handle_a",
+            "Size": 10,
+            "Types": [
+              "Misc.DoorPart"
+            ]
+          },
+          {
+            "PortName": "charge_handle_b",
+            "Size": 10,
+            "Types": [
+              "Misc.DoorPart"
+            ]
+          },
+          {
+            "PortName": "close_button_a",
+            "Size": 10,
+            "Types": [
+              "Button.DoorPart"
+            ]
+          },
+          {
+            "PortName": "close_button_b",
+            "Size": 10,
+            "Types": [
+              "Button.DoorPart"
+            ]
+          },
+          {
+            "PortName": "proximity_sensor",
+            "Size": 2,
+            "Types": [
+              "Sensor.DoorPart"
+            ]
+          },
+          {
+            "PortName": "light_group_a",
+            "Size": 10,
+            "Types": [
+              "Lightgroup.DoorPart"
+            ]
+          },
+          {
+            "PortName": "light_group_b",
+            "Size": 10,
+            "Types": [
+              "Lightgroup.DoorPart"
+            ]
+          },
+          {
+            "PortName": "decal_front",
+            "Size": 1,
+            "Types": [
+              "Decal.DoorPart"
+            ]
+          },
+          {
+            "PortName": "decal_rear",
+            "Size": 1,
+            "Types": [
+              "Decal.DoorPart"
+            ]
+          },
+          {
+            "PortName": "decal_screen",
+            "Size": 1,
+            "Types": [
+              "Decal.DoorPart"
+            ]
+          }
+        ]
+      },
+      "Types": [
+        "Door"
+      ],
+      "Flags": [
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_radar_turret",
+      "Size": 2,
+      "Loadout": "RADR_Default",
+      "InstalledItem": {
+        "ClassName": "RADR_Default",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "Radar.MidRangeRadar",
+        "Name": "Radar",
+        "Description": "@item_Desc_RADR_Default",
+        "Tags": [
+          "flightReady"
+        ],
+        "Durability": {
+          "Lifetime": 720.0
+        },
+        "PowerConnection": {
+          "PowerBase": 0.0,
+          "PowerDraw": 1.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        },
+        "Radar": {
+          "DetectionLifetime": 60.0,
+          "AltitudeCeiling": 5000.0,
+          "CrossSectionOcclusion": false,
+          "Signatures": [
+            {
+              "Detectable": true,
+              "Sensitivity": 0.5,
+              "AmbientPiercing": false
+            },
+            {
+              "Detectable": true,
+              "Sensitivity": 0.5,
+              "AmbientPiercing": false
+            },
+            {
+              "Detectable": false,
+              "Sensitivity": 1.0,
+              "AmbientPiercing": false
+            },
+            {
+              "Detectable": false,
+              "Sensitivity": 1.0,
+              "AmbientPiercing": false
+            },
+            {
+              "Detectable": true,
+              "Sensitivity": 0.5,
+              "AmbientPiercing": false
+            }
+          ]
+        },
+        "Ports": [
+          {
+            "PortName": "BatteryPort",
+            "Size": 2,
+            "Types": [
+              "Battery"
+            ],
+            "Flags": [
+              "invisible"
+            ]
+          }
+        ]
+      },
+      "Types": [
+        "Radar.ShortRangeRadar",
+        "Radar.MidRangeRadar"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_missilerack_left",
+      "Size": 3,
+      "Types": [
+        "MissileLauncher.MissileRack",
+        "WeaponGun.Rocket"
+      ],
+      "Flags": [
+        "$uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_missilerack_right",
+      "Size": 3,
+      "Types": [
+        "MissileLauncher.MissileRack",
+        "WeaponGun.Rocket"
+      ],
+      "Flags": [
+        "$uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_countermeasure_01",
+      "Size": 1,
+      "Types": [
+        "WeaponDefensive.CountermeasureLauncher"
+      ],
+      "Flags": [
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_countermeasure_02",
+      "Size": 1,
+      "Types": [
+        "WeaponDefensive.CountermeasureLauncher"
+      ],
+      "Flags": [
+        "uneditable"
+      ],
+      "Uneditable": true
+    }
+  ]
+}

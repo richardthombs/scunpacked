@@ -27,12 +27,6 @@
           }
         }
       },
-      "SCItem": {
-        "turnedOnByDefault": false,
-        "attachToTileItemPort": "NoConnection",
-        "inheritModelTagFromHost": true,
-        "ItemPorts": []
-      },
       "SAmmoContainerComponentParams": {
         "initialAmmoCount": 5.0,
         "maxAmmoCount": 5.0,
@@ -120,87 +114,10 @@
             "RequiredTags": "",
             "DisplayType": "",
             "Localization": {
-              "Name": "@item_Namelbco_sniper_energy_01_acid01",
-              "Description": "@item_Desclbco_sniper_energy_01_acid01"
+              "Name": "@item_Namelbco_sniper_energy_01",
+              "Description": "@item_Desclbco_sniper_energy_01"
             }
           }
-        },
-        "SCItem": {
-          "turnedOnByDefault": false,
-          "attachToTileItemPort": "NoConnection",
-          "inheritModelTagFromHost": true,
-          "ItemPorts": [
-            {
-              "PortFlags": "",
-              "PortTags": "",
-              "RequiredItemTags": "",
-              "Ports": [
-                {
-                  "Name": "magazine_attach",
-                  "DisplayName": "Magazine Slot",
-                  "PortTags": "lbco_sniper_energy_01",
-                  "RequiredPortTags": "lbco_sniper_energy_01",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "Magazine"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "optics_attach",
-                  "DisplayName": "OpticsSlot",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 3,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "IronSight"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "underbarrel_attach",
-                  "DisplayName": "UnderbarrelSlot",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 2,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "BottomAttachment"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
         },
         "SCItemWeaponComponentParams": {
           "ammoContainerRecord": "8177489f-ed83-44ac-afd4-2b32a80fa0a6",
@@ -434,9 +351,93 @@
                 "LockedByLinks": false,
                 "RequiresAuthorizedUser": false,
                 "available": true
+              },
+              {
+                "Name": "BespokePlace",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_place",
+                "DisplayType": "Hide",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
               }
             ]
           }
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": [
+            {
+              "Name": "magazine_attach",
+              "DisplayName": "Magazine Slot",
+              "PortTags": "lbco_sniper_energy_01",
+              "RequiredPortTags": "lbco_sniper_energy_01",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "Magazine"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "optics_attach",
+              "DisplayName": "OpticsSlot",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 3,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "IronSight"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "underbarrel_attach",
+              "DisplayName": "UnderbarrelSlot",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 2,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "BottomAttachment"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       },
       "ClassName": "lbco_sniper_energy_01_acid01",

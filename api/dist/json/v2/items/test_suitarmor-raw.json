@@ -35,208 +35,201 @@
       "WarningDelayTime": 0.3,
       "WarningDisplayTime": 8.0
     },
-    "SCItem": {
-      "turnedOnByDefault": false,
-      "attachToTileItemPort": "NoConnection",
-      "inheritModelTagFromHost": true,
-      "ItemPorts": [
+    "SCItemSuitArmorParams": {
+      "damageResistance": "00000000-0000-0000-0000-000000000000"
+    },
+    "SItemPortContainerComponentParams": {
+      "PortFlags": "",
+      "PortTags": "",
+      "RequiredItemTags": "",
+      "Ports": [
         {
-          "PortFlags": "",
+          "Name": "powerplant",
+          "DisplayName": "Powerplant Mount",
           "PortTags": "",
-          "RequiredItemTags": "",
-          "Ports": [
+          "RequiredPortTags": "",
+          "Flags": "nophys invisible",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
             {
-              "Name": "powerplant",
-              "DisplayName": "Powerplant Mount",
-              "PortTags": "",
-              "RequiredPortTags": "",
-              "Flags": "nophys invisible",
-              "MinSize": 1,
-              "MaxSize": 1,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
+              "Type": "PowerPlant",
+              "SubTypes": [
                 {
-                  "Type": "PowerPlant",
-                  "SubTypes": [
-                    {
-                      "value": "Power"
-                    }
-                  ]
+                  "value": "Power"
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "Name": "helmetmount1",
+          "DisplayName": "Helmet Mount 1",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "nophys unlootable body_attach",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
             {
-              "Name": "helmetmount1",
-              "DisplayName": "Helmet Mount 1",
-              "PortTags": "",
-              "RequiredPortTags": "",
-              "Flags": "nophys unlootable body_attach",
-              "MinSize": 1,
-              "MaxSize": 1,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
+              "Type": "Suit",
+              "SubTypes": [
                 {
-                  "Type": "Suit",
-                  "SubTypes": [
-                    {
-                      "value": "Helmet"
-                    },
-                    {
-                      "value": "Hat"
-                    }
-                  ]
+                  "value": "Helmet"
+                },
+                {
+                  "value": "Hat"
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "Name": "flashlight",
+          "DisplayName": "Flashlight",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "nophys body_attach",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": []
+        },
+        {
+          "Name": "weapon_attach",
+          "DisplayName": "Weapon Right Hand",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "select nophys",
+          "MinSize": 1,
+          "MaxSize": 5,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
             {
-              "Name": "flashlight",
-              "DisplayName": "Flashlight",
-              "PortTags": "",
-              "RequiredPortTags": "",
-              "Flags": "nophys body_attach",
-              "MinSize": 1,
-              "MaxSize": 1,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": []
-            },
-            {
-              "Name": "weapon_attach",
-              "DisplayName": "Weapon Right Hand",
-              "PortTags": "",
-              "RequiredPortTags": "",
-              "Flags": "select nophys",
-              "MinSize": 1,
-              "MaxSize": 5,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
+              "Type": "WeaponPersonal",
+              "SubTypes": [
                 {
-                  "Type": "WeaponPersonal",
-                  "SubTypes": [
-                    {
-                      "value": "Small"
-                    },
-                    {
-                      "value": "Large"
-                    },
-                    {
-                      "value": "Medium"
-                    },
-                    {
-                      "value": "Grenade"
-                    },
-                    {
-                      "value": "Gadget"
-                    }
-                  ]
+                  "value": "Small"
+                },
+                {
+                  "value": "Large"
+                },
+                {
+                  "value": "Medium"
+                },
+                {
+                  "value": "Grenade"
+                },
+                {
+                  "value": "Gadget"
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "Name": "offhand_attach",
+          "DisplayName": "Left Hand",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "select nophys",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
             {
-              "Name": "offhand_attach",
-              "DisplayName": "Left Hand",
-              "PortTags": "",
-              "RequiredPortTags": "",
-              "Flags": "select nophys",
-              "MinSize": 1,
-              "MaxSize": 1,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
+              "Type": "WeaponAttachment",
+              "SubTypes": [
                 {
-                  "Type": "WeaponAttachment",
-                  "SubTypes": [
-                    {
-                      "value": "Magazine"
-                    }
-                  ]
+                  "value": "Magazine"
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "Name": "wep_sidearm_leg_right",
+          "DisplayName": "Small Weapon 1",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "body_attach nophys",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
             {
-              "Name": "wep_sidearm_leg_right",
-              "DisplayName": "Small Weapon 1",
-              "PortTags": "",
-              "RequiredPortTags": "",
-              "Flags": "body_attach nophys",
-              "MinSize": 1,
-              "MaxSize": 1,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
+              "Type": "WeaponPersonal",
+              "SubTypes": [
                 {
-                  "Type": "WeaponPersonal",
-                  "SubTypes": [
-                    {
-                      "value": "Small"
-                    }
-                  ]
+                  "value": "Small"
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "Name": "magazine_attach_1",
+          "DisplayName": "Magazine 1 Armor Attach",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "body_attach nophys",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
             {
-              "Name": "magazine_attach_1",
-              "DisplayName": "Magazine 1 Armor Attach",
-              "PortTags": "",
-              "RequiredPortTags": "",
-              "Flags": "body_attach nophys",
-              "MinSize": 1,
-              "MaxSize": 1,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
+              "Type": "WeaponAttachment",
+              "SubTypes": [
                 {
-                  "Type": "WeaponAttachment",
-                  "SubTypes": [
-                    {
-                      "value": "Magazine"
-                    }
-                  ]
+                  "value": "Magazine"
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "Name": "weapon_attach_hand_right",
+          "DisplayName": "Weapon Right Hand",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "select nophys",
+          "MinSize": 1,
+          "MaxSize": 5,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
             {
-              "Name": "weapon_attach_hand_right",
-              "DisplayName": "Weapon Right Hand",
-              "PortTags": "",
-              "RequiredPortTags": "",
-              "Flags": "select nophys",
-              "MinSize": 1,
-              "MaxSize": 5,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
+              "Type": "WeaponPersonal",
+              "SubTypes": [
                 {
-                  "Type": "WeaponPersonal",
-                  "SubTypes": [
-                    {
-                      "value": "Small"
-                    },
-                    {
-                      "value": "Medium"
-                    },
-                    {
-                      "value": "Large"
-                    },
-                    {
-                      "value": "Grenade"
-                    },
-                    {
-                      "value": "Gadget"
-                    }
-                  ]
+                  "value": "Small"
+                },
+                {
+                  "value": "Medium"
+                },
+                {
+                  "value": "Large"
+                },
+                {
+                  "value": "Grenade"
+                },
+                {
+                  "value": "Gadget"
                 }
               ]
             }
           ]
         }
       ]
-    },
-    "SCItemSuitArmorParams": {
-      "damageResistance": "00000000-0000-0000-0000-000000000000"
     }
   },
   "ClassName": "test_SuitArmor",

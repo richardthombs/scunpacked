@@ -24,84 +24,77 @@
             }
           }
         },
-        "SCItem": {
-          "turnedOnByDefault": false,
-          "attachToTileItemPort": "NoConnection",
-          "inheritModelTagFromHost": true,
-          "ItemPorts": [
+        "SCItemClothingParams": {
+          "TemperatureResistance": {
+            "MinResistance": "0",
+            "MaxResistance": "25"
+          }
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": [
             {
-              "PortFlags": "",
+              "Name": "Material_Variant",
+              "DisplayName": "Material_Variant",
               "PortTags": "",
-              "RequiredItemTags": "",
-              "Ports": [
+              "RequiredPortTags": "",
+              "Flags": "nontransferable ",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
                 {
-                  "Name": "Material_Variant",
-                  "DisplayName": "Material_Variant",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "nontransferable ",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
+                  "Type": "Paints",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "pocket",
+              "DisplayName": "Gadget Pocket",
+              "PortTags": "pocket",
+              "RequiredPortTags": "",
+              "Flags": "body_attach nophys inventory invisible",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponPersonal",
+                  "SubTypes": [
                     {
-                      "Type": "Paints",
-                      "SubTypes": []
+                      "value": "Gadget"
                     }
                   ]
-                },
+                }
+              ]
+            },
+            {
+              "Name": "pocket2",
+              "DisplayName": "Hacking Pocket",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "body_attach nophys inventory invisible",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
                 {
-                  "Name": "pocket",
-                  "DisplayName": "Gadget Pocket",
-                  "PortTags": "pocket",
-                  "RequiredPortTags": "",
-                  "Flags": "body_attach nophys inventory invisible",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
+                  "Type": "RemovableChip",
+                  "SubTypes": [
                     {
-                      "Type": "WeaponPersonal",
-                      "SubTypes": [
-                        {
-                          "value": "Gadget"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "pocket2",
-                  "DisplayName": "Hacking Pocket",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "body_attach nophys inventory invisible",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "RemovableChip",
-                      "SubTypes": [
-                        {
-                          "value": "Hacking"
-                        }
-                      ]
+                      "value": "Hacking"
                     }
                   ]
                 }
               ]
             }
           ]
-        },
-        "SCItemClothingParams": {
-          "TemperatureResistance": {
-            "MinResistance": "0",
-            "MaxResistance": "25"
-          }
         }
       },
       "ClassName": "fio_jacket_01_01_scientist",

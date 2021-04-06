@@ -1,0 +1,105 @@
+{
+  "StaticEntityClassData": {},
+  "tags": [
+    {
+      "value": "dc810059-af06-4985-81b1-1a908ff4ff78"
+    }
+  ],
+  "Components": {
+    "SEntityComponentDefaultLoadoutParams": {
+      "loadout": {
+        "SItemPortLoadoutManualParams": {
+          "entries": [
+            {
+              "itemPortName": "itemport_docking_door_a",
+              "entityClassName": "Station_DockingDoor_WhiteboxDoor",
+              "loadout": {}
+            },
+            {
+              "itemPortName": "itemport_docking_door_b",
+              "entityClassName": "Station_DockingDoor_WhiteboxDoor_b",
+              "loadout": {}
+            }
+          ]
+        }
+      }
+    },
+    "SAttachableComponentParams": {
+      "AttachDef": {
+        "Type": "DockingCollar",
+        "SubType": "UNDEFINED",
+        "Size": 1,
+        "Grade": 1,
+        "Manufacturer": "00000000-0000-0000-0000-000000000000",
+        "Tags": "",
+        "RequiredTags": "",
+        "DisplayType": "",
+        "Localization": {
+          "Name": "@LOC_PLACEHOLDER",
+          "Description": "@LOC_EMPTY"
+        }
+      }
+    },
+    "SItemPortContainerComponentParams": {
+      "PortFlags": "",
+      "PortTags": "",
+      "RequiredItemTags": "",
+      "Ports": [
+        {
+          "Name": "itemport_vehicle_attach",
+          "DisplayName": "ItemportVehicleAttach",
+          "PortTags": "Station_Dock_Large",
+          "RequiredPortTags": "",
+          "Flags": "",
+          "MinSize": 0,
+          "MaxSize": 8,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "NOITEM_Vehicle",
+              "SubTypes": []
+            }
+          ]
+        },
+        {
+          "Name": "itemport_docking_door_a",
+          "DisplayName": "ItemportDockingDoor",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "dockingport1",
+          "MinSize": 0,
+          "MaxSize": 0,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "DockingAnimator",
+              "SubTypes": []
+            }
+          ]
+        },
+        {
+          "Name": "itemport_docking_door_b",
+          "DisplayName": "Station_DockingDoor_WhiteboxDoor_b",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "dockingport1",
+          "MinSize": 0,
+          "MaxSize": 0,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "DockingAnimator",
+              "SubTypes": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "ClassName": "Station_DockingTube_Default",
+  "__ref": "67d2c85d-3aac-49da-b07e-5d4bab6054f0",
+  "__type": "EntityClassDefinition"
+}

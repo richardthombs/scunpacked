@@ -4,32 +4,32 @@
     "Mass": 4617511.0,
     "Parts": [
       {
-        "Name": "landingpad_helper",
-        "Port": {
-          "PortName": "landingpad_helper",
-          "Size": 1,
-          "Loadout": "Default_LandingSystem",
-          "InstalledItem": {
-            "ClassName": "Default_LandingSystem",
-            "Size": 1,
-            "Grade": 1,
-            "Type": "LandingSystem.UNDEFINED",
-            "Name": "Default_LandingSystem"
-          },
-          "Types": [
-            "LandingSystem"
-          ],
-          "Flags": [
-            "uneditable"
-          ],
-          "Category": "UNKNOWN",
-          "Uneditable": true
-        }
-      },
-      {
         "Name": "Body",
         "MaximumDamage": 18000.0,
         "Parts": [
+          {
+            "Name": "landingpad_helper",
+            "Port": {
+              "PortName": "landingpad_helper",
+              "Size": 1,
+              "Loadout": "Default_LandingSystem",
+              "InstalledItem": {
+                "ClassName": "Default_LandingSystem",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "LandingSystem.UNDEFINED",
+                "Name": "Default_LandingSystem"
+              },
+              "Types": [
+                "LandingSystem"
+              ],
+              "Flags": [
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
           {
             "Name": "animated_interior_body",
             "Port": {
@@ -61,7 +61,8 @@
                   "flightReady"
                 ],
                 "Durability": {
-                  "Health": 2000.0
+                  "Health": 2000.0,
+                  "Lifetime": 25.0
                 },
                 "PowerConnection": {
                   "PowerBase": 0.0,
@@ -545,7 +546,8 @@
                   "flightReady"
                 ],
                 "Durability": {
-                  "Health": 2000.0
+                  "Health": 2000.0,
+                  "Lifetime": 25.0
                 },
                 "PowerConnection": {
                   "PowerBase": 0.0,
@@ -1029,7 +1031,8 @@
                   "flightReady"
                 ],
                 "Durability": {
-                  "Health": 2000.0
+                  "Health": 2000.0,
+                  "Lifetime": 25.0
                 },
                 "PowerConnection": {
                   "PowerBase": 0.0,
@@ -2781,6 +2784,32 @@
                 "SeatDashboard"
               ],
               "Category": "UNKNOWN"
+            }
+          },
+          {
+            "Name": "hardpoint_air_traffic_controller",
+            "Port": {
+              "PortName": "hardpoint_air_traffic_controller",
+              "Size": 4,
+              "Loadout": "AEGS_Hammerhead_ShipATCDataManager",
+              "InstalledItem": {
+                "ClassName": "AEGS_Hammerhead_ShipATCDataManager",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "AirTrafficController.UNDEFINED",
+                "Name": "AEGS_Hammerhead_ShipATCDataManager",
+                "Tags": [
+                  "AEGS_Hammerhead"
+                ]
+              },
+              "Types": [
+                "AirTrafficController"
+              ],
+              "Flags": [
+                "$uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
             }
           },
           {
@@ -4988,8 +5017,30 @@
                 "Port": {
                   "PortName": "hardpoint_docking_collar",
                   "Size": 4,
+                  "Loadout": "AEGS_Hammerhead_Front_DockingTube",
+                  "InstalledItem": {
+                    "ClassName": "AEGS_Hammerhead_Front_DockingTube",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "DockingCollar.UNDEFINED",
+                    "Name": "AEGS_Hammerhead_Front_DockingTube",
+                    "Ports": [
+                      {
+                        "PortName": "itemport_vehicle_attach",
+                        "Size": 8,
+                        "Types": [
+                          "NOITEM_Vehicle"
+                        ],
+                        "Category": "UNKNOWN"
+                      }
+                    ]
+                  },
+                  "Types": [
+                    "DockingCollar"
+                  ],
                   "Flags": [
-                    "$uneditable"
+                    "$uneditable",
+                    "dockingport1"
                   ],
                   "Category": "UNKNOWN",
                   "Uneditable": true
@@ -5356,7 +5407,8 @@
                       "flightReady"
                     ],
                     "Durability": {
-                      "Health": 2000.0
+                      "Health": 2000.0,
+                      "Lifetime": 25.0
                     },
                     "PowerConnection": {
                       "PowerBase": 0.0,
@@ -5840,7 +5892,8 @@
                       "flightReady"
                     ],
                     "Durability": {
-                      "Health": 2000.0
+                      "Health": 2000.0,
+                      "Lifetime": 25.0
                     },
                     "PowerConnection": {
                       "PowerBase": 0.0,
@@ -7122,12 +7175,13 @@
                     ]
                   },
                   "Types": [
-                    "Door"
+                    "DockingAnimator"
                   ],
                   "Flags": [
-                    "uneditable"
+                    "uneditable",
+                    "dockingport1"
                   ],
-                  "Category": "Doors",
+                  "Category": "UNKNOWN",
                   "Uneditable": true
                 }
               },
@@ -7205,7 +7259,7 @@
                       {
                         "PortName": "proximity_sensor",
                         "Size": 2,
-                        "Loadout": "DoorProximitySensorItem_Template",
+                        "Loadout": "DoorProximitySensorItem_Directional_Proximity_Template",
                         "Types": [
                           "Sensor.DoorPart"
                         ],
@@ -7331,7 +7385,7 @@
                       {
                         "PortName": "proximity_sensor",
                         "Size": 2,
-                        "Loadout": "DoorProximitySensorItem_Template",
+                        "Loadout": "DoorProximitySensorItem_Directional_Proximity_Template",
                         "Types": [
                           "Sensor.DoorPart"
                         ],
@@ -7526,7 +7580,8 @@
                       "flightReady"
                     ],
                     "Durability": {
-                      "Health": 2000.0
+                      "Health": 2000.0,
+                      "Lifetime": 25.0
                     },
                     "PowerConnection": {
                       "PowerBase": 0.0,
@@ -9173,7 +9228,7 @@
                   {
                     "PortName": "proximity_sensor",
                     "Size": 2,
-                    "Loadout": "DoorProximitySensorItem_Template",
+                    "Loadout": "DoorProximitySensorItem_Directional_Proximity_Template",
                     "Types": [
                       "Sensor.DoorPart"
                     ],
@@ -9299,7 +9354,7 @@
                   {
                     "PortName": "proximity_sensor",
                     "Size": 2,
-                    "Loadout": "DoorProximitySensorItem_Template",
+                    "Loadout": "DoorProximitySensorItem_Directional_Proximity_Template",
                     "Types": [
                       "Sensor.DoorPart"
                     ],
@@ -9386,6 +9441,22 @@
                 "uneditable"
               ],
               "Category": "Paints",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_missile",
+            "Port": {
+              "PortName": "hardpoint_controller_missile",
+              "Size": 1,
+              "Types": [
+                "MissileController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
               "Uneditable": true
             }
           }

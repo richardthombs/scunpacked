@@ -696,6 +696,11 @@
             }
           }
         },
+        "SDegradationParams": {
+          "MaxLifetimeHours": 25.0,
+          "InitialAgeRatio": 0.0,
+          "DegradeOnlyWhenAttached": false
+        },
         "SEntityInteractableParams": {
           "Interactable": {
             "SharedInteractions": [
@@ -729,6 +734,12 @@
               }
             ]
           }
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": []
         }
       },
       "ClassName": "ANVL_Carrack",
@@ -766,6 +777,14 @@
         {
           "name": "Shield",
           "class": "Shield"
+        },
+        {
+          "name": "WeaponRegenCrew",
+          "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponRegenTurret",
+          "class": "WeaponRegen"
         }
       ],
       "Parts": [
@@ -792,7 +811,7 @@
                     "flags": "$uneditable",
                     "Types": [
                       {
-                        "type": ""
+                        "type": "NOITEM_Vehicle"
                       }
                     ]
                   }
@@ -1761,6 +1780,10 @@
                           {
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -2051,6 +2074,10 @@
                           {
                             "pipeClass": "Avionics",
                             "pipe": "Avionics"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -2151,6 +2178,10 @@
                           {
                             "pipeClass": "Avionics",
                             "pipe": "Avionics"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
                           }
                         ],
                         "ControllerDef": {

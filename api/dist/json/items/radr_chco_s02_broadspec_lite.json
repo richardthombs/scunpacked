@@ -66,37 +66,6 @@
           "MisfireMinTemperature": 370.0,
           "MisfireMaxTemperature": 600.0
         },
-        "SCItem": {
-          "turnedOnByDefault": false,
-          "attachToTileItemPort": "NoConnection",
-          "inheritModelTagFromHost": true,
-          "ItemPorts": [
-            {
-              "PortFlags": "superFLags",
-              "PortTags": "",
-              "RequiredItemTags": "",
-              "Ports": [
-                {
-                  "Name": "BatteryPort",
-                  "DisplayName": "",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "invisible",
-                  "MinSize": 1,
-                  "MaxSize": 2,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "Battery",
-                      "SubTypes": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
         "SCItemRadarComponentParams": {
           "detectionLifetime": 60.0,
           "altitudeCeiling": 5000.0,
@@ -126,6 +95,30 @@
               "detectable": true,
               "sensitivity": 0.75,
               "ambientPiercing": false
+            }
+          ]
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "superFLags",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": [
+            {
+              "Name": "BatteryPort",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "invisible",
+              "MinSize": 1,
+              "MaxSize": 2,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "Battery",
+                  "SubTypes": []
+                }
+              ]
             }
           ]
         }

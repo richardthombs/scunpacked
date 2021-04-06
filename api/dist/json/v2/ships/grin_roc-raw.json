@@ -218,6 +218,11 @@
           }
         }
       },
+      "SDegradationParams": {
+        "MaxLifetimeHours": 25.0,
+        "InitialAgeRatio": 0.0,
+        "DegradeOnlyWhenAttached": false
+      },
       "SEntityInteractableParams": {
         "Interactable": {
           "SharedInteractions": [
@@ -251,6 +256,12 @@
             }
           ]
         }
+      },
+      "SItemPortContainerComponentParams": {
+        "PortFlags": "",
+        "PortTags": "",
+        "RequiredItemTags": "",
+        "Ports": []
       }
     },
     "ClassName": "GRIN_ROC",
@@ -288,6 +299,14 @@
       {
         "name": "Shield",
         "class": "Shield"
+      },
+      {
+        "name": "WeaponRegenCrew",
+        "class": "WeaponRegen"
+      },
+      {
+        "name": "WeaponRegenTurret",
+        "class": "WeaponRegen"
       }
     ],
     "Parts": [
@@ -394,7 +413,6 @@
                   },
                   {
                     "name": "rear_storage_trunck",
-                    "damageMax": 350.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint"
                   },
@@ -467,7 +485,7 @@
                   "maxsize": 1,
                   "display_name": "port_NamePaint",
                   "flags": "",
-                  "requiredTags": "ROC_Paint",
+                  "requiredTags": "Paint_ROC",
                   "Types": [
                     {
                       "type": "Paints"

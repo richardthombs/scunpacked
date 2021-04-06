@@ -979,8 +979,8 @@
                   "loadout": {}
                 },
                 {
-                  "itemPortName": "hardpoint_door_airlock_bridge",
-                  "entityClassName": "Door_Ship_Exterior_Idris_Airlock_Bridge",
+                  "itemPortName": "hardpoint_controller_missile",
+                  "entityClassName": "",
                   "loadout": {}
                 }
               ]
@@ -1034,6 +1034,11 @@
             }
           }
         },
+        "SDegradationParams": {
+          "MaxLifetimeHours": 25.0,
+          "InitialAgeRatio": 0.0,
+          "DegradeOnlyWhenAttached": false
+        },
         "SEntityInteractableParams": {
           "Interactable": {
             "SharedInteractions": [
@@ -1067,6 +1072,12 @@
               }
             ]
           }
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "AEGS_Idris_Base",
+          "RequiredItemTags": "",
+          "Ports": []
         }
       },
       "ClassName": "AEGS_Idris",
@@ -1105,6 +1116,14 @@
         {
           "name": "Shield",
           "class": "Shield"
+        },
+        {
+          "name": "WeaponRegenCrew",
+          "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponRegenTurret",
+          "class": "WeaponRegen"
         }
       ],
       "Parts": [
@@ -2103,6 +2122,10 @@
                       {
                         "pipeClass": "Avionics",
                         "pipe": "Avionics"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
                       }
                     ],
                     "ControllerDef": {
@@ -2214,6 +2237,10 @@
                       {
                         "pipeClass": "Avionics",
                         "pipe": "Avionics"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
                       }
                     ],
                     "ControllerDef": {
@@ -2638,6 +2665,10 @@
                           {
                             "pipeClass": "Avionics",
                             "pipe": "Avionics"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -2904,6 +2935,10 @@
                           {
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenCrew"
                           }
                         ],
                         "ControllerDef": {
@@ -3230,6 +3265,10 @@
                           {
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -3450,6 +3489,10 @@
                           {
                             "pipeClass": "Avionics",
                             "pipe": "Avionics"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -5131,7 +5174,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
-                    "display_name": "Starboard Countermeasures 2",
+                    "display_name": "port_NameCountermeasure01",
                     "flags": "right uneditable",
                     "Types": [
                       {
@@ -5158,7 +5201,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
-                    "display_name": "Starboard Countermeasures 1",
+                    "display_name": "port_NameCountermeasure02",
                     "flags": "right uneditable",
                     "Types": [
                       {
@@ -5185,7 +5228,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
-                    "display_name": "Port Countermeasures 1",
+                    "display_name": "port_NameCountermeasure03",
                     "flags": "right uneditable",
                     "Types": [
                       {
@@ -5212,7 +5255,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
-                    "display_name": "Port Countermeasures 2",
+                    "display_name": "port_NameCountermeasure04",
                     "flags": "right uneditable",
                     "Types": [
                       {
@@ -5537,6 +5580,10 @@
                               {
                                 "pipeClass": "Avionics",
                                 "pipe": "Avionics"
+                              },
+                              {
+                                "pipeClass": "WeaponRegen",
+                                "pipe": "WeaponRegenTurret"
                               }
                             ],
                             "ControllerDef": {
@@ -5767,6 +5814,10 @@
                           {
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -5878,6 +5929,10 @@
                           {
                             "pipeClass": "Avionics",
                             "pipe": "Avionics"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -6115,6 +6170,21 @@
                       }
                     ]
                   }
+                },
+                {
+                  "name": "hardpoint_controller_missile",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "MissileController"
+                      }
+                    ]
+                  }
                 }
               ],
               "DamageBehaviors": [
@@ -6270,119 +6340,6 @@
         },
         {
           "name": "Stanton",
-          "patchFile": "Modifications/AEGS_Idris_Stanton",
-          "Elems": [
-            {
-              "idRef": "modVehicle",
-              "name": "displayname",
-              "value": "AEGS Idris M"
-            },
-            {
-              "idRef": "modPaint",
-              "name": "requiredTags",
-              "value": "Idris_M_Paint"
-            }
-          ]
-        },
-        {
-          "name": "S42_C04",
-          "patchFile": "Modifications/AEGS_Idris_S42_C04",
-          "Elems": [
-            {
-              "idRef": "modVehicle",
-              "name": "displayname",
-              "value": "AEGS Idris M"
-            },
-            {
-              "idRef": "modPaint",
-              "name": "requiredTags",
-              "value": "Idris_M_Paint"
-            }
-          ]
-        },
-        {
-          "name": "S42_C04B",
-          "patchFile": "Modifications/AEGS_Idris_S42_C04B",
-          "Elems": [
-            {
-              "idRef": "modVehicle",
-              "name": "displayname",
-              "value": "AEGS Idris M"
-            },
-            {
-              "idRef": "modPaint",
-              "name": "requiredTags",
-              "value": "Idris_M_Paint"
-            }
-          ]
-        },
-        {
-          "name": "S42_C04D",
-          "patchFile": "Modifications/AEGS_Idris_S42_C04D",
-          "Elems": [
-            {
-              "idRef": "modVehicle",
-              "name": "displayname",
-              "value": "AEGS Idris M"
-            },
-            {
-              "idRef": "modPaint",
-              "name": "requiredTags",
-              "value": "Idris_M_Paint"
-            }
-          ]
-        },
-        {
-          "name": "S42_C04F",
-          "patchFile": "Modifications/AEGS_Idris_S42_C04F",
-          "Elems": [
-            {
-              "idRef": "modVehicle",
-              "name": "displayname",
-              "value": "AEGS Idris M"
-            },
-            {
-              "idRef": "modPaint",
-              "name": "requiredTags",
-              "value": "Idris_M_Paint"
-            }
-          ]
-        },
-        {
-          "name": "S42_Level",
-          "patchFile": "Modifications/AEGS_Idris_S42_C06",
-          "Elems": [
-            {
-              "idRef": "modVehicle",
-              "name": "displayname",
-              "value": "AEGS Idris M"
-            },
-            {
-              "idRef": "modPaint",
-              "name": "requiredTags",
-              "value": "Idris_M_Paint"
-            }
-          ]
-        },
-        {
-          "name": "S42_C06",
-          "patchFile": "Modifications/AEGS_Idris_S42_C06",
-          "Elems": [
-            {
-              "idRef": "modVehicle",
-              "name": "displayname",
-              "value": "AEGS Idris M"
-            },
-            {
-              "idRef": "modPaint",
-              "name": "requiredTags",
-              "value": "Idris_M_Paint"
-            }
-          ]
-        },
-        {
-          "name": "S42_C11",
-          "patchFile": "Modifications/AEGS_Idris_S42_C11",
           "Elems": [
             {
               "idRef": "modVehicle",

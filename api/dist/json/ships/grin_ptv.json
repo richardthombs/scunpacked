@@ -107,6 +107,11 @@
                   "itemPortName": "hardpoint_controller_weapon",
                   "entityClassName": "Controller_Weapon",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_comms",
+                  "entityClassName": "Controller_Comms",
+                  "loadout": {}
                 }
               ]
             }
@@ -159,6 +164,11 @@
             }
           }
         },
+        "SDegradationParams": {
+          "MaxLifetimeHours": 25.0,
+          "InitialAgeRatio": 0.0,
+          "DegradeOnlyWhenAttached": false
+        },
         "SEntityInteractableParams": {
           "Interactable": {
             "SharedInteractions": [
@@ -192,6 +202,12 @@
               }
             ]
           }
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "GRIN_PTV_Base",
+          "RequiredItemTags": "",
+          "Ports": []
         }
       },
       "ClassName": "GRIN_PTV",
@@ -228,6 +244,14 @@
         {
           "name": "BatteryFuel",
           "class": "Fuel"
+        },
+        {
+          "name": "WeaponRegenCrew",
+          "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponRegenTurret",
+          "class": "WeaponRegen"
         }
       ],
       "Parts": [
@@ -378,6 +402,30 @@
                           {
                             "itemType": "PowerPlant",
                             "defaultPriority": "exclusive_control"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_comms",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "CommsController"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "Comms"
                           }
                         ]
                       }

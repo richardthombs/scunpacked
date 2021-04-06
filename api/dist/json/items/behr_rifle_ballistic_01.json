@@ -8,6 +8,15 @@
     "tags": [
       {
         "value": "7cc0441f-5832-4df2-8655-4cb6a70478a5"
+      },
+      {
+        "value": "b74a054a-50e4-4e90-b840-d8c487e01572"
+      },
+      {
+        "value": "755e8d4c-f0a2-4025-80aa-bd6002cd0697"
+      },
+      {
+        "value": "386f5ab5-4bde-49ef-a1dd-a8a2b7d1060d"
       }
     ],
     "Components": {
@@ -26,12 +35,6 @@
             "Description": "@item_Descbehr_rifle_ballistic_01_mag"
           }
         }
-      },
-      "SCItem": {
-        "turnedOnByDefault": false,
-        "attachToTileItemPort": "NoConnection",
-        "inheritModelTagFromHost": true,
-        "ItemPorts": []
       },
       "SAmmoContainerComponentParams": {
         "initialAmmoCount": 30.0,
@@ -119,104 +122,6 @@
               "Description": "@item_Descbehr_rifle_ballistic_01"
             }
           }
-        },
-        "SCItem": {
-          "turnedOnByDefault": false,
-          "attachToTileItemPort": "NoConnection",
-          "inheritModelTagFromHost": true,
-          "ItemPorts": [
-            {
-              "PortFlags": "",
-              "PortTags": "",
-              "RequiredItemTags": "",
-              "Ports": [
-                {
-                  "Name": "magazine_attach",
-                  "DisplayName": "Magazine Slot",
-                  "PortTags": "behr_rifle_ballistic_01",
-                  "RequiredPortTags": "behr_rifle_ballistic_01",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "Magazine"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "optics_attach",
-                  "DisplayName": "OpticsSlot",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 2,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "IronSight"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "barrel_attach",
-                  "DisplayName": "BarrelSlot",
-                  "PortTags": "",
-                  "RequiredPortTags": "FPS_Barrel ballistic_attach",
-                  "Flags": "",
-                  "MinSize": 2,
-                  "MaxSize": 2,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "Barrel"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "underbarrel_attach",
-                  "DisplayName": "UnderbarrelSlot",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 2,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "BottomAttachment"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
         },
         "SCItemWeaponComponentParams": {
           "ammoContainerRecord": "1f8845fb-22de-4c73-b6e6-ed1d1b066808",
@@ -494,9 +399,114 @@
                 "LockedByLinks": false,
                 "RequiresAuthorizedUser": false,
                 "available": true
+              },
+              {
+                "Name": "BespokePlace",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_place",
+                "DisplayType": "Hide",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
               }
             ]
           }
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": [
+            {
+              "Name": "magazine_attach",
+              "DisplayName": "Magazine Slot",
+              "PortTags": "behr_rifle_ballistic_01",
+              "RequiredPortTags": "behr_rifle_ballistic_01",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "Magazine"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "optics_attach",
+              "DisplayName": "OpticsSlot",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 2,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "IronSight"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "barrel_attach",
+              "DisplayName": "BarrelSlot",
+              "PortTags": "",
+              "RequiredPortTags": "FPS_Barrel ballistic_attach",
+              "Flags": "",
+              "MinSize": 2,
+              "MaxSize": 2,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "Barrel"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "underbarrel_attach",
+              "DisplayName": "UnderbarrelSlot",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 2,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "BottomAttachment"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       },
       "ClassName": "behr_rifle_ballistic_01",

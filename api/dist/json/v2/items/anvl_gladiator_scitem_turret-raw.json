@@ -57,6 +57,11 @@
         }
       }
     },
+    "SDegradationParams": {
+      "MaxLifetimeHours": 25.0,
+      "InitialAgeRatio": 0.0,
+      "DegradeOnlyWhenAttached": true
+    },
     "EntityComponentPowerConnection": {
       "PowerBase": 0.0,
       "PowerDraw": 2.0,
@@ -100,62 +105,6 @@
       "OverloadRatio": 0.995,
       "RecoveryRatio": 0.7,
       "RecoveryTime": 0.0
-    },
-    "SCItem": {
-      "turnedOnByDefault": false,
-      "attachToTileItemPort": "NoConnection",
-      "inheritModelTagFromHost": true,
-      "ItemPorts": [
-        {
-          "PortFlags": "",
-          "PortTags": "",
-          "RequiredItemTags": "",
-          "Ports": [
-            {
-              "Name": "hardpoint_weapon_left",
-              "DisplayName": "port_NameTurretGunSlot01",
-              "PortTags": "",
-              "RequiredPortTags": "",
-              "Flags": "",
-              "MinSize": 3,
-              "MaxSize": 3,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
-                {
-                  "Type": "WeaponGun",
-                  "SubTypes": [
-                    {
-                      "value": "Gun"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Name": "hardpoint_weapon_right",
-              "DisplayName": "port_NameTurretGunSlot02",
-              "PortTags": "",
-              "RequiredPortTags": "",
-              "Flags": "",
-              "MinSize": 3,
-              "MaxSize": 3,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
-                {
-                  "Type": "WeaponGun",
-                  "SubTypes": [
-                    {
-                      "value": "Gun"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
     },
     "SCItemTurretParams": {
       "rotationStyle": "SingleAxis",
@@ -239,6 +188,55 @@
           }
         ]
       }
+    },
+    "SItemPortContainerComponentParams": {
+      "PortFlags": "",
+      "PortTags": "",
+      "RequiredItemTags": "",
+      "Ports": [
+        {
+          "Name": "hardpoint_weapon_left",
+          "DisplayName": "port_NameTurretGunSlot01",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "",
+          "MinSize": 3,
+          "MaxSize": 3,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "WeaponGun",
+              "SubTypes": [
+                {
+                  "value": "Gun"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "hardpoint_weapon_right",
+          "DisplayName": "port_NameTurretGunSlot02",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "",
+          "MinSize": 3,
+          "MaxSize": 3,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "WeaponGun",
+              "SubTypes": [
+                {
+                  "value": "Gun"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "ClassName": "ANVL_Gladiator_SCItem_Turret",
