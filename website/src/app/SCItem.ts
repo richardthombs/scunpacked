@@ -400,13 +400,9 @@ export class SCItem {
     if (this._itemPorts === undefined) {
       let all: IItemPort[] = [];
 
-      let itemPorts: any[] = _.get(this.json, "Raw.Entity.Components.SCItem.ItemPorts", []);
-
-      itemPorts.forEach((itemPort: any, i: number) => {
-        let ports: any[] = _.get(itemPort, "Ports", []);
-        let itemPortPorts: IItemPort[] = _.map(ports, x => new SCItemItemPort(x, this));
-        all = all.concat(itemPortPorts);
-      });
+      let ports: any[] = _.get(this.json, "Raw.Entity.Components.SItemPortContainerComponentParams", []);
+      let itemPortPorts: IItemPort[] = _.map(ports, x => new SCItemItemPort(x, this));
+      all = all.concat(itemPortPorts);
 
       this._itemPorts = all;
     }
