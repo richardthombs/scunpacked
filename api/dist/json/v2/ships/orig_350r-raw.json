@@ -478,6 +478,11 @@
           }
         }
       },
+      "SDegradationParams": {
+        "MaxLifetimeHours": 25.0,
+        "InitialAgeRatio": 0.0,
+        "DegradeOnlyWhenAttached": false
+      },
       "SEntityInteractableParams": {
         "Interactable": {
           "SharedInteractions": [
@@ -549,6 +554,14 @@
       {
         "name": "Shield",
         "class": "Shield"
+      },
+      {
+        "name": "WeaponRegenCrew",
+        "class": "WeaponRegen"
+      },
+      {
+        "name": "WeaponRegenTurret",
+        "class": "WeaponRegen"
       }
     ],
     "Parts": [
@@ -1354,6 +1367,10 @@
                     {
                       "pipeClass": "Heat",
                       "pipe": "MainHeat"
+                    },
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenCrew"
                     }
                   ],
                   "Pitch": {
@@ -2528,6 +2545,10 @@
                         {
                           "pipeClass": "Heat",
                           "pipe": "MainHeat"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenCrew"
                         }
                       ],
                       "Pitch": {
@@ -2789,6 +2810,10 @@
                         {
                           "pipeClass": "Heat",
                           "pipe": "MainHeat"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenCrew"
                         }
                       ],
                       "Pitch": {

@@ -344,6 +344,11 @@
             }
           }
         },
+        "SDegradationParams": {
+          "MaxLifetimeHours": 25.0,
+          "InitialAgeRatio": 0.0,
+          "DegradeOnlyWhenAttached": false
+        },
         "SEntityInteractableParams": {
           "Interactable": {
             "SharedInteractions": [
@@ -414,12 +419,20 @@
         {
           "name": "Shield",
           "class": "Shield"
+        },
+        {
+          "name": "WeaponRegenCrew",
+          "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponRegenTurret",
+          "class": "WeaponRegen"
         }
       ],
       "Parts": [
         {
           "name": "ANVL_Ballista",
-          "mass": "53276.0",
+          "mass": "33276.0",
           "damagemax": 4200.0,
           "class": "Animated",
           "Parts": [
@@ -453,13 +466,17 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
                       }
                     ],
                     "ControllerDef": {
                       "controllableTags": "remote_turret"
                     },
                     "Pitch": {
-                      "min": 10,
+                      "min": -30,
                       "max": 90
                     },
                     "Yaw": {
@@ -1335,7 +1352,7 @@
                       "controllableTags": "remote_torpedo_turret"
                     },
                     "Pitch": {
-                      "min": 10,
+                      "min": -30,
                       "max": 90
                     },
                     "Yaw": {
@@ -2066,6 +2083,12 @@
               "damagemax": 0.0,
               "class": "SuspensionPart",
               "detachRatio": 1.0
+            },
+            {
+              "name": "massBox",
+              "mass": "20000",
+              "damagemax": 0.0,
+              "class": "MassBox"
             }
           ]
         }

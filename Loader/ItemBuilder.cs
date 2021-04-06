@@ -453,8 +453,8 @@ namespace Loader
 				case SWeaponActionFireRapidParams p:
 					mode.RoundsPerMinute = p.fireRate;
 					mode.FireType = "rapid";
-					mode.AmmoPerShot = p.launchParams.SProjectileLauncher.ammoCost;
-					mode.PelletsPerShot = p.launchParams.SProjectileLauncher.pelletCount;
+					mode.AmmoPerShot = p.launchParams.SProjectileLauncher?.ammoCost ?? 1;
+					mode.PelletsPerShot = p.launchParams.SProjectileLauncher?.pelletCount ?? 1;
 					break;
 
 				case SWeaponActionFireBeamParams p:

@@ -35,15 +35,15 @@
           "AttachDef": {
             "Type": "WeaponGun",
             "SubType": "Gun",
-            "Size": 3,
+            "Size": 1,
             "Grade": 1,
-            "Manufacturer": "77f7999a-b23b-4812-94c2-09b5e15e1b0e",
-            "Tags": "APAR ScatterGun flightReady weaponMountUsable",
+            "Manufacturer": "00000000-0000-0000-0000-000000000000",
+            "Tags": "flightReady weaponMountUsable",
             "RequiredTags": "",
             "DisplayType": "",
             "Localization": {
-              "Name": "@item_NameAPAR_BallisticScatterGun_S3",
-              "Description": "@item_DescAPAR_BallisticScatterGun_S3"
+              "Name": "@LOC_PLACEHOLDER",
+              "Description": "@LOC_PLACEHOLDER"
             }
           }
         },
@@ -121,24 +121,11 @@
           "MisfireMaxTemperature": 600.0
         },
         "SDistortionParams": {
-          "DecayRate": 27.0,
-          "Maximum": 686.0,
-          "OverloadRatio": 0.82,
-          "RecoveryRatio": 0.63,
-          "RecoveryTime": 1.05
-        },
-        "SCItem": {
-          "turnedOnByDefault": false,
-          "attachToTileItemPort": "NoConnection",
-          "inheritModelTagFromHost": true,
-          "ItemPorts": [
-            {
-              "PortFlags": "",
-              "PortTags": "",
-              "RequiredItemTags": "",
-              "Ports": []
-            }
-          ]
+          "DecayRate": 12.0,
+          "Maximum": 233.0,
+          "OverloadRatio": 0.4,
+          "RecoveryRatio": 0.24,
+          "RecoveryTime": 1.6
         },
         "SAmmoContainerComponentParams": {
           "initialAmmoCount": 160.0,
@@ -148,8 +135,8 @@
         "SCItemWeaponComponentParams": {
           "ammoContainerRecord": "00000000-0000-0000-0000-000000000000",
           "connectionParams": {
-            "powerActiveCooldown": 0.42,
-            "heatRateOnline": 37.0,
+            "powerActiveCooldown": 1.0,
+            "heatRateOnline": 110.0,
             "maxGlow": 100.0,
             "noPowerStats": {
               "fireRate": 0.0,
@@ -214,17 +201,17 @@
           },
           "fireActions": [
             {
-              "heatPerShot": 16200.0,
-              "fireRate": 80.0,
+              "heatPerShot": 0.0,
+              "fireRate": 60.0,
               "launchParams": {
                 "SProjectileLauncher": {
-                  "ammoCost": 0.0,
-                  "pelletCount": 40.0,
+                  "ammoCost": 1.0,
+                  "pelletCount": 1.0,
                   "spreadParams": {
-                    "min": 5.0,
-                    "max": 9.5,
-                    "firstAttack": 0.5,
-                    "attack": 0.5,
+                    "min": 0.3,
+                    "max": 1.5,
+                    "firstAttack": 0.4,
+                    "attack": 0.4,
                     "decay": 0.6
                   }
                 }

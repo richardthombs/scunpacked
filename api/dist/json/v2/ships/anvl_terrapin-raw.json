@@ -7,7 +7,7 @@
     },
     "tags": [
       {
-        "value": "c8ec0074-8bf7-4c04-8a86-056269e4da59"
+        "value": "2edce6b3-40ee-4d68-9c92-ab68be6ab433"
       },
       {
         "value": "ef734509-be28-47c9-87df-2775db104d38"
@@ -398,6 +398,11 @@
           }
         }
       },
+      "SDegradationParams": {
+        "MaxLifetimeHours": 25.0,
+        "InitialAgeRatio": 0.0,
+        "DegradeOnlyWhenAttached": false
+      },
       "SEntityInteractableParams": {
         "Interactable": {
           "SharedInteractions": [
@@ -468,6 +473,14 @@
       {
         "name": "Shield",
         "class": "Shield"
+      },
+      {
+        "name": "WeaponRegenCrew",
+        "class": "WeaponRegen"
+      },
+      {
+        "name": "WeaponRegenTurret",
+        "class": "WeaponRegen"
       }
     ],
     "Parts": [
@@ -704,6 +717,10 @@
                     {
                       "pipeClass": "Heat",
                       "pipe": "MainHeat"
+                    },
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenTurret"
                     }
                   ],
                   "ControllerDef": {
@@ -1843,6 +1860,10 @@
                     {
                       "pipeClass": "Heat",
                       "pipe": "MainHeat"
+                    },
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenCrew"
                     }
                   ]
                 }

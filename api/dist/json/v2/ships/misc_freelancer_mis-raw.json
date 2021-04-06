@@ -704,6 +704,11 @@
                 "itemPortName": "hardpoint_retro_right_b",
                 "entityClassName": "MISC_Freelancer_Thruster_Retro",
                 "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_missile",
+                "entityClassName": "",
+                "loadout": {}
               }
             ]
           }
@@ -755,6 +760,11 @@
             }
           }
         }
+      },
+      "SDegradationParams": {
+        "MaxLifetimeHours": 25.0,
+        "InitialAgeRatio": 0.0,
+        "DegradeOnlyWhenAttached": false
       },
       "SEntityInteractableParams": {
         "Interactable": {
@@ -825,6 +835,14 @@
       {
         "name": "Shield",
         "class": "Shield"
+      },
+      {
+        "name": "WeaponRegenCrew",
+        "class": "WeaponRegen"
+      },
+      {
+        "name": "WeaponRegenTurret",
+        "class": "WeaponRegen"
       }
     ],
     "Parts": [
@@ -1588,6 +1606,10 @@
                             {
                               "pipeClass": "Heat",
                               "pipe": "MainHeat"
+                            },
+                            {
+                              "pipeClass": "WeaponRegen",
+                              "pipe": "WeaponRegenTurret"
                             }
                           ],
                           "ControllerDef": {
@@ -2701,6 +2723,10 @@
                         {
                           "pipeClass": "Heat",
                           "pipe": "MainHeat"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenCrew"
                         }
                       ],
                       "Pitch": {
@@ -2737,6 +2763,10 @@
                         {
                           "pipeClass": "Heat",
                           "pipe": "MainHeat"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenCrew"
                         }
                       ],
                       "Pitch": {

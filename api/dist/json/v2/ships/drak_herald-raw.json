@@ -398,6 +398,11 @@
                 "itemPortName": "hardpoint_ladder",
                 "entityClassName": "Door_Ship_Exterior_Herald_Ladder_Attachable",
                 "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_missile",
+                "entityClassName": "",
+                "loadout": {}
               }
             ]
           }
@@ -449,6 +454,11 @@
             }
           }
         }
+      },
+      "SDegradationParams": {
+        "MaxLifetimeHours": 25.0,
+        "InitialAgeRatio": 0.0,
+        "DegradeOnlyWhenAttached": false
       },
       "SEntityInteractableParams": {
         "Interactable": {
@@ -520,6 +530,14 @@
       {
         "name": "Shield",
         "class": "Shield"
+      },
+      {
+        "name": "WeaponRegenCrew",
+        "class": "WeaponRegen"
+      },
+      {
+        "name": "WeaponRegenTurret",
+        "class": "WeaponRegen"
       }
     ],
     "Parts": [
@@ -1525,6 +1543,10 @@
                     {
                       "pipeClass": "Avionics",
                       "pipe": "Avionics"
+                    },
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenCrew"
                     }
                   ],
                   "Pitch": {
@@ -1614,6 +1636,10 @@
                         {
                           "pipeClass": "Avionics",
                           "pipe": "Avionics"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenCrew"
                         }
                       ],
                       "Pitch": {
@@ -1667,6 +1693,10 @@
                         {
                           "pipeClass": "Avionics",
                           "pipe": "Avionics"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenCrew"
                         }
                       ],
                       "Pitch": {
@@ -2114,6 +2144,21 @@
                       ]
                     }
                   }
+                }
+              },
+              {
+                "name": "hardpoint_controller_missile",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "MissileController"
+                    }
+                  ]
                 }
               }
             ],

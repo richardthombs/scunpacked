@@ -8,6 +8,15 @@
     "tags": [
       {
         "value": "7cc0441f-5832-4df2-8655-4cb6a70478a5"
+      },
+      {
+        "value": "b93c011a-0ef1-4689-a8e6-4d2c702d9bff"
+      },
+      {
+        "value": "755e8d4c-f0a2-4025-80aa-bd6002cd0697"
+      },
+      {
+        "value": "386f5ab5-4bde-49ef-a1dd-a8a2b7d1060d"
       }
     ],
     "Components": {
@@ -26,12 +35,6 @@
             "Description": "@item_Descbehr_shotgun_ballistic_01_mag"
           }
         }
-      },
-      "SCItem": {
-        "turnedOnByDefault": false,
-        "attachToTileItemPort": "NoConnection",
-        "inheritModelTagFromHost": true,
-        "ItemPorts": []
       },
       "SAmmoContainerComponentParams": {
         "initialAmmoCount": 12.0,
@@ -119,104 +122,6 @@
               "Description": "@item_Descbehr_shotgun_ballistic_01"
             }
           }
-        },
-        "SCItem": {
-          "turnedOnByDefault": false,
-          "attachToTileItemPort": "NoConnection",
-          "inheritModelTagFromHost": true,
-          "ItemPorts": [
-            {
-              "PortFlags": "",
-              "PortTags": "",
-              "RequiredItemTags": "",
-              "Ports": [
-                {
-                  "Name": "magazine_attach",
-                  "DisplayName": "Magazine Slot",
-                  "PortTags": "behr_shotgun_ballistic_01",
-                  "RequiredPortTags": "behr_shotgun_ballistic_01",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "Magazine"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "optics_attach",
-                  "DisplayName": "OpticsSlot",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "IronSight"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "barrel_attach",
-                  "DisplayName": "BarrelSlot",
-                  "PortTags": "",
-                  "RequiredPortTags": "FPS_Barrel ballistic_attach",
-                  "Flags": "",
-                  "MinSize": 3,
-                  "MaxSize": 3,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "Barrel"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "Name": "underbarrel_attach",
-                  "DisplayName": "UnderbarrelSlot",
-                  "PortTags": "",
-                  "RequiredPortTags": "",
-                  "Flags": "",
-                  "MinSize": 1,
-                  "MaxSize": 1,
-                  "InteractionPointSize": -1.0,
-                  "DefaultWeaponGroup": "UNDEFINED",
-                  "Types": [
-                    {
-                      "Type": "WeaponAttachment",
-                      "SubTypes": [
-                        {
-                          "value": "BottomAttachment"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
         },
         "SCItemWeaponComponentParams": {
           "ammoContainerRecord": "38555f2d-975f-4e3c-8d04-8196b59b17c6",
@@ -443,6 +348,20 @@
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
                 "DisplayName": "@interaction_customize",
                 "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "BespokePlace",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_place",
+                "DisplayType": "Hide",
                 "GenericCursor": "SingleAction",
                 "FocusModeOnly": false,
                 "Sendable": false,

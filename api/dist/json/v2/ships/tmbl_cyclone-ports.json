@@ -99,7 +99,7 @@
           "Output": 610.0
         },
         "Durability": {
-          "Health": 250.0,
+          "Health": 1.0,
           "Lifetime": 10.0
         },
         "PowerConnection": {
@@ -109,7 +109,7 @@
         "HeatConnection": {
           "ThermalEnergyBase": 3333.3,
           "ThermalEnergyDraw": 5000.0,
-          "CoolingRate": 46.67
+          "CoolingRate": 51.0
         }
       },
       "Types": [
@@ -200,43 +200,25 @@
     }
   ],
   "InterdictionHardpoints": [],
-  "CargoGrids": [
-    {
-      "PortName": "hardpoint_cargo_grid",
-      "Size": 1,
-      "Loadout": "TMBL_Cyclone_CargoGrid_Main",
-      "InstalledItem": {
-        "ClassName": "TMBL_Cyclone_CargoGrid_Main",
-        "Size": 1,
-        "Grade": 1,
-        "Type": "Cargo.UNDEFINED",
-        "Name": "TMBL_Cyclone_CargoGrid_Main",
-        "Manufacturer": {
-          "Code": "TMBL",
-          "Name": "Tumbril Land Systems"
-        },
-        "CargoGrid": {
-          "Capacity": 1.0,
-          "Width": 1.25,
-          "Height": 1.25,
-          "Depth": 1.25
-        }
-      },
-      "Types": [
-        "Cargo"
-      ],
-      "Flags": [
-        "selfphys",
-        "uneditable"
-      ],
-      "Category": "Cargo grids",
-      "Uneditable": true
-    }
-  ],
+  "CargoGrids": [],
   "Avionics": [
     {
       "PortName": "hardpoint_scanner",
       "Size": 1,
+      "Loadout": "test_scanner",
+      "InstalledItem": {
+        "ClassName": "test_scanner",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "Scanner.UNDEFINED",
+        "Name": "test_scanner",
+        "Tags": [
+          "flightReady"
+        ],
+        "Scanner": {
+          "Range": 1.0
+        }
+      },
       "Types": [
         "Scanner"
       ],
@@ -330,20 +312,7 @@
               "AmbientPiercing": false
             }
           ]
-        },
-        "Ports": [
-          {
-            "PortName": "BatteryPort",
-            "Size": 2,
-            "Types": [
-              "Battery"
-            ],
-            "Flags": [
-              "invisible"
-            ],
-            "Category": "Batteries"
-          }
-        ]
+        }
       },
       "Types": [
         "Radar.ShortRangeRadar",

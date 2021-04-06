@@ -8,12 +8,12 @@
   "Components": {
     "SAttachableComponentParams": {
       "AttachDef": {
-        "Type": "Gadget",
+        "Type": "FPS_Consumable",
         "SubType": "OxygenCap",
         "Size": 1,
         "Grade": 1,
         "Manufacturer": "dd55bc19-5212-4365-bbc8-73474f0257ed",
-        "Tags": "PersonalMedicalAid1 Stash_Oxygen",
+        "Tags": "Stash_Oxygen medical_injection",
         "RequiredTags": "",
         "DisplayType": "",
         "Localization": {
@@ -21,12 +21,6 @@
           "Description": "@item_Desccrlf_oxycan_01"
         }
       }
-    },
-    "SCItem": {
-      "turnedOnByDefault": false,
-      "attachToTileItemPort": "NoConnection",
-      "inheritModelTagFromHost": true,
-      "ItemPorts": []
     },
     "CommodityComponentParams": {
       "type": "25b880ff-d94b-44b8-aacf-a59d45cfd07d",
@@ -113,6 +107,34 @@
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
             "DisplayName": "@interaction_place",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Consume",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Equip",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_equip",
             "DisplayType": "Show",
             "GenericCursor": "SingleAction",
             "FocusModeOnly": false,

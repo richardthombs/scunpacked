@@ -908,20 +908,7 @@
                       "AmbientPiercing": false
                     }
                   ]
-                },
-                "Ports": [
-                  {
-                    "PortName": "BatteryPort",
-                    "Size": 2,
-                    "Types": [
-                      "Battery"
-                    ],
-                    "Flags": [
-                      "invisible"
-                    ],
-                    "Category": "Batteries"
-                  }
-                ]
+                }
               },
               "Types": [
                 "Radar.ShortRangeRadar",
@@ -1979,10 +1966,6 @@
                 "Durability": {
                   "Health": 200.0
                 },
-                "MissileRack": {
-                  "Count": 1,
-                  "Size": 1
-                },
                 "PowerConnection": {
                   "PowerBase": 0.0,
                   "PowerDraw": 1.0
@@ -1991,44 +1974,7 @@
                   "ThermalEnergyBase": 10.0,
                   "ThermalEnergyDraw": 20.0,
                   "CoolingRate": 1.0
-                },
-                "Ports": [
-                  {
-                    "PortName": "missile_01_attach",
-                    "Size": 1,
-                    "Loadout": "MISL_S01_CS_FSKI_Spark",
-                    "InstalledItem": {
-                      "ClassName": "MISL_S01_CS_FSKI_Spark",
-                      "Size": 1,
-                      "Grade": 1,
-                      "Type": "Missile.Missile",
-                      "Name": "Spark I",
-                      "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 1\n\nThose that believe size doesn’t matter would do well to stay clear of the Firestorm Kinetics Spark. Using cross section targeting, this lightweight proximity missile packs a considerable punch.",
-                      "Manufacturer": {
-                        "Code": "FSKI",
-                        "Name": "Aegis Dynamics"
-                      },
-                      "Tags": [
-                        "FSKI",
-                        "CS",
-                        "flightReady"
-                      ],
-                      "Durability": {
-                        "Health": 100.0
-                      },
-                      "Missile": {
-                        "Damage": {
-                          "Physical": 584.82,
-                          "Energy": 2339.28
-                        }
-                      }
-                    },
-                    "Types": [
-                      "Missile.Missile"
-                    ],
-                    "Category": "Missiles"
-                  }
-                ]
+                }
               },
               "Types": [
                 "MissileLauncher.MissileRack",
@@ -2060,10 +2006,6 @@
                 "Durability": {
                   "Health": 200.0
                 },
-                "MissileRack": {
-                  "Count": 1,
-                  "Size": 1
-                },
                 "PowerConnection": {
                   "PowerBase": 0.0,
                   "PowerDraw": 1.0
@@ -2072,44 +2014,7 @@
                   "ThermalEnergyBase": 10.0,
                   "ThermalEnergyDraw": 20.0,
                   "CoolingRate": 1.0
-                },
-                "Ports": [
-                  {
-                    "PortName": "missile_01_attach",
-                    "Size": 1,
-                    "Loadout": "MISL_S01_CS_FSKI_Spark",
-                    "InstalledItem": {
-                      "ClassName": "MISL_S01_CS_FSKI_Spark",
-                      "Size": 1,
-                      "Grade": 1,
-                      "Type": "Missile.Missile",
-                      "Name": "Spark I",
-                      "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 1\n\nThose that believe size doesn’t matter would do well to stay clear of the Firestorm Kinetics Spark. Using cross section targeting, this lightweight proximity missile packs a considerable punch.",
-                      "Manufacturer": {
-                        "Code": "FSKI",
-                        "Name": "Aegis Dynamics"
-                      },
-                      "Tags": [
-                        "FSKI",
-                        "CS",
-                        "flightReady"
-                      ],
-                      "Durability": {
-                        "Health": 100.0
-                      },
-                      "Missile": {
-                        "Damage": {
-                          "Physical": 584.82,
-                          "Energy": 2339.28
-                        }
-                      }
-                    },
-                    "Types": [
-                      "Missile.Missile"
-                    ],
-                    "Category": "Missiles"
-                  }
-                ]
+                }
               },
               "Types": [
                 "MissileLauncher.MissileRack",
@@ -2320,25 +2225,7 @@
                   "ThermalEnergyBase": 10.0,
                   "ThermalEnergyDraw": 20.0,
                   "CoolingRate": 1.0
-                },
-                "Ports": [
-                  {
-                    "PortName": "UI_Radar",
-                    "Size": 1,
-                    "Loadout": "AEGS_Sabre_RADR_Display",
-                    "InstalledItem": {
-                      "ClassName": "AEGS_Sabre_RADR_Display",
-                      "Size": 1,
-                      "Grade": 1,
-                      "Type": "Display.UNDEFINED",
-                      "Name": "AEGS_Sabre_RADR_Display"
-                    },
-                    "Types": [
-                      "Display"
-                    ],
-                    "Category": "UNKNOWN"
-                  }
-                ]
+                }
               },
               "Types": [
                 "SeatDashboard"
@@ -2374,6 +2261,22 @@
                 "uneditable"
               ],
               "Category": "Seat access",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_missile",
+            "Port": {
+              "PortName": "hardpoint_controller_missile",
+              "Size": 1,
+              "Types": [
+                "MissileController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
               "Uneditable": true
             }
           }

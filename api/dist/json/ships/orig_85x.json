@@ -404,6 +404,11 @@
             }
           }
         },
+        "SDegradationParams": {
+          "MaxLifetimeHours": 25.0,
+          "InitialAgeRatio": 0.0,
+          "DegradeOnlyWhenAttached": false
+        },
         "SEntityInteractableParams": {
           "Interactable": {
             "SharedInteractions": [
@@ -475,6 +480,14 @@
         {
           "name": "Shield",
           "class": "Shield"
+        },
+        {
+          "name": "WeaponRegenCrew",
+          "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponRegenTurret",
+          "class": "WeaponRegen"
         }
       ],
       "Parts": [
@@ -559,8 +572,20 @@
                           {
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenCrew"
                           }
-                        ]
+                        ],
+                        "Pitch": {
+                          "min": -30,
+                          "max": 30
+                        },
+                        "Yaw": {
+                          "min": -30,
+                          "max": 30
+                        }
                       }
                     },
                     {
@@ -735,8 +760,20 @@
                           {
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenCrew"
                           }
-                        ]
+                        ],
+                        "Pitch": {
+                          "min": -30,
+                          "max": 30
+                        },
+                        "Yaw": {
+                          "min": -30,
+                          "max": 30
+                        }
                       }
                     },
                     {
@@ -1035,14 +1072,18 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
                       }
                     ],
                     "ControllerDef": {
                       "controllableTags": "Remote_Turret"
                     },
                     "Pitch": {
-                      "min": -10,
-                      "max": 50
+                      "min": -50,
+                      "max": 2
                     },
                     "Yaw": {
                       "min": -180,
@@ -1057,7 +1098,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
-                    "display_name": "Starboard Fuel Intake",
+                    "display_name": "port_NameFuelIntake01",
                     "flags": "uneditable right",
                     "Types": [
                       {
@@ -1087,7 +1128,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
-                    "display_name": "Port Fuel Intake",
+                    "display_name": "port_NameFuelIntake02",
                     "flags": "uneditable left",
                     "Types": [
                       {
@@ -2489,6 +2530,7 @@
                       }
                     ],
                     "ControllerDef": {
+                      "controllableTags": "weapon_controller_pilot",
                       "UsableDef": {
                         "PriorityGroups": [
                           {

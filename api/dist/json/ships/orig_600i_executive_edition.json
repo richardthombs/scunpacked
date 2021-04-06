@@ -22,7 +22,7 @@
       ],
       "Components": {
         "VehicleComponentParams": {
-          "landingSystem": "6809a25d-caea-4955-91bf-838f59ad3f57",
+          "landingSystem": "1ae56934-9d1f-4584-949d-2efd5de91f31",
           "manufacturer": "1e47a9ec-a3f0-431d-be0e-377712e1ed84",
           "vehicleDefinition": "scripts/entities/vehicles/implementations/xml/orig_600i.xml",
           "modification": "Executive",
@@ -597,6 +597,11 @@
                   "itemPortName": "hardpoint_weapon_rack_2",
                   "entityClassName": "Weapon_Rack_ORIG_600i_Armory",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_missile",
+                  "entityClassName": "",
+                  "loadout": {}
                 }
               ]
             }
@@ -648,6 +653,11 @@
               }
             }
           }
+        },
+        "SDegradationParams": {
+          "MaxLifetimeHours": 25.0,
+          "InitialAgeRatio": 0.0,
+          "DegradeOnlyWhenAttached": false
         },
         "SEntityInteractableParams": {
           "Interactable": {
@@ -718,6 +728,14 @@
         {
           "name": "Shield",
           "class": "Shield"
+        },
+        {
+          "name": "WeaponRegenCrew",
+          "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponRegenTurret",
+          "class": "WeaponRegen"
         }
       ],
       "Parts": [
@@ -1816,6 +1834,10 @@
                       {
                         "pipeClass": "Fuel",
                         "pipe": "MainFuel"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenCrew"
                       }
                     ],
                     "ControllerDef": {
@@ -1863,6 +1885,10 @@
                       {
                         "pipeClass": "Fuel",
                         "pipe": "MainFuel"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenCrew"
                       }
                     ],
                     "ControllerDef": {
@@ -2122,6 +2148,10 @@
                           {
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -2237,6 +2267,21 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "name": "hardpoint_controller_missile",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "MissileController"
+                      }
+                    ]
+                  }
                 }
               ],
               "DamageBehaviors": [
@@ -3623,6 +3668,10 @@
                           {
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -3760,6 +3809,10 @@
                           {
                             "pipeClass": "Fuel",
                             "pipe": "MainFuel"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenCrew"
                           }
                         ],
                         "ControllerDef": {

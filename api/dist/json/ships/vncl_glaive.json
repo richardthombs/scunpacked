@@ -372,6 +372,11 @@
                   "itemPortName": "hardpoint_countermeasures_left",
                   "entityClassName": "VNCL_CML_Chaff",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_missile",
+                  "entityClassName": "",
+                  "loadout": {}
                 }
               ]
             }
@@ -423,6 +428,11 @@
               }
             }
           }
+        },
+        "SDegradationParams": {
+          "MaxLifetimeHours": 25.0,
+          "InitialAgeRatio": 0.0,
+          "DegradeOnlyWhenAttached": false
         },
         "SEntityInteractableParams": {
           "Interactable": {
@@ -494,6 +504,14 @@
         {
           "name": "Shield",
           "class": "Shield"
+        },
+        {
+          "name": "WeaponRegenCrew",
+          "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponRegenTurret",
+          "class": "WeaponRegen"
         }
       ],
       "Parts": [
@@ -1392,6 +1410,10 @@
                                   {
                                     "pipeClass": "Heat",
                                     "pipe": "MainHeat"
+                                  },
+                                  {
+                                    "pipeClass": "WeaponRegen",
+                                    "pipe": "WeaponRegenCrew"
                                   }
                                 ]
                               }
@@ -1701,6 +1723,10 @@
                                   {
                                     "pipeClass": "Heat",
                                     "pipe": "MainHeat"
+                                  },
+                                  {
+                                    "pipeClass": "WeaponRegen",
+                                    "pipe": "WeaponRegenCrew"
                                   }
                                 ]
                               }
@@ -2229,6 +2255,10 @@
                           {
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenCrew"
                           }
                         ]
                       }
@@ -2258,6 +2288,10 @@
                           {
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenCrew"
                           }
                         ]
                       }

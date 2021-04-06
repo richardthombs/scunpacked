@@ -319,6 +319,11 @@
                   "loadout": {}
                 },
                 {
+                  "itemPortName": "hardpoint_controller_missile",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
                   "itemPortName": "hardpoint_shield_generator_C",
                   "entityClassName": "SHLD_YORM_S01_Targa_SCItem",
                   "loadout": {}
@@ -373,6 +378,11 @@
               }
             }
           }
+        },
+        "SDegradationParams": {
+          "MaxLifetimeHours": 25.0,
+          "InitialAgeRatio": 0.0,
+          "DegradeOnlyWhenAttached": false
         },
         "SEntityInteractableParams": {
           "Interactable": {
@@ -445,6 +455,14 @@
         {
           "name": "Shield",
           "class": "Shield"
+        },
+        {
+          "name": "WeaponRegenCrew",
+          "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponRegenTurret",
+          "class": "WeaponRegen"
         }
       ],
       "Parts": [
@@ -1778,6 +1796,10 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenCrew"
                       }
                     ],
                     "Pitch": {
@@ -1817,6 +1839,10 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenCrew"
                       }
                     ],
                     "Pitch": {
