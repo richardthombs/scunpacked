@@ -69,7 +69,41 @@
           "ImpactDamage": {
             "Energy": 58.7
           }
-        }
+        },
+        "Ports": [
+          {
+            "PortName": "BAR1",
+            "Size": 1,
+            "Types": [
+              "WeaponAttachment.Barrel"
+            ],
+            "Category": "Weapon attachments"
+          },
+          {
+            "PortName": "MEC",
+            "Size": 1,
+            "Types": [
+              "WeaponAttachment.FiringMechanism"
+            ],
+            "Category": "Weapon attachments"
+          },
+          {
+            "PortName": "POW",
+            "Size": 1,
+            "Types": [
+              "WeaponAttachment.PowerArray"
+            ],
+            "Category": "Weapon attachments"
+          },
+          {
+            "PortName": "VEN",
+            "Size": 1,
+            "Types": [
+              "WeaponAttachment.Ventilation"
+            ],
+            "Category": "Weapon attachments"
+          }
+        ]
       },
       "Types": [
         "Turret.GunTurret",
@@ -150,7 +184,41 @@
           "ImpactDamage": {
             "Energy": 58.7
           }
-        }
+        },
+        "Ports": [
+          {
+            "PortName": "BAR1",
+            "Size": 1,
+            "Types": [
+              "WeaponAttachment.Barrel"
+            ],
+            "Category": "Weapon attachments"
+          },
+          {
+            "PortName": "MEC",
+            "Size": 1,
+            "Types": [
+              "WeaponAttachment.FiringMechanism"
+            ],
+            "Category": "Weapon attachments"
+          },
+          {
+            "PortName": "POW",
+            "Size": 1,
+            "Types": [
+              "WeaponAttachment.PowerArray"
+            ],
+            "Category": "Weapon attachments"
+          },
+          {
+            "PortName": "VEN",
+            "Size": 1,
+            "Types": [
+              "WeaponAttachment.Ventilation"
+            ],
+            "Category": "Weapon attachments"
+          }
+        ]
       },
       "Types": [
         "Turret.GunTurret",
@@ -191,6 +259,10 @@
         "Durability": {
           "Health": 200.0
         },
+        "MissileRack": {
+          "Count": 1,
+          "Size": 1
+        },
         "PowerConnection": {
           "PowerBase": 0.0,
           "PowerDraw": 1.0
@@ -199,7 +271,44 @@
           "ThermalEnergyBase": 10.0,
           "ThermalEnergyDraw": 20.0,
           "CoolingRate": 1.0
-        }
+        },
+        "Ports": [
+          {
+            "PortName": "missile_01_attach",
+            "Size": 1,
+            "Loadout": "MISL_S01_IR_BEHR_Marksman",
+            "InstalledItem": {
+              "ClassName": "MISL_S01_IR_BEHR_Marksman",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "Missile.Missile",
+              "Name": "Marksman I",
+              "Description": "Manufacturer: Behring\nTracking Signal: Infrared\nSize: 1\n\nBehring's Marksman series of proximity missiles has earned as much of a reputation for its ability to track a wide range of heat signatures as it has for its area-effect proximity damage.",
+              "Manufacturer": {
+                "Code": "BEH",
+                "Name": "Behring"
+              },
+              "Tags": [
+                "BEHR",
+                "IR",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 518.4,
+                  "Energy": 2073.6
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile"
+            ],
+            "Category": "Missiles"
+          }
+        ]
       },
       "Types": [
         "MissileLauncher.MissileRack",
@@ -228,6 +337,10 @@
         "Durability": {
           "Health": 200.0
         },
+        "MissileRack": {
+          "Count": 1,
+          "Size": 1
+        },
         "PowerConnection": {
           "PowerBase": 0.0,
           "PowerDraw": 1.0
@@ -236,7 +349,44 @@
           "ThermalEnergyBase": 10.0,
           "ThermalEnergyDraw": 20.0,
           "CoolingRate": 1.0
-        }
+        },
+        "Ports": [
+          {
+            "PortName": "missile_01_attach",
+            "Size": 1,
+            "Loadout": "MISL_S01_IR_BEHR_Marksman",
+            "InstalledItem": {
+              "ClassName": "MISL_S01_IR_BEHR_Marksman",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "Missile.Missile",
+              "Name": "Marksman I",
+              "Description": "Manufacturer: Behring\nTracking Signal: Infrared\nSize: 1\n\nBehring's Marksman series of proximity missiles has earned as much of a reputation for its ability to track a wide range of heat signatures as it has for its area-effect proximity damage.",
+              "Manufacturer": {
+                "Code": "BEH",
+                "Name": "Behring"
+              },
+              "Tags": [
+                "BEHR",
+                "IR",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 518.4,
+                  "Energy": 2073.6
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile"
+            ],
+            "Category": "Missiles"
+          }
+        ]
       },
       "Types": [
         "MissileLauncher.MissileRack",
@@ -1603,7 +1753,20 @@
               "AmbientPiercing": false
             }
           ]
-        }
+        },
+        "Ports": [
+          {
+            "PortName": "BatteryPort",
+            "Size": 2,
+            "Types": [
+              "Battery"
+            ],
+            "Flags": [
+              "invisible"
+            ],
+            "Category": "Batteries"
+          }
+        ]
       },
       "Types": [
         "Radar.ShortRangeRadar",

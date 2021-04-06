@@ -71,7 +71,20 @@
                       "AmbientPiercing": false
                     }
                   ]
-                }
+                },
+                "Ports": [
+                  {
+                    "PortName": "BatteryPort",
+                    "Size": 2,
+                    "Types": [
+                      "Battery"
+                    ],
+                    "Flags": [
+                      "invisible"
+                    ],
+                    "Category": "Batteries"
+                  }
+                ]
               },
               "Types": [
                 "Radar.ShortRangeRadar",
@@ -142,7 +155,25 @@
                   "ThermalEnergyBase": 10.0,
                   "ThermalEnergyDraw": 20.0,
                   "CoolingRate": 1.0
-                }
+                },
+                "Ports": [
+                  {
+                    "PortName": "hardpoint_cockpit_radar",
+                    "Size": 1,
+                    "Loadout": "RADR_Display",
+                    "InstalledItem": {
+                      "ClassName": "RADR_Display",
+                      "Size": 1,
+                      "Grade": 1,
+                      "Type": "Display.UNDEFINED",
+                      "Name": "RADR_Display"
+                    },
+                    "Types": [
+                      "Display"
+                    ],
+                    "Category": "UNKNOWN"
+                  }
+                ]
               },
               "Types": [
                 "SeatDashboard"
@@ -453,7 +484,20 @@
                       "AmbientPiercing": false
                     }
                   ]
-                }
+                },
+                "Ports": [
+                  {
+                    "PortName": "BatteryPort",
+                    "Size": 2,
+                    "Types": [
+                      "Battery"
+                    ],
+                    "Flags": [
+                      "invisible"
+                    ],
+                    "Category": "Batteries"
+                  }
+                ]
               },
               "Types": [
                 "Radar.ShortRangeRadar",
@@ -1156,6 +1200,10 @@
                     "Durability": {
                       "Health": 200.0
                     },
+                    "MissileRack": {
+                      "Count": 2,
+                      "Size": 2
+                    },
                     "PowerConnection": {
                       "PowerBase": 0.0,
                       "PowerDraw": 1.0
@@ -1164,7 +1212,79 @@
                       "ThermalEnergyBase": 10.0,
                       "ThermalEnergyDraw": 20.0,
                       "CoolingRate": 1.0
-                    }
+                    },
+                    "Ports": [
+                      {
+                        "PortName": "missile_01_attach",
+                        "Size": 2,
+                        "Loadout": "MISL_S02_CS_FSKI_Tempest",
+                        "InstalledItem": {
+                          "ClassName": "MISL_S02_CS_FSKI_Tempest",
+                          "Size": 2,
+                          "Grade": 1,
+                          "Type": "Missile.Missile",
+                          "Name": "Tempest II",
+                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetic’s targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
+                          "Manufacturer": {
+                            "Code": "FSKI",
+                            "Name": "Aegis Dynamics"
+                          },
+                          "Tags": [
+                            "FSKI",
+                            "CS",
+                            "flightReady"
+                          ],
+                          "Durability": {
+                            "Health": 10.0
+                          },
+                          "Missile": {
+                            "Damage": {
+                              "Physical": 701.784,
+                              "Energy": 2807.136
+                            }
+                          }
+                        },
+                        "Types": [
+                          "Missile.Missile"
+                        ],
+                        "Category": "Missiles"
+                      },
+                      {
+                        "PortName": "missile_02_attach",
+                        "Size": 2,
+                        "Loadout": "MISL_S02_CS_FSKI_Tempest",
+                        "InstalledItem": {
+                          "ClassName": "MISL_S02_CS_FSKI_Tempest",
+                          "Size": 2,
+                          "Grade": 1,
+                          "Type": "Missile.Missile",
+                          "Name": "Tempest II",
+                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetic’s targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
+                          "Manufacturer": {
+                            "Code": "FSKI",
+                            "Name": "Aegis Dynamics"
+                          },
+                          "Tags": [
+                            "FSKI",
+                            "CS",
+                            "flightReady"
+                          ],
+                          "Durability": {
+                            "Health": 10.0
+                          },
+                          "Missile": {
+                            "Damage": {
+                              "Physical": 701.784,
+                              "Energy": 2807.136
+                            }
+                          }
+                        },
+                        "Types": [
+                          "Missile.Missile"
+                        ],
+                        "Category": "Missiles"
+                      }
+                    ]
                   },
                   "Types": [
                     "MissileLauncher.MissileRack"
@@ -1195,6 +1315,10 @@
                     "Durability": {
                       "Health": 200.0
                     },
+                    "MissileRack": {
+                      "Count": 2,
+                      "Size": 2
+                    },
                     "PowerConnection": {
                       "PowerBase": 0.0,
                       "PowerDraw": 1.0
@@ -1203,7 +1327,79 @@
                       "ThermalEnergyBase": 10.0,
                       "ThermalEnergyDraw": 20.0,
                       "CoolingRate": 1.0
-                    }
+                    },
+                    "Ports": [
+                      {
+                        "PortName": "missile_01_attach",
+                        "Size": 2,
+                        "Loadout": "MISL_S02_IR_FSKI_Ignite",
+                        "InstalledItem": {
+                          "ClassName": "MISL_S02_IR_FSKI_Ignite",
+                          "Size": 2,
+                          "Grade": 1,
+                          "Type": "Missile.Missile",
+                          "Name": "Ignite II",
+                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Infrared\nSize: 2\n\nThe Ignite is Firestorm's premier brand of heat-seeking strike missile that is the definition of Fire and Forget. Simply let it fly and enjoy the show. ",
+                          "Manufacturer": {
+                            "Code": "FSKI",
+                            "Name": "Aegis Dynamics"
+                          },
+                          "Tags": [
+                            "FSKI",
+                            "IR",
+                            "flightReady"
+                          ],
+                          "Durability": {
+                            "Health": 10.0
+                          },
+                          "Missile": {
+                            "Damage": {
+                              "Physical": 738.72,
+                              "Energy": 2954.88
+                            }
+                          }
+                        },
+                        "Types": [
+                          "Missile.Missile"
+                        ],
+                        "Category": "Missiles"
+                      },
+                      {
+                        "PortName": "missile_02_attach",
+                        "Size": 2,
+                        "Loadout": "MISL_S02_IR_FSKI_Ignite",
+                        "InstalledItem": {
+                          "ClassName": "MISL_S02_IR_FSKI_Ignite",
+                          "Size": 2,
+                          "Grade": 1,
+                          "Type": "Missile.Missile",
+                          "Name": "Ignite II",
+                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Infrared\nSize: 2\n\nThe Ignite is Firestorm's premier brand of heat-seeking strike missile that is the definition of Fire and Forget. Simply let it fly and enjoy the show. ",
+                          "Manufacturer": {
+                            "Code": "FSKI",
+                            "Name": "Aegis Dynamics"
+                          },
+                          "Tags": [
+                            "FSKI",
+                            "IR",
+                            "flightReady"
+                          ],
+                          "Durability": {
+                            "Health": 10.0
+                          },
+                          "Missile": {
+                            "Damage": {
+                              "Physical": 738.72,
+                              "Energy": 2954.88
+                            }
+                          }
+                        },
+                        "Types": [
+                          "Missile.Missile"
+                        ],
+                        "Category": "Missiles"
+                      }
+                    ]
                   },
                   "Types": [
                     "MissileLauncher.MissileRack"
@@ -1949,7 +2145,89 @@
                   "ImpactDamage": {
                     "Physical": 28.8
                   }
-                }
+                },
+                "Ports": [
+                  {
+                    "PortName": "BAR1",
+                    "Size": 1,
+                    "Loadout": "GATS_BallisticGatling_Barrel_S3",
+                    "InstalledItem": {
+                      "ClassName": "GATS_BallisticGatling_Barrel_S3",
+                      "Size": 1,
+                      "Grade": 1,
+                      "Type": "WeaponAttachment.Barrel",
+                      "Name": "GATS_BallisticGatling_Barrel_S3",
+                      "Manufacturer": {
+                        "Code": "GAT",
+                        "Name": "Gallenson Tactical Systems"
+                      }
+                    },
+                    "Types": [
+                      "WeaponAttachment.Barrel"
+                    ],
+                    "Category": "Weapon attachments"
+                  },
+                  {
+                    "PortName": "MEC",
+                    "Size": 1,
+                    "Loadout": "GATS_BallisticGatling_FiringMechanism_S3",
+                    "InstalledItem": {
+                      "ClassName": "GATS_BallisticGatling_FiringMechanism_S3",
+                      "Size": 1,
+                      "Grade": 1,
+                      "Type": "WeaponAttachment.FiringMechanism",
+                      "Name": "GATS_BallisticGatling_FiringMechanism_S3",
+                      "Manufacturer": {
+                        "Code": "GAT",
+                        "Name": "Gallenson Tactical Systems"
+                      }
+                    },
+                    "Types": [
+                      "WeaponAttachment.FiringMechanism"
+                    ],
+                    "Category": "Weapon attachments"
+                  },
+                  {
+                    "PortName": "POW",
+                    "Size": 1,
+                    "Loadout": "GATS_BallisticGatling_PowerArray_S3",
+                    "InstalledItem": {
+                      "ClassName": "GATS_BallisticGatling_PowerArray_S3",
+                      "Size": 1,
+                      "Grade": 1,
+                      "Type": "WeaponAttachment.PowerArray",
+                      "Name": "GATS_BallisticGatling_PowerArray_S3",
+                      "Manufacturer": {
+                        "Code": "GAT",
+                        "Name": "Gallenson Tactical Systems"
+                      }
+                    },
+                    "Types": [
+                      "WeaponAttachment.PowerArray"
+                    ],
+                    "Category": "Weapon attachments"
+                  },
+                  {
+                    "PortName": "VEN",
+                    "Size": 1,
+                    "Loadout": "GATS_BallisticGatling_Ventilation_S3",
+                    "InstalledItem": {
+                      "ClassName": "GATS_BallisticGatling_Ventilation_S3",
+                      "Size": 1,
+                      "Grade": 1,
+                      "Type": "WeaponAttachment.Ventilation",
+                      "Name": "GATS_BallisticGatling_Ventilation_S3",
+                      "Manufacturer": {
+                        "Code": "GAT",
+                        "Name": "Gallenson Tactical Systems"
+                      }
+                    },
+                    "Types": [
+                      "WeaponAttachment.Ventilation"
+                    ],
+                    "Category": "Weapon attachments"
+                  }
+                ]
               },
               "Types": [
                 "Turret.GunTurret",
@@ -2034,7 +2312,89 @@
                   "ImpactDamage": {
                     "Physical": 28.8
                   }
-                }
+                },
+                "Ports": [
+                  {
+                    "PortName": "BAR1",
+                    "Size": 1,
+                    "Loadout": "GATS_BallisticGatling_Barrel_S3",
+                    "InstalledItem": {
+                      "ClassName": "GATS_BallisticGatling_Barrel_S3",
+                      "Size": 1,
+                      "Grade": 1,
+                      "Type": "WeaponAttachment.Barrel",
+                      "Name": "GATS_BallisticGatling_Barrel_S3",
+                      "Manufacturer": {
+                        "Code": "GAT",
+                        "Name": "Gallenson Tactical Systems"
+                      }
+                    },
+                    "Types": [
+                      "WeaponAttachment.Barrel"
+                    ],
+                    "Category": "Weapon attachments"
+                  },
+                  {
+                    "PortName": "MEC",
+                    "Size": 1,
+                    "Loadout": "GATS_BallisticGatling_FiringMechanism_S3",
+                    "InstalledItem": {
+                      "ClassName": "GATS_BallisticGatling_FiringMechanism_S3",
+                      "Size": 1,
+                      "Grade": 1,
+                      "Type": "WeaponAttachment.FiringMechanism",
+                      "Name": "GATS_BallisticGatling_FiringMechanism_S3",
+                      "Manufacturer": {
+                        "Code": "GAT",
+                        "Name": "Gallenson Tactical Systems"
+                      }
+                    },
+                    "Types": [
+                      "WeaponAttachment.FiringMechanism"
+                    ],
+                    "Category": "Weapon attachments"
+                  },
+                  {
+                    "PortName": "POW",
+                    "Size": 1,
+                    "Loadout": "GATS_BallisticGatling_PowerArray_S3",
+                    "InstalledItem": {
+                      "ClassName": "GATS_BallisticGatling_PowerArray_S3",
+                      "Size": 1,
+                      "Grade": 1,
+                      "Type": "WeaponAttachment.PowerArray",
+                      "Name": "GATS_BallisticGatling_PowerArray_S3",
+                      "Manufacturer": {
+                        "Code": "GAT",
+                        "Name": "Gallenson Tactical Systems"
+                      }
+                    },
+                    "Types": [
+                      "WeaponAttachment.PowerArray"
+                    ],
+                    "Category": "Weapon attachments"
+                  },
+                  {
+                    "PortName": "VEN",
+                    "Size": 1,
+                    "Loadout": "GATS_BallisticGatling_Ventilation_S3",
+                    "InstalledItem": {
+                      "ClassName": "GATS_BallisticGatling_Ventilation_S3",
+                      "Size": 1,
+                      "Grade": 1,
+                      "Type": "WeaponAttachment.Ventilation",
+                      "Name": "GATS_BallisticGatling_Ventilation_S3",
+                      "Manufacturer": {
+                        "Code": "GAT",
+                        "Name": "Gallenson Tactical Systems"
+                      }
+                    },
+                    "Types": [
+                      "WeaponAttachment.Ventilation"
+                    ],
+                    "Category": "Weapon attachments"
+                  }
+                ]
               },
               "Types": [
                 "Turret.GunTurret",
@@ -2078,6 +2438,10 @@
                     "Durability": {
                       "Health": 200.0
                     },
+                    "MissileRack": {
+                      "Count": 2,
+                      "Size": 5
+                    },
                     "PowerConnection": {
                       "PowerBase": 0.0,
                       "PowerDraw": 1.0
@@ -2086,7 +2450,79 @@
                       "ThermalEnergyBase": 10.0,
                       "ThermalEnergyDraw": 20.0,
                       "CoolingRate": 1.0
-                    }
+                    },
+                    "Ports": [
+                      {
+                        "PortName": "missile_01_attach",
+                        "Size": 5,
+                        "Loadout": "MISL_S05_CS_TALN_Stalker",
+                        "InstalledItem": {
+                          "ClassName": "MISL_S05_CS_TALN_Stalker",
+                          "Size": 5,
+                          "Grade": 1,
+                          "Type": "Missile.Missile",
+                          "Name": "Stalker V",
+                          "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+                          "Manufacturer": {
+                            "Code": "TALN",
+                            "Name": "Talon"
+                          },
+                          "Tags": [
+                            "TALN",
+                            "CS",
+                            "flightReady"
+                          ],
+                          "Durability": {
+                            "Health": 10.0
+                          },
+                          "Missile": {
+                            "Damage": {
+                              "Physical": 3772.928,
+                              "Energy": 17091.71
+                            }
+                          }
+                        },
+                        "Types": [
+                          "Missile.Missile"
+                        ],
+                        "Category": "Missiles"
+                      },
+                      {
+                        "PortName": "missile_02_attach",
+                        "Size": 5,
+                        "Loadout": "MISL_S05_CS_TALN_Stalker",
+                        "InstalledItem": {
+                          "ClassName": "MISL_S05_CS_TALN_Stalker",
+                          "Size": 5,
+                          "Grade": 1,
+                          "Type": "Missile.Missile",
+                          "Name": "Stalker V",
+                          "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+                          "Manufacturer": {
+                            "Code": "TALN",
+                            "Name": "Talon"
+                          },
+                          "Tags": [
+                            "TALN",
+                            "CS",
+                            "flightReady"
+                          ],
+                          "Durability": {
+                            "Health": 10.0
+                          },
+                          "Missile": {
+                            "Damage": {
+                              "Physical": 3772.928,
+                              "Energy": 17091.71
+                            }
+                          }
+                        },
+                        "Types": [
+                          "Missile.Missile"
+                        ],
+                        "Category": "Missiles"
+                      }
+                    ]
                   },
                   "Types": [
                     "MissileLauncher"
@@ -2131,6 +2567,10 @@
                     "Durability": {
                       "Health": 200.0
                     },
+                    "MissileRack": {
+                      "Count": 2,
+                      "Size": 5
+                    },
                     "PowerConnection": {
                       "PowerBase": 0.0,
                       "PowerDraw": 1.0
@@ -2139,7 +2579,79 @@
                       "ThermalEnergyBase": 10.0,
                       "ThermalEnergyDraw": 20.0,
                       "CoolingRate": 1.0
-                    }
+                    },
+                    "Ports": [
+                      {
+                        "PortName": "missile_01_attach",
+                        "Size": 5,
+                        "Loadout": "MISL_S05_CS_TALN_Stalker",
+                        "InstalledItem": {
+                          "ClassName": "MISL_S05_CS_TALN_Stalker",
+                          "Size": 5,
+                          "Grade": 1,
+                          "Type": "Missile.Missile",
+                          "Name": "Stalker V",
+                          "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+                          "Manufacturer": {
+                            "Code": "TALN",
+                            "Name": "Talon"
+                          },
+                          "Tags": [
+                            "TALN",
+                            "CS",
+                            "flightReady"
+                          ],
+                          "Durability": {
+                            "Health": 10.0
+                          },
+                          "Missile": {
+                            "Damage": {
+                              "Physical": 3772.928,
+                              "Energy": 17091.71
+                            }
+                          }
+                        },
+                        "Types": [
+                          "Missile.Missile"
+                        ],
+                        "Category": "Missiles"
+                      },
+                      {
+                        "PortName": "missile_02_attach",
+                        "Size": 5,
+                        "Loadout": "MISL_S05_CS_TALN_Stalker",
+                        "InstalledItem": {
+                          "ClassName": "MISL_S05_CS_TALN_Stalker",
+                          "Size": 5,
+                          "Grade": 1,
+                          "Type": "Missile.Missile",
+                          "Name": "Stalker V",
+                          "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+                          "Manufacturer": {
+                            "Code": "TALN",
+                            "Name": "Talon"
+                          },
+                          "Tags": [
+                            "TALN",
+                            "CS",
+                            "flightReady"
+                          ],
+                          "Durability": {
+                            "Health": 10.0
+                          },
+                          "Missile": {
+                            "Damage": {
+                              "Physical": 3772.928,
+                              "Energy": 17091.71
+                            }
+                          }
+                        },
+                        "Types": [
+                          "Missile.Missile"
+                        ],
+                        "Category": "Missiles"
+                      }
+                    ]
                   },
                   "Types": [
                     "MissileLauncher"
@@ -2256,6 +2768,10 @@
                     "Durability": {
                       "Health": 200.0
                     },
+                    "MissileRack": {
+                      "Count": 2,
+                      "Size": 2
+                    },
                     "PowerConnection": {
                       "PowerBase": 0.0,
                       "PowerDraw": 1.0
@@ -2264,7 +2780,79 @@
                       "ThermalEnergyBase": 10.0,
                       "ThermalEnergyDraw": 20.0,
                       "CoolingRate": 1.0
-                    }
+                    },
+                    "Ports": [
+                      {
+                        "PortName": "missile_01_attach",
+                        "Size": 2,
+                        "Loadout": "MISL_S02_IR_FSKI_Ignite",
+                        "InstalledItem": {
+                          "ClassName": "MISL_S02_IR_FSKI_Ignite",
+                          "Size": 2,
+                          "Grade": 1,
+                          "Type": "Missile.Missile",
+                          "Name": "Ignite II",
+                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Infrared\nSize: 2\n\nThe Ignite is Firestorm's premier brand of heat-seeking strike missile that is the definition of Fire and Forget. Simply let it fly and enjoy the show. ",
+                          "Manufacturer": {
+                            "Code": "FSKI",
+                            "Name": "Aegis Dynamics"
+                          },
+                          "Tags": [
+                            "FSKI",
+                            "IR",
+                            "flightReady"
+                          ],
+                          "Durability": {
+                            "Health": 10.0
+                          },
+                          "Missile": {
+                            "Damage": {
+                              "Physical": 738.72,
+                              "Energy": 2954.88
+                            }
+                          }
+                        },
+                        "Types": [
+                          "Missile.Missile"
+                        ],
+                        "Category": "Missiles"
+                      },
+                      {
+                        "PortName": "missile_02_attach",
+                        "Size": 2,
+                        "Loadout": "MISL_S02_IR_FSKI_Ignite",
+                        "InstalledItem": {
+                          "ClassName": "MISL_S02_IR_FSKI_Ignite",
+                          "Size": 2,
+                          "Grade": 1,
+                          "Type": "Missile.Missile",
+                          "Name": "Ignite II",
+                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Infrared\nSize: 2\n\nThe Ignite is Firestorm's premier brand of heat-seeking strike missile that is the definition of Fire and Forget. Simply let it fly and enjoy the show. ",
+                          "Manufacturer": {
+                            "Code": "FSKI",
+                            "Name": "Aegis Dynamics"
+                          },
+                          "Tags": [
+                            "FSKI",
+                            "IR",
+                            "flightReady"
+                          ],
+                          "Durability": {
+                            "Health": 10.0
+                          },
+                          "Missile": {
+                            "Damage": {
+                              "Physical": 738.72,
+                              "Energy": 2954.88
+                            }
+                          }
+                        },
+                        "Types": [
+                          "Missile.Missile"
+                        ],
+                        "Category": "Missiles"
+                      }
+                    ]
                   },
                   "Types": [
                     "MissileLauncher.MissileRack"
@@ -2295,6 +2883,10 @@
                     "Durability": {
                       "Health": 200.0
                     },
+                    "MissileRack": {
+                      "Count": 2,
+                      "Size": 2
+                    },
                     "PowerConnection": {
                       "PowerBase": 0.0,
                       "PowerDraw": 1.0
@@ -2303,7 +2895,79 @@
                       "ThermalEnergyBase": 10.0,
                       "ThermalEnergyDraw": 20.0,
                       "CoolingRate": 1.0
-                    }
+                    },
+                    "Ports": [
+                      {
+                        "PortName": "missile_01_attach",
+                        "Size": 2,
+                        "Loadout": "MISL_S02_CS_FSKI_Tempest",
+                        "InstalledItem": {
+                          "ClassName": "MISL_S02_CS_FSKI_Tempest",
+                          "Size": 2,
+                          "Grade": 1,
+                          "Type": "Missile.Missile",
+                          "Name": "Tempest II",
+                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetic’s targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
+                          "Manufacturer": {
+                            "Code": "FSKI",
+                            "Name": "Aegis Dynamics"
+                          },
+                          "Tags": [
+                            "FSKI",
+                            "CS",
+                            "flightReady"
+                          ],
+                          "Durability": {
+                            "Health": 10.0
+                          },
+                          "Missile": {
+                            "Damage": {
+                              "Physical": 701.784,
+                              "Energy": 2807.136
+                            }
+                          }
+                        },
+                        "Types": [
+                          "Missile.Missile"
+                        ],
+                        "Category": "Missiles"
+                      },
+                      {
+                        "PortName": "missile_02_attach",
+                        "Size": 2,
+                        "Loadout": "MISL_S02_CS_FSKI_Tempest",
+                        "InstalledItem": {
+                          "ClassName": "MISL_S02_CS_FSKI_Tempest",
+                          "Size": 2,
+                          "Grade": 1,
+                          "Type": "Missile.Missile",
+                          "Name": "Tempest II",
+                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetic’s targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
+                          "Manufacturer": {
+                            "Code": "FSKI",
+                            "Name": "Aegis Dynamics"
+                          },
+                          "Tags": [
+                            "FSKI",
+                            "CS",
+                            "flightReady"
+                          ],
+                          "Durability": {
+                            "Health": 10.0
+                          },
+                          "Missile": {
+                            "Damage": {
+                              "Physical": 701.784,
+                              "Energy": 2807.136
+                            }
+                          }
+                        },
+                        "Types": [
+                          "Missile.Missile"
+                        ],
+                        "Category": "Missiles"
+                      }
+                    ]
                   },
                   "Types": [
                     "MissileLauncher.MissileRack"
@@ -2449,7 +3113,229 @@
                   "ThermalEnergyBase": 10.0,
                   "ThermalEnergyDraw": 20.0,
                   "CoolingRate": 1.0
-                }
+                },
+                "Ports": [
+                  {
+                    "PortName": "hardpoint_weapon_left",
+                    "Size": 3,
+                    "Loadout": "KLWE_LaserRepeater_S3",
+                    "InstalledItem": {
+                      "ClassName": "KLWE_LaserRepeater_S3",
+                      "Size": 3,
+                      "Grade": 1,
+                      "Type": "WeaponGun.Gun",
+                      "Name": "CF-337 Panther Repeater",
+                      "Description": "Manufacturer: Klaus & Werner\nItem Type: Laser Repeater\nSize: 3\n\nThe CF-337 Panther is the size three model in Klaus & Werner's laser repeater line. The Panther is a true fire-and-forget weapon with a respectable power consumption-to-damage ratio. Pilots who outfit their ships with Panthers rarely regret the decision.",
+                      "Manufacturer": {
+                        "Code": "KLA",
+                        "Name": "Klaus & Werner"
+                      },
+                      "Tags": [
+                        "KLWE",
+                        "LaserRepeater",
+                        "flightReady",
+                        "weaponMountUsable"
+                      ],
+                      "Durability": {
+                        "Health": 1024.0,
+                        "Lifetime": 20.0
+                      },
+                      "PowerConnection": {
+                        "PowerBase": 122.0,
+                        "PowerDraw": 336.0
+                      },
+                      "HeatConnection": {
+                        "ThermalEnergyBase": 100.0,
+                        "ThermalEnergyDraw": 100.0,
+                        "CoolingRate": 160.0
+                      },
+                      "Weapon": {
+                        "Ammunition": {
+                          "Speed": 1240.0,
+                          "Range": 2108.0,
+                          "Size": 3.0,
+                          "Capacity": 0.0,
+                          "ImpactDamage": {
+                            "Energy": 96.0
+                          }
+                        },
+                        "Modes": [
+                          {
+                            "Name": "Single",
+                            "LocalisedName": "[SEMI]",
+                            "RoundsPerMinute": 275.0,
+                            "FireType": "sequence",
+                            "AmmoPerShot": 0.0,
+                            "PelletsPerShot": 1.0,
+                            "DamagePerShot": {
+                              "Energy": 96.0
+                            },
+                            "DamagePerSecond": {
+                              "Energy": 440.0
+                            }
+                          }
+                        ]
+                      },
+                      "Ammunition": {
+                        "Speed": 1240.0,
+                        "Range": 2108.0,
+                        "Size": 3.0,
+                        "Capacity": 0.0,
+                        "ImpactDamage": {
+                          "Energy": 96.0
+                        }
+                      },
+                      "Ports": [
+                        {
+                          "PortName": "BAR1",
+                          "Size": 1,
+                          "Types": [
+                            "WeaponAttachment.Barrel"
+                          ],
+                          "Category": "Weapon attachments"
+                        },
+                        {
+                          "PortName": "MEC",
+                          "Size": 1,
+                          "Types": [
+                            "WeaponAttachment.FiringMechanism"
+                          ],
+                          "Category": "Weapon attachments"
+                        },
+                        {
+                          "PortName": "POW",
+                          "Size": 1,
+                          "Types": [
+                            "WeaponAttachment.PowerArray"
+                          ],
+                          "Category": "Weapon attachments"
+                        },
+                        {
+                          "PortName": "VEN",
+                          "Size": 1,
+                          "Types": [
+                            "WeaponAttachment.Ventilation"
+                          ],
+                          "Category": "Weapon attachments"
+                        }
+                      ]
+                    },
+                    "Types": [
+                      "WeaponGun.Gun"
+                    ],
+                    "Category": "Weapon hardpoints"
+                  },
+                  {
+                    "PortName": "hardpoint_weapon_right",
+                    "Size": 3,
+                    "Loadout": "KLWE_LaserRepeater_S3",
+                    "InstalledItem": {
+                      "ClassName": "KLWE_LaserRepeater_S3",
+                      "Size": 3,
+                      "Grade": 1,
+                      "Type": "WeaponGun.Gun",
+                      "Name": "CF-337 Panther Repeater",
+                      "Description": "Manufacturer: Klaus & Werner\nItem Type: Laser Repeater\nSize: 3\n\nThe CF-337 Panther is the size three model in Klaus & Werner's laser repeater line. The Panther is a true fire-and-forget weapon with a respectable power consumption-to-damage ratio. Pilots who outfit their ships with Panthers rarely regret the decision.",
+                      "Manufacturer": {
+                        "Code": "KLA",
+                        "Name": "Klaus & Werner"
+                      },
+                      "Tags": [
+                        "KLWE",
+                        "LaserRepeater",
+                        "flightReady",
+                        "weaponMountUsable"
+                      ],
+                      "Durability": {
+                        "Health": 1024.0,
+                        "Lifetime": 20.0
+                      },
+                      "PowerConnection": {
+                        "PowerBase": 122.0,
+                        "PowerDraw": 336.0
+                      },
+                      "HeatConnection": {
+                        "ThermalEnergyBase": 100.0,
+                        "ThermalEnergyDraw": 100.0,
+                        "CoolingRate": 160.0
+                      },
+                      "Weapon": {
+                        "Ammunition": {
+                          "Speed": 1240.0,
+                          "Range": 2108.0,
+                          "Size": 3.0,
+                          "Capacity": 0.0,
+                          "ImpactDamage": {
+                            "Energy": 96.0
+                          }
+                        },
+                        "Modes": [
+                          {
+                            "Name": "Single",
+                            "LocalisedName": "[SEMI]",
+                            "RoundsPerMinute": 275.0,
+                            "FireType": "sequence",
+                            "AmmoPerShot": 0.0,
+                            "PelletsPerShot": 1.0,
+                            "DamagePerShot": {
+                              "Energy": 96.0
+                            },
+                            "DamagePerSecond": {
+                              "Energy": 440.0
+                            }
+                          }
+                        ]
+                      },
+                      "Ammunition": {
+                        "Speed": 1240.0,
+                        "Range": 2108.0,
+                        "Size": 3.0,
+                        "Capacity": 0.0,
+                        "ImpactDamage": {
+                          "Energy": 96.0
+                        }
+                      },
+                      "Ports": [
+                        {
+                          "PortName": "BAR1",
+                          "Size": 1,
+                          "Types": [
+                            "WeaponAttachment.Barrel"
+                          ],
+                          "Category": "Weapon attachments"
+                        },
+                        {
+                          "PortName": "MEC",
+                          "Size": 1,
+                          "Types": [
+                            "WeaponAttachment.FiringMechanism"
+                          ],
+                          "Category": "Weapon attachments"
+                        },
+                        {
+                          "PortName": "POW",
+                          "Size": 1,
+                          "Types": [
+                            "WeaponAttachment.PowerArray"
+                          ],
+                          "Category": "Weapon attachments"
+                        },
+                        {
+                          "PortName": "VEN",
+                          "Size": 1,
+                          "Types": [
+                            "WeaponAttachment.Ventilation"
+                          ],
+                          "Category": "Weapon attachments"
+                        }
+                      ]
+                    },
+                    "Types": [
+                      "WeaponGun.Gun"
+                    ],
+                    "Category": "Weapon hardpoints"
+                  }
+                ]
               },
               "Types": [
                 "TurretBase.MannedTurret"

@@ -18,7 +18,17 @@
                 "Size": 1,
                 "Grade": 1,
                 "Type": "DockingCollar.UNDEFINED",
-                "Name": "KRIG_P52_Merlin_DockingTube"
+                "Name": "KRIG_P52_Merlin_DockingTube",
+                "Ports": [
+                  {
+                    "PortName": "itemport_vehicle_attach",
+                    "Size": 8,
+                    "Types": [
+                      "NOITEM_Vehicle"
+                    ],
+                    "Category": "UNKNOWN"
+                  }
+                ]
               },
               "Types": [
                 "DockingCollar"
@@ -941,7 +951,20 @@
                       "AmbientPiercing": false
                     }
                   ]
-                }
+                },
+                "Ports": [
+                  {
+                    "PortName": "BatteryPort",
+                    "Size": 2,
+                    "Types": [
+                      "Battery"
+                    ],
+                    "Flags": [
+                      "invisible"
+                    ],
+                    "Category": "Batteries"
+                  }
+                ]
               },
               "Types": [
                 "Radar.ShortRangeRadar",
@@ -1455,7 +1478,311 @@
                         ],
                         "Durability": {
                           "Health": 750.0
-                        }
+                        },
+                        "Ports": [
+                          {
+                            "PortName": "hardpoint_weapon_gun_left_wing",
+                            "Size": 1,
+                            "Loadout": "Mount_Gimbal_S1",
+                            "InstalledItem": {
+                              "ClassName": "Mount_Gimbal_S1",
+                              "Size": 1,
+                              "Grade": 1,
+                              "Type": "Turret.GunTurret",
+                              "Name": "VariPuck S1 Gimbal Mount",
+                              "Description": "Manufacturer: Flashfire Systems\nItem Type: Weapon Mount\nSize: 1\n\nThe VariPuck fits between your weapon and the ship hardpoint to transform a fixed weapon mount into a gimballed mount, allowing the pilot to independently aim their weapon’s fire. This special VariPuck will accept any weapon the same size as the hardpoint it is mounting to.",
+                              "Manufacturer": {
+                                "Code": "FFSY",
+                                "Name": "Flashfire Systems"
+                              },
+                              "Tags": [
+                                "gimbalMount",
+                                "flightReady"
+                              ],
+                              "Durability": {
+                                "Health": 100.0,
+                                "Lifetime": 720.0
+                              },
+                              "PowerConnection": {
+                                "PowerBase": 0.0,
+                                "PowerDraw": 10.0
+                              },
+                              "HeatConnection": {
+                                "ThermalEnergyBase": 10.0,
+                                "ThermalEnergyDraw": 20.0,
+                                "CoolingRate": 1.0
+                              },
+                              "Ports": [
+                                {
+                                  "PortName": "hardpoint_class_2",
+                                  "Size": 1,
+                                  "Loadout": "KLWE_LaserRepeater_S1",
+                                  "InstalledItem": {
+                                    "ClassName": "KLWE_LaserRepeater_S1",
+                                    "Size": 1,
+                                    "Grade": 1,
+                                    "Type": "WeaponGun.Gun",
+                                    "Name": "CF-117 Bulldog Repeater",
+                                    "Description": "Manufacturer: Klaus & Werner\nItem Type: Laser Repeater\nSize: 1\n\nFeaturing a three-barrel sequential fire design, the Klaus & Werner CF-117 Bulldog laser repeater is capable of delivering high velocity energy rounds while maintaining heat efficiency making it a favorite among new pilots who are outfitting their first ship.",
+                                    "Manufacturer": {
+                                      "Code": "KLA",
+                                      "Name": "Klaus & Werner"
+                                    },
+                                    "Tags": [
+                                      "KLWE",
+                                      "LaserRepeater",
+                                      "flightReady",
+                                      "weaponMountUsable"
+                                    ],
+                                    "Durability": {
+                                      "Health": 525.0,
+                                      "Lifetime": 20.0
+                                    },
+                                    "PowerConnection": {
+                                      "PowerBase": 81.0,
+                                      "PowerDraw": 224.0
+                                    },
+                                    "HeatConnection": {
+                                      "ThermalEnergyBase": 100.0,
+                                      "ThermalEnergyDraw": 200.0,
+                                      "CoolingRate": 61.81
+                                    },
+                                    "Weapon": {
+                                      "Ammunition": {
+                                        "Speed": 1206.0,
+                                        "Range": 1326.6000000000001,
+                                        "Size": 1.0,
+                                        "Capacity": 0.0,
+                                        "ImpactDamage": {
+                                          "Energy": 36.2
+                                        }
+                                      },
+                                      "Modes": [
+                                        {
+                                          "Name": "Single",
+                                          "LocalisedName": "[SEMI]",
+                                          "RoundsPerMinute": 325.0,
+                                          "FireType": "sequence",
+                                          "AmmoPerShot": 0.0,
+                                          "PelletsPerShot": 1.0,
+                                          "DamagePerShot": {
+                                            "Energy": 36.2
+                                          },
+                                          "DamagePerSecond": {
+                                            "Energy": 196.08333333333337
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "Ammunition": {
+                                      "Speed": 1206.0,
+                                      "Range": 1326.6000000000001,
+                                      "Size": 1.0,
+                                      "Capacity": 0.0,
+                                      "ImpactDamage": {
+                                        "Energy": 36.2
+                                      }
+                                    },
+                                    "Ports": [
+                                      {
+                                        "PortName": "BAR1",
+                                        "Size": 1,
+                                        "Types": [
+                                          "WeaponAttachment.Barrel"
+                                        ],
+                                        "Category": "Weapon attachments"
+                                      },
+                                      {
+                                        "PortName": "MEC",
+                                        "Size": 1,
+                                        "Types": [
+                                          "WeaponAttachment.FiringMechanism"
+                                        ],
+                                        "Category": "Weapon attachments"
+                                      },
+                                      {
+                                        "PortName": "POW",
+                                        "Size": 1,
+                                        "Types": [
+                                          "WeaponAttachment.PowerArray"
+                                        ],
+                                        "Category": "Weapon attachments"
+                                      },
+                                      {
+                                        "PortName": "VEN",
+                                        "Size": 1,
+                                        "Types": [
+                                          "WeaponAttachment.Ventilation"
+                                        ],
+                                        "Category": "Weapon attachments"
+                                      }
+                                    ]
+                                  },
+                                  "Types": [
+                                    "WeaponGun.Gun"
+                                  ],
+                                  "Category": "Weapon hardpoints"
+                                }
+                              ]
+                            },
+                            "Types": [
+                              "WeaponGun.Gun",
+                              "Turret.GunTurret"
+                            ],
+                            "Category": "Weapon hardpoints"
+                          },
+                          {
+                            "PortName": "hardpoint_weapon_gun_InnerLeft_wing",
+                            "Size": 1,
+                            "Loadout": "Mount_Gimbal_S1",
+                            "InstalledItem": {
+                              "ClassName": "Mount_Gimbal_S1",
+                              "Size": 1,
+                              "Grade": 1,
+                              "Type": "Turret.GunTurret",
+                              "Name": "VariPuck S1 Gimbal Mount",
+                              "Description": "Manufacturer: Flashfire Systems\nItem Type: Weapon Mount\nSize: 1\n\nThe VariPuck fits between your weapon and the ship hardpoint to transform a fixed weapon mount into a gimballed mount, allowing the pilot to independently aim their weapon’s fire. This special VariPuck will accept any weapon the same size as the hardpoint it is mounting to.",
+                              "Manufacturer": {
+                                "Code": "FFSY",
+                                "Name": "Flashfire Systems"
+                              },
+                              "Tags": [
+                                "gimbalMount",
+                                "flightReady"
+                              ],
+                              "Durability": {
+                                "Health": 100.0,
+                                "Lifetime": 720.0
+                              },
+                              "PowerConnection": {
+                                "PowerBase": 0.0,
+                                "PowerDraw": 10.0
+                              },
+                              "HeatConnection": {
+                                "ThermalEnergyBase": 10.0,
+                                "ThermalEnergyDraw": 20.0,
+                                "CoolingRate": 1.0
+                              },
+                              "Ports": [
+                                {
+                                  "PortName": "hardpoint_class_2",
+                                  "Size": 1,
+                                  "Loadout": "KLWE_LaserRepeater_S1",
+                                  "InstalledItem": {
+                                    "ClassName": "KLWE_LaserRepeater_S1",
+                                    "Size": 1,
+                                    "Grade": 1,
+                                    "Type": "WeaponGun.Gun",
+                                    "Name": "CF-117 Bulldog Repeater",
+                                    "Description": "Manufacturer: Klaus & Werner\nItem Type: Laser Repeater\nSize: 1\n\nFeaturing a three-barrel sequential fire design, the Klaus & Werner CF-117 Bulldog laser repeater is capable of delivering high velocity energy rounds while maintaining heat efficiency making it a favorite among new pilots who are outfitting their first ship.",
+                                    "Manufacturer": {
+                                      "Code": "KLA",
+                                      "Name": "Klaus & Werner"
+                                    },
+                                    "Tags": [
+                                      "KLWE",
+                                      "LaserRepeater",
+                                      "flightReady",
+                                      "weaponMountUsable"
+                                    ],
+                                    "Durability": {
+                                      "Health": 525.0,
+                                      "Lifetime": 20.0
+                                    },
+                                    "PowerConnection": {
+                                      "PowerBase": 81.0,
+                                      "PowerDraw": 224.0
+                                    },
+                                    "HeatConnection": {
+                                      "ThermalEnergyBase": 100.0,
+                                      "ThermalEnergyDraw": 200.0,
+                                      "CoolingRate": 61.81
+                                    },
+                                    "Weapon": {
+                                      "Ammunition": {
+                                        "Speed": 1206.0,
+                                        "Range": 1326.6000000000001,
+                                        "Size": 1.0,
+                                        "Capacity": 0.0,
+                                        "ImpactDamage": {
+                                          "Energy": 36.2
+                                        }
+                                      },
+                                      "Modes": [
+                                        {
+                                          "Name": "Single",
+                                          "LocalisedName": "[SEMI]",
+                                          "RoundsPerMinute": 325.0,
+                                          "FireType": "sequence",
+                                          "AmmoPerShot": 0.0,
+                                          "PelletsPerShot": 1.0,
+                                          "DamagePerShot": {
+                                            "Energy": 36.2
+                                          },
+                                          "DamagePerSecond": {
+                                            "Energy": 196.08333333333337
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "Ammunition": {
+                                      "Speed": 1206.0,
+                                      "Range": 1326.6000000000001,
+                                      "Size": 1.0,
+                                      "Capacity": 0.0,
+                                      "ImpactDamage": {
+                                        "Energy": 36.2
+                                      }
+                                    },
+                                    "Ports": [
+                                      {
+                                        "PortName": "BAR1",
+                                        "Size": 1,
+                                        "Types": [
+                                          "WeaponAttachment.Barrel"
+                                        ],
+                                        "Category": "Weapon attachments"
+                                      },
+                                      {
+                                        "PortName": "MEC",
+                                        "Size": 1,
+                                        "Types": [
+                                          "WeaponAttachment.FiringMechanism"
+                                        ],
+                                        "Category": "Weapon attachments"
+                                      },
+                                      {
+                                        "PortName": "POW",
+                                        "Size": 1,
+                                        "Types": [
+                                          "WeaponAttachment.PowerArray"
+                                        ],
+                                        "Category": "Weapon attachments"
+                                      },
+                                      {
+                                        "PortName": "VEN",
+                                        "Size": 1,
+                                        "Types": [
+                                          "WeaponAttachment.Ventilation"
+                                        ],
+                                        "Category": "Weapon attachments"
+                                      }
+                                    ]
+                                  },
+                                  "Types": [
+                                    "WeaponGun.Gun"
+                                  ],
+                                  "Category": "Weapon hardpoints"
+                                }
+                              ]
+                            },
+                            "Types": [
+                              "WeaponGun.Gun",
+                              "Turret.GunTurret"
+                            ],
+                            "Category": "Weapon hardpoints"
+                          }
+                        ]
                       },
                       "Types": [
                         "Misc"
@@ -1500,7 +1827,311 @@
                         ],
                         "Durability": {
                           "Health": 750.0
-                        }
+                        },
+                        "Ports": [
+                          {
+                            "PortName": "hardpoint_weapon_gun_right_wing",
+                            "Size": 1,
+                            "Loadout": "Mount_Gimbal_S1",
+                            "InstalledItem": {
+                              "ClassName": "Mount_Gimbal_S1",
+                              "Size": 1,
+                              "Grade": 1,
+                              "Type": "Turret.GunTurret",
+                              "Name": "VariPuck S1 Gimbal Mount",
+                              "Description": "Manufacturer: Flashfire Systems\nItem Type: Weapon Mount\nSize: 1\n\nThe VariPuck fits between your weapon and the ship hardpoint to transform a fixed weapon mount into a gimballed mount, allowing the pilot to independently aim their weapon’s fire. This special VariPuck will accept any weapon the same size as the hardpoint it is mounting to.",
+                              "Manufacturer": {
+                                "Code": "FFSY",
+                                "Name": "Flashfire Systems"
+                              },
+                              "Tags": [
+                                "gimbalMount",
+                                "flightReady"
+                              ],
+                              "Durability": {
+                                "Health": 100.0,
+                                "Lifetime": 720.0
+                              },
+                              "PowerConnection": {
+                                "PowerBase": 0.0,
+                                "PowerDraw": 10.0
+                              },
+                              "HeatConnection": {
+                                "ThermalEnergyBase": 10.0,
+                                "ThermalEnergyDraw": 20.0,
+                                "CoolingRate": 1.0
+                              },
+                              "Ports": [
+                                {
+                                  "PortName": "hardpoint_class_2",
+                                  "Size": 1,
+                                  "Loadout": "KLWE_LaserRepeater_S1",
+                                  "InstalledItem": {
+                                    "ClassName": "KLWE_LaserRepeater_S1",
+                                    "Size": 1,
+                                    "Grade": 1,
+                                    "Type": "WeaponGun.Gun",
+                                    "Name": "CF-117 Bulldog Repeater",
+                                    "Description": "Manufacturer: Klaus & Werner\nItem Type: Laser Repeater\nSize: 1\n\nFeaturing a three-barrel sequential fire design, the Klaus & Werner CF-117 Bulldog laser repeater is capable of delivering high velocity energy rounds while maintaining heat efficiency making it a favorite among new pilots who are outfitting their first ship.",
+                                    "Manufacturer": {
+                                      "Code": "KLA",
+                                      "Name": "Klaus & Werner"
+                                    },
+                                    "Tags": [
+                                      "KLWE",
+                                      "LaserRepeater",
+                                      "flightReady",
+                                      "weaponMountUsable"
+                                    ],
+                                    "Durability": {
+                                      "Health": 525.0,
+                                      "Lifetime": 20.0
+                                    },
+                                    "PowerConnection": {
+                                      "PowerBase": 81.0,
+                                      "PowerDraw": 224.0
+                                    },
+                                    "HeatConnection": {
+                                      "ThermalEnergyBase": 100.0,
+                                      "ThermalEnergyDraw": 200.0,
+                                      "CoolingRate": 61.81
+                                    },
+                                    "Weapon": {
+                                      "Ammunition": {
+                                        "Speed": 1206.0,
+                                        "Range": 1326.6000000000001,
+                                        "Size": 1.0,
+                                        "Capacity": 0.0,
+                                        "ImpactDamage": {
+                                          "Energy": 36.2
+                                        }
+                                      },
+                                      "Modes": [
+                                        {
+                                          "Name": "Single",
+                                          "LocalisedName": "[SEMI]",
+                                          "RoundsPerMinute": 325.0,
+                                          "FireType": "sequence",
+                                          "AmmoPerShot": 0.0,
+                                          "PelletsPerShot": 1.0,
+                                          "DamagePerShot": {
+                                            "Energy": 36.2
+                                          },
+                                          "DamagePerSecond": {
+                                            "Energy": 196.08333333333337
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "Ammunition": {
+                                      "Speed": 1206.0,
+                                      "Range": 1326.6000000000001,
+                                      "Size": 1.0,
+                                      "Capacity": 0.0,
+                                      "ImpactDamage": {
+                                        "Energy": 36.2
+                                      }
+                                    },
+                                    "Ports": [
+                                      {
+                                        "PortName": "BAR1",
+                                        "Size": 1,
+                                        "Types": [
+                                          "WeaponAttachment.Barrel"
+                                        ],
+                                        "Category": "Weapon attachments"
+                                      },
+                                      {
+                                        "PortName": "MEC",
+                                        "Size": 1,
+                                        "Types": [
+                                          "WeaponAttachment.FiringMechanism"
+                                        ],
+                                        "Category": "Weapon attachments"
+                                      },
+                                      {
+                                        "PortName": "POW",
+                                        "Size": 1,
+                                        "Types": [
+                                          "WeaponAttachment.PowerArray"
+                                        ],
+                                        "Category": "Weapon attachments"
+                                      },
+                                      {
+                                        "PortName": "VEN",
+                                        "Size": 1,
+                                        "Types": [
+                                          "WeaponAttachment.Ventilation"
+                                        ],
+                                        "Category": "Weapon attachments"
+                                      }
+                                    ]
+                                  },
+                                  "Types": [
+                                    "WeaponGun.Gun"
+                                  ],
+                                  "Category": "Weapon hardpoints"
+                                }
+                              ]
+                            },
+                            "Types": [
+                              "WeaponGun.Gun",
+                              "Turret.GunTurret"
+                            ],
+                            "Category": "Weapon hardpoints"
+                          },
+                          {
+                            "PortName": "hardpoint_weapon_gun_InnerRight_wing",
+                            "Size": 1,
+                            "Loadout": "Mount_Gimbal_S1",
+                            "InstalledItem": {
+                              "ClassName": "Mount_Gimbal_S1",
+                              "Size": 1,
+                              "Grade": 1,
+                              "Type": "Turret.GunTurret",
+                              "Name": "VariPuck S1 Gimbal Mount",
+                              "Description": "Manufacturer: Flashfire Systems\nItem Type: Weapon Mount\nSize: 1\n\nThe VariPuck fits between your weapon and the ship hardpoint to transform a fixed weapon mount into a gimballed mount, allowing the pilot to independently aim their weapon’s fire. This special VariPuck will accept any weapon the same size as the hardpoint it is mounting to.",
+                              "Manufacturer": {
+                                "Code": "FFSY",
+                                "Name": "Flashfire Systems"
+                              },
+                              "Tags": [
+                                "gimbalMount",
+                                "flightReady"
+                              ],
+                              "Durability": {
+                                "Health": 100.0,
+                                "Lifetime": 720.0
+                              },
+                              "PowerConnection": {
+                                "PowerBase": 0.0,
+                                "PowerDraw": 10.0
+                              },
+                              "HeatConnection": {
+                                "ThermalEnergyBase": 10.0,
+                                "ThermalEnergyDraw": 20.0,
+                                "CoolingRate": 1.0
+                              },
+                              "Ports": [
+                                {
+                                  "PortName": "hardpoint_class_2",
+                                  "Size": 1,
+                                  "Loadout": "KLWE_LaserRepeater_S1",
+                                  "InstalledItem": {
+                                    "ClassName": "KLWE_LaserRepeater_S1",
+                                    "Size": 1,
+                                    "Grade": 1,
+                                    "Type": "WeaponGun.Gun",
+                                    "Name": "CF-117 Bulldog Repeater",
+                                    "Description": "Manufacturer: Klaus & Werner\nItem Type: Laser Repeater\nSize: 1\n\nFeaturing a three-barrel sequential fire design, the Klaus & Werner CF-117 Bulldog laser repeater is capable of delivering high velocity energy rounds while maintaining heat efficiency making it a favorite among new pilots who are outfitting their first ship.",
+                                    "Manufacturer": {
+                                      "Code": "KLA",
+                                      "Name": "Klaus & Werner"
+                                    },
+                                    "Tags": [
+                                      "KLWE",
+                                      "LaserRepeater",
+                                      "flightReady",
+                                      "weaponMountUsable"
+                                    ],
+                                    "Durability": {
+                                      "Health": 525.0,
+                                      "Lifetime": 20.0
+                                    },
+                                    "PowerConnection": {
+                                      "PowerBase": 81.0,
+                                      "PowerDraw": 224.0
+                                    },
+                                    "HeatConnection": {
+                                      "ThermalEnergyBase": 100.0,
+                                      "ThermalEnergyDraw": 200.0,
+                                      "CoolingRate": 61.81
+                                    },
+                                    "Weapon": {
+                                      "Ammunition": {
+                                        "Speed": 1206.0,
+                                        "Range": 1326.6000000000001,
+                                        "Size": 1.0,
+                                        "Capacity": 0.0,
+                                        "ImpactDamage": {
+                                          "Energy": 36.2
+                                        }
+                                      },
+                                      "Modes": [
+                                        {
+                                          "Name": "Single",
+                                          "LocalisedName": "[SEMI]",
+                                          "RoundsPerMinute": 325.0,
+                                          "FireType": "sequence",
+                                          "AmmoPerShot": 0.0,
+                                          "PelletsPerShot": 1.0,
+                                          "DamagePerShot": {
+                                            "Energy": 36.2
+                                          },
+                                          "DamagePerSecond": {
+                                            "Energy": 196.08333333333337
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "Ammunition": {
+                                      "Speed": 1206.0,
+                                      "Range": 1326.6000000000001,
+                                      "Size": 1.0,
+                                      "Capacity": 0.0,
+                                      "ImpactDamage": {
+                                        "Energy": 36.2
+                                      }
+                                    },
+                                    "Ports": [
+                                      {
+                                        "PortName": "BAR1",
+                                        "Size": 1,
+                                        "Types": [
+                                          "WeaponAttachment.Barrel"
+                                        ],
+                                        "Category": "Weapon attachments"
+                                      },
+                                      {
+                                        "PortName": "MEC",
+                                        "Size": 1,
+                                        "Types": [
+                                          "WeaponAttachment.FiringMechanism"
+                                        ],
+                                        "Category": "Weapon attachments"
+                                      },
+                                      {
+                                        "PortName": "POW",
+                                        "Size": 1,
+                                        "Types": [
+                                          "WeaponAttachment.PowerArray"
+                                        ],
+                                        "Category": "Weapon attachments"
+                                      },
+                                      {
+                                        "PortName": "VEN",
+                                        "Size": 1,
+                                        "Types": [
+                                          "WeaponAttachment.Ventilation"
+                                        ],
+                                        "Category": "Weapon attachments"
+                                      }
+                                    ]
+                                  },
+                                  "Types": [
+                                    "WeaponGun.Gun"
+                                  ],
+                                  "Category": "Weapon hardpoints"
+                                }
+                              ]
+                            },
+                            "Types": [
+                              "WeaponGun.Gun",
+                              "Turret.GunTurret"
+                            ],
+                            "Category": "Weapon hardpoints"
+                          }
+                        ]
                       },
                       "Types": [
                         "Misc"

@@ -194,7 +194,14 @@
                       "ImpactDamage": {
                         "Energy": 103.0
                       }
-                    }
+                    },
+                    "Ports": [
+                      {
+                        "PortName": "magazine_attach",
+                        "Size": 0,
+                        "Category": "UNKNOWN"
+                      }
+                    ]
                   },
                   "Types": [
                     "WeaponGun.Gun"
@@ -279,7 +286,14 @@
                       "ImpactDamage": {
                         "Energy": 103.0
                       }
-                    }
+                    },
+                    "Ports": [
+                      {
+                        "PortName": "magazine_attach",
+                        "Size": 0,
+                        "Category": "UNKNOWN"
+                      }
+                    ]
                   },
                   "Types": [
                     "WeaponGun.Gun"
@@ -386,7 +400,20 @@
                       "AmbientPiercing": false
                     }
                   ]
-                }
+                },
+                "Ports": [
+                  {
+                    "PortName": "BatteryPort",
+                    "Size": 2,
+                    "Types": [
+                      "Battery"
+                    ],
+                    "Flags": [
+                      "invisible"
+                    ],
+                    "Category": "Batteries"
+                  }
+                ]
               },
               "Types": [
                 "Radar.ShortRangeRadar",
@@ -783,7 +810,25 @@
                   "ThermalEnergyBase": 10.0,
                   "ThermalEnergyDraw": 20.0,
                   "CoolingRate": 1.0
-                }
+                },
+                "Ports": [
+                  {
+                    "PortName": "hardpoint_cockpit_radar",
+                    "Size": 1,
+                    "Loadout": "VNCL_Scythe_RADR_Display",
+                    "InstalledItem": {
+                      "ClassName": "VNCL_Scythe_RADR_Display",
+                      "Size": 1,
+                      "Grade": 1,
+                      "Type": "Display.UNDEFINED",
+                      "Name": "VNCL_Scythe_RADR_Display"
+                    },
+                    "Types": [
+                      "Display"
+                    ],
+                    "Category": "UNKNOWN"
+                  }
+                ]
               },
               "Types": [
                 "SeatDashboard"
@@ -2453,6 +2498,10 @@
                             "Durability": {
                               "Health": 200.0
                             },
+                            "MissileRack": {
+                              "Count": 4,
+                              "Size": 1
+                            },
                             "PowerConnection": {
                               "PowerBase": 0.0,
                               "PowerDraw": 1.0
@@ -2461,7 +2510,149 @@
                               "ThermalEnergyBase": 10.0,
                               "ThermalEnergyDraw": 20.0,
                               "CoolingRate": 1.0
-                            }
+                            },
+                            "Ports": [
+                              {
+                                "PortName": "missile_01_attach",
+                                "Size": 1,
+                                "Loadout": "MISL_S01_IR_VNCL_Arrow",
+                                "InstalledItem": {
+                                  "ClassName": "MISL_S01_IR_VNCL_Arrow",
+                                  "Size": 1,
+                                  "Grade": 1,
+                                  "Type": "Missile.Missile",
+                                  "Name": "'Arrow' I",
+                                  "Description": "Manufacturer: Vanduul\nTracking Signal: Infrared\nSize: 1\n\nCommonly known by its military designation, the Arrow is a small infrared strike missile that has become a mainstay of the Vanduul armory.",
+                                  "Manufacturer": {
+                                    "Code": "VNC",
+                                    "Name": "Vanduul Components - Generic"
+                                  },
+                                  "Tags": [
+                                    "VNCL",
+                                    "IR",
+                                    "flightReady"
+                                  ],
+                                  "Durability": {
+                                    "Health": 10.0
+                                  },
+                                  "Missile": {
+                                    "Damage": {
+                                      "Physical": 583.2,
+                                      "Energy": 2332.8
+                                    }
+                                  }
+                                },
+                                "Types": [
+                                  "Missile.Missile"
+                                ],
+                                "Category": "Missiles"
+                              },
+                              {
+                                "PortName": "missile_02_attach",
+                                "Size": 1,
+                                "Loadout": "MISL_S01_IR_VNCL_Arrow",
+                                "InstalledItem": {
+                                  "ClassName": "MISL_S01_IR_VNCL_Arrow",
+                                  "Size": 1,
+                                  "Grade": 1,
+                                  "Type": "Missile.Missile",
+                                  "Name": "'Arrow' I",
+                                  "Description": "Manufacturer: Vanduul\nTracking Signal: Infrared\nSize: 1\n\nCommonly known by its military designation, the Arrow is a small infrared strike missile that has become a mainstay of the Vanduul armory.",
+                                  "Manufacturer": {
+                                    "Code": "VNC",
+                                    "Name": "Vanduul Components - Generic"
+                                  },
+                                  "Tags": [
+                                    "VNCL",
+                                    "IR",
+                                    "flightReady"
+                                  ],
+                                  "Durability": {
+                                    "Health": 10.0
+                                  },
+                                  "Missile": {
+                                    "Damage": {
+                                      "Physical": 583.2,
+                                      "Energy": 2332.8
+                                    }
+                                  }
+                                },
+                                "Types": [
+                                  "Missile.Missile"
+                                ],
+                                "Category": "Missiles"
+                              },
+                              {
+                                "PortName": "missile_03_attach",
+                                "Size": 1,
+                                "Loadout": "MISL_S01_IR_VNCL_Arrow",
+                                "InstalledItem": {
+                                  "ClassName": "MISL_S01_IR_VNCL_Arrow",
+                                  "Size": 1,
+                                  "Grade": 1,
+                                  "Type": "Missile.Missile",
+                                  "Name": "'Arrow' I",
+                                  "Description": "Manufacturer: Vanduul\nTracking Signal: Infrared\nSize: 1\n\nCommonly known by its military designation, the Arrow is a small infrared strike missile that has become a mainstay of the Vanduul armory.",
+                                  "Manufacturer": {
+                                    "Code": "VNC",
+                                    "Name": "Vanduul Components - Generic"
+                                  },
+                                  "Tags": [
+                                    "VNCL",
+                                    "IR",
+                                    "flightReady"
+                                  ],
+                                  "Durability": {
+                                    "Health": 10.0
+                                  },
+                                  "Missile": {
+                                    "Damage": {
+                                      "Physical": 583.2,
+                                      "Energy": 2332.8
+                                    }
+                                  }
+                                },
+                                "Types": [
+                                  "Missile.Missile"
+                                ],
+                                "Category": "Missiles"
+                              },
+                              {
+                                "PortName": "missile_04_attach",
+                                "Size": 1,
+                                "Loadout": "MISL_S01_IR_VNCL_Arrow",
+                                "InstalledItem": {
+                                  "ClassName": "MISL_S01_IR_VNCL_Arrow",
+                                  "Size": 1,
+                                  "Grade": 1,
+                                  "Type": "Missile.Missile",
+                                  "Name": "'Arrow' I",
+                                  "Description": "Manufacturer: Vanduul\nTracking Signal: Infrared\nSize: 1\n\nCommonly known by its military designation, the Arrow is a small infrared strike missile that has become a mainstay of the Vanduul armory.",
+                                  "Manufacturer": {
+                                    "Code": "VNC",
+                                    "Name": "Vanduul Components - Generic"
+                                  },
+                                  "Tags": [
+                                    "VNCL",
+                                    "IR",
+                                    "flightReady"
+                                  ],
+                                  "Durability": {
+                                    "Health": 10.0
+                                  },
+                                  "Missile": {
+                                    "Damage": {
+                                      "Physical": 583.2,
+                                      "Energy": 2332.8
+                                    }
+                                  }
+                                },
+                                "Types": [
+                                  "Missile.Missile"
+                                ],
+                                "Category": "Missiles"
+                              }
+                            ]
                           },
                           "Types": [
                             "MissileLauncher.MissileRack"
@@ -2654,6 +2845,10 @@
                                 "Durability": {
                                   "Health": 200.0
                                 },
+                                "MissileRack": {
+                                  "Count": 4,
+                                  "Size": 1
+                                },
                                 "PowerConnection": {
                                   "PowerBase": 0.0,
                                   "PowerDraw": 1.0
@@ -2662,7 +2857,149 @@
                                   "ThermalEnergyBase": 10.0,
                                   "ThermalEnergyDraw": 20.0,
                                   "CoolingRate": 1.0
-                                }
+                                },
+                                "Ports": [
+                                  {
+                                    "PortName": "missile_01_attach",
+                                    "Size": 1,
+                                    "Loadout": "MISL_S01_IR_VNCL_Arrow",
+                                    "InstalledItem": {
+                                      "ClassName": "MISL_S01_IR_VNCL_Arrow",
+                                      "Size": 1,
+                                      "Grade": 1,
+                                      "Type": "Missile.Missile",
+                                      "Name": "'Arrow' I",
+                                      "Description": "Manufacturer: Vanduul\nTracking Signal: Infrared\nSize: 1\n\nCommonly known by its military designation, the Arrow is a small infrared strike missile that has become a mainstay of the Vanduul armory.",
+                                      "Manufacturer": {
+                                        "Code": "VNC",
+                                        "Name": "Vanduul Components - Generic"
+                                      },
+                                      "Tags": [
+                                        "VNCL",
+                                        "IR",
+                                        "flightReady"
+                                      ],
+                                      "Durability": {
+                                        "Health": 10.0
+                                      },
+                                      "Missile": {
+                                        "Damage": {
+                                          "Physical": 583.2,
+                                          "Energy": 2332.8
+                                        }
+                                      }
+                                    },
+                                    "Types": [
+                                      "Missile.Missile"
+                                    ],
+                                    "Category": "Missiles"
+                                  },
+                                  {
+                                    "PortName": "missile_02_attach",
+                                    "Size": 1,
+                                    "Loadout": "MISL_S01_IR_VNCL_Arrow",
+                                    "InstalledItem": {
+                                      "ClassName": "MISL_S01_IR_VNCL_Arrow",
+                                      "Size": 1,
+                                      "Grade": 1,
+                                      "Type": "Missile.Missile",
+                                      "Name": "'Arrow' I",
+                                      "Description": "Manufacturer: Vanduul\nTracking Signal: Infrared\nSize: 1\n\nCommonly known by its military designation, the Arrow is a small infrared strike missile that has become a mainstay of the Vanduul armory.",
+                                      "Manufacturer": {
+                                        "Code": "VNC",
+                                        "Name": "Vanduul Components - Generic"
+                                      },
+                                      "Tags": [
+                                        "VNCL",
+                                        "IR",
+                                        "flightReady"
+                                      ],
+                                      "Durability": {
+                                        "Health": 10.0
+                                      },
+                                      "Missile": {
+                                        "Damage": {
+                                          "Physical": 583.2,
+                                          "Energy": 2332.8
+                                        }
+                                      }
+                                    },
+                                    "Types": [
+                                      "Missile.Missile"
+                                    ],
+                                    "Category": "Missiles"
+                                  },
+                                  {
+                                    "PortName": "missile_03_attach",
+                                    "Size": 1,
+                                    "Loadout": "MISL_S01_IR_VNCL_Arrow",
+                                    "InstalledItem": {
+                                      "ClassName": "MISL_S01_IR_VNCL_Arrow",
+                                      "Size": 1,
+                                      "Grade": 1,
+                                      "Type": "Missile.Missile",
+                                      "Name": "'Arrow' I",
+                                      "Description": "Manufacturer: Vanduul\nTracking Signal: Infrared\nSize: 1\n\nCommonly known by its military designation, the Arrow is a small infrared strike missile that has become a mainstay of the Vanduul armory.",
+                                      "Manufacturer": {
+                                        "Code": "VNC",
+                                        "Name": "Vanduul Components - Generic"
+                                      },
+                                      "Tags": [
+                                        "VNCL",
+                                        "IR",
+                                        "flightReady"
+                                      ],
+                                      "Durability": {
+                                        "Health": 10.0
+                                      },
+                                      "Missile": {
+                                        "Damage": {
+                                          "Physical": 583.2,
+                                          "Energy": 2332.8
+                                        }
+                                      }
+                                    },
+                                    "Types": [
+                                      "Missile.Missile"
+                                    ],
+                                    "Category": "Missiles"
+                                  },
+                                  {
+                                    "PortName": "missile_04_attach",
+                                    "Size": 1,
+                                    "Loadout": "MISL_S01_IR_VNCL_Arrow",
+                                    "InstalledItem": {
+                                      "ClassName": "MISL_S01_IR_VNCL_Arrow",
+                                      "Size": 1,
+                                      "Grade": 1,
+                                      "Type": "Missile.Missile",
+                                      "Name": "'Arrow' I",
+                                      "Description": "Manufacturer: Vanduul\nTracking Signal: Infrared\nSize: 1\n\nCommonly known by its military designation, the Arrow is a small infrared strike missile that has become a mainstay of the Vanduul armory.",
+                                      "Manufacturer": {
+                                        "Code": "VNC",
+                                        "Name": "Vanduul Components - Generic"
+                                      },
+                                      "Tags": [
+                                        "VNCL",
+                                        "IR",
+                                        "flightReady"
+                                      ],
+                                      "Durability": {
+                                        "Health": 10.0
+                                      },
+                                      "Missile": {
+                                        "Damage": {
+                                          "Physical": 583.2,
+                                          "Energy": 2332.8
+                                        }
+                                      }
+                                    },
+                                    "Types": [
+                                      "Missile.Missile"
+                                    ],
+                                    "Category": "Missiles"
+                                  }
+                                ]
                               },
                               "Types": [
                                 "MissileLauncher.MissileRack"

@@ -104,7 +104,25 @@
                       "ThermalEnergyBase": 10.0,
                       "ThermalEnergyDraw": 20.0,
                       "CoolingRate": 1.0
-                    }
+                    },
+                    "Ports": [
+                      {
+                        "PortName": "hardpoint_cockpit_radar",
+                        "Size": 1,
+                        "Loadout": "RADR_Display",
+                        "InstalledItem": {
+                          "ClassName": "RADR_Display",
+                          "Size": 1,
+                          "Grade": 1,
+                          "Type": "Display.UNDEFINED",
+                          "Name": "RADR_Display"
+                        },
+                        "Types": [
+                          "Display"
+                        ],
+                        "Category": "UNKNOWN"
+                      }
+                    ]
                   },
                   "Types": [
                     "SeatDashboard"
@@ -631,7 +649,20 @@
                       "AmbientPiercing": false
                     }
                   ]
-                }
+                },
+                "Ports": [
+                  {
+                    "PortName": "BatteryPort",
+                    "Size": 2,
+                    "Types": [
+                      "Battery"
+                    ],
+                    "Flags": [
+                      "invisible"
+                    ],
+                    "Category": "Batteries"
+                  }
+                ]
               },
               "Types": [
                 "Radar.ShortRangeRadar",
@@ -917,7 +948,14 @@
                               "ImpactDamage": {
                                 "Energy": 200.0
                               }
-                            }
+                            },
+                            "Ports": [
+                              {
+                                "PortName": "magazine_attach",
+                                "Size": 0,
+                                "Category": "UNKNOWN"
+                              }
+                            ]
                           },
                           "Types": [
                             "Turret.GunTurret",
@@ -1019,7 +1057,14 @@
                               "ImpactDamage": {
                                 "Energy": 200.0
                               }
-                            }
+                            },
+                            "Ports": [
+                              {
+                                "PortName": "magazine_attach",
+                                "Size": 0,
+                                "Category": "UNKNOWN"
+                              }
+                            ]
                           },
                           "Types": [
                             "Turret.GunTurret",
@@ -1275,6 +1320,10 @@
                             "Durability": {
                               "Health": 200.0
                             },
+                            "MissileRack": {
+                              "Count": 2,
+                              "Size": 2
+                            },
                             "PowerConnection": {
                               "PowerBase": 0.0,
                               "PowerDraw": 1.0
@@ -1283,7 +1332,79 @@
                               "ThermalEnergyBase": 10.0,
                               "ThermalEnergyDraw": 20.0,
                               "CoolingRate": 1.0
-                            }
+                            },
+                            "Ports": [
+                              {
+                                "PortName": "missile_01_attach",
+                                "Size": 2,
+                                "Loadout": "MISL_S02_IR_FSKI_Ignite",
+                                "InstalledItem": {
+                                  "ClassName": "MISL_S02_IR_FSKI_Ignite",
+                                  "Size": 2,
+                                  "Grade": 1,
+                                  "Type": "Missile.Missile",
+                                  "Name": "Ignite II",
+                                  "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Infrared\nSize: 2\n\nThe Ignite is Firestorm's premier brand of heat-seeking strike missile that is the definition of Fire and Forget. Simply let it fly and enjoy the show. ",
+                                  "Manufacturer": {
+                                    "Code": "FSKI",
+                                    "Name": "Aegis Dynamics"
+                                  },
+                                  "Tags": [
+                                    "FSKI",
+                                    "IR",
+                                    "flightReady"
+                                  ],
+                                  "Durability": {
+                                    "Health": 10.0
+                                  },
+                                  "Missile": {
+                                    "Damage": {
+                                      "Physical": 738.72,
+                                      "Energy": 2954.88
+                                    }
+                                  }
+                                },
+                                "Types": [
+                                  "Missile.Missile"
+                                ],
+                                "Category": "Missiles"
+                              },
+                              {
+                                "PortName": "missile_02_attach",
+                                "Size": 2,
+                                "Loadout": "MISL_S02_IR_FSKI_Ignite",
+                                "InstalledItem": {
+                                  "ClassName": "MISL_S02_IR_FSKI_Ignite",
+                                  "Size": 2,
+                                  "Grade": 1,
+                                  "Type": "Missile.Missile",
+                                  "Name": "Ignite II",
+                                  "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Infrared\nSize: 2\n\nThe Ignite is Firestorm's premier brand of heat-seeking strike missile that is the definition of Fire and Forget. Simply let it fly and enjoy the show. ",
+                                  "Manufacturer": {
+                                    "Code": "FSKI",
+                                    "Name": "Aegis Dynamics"
+                                  },
+                                  "Tags": [
+                                    "FSKI",
+                                    "IR",
+                                    "flightReady"
+                                  ],
+                                  "Durability": {
+                                    "Health": 10.0
+                                  },
+                                  "Missile": {
+                                    "Damage": {
+                                      "Physical": 738.72,
+                                      "Energy": 2954.88
+                                    }
+                                  }
+                                },
+                                "Types": [
+                                  "Missile.Missile"
+                                ],
+                                "Category": "Missiles"
+                              }
+                            ]
                           },
                           "Types": [
                             "MissileLauncher.MissileRack"
@@ -1314,6 +1435,10 @@
                             "Durability": {
                               "Health": 200.0
                             },
+                            "MissileRack": {
+                              "Count": 2,
+                              "Size": 1
+                            },
                             "PowerConnection": {
                               "PowerBase": 0.0,
                               "PowerDraw": 1.0
@@ -1322,7 +1447,79 @@
                               "ThermalEnergyBase": 10.0,
                               "ThermalEnergyDraw": 20.0,
                               "CoolingRate": 1.0
-                            }
+                            },
+                            "Ports": [
+                              {
+                                "PortName": "missile_01_attach",
+                                "Size": 1,
+                                "Loadout": "MISL_S01_IR_BEHR_Marksman",
+                                "InstalledItem": {
+                                  "ClassName": "MISL_S01_IR_BEHR_Marksman",
+                                  "Size": 1,
+                                  "Grade": 1,
+                                  "Type": "Missile.Missile",
+                                  "Name": "Marksman I",
+                                  "Description": "Manufacturer: Behring\nTracking Signal: Infrared\nSize: 1\n\nBehring's Marksman series of proximity missiles has earned as much of a reputation for its ability to track a wide range of heat signatures as it has for its area-effect proximity damage.",
+                                  "Manufacturer": {
+                                    "Code": "BEH",
+                                    "Name": "Behring"
+                                  },
+                                  "Tags": [
+                                    "BEHR",
+                                    "IR",
+                                    "flightReady"
+                                  ],
+                                  "Durability": {
+                                    "Health": 10.0
+                                  },
+                                  "Missile": {
+                                    "Damage": {
+                                      "Physical": 518.4,
+                                      "Energy": 2073.6
+                                    }
+                                  }
+                                },
+                                "Types": [
+                                  "Missile.Missile"
+                                ],
+                                "Category": "Missiles"
+                              },
+                              {
+                                "PortName": "missile_02_attach",
+                                "Size": 1,
+                                "Loadout": "MISL_S01_IR_BEHR_Marksman",
+                                "InstalledItem": {
+                                  "ClassName": "MISL_S01_IR_BEHR_Marksman",
+                                  "Size": 1,
+                                  "Grade": 1,
+                                  "Type": "Missile.Missile",
+                                  "Name": "Marksman I",
+                                  "Description": "Manufacturer: Behring\nTracking Signal: Infrared\nSize: 1\n\nBehring's Marksman series of proximity missiles has earned as much of a reputation for its ability to track a wide range of heat signatures as it has for its area-effect proximity damage.",
+                                  "Manufacturer": {
+                                    "Code": "BEH",
+                                    "Name": "Behring"
+                                  },
+                                  "Tags": [
+                                    "BEHR",
+                                    "IR",
+                                    "flightReady"
+                                  ],
+                                  "Durability": {
+                                    "Health": 10.0
+                                  },
+                                  "Missile": {
+                                    "Damage": {
+                                      "Physical": 518.4,
+                                      "Energy": 2073.6
+                                    }
+                                  }
+                                },
+                                "Types": [
+                                  "Missile.Missile"
+                                ],
+                                "Category": "Missiles"
+                              }
+                            ]
                           },
                           "Types": [
                             "MissileLauncher.MissileRack"
@@ -1999,6 +2196,10 @@
                             "Durability": {
                               "Health": 200.0
                             },
+                            "MissileRack": {
+                              "Count": 2,
+                              "Size": 2
+                            },
                             "PowerConnection": {
                               "PowerBase": 0.0,
                               "PowerDraw": 1.0
@@ -2007,7 +2208,79 @@
                               "ThermalEnergyBase": 10.0,
                               "ThermalEnergyDraw": 20.0,
                               "CoolingRate": 1.0
-                            }
+                            },
+                            "Ports": [
+                              {
+                                "PortName": "missile_01_attach",
+                                "Size": 2,
+                                "Loadout": "MISL_S02_IR_FSKI_Ignite",
+                                "InstalledItem": {
+                                  "ClassName": "MISL_S02_IR_FSKI_Ignite",
+                                  "Size": 2,
+                                  "Grade": 1,
+                                  "Type": "Missile.Missile",
+                                  "Name": "Ignite II",
+                                  "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Infrared\nSize: 2\n\nThe Ignite is Firestorm's premier brand of heat-seeking strike missile that is the definition of Fire and Forget. Simply let it fly and enjoy the show. ",
+                                  "Manufacturer": {
+                                    "Code": "FSKI",
+                                    "Name": "Aegis Dynamics"
+                                  },
+                                  "Tags": [
+                                    "FSKI",
+                                    "IR",
+                                    "flightReady"
+                                  ],
+                                  "Durability": {
+                                    "Health": 10.0
+                                  },
+                                  "Missile": {
+                                    "Damage": {
+                                      "Physical": 738.72,
+                                      "Energy": 2954.88
+                                    }
+                                  }
+                                },
+                                "Types": [
+                                  "Missile.Missile"
+                                ],
+                                "Category": "Missiles"
+                              },
+                              {
+                                "PortName": "missile_02_attach",
+                                "Size": 2,
+                                "Loadout": "MISL_S02_IR_FSKI_Ignite",
+                                "InstalledItem": {
+                                  "ClassName": "MISL_S02_IR_FSKI_Ignite",
+                                  "Size": 2,
+                                  "Grade": 1,
+                                  "Type": "Missile.Missile",
+                                  "Name": "Ignite II",
+                                  "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Infrared\nSize: 2\n\nThe Ignite is Firestorm's premier brand of heat-seeking strike missile that is the definition of Fire and Forget. Simply let it fly and enjoy the show. ",
+                                  "Manufacturer": {
+                                    "Code": "FSKI",
+                                    "Name": "Aegis Dynamics"
+                                  },
+                                  "Tags": [
+                                    "FSKI",
+                                    "IR",
+                                    "flightReady"
+                                  ],
+                                  "Durability": {
+                                    "Health": 10.0
+                                  },
+                                  "Missile": {
+                                    "Damage": {
+                                      "Physical": 738.72,
+                                      "Energy": 2954.88
+                                    }
+                                  }
+                                },
+                                "Types": [
+                                  "Missile.Missile"
+                                ],
+                                "Category": "Missiles"
+                              }
+                            ]
                           },
                           "Types": [
                             "MissileLauncher.MissileRack"
@@ -2038,6 +2311,10 @@
                             "Durability": {
                               "Health": 200.0
                             },
+                            "MissileRack": {
+                              "Count": 2,
+                              "Size": 1
+                            },
                             "PowerConnection": {
                               "PowerBase": 0.0,
                               "PowerDraw": 1.0
@@ -2046,7 +2323,79 @@
                               "ThermalEnergyBase": 10.0,
                               "ThermalEnergyDraw": 20.0,
                               "CoolingRate": 1.0
-                            }
+                            },
+                            "Ports": [
+                              {
+                                "PortName": "missile_01_attach",
+                                "Size": 1,
+                                "Loadout": "MISL_S01_IR_BEHR_Marksman",
+                                "InstalledItem": {
+                                  "ClassName": "MISL_S01_IR_BEHR_Marksman",
+                                  "Size": 1,
+                                  "Grade": 1,
+                                  "Type": "Missile.Missile",
+                                  "Name": "Marksman I",
+                                  "Description": "Manufacturer: Behring\nTracking Signal: Infrared\nSize: 1\n\nBehring's Marksman series of proximity missiles has earned as much of a reputation for its ability to track a wide range of heat signatures as it has for its area-effect proximity damage.",
+                                  "Manufacturer": {
+                                    "Code": "BEH",
+                                    "Name": "Behring"
+                                  },
+                                  "Tags": [
+                                    "BEHR",
+                                    "IR",
+                                    "flightReady"
+                                  ],
+                                  "Durability": {
+                                    "Health": 10.0
+                                  },
+                                  "Missile": {
+                                    "Damage": {
+                                      "Physical": 518.4,
+                                      "Energy": 2073.6
+                                    }
+                                  }
+                                },
+                                "Types": [
+                                  "Missile.Missile"
+                                ],
+                                "Category": "Missiles"
+                              },
+                              {
+                                "PortName": "missile_02_attach",
+                                "Size": 1,
+                                "Loadout": "MISL_S01_IR_BEHR_Marksman",
+                                "InstalledItem": {
+                                  "ClassName": "MISL_S01_IR_BEHR_Marksman",
+                                  "Size": 1,
+                                  "Grade": 1,
+                                  "Type": "Missile.Missile",
+                                  "Name": "Marksman I",
+                                  "Description": "Manufacturer: Behring\nTracking Signal: Infrared\nSize: 1\n\nBehring's Marksman series of proximity missiles has earned as much of a reputation for its ability to track a wide range of heat signatures as it has for its area-effect proximity damage.",
+                                  "Manufacturer": {
+                                    "Code": "BEH",
+                                    "Name": "Behring"
+                                  },
+                                  "Tags": [
+                                    "BEHR",
+                                    "IR",
+                                    "flightReady"
+                                  ],
+                                  "Durability": {
+                                    "Health": 10.0
+                                  },
+                                  "Missile": {
+                                    "Damage": {
+                                      "Physical": 518.4,
+                                      "Energy": 2073.6
+                                    }
+                                  }
+                                },
+                                "Types": [
+                                  "Missile.Missile"
+                                ],
+                                "Category": "Missiles"
+                              }
+                            ]
                           },
                           "Types": [
                             "MissileLauncher.MissileRack"

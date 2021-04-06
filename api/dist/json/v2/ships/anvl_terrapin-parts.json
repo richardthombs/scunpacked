@@ -312,7 +312,50 @@
                   "ThermalEnergyBase": 10.0,
                   "ThermalEnergyDraw": 20.0,
                   "CoolingRate": 1.0
-                }
+                },
+                "Ports": [
+                  {
+                    "PortName": "hardpoint_scanner",
+                    "Size": 3,
+                    "Loadout": "ANVL_Terrapin_Support_Scanner",
+                    "InstalledItem": {
+                      "ClassName": "ANVL_Terrapin_Support_Scanner",
+                      "Size": 3,
+                      "Grade": 1,
+                      "Type": "Scanner.UNDEFINED",
+                      "Name": "ANVL_Terrapin_Support_Scanner",
+                      "Description": "[PH] PC2 Dual S4 Mount",
+                      "Manufacturer": {
+                        "Code": "ANVL",
+                        "Name": "Anvil Aerospace"
+                      },
+                      "Durability": {
+                        "Health": 600.0
+                      },
+                      "PowerConnection": {
+                        "PowerBase": 0.0,
+                        "PowerDraw": 1.0
+                      },
+                      "HeatConnection": {
+                        "ThermalEnergyBase": 10.0,
+                        "ThermalEnergyDraw": 20.0,
+                        "CoolingRate": 1.0
+                      }
+                    },
+                    "Types": [
+                      "Scanner.Gun"
+                    ],
+                    "Category": "Scanners"
+                  },
+                  {
+                    "PortName": "hardpoint_weapon_right",
+                    "Size": 3,
+                    "Types": [
+                      "WeaponGun.Gun"
+                    ],
+                    "Category": "Weapon hardpoints"
+                  }
+                ]
               },
               "Types": [
                 "TurretBase.MannedTurret"
@@ -726,7 +769,105 @@
                 "PowerConnection": {
                   "PowerBase": 0.0,
                   "PowerDraw": 1.0
-                }
+                },
+                "Ports": [
+                  {
+                    "PortName": "control_panel_a",
+                    "Size": 10,
+                    "Types": [
+                      "ControlPanel.DoorPart"
+                    ],
+                    "Category": "Door attachments"
+                  },
+                  {
+                    "PortName": "control_panel_b",
+                    "Size": 10,
+                    "Types": [
+                      "ControlPanel.DoorPart"
+                    ],
+                    "Category": "Door attachments"
+                  },
+                  {
+                    "PortName": "charge_handle_a",
+                    "Size": 10,
+                    "Types": [
+                      "Misc.DoorPart"
+                    ],
+                    "Category": "Door attachments"
+                  },
+                  {
+                    "PortName": "charge_handle_b",
+                    "Size": 10,
+                    "Types": [
+                      "Misc.DoorPart"
+                    ],
+                    "Category": "Door attachments"
+                  },
+                  {
+                    "PortName": "close_button_a",
+                    "Size": 10,
+                    "Types": [
+                      "Button.DoorPart"
+                    ],
+                    "Category": "Door attachments"
+                  },
+                  {
+                    "PortName": "close_button_b",
+                    "Size": 10,
+                    "Types": [
+                      "Button.DoorPart"
+                    ],
+                    "Category": "Door attachments"
+                  },
+                  {
+                    "PortName": "proximity_sensor",
+                    "Size": 2,
+                    "Types": [
+                      "Sensor.DoorPart"
+                    ],
+                    "Category": "Door attachments"
+                  },
+                  {
+                    "PortName": "light_group_a",
+                    "Size": 10,
+                    "Types": [
+                      "Lightgroup.DoorPart"
+                    ],
+                    "Category": "Door attachments"
+                  },
+                  {
+                    "PortName": "light_group_b",
+                    "Size": 10,
+                    "Types": [
+                      "Lightgroup.DoorPart"
+                    ],
+                    "Category": "Door attachments"
+                  },
+                  {
+                    "PortName": "decal_front",
+                    "Size": 1,
+                    "Types": [
+                      "Decal.DoorPart"
+                    ],
+                    "Category": "Door attachments"
+                  },
+                  {
+                    "PortName": "decal_rear",
+                    "Size": 1,
+                    "Types": [
+                      "Decal.DoorPart"
+                    ],
+                    "Category": "Door attachments"
+                  },
+                  {
+                    "PortName": "decal_screen",
+                    "Size": 1,
+                    "Types": [
+                      "Decal.DoorPart"
+                    ],
+                    "Category": "Door attachments"
+                  }
+                ]
               },
               "Types": [
                 "Door"
@@ -1003,7 +1144,24 @@
                 "Size": 1,
                 "Grade": 1,
                 "Type": "Usable.UNDEFINED",
-                "Name": "Bed_Single_Terrapin_ANVL"
+                "Name": "Bed_Single_Terrapin_ANVL",
+                "Ports": [
+                  {
+                    "PortName": "Mattress",
+                    "Size": 2,
+                    "Loadout": "Bed_Mattress_Template",
+                    "Types": [
+                      "Seat"
+                    ],
+                    "Category": "Seats"
+                  },
+                  {
+                    "PortName": "Pillow",
+                    "Size": 2,
+                    "Loadout": "Bed_Pillow_Template",
+                    "Category": "UNKNOWN"
+                  }
+                ]
               },
               "Types": [
                 "Usable"
@@ -1109,7 +1267,20 @@
                       "AmbientPiercing": false
                     }
                   ]
-                }
+                },
+                "Ports": [
+                  {
+                    "PortName": "BatteryPort",
+                    "Size": 2,
+                    "Types": [
+                      "Battery"
+                    ],
+                    "Flags": [
+                      "invisible"
+                    ],
+                    "Category": "Batteries"
+                  }
+                ]
               },
               "Types": [
                 "Radar.ShortRangeRadar",
@@ -1294,7 +1465,49 @@
                 "Size": 1,
                 "Grade": 1,
                 "Type": "UNDEFINED.UNDEFINED",
-                "Name": "Weapon_Rack_Single_AEGS_tec_wall"
+                "Name": "Weapon_Rack_Single_AEGS_tec_wall",
+                "Ports": [
+                  {
+                    "PortName": "$IP_weapon_large_01",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$IP_weapon_large_02",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$IP_weapon_small_01",
+                    "Size": 2,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$IP_weapon_small_02",
+                    "Size": 2,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$IP_weapon_small_03",
+                    "Size": 2,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  }
+                ]
               },
               "Types": [
                 "Usable"
@@ -1317,7 +1530,49 @@
                 "Size": 1,
                 "Grade": 1,
                 "Type": "UNDEFINED.UNDEFINED",
-                "Name": "Weapon_Rack_Single_AEGS_tec_wall"
+                "Name": "Weapon_Rack_Single_AEGS_tec_wall",
+                "Ports": [
+                  {
+                    "PortName": "$IP_weapon_large_01",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$IP_weapon_large_02",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$IP_weapon_small_01",
+                    "Size": 2,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$IP_weapon_small_02",
+                    "Size": 2,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$IP_weapon_small_03",
+                    "Size": 2,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  }
+                ]
               },
               "Types": [
                 "Usable"
@@ -1486,7 +1741,25 @@
                   "ThermalEnergyBase": 10.0,
                   "ThermalEnergyDraw": 20.0,
                   "CoolingRate": 1.0
-                }
+                },
+                "Ports": [
+                  {
+                    "PortName": "hardpoint_cockpit_radar",
+                    "Size": 1,
+                    "Loadout": "RADR_Display",
+                    "InstalledItem": {
+                      "ClassName": "RADR_Display",
+                      "Size": 1,
+                      "Grade": 1,
+                      "Type": "Display.UNDEFINED",
+                      "Name": "RADR_Display"
+                    },
+                    "Types": [
+                      "Display"
+                    ],
+                    "Category": "UNKNOWN"
+                  }
+                ]
               },
               "Types": [
                 "SeatDashboard"
@@ -1527,7 +1800,337 @@
                   "ThermalEnergyBase": 10.0,
                   "ThermalEnergyDraw": 20.0,
                   "CoolingRate": 1.0
-                }
+                },
+                "Ports": [
+                  {
+                    "PortName": "hardpoint_weapon_01",
+                    "Size": 2,
+                    "Loadout": "ASAD_DistortionRepeater_S2",
+                    "InstalledItem": {
+                      "ClassName": "ASAD_DistortionRepeater_S2",
+                      "Size": 2,
+                      "Grade": 1,
+                      "Type": "WeaponGun.Gun",
+                      "Name": "DR Model-XJ2 Repeater",
+                      "Description": "Manufacturer: Associated Science & Development\nItem Type: Distortion Repeater\nSize: 2\n\nAdvancing the field of distortion weapons, the DR Model-XJ2 repeater from ASD provides tactical energy disruption that will severely limit any targeted ships operational capacity.",
+                      "Manufacturer": {
+                        "Code": "ASAD",
+                        "Name": "[PH] PH Associated Science and Development"
+                      },
+                      "Tags": [
+                        "ASAD",
+                        "DistortionRepeater",
+                        "flightReady",
+                        "weaponMountUsable"
+                      ],
+                      "Durability": {
+                        "Health": 850.0,
+                        "Lifetime": 20.0
+                      },
+                      "PowerConnection": {
+                        "PowerBase": 119.0,
+                        "PowerDraw": 307.0
+                      },
+                      "HeatConnection": {
+                        "ThermalEnergyBase": 100.0,
+                        "ThermalEnergyDraw": 200.0,
+                        "CoolingRate": 94.74356
+                      },
+                      "Weapon": {
+                        "Ammunition": {
+                          "Speed": 1474.0,
+                          "Range": 2211.0,
+                          "Size": 1.0,
+                          "Capacity": 0.0,
+                          "ImpactDamage": {
+                            "Distortion": 1.0
+                          },
+                          "DetonationDamage": {
+                            "Distortion": 75.0
+                          }
+                        },
+                        "Modes": [
+                          {
+                            "Name": "Single",
+                            "LocalisedName": "[SEMI]",
+                            "RoundsPerMinute": 295.0,
+                            "FireType": "sequence",
+                            "AmmoPerShot": 0.0,
+                            "PelletsPerShot": 1.0,
+                            "DamagePerShot": {
+                              "Distortion": 76.0
+                            },
+                            "DamagePerSecond": {
+                              "Distortion": 373.6666666666667
+                            }
+                          }
+                        ]
+                      },
+                      "Ammunition": {
+                        "Speed": 1474.0,
+                        "Range": 2211.0,
+                        "Size": 1.0,
+                        "Capacity": 0.0,
+                        "ImpactDamage": {
+                          "Distortion": 1.0
+                        },
+                        "DetonationDamage": {
+                          "Distortion": 75.0
+                        }
+                      },
+                      "Ports": [
+                        {
+                          "PortName": "BAR1",
+                          "Size": 1,
+                          "Loadout": "ASAD_DistortionRepeater_Barrel_S2",
+                          "InstalledItem": {
+                            "ClassName": "ASAD_DistortionRepeater_Barrel_S2",
+                            "Size": 1,
+                            "Grade": 1,
+                            "Type": "WeaponAttachment.Barrel",
+                            "Name": "ASAD_DistortionRepeater_Barrel_S2",
+                            "Manufacturer": {
+                              "Code": "ASAD",
+                              "Name": "[PH] PH Associated Science and Development"
+                            }
+                          },
+                          "Types": [
+                            "WeaponAttachment.Barrel"
+                          ],
+                          "Category": "Weapon attachments"
+                        },
+                        {
+                          "PortName": "MEC",
+                          "Size": 1,
+                          "Loadout": "ASAD_DistortionRepeater_FiringMechanism_S2",
+                          "InstalledItem": {
+                            "ClassName": "ASAD_DistortionRepeater_FiringMechanism_S2",
+                            "Size": 1,
+                            "Grade": 1,
+                            "Type": "WeaponAttachment.FiringMechanism",
+                            "Name": "ASAD_DistortionRepeater_FiringMechanism_S2",
+                            "Manufacturer": {
+                              "Code": "ASAD",
+                              "Name": "[PH] PH Associated Science and Development"
+                            }
+                          },
+                          "Types": [
+                            "WeaponAttachment.FiringMechanism"
+                          ],
+                          "Category": "Weapon attachments"
+                        },
+                        {
+                          "PortName": "POW",
+                          "Size": 1,
+                          "Loadout": "ASAD_DistortionRepeater_PowerArray_S2",
+                          "InstalledItem": {
+                            "ClassName": "ASAD_DistortionRepeater_PowerArray_S2",
+                            "Size": 1,
+                            "Grade": 1,
+                            "Type": "WeaponAttachment.PowerArray",
+                            "Name": "ASAD_DistortionRepeater_PowerArray_S2",
+                            "Manufacturer": {
+                              "Code": "ASAD",
+                              "Name": "[PH] PH Associated Science and Development"
+                            }
+                          },
+                          "Types": [
+                            "WeaponAttachment.PowerArray"
+                          ],
+                          "Category": "Weapon attachments"
+                        },
+                        {
+                          "PortName": "VEN",
+                          "Size": 1,
+                          "Loadout": "ASAD_DistortionRepeater_Ventilation_S2",
+                          "InstalledItem": {
+                            "ClassName": "ASAD_DistortionRepeater_Ventilation_S2",
+                            "Size": 1,
+                            "Grade": 1,
+                            "Type": "WeaponAttachment.Ventilation",
+                            "Name": "ASAD_DistortionRepeater_Ventilation_S2",
+                            "Manufacturer": {
+                              "Code": "ASAD",
+                              "Name": "[PH] PH Associated Science and Development"
+                            }
+                          },
+                          "Types": [
+                            "WeaponAttachment.Ventilation"
+                          ],
+                          "Category": "Weapon attachments"
+                        }
+                      ]
+                    },
+                    "Types": [
+                      "WeaponGun.Gun"
+                    ],
+                    "Category": "Weapon hardpoints"
+                  },
+                  {
+                    "PortName": "hardpoint_weapon_02",
+                    "Size": 2,
+                    "Loadout": "ASAD_DistortionRepeater_S2",
+                    "InstalledItem": {
+                      "ClassName": "ASAD_DistortionRepeater_S2",
+                      "Size": 2,
+                      "Grade": 1,
+                      "Type": "WeaponGun.Gun",
+                      "Name": "DR Model-XJ2 Repeater",
+                      "Description": "Manufacturer: Associated Science & Development\nItem Type: Distortion Repeater\nSize: 2\n\nAdvancing the field of distortion weapons, the DR Model-XJ2 repeater from ASD provides tactical energy disruption that will severely limit any targeted ships operational capacity.",
+                      "Manufacturer": {
+                        "Code": "ASAD",
+                        "Name": "[PH] PH Associated Science and Development"
+                      },
+                      "Tags": [
+                        "ASAD",
+                        "DistortionRepeater",
+                        "flightReady",
+                        "weaponMountUsable"
+                      ],
+                      "Durability": {
+                        "Health": 850.0,
+                        "Lifetime": 20.0
+                      },
+                      "PowerConnection": {
+                        "PowerBase": 119.0,
+                        "PowerDraw": 307.0
+                      },
+                      "HeatConnection": {
+                        "ThermalEnergyBase": 100.0,
+                        "ThermalEnergyDraw": 200.0,
+                        "CoolingRate": 94.74356
+                      },
+                      "Weapon": {
+                        "Ammunition": {
+                          "Speed": 1474.0,
+                          "Range": 2211.0,
+                          "Size": 1.0,
+                          "Capacity": 0.0,
+                          "ImpactDamage": {
+                            "Distortion": 1.0
+                          },
+                          "DetonationDamage": {
+                            "Distortion": 75.0
+                          }
+                        },
+                        "Modes": [
+                          {
+                            "Name": "Single",
+                            "LocalisedName": "[SEMI]",
+                            "RoundsPerMinute": 295.0,
+                            "FireType": "sequence",
+                            "AmmoPerShot": 0.0,
+                            "PelletsPerShot": 1.0,
+                            "DamagePerShot": {
+                              "Distortion": 76.0
+                            },
+                            "DamagePerSecond": {
+                              "Distortion": 373.6666666666667
+                            }
+                          }
+                        ]
+                      },
+                      "Ammunition": {
+                        "Speed": 1474.0,
+                        "Range": 2211.0,
+                        "Size": 1.0,
+                        "Capacity": 0.0,
+                        "ImpactDamage": {
+                          "Distortion": 1.0
+                        },
+                        "DetonationDamage": {
+                          "Distortion": 75.0
+                        }
+                      },
+                      "Ports": [
+                        {
+                          "PortName": "BAR1",
+                          "Size": 1,
+                          "Loadout": "ASAD_DistortionRepeater_Barrel_S2",
+                          "InstalledItem": {
+                            "ClassName": "ASAD_DistortionRepeater_Barrel_S2",
+                            "Size": 1,
+                            "Grade": 1,
+                            "Type": "WeaponAttachment.Barrel",
+                            "Name": "ASAD_DistortionRepeater_Barrel_S2",
+                            "Manufacturer": {
+                              "Code": "ASAD",
+                              "Name": "[PH] PH Associated Science and Development"
+                            }
+                          },
+                          "Types": [
+                            "WeaponAttachment.Barrel"
+                          ],
+                          "Category": "Weapon attachments"
+                        },
+                        {
+                          "PortName": "MEC",
+                          "Size": 1,
+                          "Loadout": "ASAD_DistortionRepeater_FiringMechanism_S2",
+                          "InstalledItem": {
+                            "ClassName": "ASAD_DistortionRepeater_FiringMechanism_S2",
+                            "Size": 1,
+                            "Grade": 1,
+                            "Type": "WeaponAttachment.FiringMechanism",
+                            "Name": "ASAD_DistortionRepeater_FiringMechanism_S2",
+                            "Manufacturer": {
+                              "Code": "ASAD",
+                              "Name": "[PH] PH Associated Science and Development"
+                            }
+                          },
+                          "Types": [
+                            "WeaponAttachment.FiringMechanism"
+                          ],
+                          "Category": "Weapon attachments"
+                        },
+                        {
+                          "PortName": "POW",
+                          "Size": 1,
+                          "Loadout": "ASAD_DistortionRepeater_PowerArray_S2",
+                          "InstalledItem": {
+                            "ClassName": "ASAD_DistortionRepeater_PowerArray_S2",
+                            "Size": 1,
+                            "Grade": 1,
+                            "Type": "WeaponAttachment.PowerArray",
+                            "Name": "ASAD_DistortionRepeater_PowerArray_S2",
+                            "Manufacturer": {
+                              "Code": "ASAD",
+                              "Name": "[PH] PH Associated Science and Development"
+                            }
+                          },
+                          "Types": [
+                            "WeaponAttachment.PowerArray"
+                          ],
+                          "Category": "Weapon attachments"
+                        },
+                        {
+                          "PortName": "VEN",
+                          "Size": 1,
+                          "Loadout": "ASAD_DistortionRepeater_Ventilation_S2",
+                          "InstalledItem": {
+                            "ClassName": "ASAD_DistortionRepeater_Ventilation_S2",
+                            "Size": 1,
+                            "Grade": 1,
+                            "Type": "WeaponAttachment.Ventilation",
+                            "Name": "ASAD_DistortionRepeater_Ventilation_S2",
+                            "Manufacturer": {
+                              "Code": "ASAD",
+                              "Name": "[PH] PH Associated Science and Development"
+                            }
+                          },
+                          "Types": [
+                            "WeaponAttachment.Ventilation"
+                          ],
+                          "Category": "Weapon attachments"
+                        }
+                      ]
+                    },
+                    "Types": [
+                      "WeaponGun.Gun"
+                    ],
+                    "Category": "Weapon hardpoints"
+                  }
+                ]
               },
               "Types": [
                 "Turret.BallTurret"
@@ -1598,7 +2201,20 @@
                       "AmbientPiercing": false
                     }
                   ]
-                }
+                },
+                "Ports": [
+                  {
+                    "PortName": "BatteryPort",
+                    "Size": 2,
+                    "Types": [
+                      "Battery"
+                    ],
+                    "Flags": [
+                      "invisible"
+                    ],
+                    "Category": "Batteries"
+                  }
+                ]
               },
               "Types": [
                 "Radar.ShortRangeRadar",

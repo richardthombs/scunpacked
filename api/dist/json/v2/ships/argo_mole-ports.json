@@ -69,7 +69,41 @@
           "ImpactDamage": {
             "Energy": 58.7
           }
-        }
+        },
+        "Ports": [
+          {
+            "PortName": "BAR1",
+            "Size": 1,
+            "Types": [
+              "WeaponAttachment.Barrel"
+            ],
+            "Category": "Weapon attachments"
+          },
+          {
+            "PortName": "MEC",
+            "Size": 1,
+            "Types": [
+              "WeaponAttachment.FiringMechanism"
+            ],
+            "Category": "Weapon attachments"
+          },
+          {
+            "PortName": "POW",
+            "Size": 1,
+            "Types": [
+              "WeaponAttachment.PowerArray"
+            ],
+            "Category": "Weapon attachments"
+          },
+          {
+            "PortName": "VEN",
+            "Size": 1,
+            "Types": [
+              "WeaponAttachment.Ventilation"
+            ],
+            "Category": "Weapon attachments"
+          }
+        ]
       },
       "Types": [
         "WeaponGun.Gun"
@@ -145,7 +179,41 @@
           "ImpactDamage": {
             "Energy": 58.7
           }
-        }
+        },
+        "Ports": [
+          {
+            "PortName": "BAR1",
+            "Size": 1,
+            "Types": [
+              "WeaponAttachment.Barrel"
+            ],
+            "Category": "Weapon attachments"
+          },
+          {
+            "PortName": "MEC",
+            "Size": 1,
+            "Types": [
+              "WeaponAttachment.FiringMechanism"
+            ],
+            "Category": "Weapon attachments"
+          },
+          {
+            "PortName": "POW",
+            "Size": 1,
+            "Types": [
+              "WeaponAttachment.PowerArray"
+            ],
+            "Category": "Weapon attachments"
+          },
+          {
+            "PortName": "VEN",
+            "Size": 1,
+            "Types": [
+              "WeaponAttachment.Ventilation"
+            ],
+            "Category": "Weapon attachments"
+          }
+        ]
       },
       "Types": [
         "WeaponGun.Gun"
@@ -153,7 +221,9 @@
       "Category": "Weapon hardpoints"
     }
   ],
-  "MannedTurrets": [
+  "MannedTurrets": [],
+  "RemoteTurrets": [],
+  "MiningTurrets": [
     {
       "PortName": "hardpoint_mining_cab_right",
       "Size": 4,
@@ -183,7 +253,82 @@
           "ThermalEnergyBase": 10.0,
           "ThermalEnergyDraw": 20.0,
           "CoolingRate": 1.0
-        }
+        },
+        "Ports": [
+          {
+            "PortName": "hardpoint_weapon_mining",
+            "Size": 2,
+            "Loadout": "Mining_Laser_GRIN_Arbor_S2",
+            "InstalledItem": {
+              "ClassName": "Mining_Laser_GRIN_Arbor_S2",
+              "Size": 2,
+              "Grade": 1,
+              "Type": "WeaponMining.Gun",
+              "Name": "Arbor MH2 Mining Laser",
+              "Description": "Manufacturer: Greycat Industrial\nItem Type: Mining Laser \nSize: 2\n\nOptimal Range: 60m\nMaximum Range: 300m\n\nPower Transfer: 1850\nExtraction Throughput: 0.35 SCU/s\nModule Slots: 1\n\nThe Arbor MH2 is the size two version of Greycat's heralded Arbor mining laser series. Like the smaller variant, the Arbor MH2's solid, reliable design found favor among industrial and solo operations for effectively balancing speed and safety.  ",
+              "Manufacturer": {
+                "Code": "MIS",
+                "Name": "Musashi Industrial & Starflight Concern"
+              },
+              "Tags": [
+                "flightReady",
+                "weaponMountUsable",
+                "miningMount"
+              ],
+              "Durability": {
+                "Health": 8000.0,
+                "Lifetime": 100.0
+              },
+              "PowerConnection": {
+                "PowerBase": 2500.0,
+                "PowerDraw": 3000.0
+              },
+              "HeatConnection": {
+                "ThermalEnergyBase": 10.0,
+                "ThermalEnergyDraw": 20.0,
+                "CoolingRate": 1.0
+              },
+              "Weapon": {
+                "Modes": [
+                  {
+                    "Name": "",
+                    "LocalisedName": "@LOC_PLACEHOLDER",
+                    "RoundsPerMinute": 0.0,
+                    "FireType": "beam",
+                    "AmmoPerShot": 0.0,
+                    "PelletsPerShot": 0.0,
+                    "DamagePerShot": {},
+                    "DamagePerSecond": {}
+                  },
+                  {
+                    "Name": "",
+                    "LocalisedName": "@LOC_PLACEHOLDER",
+                    "RoundsPerMinute": 0.0,
+                    "FireType": "beam",
+                    "AmmoPerShot": 0.0,
+                    "PelletsPerShot": 0.0,
+                    "DamagePerShot": {},
+                    "DamagePerSecond": {}
+                  }
+                ]
+              },
+              "Ports": [
+                {
+                  "PortName": "BONE_ItemPort_Consumable_1",
+                  "Size": 1,
+                  "Types": [
+                    "MiningModifier.Gun"
+                  ],
+                  "Category": "UNKNOWN"
+                }
+              ]
+            },
+            "Types": [
+              "WeaponMining.Gun"
+            ],
+            "Category": "Mining hardpoints"
+          }
+        ]
       },
       "Types": [
         "TurretBase.MannedTurret"
@@ -191,7 +336,7 @@
       "Flags": [
         "$uneditable"
       ],
-      "Category": "Manned turrets",
+      "Category": "Mining turrets",
       "Uneditable": true
     },
     {
@@ -223,7 +368,82 @@
           "ThermalEnergyBase": 10.0,
           "ThermalEnergyDraw": 20.0,
           "CoolingRate": 1.0
-        }
+        },
+        "Ports": [
+          {
+            "PortName": "hardpoint_weapon_mining",
+            "Size": 2,
+            "Loadout": "Mining_Laser_GRIN_Arbor_S2",
+            "InstalledItem": {
+              "ClassName": "Mining_Laser_GRIN_Arbor_S2",
+              "Size": 2,
+              "Grade": 1,
+              "Type": "WeaponMining.Gun",
+              "Name": "Arbor MH2 Mining Laser",
+              "Description": "Manufacturer: Greycat Industrial\nItem Type: Mining Laser \nSize: 2\n\nOptimal Range: 60m\nMaximum Range: 300m\n\nPower Transfer: 1850\nExtraction Throughput: 0.35 SCU/s\nModule Slots: 1\n\nThe Arbor MH2 is the size two version of Greycat's heralded Arbor mining laser series. Like the smaller variant, the Arbor MH2's solid, reliable design found favor among industrial and solo operations for effectively balancing speed and safety.  ",
+              "Manufacturer": {
+                "Code": "MIS",
+                "Name": "Musashi Industrial & Starflight Concern"
+              },
+              "Tags": [
+                "flightReady",
+                "weaponMountUsable",
+                "miningMount"
+              ],
+              "Durability": {
+                "Health": 8000.0,
+                "Lifetime": 100.0
+              },
+              "PowerConnection": {
+                "PowerBase": 2500.0,
+                "PowerDraw": 3000.0
+              },
+              "HeatConnection": {
+                "ThermalEnergyBase": 10.0,
+                "ThermalEnergyDraw": 20.0,
+                "CoolingRate": 1.0
+              },
+              "Weapon": {
+                "Modes": [
+                  {
+                    "Name": "",
+                    "LocalisedName": "@LOC_PLACEHOLDER",
+                    "RoundsPerMinute": 0.0,
+                    "FireType": "beam",
+                    "AmmoPerShot": 0.0,
+                    "PelletsPerShot": 0.0,
+                    "DamagePerShot": {},
+                    "DamagePerSecond": {}
+                  },
+                  {
+                    "Name": "",
+                    "LocalisedName": "@LOC_PLACEHOLDER",
+                    "RoundsPerMinute": 0.0,
+                    "FireType": "beam",
+                    "AmmoPerShot": 0.0,
+                    "PelletsPerShot": 0.0,
+                    "DamagePerShot": {},
+                    "DamagePerSecond": {}
+                  }
+                ]
+              },
+              "Ports": [
+                {
+                  "PortName": "BONE_ItemPort_Consumable_1",
+                  "Size": 1,
+                  "Types": [
+                    "MiningModifier.Gun"
+                  ],
+                  "Category": "UNKNOWN"
+                }
+              ]
+            },
+            "Types": [
+              "WeaponMining.Gun"
+            ],
+            "Category": "Mining hardpoints"
+          }
+        ]
       },
       "Types": [
         "TurretBase.MannedTurret"
@@ -231,7 +451,7 @@
       "Flags": [
         "$uneditable"
       ],
-      "Category": "Manned turrets",
+      "Category": "Mining turrets",
       "Uneditable": true
     },
     {
@@ -263,7 +483,82 @@
           "ThermalEnergyBase": 10.0,
           "ThermalEnergyDraw": 20.0,
           "CoolingRate": 1.0
-        }
+        },
+        "Ports": [
+          {
+            "PortName": "hardpoint_weapon_mining",
+            "Size": 2,
+            "Loadout": "Mining_Laser_GRIN_Arbor_S2",
+            "InstalledItem": {
+              "ClassName": "Mining_Laser_GRIN_Arbor_S2",
+              "Size": 2,
+              "Grade": 1,
+              "Type": "WeaponMining.Gun",
+              "Name": "Arbor MH2 Mining Laser",
+              "Description": "Manufacturer: Greycat Industrial\nItem Type: Mining Laser \nSize: 2\n\nOptimal Range: 60m\nMaximum Range: 300m\n\nPower Transfer: 1850\nExtraction Throughput: 0.35 SCU/s\nModule Slots: 1\n\nThe Arbor MH2 is the size two version of Greycat's heralded Arbor mining laser series. Like the smaller variant, the Arbor MH2's solid, reliable design found favor among industrial and solo operations for effectively balancing speed and safety.  ",
+              "Manufacturer": {
+                "Code": "MIS",
+                "Name": "Musashi Industrial & Starflight Concern"
+              },
+              "Tags": [
+                "flightReady",
+                "weaponMountUsable",
+                "miningMount"
+              ],
+              "Durability": {
+                "Health": 8000.0,
+                "Lifetime": 100.0
+              },
+              "PowerConnection": {
+                "PowerBase": 2500.0,
+                "PowerDraw": 3000.0
+              },
+              "HeatConnection": {
+                "ThermalEnergyBase": 10.0,
+                "ThermalEnergyDraw": 20.0,
+                "CoolingRate": 1.0
+              },
+              "Weapon": {
+                "Modes": [
+                  {
+                    "Name": "",
+                    "LocalisedName": "@LOC_PLACEHOLDER",
+                    "RoundsPerMinute": 0.0,
+                    "FireType": "beam",
+                    "AmmoPerShot": 0.0,
+                    "PelletsPerShot": 0.0,
+                    "DamagePerShot": {},
+                    "DamagePerSecond": {}
+                  },
+                  {
+                    "Name": "",
+                    "LocalisedName": "@LOC_PLACEHOLDER",
+                    "RoundsPerMinute": 0.0,
+                    "FireType": "beam",
+                    "AmmoPerShot": 0.0,
+                    "PelletsPerShot": 0.0,
+                    "DamagePerShot": {},
+                    "DamagePerSecond": {}
+                  }
+                ]
+              },
+              "Ports": [
+                {
+                  "PortName": "BONE_ItemPort_Consumable_1",
+                  "Size": 1,
+                  "Types": [
+                    "MiningModifier.Gun"
+                  ],
+                  "Category": "UNKNOWN"
+                }
+              ]
+            },
+            "Types": [
+              "WeaponMining.Gun"
+            ],
+            "Category": "Mining hardpoints"
+          }
+        ]
       },
       "Types": [
         "TurretBase.MannedTurret"
@@ -271,12 +566,10 @@
       "Flags": [
         "$uneditable"
       ],
-      "Category": "Manned turrets",
+      "Category": "Mining turrets",
       "Uneditable": true
     }
   ],
-  "RemoteTurrets": [],
-  "MiningTurrets": [],
   "UtilityTurrets": [],
   "MiningHardpoints": [],
   "UtilityHardpoints": [],
@@ -2048,7 +2341,20 @@
               "AmbientPiercing": false
             }
           ]
-        }
+        },
+        "Ports": [
+          {
+            "PortName": "BatteryPort",
+            "Size": 2,
+            "Types": [
+              "Battery"
+            ],
+            "Flags": [
+              "invisible"
+            ],
+            "Category": "Batteries"
+          }
+        ]
       },
       "Types": [
         "Radar.ShortRangeRadar",
@@ -2118,7 +2424,20 @@
               "AmbientPiercing": false
             }
           ]
-        }
+        },
+        "Ports": [
+          {
+            "PortName": "BatteryPort",
+            "Size": 2,
+            "Types": [
+              "Battery"
+            ],
+            "Flags": [
+              "invisible"
+            ],
+            "Category": "Batteries"
+          }
+        ]
       },
       "Types": [
         "Radar.ShortRangeRadar",
@@ -2188,7 +2507,20 @@
               "AmbientPiercing": false
             }
           ]
-        }
+        },
+        "Ports": [
+          {
+            "PortName": "BatteryPort",
+            "Size": 2,
+            "Types": [
+              "Battery"
+            ],
+            "Flags": [
+              "invisible"
+            ],
+            "Category": "Batteries"
+          }
+        ]
       },
       "Types": [
         "Radar.ShortRangeRadar",
@@ -2258,7 +2590,20 @@
               "AmbientPiercing": false
             }
           ]
-        }
+        },
+        "Ports": [
+          {
+            "PortName": "BatteryPort",
+            "Size": 2,
+            "Types": [
+              "Battery"
+            ],
+            "Flags": [
+              "invisible"
+            ],
+            "Category": "Batteries"
+          }
+        ]
       },
       "Types": [
         "Radar.ShortRangeRadar",

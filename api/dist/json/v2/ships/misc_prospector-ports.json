@@ -1,6 +1,119 @@
 {
   "PilotHardpoints": [
     {
+      "PortName": "hardpoint_mining_laser",
+      "Size": 2,
+      "Loadout": "Mount_Gimbal_Mining",
+      "InstalledItem": {
+        "ClassName": "Mount_Gimbal_Mining",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "Turret.GunTurret",
+        "Name": "VariPuck S2 Gimbal Mount",
+        "Description": "Manufacturer: Flashfire Systems\nItem Type: Weapon Mount\nSize: 2\n\nThe VariPuck fits between your weapon and the ship hardpoint to transform a fixed weapon mount into a gimballed mount, allowing the pilot to independently aim their weapon’s fire. VariPucks will accept any weapon one size smaller than the hardpoint it is mounting to.",
+        "Tags": [
+          "gimbalMount",
+          "flightReady",
+          "miningMount"
+        ],
+        "Durability": {
+          "Health": 5000.0,
+          "Lifetime": 720.0
+        },
+        "PowerConnection": {
+          "PowerBase": 0.0,
+          "PowerDraw": 10.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        },
+        "Ports": [
+          {
+            "PortName": "hardpoint_mining_laser",
+            "Size": 1,
+            "Loadout": "Mining_Laser_GRIN_Arbor_S1",
+            "InstalledItem": {
+              "ClassName": "Mining_Laser_GRIN_Arbor_S1",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "WeaponMining.Gun",
+              "Name": "Arbor MH1 Mining Laser",
+              "Description": "Manufacturer: Greycat Industrial\nItem Type: Mining Laser \nSize: 1\n\nOptimal Range: 30m\nMaximum Range: 150m\n\nPower Transfer: 1850\nExtraction Throughput: 0.35 SCU/s\nModule Slots: 1\n\nThe Arbor MH1 became the universe's most heralded mining laser thanks to Greycat Industrial's exacting standards and business prowess. The laser's solid, reliable design found favor among industrial and solo operations for effectively balancing speed and safety. Greycat capitalized on this reputation by securing exclusive contracts that made the Arbor MH1 the standard laser head on most mining ships.  ",
+              "Manufacturer": {
+                "Code": "MIS",
+                "Name": "Musashi Industrial & Starflight Concern"
+              },
+              "Tags": [
+                "flightReady",
+                "weaponMountUsable",
+                "miningMount"
+              ],
+              "Durability": {
+                "Health": 8000.0,
+                "Lifetime": 100.0
+              },
+              "PowerConnection": {
+                "PowerBase": 2500.0,
+                "PowerDraw": 3000.0
+              },
+              "HeatConnection": {
+                "ThermalEnergyBase": 10.0,
+                "ThermalEnergyDraw": 20.0,
+                "CoolingRate": 1.0
+              },
+              "Weapon": {
+                "Modes": [
+                  {
+                    "Name": "",
+                    "LocalisedName": "@LOC_PLACEHOLDER",
+                    "RoundsPerMinute": 0.0,
+                    "FireType": "beam",
+                    "AmmoPerShot": 0.0,
+                    "PelletsPerShot": 0.0,
+                    "DamagePerShot": {},
+                    "DamagePerSecond": {}
+                  },
+                  {
+                    "Name": "",
+                    "LocalisedName": "@LOC_PLACEHOLDER",
+                    "RoundsPerMinute": 0.0,
+                    "FireType": "beam",
+                    "AmmoPerShot": 0.0,
+                    "PelletsPerShot": 0.0,
+                    "DamagePerShot": {},
+                    "DamagePerSecond": {}
+                  }
+                ]
+              },
+              "Ports": [
+                {
+                  "PortName": "BONE_ItemPort_Consumable_1",
+                  "Size": 1,
+                  "Types": [
+                    "MiningModifier.Gun"
+                  ],
+                  "Category": "UNKNOWN"
+                }
+              ]
+            },
+            "Types": [
+              "WeaponMining.Gun"
+            ],
+            "Category": "Mining hardpoints"
+          }
+        ]
+      },
+      "Types": [
+        "Turret"
+      ],
+      "Flags": [
+        "Uneditable"
+      ],
+      "Category": "Weapon hardpoints"
+    },
+    {
       "PortName": "hardpoint_weapon_left",
       "Size": 1,
       "Loadout": "Mount_Gimbal_S1",
@@ -31,7 +144,173 @@
           "ThermalEnergyBase": 10.0,
           "ThermalEnergyDraw": 20.0,
           "CoolingRate": 1.0
-        }
+        },
+        "Ports": [
+          {
+            "PortName": "hardpoint_class_2",
+            "Size": 1,
+            "Loadout": "ASAD_DistortionRepeater_S1",
+            "InstalledItem": {
+              "ClassName": "ASAD_DistortionRepeater_S1",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "WeaponGun.Gun",
+              "Name": "DR Model-XJ1 Repeater",
+              "Description": "Manufacturer: Associated Science & Development\nItem Type: Distortion Repeater\nSize: 1\n\nPower is the life blood of every ship, and the DR Model-XJ1 from ASD is the ideal choice to bleed hostiles dry. This cutting-edge distortion repeater allows you to disrupt power on targets, disabling threats efficiently. ",
+              "Manufacturer": {
+                "Code": "ASAD",
+                "Name": "[PH] PH Associated Science and Development"
+              },
+              "Tags": [
+                "ASAD",
+                "DistortionRepeater",
+                "flightReady",
+                "weaponMountUsable"
+              ],
+              "Durability": {
+                "Health": 525.0,
+                "Lifetime": 20.0
+              },
+              "PowerConnection": {
+                "PowerBase": 98.0,
+                "PowerDraw": 251.0
+              },
+              "HeatConnection": {
+                "ThermalEnergyBase": 100.0,
+                "ThermalEnergyDraw": 200.0,
+                "CoolingRate": 60.0
+              },
+              "Weapon": {
+                "Ammunition": {
+                  "Speed": 1005.0,
+                  "Range": 1507.5,
+                  "Size": 1.0,
+                  "Capacity": 0.0,
+                  "ImpactDamage": {
+                    "Distortion": 1.0
+                  },
+                  "DetonationDamage": {
+                    "Distortion": 38.0
+                  }
+                },
+                "Modes": [
+                  {
+                    "Name": "Single",
+                    "LocalisedName": "[SEMI]",
+                    "RoundsPerMinute": 320.0,
+                    "FireType": "sequence",
+                    "AmmoPerShot": 0.0,
+                    "PelletsPerShot": 1.0,
+                    "DamagePerShot": {
+                      "Distortion": 39.0
+                    },
+                    "DamagePerSecond": {
+                      "Distortion": 208.0
+                    }
+                  }
+                ]
+              },
+              "Ammunition": {
+                "Speed": 1005.0,
+                "Range": 1507.5,
+                "Size": 1.0,
+                "Capacity": 0.0,
+                "ImpactDamage": {
+                  "Distortion": 1.0
+                },
+                "DetonationDamage": {
+                  "Distortion": 38.0
+                }
+              },
+              "Ports": [
+                {
+                  "PortName": "BAR1",
+                  "Size": 1,
+                  "Loadout": "ASAD_DistortionRepeater_Barrel_S1",
+                  "InstalledItem": {
+                    "ClassName": "ASAD_DistortionRepeater_Barrel_S1",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "WeaponAttachment.Barrel",
+                    "Name": "ASAD_DistortionRepeater_Barrel_S1",
+                    "Manufacturer": {
+                      "Code": "ASAD",
+                      "Name": "[PH] PH Associated Science and Development"
+                    }
+                  },
+                  "Types": [
+                    "WeaponAttachment.Barrel"
+                  ],
+                  "Category": "Weapon attachments"
+                },
+                {
+                  "PortName": "MEC",
+                  "Size": 1,
+                  "Loadout": "ASAD_DistortionRepeater_FiringMechanism_S1",
+                  "InstalledItem": {
+                    "ClassName": "ASAD_DistortionRepeater_FiringMechanism_S1",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "WeaponAttachment.FiringMechanism",
+                    "Name": "ASAD_DistortionRepeater_FiringMechanism_S1",
+                    "Manufacturer": {
+                      "Code": "ASAD",
+                      "Name": "[PH] PH Associated Science and Development"
+                    }
+                  },
+                  "Types": [
+                    "WeaponAttachment.FiringMechanism"
+                  ],
+                  "Category": "Weapon attachments"
+                },
+                {
+                  "PortName": "POW",
+                  "Size": 1,
+                  "Loadout": "ASAD_DistortionRepeater_PowerArray_S1",
+                  "InstalledItem": {
+                    "ClassName": "ASAD_DistortionRepeater_PowerArray_S1",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "WeaponAttachment.PowerArray",
+                    "Name": "ASAD_DistortionRepeater_PowerArray_S1",
+                    "Manufacturer": {
+                      "Code": "ASAD",
+                      "Name": "[PH] PH Associated Science and Development"
+                    }
+                  },
+                  "Types": [
+                    "WeaponAttachment.PowerArray"
+                  ],
+                  "Category": "Weapon attachments"
+                },
+                {
+                  "PortName": "VEN",
+                  "Size": 1,
+                  "Loadout": "ASAD_DistortionRepeater_Ventilation_S1",
+                  "InstalledItem": {
+                    "ClassName": "ASAD_DistortionRepeater_Ventilation_S1",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "WeaponAttachment.Ventilation",
+                    "Name": "ASAD_DistortionRepeater_Ventilation_S1",
+                    "Manufacturer": {
+                      "Code": "ASAD",
+                      "Name": "[PH] PH Associated Science and Development"
+                    }
+                  },
+                  "Types": [
+                    "WeaponAttachment.Ventilation"
+                  ],
+                  "Category": "Weapon attachments"
+                }
+              ]
+            },
+            "Types": [
+              "WeaponGun.Gun"
+            ],
+            "Category": "Weapon hardpoints"
+          }
+        ]
       },
       "Types": [
         "Turret.GunTurret",
@@ -70,7 +349,173 @@
           "ThermalEnergyBase": 10.0,
           "ThermalEnergyDraw": 20.0,
           "CoolingRate": 1.0
-        }
+        },
+        "Ports": [
+          {
+            "PortName": "hardpoint_class_2",
+            "Size": 1,
+            "Loadout": "ASAD_DistortionRepeater_S1",
+            "InstalledItem": {
+              "ClassName": "ASAD_DistortionRepeater_S1",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "WeaponGun.Gun",
+              "Name": "DR Model-XJ1 Repeater",
+              "Description": "Manufacturer: Associated Science & Development\nItem Type: Distortion Repeater\nSize: 1\n\nPower is the life blood of every ship, and the DR Model-XJ1 from ASD is the ideal choice to bleed hostiles dry. This cutting-edge distortion repeater allows you to disrupt power on targets, disabling threats efficiently. ",
+              "Manufacturer": {
+                "Code": "ASAD",
+                "Name": "[PH] PH Associated Science and Development"
+              },
+              "Tags": [
+                "ASAD",
+                "DistortionRepeater",
+                "flightReady",
+                "weaponMountUsable"
+              ],
+              "Durability": {
+                "Health": 525.0,
+                "Lifetime": 20.0
+              },
+              "PowerConnection": {
+                "PowerBase": 98.0,
+                "PowerDraw": 251.0
+              },
+              "HeatConnection": {
+                "ThermalEnergyBase": 100.0,
+                "ThermalEnergyDraw": 200.0,
+                "CoolingRate": 60.0
+              },
+              "Weapon": {
+                "Ammunition": {
+                  "Speed": 1005.0,
+                  "Range": 1507.5,
+                  "Size": 1.0,
+                  "Capacity": 0.0,
+                  "ImpactDamage": {
+                    "Distortion": 1.0
+                  },
+                  "DetonationDamage": {
+                    "Distortion": 38.0
+                  }
+                },
+                "Modes": [
+                  {
+                    "Name": "Single",
+                    "LocalisedName": "[SEMI]",
+                    "RoundsPerMinute": 320.0,
+                    "FireType": "sequence",
+                    "AmmoPerShot": 0.0,
+                    "PelletsPerShot": 1.0,
+                    "DamagePerShot": {
+                      "Distortion": 39.0
+                    },
+                    "DamagePerSecond": {
+                      "Distortion": 208.0
+                    }
+                  }
+                ]
+              },
+              "Ammunition": {
+                "Speed": 1005.0,
+                "Range": 1507.5,
+                "Size": 1.0,
+                "Capacity": 0.0,
+                "ImpactDamage": {
+                  "Distortion": 1.0
+                },
+                "DetonationDamage": {
+                  "Distortion": 38.0
+                }
+              },
+              "Ports": [
+                {
+                  "PortName": "BAR1",
+                  "Size": 1,
+                  "Loadout": "ASAD_DistortionRepeater_Barrel_S1",
+                  "InstalledItem": {
+                    "ClassName": "ASAD_DistortionRepeater_Barrel_S1",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "WeaponAttachment.Barrel",
+                    "Name": "ASAD_DistortionRepeater_Barrel_S1",
+                    "Manufacturer": {
+                      "Code": "ASAD",
+                      "Name": "[PH] PH Associated Science and Development"
+                    }
+                  },
+                  "Types": [
+                    "WeaponAttachment.Barrel"
+                  ],
+                  "Category": "Weapon attachments"
+                },
+                {
+                  "PortName": "MEC",
+                  "Size": 1,
+                  "Loadout": "ASAD_DistortionRepeater_FiringMechanism_S1",
+                  "InstalledItem": {
+                    "ClassName": "ASAD_DistortionRepeater_FiringMechanism_S1",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "WeaponAttachment.FiringMechanism",
+                    "Name": "ASAD_DistortionRepeater_FiringMechanism_S1",
+                    "Manufacturer": {
+                      "Code": "ASAD",
+                      "Name": "[PH] PH Associated Science and Development"
+                    }
+                  },
+                  "Types": [
+                    "WeaponAttachment.FiringMechanism"
+                  ],
+                  "Category": "Weapon attachments"
+                },
+                {
+                  "PortName": "POW",
+                  "Size": 1,
+                  "Loadout": "ASAD_DistortionRepeater_PowerArray_S1",
+                  "InstalledItem": {
+                    "ClassName": "ASAD_DistortionRepeater_PowerArray_S1",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "WeaponAttachment.PowerArray",
+                    "Name": "ASAD_DistortionRepeater_PowerArray_S1",
+                    "Manufacturer": {
+                      "Code": "ASAD",
+                      "Name": "[PH] PH Associated Science and Development"
+                    }
+                  },
+                  "Types": [
+                    "WeaponAttachment.PowerArray"
+                  ],
+                  "Category": "Weapon attachments"
+                },
+                {
+                  "PortName": "VEN",
+                  "Size": 1,
+                  "Loadout": "ASAD_DistortionRepeater_Ventilation_S1",
+                  "InstalledItem": {
+                    "ClassName": "ASAD_DistortionRepeater_Ventilation_S1",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "WeaponAttachment.Ventilation",
+                    "Name": "ASAD_DistortionRepeater_Ventilation_S1",
+                    "Manufacturer": {
+                      "Code": "ASAD",
+                      "Name": "[PH] PH Associated Science and Development"
+                    }
+                  },
+                  "Types": [
+                    "WeaponAttachment.Ventilation"
+                  ],
+                  "Category": "Weapon attachments"
+                }
+              ]
+            },
+            "Types": [
+              "WeaponGun.Gun"
+            ],
+            "Category": "Weapon hardpoints"
+          }
+        ]
       },
       "Types": [
         "Turret.GunTurret",
@@ -83,7 +528,81 @@
   "RemoteTurrets": [],
   "MiningTurrets": [],
   "UtilityTurrets": [],
-  "MiningHardpoints": [],
+  "MiningHardpoints": [
+    {
+      "PortName": "hardpoint_mining_laser",
+      "Size": 1,
+      "Loadout": "Mining_Laser_GRIN_Arbor_S1",
+      "InstalledItem": {
+        "ClassName": "Mining_Laser_GRIN_Arbor_S1",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "WeaponMining.Gun",
+        "Name": "Arbor MH1 Mining Laser",
+        "Description": "Manufacturer: Greycat Industrial\nItem Type: Mining Laser \nSize: 1\n\nOptimal Range: 30m\nMaximum Range: 150m\n\nPower Transfer: 1850\nExtraction Throughput: 0.35 SCU/s\nModule Slots: 1\n\nThe Arbor MH1 became the universe's most heralded mining laser thanks to Greycat Industrial's exacting standards and business prowess. The laser's solid, reliable design found favor among industrial and solo operations for effectively balancing speed and safety. Greycat capitalized on this reputation by securing exclusive contracts that made the Arbor MH1 the standard laser head on most mining ships.  ",
+        "Manufacturer": {
+          "Code": "MIS",
+          "Name": "Musashi Industrial & Starflight Concern"
+        },
+        "Tags": [
+          "flightReady",
+          "weaponMountUsable",
+          "miningMount"
+        ],
+        "Durability": {
+          "Health": 8000.0,
+          "Lifetime": 100.0
+        },
+        "PowerConnection": {
+          "PowerBase": 2500.0,
+          "PowerDraw": 3000.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        },
+        "Weapon": {
+          "Modes": [
+            {
+              "Name": "",
+              "LocalisedName": "@LOC_PLACEHOLDER",
+              "RoundsPerMinute": 0.0,
+              "FireType": "beam",
+              "AmmoPerShot": 0.0,
+              "PelletsPerShot": 0.0,
+              "DamagePerShot": {},
+              "DamagePerSecond": {}
+            },
+            {
+              "Name": "",
+              "LocalisedName": "@LOC_PLACEHOLDER",
+              "RoundsPerMinute": 0.0,
+              "FireType": "beam",
+              "AmmoPerShot": 0.0,
+              "PelletsPerShot": 0.0,
+              "DamagePerShot": {},
+              "DamagePerSecond": {}
+            }
+          ]
+        },
+        "Ports": [
+          {
+            "PortName": "BONE_ItemPort_Consumable_1",
+            "Size": 1,
+            "Types": [
+              "MiningModifier.Gun"
+            ],
+            "Category": "UNKNOWN"
+          }
+        ]
+      },
+      "Types": [
+        "WeaponMining.Gun"
+      ],
+      "Category": "Mining hardpoints"
+    }
+  ],
   "UtilityHardpoints": [],
   "MissileRacks": [],
   "Countermeasures": [
@@ -1503,7 +2022,20 @@
               "AmbientPiercing": false
             }
           ]
-        }
+        },
+        "Ports": [
+          {
+            "PortName": "BatteryPort",
+            "Size": 2,
+            "Types": [
+              "Battery"
+            ],
+            "Flags": [
+              "invisible"
+            ],
+            "Category": "Batteries"
+          }
+        ]
       },
       "Types": [
         "Radar.ShortRangeRadar",
