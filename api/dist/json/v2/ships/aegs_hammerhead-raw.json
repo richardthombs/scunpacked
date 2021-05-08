@@ -49,6 +49,11 @@
           "SItemPortLoadoutManualParams": {
             "entries": [
               {
+                "itemPortName": "hardpoint_paint",
+                "entityClassName": "Paint_Hammerhead_Default",
+                "loadout": {}
+              },
+              {
                 "itemPortName": "hardpoint_seat_pilot",
                 "entityClassName": "AEGS_Hammerhead_SCItem_Pilot_Seat",
                 "loadout": {
@@ -340,7 +345,7 @@
               },
               {
                 "itemPortName": "landingpad_helper",
-                "entityClassName": "Default_LandingSystem",
+                "entityClassName": "AEGS_Hammerhead_LandingGearSystem",
                 "loadout": {}
               },
               {
@@ -904,11 +909,6 @@
                 "loadout": {}
               },
               {
-                "itemPortName": "hardpoint_paint",
-                "entityClassName": "Paint_Hammerhead_Default",
-                "loadout": {}
-              },
-              {
                 "itemPortName": "hardpoint_docking_collar",
                 "entityClassName": "AEGS_Hammerhead_Front_DockingTube",
                 "loadout": {}
@@ -920,6 +920,11 @@
               },
               {
                 "itemPortName": "hardpoint_controller_missile",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_weapon_regen_pool",
                 "entityClassName": "",
                 "loadout": {}
               }
@@ -3528,7 +3533,23 @@
                     "ItemPort": {
                       "minsize": 1,
                       "maxsize": 1,
-                      "flags": "uneditable dockingport1",
+                      "flags": "$uneditable dockingport1",
+                      "Types": [
+                        {
+                          "type": "DockingAnimator",
+                          "subtypes": ""
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "name": "hardpoint_airlock_door_front",
+                    "damagemax": 0.0,
+                    "class": "ItemPort",
+                    "ItemPort": {
+                      "minsize": 1,
+                      "maxsize": 1,
+                      "flags": "$uneditable dockingport1",
                       "Types": [
                         {
                           "type": "DockingAnimator",

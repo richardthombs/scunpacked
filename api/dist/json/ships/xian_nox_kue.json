@@ -322,6 +322,16 @@
                   "itemPortName": "hardpoint_countermeasures_right",
                   "entityClassName": "XIAN_Nox_CML_Chaff",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_regen_pool",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_paint",
+                  "entityClassName": "",
+                  "loadout": {}
                 }
               ]
             }
@@ -479,21 +489,6 @@
               "class": "AnimatedJoint",
               "Parts": [
                 {
-                  "name": "hardpoint_armor",
-                  "damagemax": 0.0,
-                  "class": "ItemPort",
-                  "ItemPort": {
-                    "minsize": 1,
-                    "maxsize": 1,
-                    "flags": "invisible uneditable",
-                    "Types": [
-                      {
-                        "type": "Armor"
-                      }
-                    ]
-                  }
-                },
-                {
                   "name": "hardpoint_radar",
                   "damagemax": 0.0,
                   "class": "ItemPort",
@@ -517,30 +512,6 @@
                         "pipe": "MainHeat"
                       }
                     ]
-                  }
-                },
-                {
-                  "name": "hardpoint_controller_comms",
-                  "damagemax": 0.0,
-                  "class": "ItemPort",
-                  "ItemPort": {
-                    "minsize": 1,
-                    "maxsize": 1,
-                    "flags": "invisible uneditable",
-                    "Types": [
-                      {
-                        "type": "CommsController"
-                      }
-                    ],
-                    "ControllerDef": {
-                      "UsableDef": {
-                        "PriorityGroups": [
-                          {
-                            "itemType": "Comms"
-                          }
-                        ]
-                      }
-                    }
                   }
                 },
                 {
@@ -788,14 +759,14 @@
                           }
                         },
                         {
-                          "name": "hardpoint_countermeasures_right",
+                          "name": "hardpoint_countermeasures_left",
                           "damagemax": 0.0,
                           "class": "ItemPort",
                           "ItemPort": {
                             "minsize": 1,
                             "maxsize": 1,
-                            "display_name": "port_NameCountermeasure02",
-                            "flags": "right uneditable ",
+                            "display_name": "port_NameCountermeasure01",
+                            "flags": "left uneditable ",
                             "Types": [
                               {
                                 "type": "WeaponDefensive",
@@ -959,14 +930,14 @@
                           }
                         },
                         {
-                          "name": "hardpoint_countermeasures_left",
+                          "name": "hardpoint_countermeasures_right",
                           "damagemax": 0.0,
                           "class": "ItemPort",
                           "ItemPort": {
                             "minsize": 1,
                             "maxsize": 1,
-                            "display_name": "port_NameCountermeasure01",
-                            "flags": "left uneditable ",
+                            "display_name": "port_NameCountermeasure02",
+                            "flags": "right uneditable ",
                             "Types": [
                               {
                                 "type": "WeaponDefensive",
@@ -1498,81 +1469,6 @@
                           }
                         },
                         {
-                          "name": "hardpoint_scanner",
-                          "damagemax": 0.0,
-                          "class": "ItemPort",
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "flags": "invisible uneditable",
-                            "Types": [
-                              {
-                                "type": "Scanner"
-                              }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "name": "hardpoint_ping",
-                          "damagemax": 0.0,
-                          "class": "ItemPort",
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "flags": "invisible uneditable",
-                            "Types": [
-                              {
-                                "type": "Ping"
-                              }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "name": "hardpoint_transponder",
-                          "damagemax": 0.0,
-                          "class": "ItemPort",
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "flags": "invisible uneditable",
-                            "Types": [
-                              {
-                                "type": "Transponder"
-                              }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              }
-                            ]
-                          }
-                        },
-                        {
                           "name": "hardpoint_avionics_motherboard",
                           "damagemax": 0.0,
                           "class": "ItemPort",
@@ -1652,6 +1548,11 @@
                               }
                             ]
                           }
+                        },
+                        {
+                          "name": "hardpoint_heat_sink",
+                          "damagemax": 0.0,
+                          "class": "ItemPort"
                         },
                         {
                           "name": "hardpoint_power_plant",
@@ -1735,6 +1636,56 @@
                               {
                                 "pipeClass": "Fuel",
                                 "pipe": "IntakeFuel"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "name": "hardpoint_scanner",
+                          "damagemax": 0.0,
+                          "class": "ItemPort",
+                          "ItemPort": {
+                            "minsize": 1,
+                            "maxsize": 1,
+                            "flags": "invisible uneditable",
+                            "Types": [
+                              {
+                                "type": "Scanner"
+                              }
+                            ],
+                            "Connections": [
+                              {
+                                "pipeClass": "Power",
+                                "pipe": "MainPower"
+                              },
+                              {
+                                "pipeClass": "Heat",
+                                "pipe": "MainHeat"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "name": "hardpoint_ping",
+                          "damagemax": 0.0,
+                          "class": "ItemPort",
+                          "ItemPort": {
+                            "minsize": 1,
+                            "maxsize": 1,
+                            "flags": "invisible uneditable",
+                            "Types": [
+                              {
+                                "type": "Ping"
+                              }
+                            ],
+                            "Connections": [
+                              {
+                                "pipeClass": "Power",
+                                "pipe": "MainPower"
+                              },
+                              {
+                                "pipeClass": "Heat",
+                                "pipe": "MainHeat"
                               }
                             ]
                           }
@@ -2152,6 +2103,16 @@
                           }
                         ]
                       }
+                    },
+                    {
+                      "name": "seat_interaction_helper",
+                      "damagemax": 0.0,
+                      "class": "ItemPort"
+                    },
+                    {
+                      "name": "hardpoint_weapon_regen_pool",
+                      "damagemax": 0.0,
+                      "class": "ItemPort"
                     }
                   ],
                   "DamageBehaviors": [
@@ -2239,6 +2200,22 @@
                       {
                         "pipeClass": "Shield",
                         "pipe": "Shield"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_paint",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "port_NamePaint",
+                    "flags": "uneditable",
+                    "Types": [
+                      {
+                        "type": "Paints"
                       }
                     ]
                   }

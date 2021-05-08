@@ -41,6 +41,11 @@
             "SItemPortLoadoutManualParams": {
               "entries": [
                 {
+                  "itemPortName": "hardpoint_paint",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
                   "itemPortName": "hardpoint_door_rear",
                   "entityClassName": "Door_Ship_Exterior_AEGS_Vanguard",
                   "loadout": {}
@@ -487,6 +492,11 @@
                 },
                 {
                   "itemPortName": "hardpoint_controller_missile",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_regen_pool",
                   "entityClassName": "",
                   "loadout": {}
                 }
@@ -2778,6 +2788,7 @@
                         "maxsize": 4,
                         "display_name": "port_NameMissileRack03",
                         "flags": "",
+                        "id": "modPart_missilerack_right_rear",
                         "Types": [
                           {
                             "type": "MissileLauncher",
@@ -3358,6 +3369,7 @@
                         "maxsize": 4,
                         "display_name": "port_NameMissileRack04",
                         "flags": "",
+                        "id": "modPart_missilerack_left_rear",
                         "Types": [
                           {
                             "type": "MissileLauncher",
@@ -3687,6 +3699,16 @@
         {
           "name": "Hoplite",
           "Elems": [
+            {
+              "idRef": "modPart_missilerack_left_rear",
+              "name": "skipPart",
+              "value": "0"
+            },
+            {
+              "idRef": "modPart_missilerack_right_rear",
+              "name": "skipPart",
+              "value": "0"
+            },
             {
               "idRef": "modVehicle",
               "name": "displayname",

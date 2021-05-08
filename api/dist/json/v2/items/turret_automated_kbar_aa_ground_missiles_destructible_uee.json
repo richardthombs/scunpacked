@@ -1,0 +1,395 @@
+{
+  "ClassName": "Turret_Automated_KBAR_AA_Ground_Missiles_Destructible_UEE",
+  "Size": 1,
+  "Grade": 1,
+  "Type": "Turret.MannedTurret",
+  "Name": "AAT-34 Turret",
+  "Description": "Manufacturer: Broad & Rabiee\nItem Type: Anti-Aircraft Turret\n\nMaintain order with the AAT-34 anti-aircraft turret. This rugged design is ideal for perimeter protection and can survive long exposure to the elements with minimal maintenance while still providing first class defensive fire. Its custom targeting software also helps maximize area coverage while keeping placement numbers reasonable; covering more sky with fewer turrets.",
+  "Manufacturer": {
+    "Code": "AEG",
+    "Name": "Aegis Dynamics"
+  },
+  "Durability": {
+    "Health": 10000.0
+  },
+  "PowerConnection": {
+    "PowerBase": 0.0,
+    "PowerDraw": 1.0
+  },
+  "HeatConnection": {
+    "ThermalEnergyBase": 10.0,
+    "ThermalEnergyDraw": 20.0,
+    "CoolingRate": 1.0
+  },
+  "Radar": {
+    "DetectionLifetime": 60.0,
+    "AltitudeCeiling": 5000.0,
+    "CrossSectionOcclusion": false,
+    "Signatures": [
+      {
+        "Detectable": true,
+        "Sensitivity": 0.5,
+        "AmbientPiercing": false
+      },
+      {
+        "Detectable": true,
+        "Sensitivity": 0.5,
+        "AmbientPiercing": false
+      },
+      {
+        "Detectable": false,
+        "Sensitivity": 1.0,
+        "AmbientPiercing": false
+      },
+      {
+        "Detectable": false,
+        "Sensitivity": 1.0,
+        "AmbientPiercing": false
+      },
+      {
+        "Detectable": false,
+        "Sensitivity": 1.0,
+        "AmbientPiercing": false
+      }
+    ]
+  },
+  "Ports": [
+    {
+      "PortName": "hardpoint_aimodule",
+      "Size": 10,
+      "Loadout": "AIModule_Unmanned_PU_UEE_GreenZone_Small_Turret",
+      "Types": [
+        "AIModule"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_weaponleft",
+      "Size": 10,
+      "Loadout": "MRCK_S07_ANVL_Ballista_Duel",
+      "InstalledItem": {
+        "ClassName": "MRCK_S07_ANVL_Ballista_Duel",
+        "Size": 7,
+        "Grade": 1,
+        "Type": "MissileLauncher.MissileRack",
+        "Name": "Anvil Ballista S07 Missile Rack",
+        "Description": "Item Type: Missile Rack\nManufacturer: Anvil Aerospace\nSize: 7\nMissiles: 1xS7 \n\nBespoke missile rack for the Anvil Ballista that fires an S7 missile capable of massive destruction.",
+        "Manufacturer": {
+          "Code": "ANVL",
+          "Name": "Anvil Aerospace"
+        },
+        "MissileRack": {
+          "Count": 1,
+          "Size": 7
+        },
+        "PowerConnection": {
+          "PowerBase": 0.0,
+          "PowerDraw": 1.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        },
+        "Ports": [
+          {
+            "PortName": "missile_01_attach",
+            "Size": 7,
+            "Loadout": "MISL_S07_IR_TALN_Hellion",
+            "InstalledItem": {
+              "ClassName": "MISL_S07_IR_TALN_Hellion",
+              "Size": 7,
+              "Grade": 1,
+              "Type": "Missile.Missile",
+              "Name": "Hellion VII",
+              "Description": "Manufacturer: Talon\nTracking Signal: Infrared\nSize: 7\n\nCarrying a sizable payload and an advanced heat-seeking sensor suite, the Hellion missile from Talon can be effective against aggressors of all sizes.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "IR",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 9640.57,
+                  "Energy": 94562.27
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile"
+            ]
+          }
+        ]
+      },
+      "Types": [
+        "MissileLauncher"
+      ],
+      "Flags": [
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_weaponright",
+      "Size": 10,
+      "Loadout": "MRCK_ANVL_Ballista_Quad_S05",
+      "InstalledItem": {
+        "ClassName": "MRCK_ANVL_Ballista_Quad_S05",
+        "Size": 5,
+        "Grade": 1,
+        "Type": "MissileLauncher.MissileRack",
+        "Name": "Anvil Ballista S05 Missile Rack",
+        "Description": "Item Type: Missile Rack\nManufacturer: Anvil Aerospace\nSize: 5\nMissiles: 4xS5 \n\nMissile rack for the Anvil Ballista that carries four, S5 missiles. ",
+        "Manufacturer": {
+          "Code": "ANVL",
+          "Name": "Anvil Aerospace"
+        },
+        "MissileRack": {
+          "Count": 4,
+          "Size": 5
+        },
+        "PowerConnection": {
+          "PowerBase": 0.0,
+          "PowerDraw": 1.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        },
+        "Ports": [
+          {
+            "PortName": "missile_01_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_EM_TALN_Scimitar",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_EM_TALN_Scimitar",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Missile",
+              "Name": "Scimitar V",
+              "Description": "Manufacturer: Talon\nTracking Signal: Electromagnetic\nSize: 5\n\nThe Scimitar missile tracks targets via their EM signature to deliver a devastating size five payload.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "IR",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 2595.635,
+                  "Energy": 16382.54
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile"
+            ]
+          },
+          {
+            "PortName": "missile_02_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_EM_TALN_Scimitar",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_EM_TALN_Scimitar",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Missile",
+              "Name": "Scimitar V",
+              "Description": "Manufacturer: Talon\nTracking Signal: Electromagnetic\nSize: 5\n\nThe Scimitar missile tracks targets via their EM signature to deliver a devastating size five payload.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "IR",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 2595.635,
+                  "Energy": 16382.54
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile"
+            ]
+          },
+          {
+            "PortName": "missile_03_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_EM_TALN_Scimitar",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_EM_TALN_Scimitar",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Missile",
+              "Name": "Scimitar V",
+              "Description": "Manufacturer: Talon\nTracking Signal: Electromagnetic\nSize: 5\n\nThe Scimitar missile tracks targets via their EM signature to deliver a devastating size five payload.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "IR",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 2595.635,
+                  "Energy": 16382.54
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile"
+            ]
+          },
+          {
+            "PortName": "missile_04_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_EM_TALN_Scimitar",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_EM_TALN_Scimitar",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Missile",
+              "Name": "Scimitar V",
+              "Description": "Manufacturer: Talon\nTracking Signal: Electromagnetic\nSize: 5\n\nThe Scimitar missile tracks targets via their EM signature to deliver a devastating size five payload.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "IR",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 2595.635,
+                  "Energy": 16382.54
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile"
+            ]
+          }
+        ]
+      },
+      "Types": [
+        "MissileLauncher"
+      ],
+      "Flags": [
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_powerplant",
+      "Size": 1,
+      "Loadout": "POWR_AEGS_S01_Regulus_SCItem",
+      "InstalledItem": {
+        "ClassName": "POWR_AEGS_S01_Regulus_SCItem",
+        "Size": 1,
+        "Grade": 3,
+        "Type": "PowerPlant.Power",
+        "Name": "Regulus",
+        "Description": "Item Type: Power Plant\nManufacturer: Aegis Dynamics\nSize: 1\nGrade: C\nClass: Military\n\nThe Regulus is the power plant you can count on when everyone is counting on you. Made to exceed exacting military standards, Aegis’ design team has made sure that you have the extra power you need, when you need it most.",
+        "Manufacturer": {
+          "Code": "AEG",
+          "Name": "Aegis Dynamics"
+        },
+        "PowerPlant": {
+          "Output": 3155.25
+        },
+        "Durability": {
+          "Health": 750.0,
+          "Lifetime": 22.0
+        },
+        "PowerConnection": {
+          "PowerBase": 0.0,
+          "PowerDraw": 3155.25
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 22245.0,
+          "ThermalEnergyDraw": 26295.0,
+          "CoolingRate": 104.8765
+        }
+      },
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_cooler",
+      "Size": 3,
+      "Loadout": "COOL_JUST_S02_CoolCore_SCItem",
+      "InstalledItem": {
+        "ClassName": "COOL_JUST_S02_CoolCore_SCItem",
+        "Size": 2,
+        "Grade": 3,
+        "Type": "Cooler.UNDEFINED",
+        "Name": "CoolCore",
+        "Description": "Item Type: Cooler\nManufacturer: Juno Starwerk \nSize: 2\nGrade: C\nClass: Industrial\n\nThe name CoolCore says it all. Designed by Juno Starwerk to be as hardworking as you are, this cooler helps ensure that your entire ship operates well within desired temperature parameters.",
+        "Manufacturer": {
+          "Code": "JUST",
+          "Name": "Juno Starwerk"
+        },
+        "Cooler": {
+          "Rate": 8000000.0
+        },
+        "Durability": {
+          "Health": 1350.0,
+          "Lifetime": 104.0
+        },
+        "PowerConnection": {
+          "PowerBase": 16.0,
+          "PowerDraw": 24.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        }
+      },
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    }
+  ]
+}

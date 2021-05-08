@@ -1,0 +1,283 @@
+{
+  "StaticEntityClassData": {
+    "DefaultEntitlementEntityParams": {
+      "entitlementPolicy": "8a1fdd48-7896-4774-a110-2466190e1a07"
+    }
+  },
+  "tags": [],
+  "Components": {
+    "SAttachableComponentParams": {
+      "AttachDef": {
+        "Type": "TurretBase",
+        "SubType": "MannedTurret",
+        "Size": 5,
+        "Grade": 1,
+        "Manufacturer": "cf4a74bf-eb2c-462a-9b78-f7f2724c31d2",
+        "Tags": "flightReady",
+        "RequiredTags": "",
+        "DisplayType": "",
+        "Localization": {
+          "Name": "@item_Name_Turret_Manned",
+          "Description": "@LOC_EMPTY"
+        }
+      }
+    },
+    "SHealthComponentParams": {
+      "Health": 5000.0,
+      "DamageResistances": {
+        "DamageResistance": {
+          "PhysicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "EnergyResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "DistortionResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "ThermalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "BiochemicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "StunResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          }
+        }
+      }
+    },
+    "SDegradationParams": {
+      "MaxLifetimeHours": 25.0,
+      "InitialAgeRatio": 0.0,
+      "DegradeOnlyWhenAttached": true
+    },
+    "EntityComponentPowerConnection": {
+      "PowerBase": 0.0,
+      "PowerDraw": 2.0,
+      "TimeToReachDrawRequest": 0.0,
+      "SafeguardPriority": 0.0,
+      "DisplayedInPoweredItemList": false,
+      "IsThrottleable": false,
+      "IsOverclockable": false,
+      "OverclockThresholdMin": 0.0,
+      "OverclockThresholdMax": 0.0,
+      "OverpowerPerformance": 0.0,
+      "OverclockPerformance": 0.0,
+      "PowerToEM": 0.0,
+      "DecayRateOfEM": 0.15,
+      "WarningDelayTime": 0.3,
+      "WarningDisplayTime": 8.0
+    },
+    "EntityComponentHeatConnection": {
+      "TemperatureToIR": 6.0,
+      "OverpowerHeat": 0.0,
+      "OverclockThresholdMinHeat": 0.0,
+      "OverclockThresholdMaxHeat": 0.0,
+      "ThermalEnergyBase": 10.0,
+      "ThermalEnergyDraw": 20.0,
+      "ThermalConductivity": 3.0,
+      "SpecificHeatCapacity": 13.0,
+      "Mass": 200.0,
+      "SurfaceArea": 50.0,
+      "StartCoolingTemperature": 300.0,
+      "MaxCoolingRate": 1.0,
+      "MaxTemperature": 450.0,
+      "OverheatTemperature": 370.0,
+      "RecoveryTemperature": 350.0,
+      "MinTemperature": 0.0,
+      "MisfireMinTemperature": 370.0,
+      "MisfireMaxTemperature": 600.0
+    },
+    "SDistortionParams": {
+      "DecayRate": 50.0,
+      "Maximum": 1500.0,
+      "OverloadRatio": 0.995,
+      "RecoveryRatio": 0.7,
+      "RecoveryTime": 0.0
+    },
+    "SCItemTurretParams": {
+      "rotationStyle": "SingleAxis",
+      "inputLevelUnderOneRate": 0.0,
+      "inputLevelOverOneRate": 0.0,
+      "joystickSensitivityBoost": 0.0,
+      "powerRequirement": 1.0
+    },
+    "SEntityInteractableParams": {
+      "Interactable": {
+        "SharedInteractions": [
+          {
+            "Name": "Turret_Fire_Mode",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_turret_fire_mode",
+            "DisplayType": "Show",
+            "GenericCursor": "Button",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Turret_Gyro_Mode",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_turret_gyro",
+            "DisplayType": "Show",
+            "GenericCursor": "Button",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Turret_Sensitivity_Increase",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_turret_sensitivity_increase",
+            "DisplayType": "Show",
+            "GenericCursor": "Button",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Turret_Sensitivity_Decrease",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_turret_sensitivity_decrease",
+            "DisplayType": "Show",
+            "GenericCursor": "Button",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Turret_Sensitivity_Reset",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_turret_sensitivity_reset",
+            "DisplayType": "Show",
+            "GenericCursor": "Button",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          }
+        ]
+      }
+    },
+    "SItemPortContainerComponentParams": {
+      "PortFlags": "",
+      "PortTags": "",
+      "RequiredItemTags": "",
+      "Ports": [
+        {
+          "Name": "hardpoint_gimbal_left",
+          "DisplayName": "port_NameTurretGunSlot01",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "",
+          "MinSize": 4,
+          "MaxSize": 4,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "Gun1",
+          "Types": [
+            {
+              "Type": "WeaponGun",
+              "SubTypes": [
+                {
+                  "value": "Gun"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "hardpoint_gimbal_right",
+          "DisplayName": "port_NameTurretGunSlot02",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "",
+          "MinSize": 4,
+          "MaxSize": 4,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "Gun1",
+          "Types": [
+            {
+              "Type": "WeaponGun",
+              "SubTypes": [
+                {
+                  "value": "Gun"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "hardpoint_weapon_left",
+          "DisplayName": "port_NameTurretGunSlot03",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "",
+          "MinSize": 7,
+          "MaxSize": 7,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "Gun2",
+          "Types": [
+            {
+              "Type": "WeaponGun",
+              "SubTypes": [
+                {
+                  "value": "Gun"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "hardpoint_weapon_right",
+          "DisplayName": "port_NameTurretGunSlot04",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "",
+          "MinSize": 7,
+          "MaxSize": 7,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "Gun2",
+          "Types": [
+            {
+              "Type": "WeaponGun",
+              "SubTypes": [
+                {
+                  "value": "Gun"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "ClassName": "AEGS_Javelin_Side_Turret_No_Tag",
+  "__ref": "2d004f70-583f-44bc-a6ed-2c934c59e09b",
+  "__type": "EntityClassDefinition"
+}
