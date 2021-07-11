@@ -595,6 +595,9 @@ namespace Loader
 		List<StandardisedSignatureDetection> BuildDetectionSignatures(EntityClassDefinition item)
 		{
 			var detections = new List<StandardisedSignatureDetection>();
+			var signatureDetection = item.Components.SCItemRadarComponentParams.signatureDetection;
+
+			if (signatureDetection == null) return null;
 
 			foreach (var detection in item.Components.SCItemRadarComponentParams.signatureDetection)
 			{
