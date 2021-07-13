@@ -1,13 +1,13 @@
 {
   "ammo": {
     "size": 1,
-    "lifetime": 2.6,
-    "speed": 990.0,
+    "lifetime": 3.0,
+    "speed": 700.0,
     "projectileParams": {
       "BulletProjectileParams": {
         "damage": [
           {
-            "DamagePhysical": 255.0,
+            "DamagePhysical": 187.5,
             "DamageEnergy": 0.0,
             "DamageDistortion": 0.0,
             "DamageThermal": 0.0,
@@ -84,13 +84,13 @@
           "DegradeOnlyWhenAttached": true
         },
         "EntityComponentPowerConnection": {
-          "PowerBase": 44.0,
-          "PowerDraw": 126.0,
+          "PowerBase": 50.0,
+          "PowerDraw": 70.0,
           "TimeToReachDrawRequest": 0.0,
           "SafeguardPriority": 20.0,
           "DisplayedInPoweredItemList": true,
-          "IsThrottleable": true,
-          "IsOverclockable": true,
+          "IsThrottleable": false,
+          "IsOverclockable": false,
           "OverclockThresholdMin": 0.25,
           "OverclockThresholdMax": 0.46,
           "OverpowerPerformance": 0.3,
@@ -128,8 +128,8 @@
           "RecoveryTime": 0.98
         },
         "SAmmoContainerComponentParams": {
-          "initialAmmoCount": 1800.0,
-          "maxAmmoCount": 1800.0,
+          "initialAmmoCount": 200.0,
+          "maxAmmoCount": 200.0,
           "ammoParamsRecord": "59ec0156-7d62-4a2a-af5e-b357a3abe35c"
         },
         "SCItemWeaponComponentParams": {
@@ -204,12 +204,12 @@
               "mode": "Looping",
               "sequenceEntries": [
                 {
-                  "delay": 81.0,
+                  "delay": 200.0,
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "heatPerShot": 16000.0,
-                      "fireRate": 81.0,
+                      "heatPerShot": 1500.0,
+                      "fireRate": 200.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 1.0,

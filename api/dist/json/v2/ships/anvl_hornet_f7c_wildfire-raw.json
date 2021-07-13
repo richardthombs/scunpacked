@@ -43,6 +43,11 @@
           "SItemPortLoadoutManualParams": {
             "entries": [
               {
+                "itemPortName": "hardpoint_paint",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
                 "itemPortName": "hardpoint_seat_access",
                 "entityClassName": "ANVL_Hornet_SeatAccess",
                 "loadout": {}
@@ -61,6 +66,11 @@
                       {
                         "itemPortName": "hardpoint_cockpit_radar",
                         "entityClassName": "RADR_Display",
+                        "loadout": {}
+                      },
+                      {
+                        "itemPortName": "Display_HUD",
+                        "entityClassName": "Projector_HUD_Generic",
                         "loadout": {}
                       }
                     ]
@@ -359,17 +369,22 @@
               },
               {
                 "itemPortName": "hardpoint_controller_missile",
-                "entityClassName": "",
+                "entityClassName": "Controller_Missile",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_weapon_regen_pool",
-                "entityClassName": "",
+                "entityClassName": "WeaponRegenPool_Crew_Hornet",
                 "loadout": {}
               },
               {
-                "itemPortName": "hardpoint_paint",
-                "entityClassName": "",
+                "itemPortName": "hardpoint_weapon_regen_pool_turrets",
+                "entityClassName": "WeaponRegenPool_Turret_Hornet",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_capacitor_assignment",
+                "entityClassName": "Controller_CapacitorAssignment",
                 "loadout": {}
               }
             ]
@@ -511,8 +526,16 @@
         "class": "WeaponRegen"
       },
       {
+        "name": "WeaponAmmoLoadCrew",
+        "class": "WeaponAmmoLoad"
+      },
+      {
         "name": "WeaponRegenTurret",
         "class": "WeaponRegen"
+      },
+      {
+        "name": "WeaponAmmoLoadTurret",
+        "class": "WeaponAmmoLoad"
       }
     ],
     "Parts": [
@@ -549,7 +572,7 @@
           },
           {
             "name": "Nose",
-            "damageMax": 1600.0,
+            "damageMax": 4000.0,
             "damagemax": 0.0,
             "class": "AnimatedJoint",
             "Parts": [
@@ -769,6 +792,82 @@
                 }
               },
               {
+                "name": "hardpoint_weapon_regen_pool",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "Weapon Regen Pool",
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "WeaponRegenPool"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenCrew"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadCrew"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_weapon_regen_pool_turrets",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "Weapon Regen Pool",
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "WeaponRegenPool"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenTurret"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadTurret"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_controller_capacitor_assignment",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "CapacitorAssignmentController"
+                    }
+                  ],
+                  "ControllerDef": {
+                    "UsableDef": {
+                      "PriorityGroups": [
+                        {
+                          "itemType": "CapacitorAssignmentController"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
                 "name": "hardpoint_controller_cooler",
                 "damagemax": 0.0,
                 "class": "ItemPort",
@@ -978,10 +1077,6 @@
                         {
                           "itemType": "ManneuverThruster",
                           "defaultPriority": "exclusive_control"
-                        },
-                        {
-                          "itemType": "QuantumDrive",
-                          "defaultPriority": "exclusive_control"
                         }
                       ]
                     }
@@ -1046,7 +1141,8 @@
                   "minsize": 1,
                   "maxsize": 1,
                   "display_name": "port_NamePaint",
-                  "flags": "uneditable",
+                  "flags": "",
+                  "requiredTags": "Paint_Hornet",
                   "Types": [
                     {
                       "type": "Paints"
@@ -1139,12 +1235,6 @@
                         },
                         {
                           "itemType": "WeaponDefensive"
-                        },
-                        {
-                          "itemType": "MissileLauncher"
-                        },
-                        {
-                          "itemType": "Missile"
                         }
                       ]
                     }
@@ -1222,7 +1312,7 @@
                     },
                     {
                       "type": "Turret",
-                      "subtypes": "GunTurret"
+                      "subtypes": "NoseMounted"
                     },
                     {
                       "type": "WeaponGun",
@@ -1241,6 +1331,10 @@
                     {
                       "pipeClass": "WeaponRegen",
                       "pipe": "WeaponRegenCrew"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadCrew"
                     }
                   ],
                   "Pitch": {
@@ -1265,7 +1359,19 @@
                     {
                       "type": "MissileController"
                     }
-                  ]
+                  ],
+                  "ControllerDef": {
+                    "UsableDef": {
+                      "PriorityGroups": [
+                        {
+                          "itemType": "MissileLauncher"
+                        },
+                        {
+                          "itemType": "Missile"
+                        }
+                      ]
+                    }
+                  }
                 }
               },
               {
@@ -1343,7 +1449,7 @@
                       },
                       {
                         "name": "WingLeft_Debris",
-                        "damageMax": 1850.0,
+                        "damageMax": 3000.0,
                         "damagemax": 0.0,
                         "class": "AnimatedJoint",
                         "detachRatio": 1.0,
@@ -1380,6 +1486,10 @@
                                 {
                                   "pipeClass": "WeaponRegen",
                                   "pipe": "WeaponRegenCrew"
+                                },
+                                {
+                                  "pipeClass": "WeaponAmmoLoad",
+                                  "pipe": "WeaponAmmoLoadCrew"
                                 }
                               ],
                               "Pitch": {
@@ -1436,7 +1546,7 @@
                     "Parts": [
                       {
                         "name": "WingRight_Debris",
-                        "damageMax": 1850.0,
+                        "damageMax": 3000.0,
                         "damagemax": 0.0,
                         "class": "AnimatedJoint",
                         "detachRatio": 1.0,
@@ -1473,6 +1583,10 @@
                                 {
                                   "pipeClass": "WeaponRegen",
                                   "pipe": "WeaponRegenCrew"
+                                },
+                                {
+                                  "pipeClass": "WeaponAmmoLoad",
+                                  "pipe": "WeaponAmmoLoadCrew"
                                 }
                               ],
                               "Pitch": {
@@ -1898,6 +2012,14 @@
                         {
                           "pipeClass": "Heat",
                           "pipe": "MainHeat"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenCrew"
+                        },
+                        {
+                          "pipeClass": "WeaponAmmoLoad",
+                          "pipe": "WeaponAmmoLoadCrew"
                         }
                       ],
                       "Pitch": {
@@ -2093,7 +2215,7 @@
                   },
                   {
                     "name": "Tail",
-                    "damageMax": 320.0,
+                    "damageMax": 3000.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "Parts": [
@@ -2346,14 +2468,14 @@
                   },
                   {
                     "name": "WingLeftRear",
-                    "damageMax": 120.0,
+                    "damageMax": 800.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0
                   },
                   {
                     "name": "WingRightRear",
-                    "damageMax": 120.0,
+                    "damageMax": 800.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0,
@@ -2424,7 +2546,7 @@
               },
               {
                 "name": "Canopy",
-                "damageMax": 80.0,
+                "damageMax": 2500.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
                 "detachRatio": 1.0

@@ -55,6 +55,11 @@
                           "itemPortName": "radar_helper",
                           "entityClassName": "ORIG_890J_Hologlobe_RADR_Display",
                           "loadout": {}
+                        },
+                        {
+                          "itemPortName": "Display_HUD",
+                          "entityClassName": "Projector_HUD_Generic",
+                          "loadout": {}
                         }
                       ]
                     }
@@ -103,7 +108,17 @@
                 {
                   "itemPortName": "hardpoint_seat_BB_middle",
                   "entityClassName": "ORIG_890J_Seat_BattleBridge_Middle",
-                  "loadout": {}
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "Display_HUD",
+                          "entityClassName": "Projector_HUD_Generic",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
                 },
                 {
                   "itemPortName": "hardpoint_seataccess_BB_Left",
@@ -782,7 +797,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_missilerack_lower_right",
-                  "entityClassName": "MRCK_S05_ORIG_890J_Quad_S03",
+                  "entityClassName": "MRCK_S05_ORIG_890J_Quad_S03_R",
                   "loadout": {
                     "SItemPortLoadoutManualParams": {
                       "entries": [
@@ -822,7 +837,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_cargogrid_hangar_001",
-                  "entityClassName": "ORIG_890Jump_CargoGrid_Hangar",
+                  "entityClassName": "ORIG_890Jump_CargoGrid_Hangar_Wide",
                   "loadout": {}
                 },
                 {
@@ -836,13 +851,8 @@
                   "loadout": {}
                 },
                 {
-                  "itemPortName": "hardpoint_cargogrid_hangar_004",
-                  "entityClassName": "ORIG_890Jump_CargoGrid_Hangar",
-                  "loadout": {}
-                },
-                {
                   "itemPortName": "hardpoint_cargogrid_hangar_005",
-                  "entityClassName": "ORIG_890Jump_CargoGrid_Hangar",
+                  "entityClassName": "ORIG_890Jump_CargoGrid_Hangar_Wide",
                   "loadout": {}
                 },
                 {
@@ -852,11 +862,6 @@
                 },
                 {
                   "itemPortName": "hardpoint_cargogrid_hangar_007",
-                  "entityClassName": "ORIG_890Jump_CargoGrid_Hangar",
-                  "loadout": {}
-                },
-                {
-                  "itemPortName": "hardpoint_cargogrid_hangar_008",
                   "entityClassName": "ORIG_890Jump_CargoGrid_Hangar",
                   "loadout": {}
                 },
@@ -907,12 +912,32 @@
                 },
                 {
                   "itemPortName": "hardpoint_controller_missile",
-                  "entityClassName": "",
+                  "entityClassName": "Controller_Missile",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_weapon_regen_pool",
-                  "entityClassName": "",
+                  "entityClassName": "WeaponRegenPool_Crew_890J",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_regen_pool_turrets",
+                  "entityClassName": "WeaponRegenPool_Turret_890J",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_capacitor_assignment",
+                  "entityClassName": "Controller_CapacitorAssignment",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_missile_bridge_left",
+                  "entityClassName": "Controller_Missile",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_MC_BB_Left",
+                  "entityClassName": "Controller_Missile",
                   "loadout": {}
                 }
               ]
@@ -1052,8 +1077,16 @@
           "class": "WeaponRegen"
         },
         {
+          "name": "WeaponAmmoLoadCrew",
+          "class": "WeaponAmmoLoad"
+        },
+        {
           "name": "WeaponRegenTurret",
           "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponAmmoLoadTurret",
+          "class": "WeaponAmmoLoad"
         }
       ],
       "Parts": [
@@ -1237,6 +1270,10 @@
                           {
                             "pipeClass": "WeaponRegen",
                             "pipe": "WeaponRegenTurret"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -1279,6 +1316,10 @@
                           {
                             "pipeClass": "WeaponRegen",
                             "pipe": "WeaponRegenTurret"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -1321,6 +1362,10 @@
                           {
                             "pipeClass": "WeaponRegen",
                             "pipe": "WeaponRegenTurret"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -1523,6 +1568,82 @@
                       }
                     },
                     {
+                      "name": "hardpoint_weapon_regen_pool",
+                      "damagemax": 0.0,
+                      "class": "ItemPort",
+                      "ItemPort": {
+                        "minsize": 1,
+                        "maxsize": 1,
+                        "display_name": "Weapon Regen Pool",
+                        "flags": "invisible uneditable",
+                        "Types": [
+                          {
+                            "type": "WeaponRegenPool"
+                          }
+                        ],
+                        "Connections": [
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenCrew"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadCrew"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "hardpoint_weapon_regen_pool_turrets",
+                      "damagemax": 0.0,
+                      "class": "ItemPort",
+                      "ItemPort": {
+                        "minsize": 1,
+                        "maxsize": 1,
+                        "display_name": "Weapon Regen Pool",
+                        "flags": "invisible uneditable",
+                        "Types": [
+                          {
+                            "type": "WeaponRegenPool"
+                          }
+                        ],
+                        "Connections": [
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadTurret"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "hardpoint_controller_capacitor_assignment",
+                      "damagemax": 0.0,
+                      "class": "ItemPort",
+                      "ItemPort": {
+                        "minsize": 1,
+                        "maxsize": 1,
+                        "flags": "invisible uneditable",
+                        "Types": [
+                          {
+                            "type": "CapacitorAssignmentController"
+                          }
+                        ],
+                        "ControllerDef": {
+                          "UsableDef": {
+                            "PriorityGroups": [
+                              {
+                                "itemType": "CapacitorAssignmentController"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
                       "name": "hardpoint_controller_flight",
                       "damagemax": 0.0,
                       "class": "ItemPort",
@@ -1558,10 +1679,6 @@
                               },
                               {
                                 "itemType": "ManneuverThruster",
-                                "defaultPriority": "exclusive_control"
-                              },
-                              {
-                                "itemType": "QuantumDrive",
                                 "defaultPriority": "exclusive_control"
                               }
                             ]
@@ -1639,58 +1756,6 @@
                             "PriorityGroups": [
                               {
                                 "itemType": "Shield"
-                              }
-                            ]
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "name": "hardpoint_controller_weapon",
-                      "damagemax": 0.0,
-                      "class": "ItemPort",
-                      "ItemPort": {
-                        "minsize": 1,
-                        "maxsize": 1,
-                        "flags": "invisible uneditable",
-                        "Types": [
-                          {
-                            "type": "WeaponController"
-                          }
-                        ],
-                        "Connections": [
-                          {
-                            "pipeClass": "Power",
-                            "pipe": "MainPower"
-                          },
-                          {
-                            "pipeClass": "Heat",
-                            "pipe": "MainHeat"
-                          }
-                        ],
-                        "ControllerDef": {
-                          "controllableTags": "weaponPilot",
-                          "UsableDef": {
-                            "PriorityGroups": [
-                              {
-                                "itemType": "Turret",
-                                "defaultPriority": "no_control"
-                              },
-                              {
-                                "itemType": "WeaponGun",
-                                "defaultPriority": "no_control"
-                              },
-                              {
-                                "itemType": "WeaponDefensive",
-                                "defaultPriority": "no_control"
-                              },
-                              {
-                                "itemType": "MissileLauncher",
-                                "defaultPriority": "no_control"
-                              },
-                              {
-                                "itemType": "Missile",
-                                "defaultPriority": "no_control"
                               }
                             ]
                           }
@@ -2691,90 +2756,6 @@
                       }
                     },
                     {
-                      "name": "hardpoint_WC_BB_Left",
-                      "damagemax": 0.0,
-                      "class": "ItemPort",
-                      "ItemPort": {
-                        "minsize": 1,
-                        "maxsize": 1,
-                        "flags": "invisible uneditable",
-                        "Types": [
-                          {
-                            "type": "WeaponController"
-                          }
-                        ],
-                        "Connections": [
-                          {
-                            "pipeClass": "Power",
-                            "pipe": "MainPower"
-                          },
-                          {
-                            "pipeClass": "Heat",
-                            "pipe": "MainHeat"
-                          }
-                        ],
-                        "ControllerDef": {
-                          "controllableTags": "BBLeftSeat",
-                          "UsableDef": {
-                            "PriorityGroups": [
-                              {
-                                "itemType": "Turret",
-                                "defaultPriority": "no_control"
-                              },
-                              {
-                                "itemType": "MissileLauncher",
-                                "defaultPriority": "no_control"
-                              },
-                              {
-                                "itemType": "Missile",
-                                "defaultPriority": "no_control"
-                              }
-                            ]
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "name": "hardpoint_WC_BB_Right",
-                      "damagemax": 0.0,
-                      "class": "ItemPort",
-                      "ItemPort": {
-                        "minsize": 1,
-                        "maxsize": 1,
-                        "flags": "invisible uneditable",
-                        "Types": [
-                          {
-                            "type": "WeaponController"
-                          }
-                        ],
-                        "Connections": [
-                          {
-                            "pipeClass": "Power",
-                            "pipe": "MainPower"
-                          },
-                          {
-                            "pipeClass": "Heat",
-                            "pipe": "MainHeat"
-                          }
-                        ],
-                        "ControllerDef": {
-                          "controllableTags": "BBRightSeat",
-                          "UsableDef": {
-                            "PriorityGroups": [
-                              {
-                                "itemType": "Turret",
-                                "defaultPriority": "no_control"
-                              },
-                              {
-                                "itemType": "WeaponGun",
-                                "defaultPriority": "no_control"
-                              }
-                            ]
-                          }
-                        }
-                      }
-                    },
-                    {
                       "name": "animated_body",
                       "damagemax": 0.0,
                       "class": "ItemPort",
@@ -2844,6 +2825,10 @@
                               {
                                 "pipeClass": "WeaponRegen",
                                 "pipe": "WeaponRegenTurret"
+                              },
+                              {
+                                "pipeClass": "WeaponAmmoLoad",
+                                "pipe": "WeaponAmmoLoadTurret"
                               }
                             ],
                             "ControllerDef": {
@@ -3065,58 +3050,6 @@
                       }
                     },
                     {
-                      "name": "hardpoint_controller_weapon_BB",
-                      "damagemax": 0.0,
-                      "class": "ItemPort",
-                      "ItemPort": {
-                        "minsize": 1,
-                        "maxsize": 1,
-                        "flags": "invisible uneditable",
-                        "Types": [
-                          {
-                            "type": "WeaponController"
-                          }
-                        ],
-                        "Connections": [
-                          {
-                            "pipeClass": "Power",
-                            "pipe": "MainPower"
-                          },
-                          {
-                            "pipeClass": "Heat",
-                            "pipe": "MainHeat"
-                          }
-                        ],
-                        "ControllerDef": {
-                          "controllableTags": "weaponBBPilot",
-                          "UsableDef": {
-                            "PriorityGroups": [
-                              {
-                                "itemType": "Turret",
-                                "defaultPriority": "no_control"
-                              },
-                              {
-                                "itemType": "WeaponGun",
-                                "defaultPriority": "no_control"
-                              },
-                              {
-                                "itemType": "WeaponDefensive",
-                                "defaultPriority": "no_control"
-                              },
-                              {
-                                "itemType": "MissileLauncher",
-                                "defaultPriority": "no_control"
-                              },
-                              {
-                                "itemType": "Missile",
-                                "defaultPriority": "no_control"
-                              }
-                            ]
-                          }
-                        }
-                      }
-                    },
-                    {
                       "name": "hardpoint_radar_03",
                       "damagemax": 0.0,
                       "class": "ItemPort",
@@ -3173,7 +3106,22 @@
                           {
                             "type": "MissileController"
                           }
-                        ]
+                        ],
+                        "ControllerDef": {
+                          "controllableTags": "missilePilot",
+                          "UsableDef": {
+                            "PriorityGroups": [
+                              {
+                                "itemType": "MissileLauncher",
+                                "defaultPriority": "no_control"
+                              },
+                              {
+                                "itemType": "Missile",
+                                "defaultPriority": "no_control"
+                              }
+                            ]
+                          }
+                        }
                       }
                     },
                     {
@@ -3480,6 +3428,14 @@
                               {
                                 "pipeClass": "Heat",
                                 "pipe": "MainHeat"
+                              },
+                              {
+                                "pipeClass": "WeaponRegen",
+                                "pipe": "WeaponRegenTurret"
+                              },
+                              {
+                                "pipeClass": "WeaponAmmoLoad",
+                                "pipe": "WeaponAmmoLoadTurret"
                               }
                             ],
                             "ControllerDef": {
@@ -3789,6 +3745,10 @@
                           {
                             "pipeClass": "WeaponRegen",
                             "pipe": "WeaponRegenTurret"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -3831,6 +3791,10 @@
                           {
                             "pipeClass": "WeaponRegen",
                             "pipe": "WeaponRegenTurret"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -3872,7 +3836,7 @@
                           }
                         ],
                         "ControllerDef": {
-                          "controllableTags": "weaponPilot"
+                          "controllableTags": "missilePilot"
                         }
                       }
                     },
@@ -3902,7 +3866,7 @@
                           }
                         ],
                         "ControllerDef": {
-                          "controllableTags": "weaponPilot"
+                          "controllableTags": "missilePilot"
                         }
                       }
                     }
@@ -4139,6 +4103,14 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadTurret"
                       }
                     ],
                     "ControllerDef": {
@@ -4258,50 +4230,6 @@
                   }
                 },
                 {
-                  "name": "hardpoint_controller_weapon_bridge_left",
-                  "damagemax": 0.0,
-                  "class": "ItemPort",
-                  "ItemPort": {
-                    "minsize": 1,
-                    "maxsize": 1,
-                    "flags": "invisible uneditable",
-                    "Types": [
-                      {
-                        "type": "WeaponController"
-                      }
-                    ],
-                    "Connections": [
-                      {
-                        "pipeClass": "Power",
-                        "pipe": "MainPower"
-                      },
-                      {
-                        "pipeClass": "Heat",
-                        "pipe": "MainHeat"
-                      }
-                    ],
-                    "ControllerDef": {
-                      "controllableTags": "passengerLeftSeat",
-                      "UsableDef": {
-                        "PriorityGroups": [
-                          {
-                            "itemType": "Turret",
-                            "defaultPriority": "no_control"
-                          },
-                          {
-                            "itemType": "MissileLauncher",
-                            "defaultPriority": "no_control"
-                          },
-                          {
-                            "itemType": "Missile",
-                            "defaultPriority": "no_control"
-                          }
-                        ]
-                      }
-                    }
-                  }
-                },
-                {
                   "name": "hardpoint_seat_bridge_right",
                   "damagemax": 0.0,
                   "class": "ItemPort",
@@ -4368,6 +4296,226 @@
                   }
                 },
                 {
+                  "name": "hardpoint_controller_weapon",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponController"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "weaponPilot",
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "Turret",
+                            "defaultPriority": "no_control"
+                          },
+                          {
+                            "itemType": "WeaponGun",
+                            "defaultPriority": "no_control"
+                          },
+                          {
+                            "itemType": "WeaponDefensive",
+                            "defaultPriority": "no_control"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_weapon_BB",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponController"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "weaponBBPilot",
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "Turret",
+                            "defaultPriority": "no_control"
+                          },
+                          {
+                            "itemType": "WeaponGun",
+                            "defaultPriority": "no_control"
+                          },
+                          {
+                            "itemType": "WeaponDefensive",
+                            "defaultPriority": "no_control"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_weapon_bridge_left",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponController"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "passengerLeftSeat",
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "Turret",
+                            "defaultPriority": "no_control"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_missile_bridge_left",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "MissileController"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "passengerLeftSeat",
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "MissileLauncher",
+                            "defaultPriority": "no_control"
+                          },
+                          {
+                            "itemType": "Missile",
+                            "defaultPriority": "no_control"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_WC_BB_Left",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponController"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "BBLeftSeat",
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "Turret",
+                            "defaultPriority": "no_control"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_MC_BB_Left",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "MissileController"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "BBLeftSeat",
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "MissileLauncher",
+                            "defaultPriority": "no_control"
+                          },
+                          {
+                            "itemType": "Missile",
+                            "defaultPriority": "no_control"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
                   "name": "hardpoint_controller_weapon_bridge_right",
                   "damagemax": 0.0,
                   "class": "ItemPort",
@@ -4392,6 +4540,46 @@
                     ],
                     "ControllerDef": {
                       "controllableTags": "passengerRightSeat",
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "Turret",
+                            "defaultPriority": "no_control"
+                          },
+                          {
+                            "itemType": "WeaponGun",
+                            "defaultPriority": "no_control"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_WC_BB_Right",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponController"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "BBRightSeat",
                       "UsableDef": {
                         "PriorityGroups": [
                           {

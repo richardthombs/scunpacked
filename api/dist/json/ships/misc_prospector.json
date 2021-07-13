@@ -55,6 +55,11 @@
                           "itemPortName": "Radar_Helper",
                           "entityClassName": "MISC_Prospector_RADR_Display",
                           "loadout": {}
+                        },
+                        {
+                          "itemPortName": "Display_HUD",
+                          "entityClassName": "Projector_HUD_Generic",
+                          "loadout": {}
                         }
                       ]
                     }
@@ -377,7 +382,17 @@
                 },
                 {
                   "itemPortName": "hardpoint_weapon_regen_pool",
-                  "entityClassName": "",
+                  "entityClassName": "WeaponRegenPool_Crew_Prospector",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_regen_pool_turrets",
+                  "entityClassName": "WeaponRegenPool_Turret_Prospector",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_capacitor_assignment",
+                  "entityClassName": "Controller_CapacitorAssignment",
                   "loadout": {}
                 }
               ]
@@ -517,8 +532,16 @@
           "class": "WeaponRegen"
         },
         {
+          "name": "WeaponAmmoLoadCrew",
+          "class": "WeaponAmmoLoad"
+        },
+        {
           "name": "WeaponRegenTurret",
           "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponAmmoLoadTurret",
+          "class": "WeaponAmmoLoad"
         }
       ],
       "Parts": [
@@ -530,7 +553,7 @@
           "Parts": [
             {
               "name": "Nose",
-              "damageMax": 1840.0,
+              "damageMax": 3840.0,
               "damagemax": 0.0,
               "class": "AnimatedJoint",
               "detachRatio": 1.0,
@@ -1317,6 +1340,10 @@
                       {
                         "pipeClass": "WeaponRegen",
                         "pipe": "WeaponRegenCrew"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadCrew"
                       }
                     ],
                     "Pitch": {
@@ -1357,6 +1384,14 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenCrew"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadCrew"
                       }
                     ],
                     "Pitch": {
@@ -1519,7 +1554,7 @@
                 },
                 {
                   "name": "Rear",
-                  "damageMax": 2400.0,
+                  "damageMax": 4400.0,
                   "damagemax": 0.0,
                   "class": "AnimatedJoint",
                   "detachRatio": 1.0,
@@ -2198,6 +2233,82 @@
                   }
                 },
                 {
+                  "name": "hardpoint_weapon_regen_pool",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "Weapon Regen Pool",
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponRegenPool"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenCrew"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadCrew"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_weapon_regen_pool_turrets",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "Weapon Regen Pool",
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponRegenPool"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadTurret"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_capacitor_assignment",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "CapacitorAssignmentController"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "CapacitorAssignmentController"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
                   "name": "hardpoint_controller_cooler",
                   "damagemax": 0.0,
                   "class": "ItemPort",
@@ -2296,10 +2407,6 @@
                           {
                             "itemType": "ManneuverThruster",
                             "defaultPriority": "exclusive_control"
-                          },
-                          {
-                            "itemType": "QuantumDrive",
-                            "defaultPriority": "exclusive_control"
                           }
                         ]
                       }
@@ -2340,12 +2447,6 @@
                           },
                           {
                             "itemType": "WeaponDefensive"
-                          },
-                          {
-                            "itemType": "MissileLauncher"
-                          },
-                          {
-                            "itemType": "Missile"
                           }
                         ]
                       }

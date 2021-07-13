@@ -45,7 +45,7 @@
               "entries": [
                 {
                   "itemPortName": "hardpoint_paint",
-                  "entityClassName": "Paint_Nova_Ember_Storm_Tan_Red_Camo",
+                  "entityClassName": "",
                   "loadout": {}
                 },
                 {
@@ -427,6 +427,26 @@
                   "itemPortName": "hardpoint_weapon_rack",
                   "entityClassName": "Weapon_Rack_TMBL_Nova_4_Slot",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_regen_pool",
+                  "entityClassName": "WeaponRegenPool_Crew_Nova",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_regen_pool_turrets",
+                  "entityClassName": "WeaponRegenPool_Turret_Nova",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_capacitor_assignment",
+                  "entityClassName": "Controller_CapacitorAssignment",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_missile",
+                  "entityClassName": "Controller_Missile",
+                  "loadout": {}
                 }
               ]
             }
@@ -566,20 +586,28 @@
           "class": "WeaponRegen"
         },
         {
+          "name": "WeaponAmmoLoadCrew",
+          "class": "WeaponAmmoLoad"
+        },
+        {
           "name": "WeaponRegenTurret",
           "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponAmmoLoadTurret",
+          "class": "WeaponAmmoLoad"
         }
       ],
       "Parts": [
         {
           "name": "TMBL_Nova",
           "mass": "73190",
-          "damagemax": 1500.0,
+          "damagemax": 15000.0,
           "class": "Animated",
           "Parts": [
             {
               "name": "body_mesh",
-              "damageMax": 1000.0,
+              "damageMax": 10000.0,
               "damagemax": 0.0,
               "class": "AnimatedJoint",
               "Parts": [
@@ -954,6 +982,82 @@
                   }
                 },
                 {
+                  "name": "hardpoint_weapon_regen_pool",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "Weapon Regen Pool",
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponRegenPool"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenCrew"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadCrew"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_weapon_regen_pool_turrets",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "Weapon Regen Pool",
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponRegenPool"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadTurret"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_capacitor_assignment",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "CapacitorAssignmentController"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "CapacitorAssignmentController"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
                   "name": "hardpoint_controller_flight",
                   "damagemax": 0.0,
                   "class": "ItemPort",
@@ -1106,12 +1210,6 @@
                           {
                             "itemType": "WeaponGun",
                             "defaultPriority": "no_control"
-                          },
-                          {
-                            "itemType": "MissileLauncher"
-                          },
-                          {
-                            "itemType": "Missile"
                           },
                           {
                             "itemType": "WeaponDefensive"
@@ -1586,6 +1684,10 @@
                       {
                         "pipeClass": "WeaponRegen",
                         "pipe": "WeaponRegenTurret"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadTurret"
                       }
                     ],
                     "ControllerDef": {
@@ -1875,6 +1977,10 @@
                           {
                             "pipeClass": "WeaponRegen",
                             "pipe": "WeaponRegenTurret"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -1917,6 +2023,10 @@
                           {
                             "pipeClass": "WeaponRegen",
                             "pipe": "WeaponRegenTurret"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -1929,6 +2039,33 @@
                         "Yaw": {
                           "min": -180,
                           "max": 180
+                        }
+                      }
+                    },
+                    {
+                      "name": "hardpoint_controller_missile",
+                      "damagemax": 0.0,
+                      "class": "ItemPort",
+                      "ItemPort": {
+                        "minsize": 1,
+                        "maxsize": 1,
+                        "flags": "invisible uneditable",
+                        "Types": [
+                          {
+                            "type": "MissileController"
+                          }
+                        ],
+                        "ControllerDef": {
+                          "UsableDef": {
+                            "PriorityGroups": [
+                              {
+                                "itemType": "MissileLauncher"
+                              },
+                              {
+                                "itemType": "Missile"
+                              }
+                            ]
+                          }
                         }
                       }
                     }

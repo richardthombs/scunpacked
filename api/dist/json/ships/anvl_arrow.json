@@ -68,6 +68,11 @@
                           "itemPortName": "hardpoint_cockpit_radar",
                           "entityClassName": "ANVL_Arrow_RADR_Display",
                           "loadout": {}
+                        },
+                        {
+                          "itemPortName": "Display_HUD",
+                          "entityClassName": "Projector_HUD_Generic",
+                          "loadout": {}
                         }
                       ]
                     }
@@ -256,12 +261,12 @@
                       "entries": [
                         {
                           "itemPortName": "hardpoint_weapon_01",
-                          "entityClassName": "KLWE_LaserRepeater_S1",
+                          "entityClassName": "MXOX_NeutronCannon_S1",
                           "loadout": {}
                         },
                         {
                           "itemPortName": "hardpoint_weapon_02",
-                          "entityClassName": "KLWE_LaserRepeater_S1",
+                          "entityClassName": "MXOX_NeutronCannon_S1",
                           "loadout": {}
                         }
                       ]
@@ -380,12 +385,22 @@
                 },
                 {
                   "itemPortName": "hardpoint_controller_missile",
-                  "entityClassName": "",
+                  "entityClassName": "Controller_Missile",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_weapon_regen_pool",
-                  "entityClassName": "",
+                  "entityClassName": "WeaponRegenPool_Crew_Arrow",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_regen_pool_turrets",
+                  "entityClassName": "WeaponRegenPool_Turret_Arrow",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_capacitor_assignment",
+                  "entityClassName": "Controller_CapacitorAssignment",
                   "loadout": {}
                 }
               ]
@@ -526,8 +541,16 @@
           "class": "WeaponRegen"
         },
         {
+          "name": "WeaponAmmoLoadCrew",
+          "class": "WeaponAmmoLoad"
+        },
+        {
           "name": "WeaponRegenTurret",
           "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponAmmoLoadTurret",
+          "class": "WeaponAmmoLoad"
         }
       ],
       "Parts": [
@@ -570,28 +593,28 @@
             },
             {
               "name": "nose",
-              "damageMax": 1500.0,
+              "damageMax": 2500.0,
               "damagemax": 0.0,
               "class": "AnimatedJoint",
               "detachRatio": 1.0,
               "Parts": [
                 {
                   "name": "canopy",
-                  "damageMax": 350.0,
+                  "damageMax": 1500.0,
                   "damagemax": 0.0,
                   "class": "AnimatedJoint",
                   "DamageBehaviors": []
                 },
                 {
                   "name": "body",
-                  "damageMax": 1800.0,
+                  "damageMax": 2500.0,
                   "damagemax": 0.0,
                   "class": "AnimatedJoint",
                   "detachRatio": 1.0,
                   "Parts": [
                     {
                       "name": "wing_left",
-                      "damageMax": 190.0,
+                      "damageMax": 1500.0,
                       "damagemax": 0.0,
                       "class": "AnimatedJoint",
                       "detachRatio": 1.0,
@@ -972,7 +995,7 @@
                         "minsize": 3,
                         "maxsize": 3,
                         "display_name": "port_NameWeaponTop",
-                        "flags": "",
+                        "flags": "$uneditable",
                         "defaultWeaponGroup": "2",
                         "requiredTags": "",
                         "Types": [
@@ -1001,6 +1024,10 @@
                           {
                             "pipeClass": "WeaponRegen",
                             "pipe": "WeaponRegenCrew"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadCrew"
                           }
                         ],
                         "Pitch": {
@@ -1441,6 +1468,10 @@
                           {
                             "pipeClass": "WeaponRegen",
                             "pipe": "WeaponRegenCrew"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadCrew"
                           }
                         ],
                         "Pitch": {
@@ -1485,6 +1516,10 @@
                           {
                             "pipeClass": "WeaponRegen",
                             "pipe": "WeaponRegenCrew"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadCrew"
                           }
                         ],
                         "Pitch": {
@@ -1499,7 +1534,7 @@
                     },
                     {
                       "name": "wing_right",
-                      "damageMax": 190.0,
+                      "damageMax": 1500.0,
                       "damagemax": 0.0,
                       "class": "AnimatedJoint",
                       "detachRatio": 1.0,
@@ -1586,14 +1621,14 @@
                     },
                     {
                       "name": "stabilizer_left",
-                      "damageMax": 75.0,
+                      "damageMax": 800.0,
                       "damagemax": 0.0,
                       "class": "AnimatedJoint",
                       "detachRatio": 1.0
                     },
                     {
                       "name": "stabilizer_right",
-                      "damageMax": 75.0,
+                      "damageMax": 800.0,
                       "damagemax": 0.0,
                       "class": "AnimatedJoint",
                       "detachRatio": 1.0
@@ -1860,10 +1895,6 @@
                           {
                             "itemType": "ManneuverThruster",
                             "defaultPriority": "exclusive_control"
-                          },
-                          {
-                            "itemType": "QuantumDrive",
-                            "defaultPriority": "exclusive_control"
                           }
                         ]
                       }
@@ -2088,12 +2119,6 @@
                           },
                           {
                             "itemType": "WeaponDefensive"
-                          },
-                          {
-                            "itemType": "MissileLauncher"
-                          },
-                          {
-                            "itemType": "Missile"
                           }
                         ]
                       }
@@ -2183,6 +2208,32 @@
                   }
                 },
                 {
+                  "name": "hardpoint_weapon_regen_pool",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "Weapon Regen Pool",
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponRegenPool"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenCrew"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadCrew"
+                      }
+                    ]
+                  }
+                },
+                {
                   "name": "hardpoint_controller_cooler",
                   "damagemax": 0.0,
                   "class": "ItemPort",
@@ -2264,7 +2315,69 @@
                       {
                         "type": "MissileController"
                       }
+                    ],
+                    "ControllerDef": {
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "MissileLauncher"
+                          },
+                          {
+                            "itemType": "Missile"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_weapon_regen_pool_turrets",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "Weapon Regen Pool",
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponRegenPool"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadTurret"
+                      }
                     ]
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_capacitor_assignment",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "CapacitorAssignmentController"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "CapacitorAssignmentController"
+                          }
+                        ]
+                      }
+                    }
                   }
                 }
               ],

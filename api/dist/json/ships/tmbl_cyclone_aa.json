@@ -212,6 +212,21 @@
                   "itemPortName": "hardpoint_shield_generator",
                   "entityClassName": "SHLD_SECO_S00_PIN_SCItem",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_regen_pool",
+                  "entityClassName": "WeaponRegenPool_Crew_Cyclone",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_capacitor_assignment",
+                  "entityClassName": "Controller_CapacitorAssignment",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_missile",
+                  "entityClassName": "Controller_Missile",
+                  "loadout": {}
                 }
               ]
             }
@@ -351,8 +366,16 @@
           "class": "WeaponRegen"
         },
         {
+          "name": "WeaponAmmoLoadCrew",
+          "class": "WeaponAmmoLoad"
+        },
+        {
           "name": "WeaponRegenTurret",
           "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponAmmoLoadTurret",
+          "class": "WeaponAmmoLoad"
         }
       ],
       "Parts": [
@@ -533,8 +556,8 @@
                     "minsize": 1,
                     "maxsize": 1,
                     "display_name": "port_NamePaint",
-                    "flags": "uneditable",
-                    "requiredTags": "Cyclone_Paint",
+                    "flags": "",
+                    "requiredTags": "Paint_Cyclone",
                     "Types": [
                       {
                         "type": "Paints"
@@ -709,12 +732,6 @@
                             "itemType": "WeaponDefensive"
                           },
                           {
-                            "itemType": "MissileLauncher"
-                          },
-                          {
-                            "itemType": "Missile"
-                          },
-                          {
                             "itemType": "EMP"
                           }
                         ]
@@ -808,7 +825,6 @@
                       }
                     ],
                     "ControllerDef": {
-                      "controllableTags": "energy_controller",
                       "UsableDef": {
                         "PriorityGroups": [
                           {
@@ -822,6 +838,56 @@
                           {
                             "itemType": "FuelTank",
                             "defaultPriority": "exclusive_control"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_weapon_regen_pool",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "Weapon Regen Pool",
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponRegenPool"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenCrew"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadCrew"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_capacitor_assignment",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "CapacitorAssignmentController"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "CapacitorAssignmentController"
                           }
                         ]
                       }
@@ -1414,6 +1480,33 @@
                         "subtypes": ""
                       }
                     ]
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_missile",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "MissileController"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "MissileLauncher"
+                          },
+                          {
+                            "itemType": "Missile"
+                          }
+                        ]
+                      }
+                    }
                   }
                 }
               ],

@@ -32,7 +32,7 @@
       },
       {
         "Name": "Nose",
-        "MaximumDamage": 1600.0,
+        "MaximumDamage": 4000.0,
         "Parts": [
           {
             "Name": "interior_cockpit",
@@ -121,6 +121,19 @@
                           "Display"
                         ],
                         "Category": "UNKNOWN"
+                      },
+                      {
+                        "PortName": "Display_HUD",
+                        "Size": 0,
+                        "Loadout": "Projector_HUD_Generic",
+                        "InstalledItem": {
+                          "ClassName": "Projector_HUD_Generic",
+                          "Size": 1,
+                          "Grade": 1,
+                          "Type": "Display.UNDEFINED",
+                          "Name": "Projector_HUD_Generic"
+                        },
+                        "Category": "UNKNOWN"
                       }
                     ]
                   },
@@ -198,6 +211,81 @@
               },
               "Types": [
                 "EnergyController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_weapon_regen_pool",
+            "Port": {
+              "PortName": "hardpoint_weapon_regen_pool",
+              "Size": 1,
+              "Loadout": "WeaponRegenPool_Crew_Hornet",
+              "InstalledItem": {
+                "ClassName": "WeaponRegenPool_Crew_Hornet",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponRegenPool.UNDEFINED",
+                "Name": "WeaponRegenPool_Crew_Hornet"
+              },
+              "Types": [
+                "WeaponRegenPool"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_weapon_regen_pool_turrets",
+            "Port": {
+              "PortName": "hardpoint_weapon_regen_pool_turrets",
+              "Size": 1,
+              "Loadout": "WeaponRegenPool_Turret_Hornet",
+              "InstalledItem": {
+                "ClassName": "WeaponRegenPool_Turret_Hornet",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponRegenPool.UNDEFINED",
+                "Name": "WeaponRegenPool_Turret_Hornet"
+              },
+              "Types": [
+                "WeaponRegenPool"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_capacitor_assignment",
+            "Port": {
+              "PortName": "hardpoint_controller_capacitor_assignment",
+              "Size": 1,
+              "Loadout": "Controller_CapacitorAssignment",
+              "InstalledItem": {
+                "ClassName": "Controller_CapacitorAssignment",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "CapacitorAssignmentController.UNDEFINED",
+                "Name": "Controller_CapacitorAssignment",
+                "Tags": [
+                  "flightReady"
+                ]
+              },
+              "Types": [
+                "CapacitorAssignmentController"
               ],
               "Flags": [
                 "invisible",
@@ -300,10 +388,10 @@
                   "Name": "Ascension Astro"
                 },
                 "Shield": {
-                  "Health": 2340.0,
-                  "Regeneration": 306.0,
-                  "DownedDelay": 12.0,
-                  "DamagedDelay": 2.08,
+                  "Health": 1800.0,
+                  "Regeneration": 450.0,
+                  "DownedDelay": 5.0,
+                  "DamagedDelay": 5.0,
                   "Absorption": {
                     "Physical": {
                       "Minimum": 0.5,
@@ -336,8 +424,8 @@
                   "Lifetime": 15.0
                 },
                 "PowerConnection": {
-                  "PowerBase": 127.2,
-                  "PowerDraw": 157.5
+                  "PowerBase": 200.0,
+                  "PowerDraw": 250.0
                 },
                 "HeatConnection": {
                   "ThermalEnergyBase": 3826.25,
@@ -372,10 +460,10 @@
                   "Name": "Ascension Astro"
                 },
                 "Shield": {
-                  "Health": 2340.0,
-                  "Regeneration": 306.0,
-                  "DownedDelay": 12.0,
-                  "DamagedDelay": 2.08,
+                  "Health": 1800.0,
+                  "Regeneration": 450.0,
+                  "DownedDelay": 5.0,
+                  "DamagedDelay": 5.0,
                   "Absorption": {
                     "Physical": {
                       "Minimum": 0.5,
@@ -408,8 +496,8 @@
                   "Lifetime": 15.0
                 },
                 "PowerConnection": {
-                  "PowerBase": 127.2,
-                  "PowerDraw": 157.5
+                  "PowerBase": 200.0,
+                  "PowerDraw": 250.0
                 },
                 "HeatConnection": {
                   "ThermalEnergyBase": 3826.25,
@@ -516,7 +604,7 @@
                   "flightReady"
                 ],
                 "Scanner": {
-                  "Range": 1.0
+                  "Range": 0.0
                 }
               },
               "Types": [
@@ -545,23 +633,7 @@
                 "Description": "Ping",
                 "Tags": [
                   "flightReady"
-                ],
-                "Durability": {
-                  "Lifetime": 720.0
-                },
-                "PowerConnection": {
-                  "PowerBase": 50.0,
-                  "PowerDraw": 550.0
-                },
-                "HeatConnection": {
-                  "ThermalEnergyBase": 10.0,
-                  "ThermalEnergyDraw": 20.0,
-                  "CoolingRate": 1.0
-                },
-                "Ping": {
-                  "ChargeTime": 2.0,
-                  "CooldownTime": 10.0
-                }
+                ]
               },
               "Types": [
                 "Ping"
@@ -582,11 +654,7 @@
               "Types": [
                 "Paints"
               ],
-              "Flags": [
-                "uneditable"
-              ],
-              "Category": "Paints",
-              "Uneditable": true
+              "Category": "Paints"
             }
           },
           {
@@ -613,7 +681,7 @@
               "Loadout": "RADR_BLTR_S01_Pelerous",
               "InstalledItem": {
                 "ClassName": "RADR_BLTR_S01_Pelerous",
-                "Size": 1,
+                "Size": 0,
                 "Grade": 1,
                 "Type": "Radar.MidRangeRadar",
                 "Name": "Pelerous",
@@ -634,36 +702,9 @@
                   "CoolingRate": 1.0
                 },
                 "Radar": {
-                  "DetectionLifetime": 60.0,
-                  "AltitudeCeiling": 5000.0,
-                  "CrossSectionOcclusion": false,
-                  "Signatures": [
-                    {
-                      "Detectable": true,
-                      "Sensitivity": 0.5,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": true,
-                      "Sensitivity": 0.5,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": false,
-                      "Sensitivity": 1.0,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": false,
-                      "Sensitivity": 1.0,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": true,
-                      "Sensitivity": 0.5,
-                      "AmbientPiercing": false
-                    }
-                  ]
+                  "DetectionLifetime": 0.0,
+                  "AltitudeCeiling": 0.0,
+                  "CrossSectionOcclusion": false
                 },
                 "Ports": [
                   {
@@ -770,7 +811,7 @@
               "Size": 3,
               "Types": [
                 "Turret.CanardTurret",
-                "Turret.GunTurret",
+                "Turret.NoseMounted",
                 "WeaponGun.Gun"
               ],
               "Flags": [
@@ -785,6 +826,14 @@
             "Port": {
               "PortName": "hardpoint_controller_missile",
               "Size": 1,
+              "Loadout": "Controller_Missile",
+              "InstalledItem": {
+                "ClassName": "Controller_Missile",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "MissileController.UNDEFINED",
+                "Name": "MISSILES"
+              },
               "Types": [
                 "MissileController"
               ],
@@ -845,10 +894,10 @@
                       "ANVL_Hornet"
                     ],
                     "Thruster": {
-                      "ThrustCapacity": 833674.5,
+                      "ThrustCapacity": 513432.1,
                       "FuelRate": 1.25E-05,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 10.42093125
+                      "MaxThrustFuelRate": 6.41790125
                     },
                     "Durability": {
                       "Health": 8000.0,
@@ -890,7 +939,7 @@
                   },
                   {
                     "Name": "WingLeft_Debris",
-                    "MaximumDamage": 1850.0,
+                    "MaximumDamage": 3000.0,
                     "Parts": [
                       {
                         "Name": "hardpoint_class_2_left_wing",
@@ -920,7 +969,7 @@
                               "Lifetime": 20.0
                             },
                             "PowerConnection": {
-                              "PowerBase": 87.0,
+                              "PowerBase": 240.0,
                               "PowerDraw": 240.0
                             },
                             "HeatConnection": {
@@ -930,38 +979,38 @@
                             },
                             "Weapon": {
                               "Ammunition": {
-                                "Speed": 986.0,
-                                "Range": 3105.9,
+                                "Speed": 700.0,
+                                "Range": 1400.0,
                                 "Size": 3.0,
                                 "Capacity": 0.0,
                                 "ImpactDamage": {
-                                  "Energy": 200.0
+                                  "Energy": 150.0
                                 }
                               },
                               "Modes": [
                                 {
                                   "Name": "Single",
                                   "LocalisedName": "[AUTO]",
-                                  "RoundsPerMinute": 68.0,
+                                  "RoundsPerMinute": 200.0,
                                   "FireType": "sequence",
-                                  "AmmoPerShot": 0.0,
+                                  "AmmoPerShot": 1.0,
                                   "PelletsPerShot": 1.0,
                                   "DamagePerShot": {
-                                    "Energy": 200.0
+                                    "Energy": 150.0
                                   },
                                   "DamagePerSecond": {
-                                    "Energy": 226.66666666666666
+                                    "Energy": 500.0
                                   }
                                 }
                               ]
                             },
                             "Ammunition": {
-                              "Speed": 986.0,
-                              "Range": 3105.9,
+                              "Speed": 700.0,
+                              "Range": 1400.0,
                               "Size": 3.0,
                               "Capacity": 0.0,
                               "ImpactDamage": {
-                                "Energy": 200.0
+                                "Energy": 150.0
                               }
                             },
                             "Ports": [
@@ -985,7 +1034,7 @@
                         }
                       }
                     ],
-                    "PartDetachDamage": 1850.0
+                    "PartDetachDamage": 3000.0
                   },
                   {
                     "Name": "LG_Door_Rear_L",
@@ -999,7 +1048,7 @@
                 "Parts": [
                   {
                     "Name": "WingRight_Debris",
-                    "MaximumDamage": 1850.0,
+                    "MaximumDamage": 3000.0,
                     "Parts": [
                       {
                         "Name": "hardpoint_class_2_right_wing",
@@ -1029,7 +1078,7 @@
                               "Lifetime": 20.0
                             },
                             "PowerConnection": {
-                              "PowerBase": 87.0,
+                              "PowerBase": 240.0,
                               "PowerDraw": 240.0
                             },
                             "HeatConnection": {
@@ -1039,38 +1088,38 @@
                             },
                             "Weapon": {
                               "Ammunition": {
-                                "Speed": 986.0,
-                                "Range": 3105.9,
+                                "Speed": 700.0,
+                                "Range": 1400.0,
                                 "Size": 3.0,
                                 "Capacity": 0.0,
                                 "ImpactDamage": {
-                                  "Energy": 200.0
+                                  "Energy": 150.0
                                 }
                               },
                               "Modes": [
                                 {
                                   "Name": "Single",
                                   "LocalisedName": "[AUTO]",
-                                  "RoundsPerMinute": 68.0,
+                                  "RoundsPerMinute": 200.0,
                                   "FireType": "sequence",
-                                  "AmmoPerShot": 0.0,
+                                  "AmmoPerShot": 1.0,
                                   "PelletsPerShot": 1.0,
                                   "DamagePerShot": {
-                                    "Energy": 200.0
+                                    "Energy": 150.0
                                   },
                                   "DamagePerSecond": {
-                                    "Energy": 226.66666666666666
+                                    "Energy": 500.0
                                   }
                                 }
                               ]
                             },
                             "Ammunition": {
-                              "Speed": 986.0,
-                              "Range": 3105.9,
+                              "Speed": 700.0,
+                              "Range": 1400.0,
                               "Size": 3.0,
                               "Capacity": 0.0,
                               "ImpactDamage": {
-                                "Energy": 200.0
+                                "Energy": 150.0
                               }
                             },
                             "Ports": [
@@ -1094,7 +1143,7 @@
                         }
                       }
                     ],
-                    "PartDetachDamage": 1850.0
+                    "PartDetachDamage": 3000.0
                   },
                   {
                     "Name": "landing_gear_right_wing_helper"
@@ -1128,10 +1177,10 @@
                       "ANVL_Hornet"
                     ],
                     "Thruster": {
-                      "ThrustCapacity": 1033675.0,
+                      "ThrustCapacity": 1751637.0,
                       "FuelRate": 1.25E-05,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 12.9209375
+                      "MaxThrustFuelRate": 21.8954625
                     },
                     "Durability": {
                       "Health": 7000.0,
@@ -1186,10 +1235,10 @@
                       "ANVL_Hornet"
                     ],
                     "Thruster": {
-                      "ThrustCapacity": 833674.5,
+                      "ThrustCapacity": 513432.1,
                       "FuelRate": 1.25E-05,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 10.42093125
+                      "MaxThrustFuelRate": 6.41790125
                     },
                     "Durability": {
                       "Health": 8000.0,
@@ -1340,8 +1389,8 @@
                               "Size": 2
                             },
                             "PowerConnection": {
-                              "PowerBase": 0.0,
-                              "PowerDraw": 1.0
+                              "PowerBase": 20.0,
+                              "PowerDraw": 20.0
                             },
                             "HeatConnection": {
                               "ThermalEnergyBase": 10.0,
@@ -1455,8 +1504,8 @@
                               "Size": 1
                             },
                             "PowerConnection": {
-                              "PowerBase": 0.0,
-                              "PowerDraw": 1.0
+                              "PowerBase": 20.0,
+                              "PowerDraw": 20.0
                             },
                             "HeatConnection": {
                               "ThermalEnergyBase": 10.0,
@@ -1630,10 +1679,10 @@
                           "ANVL_Hornet"
                         ],
                         "Thruster": {
-                          "ThrustCapacity": 737700.4,
+                          "ThrustCapacity": 878332.8,
                           "FuelRate": 1.25E-05,
                           "Type": "Maneuver",
-                          "MaxThrustFuelRate": 9.221255000000001
+                          "MaxThrustFuelRate": 10.97916
                         },
                         "Durability": {
                           "Health": 7000.0,
@@ -1688,10 +1737,10 @@
                           "ANVL_Hornet"
                         ],
                         "Thruster": {
-                          "ThrustCapacity": 737700.4,
+                          "ThrustCapacity": 878332.8,
                           "FuelRate": 1.25E-05,
                           "Type": "Maneuver",
-                          "MaxThrustFuelRate": 9.221255000000001
+                          "MaxThrustFuelRate": 10.97916
                         },
                         "Durability": {
                           "Health": 7000.0,
@@ -1747,10 +1796,10 @@
                       "ANVL_Hornet"
                     ],
                     "Thruster": {
-                      "ThrustCapacity": 1033675.0,
+                      "ThrustCapacity": 1751637.0,
                       "FuelRate": 1.25E-05,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 12.9209375
+                      "MaxThrustFuelRate": 21.8954625
                     },
                     "Durability": {
                       "Health": 7000.0,
@@ -1795,7 +1844,7 @@
                     "Grade": 1,
                     "Type": "Container.Cargo",
                     "Name": "Anvil Hornet Ghost Center Cap",
-                    "Description": "Anvil Hornet Ghost Center Cap",
+                    "Description": "This special center cap designed for the Hornet Ghost features additional faceted surfaces to potentially help radiate incoming radar energy.",
                     "Manufacturer": {
                       "Code": "ANVL",
                       "Name": "Anvil Aerospace"
@@ -2038,10 +2087,10 @@
                           "Name": "Anvil Aerospace"
                         },
                         "Thruster": {
-                          "ThrustCapacity": 3856669.0,
+                          "ThrustCapacity": 3512532.0,
                           "FuelRate": 1.25E-05,
                           "Type": "Main",
-                          "MaxThrustFuelRate": 48.2083625
+                          "MaxThrustFuelRate": 43.90665
                         },
                         "Durability": {
                           "Health": 9000.0,
@@ -2053,7 +2102,7 @@
                         },
                         "HeatConnection": {
                           "ThermalEnergyBase": 500.0,
-                          "ThermalEnergyDraw": 45000.0,
+                          "ThermalEnergyDraw": 25000.0,
                           "CoolingRate": 45.0
                         }
                       },
@@ -2073,7 +2122,7 @@
               },
               {
                 "Name": "Tail",
-                "MaximumDamage": 320.0,
+                "MaximumDamage": 3000.0,
                 "Parts": [
                   {
                     "Name": "Tail_Debris",
@@ -2216,8 +2265,8 @@
                               "Size": 2
                             },
                             "PowerConnection": {
-                              "PowerBase": 0.0,
-                              "PowerDraw": 1.0
+                              "PowerBase": 20.0,
+                              "PowerDraw": 20.0
                             },
                             "HeatConnection": {
                               "ThermalEnergyBase": 10.0,
@@ -2331,8 +2380,8 @@
                               "Size": 1
                             },
                             "PowerConnection": {
-                              "PowerBase": 0.0,
-                              "PowerDraw": 1.0
+                              "PowerBase": 20.0,
+                              "PowerDraw": 20.0
                             },
                             "HeatConnection": {
                               "ThermalEnergyBase": 10.0,
@@ -2505,10 +2554,10 @@
                           "ANVL_Hornet"
                         ],
                         "Thruster": {
-                          "ThrustCapacity": 737700.4,
+                          "ThrustCapacity": 878332.8,
                           "FuelRate": 1.25E-05,
                           "Type": "Maneuver",
-                          "MaxThrustFuelRate": 9.221255000000001
+                          "MaxThrustFuelRate": 10.97916
                         },
                         "Durability": {
                           "Health": 7000.0,
@@ -2561,10 +2610,10 @@
                           "ANVL_Hornet"
                         ],
                         "Thruster": {
-                          "ThrustCapacity": 737700.4,
+                          "ThrustCapacity": 878332.8,
                           "FuelRate": 1.25E-05,
                           "Type": "Maneuver",
-                          "MaxThrustFuelRate": 9.221255000000001
+                          "MaxThrustFuelRate": 10.97916
                         },
                         "Durability": {
                           "Health": 7000.0,
@@ -2601,13 +2650,13 @@
               },
               {
                 "Name": "WingLeftRear",
-                "MaximumDamage": 120.0,
-                "PartDetachDamage": 120.0
+                "MaximumDamage": 800.0,
+                "PartDetachDamage": 800.0
               },
               {
                 "Name": "WingRightRear",
-                "MaximumDamage": 120.0,
-                "PartDetachDamage": 120.0
+                "MaximumDamage": 800.0,
+                "PartDetachDamage": 800.0
               }
             ],
             "ShipDestructionDamage": 4000.0,
@@ -2615,8 +2664,8 @@
           },
           {
             "Name": "Canopy",
-            "MaximumDamage": 80.0,
-            "PartDetachDamage": 80.0
+            "MaximumDamage": 2500.0,
+            "PartDetachDamage": 2500.0
           },
           {
             "Name": "ANVL_Hornet_F7CR_NoseCap",
@@ -2634,7 +2683,7 @@
             }
           }
         ],
-        "ShipDestructionDamage": 1600.0
+        "ShipDestructionDamage": 4000.0
       }
     ]
   }

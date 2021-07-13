@@ -1,8 +1,8 @@
 {
   "ammo": {
     "size": 1,
-    "lifetime": 1.2,
-    "speed": 1273.0,
+    "lifetime": 0.5,
+    "speed": 800.0,
     "projectileParams": {
       "BulletProjectileParams": {
         "damage": [
@@ -37,7 +37,7 @@
                 {
                   "DamagePhysical": 0.0,
                   "DamageEnergy": 0.0,
-                  "DamageDistortion": 225.0,
+                  "DamageDistortion": 115.0,
                   "DamageThermal": 0.0,
                   "DamageBiochemical": 0.0,
                   "DamageStun": 0.0
@@ -119,8 +119,8 @@
           "TimeToReachDrawRequest": 0.0,
           "SafeguardPriority": 20.0,
           "DisplayedInPoweredItemList": true,
-          "IsThrottleable": true,
-          "IsOverclockable": true,
+          "IsThrottleable": false,
+          "IsOverclockable": false,
           "OverclockThresholdMin": 0.32,
           "OverclockThresholdMax": 0.51,
           "OverpowerPerformance": 0.15,
@@ -158,8 +158,8 @@
           "RecoveryTime": 1.23
         },
         "SAmmoContainerComponentParams": {
-          "initialAmmoCount": 0.0,
-          "maxAmmoCount": 0.0,
+          "initialAmmoCount": 10.0,
+          "maxAmmoCount": 10.0,
           "ammoParamsRecord": "f32b100f-077f-46cd-99cd-c315dfbeb648"
         },
         "SCItemWeaponComponentParams": {
@@ -231,12 +231,12 @@
           },
           "fireActions": [
             {
-              "heatPerShot": 127440.0,
+              "heatPerShot": 70000.0,
               "fireRate": 75.0,
               "launchParams": {
                 "SProjectileLauncher": {
-                  "ammoCost": 0.0,
-                  "pelletCount": 16.0,
+                  "ammoCost": 1.0,
+                  "pelletCount": 8.0,
                   "spreadParams": {
                     "min": 6.0,
                     "max": 11.0,

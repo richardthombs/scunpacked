@@ -174,11 +174,7 @@
               "Types": [
                 "Paints"
               ],
-              "Flags": [
-                "uneditable"
-              ],
-              "Category": "Paints",
-              "Uneditable": true
+              "Category": "Paints"
             }
           },
           {
@@ -421,6 +417,49 @@
             }
           },
           {
+            "Name": "hardpoint_weapon_regen_pool",
+            "Port": {
+              "PortName": "hardpoint_weapon_regen_pool",
+              "Size": 1,
+              "Types": [
+                "WeaponRegenPool"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_capacitor_assignment",
+            "Port": {
+              "PortName": "hardpoint_controller_capacitor_assignment",
+              "Size": 1,
+              "Loadout": "Controller_CapacitorAssignment",
+              "InstalledItem": {
+                "ClassName": "Controller_CapacitorAssignment",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "CapacitorAssignmentController.UNDEFINED",
+                "Name": "Controller_CapacitorAssignment",
+                "Tags": [
+                  "flightReady"
+                ]
+              },
+              "Types": [
+                "CapacitorAssignmentController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
             "Name": "hardpoint_controller_wheel",
             "Port": {
               "PortName": "hardpoint_controller_wheel",
@@ -467,7 +506,7 @@
                   "flightReady"
                 ],
                 "Scanner": {
-                  "Range": 1.0
+                  "Range": 0.0
                 }
               },
               "Types": [
@@ -549,8 +588,8 @@
                 "Shield": {
                   "Health": 3500.0,
                   "Regeneration": 100.0,
-                  "DownedDelay": 8.0,
-                  "DamagedDelay": 4.0,
+                  "DownedDelay": 5.0,
+                  "DamagedDelay": 5.0,
                   "Absorption": {
                     "Physical": {
                       "Minimum": 0.5,
@@ -583,8 +622,8 @@
                   "Lifetime": 10.0
                 },
                 "PowerConnection": {
-                  "PowerBase": 50.0,
-                  "PowerDraw": 79.0
+                  "PowerBase": 45.0,
+                  "PowerDraw": 60.0
                 },
                 "HeatConnection": {
                   "ThermalEnergyBase": 6500.0,
@@ -630,36 +669,9 @@
                   "CoolingRate": 1.0
                 },
                 "Radar": {
-                  "DetectionLifetime": 60.0,
-                  "AltitudeCeiling": 5000.0,
-                  "CrossSectionOcclusion": false,
-                  "Signatures": [
-                    {
-                      "Detectable": true,
-                      "Sensitivity": 0.4,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": true,
-                      "Sensitivity": 0.4,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": false,
-                      "Sensitivity": 1.0,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": false,
-                      "Sensitivity": 1.0,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": true,
-                      "Sensitivity": 0.4,
-                      "AmbientPiercing": false
-                    }
-                  ]
+                  "DetectionLifetime": 0.0,
+                  "AltitudeCeiling": 0.0,
+                  "CrossSectionOcclusion": false
                 },
                 "Ports": [
                   {
@@ -716,36 +728,9 @@
                   "CoolingRate": 1.0
                 },
                 "Radar": {
-                  "DetectionLifetime": 60.0,
-                  "AltitudeCeiling": 5000.0,
-                  "CrossSectionOcclusion": false,
-                  "Signatures": [
-                    {
-                      "Detectable": true,
-                      "Sensitivity": 0.4,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": true,
-                      "Sensitivity": 0.4,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": false,
-                      "Sensitivity": 1.0,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": false,
-                      "Sensitivity": 1.0,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": true,
-                      "Sensitivity": 0.4,
-                      "AmbientPiercing": false
-                    }
-                  ]
+                  "DetectionLifetime": 0.0,
+                  "AltitudeCeiling": 0.0,
+                  "CrossSectionOcclusion": false
                 },
                 "Ports": [
                   {
@@ -896,7 +881,7 @@
                       "Grade": 1,
                       "Type": "WeaponGun.Gun",
                       "Name": "YellowJacket GT-210 Gatling",
-                      "Description": "Manufacturer: Gallenson Tactical\nItem Type: Ballistic Gatling\nSize: 1\n\nWhile the GT-210 YellowJacket may be small, it packs a mighty sting. This high-speed ballistic weapon is perfect for targeting smaller, more mobile targets and its DTX-8 ammo supply system almost completely eliminates weapon jams due to bad rounds.",
+                      "Description": "Manufacturer: Gallenson Tactical Systems\nItem Type: Ballistic Gatling\nSize: 1\n\nWhile the GT-210 YellowJacket may be small, it packs a mighty sting. This high-speed ballistic weapon is perfect for targeting smaller, more mobile targets and its DTX-8 ammo supply system almost completely eliminates weapon jams due to bad rounds.",
                       "Manufacturer": {
                         "Code": "GAT",
                         "Name": "Gallenson Tactical Systems"
@@ -912,8 +897,8 @@
                         "Lifetime": 20.0
                       },
                       "PowerConnection": {
-                        "PowerBase": 38.0,
-                        "PowerDraw": 148.0
+                        "PowerBase": 30.0,
+                        "PowerDraw": 40.0
                       },
                       "HeatConnection": {
                         "ThermalEnergyBase": 100.0,
@@ -922,38 +907,38 @@
                       },
                       "Weapon": {
                         "Ammunition": {
-                          "Speed": 1120.0,
-                          "Range": 1747.2,
+                          "Speed": 1400.0,
+                          "Range": 2800.0,
                           "Size": 1.0,
-                          "Capacity": 7200.0,
+                          "Capacity": 900.0,
                           "ImpactDamage": {
-                            "Physical": 16.0
+                            "Physical": 17.0
                           }
                         },
                         "Modes": [
                           {
                             "Name": "Rapid",
                             "LocalisedName": "[AUTO]",
-                            "RoundsPerMinute": 800.0,
+                            "RoundsPerMinute": 1200.0,
                             "FireType": "rapid",
                             "AmmoPerShot": 1.0,
                             "PelletsPerShot": 1.0,
                             "DamagePerShot": {
-                              "Physical": 16.0
+                              "Physical": 17.0
                             },
                             "DamagePerSecond": {
-                              "Physical": 213.33333333333334
+                              "Physical": 340.0
                             }
                           }
                         ]
                       },
                       "Ammunition": {
-                        "Speed": 1120.0,
-                        "Range": 1747.2,
+                        "Speed": 1400.0,
+                        "Range": 2800.0,
                         "Size": 1.0,
-                        "Capacity": 7200.0,
+                        "Capacity": 900.0,
                         "ImpactDamage": {
-                          "Physical": 16.0
+                          "Physical": 17.0
                         }
                       },
                       "Ports": [
@@ -1179,7 +1164,7 @@
                     "Loadout": "RADR_Default",
                     "InstalledItem": {
                       "ClassName": "RADR_Default",
-                      "Size": 1,
+                      "Size": 0,
                       "Grade": 1,
                       "Type": "Radar.MidRangeRadar",
                       "Name": "Radar",
@@ -1200,36 +1185,9 @@
                         "CoolingRate": 1.0
                       },
                       "Radar": {
-                        "DetectionLifetime": 60.0,
-                        "AltitudeCeiling": 5000.0,
-                        "CrossSectionOcclusion": false,
-                        "Signatures": [
-                          {
-                            "Detectable": true,
-                            "Sensitivity": 0.5,
-                            "AmbientPiercing": false
-                          },
-                          {
-                            "Detectable": true,
-                            "Sensitivity": 0.5,
-                            "AmbientPiercing": false
-                          },
-                          {
-                            "Detectable": false,
-                            "Sensitivity": 1.0,
-                            "AmbientPiercing": false
-                          },
-                          {
-                            "Detectable": false,
-                            "Sensitivity": 1.0,
-                            "AmbientPiercing": false
-                          },
-                          {
-                            "Detectable": true,
-                            "Sensitivity": 0.5,
-                            "AmbientPiercing": false
-                          }
-                        ]
+                        "DetectionLifetime": 0.0,
+                        "AltitudeCeiling": 0.0,
+                        "CrossSectionOcclusion": false
                       },
                       "Ports": [
                         {
@@ -1485,6 +1443,22 @@
                 "uneditable"
               ],
               "Category": "Usables",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_missile",
+            "Port": {
+              "PortName": "hardpoint_controller_missile",
+              "Size": 1,
+              "Types": [
+                "MissileController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
               "Uneditable": true
             }
           }

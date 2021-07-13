@@ -18,6 +18,9 @@
         },
         {
           "value": "ad431728-41cf-4a07-a83b-dbb80f7c0c10"
+        },
+        {
+          "value": "5a206ca4-ad01-46b2-bc2b-59de612cf979"
         }
       ],
       "Components": {
@@ -88,6 +91,11 @@
                           "itemPortName": "hardpoint_cockpit_radar",
                           "entityClassName": "RADR_Display",
                           "loadout": {}
+                        },
+                        {
+                          "itemPortName": "Display_HUD",
+                          "entityClassName": "Projector_HUD_Generic",
+                          "loadout": {}
                         }
                       ]
                     }
@@ -106,7 +114,22 @@
                 {
                   "itemPortName": "hardpoint_dashboard_copilot",
                   "entityClassName": "MISC_Freelancer_Base_SCItem_Dashboard_CoPilot",
-                  "loadout": {}
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "hardpoint_cockpit_radar",
+                          "entityClassName": "RADR_Display",
+                          "loadout": {}
+                        },
+                        {
+                          "itemPortName": "Display_HUD",
+                          "entityClassName": "Projector_HUD_Generic",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
                 },
                 {
                   "itemPortName": "hardpoint_seat_rear_left",
@@ -140,67 +163,27 @@
                 },
                 {
                   "itemPortName": "hardpoint_esc_pod_upper_left",
-                  "entityClassName": "MISC_Freelancer_Base_SCItem_Seat_Esc_Pod_Upper_Left",
-                  "loadout": {}
-                },
-                {
-                  "itemPortName": "hardpoint_seat_access_esc_pod_upper_left",
-                  "entityClassName": "MISC_Freelancer_Base_SCItem_SeatAccess_Esc_Pod_Upper_Left",
-                  "loadout": {}
-                },
-                {
-                  "itemPortName": "hardpoint_dashboard_esc_pod_upp_left",
-                  "entityClassName": "MISC_Freelancer_Base_SCItem_Dashboard_Esc_Pod_Upper_Left",
+                  "entityClassName": "MISC_Freelancer_SCItem_Seat_Bed_Upper_Left",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_esc_pod_upper_right",
-                  "entityClassName": "MISC_Freelancer_Base_SCItem_Seat_Esc_Pod_Upper_Right",
-                  "loadout": {}
-                },
-                {
-                  "itemPortName": "hardpoint_seat_access_esc_pod_upper_right",
-                  "entityClassName": "MISC_Freelancer_Base_SCItem_SeatAccess_Esc_Pod_Upper_Right",
-                  "loadout": {}
-                },
-                {
-                  "itemPortName": "hardpoint_dashboard_esc_pod_upp_right",
-                  "entityClassName": "MISC_Freelancer_Base_SCItem_Dashboard_Esc_Pod_Upper_Right",
+                  "entityClassName": "MISC_Freelancer_SCItem_Seat_Bed_Upper_Right",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_esc_pod_lower_left",
-                  "entityClassName": "MISC_Freelancer_Base_SCItem_Seat_Esc_Pod_Lower_Left",
-                  "loadout": {}
-                },
-                {
-                  "itemPortName": "hardpoint_seat_access_esc_pod_lower_left",
-                  "entityClassName": "MISC_Freelancer_Base_SCItem_SeatAccess_Esc_Pod_Lower_Left",
-                  "loadout": {}
-                },
-                {
-                  "itemPortName": "hardpoint_dashboard_esc_pod_low_left",
-                  "entityClassName": "MISC_Freelancer_Base_SCItem_Dashboard_Esc_Pod_Lower_Left",
+                  "entityClassName": "MISC_Freelancer_SCItem_Seat_Bed_Lower_Left",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_esc_pod_lower_right",
-                  "entityClassName": "MISC_Freelancer_Base_SCItem_Seat_Esc_Pod_Lower_Right",
-                  "loadout": {}
-                },
-                {
-                  "itemPortName": "hardpoint_seat_access_esc_pod_lower_right",
-                  "entityClassName": "MISC_Freelancer_Base_SCItem_SeatAccess_Esc_Pod_Lower_Right",
+                  "entityClassName": "MISC_Freelancer_SCItem_Seat_Bed_Lower_Right",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_controller_door",
                   "entityClassName": "Controller_Door",
-                  "loadout": {}
-                },
-                {
-                  "itemPortName": "hardpoint_dashboard_esc_pod_low_right",
-                  "entityClassName": "MISC_Freelancer_Base_SCItem_Dashboard_Esc_Pod_Lower_Right",
                   "loadout": {}
                 },
                 {
@@ -426,12 +409,12 @@
                       "entries": [
                         {
                           "itemPortName": "hardpoint_weapon_01",
-                          "entityClassName": "GATS_BallisticCannon_S3",
+                          "entityClassName": "BEHR_LaserCannon_S3",
                           "loadout": {}
                         },
                         {
                           "itemPortName": "hardpoint_weapon_02",
-                          "entityClassName": "GATS_BallisticCannon_S3",
+                          "entityClassName": "BEHR_LaserCannon_S3",
                           "loadout": {}
                         }
                       ]
@@ -446,12 +429,12 @@
                       "entries": [
                         {
                           "itemPortName": "hardpoint_weapon_01",
-                          "entityClassName": "GATS_BallisticCannon_S3",
+                          "entityClassName": "BEHR_LaserCannon_S3",
                           "loadout": {}
                         },
                         {
                           "itemPortName": "hardpoint_weapon_02",
-                          "entityClassName": "GATS_BallisticCannon_S3",
+                          "entityClassName": "BEHR_LaserCannon_S3",
                           "loadout": {}
                         }
                       ]
@@ -471,12 +454,12 @@
                       "entries": [
                         {
                           "itemPortName": "turret_left",
-                          "entityClassName": "BEHR_LaserCannon_S2",
+                          "entityClassName": "KLWE_LaserRepeater_S2",
                           "loadout": {}
                         },
                         {
                           "itemPortName": "turret_right",
-                          "entityClassName": "BEHR_LaserCannon_S2",
+                          "entityClassName": "KLWE_LaserRepeater_S2",
                           "loadout": {}
                         }
                       ]
@@ -585,12 +568,22 @@
                 },
                 {
                   "itemPortName": "hardpoint_controller_missile",
-                  "entityClassName": "",
+                  "entityClassName": "Controller_Missile",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_weapon_regen_pool",
-                  "entityClassName": "",
+                  "entityClassName": "WeaponRegenPool_Crew_Freelancer",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_regen_pool_turrets",
+                  "entityClassName": "WeaponRegenPool_Turret_Freelancer",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_capacitor_assignment",
+                  "entityClassName": "Controller_CapacitorAssignment",
                   "loadout": {}
                 }
               ]
@@ -730,8 +723,16 @@
           "class": "WeaponRegen"
         },
         {
+          "name": "WeaponAmmoLoadCrew",
+          "class": "WeaponAmmoLoad"
+        },
+        {
           "name": "WeaponRegenTurret",
           "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponAmmoLoadTurret",
+          "class": "WeaponAmmoLoad"
         }
       ],
       "Parts": [
@@ -743,7 +744,7 @@
           "Parts": [
             {
               "name": "Nose",
-              "damageMax": 4400.0,
+              "damageMax": 8400.0,
               "damagemax": 0.0,
               "class": "AnimatedJoint",
               "detachRatio": 1.0,
@@ -1128,14 +1129,14 @@
                 },
                 {
                   "name": "Body",
-                  "damageMax": 5200.0,
+                  "damageMax": 9200.0,
                   "damagemax": 0.0,
                   "class": "AnimatedJoint",
                   "detachRatio": 1.0,
                   "Parts": [
                     {
                       "name": "Tail",
-                      "damageMax": 3200.0,
+                      "damageMax": 6200.0,
                       "damagemax": 0.0,
                       "class": "AnimatedJoint",
                       "detachRatio": 1.0,
@@ -1386,6 +1387,35 @@
                           }
                         },
                         {
+                          "name": "hardpoint_copilot_radar",
+                          "damagemax": 0.0,
+                          "class": "ItemPort",
+                          "ItemPort": {
+                            "minsize": 2,
+                            "maxsize": 2,
+                            "flags": "invisible uneditable",
+                            "Types": [
+                              {
+                                "type": "Radar",
+                                "subtypes": "ShortRangeRadar,MidRangeRadar"
+                              }
+                            ],
+                            "Connections": [
+                              {
+                                "pipeClass": "Power",
+                                "pipe": "MainPower"
+                              },
+                              {
+                                "pipeClass": "Heat",
+                                "pipe": "MainHeat"
+                              }
+                            ],
+                            "ControllerDef": {
+                              "controllableTags": "CopilotSeat"
+                            }
+                          }
+                        },
+                        {
                           "name": "hardpoint_quantum_drive",
                           "damagemax": 0.0,
                           "class": "ItemPort",
@@ -1494,6 +1524,10 @@
                               {
                                 "pipeClass": "WeaponRegen",
                                 "pipe": "WeaponRegenTurret"
+                              },
+                              {
+                                "pipeClass": "WeaponAmmoLoad",
+                                "pipe": "WeaponAmmoLoadTurret"
                               }
                             ],
                             "ControllerDef": {
@@ -2517,6 +2551,10 @@
                           {
                             "type": "Turret",
                             "subtypes": "NoseMounted"
+                          },
+                          {
+                            "type": "WeaponGun",
+                            "subtypes": "Gun"
                           }
                         ],
                         "Connections": [
@@ -2531,6 +2569,10 @@
                           {
                             "pipeClass": "WeaponRegen",
                             "pipe": "WeaponRegenCrew"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadCrew"
                           }
                         ],
                         "Pitch": {
@@ -2557,6 +2599,10 @@
                           {
                             "type": "Turret",
                             "subtypes": "NoseMounted"
+                          },
+                          {
+                            "type": "WeaponGun",
+                            "subtypes": "Gun"
                           }
                         ],
                         "Connections": [
@@ -2571,6 +2617,10 @@
                           {
                             "pipeClass": "WeaponRegen",
                             "pipe": "WeaponRegenCrew"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadCrew"
                           }
                         ],
                         "Pitch": {
@@ -2764,6 +2814,82 @@
                       }
                     },
                     {
+                      "name": "hardpoint_weapon_regen_pool",
+                      "damagemax": 0.0,
+                      "class": "ItemPort",
+                      "ItemPort": {
+                        "minsize": 1,
+                        "maxsize": 1,
+                        "display_name": "Weapon Regen Pool",
+                        "flags": "invisible uneditable",
+                        "Types": [
+                          {
+                            "type": "WeaponRegenPool"
+                          }
+                        ],
+                        "Connections": [
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenCrew"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadCrew"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "hardpoint_weapon_regen_pool_turrets",
+                      "damagemax": 0.0,
+                      "class": "ItemPort",
+                      "ItemPort": {
+                        "minsize": 1,
+                        "maxsize": 1,
+                        "display_name": "Weapon Regen Pool",
+                        "flags": "invisible uneditable",
+                        "Types": [
+                          {
+                            "type": "WeaponRegenPool"
+                          }
+                        ],
+                        "Connections": [
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadTurret"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "hardpoint_controller_capacitor_assignment",
+                      "damagemax": 0.0,
+                      "class": "ItemPort",
+                      "ItemPort": {
+                        "minsize": 1,
+                        "maxsize": 1,
+                        "flags": "invisible uneditable",
+                        "Types": [
+                          {
+                            "type": "CapacitorAssignmentController"
+                          }
+                        ],
+                        "ControllerDef": {
+                          "UsableDef": {
+                            "PriorityGroups": [
+                              {
+                                "itemType": "CapacitorAssignmentController"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
                       "name": "hardpoint_controller_weapon",
                       "damagemax": 0.0,
                       "class": "ItemPort",
@@ -2797,12 +2923,6 @@
                               },
                               {
                                 "itemType": "WeaponDefensive"
-                              },
-                              {
-                                "itemType": "MissileLauncher"
-                              },
-                              {
-                                "itemType": "Missile"
                               }
                             ]
                           }
@@ -2853,7 +2973,19 @@
                           {
                             "type": "MissileController"
                           }
-                        ]
+                        ],
+                        "ControllerDef": {
+                          "UsableDef": {
+                            "PriorityGroups": [
+                              {
+                                "itemType": "MissileLauncher"
+                              },
+                              {
+                                "itemType": "Missile"
+                              }
+                            ]
+                          }
+                        }
                       }
                     }
                   ],
@@ -2997,10 +3129,6 @@
                           },
                           {
                             "itemType": "ManneuverThruster",
-                            "defaultPriority": "exclusive_control"
-                          },
-                          {
-                            "itemType": "QuantumDrive",
                             "defaultPriority": "exclusive_control"
                           }
                         ]

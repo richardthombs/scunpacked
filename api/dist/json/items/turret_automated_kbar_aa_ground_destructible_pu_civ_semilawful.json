@@ -36,8 +36,48 @@
                   "loadout": {}
                 },
                 {
-                  "itemPortName": "hardpoint_cooler",
-                  "entityClassName": "COOL_JUST_S02_CoolCore_SCItem",
+                  "itemPortName": "hardpoint_weaponcontroller",
+                  "entityClassName": "Controller_Weapon_UnmannedTurret",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_targetselector",
+                  "entityClassName": "Controller_TargetSelector",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_energycontroller",
+                  "entityClassName": "Controller_Energy",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_coolercontroller",
+                  "entityClassName": "Controller_Cooler",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_radar",
+                  "entityClassName": "RADR_Unmaned_Turret",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_missilecontroller",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_cooler1",
+                  "entityClassName": "COOL_AEGS_S02_Avalanche_SCItem",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_cooler2",
+                  "entityClassName": "COOL_AEGS_S02_Avalanche_SCItem",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_regen_pool_turrets",
+                  "entityClassName": "WeaponRegenPool_Turret_Default",
                   "loadout": {}
                 }
               ]
@@ -90,75 +130,6 @@
               }
             }
           }
-        },
-        "EntityComponentPowerConnection": {
-          "PowerBase": 0.0,
-          "PowerDraw": 1.0,
-          "TimeToReachDrawRequest": 0.0,
-          "SafeguardPriority": 0.0,
-          "DisplayedInPoweredItemList": false,
-          "IsThrottleable": false,
-          "IsOverclockable": false,
-          "OverclockThresholdMin": 0.0,
-          "OverclockThresholdMax": 0.0,
-          "OverpowerPerformance": 0.0,
-          "OverclockPerformance": 0.0,
-          "PowerToEM": 0.0,
-          "DecayRateOfEM": 0.15,
-          "WarningDelayTime": 0.3,
-          "WarningDisplayTime": 8.0
-        },
-        "EntityComponentHeatConnection": {
-          "TemperatureToIR": 6.0,
-          "OverpowerHeat": 0.0,
-          "OverclockThresholdMinHeat": 0.0,
-          "OverclockThresholdMaxHeat": 0.0,
-          "ThermalEnergyBase": 10.0,
-          "ThermalEnergyDraw": 20.0,
-          "ThermalConductivity": 3.0,
-          "SpecificHeatCapacity": 13.0,
-          "Mass": 200.0,
-          "SurfaceArea": 50.0,
-          "StartCoolingTemperature": 300.0,
-          "MaxCoolingRate": 1.0,
-          "MaxTemperature": 450.0,
-          "OverheatTemperature": 370.0,
-          "RecoveryTemperature": 350.0,
-          "MinTemperature": 0.0,
-          "MisfireMinTemperature": 370.0,
-          "MisfireMaxTemperature": 600.0
-        },
-        "SCItemRadarComponentParams": {
-          "detectionLifetime": 60.0,
-          "altitudeCeiling": 5000.0,
-          "enableCrossSectionOcclusion": false,
-          "signatureDetection": [
-            {
-              "detectable": true,
-              "sensitivity": 0.5,
-              "ambientPiercing": false
-            },
-            {
-              "detectable": true,
-              "sensitivity": 0.5,
-              "ambientPiercing": false
-            },
-            {
-              "detectable": false,
-              "sensitivity": 1.0,
-              "ambientPiercing": false
-            },
-            {
-              "detectable": false,
-              "sensitivity": 1.0,
-              "ambientPiercing": false
-            },
-            {
-              "detectable": false,
-              "sensitivity": 1.0,
-              "ambientPiercing": false
-            }
-          ]
         },
         "SCItemTurretParams": {
           "rotationStyle": "SingleAxis",
@@ -233,16 +204,157 @@
               "MaxSize": 1,
               "InteractionPointSize": -1.0,
               "DefaultWeaponGroup": "UNDEFINED",
-              "Types": []
+              "Types": [
+                {
+                  "Type": "PowerPlant",
+                  "SubTypes": []
+                }
+              ]
             },
             {
-              "Name": "hardpoint_cooler",
+              "Name": "hardpoint_weaponcontroller",
               "DisplayName": "",
               "PortTags": "",
               "RequiredPortTags": "",
               "Flags": "invisible uneditable",
-              "MinSize": 0,
-              "MaxSize": 3,
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponController",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_targetselector",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "invisible uneditable",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "TargetSelector",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_energycontroller",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "invisible uneditable",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "EnergyController",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_coolercontroller",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "invisible uneditable",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "CoolerController",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_radar",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "invisible uneditable",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "CoolerController",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_missilecontroller",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "invisible uneditable",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "MissileController",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_cooler1",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "invisible uneditable",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "Cooler",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_cooler2",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "invisible uneditable",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "Cooler",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_weapon_regen_pool_turrets",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "invisible uneditable",
+              "MinSize": 1,
+              "MaxSize": 1,
               "InteractionPointSize": -1.0,
               "DefaultWeaponGroup": "UNDEFINED",
               "Types": []

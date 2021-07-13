@@ -1,14 +1,14 @@
 {
   "ammo": {
     "size": 2,
-    "lifetime": 0.95,
-    "speed": 1092.0,
+    "lifetime": 1.0,
+    "speed": 1400.0,
     "projectileParams": {
       "BulletProjectileParams": {
         "damage": [
           {
             "DamagePhysical": 0.0,
-            "DamageEnergy": 177.0,
+            "DamageEnergy": 40.0,
             "DamageDistortion": 0.0,
             "DamageThermal": 0.0,
             "DamageBiochemical": 0.0,
@@ -43,7 +43,7 @@
             "DisplayType": "",
             "Localization": {
               "Name": "@item_NameVNCL_LaserCannon_S2",
-              "Description": "@item_NameVNCL_LaserCannon_S2"
+              "Description": "@item_DescVNCL_LaserCannon_S2"
             }
           }
         },
@@ -84,13 +84,13 @@
           "DegradeOnlyWhenAttached": true
         },
         "EntityComponentPowerConnection": {
-          "PowerBase": 71.0,
-          "PowerDraw": 195.0,
+          "PowerBase": 190.0,
+          "PowerDraw": 190.0,
           "TimeToReachDrawRequest": 0.0,
           "SafeguardPriority": 20.0,
           "DisplayedInPoweredItemList": true,
-          "IsThrottleable": true,
-          "IsOverclockable": true,
+          "IsThrottleable": false,
+          "IsOverclockable": false,
           "OverclockThresholdMin": 0.25,
           "OverclockThresholdMax": 0.53,
           "OverpowerPerformance": 0.3,
@@ -204,15 +204,15 @@
               "mode": "Looping",
               "sequenceEntries": [
                 {
-                  "delay": 78.0,
+                  "delay": 600.0,
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "heatPerShot": 12923.08,
-                      "fireRate": 78.0,
+                      "heatPerShot": 1400.0,
+                      "fireRate": 600.0,
                       "launchParams": {
                         "SProjectileLauncher": {
-                          "ammoCost": 0.0,
+                          "ammoCost": 1.0,
                           "pelletCount": 1.0,
                           "spreadParams": {
                             "min": 0.0,

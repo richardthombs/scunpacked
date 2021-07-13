@@ -29,7 +29,7 @@
         "unmovable": 0,
         "isGravlevVehicle": false,
         "incomingDamageModifierToAI": 1.0,
-        "emergencyStatusDamageThreshold": 1.0,
+        "emergencyStatusDamageThreshold": 0.25,
         "crewSize": 1,
         "vehicleName": "@vehicle_NameAEGS_Sabre",
         "vehicleDescription": "@vehicle_DescAEGS_Sabre",
@@ -66,6 +66,11 @@
                       {
                         "itemPortName": "radar_helper",
                         "entityClassName": "AEGS_Sabre_RADR_Display",
+                        "loadout": {}
+                      },
+                      {
+                        "itemPortName": "Display_HUD",
+                        "entityClassName": "Projector_HUD_Generic",
                         "loadout": {}
                       }
                     ]
@@ -198,11 +203,6 @@
                 "loadout": {}
               },
               {
-                "itemPortName": "hardpoint_shield_generator_C",
-                "entityClassName": "SHLD_ASAS_S01_Shimmer_SCItem",
-                "loadout": {}
-              },
-              {
                 "itemPortName": "hardpoint_engine_left",
                 "entityClassName": "AEGS_Sabre_Thruster_Main",
                 "loadout": {}
@@ -214,12 +214,12 @@
               },
               {
                 "itemPortName": "hardpoint_thruster_retro_left",
-                "entityClassName": "AEGS_Sabre_Thruster_Retro",
+                "entityClassName": "AEGS_Sabre_Thruster_Retro_L",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_thruster_retro_right",
-                "entityClassName": "AEGS_Sabre_Thruster_Retro",
+                "entityClassName": "AEGS_Sabre_Thruster_Retro_R",
                 "loadout": {}
               },
               {
@@ -339,12 +339,37 @@
               },
               {
                 "itemPortName": "hardpoint_controller_missile",
-                "entityClassName": "",
+                "entityClassName": "Controller_Missile",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_weapon_regen_pool",
-                "entityClassName": "",
+                "entityClassName": "WeaponRegenPool_Crew_Sabre",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_lifesupport",
+                "entityClassName": "LFSP_Sabre",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_avionics",
+                "entityClassName": "COMP_BEHR_S01_CSR-RP",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_weapon_rack",
+                "entityClassName": "Weapon_Rack_AEGS_Sabre",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_weapon_regen_pool_turrets",
+                "entityClassName": "WeaponRegenPool_Turret_Sabre",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_capacitor_assignment",
+                "entityClassName": "Controller_CapacitorAssignment",
                 "loadout": {}
               }
             ]
@@ -486,8 +511,16 @@
         "class": "WeaponRegen"
       },
       {
+        "name": "WeaponAmmoLoadCrew",
+        "class": "WeaponAmmoLoad"
+      },
+      {
         "name": "WeaponRegenTurret",
         "class": "WeaponRegen"
+      },
+      {
+        "name": "WeaponAmmoLoadTurret",
+        "class": "WeaponAmmoLoad"
       }
     ],
     "Parts": [
@@ -515,204 +548,11 @@
           },
           {
             "name": "Nose",
-            "damageMax": 1530.0,
+            "damageMax": 4000.0,
             "damagemax": 0.0,
             "class": "AnimatedJoint",
             "detachRatio": 1.0,
             "Parts": [
-              {
-                "name": "hardpoint_controller_door",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "DoorController"
-                    }
-                  ],
-                  "ControllerDef": {
-                    "UsableDef": {
-                      "PriorityGroups": [
-                        {
-                          "itemType": "Door",
-                          "defaultPriority": "exclusive_control"
-                        },
-                        {
-                          "itemType": "SeatAccess",
-                          "defaultPriority": "exclusive_control"
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              {
-                "name": "hardpoint_controller_light",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "LightController"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
-                    },
-                    {
-                      "pipeClass": "Fuel",
-                      "pipe": "MainFuel"
-                    }
-                  ],
-                  "ControllerDef": {
-                    "UsableDef": {
-                      "PriorityGroups": [
-                        {
-                          "itemType": "Light"
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              {
-                "name": "hardpoint_controller_comms",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "CommsController"
-                    }
-                  ],
-                  "ControllerDef": {
-                    "UsableDef": {
-                      "PriorityGroups": [
-                        {
-                          "itemType": "Comms"
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              {
-                "name": "hardpoint_radar",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "port_NameRadar",
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "Radar",
-                      "subtypes": "ShortRangeRadar,MidRangeRadar"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_scanner",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "Scanner"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_ping",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "Ping"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_transponder",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "Transponder"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
-                    }
-                  ]
-                }
-              },
               {
                 "name": "hardpoint_seat_pilot",
                 "damagemax": 0.0,
@@ -753,20 +593,6 @@
                     }
                   }
                 }
-              },
-              {
-                "name": "canopy",
-                "damageMax": 350.0,
-                "damagemax": 0.0,
-                "class": "AnimatedJoint",
-                "detachRatio": 1.0,
-                "Parts": [
-                  {
-                    "name": "glass_int",
-                    "damagemax": 0.0,
-                    "class": "AnimatedJoint"
-                  }
-                ]
               },
               {
                 "name": "hardpoint_selfdestruct",
@@ -863,6 +689,96 @@
                     }
                   }
                 }
+              },
+              {
+                "name": "hardpoint_controller_comms",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "CommsController"
+                    }
+                  ],
+                  "ControllerDef": {
+                    "UsableDef": {
+                      "PriorityGroups": [
+                        {
+                          "itemType": "Comms"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "name": "hardpoint_scanner",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "Scanner"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_ping",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "Ping"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_weapon_rack",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "uneditable",
+                  "Types": [
+                    {
+                      "type": "Usable",
+                      "subtypes": ""
+                    }
+                  ]
+                }
               }
             ],
             "DamageBehaviors": [
@@ -882,28 +798,11 @@
           },
           {
             "name": "Body",
-            "damageMax": 2590.0,
+            "damageMax": 4000.0,
             "damagemax": 0.0,
             "class": "AnimatedJoint",
             "detachRatio": 1.0,
             "Parts": [
-              {
-                "name": "hardpoint_paint",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "port_NamePaint",
-                  "flags": "",
-                  "requiredTags": "Paint_Sabre",
-                  "Types": [
-                    {
-                      "type": "Paints"
-                    }
-                  ]
-                }
-              },
               {
                 "name": "hardpoint_thruster_bottomRR",
                 "damageMax": 50.0,
@@ -995,207 +894,6 @@
                 }
               },
               {
-                "name": "hardpoint_powerplant_01",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "port_NamePowerplant01",
-                  "flags": "invisible",
-                  "Types": [
-                    {
-                      "type": "PowerPlant",
-                      "subtypes": ""
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_powerplant_02",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "port_NamePowerplant02",
-                  "flags": "invisible",
-                  "Types": [
-                    {
-                      "type": "PowerPlant",
-                      "subtypes": ""
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_shield_generator_A",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "port_NameShieldGen01",
-                  "flags": "invisible",
-                  "Types": [
-                    {
-                      "type": "Shield",
-                      "subtypes": ""
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
-                    },
-                    {
-                      "pipeClass": "Shield",
-                      "pipe": "Shield"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_shield_generator_B",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "port_NameShieldGen02",
-                  "flags": "invisible",
-                  "Types": [
-                    {
-                      "type": "Shield",
-                      "subtypes": ""
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
-                    },
-                    {
-                      "pipeClass": "Shield",
-                      "pipe": "Shield"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_shield_generator_C",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "port_NameShieldGen03",
-                  "flags": "invisible",
-                  "Types": [
-                    {
-                      "type": "Shield",
-                      "subtypes": ""
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
-                    },
-                    {
-                      "pipeClass": "Shield",
-                      "pipe": "Shield"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_cooler_left",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "port_NameCooler01",
-                  "flags": "invisible",
-                  "Types": [
-                    {
-                      "type": "Cooler",
-                      "subtypes": ""
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_cooler_right",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "port_NameCooler02",
-                  "flags": "invisible",
-                  "Types": [
-                    {
-                      "type": "Cooler",
-                      "subtypes": ""
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
-                    }
-                  ]
-                }
-              },
-              {
                 "name": "hardpoint_thruster_bottomRL",
                 "damageMax": 50.0,
                 "damagemax": 0.0,
@@ -1231,38 +929,6 @@
                     "min": -60,
                     "max": 0
                   }
-                }
-              },
-              {
-                "name": "hardpoint_quantum_drive",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "port_NameQDrive",
-                  "flags": "invisible",
-                  "requiredTags": "",
-                  "Types": [
-                    {
-                      "type": "QuantumDrive",
-                      "subtypes": "QDrive"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
-                    },
-                    {
-                      "pipeClass": "Fuel",
-                      "pipe": "QuantumFuel"
-                    }
-                  ]
                 }
               },
               {
@@ -1324,6 +990,10 @@
                     {
                       "pipeClass": "WeaponRegen",
                       "pipe": "WeaponRegenCrew"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadCrew"
                     }
                   ],
                   "Pitch": {
@@ -1367,6 +1037,10 @@
                     {
                       "pipeClass": "WeaponRegen",
                       "pipe": "WeaponRegenCrew"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadCrew"
                     }
                   ],
                   "Pitch": {
@@ -1752,50 +1426,18 @@
                 }
               },
               {
-                "name": "Rear_Wing_L",
+                "name": "Rear_Wing_Left",
                 "damageMax": 280.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
                 "detachRatio": 1.0
               },
               {
-                "name": "Rear_Wing_R",
+                "name": "Rear_Wing_Right",
                 "damageMax": 280.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
                 "detachRatio": 1.0
-              },
-              {
-                "name": "bay_door_l_a",
-                "damageMax": 300.0,
-                "damagemax": 0.0,
-                "class": "AnimatedJoint",
-                "detachRatio": 1.0,
-                "Parts": [
-                  {
-                    "name": "bay_door_l_b",
-                    "damageMax": 300.0,
-                    "damagemax": 0.0,
-                    "class": "AnimatedJoint",
-                    "detachRatio": 1.0
-                  }
-                ]
-              },
-              {
-                "name": "bay_door_r_a",
-                "damageMax": 300.0,
-                "damagemax": 0.0,
-                "class": "AnimatedJoint",
-                "detachRatio": 1.0,
-                "Parts": [
-                  {
-                    "name": "bay_door_r_b",
-                    "damageMax": 300.0,
-                    "damagemax": 0.0,
-                    "class": "AnimatedJoint",
-                    "detachRatio": 1.0
-                  }
-                ]
               },
               {
                 "name": "hardpoint_engine_left",
@@ -1994,6 +1636,11 @@
                 }
               },
               {
+                "name": "hardpoint_heat_sink",
+                "damagemax": 0.0,
+                "class": "ItemPort"
+              },
+              {
                 "name": "hardpoint_controller_energy",
                 "damagemax": 0.0,
                 "class": "ItemPort",
@@ -2136,10 +1783,6 @@
                         {
                           "itemType": "ManneuverThruster",
                           "defaultPriority": "exclusive_control"
-                        },
-                        {
-                          "itemType": "QuantumDrive",
-                          "defaultPriority": "exclusive_control"
                         }
                       ]
                     }
@@ -2180,31 +1823,10 @@
                         },
                         {
                           "itemType": "WeaponDefensive"
-                        },
-                        {
-                          "itemType": "MissileLauncher"
-                        },
-                        {
-                          "itemType": "Missile"
                         }
                       ]
                     }
                   }
-                }
-              },
-              {
-                "name": "hardpoint_controller_missile",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "MissileController"
-                    }
-                  ]
                 }
               },
               {
@@ -2215,20 +1837,11 @@
                 "detachRatio": 1.0,
                 "Parts": [
                   {
-                    "name": "wing_left_rl_geom",
+                    "name": "Wing_Left",
                     "damageMax": 320.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0,
-                    "Parts": [
-                      {
-                        "name": "wing_left_rl_fin_geom",
-                        "damageMax": 200.0,
-                        "damagemax": 0.0,
-                        "class": "AnimatedJoint",
-                        "detachRatio": 1.0
-                      }
-                    ],
                     "DamageBehaviors": [
                       {
                         "class": "DetachPart",
@@ -2273,6 +1886,10 @@
                         {
                           "pipeClass": "WeaponRegen",
                           "pipe": "WeaponRegenCrew"
+                        },
+                        {
+                          "pipeClass": "WeaponAmmoLoad",
+                          "pipe": "WeaponAmmoLoadCrew"
                         }
                       ],
                       "Pitch": {
@@ -2302,20 +1919,11 @@
                 "detachRatio": 1.0,
                 "Parts": [
                   {
-                    "name": "wing_right_rl_geom",
+                    "name": "Wing_Right",
                     "damageMax": 320.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0,
-                    "Parts": [
-                      {
-                        "name": "wing_right_rl_fin_geom",
-                        "damageMax": 200.0,
-                        "damagemax": 0.0,
-                        "class": "AnimatedJoint",
-                        "detachRatio": 1.0
-                      }
-                    ],
                     "DamageBehaviors": [
                       {
                         "class": "DetachPart",
@@ -2356,6 +1964,10 @@
                         {
                           "pipeClass": "WeaponRegen",
                           "pipe": "WeaponRegenCrew"
+                        },
+                        {
+                          "pipeClass": "WeaponAmmoLoad",
+                          "pipe": "WeaponAmmoLoadCrew"
                         }
                       ],
                       "Pitch": {
@@ -2376,6 +1988,405 @@
                     "DetachPart": []
                   }
                 ]
+              },
+              {
+                "name": "hardpoint_paint",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "port_NamePaint",
+                  "flags": "",
+                  "requiredTags": "Paint_Sabre",
+                  "Types": [
+                    {
+                      "type": "Paints"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_controller_missile",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "MissileController"
+                    }
+                  ],
+                  "ControllerDef": {
+                    "UsableDef": {
+                      "PriorityGroups": [
+                        {
+                          "itemType": "MissileLauncher"
+                        },
+                        {
+                          "itemType": "Missile"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "name": "hardpoint_weapon_regen_pool",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "Weapon Regen Pool",
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "WeaponRegenPool"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenCrew"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadCrew"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_cooler_left",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "port_NameCooler01",
+                  "flags": "",
+                  "Types": [
+                    {
+                      "type": "Cooler",
+                      "subtypes": ""
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_shield_generator_B",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "port_NameShieldGen02",
+                  "flags": "",
+                  "Types": [
+                    {
+                      "type": "Shield",
+                      "subtypes": ""
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    },
+                    {
+                      "pipeClass": "Shield",
+                      "pipe": "Shield"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_shield_generator_A",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "port_NameShieldGen01",
+                  "flags": "",
+                  "Types": [
+                    {
+                      "type": "Shield",
+                      "subtypes": ""
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    },
+                    {
+                      "pipeClass": "Shield",
+                      "pipe": "Shield"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_powerplant_02",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "port_NamePowerplant02",
+                  "flags": "",
+                  "Types": [
+                    {
+                      "type": "PowerPlant",
+                      "subtypes": ""
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_quantum_drive",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "port_NameQDrive",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "QuantumDrive",
+                      "subtypes": "QDrive"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    },
+                    {
+                      "pipeClass": "Fuel",
+                      "pipe": "QuantumFuel"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_powerplant_01",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "port_NamePowerplant01",
+                  "flags": "",
+                  "Types": [
+                    {
+                      "type": "PowerPlant",
+                      "subtypes": ""
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_cooler_right",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "port_NameCooler02",
+                  "flags": "",
+                  "Types": [
+                    {
+                      "type": "Cooler",
+                      "subtypes": ""
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_radar",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "port_NameRadar",
+                  "flags": "uneditable",
+                  "Types": [
+                    {
+                      "type": "Radar",
+                      "subtypes": "ShortRangeRadar,MidRangeRadar"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_lifesupport",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "uneditable",
+                  "Types": [
+                    {
+                      "type": "Misc"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_avionics",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "uneditable",
+                  "Types": [
+                    {
+                      "type": "Misc"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_weapon_regen_pool_turrets",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "Weapon Regen Pool",
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "WeaponRegenPool"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenTurret"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadTurret"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_controller_capacitor_assignment",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "CapacitorAssignmentController"
+                    }
+                  ],
+                  "ControllerDef": {
+                    "UsableDef": {
+                      "PriorityGroups": [
+                        {
+                          "itemType": "CapacitorAssignmentController"
+                        }
+                      ]
+                    }
+                  }
+                }
               }
             ],
             "DamageBehaviors": [

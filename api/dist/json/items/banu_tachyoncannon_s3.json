@@ -1,51 +1,21 @@
 {
   "ammo": {
     "size": 1,
-    "lifetime": 1.35,
-    "speed": 2000.0,
+    "lifetime": 2.0,
+    "speed": 700.0,
     "projectileParams": {
       "BulletProjectileParams": {
         "damage": [
           {
-            "DamagePhysical": 90.0,
-            "DamageEnergy": 150.0,
-            "DamageDistortion": 40.0,
+            "DamagePhysical": 65.0,
+            "DamageEnergy": 65.0,
+            "DamageDistortion": 20.0,
             "DamageThermal": 0.0,
             "DamageBiochemical": 0.0,
             "DamageStun": 0.0
           }
         ],
-        "detonationParams": {
-          "ProjectileDetonationParams": {
-            "explosionParams": {
-              "friendlyFire": "None",
-              "minRadius": 2.5,
-              "maxRadius": 5.0,
-              "soundRadius": 50.0,
-              "minPhysRadius": 2.5,
-              "maxPhysRadius": 5.0,
-              "pressure": 200.0,
-              "holeSize": 0.0,
-              "terrainHoleSize": 3.0,
-              "maxblurdist": 10.0,
-              "effectScale": 1.0,
-              "useRandomScale": 0.0,
-              "effectScaleMin": 1.0,
-              "effectScaleMax": 1.0,
-              "hitType": "explosion",
-              "damage": [
-                {
-                  "DamagePhysical": 0.0,
-                  "DamageEnergy": 0.0,
-                  "DamageDistortion": 0.0,
-                  "DamageThermal": 0.0,
-                  "DamageBiochemical": 0.0,
-                  "DamageStun": 0.0
-                }
-              ]
-            }
-          }
-        }
+        "detonationParams": {}
       }
     },
     "ClassName": "BANU_TachyonCannon_S3_AMMO",
@@ -143,12 +113,12 @@
         },
         "EntityComponentPowerConnection": {
           "PowerBase": 700.0,
-          "PowerDraw": 800.0,
+          "PowerDraw": 700.0,
           "TimeToReachDrawRequest": 0.0,
           "SafeguardPriority": 20.0,
           "DisplayedInPoweredItemList": true,
-          "IsThrottleable": true,
-          "IsOverclockable": true,
+          "IsThrottleable": false,
+          "IsOverclockable": false,
           "OverclockThresholdMin": 0.35,
           "OverclockThresholdMax": 0.6,
           "OverpowerPerformance": 0.23,
@@ -263,7 +233,7 @@
               "fireRate": 45.0,
               "launchParams": {
                 "SProjectileLauncher": {
-                  "ammoCost": 0.0,
+                  "ammoCost": 1.0,
                   "pelletCount": 1.0,
                   "spreadParams": {
                     "min": 0.0,
@@ -289,7 +259,7 @@
                   "fireRate": 90.0,
                   "launchParams": {
                     "SProjectileLauncher": {
-                      "ammoCost": 0.0,
+                      "ammoCost": 1.0,
                       "pelletCount": 1.0,
                       "spreadParams": {
                         "min": 0.0,

@@ -53,7 +53,17 @@
                 {
                   "itemPortName": "hardpoint_dashboard_pilot",
                   "entityClassName": "KRIG_P52_Merlin_Dashboard_Pilot",
-                  "loadout": {}
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "Display_HUD",
+                          "entityClassName": "Projector_HUD_Generic",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
                 },
                 {
                   "itemPortName": "hardpoint_self_destruct_pilot",
@@ -236,13 +246,13 @@
                   "loadout": {}
                 },
                 {
-                  "itemPortName": "hardpoint_fuel_tank_right",
-                  "entityClassName": "HTNK_KRIG_P52_Merlin",
+                  "itemPortName": "landingpad_helper",
+                  "entityClassName": "KRIG_Merlin_LandingGearSystem",
                   "loadout": {}
                 },
                 {
-                  "itemPortName": "landingpad_helper",
-                  "entityClassName": "KRIG_Merlin_LandingGearSystem",
+                  "itemPortName": "hardpoint_fuel_tank_right",
+                  "entityClassName": "HTNK_KRIG_P52_Merlin",
                   "loadout": {}
                 },
                 {
@@ -323,6 +333,21 @@
                 {
                   "itemPortName": "hardpoint_air_traffic_controller",
                   "entityClassName": "KRIG_P52_Merlin_ATCDataManager",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_regen_pool",
+                  "entityClassName": "WeaponRegenPool_Crew_P52",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_regen_pool_turrets",
+                  "entityClassName": "WeaponRegenPool_Turret_P52",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_capacitor_assignment",
+                  "entityClassName": "Controller_CapacitorAssignment",
                   "loadout": {}
                 }
               ]
@@ -462,8 +487,16 @@
           "class": "WeaponRegen"
         },
         {
+          "name": "WeaponAmmoLoadCrew",
+          "class": "WeaponAmmoLoad"
+        },
+        {
           "name": "WeaponRegenTurret",
           "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponAmmoLoadTurret",
+          "class": "WeaponAmmoLoad"
         }
       ],
       "Parts": [
@@ -475,7 +508,7 @@
           "Parts": [
             {
               "name": "Body",
-              "damageMax": 1600.0,
+              "damageMax": 1900.0,
               "damagemax": 0.0,
               "class": "AnimatedJoint",
               "Parts": [
@@ -761,7 +794,7 @@
                 },
                 {
                   "name": "Canopy",
-                  "damageMax": 50.0,
+                  "damageMax": 1050.0,
                   "damagemax": 0.0,
                   "class": "AnimatedJoint"
                 },
@@ -794,6 +827,10 @@
                       {
                         "pipeClass": "WeaponRegen",
                         "pipe": "WeaponRegenCrew"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadCrew"
                       }
                     ],
                     "Pitch": {
@@ -1212,6 +1249,82 @@
                   }
                 },
                 {
+                  "name": "hardpoint_weapon_regen_pool",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "Weapon Regen Pool",
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponRegenPool"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenCrew"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadCrew"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_weapon_regen_pool_turrets",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "Weapon Regen Pool",
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponRegenPool"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadTurret"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_capacitor_assignment",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "CapacitorAssignmentController"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "CapacitorAssignmentController"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
                   "name": "hardpoint_controller_cooler",
                   "damagemax": 0.0,
                   "class": "ItemPort",
@@ -1312,12 +1425,6 @@
                           },
                           {
                             "itemType": "WeaponDefensive"
-                          },
-                          {
-                            "itemType": "MissileLauncher"
-                          },
-                          {
-                            "itemType": "Missile"
                           }
                         ]
                       }
@@ -1326,7 +1433,7 @@
                 },
                 {
                   "name": "Body2",
-                  "damageMax": 200.0,
+                  "damageMax": 1200.0,
                   "damagemax": 0.0,
                   "class": "AnimatedJoint"
                 },
@@ -1590,6 +1697,10 @@
                               {
                                 "pipeClass": "WeaponRegen",
                                 "pipe": "WeaponRegenCrew"
+                              },
+                              {
+                                "pipeClass": "WeaponAmmoLoad",
+                                "pipe": "WeaponAmmoLoadCrew"
                               }
                             ]
                           }
@@ -1636,6 +1747,10 @@
                               {
                                 "pipeClass": "WeaponRegen",
                                 "pipe": "WeaponRegenCrew"
+                              },
+                              {
+                                "pipeClass": "WeaponAmmoLoad",
+                                "pipe": "WeaponAmmoLoadCrew"
                               }
                             ]
                           }

@@ -165,7 +165,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_ping",
-                  "entityClassName": "",
+                  "entityClassName": "test_ping",
                   "loadout": {}
                 },
                 {
@@ -421,7 +421,7 @@
                       "entries": [
                         {
                           "itemPortName": "hardpoint_class_2",
-                          "entityClassName": "APAR_BallisticGatling_S4",
+                          "entityClassName": "BEHR_LaserCannon_S4",
                           "loadout": {}
                         }
                       ]
@@ -436,7 +436,7 @@
                       "entries": [
                         {
                           "itemPortName": "hardpoint_class_2",
-                          "entityClassName": "APAR_BallisticGatling_S4",
+                          "entityClassName": "BEHR_LaserCannon_S4",
                           "loadout": {}
                         }
                       ]
@@ -457,6 +457,11 @@
                         {
                           "itemPortName": "radar_helper",
                           "entityClassName": "CRUS_Starlifter_RADR_Display",
+                          "loadout": {}
+                        },
+                        {
+                          "itemPortName": "Display_HUD",
+                          "entityClassName": "Projector_HUD_Generic",
                           "loadout": {}
                         }
                       ]
@@ -569,13 +574,28 @@
                   "loadout": {}
                 },
                 {
+                  "itemPortName": "hardpoint_Elevator_Exterior_Door",
+                  "entityClassName": "Door_Ship_Exterior_CRUS_Starlifter_Elevator_Door",
+                  "loadout": {}
+                },
+                {
                   "itemPortName": "hardpoint_controller_missile",
-                  "entityClassName": "",
+                  "entityClassName": "Controller_Missile",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_weapon_regen_pool",
-                  "entityClassName": "",
+                  "entityClassName": "WeaponRegenPool_Crew_Starlifter",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_weapon_regen_pool_turrets",
+                  "entityClassName": "WeaponRegenPool_Turret_Starlifter",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_capacitor_assignment",
+                  "entityClassName": "Controller_CapacitorAssignment",
                   "loadout": {}
                 }
               ]
@@ -716,8 +736,16 @@
           "class": "WeaponRegen"
         },
         {
+          "name": "WeaponAmmoLoadCrew",
+          "class": "WeaponAmmoLoad"
+        },
+        {
           "name": "WeaponRegenTurret",
           "class": "WeaponRegen"
+        },
+        {
+          "name": "WeaponAmmoLoadTurret",
+          "class": "WeaponAmmoLoad"
         }
       ],
       "Parts": [
@@ -1418,6 +1446,21 @@
                   }
                 },
                 {
+                  "name": "hardpoint_Elevator_Exterior_Door",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "$uneditable",
+                    "Types": [
+                      {
+                        "type": "Door"
+                      }
+                    ]
+                  }
+                },
+                {
                   "name": "animated_interior_modular",
                   "damagemax": 0.0,
                   "class": "ItemPort",
@@ -1473,6 +1516,14 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadTurret"
                       }
                     ],
                     "ControllerDef": {
@@ -1646,6 +1697,14 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadTurret"
                       }
                     ],
                     "ControllerDef": {
@@ -1819,6 +1878,14 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadTurret"
                       }
                     ],
                     "ControllerDef": {
@@ -1992,6 +2059,14 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadTurret"
                       }
                     ],
                     "ControllerDef": {
@@ -2960,7 +3035,7 @@
                       }
                     ],
                     "ControllerDef": {
-                      "controllableTags": "radar_turret_remote_rear"
+                      "controllableTags": "CopilotSeat"
                     }
                   }
                 },
@@ -3018,7 +3093,7 @@
                   "damagemax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
-                    "minsize": 2,
+                    "minsize": 1,
                     "maxsize": 2,
                     "flags": "invisible uneditable",
                     "Types": [
@@ -3038,7 +3113,7 @@
                       }
                     ],
                     "ControllerDef": {
-                      "controllableTags": "radar_turret_remote_bottom"
+                      "controllableTags": ""
                     }
                   }
                 },
@@ -3185,6 +3260,10 @@
                       {
                         "pipeClass": "WeaponRegen",
                         "pipe": "WeaponRegenCrew"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadCrew"
                       }
                     ],
                     "ControllerDef": {
@@ -3235,6 +3314,10 @@
                       {
                         "pipeClass": "WeaponRegen",
                         "pipe": "WeaponRegenCrew"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadCrew"
                       }
                     ],
                     "ControllerDef": {
@@ -3273,6 +3356,14 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadTurret"
                       }
                     ],
                     "ControllerDef": {
@@ -3482,10 +3573,6 @@
                           {
                             "itemType": "ManneuverThruster",
                             "defaultPriority": "exclusive_control"
-                          },
-                          {
-                            "itemType": "QuantumDrive",
-                            "defaultPriority": "exclusive_control"
                           }
                         ]
                       }
@@ -3620,12 +3707,6 @@
                           },
                           {
                             "itemType": "WeaponDefensive"
-                          },
-                          {
-                            "itemType": "MissileLauncher"
-                          },
-                          {
-                            "itemType": "Missile"
                           }
                         ]
                       }
@@ -3727,6 +3808,14 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadTurret"
                       }
                     ],
                     "ControllerDef": {
@@ -4113,6 +4202,14 @@
                           {
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
+                          },
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenTurret"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadTurret"
                           }
                         ],
                         "ControllerDef": {
@@ -4491,7 +4588,19 @@
                       {
                         "type": "MissileController"
                       }
-                    ]
+                    ],
+                    "ControllerDef": {
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "MissileLauncher"
+                          },
+                          {
+                            "itemType": "Missile"
+                          }
+                        ]
+                      }
+                    }
                   }
                 },
                 {
@@ -4664,6 +4773,82 @@
                         "subtypes": ""
                       }
                     ]
+                  }
+                },
+                {
+                  "name": "hardpoint_weapon_regen_pool",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "Weapon Regen Pool",
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponRegenPool"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenCrew"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadCrew"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_weapon_regen_pool_turrets",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "Weapon Regen Pool",
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "WeaponRegenPool"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadTurret"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_controller_capacitor_assignment",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "CapacitorAssignmentController"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "CapacitorAssignmentController"
+                          }
+                        ]
+                      }
+                    }
                   }
                 }
               ],
@@ -4859,41 +5044,6 @@
               "idRef": "modPart_cargo_large",
               "name": "skipPart",
               "value": "1"
-            },
-            {
-              "idRef": "modPart_bridge_remote_turret_type",
-              "name": "type",
-              "value": "Turret"
-            },
-            {
-              "idRef": "modPart_bridge_remote_turret_type",
-              "name": "subtypes",
-              "value": "GunTurret"
-            },
-            {
-              "idRef": "modPart_bridge_remote_turret",
-              "name": "skipPart",
-              "value": "0"
-            },
-            {
-              "idRef": "modPart_bridge_remote_turret_controller",
-              "name": "skipPart",
-              "value": "0"
-            },
-            {
-              "idRef": "modPart_bridge_remote_turret_seat",
-              "name": "skipPart",
-              "value": "0"
-            },
-            {
-              "idRef": "modPart_bridge_remote_turret_seat_access",
-              "name": "skipPart",
-              "value": "0"
-            },
-            {
-              "idRef": "modPart_bridge_remote_turret_radar",
-              "name": "skipPart",
-              "value": "0"
             },
             {
               "idRef": "modPart_forward_left_remote_turret_type",

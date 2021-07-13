@@ -3,6 +3,152 @@
     {
       "PortName": "hardpoint_weapon_nose",
       "Size": 3,
+      "Loadout": "BEHR_BallisticRepeater_S3",
+      "InstalledItem": {
+        "ClassName": "BEHR_BallisticRepeater_S3",
+        "Size": 3,
+        "Grade": 1,
+        "Type": "WeaponGun.Gun",
+        "Name": "SW16BR3 “Shredder” Repeater",
+        "Description": "Manufacturer: Behring\nItem Type: Ballistic Repeater\nSize: 3\n\nBlast your way out of trouble with this Behring size three ballistic repeater. The SW16BR3 \"Shredder\" distributes heat across both barrels to keep it firing when needed most. The weapon's shot grouping and damage falloff make it most deadly at medium or close range. ",
+        "Manufacturer": {
+          "Code": "BEH",
+          "Name": "Behring"
+        },
+        "Tags": [
+          "BEHR",
+          "BallisticRepeater",
+          "flightReady",
+          "weaponMountUsable"
+        ],
+        "Durability": {
+          "Health": 1024.0,
+          "Lifetime": 20.0
+        },
+        "PowerConnection": {
+          "PowerBase": 50.0,
+          "PowerDraw": 70.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 100.0,
+          "ThermalEnergyDraw": 200.0,
+          "CoolingRate": 115.0
+        },
+        "Weapon": {
+          "Ammunition": {
+            "Speed": 1400.0,
+            "Range": 2800.0,
+            "Size": 1.0,
+            "Capacity": 500.0,
+            "ImpactDamage": {
+              "Physical": 60.0
+            }
+          },
+          "Modes": [
+            {
+              "Name": "Single",
+              "LocalisedName": "[SEMI]",
+              "RoundsPerMinute": 500.0,
+              "FireType": "sequence",
+              "AmmoPerShot": 1.0,
+              "PelletsPerShot": 1.0,
+              "DamagePerShot": {
+                "Physical": 60.0
+              },
+              "DamagePerSecond": {
+                "Physical": 500.00000000000006
+              }
+            }
+          ]
+        },
+        "Ammunition": {
+          "Speed": 1400.0,
+          "Range": 2800.0,
+          "Size": 1.0,
+          "Capacity": 500.0,
+          "ImpactDamage": {
+            "Physical": 60.0
+          }
+        },
+        "Ports": [
+          {
+            "PortName": "BAR1",
+            "Size": 1,
+            "Loadout": "BEHR_BallisticRepeater_Barrel_S3",
+            "InstalledItem": {
+              "ClassName": "BEHR_BallisticRepeater_Barrel_S3",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "WeaponAttachment.Barrel",
+              "Name": "BEHR_BallisticRepeater_Barrel_S3"
+            },
+            "Types": [
+              "WeaponAttachment.Barrel"
+            ],
+            "Category": "Weapon attachments"
+          },
+          {
+            "PortName": "MEC",
+            "Size": 1,
+            "Loadout": "BEHR_BallisticRepeater_FiringMechanism_S3",
+            "InstalledItem": {
+              "ClassName": "BEHR_BallisticRepeater_FiringMechanism_S3",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "WeaponAttachment.FiringMechanism",
+              "Name": "BEHR_BallisticRepeater_FiringMechanism_S3"
+            },
+            "Types": [
+              "WeaponAttachment.FiringMechanism"
+            ],
+            "Category": "Weapon attachments"
+          },
+          {
+            "PortName": "POW",
+            "Size": 1,
+            "Loadout": "BEHR_BallisticRepeater_PowerArray_S3",
+            "InstalledItem": {
+              "ClassName": "BEHR_BallisticRepeater_PowerArray_S3",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "WeaponAttachment.PowerArray",
+              "Name": "BEHR_BallisticRepeater_PowerArray_S3"
+            },
+            "Types": [
+              "WeaponAttachment.PowerArray"
+            ],
+            "Category": "Weapon attachments"
+          },
+          {
+            "PortName": "VEN",
+            "Size": 1,
+            "Loadout": "BEHR_BallisticRepeater_Ventilation_S3",
+            "InstalledItem": {
+              "ClassName": "BEHR_BallisticRepeater_Ventilation_S3",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "WeaponAttachment.Ventilation",
+              "Name": "BEHR_BallisticRepeater_Ventilation_S3"
+            },
+            "Types": [
+              "WeaponAttachment.Ventilation"
+            ],
+            "Category": "Weapon attachments"
+          }
+        ]
+      },
+      "Types": [
+        "Turret.GunTurret",
+        "WeaponGun.Gun"
+      ],
+      "Flags": [
+        "nose"
+      ],
+      "Category": "Weapon hardpoints"
+    },
+    {
+      "PortName": "hardpoint_weapon_wing_left",
+      "Size": 3,
       "Loadout": "BEHR_LaserCannon_S3",
       "InstalledItem": {
         "ClassName": "BEHR_LaserCannon_S3",
@@ -26,8 +172,8 @@
           "Lifetime": 20.0
         },
         "PowerConnection": {
-          "PowerBase": 87.0,
-          "PowerDraw": 190.0
+          "PowerBase": 240.0,
+          "PowerDraw": 240.0
         },
         "HeatConnection": {
           "ThermalEnergyBase": 100.0,
@@ -36,38 +182,38 @@
         },
         "Weapon": {
           "Ammunition": {
-            "Speed": 1000.0,
-            "Range": 3180.0,
+            "Speed": 700.0,
+            "Range": 1400.0,
             "Size": 3.0,
             "Capacity": 0.0,
             "ImpactDamage": {
-              "Energy": 318.0
+              "Energy": 150.0
             }
           },
           "Modes": [
             {
               "Name": "Single",
               "LocalisedName": "[AUTO]",
-              "RoundsPerMinute": 65.0,
+              "RoundsPerMinute": 200.0,
               "FireType": "sequence",
-              "AmmoPerShot": 0.0,
+              "AmmoPerShot": 1.0,
               "PelletsPerShot": 1.0,
               "DamagePerShot": {
-                "Energy": 318.0
+                "Energy": 150.0
               },
               "DamagePerSecond": {
-                "Energy": 344.5
+                "Energy": 500.0
               }
             }
           ]
         },
         "Ammunition": {
-          "Speed": 1000.0,
-          "Range": 3180.0,
+          "Speed": 700.0,
+          "Range": 1400.0,
           "Size": 3.0,
           "Capacity": 0.0,
           "ImpactDamage": {
-            "Energy": 318.0
+            "Energy": 150.0
           }
         },
         "Ports": [
@@ -75,152 +221,6 @@
             "PortName": "magazine_attach",
             "Size": 0,
             "Category": "UNKNOWN"
-          }
-        ]
-      },
-      "Types": [
-        "Turret.GunTurret",
-        "WeaponGun.Gun"
-      ],
-      "Flags": [
-        "nose"
-      ],
-      "Category": "Weapon hardpoints"
-    },
-    {
-      "PortName": "hardpoint_weapon_wing_left",
-      "Size": 3,
-      "Loadout": "BEHR_BallisticRepeater_S3",
-      "InstalledItem": {
-        "ClassName": "BEHR_BallisticRepeater_S3",
-        "Size": 3,
-        "Grade": 1,
-        "Type": "WeaponGun.Gun",
-        "Name": "SW16BR3 “Shredder” Repeater",
-        "Description": "Manufacturer: Behring\nItem Type: Ballistic Repeater\nSize: 3\n\nBlast your way out of trouble with this Behring size three ballistic repeater. The SW16BR3 \"Shredder\" distributes heat across both barrels to keep it firing when needed most. The weapon's shot grouping and damage falloff make it most deadly at medium or close range. ",
-        "Manufacturer": {
-          "Code": "BEH",
-          "Name": "Behring"
-        },
-        "Tags": [
-          "BEHR",
-          "BallisticRepeater",
-          "flightReady",
-          "weaponMountUsable"
-        ],
-        "Durability": {
-          "Health": 1024.0,
-          "Lifetime": 20.0
-        },
-        "PowerConnection": {
-          "PowerBase": 50.0,
-          "PowerDraw": 143.0
-        },
-        "HeatConnection": {
-          "ThermalEnergyBase": 100.0,
-          "ThermalEnergyDraw": 200.0,
-          "CoolingRate": 115.0
-        },
-        "Weapon": {
-          "Ammunition": {
-            "Speed": 1139.0,
-            "Range": 2733.6,
-            "Size": 1.0,
-            "Capacity": 480.0,
-            "ImpactDamage": {
-              "Physical": 112.0
-            }
-          },
-          "Modes": [
-            {
-              "Name": "Single",
-              "LocalisedName": "[SEMI]",
-              "RoundsPerMinute": 240.0,
-              "FireType": "sequence",
-              "AmmoPerShot": 1.0,
-              "PelletsPerShot": 1.0,
-              "DamagePerShot": {
-                "Physical": 112.0
-              },
-              "DamagePerSecond": {
-                "Physical": 448.0
-              }
-            }
-          ]
-        },
-        "Ammunition": {
-          "Speed": 1139.0,
-          "Range": 2733.6,
-          "Size": 1.0,
-          "Capacity": 480.0,
-          "ImpactDamage": {
-            "Physical": 112.0
-          }
-        },
-        "Ports": [
-          {
-            "PortName": "BAR1",
-            "Size": 1,
-            "Loadout": "BEHR_BallisticRepeater_Barrel_S3",
-            "InstalledItem": {
-              "ClassName": "BEHR_BallisticRepeater_Barrel_S3",
-              "Size": 1,
-              "Grade": 1,
-              "Type": "WeaponAttachment.Barrel",
-              "Name": "BEHR_BallisticRepeater_Barrel_S3"
-            },
-            "Types": [
-              "WeaponAttachment.Barrel"
-            ],
-            "Category": "Weapon attachments"
-          },
-          {
-            "PortName": "MEC",
-            "Size": 1,
-            "Loadout": "BEHR_BallisticRepeater_FiringMechanism_S3",
-            "InstalledItem": {
-              "ClassName": "BEHR_BallisticRepeater_FiringMechanism_S3",
-              "Size": 1,
-              "Grade": 1,
-              "Type": "WeaponAttachment.FiringMechanism",
-              "Name": "BEHR_BallisticRepeater_FiringMechanism_S3"
-            },
-            "Types": [
-              "WeaponAttachment.FiringMechanism"
-            ],
-            "Category": "Weapon attachments"
-          },
-          {
-            "PortName": "POW",
-            "Size": 1,
-            "Loadout": "BEHR_BallisticRepeater_PowerArray_S3",
-            "InstalledItem": {
-              "ClassName": "BEHR_BallisticRepeater_PowerArray_S3",
-              "Size": 1,
-              "Grade": 1,
-              "Type": "WeaponAttachment.PowerArray",
-              "Name": "BEHR_BallisticRepeater_PowerArray_S3"
-            },
-            "Types": [
-              "WeaponAttachment.PowerArray"
-            ],
-            "Category": "Weapon attachments"
-          },
-          {
-            "PortName": "VEN",
-            "Size": 1,
-            "Loadout": "BEHR_BallisticRepeater_Ventilation_S3",
-            "InstalledItem": {
-              "ClassName": "BEHR_BallisticRepeater_Ventilation_S3",
-              "Size": 1,
-              "Grade": 1,
-              "Type": "WeaponAttachment.Ventilation",
-              "Name": "BEHR_BallisticRepeater_Ventilation_S3"
-            },
-            "Types": [
-              "WeaponAttachment.Ventilation"
-            ],
-            "Category": "Weapon attachments"
           }
         ]
       },
@@ -237,21 +237,21 @@
     {
       "PortName": "hardpoint_weapon_wing_right",
       "Size": 3,
-      "Loadout": "BEHR_BallisticRepeater_S3",
+      "Loadout": "BEHR_LaserCannon_S3",
       "InstalledItem": {
-        "ClassName": "BEHR_BallisticRepeater_S3",
+        "ClassName": "BEHR_LaserCannon_S3",
         "Size": 3,
         "Grade": 1,
         "Type": "WeaponGun.Gun",
-        "Name": "SW16BR3 “Shredder” Repeater",
-        "Description": "Manufacturer: Behring\nItem Type: Ballistic Repeater\nSize: 3\n\nBlast your way out of trouble with this Behring size three ballistic repeater. The SW16BR3 \"Shredder\" distributes heat across both barrels to keep it firing when needed most. The weapon's shot grouping and damage falloff make it most deadly at medium or close range. ",
+        "Name": "M5A Cannon",
+        "Description": "Manufacturer: Behring\nItem Type: Laser Cannon\nSize: 3\n\nWhen energy autocannons are designed, Behring's M5A provides the standard to which they are measured against, owing to its long range of engagement and low damage fallout.",
         "Manufacturer": {
           "Code": "BEH",
           "Name": "Behring"
         },
         "Tags": [
           "BEHR",
-          "BallisticRepeater",
+          "LaserCannon",
           "flightReady",
           "weaponMountUsable"
         ],
@@ -260,114 +260,55 @@
           "Lifetime": 20.0
         },
         "PowerConnection": {
-          "PowerBase": 50.0,
-          "PowerDraw": 143.0
+          "PowerBase": 240.0,
+          "PowerDraw": 240.0
         },
         "HeatConnection": {
           "ThermalEnergyBase": 100.0,
           "ThermalEnergyDraw": 200.0,
-          "CoolingRate": 115.0
+          "CoolingRate": 160.0
         },
         "Weapon": {
           "Ammunition": {
-            "Speed": 1139.0,
-            "Range": 2733.6,
-            "Size": 1.0,
-            "Capacity": 480.0,
+            "Speed": 700.0,
+            "Range": 1400.0,
+            "Size": 3.0,
+            "Capacity": 0.0,
             "ImpactDamage": {
-              "Physical": 112.0
+              "Energy": 150.0
             }
           },
           "Modes": [
             {
               "Name": "Single",
-              "LocalisedName": "[SEMI]",
-              "RoundsPerMinute": 240.0,
+              "LocalisedName": "[AUTO]",
+              "RoundsPerMinute": 200.0,
               "FireType": "sequence",
               "AmmoPerShot": 1.0,
               "PelletsPerShot": 1.0,
               "DamagePerShot": {
-                "Physical": 112.0
+                "Energy": 150.0
               },
               "DamagePerSecond": {
-                "Physical": 448.0
+                "Energy": 500.0
               }
             }
           ]
         },
         "Ammunition": {
-          "Speed": 1139.0,
-          "Range": 2733.6,
-          "Size": 1.0,
-          "Capacity": 480.0,
+          "Speed": 700.0,
+          "Range": 1400.0,
+          "Size": 3.0,
+          "Capacity": 0.0,
           "ImpactDamage": {
-            "Physical": 112.0
+            "Energy": 150.0
           }
         },
         "Ports": [
           {
-            "PortName": "BAR1",
-            "Size": 1,
-            "Loadout": "BEHR_BallisticRepeater_Barrel_S3",
-            "InstalledItem": {
-              "ClassName": "BEHR_BallisticRepeater_Barrel_S3",
-              "Size": 1,
-              "Grade": 1,
-              "Type": "WeaponAttachment.Barrel",
-              "Name": "BEHR_BallisticRepeater_Barrel_S3"
-            },
-            "Types": [
-              "WeaponAttachment.Barrel"
-            ],
-            "Category": "Weapon attachments"
-          },
-          {
-            "PortName": "MEC",
-            "Size": 1,
-            "Loadout": "BEHR_BallisticRepeater_FiringMechanism_S3",
-            "InstalledItem": {
-              "ClassName": "BEHR_BallisticRepeater_FiringMechanism_S3",
-              "Size": 1,
-              "Grade": 1,
-              "Type": "WeaponAttachment.FiringMechanism",
-              "Name": "BEHR_BallisticRepeater_FiringMechanism_S3"
-            },
-            "Types": [
-              "WeaponAttachment.FiringMechanism"
-            ],
-            "Category": "Weapon attachments"
-          },
-          {
-            "PortName": "POW",
-            "Size": 1,
-            "Loadout": "BEHR_BallisticRepeater_PowerArray_S3",
-            "InstalledItem": {
-              "ClassName": "BEHR_BallisticRepeater_PowerArray_S3",
-              "Size": 1,
-              "Grade": 1,
-              "Type": "WeaponAttachment.PowerArray",
-              "Name": "BEHR_BallisticRepeater_PowerArray_S3"
-            },
-            "Types": [
-              "WeaponAttachment.PowerArray"
-            ],
-            "Category": "Weapon attachments"
-          },
-          {
-            "PortName": "VEN",
-            "Size": 1,
-            "Loadout": "BEHR_BallisticRepeater_Ventilation_S3",
-            "InstalledItem": {
-              "ClassName": "BEHR_BallisticRepeater_Ventilation_S3",
-              "Size": 1,
-              "Grade": 1,
-              "Type": "WeaponAttachment.Ventilation",
-              "Name": "BEHR_BallisticRepeater_Ventilation_S3"
-            },
-            "Types": [
-              "WeaponAttachment.Ventilation"
-            ],
-            "Category": "Weapon attachments"
+            "PortName": "magazine_attach",
+            "Size": 0,
+            "Category": "UNKNOWN"
           }
         ]
       },
@@ -415,8 +356,8 @@
           "Size": 2
         },
         "PowerConnection": {
-          "PowerBase": 0.0,
-          "PowerDraw": 1.0
+          "PowerBase": 20.0,
+          "PowerDraw": 20.0
         },
         "HeatConnection": {
           "ThermalEnergyBase": 10.0,
@@ -492,8 +433,8 @@
           "Size": 2
         },
         "PowerConnection": {
-          "PowerBase": 0.0,
-          "PowerDraw": 1.0
+          "PowerBase": 20.0,
+          "PowerDraw": 20.0
         },
         "HeatConnection": {
           "ThermalEnergyBase": 10.0,
@@ -685,10 +626,10 @@
           "Name": "Seal Corporation"
         },
         "Shield": {
-          "Health": 3600.0,
-          "Regeneration": 180.0,
-          "DownedDelay": 10.0,
-          "DamagedDelay": 7.0,
+          "Health": 1800.0,
+          "Regeneration": 450.0,
+          "DownedDelay": 5.0,
+          "DamagedDelay": 5.0,
           "Absorption": {
             "Physical": {
               "Minimum": 0.5,
@@ -721,8 +662,8 @@
           "Lifetime": 20.0
         },
         "PowerConnection": {
-          "PowerBase": 106.0,
-          "PowerDraw": 210.0
+          "PowerBase": 200.0,
+          "PowerDraw": 250.0
         },
         "HeatConnection": {
           "ThermalEnergyBase": 9037.5,
@@ -754,10 +695,10 @@
           "Name": "Seal Corporation"
         },
         "Shield": {
-          "Health": 3600.0,
-          "Regeneration": 180.0,
-          "DownedDelay": 10.0,
-          "DamagedDelay": 7.0,
+          "Health": 1800.0,
+          "Regeneration": 450.0,
+          "DownedDelay": 5.0,
+          "DamagedDelay": 5.0,
           "Absorption": {
             "Physical": {
               "Minimum": 0.5,
@@ -790,8 +731,8 @@
           "Lifetime": 20.0
         },
         "PowerConnection": {
-          "PowerBase": 106.0,
-          "PowerDraw": 210.0
+          "PowerBase": 200.0,
+          "PowerDraw": 250.0
         },
         "HeatConnection": {
           "ThermalEnergyBase": 9037.5,
@@ -1037,10 +978,10 @@
           "Name": "Origin Jumpworks"
         },
         "Thruster": {
-          "ThrustCapacity": 6056151.0,
+          "ThrustCapacity": 7545719.0,
           "FuelRate": 1.25E-05,
           "Type": "Main",
-          "MaxThrustFuelRate": 75.7018875
+          "MaxThrustFuelRate": 94.3214875
         },
         "Durability": {
           "Health": 8700.0,
@@ -1084,10 +1025,10 @@
           "Name": "Origin Jumpworks"
         },
         "Thruster": {
-          "ThrustCapacity": 1658555.0,
+          "ThrustCapacity": 1657756.0,
           "FuelRate": 1.25E-05,
           "Type": "Retro",
-          "MaxThrustFuelRate": 20.7319375
+          "MaxThrustFuelRate": 20.72195
         },
         "Durability": {
           "Health": 8100.0,
@@ -1133,10 +1074,10 @@
           "Name": "Origin Jumpworks"
         },
         "Thruster": {
-          "ThrustCapacity": 1658555.0,
+          "ThrustCapacity": 1657756.0,
           "FuelRate": 1.25E-05,
           "Type": "Retro",
-          "MaxThrustFuelRate": 20.7319375
+          "MaxThrustFuelRate": 20.72195
         },
         "Durability": {
           "Health": 8100.0,
@@ -1185,10 +1126,10 @@
           "Name": "Origin Jumpworks"
         },
         "Thruster": {
-          "ThrustCapacity": 825458.0,
+          "ThrustCapacity": 1251292.0,
           "FuelRate": 1.25E-05,
           "Type": "Maneuver",
-          "MaxThrustFuelRate": 10.318225
+          "MaxThrustFuelRate": 15.641150000000001
         },
         "Durability": {
           "Health": 7250.0,
@@ -1235,10 +1176,10 @@
           "Name": "Origin Jumpworks"
         },
         "Thruster": {
-          "ThrustCapacity": 825458.0,
+          "ThrustCapacity": 1251292.0,
           "FuelRate": 1.25E-05,
           "Type": "Maneuver",
-          "MaxThrustFuelRate": 10.318225
+          "MaxThrustFuelRate": 15.641150000000001
         },
         "Durability": {
           "Health": 7250.0,
@@ -1285,10 +1226,10 @@
           "Name": "Origin Jumpworks"
         },
         "Thruster": {
-          "ThrustCapacity": 825458.0,
+          "ThrustCapacity": 1251292.0,
           "FuelRate": 1.25E-05,
           "Type": "Maneuver",
-          "MaxThrustFuelRate": 10.318225
+          "MaxThrustFuelRate": 15.641150000000001
         },
         "Durability": {
           "Health": 7250.0,
@@ -1335,10 +1276,10 @@
           "Name": "Origin Jumpworks"
         },
         "Thruster": {
-          "ThrustCapacity": 825458.0,
+          "ThrustCapacity": 1251292.0,
           "FuelRate": 1.25E-05,
           "Type": "Maneuver",
-          "MaxThrustFuelRate": 10.318225
+          "MaxThrustFuelRate": 15.641150000000001
         },
         "Durability": {
           "Health": 7250.0,
@@ -1385,10 +1326,10 @@
           "Name": "Origin Jumpworks"
         },
         "Thruster": {
-          "ThrustCapacity": 1254454.0,
+          "ThrustCapacity": 1452450.0,
           "FuelRate": 1.25E-05,
           "Type": "Maneuver",
-          "MaxThrustFuelRate": 15.680675
+          "MaxThrustFuelRate": 18.155625
         },
         "Durability": {
           "Health": 7250.0,
@@ -1434,10 +1375,10 @@
           "Name": "Origin Jumpworks"
         },
         "Thruster": {
-          "ThrustCapacity": 1254454.0,
+          "ThrustCapacity": 1452450.0,
           "FuelRate": 1.25E-05,
           "Type": "Maneuver",
-          "MaxThrustFuelRate": 15.680675
+          "MaxThrustFuelRate": 18.155625
         },
         "Durability": {
           "Health": 7250.0,
@@ -1483,10 +1424,10 @@
           "Name": "Origin Jumpworks"
         },
         "Thruster": {
-          "ThrustCapacity": 825458.0,
+          "ThrustCapacity": 1251292.0,
           "FuelRate": 1.25E-05,
           "Type": "Maneuver",
-          "MaxThrustFuelRate": 10.318225
+          "MaxThrustFuelRate": 15.641150000000001
         },
         "Durability": {
           "Health": 7250.0,
@@ -1532,10 +1473,10 @@
           "Name": "Origin Jumpworks"
         },
         "Thruster": {
-          "ThrustCapacity": 825458.0,
+          "ThrustCapacity": 1251292.0,
           "FuelRate": 1.25E-05,
           "Type": "Maneuver",
-          "MaxThrustFuelRate": 10.318225
+          "MaxThrustFuelRate": 15.641150000000001
         },
         "Durability": {
           "Health": 7250.0,
@@ -1581,10 +1522,10 @@
           "Name": "Origin Jumpworks"
         },
         "Thruster": {
-          "ThrustCapacity": 825458.0,
+          "ThrustCapacity": 1251292.0,
           "FuelRate": 1.25E-05,
           "Type": "Maneuver",
-          "MaxThrustFuelRate": 10.318225
+          "MaxThrustFuelRate": 15.641150000000001
         },
         "Durability": {
           "Health": 7250.0,
@@ -1630,10 +1571,10 @@
           "Name": "Origin Jumpworks"
         },
         "Thruster": {
-          "ThrustCapacity": 825458.0,
+          "ThrustCapacity": 1251292.0,
           "FuelRate": 1.25E-05,
           "Type": "Maneuver",
-          "MaxThrustFuelRate": 10.318225
+          "MaxThrustFuelRate": 15.641150000000001
         },
         "Durability": {
           "Health": 7250.0,
@@ -1679,10 +1620,10 @@
           "Name": "Origin Jumpworks"
         },
         "Thruster": {
-          "ThrustCapacity": 825458.0,
+          "ThrustCapacity": 1251292.0,
           "FuelRate": 1.25E-05,
           "Type": "Maneuver",
-          "MaxThrustFuelRate": 10.318225
+          "MaxThrustFuelRate": 15.641150000000001
         },
         "Durability": {
           "Health": 7250.0,
@@ -1727,10 +1668,10 @@
           "Name": "Origin Jumpworks"
         },
         "Thruster": {
-          "ThrustCapacity": 825458.0,
+          "ThrustCapacity": 1251292.0,
           "FuelRate": 1.25E-05,
           "Type": "Maneuver",
-          "MaxThrustFuelRate": 10.318225
+          "MaxThrustFuelRate": 15.641150000000001
         },
         "Durability": {
           "Health": 7250.0,
@@ -1987,7 +1928,7 @@
       "Loadout": "RADR_WLOP_S01_Capstan",
       "InstalledItem": {
         "ClassName": "RADR_WLOP_S01_Capstan",
-        "Size": 1,
+        "Size": 0,
         "Grade": 1,
         "Type": "Radar.MidRangeRadar",
         "Name": "Capston",
@@ -2008,36 +1949,9 @@
           "CoolingRate": 1.0
         },
         "Radar": {
-          "DetectionLifetime": 60.0,
-          "AltitudeCeiling": 5000.0,
-          "CrossSectionOcclusion": false,
-          "Signatures": [
-            {
-              "Detectable": true,
-              "Sensitivity": 0.5,
-              "AmbientPiercing": false
-            },
-            {
-              "Detectable": true,
-              "Sensitivity": 0.5,
-              "AmbientPiercing": false
-            },
-            {
-              "Detectable": false,
-              "Sensitivity": 1.0,
-              "AmbientPiercing": false
-            },
-            {
-              "Detectable": false,
-              "Sensitivity": 1.0,
-              "AmbientPiercing": false
-            },
-            {
-              "Detectable": true,
-              "Sensitivity": 0.5,
-              "AmbientPiercing": false
-            }
-          ]
+          "DetectionLifetime": 0.0,
+          "AltitudeCeiling": 0.0,
+          "CrossSectionOcclusion": false
         },
         "Ports": [
           {
@@ -2078,7 +1992,7 @@
           "flightReady"
         ],
         "Scanner": {
-          "Range": 1.0
+          "Range": 0.0
         }
       },
       "Types": [
@@ -2104,23 +2018,7 @@
         "Description": "Ping",
         "Tags": [
           "flightReady"
-        ],
-        "Durability": {
-          "Lifetime": 720.0
-        },
-        "PowerConnection": {
-          "PowerBase": 50.0,
-          "PowerDraw": 550.0
-        },
-        "HeatConnection": {
-          "ThermalEnergyBase": 10.0,
-          "ThermalEnergyDraw": 20.0,
-          "CoolingRate": 1.0
-        },
-        "Ping": {
-          "ChargeTime": 2.0,
-          "CooldownTime": 10.0
-        }
+        ]
       },
       "Types": [
         "Ping"

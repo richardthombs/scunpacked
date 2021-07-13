@@ -5,7 +5,7 @@
     "Parts": [
       {
         "Name": "nose",
-        "MaximumDamage": 1480.0,
+        "MaximumDamage": 10000.0,
         "Parts": [
           {
             "Name": "shield_generator_cover",
@@ -20,7 +20,7 @@
               "Loadout": "RADR_GRNP_S01_Ecouter",
               "InstalledItem": {
                 "ClassName": "RADR_GRNP_S01_Ecouter",
-                "Size": 1,
+                "Size": 0,
                 "Grade": 1,
                 "Type": "Radar.MidRangeRadar",
                 "Name": "Ecouter",
@@ -41,36 +41,9 @@
                   "CoolingRate": 1.0
                 },
                 "Radar": {
-                  "DetectionLifetime": 60.0,
-                  "AltitudeCeiling": 5000.0,
-                  "CrossSectionOcclusion": false,
-                  "Signatures": [
-                    {
-                      "Detectable": true,
-                      "Sensitivity": 0.5,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": true,
-                      "Sensitivity": 0.5,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": false,
-                      "Sensitivity": 1.0,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": false,
-                      "Sensitivity": 1.0,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": true,
-                      "Sensitivity": 0.5,
-                      "AmbientPiercing": false
-                    }
-                  ]
+                  "DetectionLifetime": 0.0,
+                  "AltitudeCeiling": 0.0,
+                  "CrossSectionOcclusion": false
                 },
                 "Ports": [
                   {
@@ -115,7 +88,7 @@
           },
           {
             "Name": "canopy",
-            "MaximumDamage": 250.0,
+            "MaximumDamage": 7500.0,
             "Parts": [
               {
                 "Name": "canopy_glass",
@@ -123,7 +96,7 @@
                 "PartDetachDamage": 250.0
               }
             ],
-            "PartDetachDamage": 250.0
+            "PartDetachDamage": 7500.0
           },
           {
             "Name": "hardpoint_dashboard_pilot",
@@ -171,6 +144,19 @@
                     "Types": [
                       "Display"
                     ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "Display_HUD",
+                    "Size": 0,
+                    "Loadout": "Projector_HUD_Generic",
+                    "InstalledItem": {
+                      "ClassName": "Projector_HUD_Generic",
+                      "Size": 1,
+                      "Grade": 1,
+                      "Type": "Display.UNDEFINED",
+                      "Name": "Projector_HUD_Generic"
+                    },
                     "Category": "UNKNOWN"
                   }
                 ]
@@ -255,6 +241,30 @@
               },
               "Types": [
                 "EnergyController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_weapon_regen_pool",
+            "Port": {
+              "PortName": "hardpoint_weapon_regen_pool",
+              "Size": 1,
+              "Loadout": "WeaponRegenPool_Crew_Gladiator",
+              "InstalledItem": {
+                "ClassName": "WeaponRegenPool_Crew_Gladiator",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponRegenPool.UNDEFINED",
+                "Name": "WeaponRegenPool_Crew_Gladiator"
+              },
+              "Types": [
+                "WeaponRegenPool"
               ],
               "Flags": [
                 "invisible",
@@ -433,7 +443,7 @@
               "Loadout": "RADR_GRNP_S01_Ecouter",
               "InstalledItem": {
                 "ClassName": "RADR_GRNP_S01_Ecouter",
-                "Size": 1,
+                "Size": 0,
                 "Grade": 1,
                 "Type": "Radar.MidRangeRadar",
                 "Name": "Ecouter",
@@ -454,36 +464,9 @@
                   "CoolingRate": 1.0
                 },
                 "Radar": {
-                  "DetectionLifetime": 60.0,
-                  "AltitudeCeiling": 5000.0,
-                  "CrossSectionOcclusion": false,
-                  "Signatures": [
-                    {
-                      "Detectable": true,
-                      "Sensitivity": 0.5,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": true,
-                      "Sensitivity": 0.5,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": false,
-                      "Sensitivity": 1.0,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": false,
-                      "Sensitivity": 1.0,
-                      "AmbientPiercing": false
-                    },
-                    {
-                      "Detectable": true,
-                      "Sensitivity": 0.5,
-                      "AmbientPiercing": false
-                    }
-                  ]
+                  "DetectionLifetime": 0.0,
+                  "AltitudeCeiling": 0.0,
+                  "CrossSectionOcclusion": false
                 },
                 "Ports": [
                   {
@@ -529,10 +512,10 @@
                   "Name": "Gorgon Defender Industries"
                 },
                 "Shield": {
-                  "Health": 5400.0,
-                  "Regeneration": 270.0,
-                  "DownedDelay": 7.5,
-                  "DamagedDelay": 5.25,
+                  "Health": 1800.0,
+                  "Regeneration": 450.0,
+                  "DownedDelay": 5.0,
+                  "DamagedDelay": 5.0,
                   "Absorption": {
                     "Physical": {
                       "Minimum": 0.5,
@@ -565,8 +548,8 @@
                   "Lifetime": 20.0
                 },
                 "PowerConnection": {
-                  "PowerBase": 212.0,
-                  "PowerDraw": 420.0
+                  "PowerBase": 200.0,
+                  "PowerDraw": 250.0
                 },
                 "HeatConnection": {
                   "ThermalEnergyBase": 20116.67,
@@ -601,10 +584,10 @@
                   "Name": "Gorgon Defender Industries"
                 },
                 "Shield": {
-                  "Health": 5400.0,
-                  "Regeneration": 270.0,
-                  "DownedDelay": 7.5,
-                  "DamagedDelay": 5.25,
+                  "Health": 1800.0,
+                  "Regeneration": 450.0,
+                  "DownedDelay": 5.0,
+                  "DamagedDelay": 5.0,
                   "Absorption": {
                     "Physical": {
                       "Minimum": 0.5,
@@ -637,8 +620,8 @@
                   "Lifetime": 20.0
                 },
                 "PowerConnection": {
-                  "PowerBase": 212.0,
-                  "PowerDraw": 420.0
+                  "PowerBase": 200.0,
+                  "PowerDraw": 250.0
                 },
                 "HeatConnection": {
                   "ThermalEnergyBase": 20116.67,
@@ -719,7 +702,7 @@
                   "flightReady"
                 ],
                 "Scanner": {
-                  "Range": 1.0
+                  "Range": 0.0
                 }
               },
               "Types": [
@@ -748,23 +731,7 @@
                 "Description": "Ping",
                 "Tags": [
                   "flightReady"
-                ],
-                "Durability": {
-                  "Lifetime": 720.0
-                },
-                "PowerConnection": {
-                  "PowerBase": 50.0,
-                  "PowerDraw": 550.0
-                },
-                "HeatConnection": {
-                  "ThermalEnergyBase": 10.0,
-                  "ThermalEnergyDraw": 20.0,
-                  "CoolingRate": 1.0
-                },
-                "Ping": {
-                  "ChargeTime": 2.0,
-                  "CooldownTime": 10.0
-                }
+                ]
               },
               "Types": [
                 "Ping"
@@ -792,10 +759,61 @@
               "Category": "Transponders",
               "Uneditable": true
             }
+          },
+          {
+            "Name": "hardpoint_weapon_regen_pool_turrets",
+            "Port": {
+              "PortName": "hardpoint_weapon_regen_pool_turrets",
+              "Size": 1,
+              "Loadout": "WeaponRegenPool_Turret_Gladiator",
+              "InstalledItem": {
+                "ClassName": "WeaponRegenPool_Turret_Gladiator",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponRegenPool.UNDEFINED",
+                "Name": "WeaponRegenPool_Turret_Gladiator"
+              },
+              "Types": [
+                "WeaponRegenPool"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_capacitor_assignment",
+            "Port": {
+              "PortName": "hardpoint_controller_capacitor_assignment",
+              "Size": 1,
+              "Loadout": "Controller_CapacitorAssignment",
+              "InstalledItem": {
+                "ClassName": "Controller_CapacitorAssignment",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "CapacitorAssignmentController.UNDEFINED",
+                "Name": "Controller_CapacitorAssignment",
+                "Tags": [
+                  "flightReady"
+                ]
+              },
+              "Types": [
+                "CapacitorAssignmentController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
           }
         ],
-        "ShipDestructionDamage": 1480.0,
-        "PartDetachDamage": 1480.0
+        "ShipDestructionDamage": 10000.0,
+        "PartDetachDamage": 10000.0
       },
       {
         "Name": "LandingPad_Helper",
@@ -846,7 +864,7 @@
       },
       {
         "Name": "body",
-        "MaximumDamage": 2680.0,
+        "MaximumDamage": 10000.0,
         "Parts": [
           {
             "Name": "amunition_hatch_right",
@@ -875,7 +893,7 @@
           },
           {
             "Name": "tailfin_left",
-            "MaximumDamage": 140.0,
+            "MaximumDamage": 800.0,
             "Parts": [
               {
                 "Name": "tailfin_left_rudder_control",
@@ -888,7 +906,7 @@
                 ]
               }
             ],
-            "PartDetachDamage": 140.0
+            "PartDetachDamage": 800.0
           },
           {
             "Name": "sidefin_right",
@@ -897,7 +915,7 @@
           },
           {
             "Name": "tailfin_right",
-            "MaximumDamage": 140.0,
+            "MaximumDamage": 800.0,
             "Parts": [
               {
                 "Name": "tailfin_right_rudder_control",
@@ -910,7 +928,7 @@
                 ]
               }
             ],
-            "PartDetachDamage": 140.0
+            "PartDetachDamage": 800.0
           },
           {
             "Name": "tail",
@@ -1205,8 +1223,8 @@
                       "Size": 2
                     },
                     "PowerConnection": {
-                      "PowerBase": 0.0,
-                      "PowerDraw": 1.0
+                      "PowerBase": 20.0,
+                      "PowerDraw": 20.0
                     },
                     "HeatConnection": {
                       "ThermalEnergyBase": 10.0,
@@ -1320,8 +1338,8 @@
                       "Size": 2
                     },
                     "PowerConnection": {
-                      "PowerBase": 0.0,
-                      "PowerDraw": 1.0
+                      "PowerBase": 20.0,
+                      "PowerDraw": 20.0
                     },
                     "HeatConnection": {
                       "ThermalEnergyBase": 10.0,
@@ -1450,10 +1468,10 @@
                   "Name": "Anvil Aerospace"
                 },
                 "Thruster": {
-                  "ThrustCapacity": 2074722.0,
+                  "ThrustCapacity": 2073723.0,
                   "FuelRate": 1.25E-05,
                   "Type": "Main",
-                  "MaxThrustFuelRate": 25.934025000000002
+                  "MaxThrustFuelRate": 25.921537500000003
                 },
                 "Durability": {
                   "Health": 8500.0,
@@ -1499,10 +1517,10 @@
                   "Name": "Anvil Aerospace"
                 },
                 "Thruster": {
-                  "ThrustCapacity": 2074722.0,
+                  "ThrustCapacity": 2073723.0,
                   "FuelRate": 1.25E-05,
                   "Type": "Main",
-                  "MaxThrustFuelRate": 25.934025000000002
+                  "MaxThrustFuelRate": 25.921537500000003
                 },
                 "Durability": {
                   "Health": 8500.0,
@@ -1549,10 +1567,10 @@
                   "Name": "Anvil Aerospace"
                 },
                 "Thruster": {
-                  "ThrustCapacity": 882511.3,
+                  "ThrustCapacity": 980676.8,
                   "FuelRate": 1.25E-05,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 11.03139125
+                  "MaxThrustFuelRate": 12.258460000000001
                 },
                 "Durability": {
                   "Health": 7256.0,
@@ -1597,10 +1615,10 @@
                   "Name": "Anvil Aerospace"
                 },
                 "Thruster": {
-                  "ThrustCapacity": 882511.3,
+                  "ThrustCapacity": 980676.8,
                   "FuelRate": 1.25E-05,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 11.03139125
+                  "MaxThrustFuelRate": 12.258460000000001
                 },
                 "Durability": {
                   "Health": 7256.0,
@@ -1782,10 +1800,10 @@
                   "Name": "Anvil Aerospace"
                 },
                 "Thruster": {
-                  "ThrustCapacity": 882511.3,
+                  "ThrustCapacity": 981613.2,
                   "FuelRate": 1.25E-05,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 11.03139125
+                  "MaxThrustFuelRate": 12.270165
                 },
                 "Durability": {
                   "Health": 6980.0,
@@ -1830,10 +1848,10 @@
                   "Name": "Anvil Aerospace"
                 },
                 "Thruster": {
-                  "ThrustCapacity": 882511.3,
+                  "ThrustCapacity": 981613.2,
                   "FuelRate": 1.25E-05,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 11.03139125
+                  "MaxThrustFuelRate": 12.270165
                 },
                 "Durability": {
                   "Health": 6980.0,
@@ -1878,10 +1896,10 @@
                   "Name": "Anvil Aerospace"
                 },
                 "Thruster": {
-                  "ThrustCapacity": 550101.9,
+                  "ThrustCapacity": 949379.4,
                   "FuelRate": 1.25E-05,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 6.87627375
+                  "MaxThrustFuelRate": 11.867242500000001
                 },
                 "Durability": {
                   "Health": 6980.0,
@@ -1931,10 +1949,10 @@
                   "Name": "Anvil Aerospace"
                 },
                 "Thruster": {
-                  "ThrustCapacity": 550101.9,
+                  "ThrustCapacity": 949379.4,
                   "FuelRate": 1.25E-05,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 6.87627375
+                  "MaxThrustFuelRate": 11.867242500000001
                 },
                 "Durability": {
                   "Health": 6980.0,
@@ -1985,10 +2003,10 @@
                   "Name": "Anvil Aerospace"
                 },
                 "Thruster": {
-                  "ThrustCapacity": 550101.9,
+                  "ThrustCapacity": 949379.4,
                   "FuelRate": 1.25E-05,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 6.87627375
+                  "MaxThrustFuelRate": 11.867242500000001
                 },
                 "Durability": {
                   "Health": 6980.0,
@@ -2038,10 +2056,10 @@
                   "Name": "Anvil Aerospace"
                 },
                 "Thruster": {
-                  "ThrustCapacity": 550101.9,
+                  "ThrustCapacity": 949379.4,
                   "FuelRate": 1.25E-05,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 6.87627375
+                  "MaxThrustFuelRate": 11.867242500000001
                 },
                 "Durability": {
                   "Health": 6980.0,
@@ -2079,21 +2097,21 @@
             "Port": {
               "PortName": "hardpoint_class_2_left_wing",
               "Size": 3,
-              "Loadout": "GATS_BallisticGatling_S3",
+              "Loadout": "KLWE_LaserRepeater_S3",
               "InstalledItem": {
-                "ClassName": "GATS_BallisticGatling_S3",
+                "ClassName": "KLWE_LaserRepeater_S3",
                 "Size": 3,
                 "Grade": 1,
                 "Type": "WeaponGun.Gun",
-                "Name": "Mantis GT-220 Gatling",
-                "Description": "Manufacturer: Gallenson Tactical Systems\nItem Type: Ballistic Gatling\nSize: 3\n\nThe Mantis GT-220 is a hydraulically-driven Gatling-type rotary cannon designed to deliver smaller rounds at a very high rate of fire. The Mantis is designed to shred armor on very fast targets, sacrificing power for absolute saturation of the target area.\t",
+                "Name": "CF-337 Panther Repeater",
+                "Description": "Manufacturer: Klaus & Werner\nItem Type: Laser Repeater\nSize: 3\n\nThe CF-337 Panther is the size three model in Klaus & Werner's laser repeater line. The Panther is a true fire-and-forget weapon with a respectable power consumption-to-damage ratio. Pilots who outfit their ships with Panthers rarely regret the decision.",
                 "Manufacturer": {
-                  "Code": "GAT",
-                  "Name": "Gallenson Tactical Systems"
+                  "Code": "KLA",
+                  "Name": "Klaus & Werner"
                 },
                 "Tags": [
-                  "GATS",
-                  "BallisticGatling",
+                  "KLWE",
+                  "LaserRepeater",
                   "flightReady",
                   "weaponMountUsable"
                 ],
@@ -2102,66 +2120,54 @@
                   "Lifetime": 20.0
                 },
                 "PowerConnection": {
-                  "PowerBase": 57.0,
-                  "PowerDraw": 221.0
+                  "PowerBase": 122.0,
+                  "PowerDraw": 336.0
                 },
                 "HeatConnection": {
                   "ThermalEnergyBase": 100.0,
-                  "ThermalEnergyDraw": 200.0,
-                  "CoolingRate": 123.235
+                  "ThermalEnergyDraw": 100.0,
+                  "CoolingRate": 160.0
                 },
                 "Weapon": {
                   "Ammunition": {
                     "Speed": 1400.0,
-                    "Range": 2366.0,
-                    "Size": 1.0,
-                    "Capacity": 4000.0,
+                    "Range": 1400.0,
+                    "Size": 3.0,
+                    "Capacity": 0.0,
                     "ImpactDamage": {
-                      "Physical": 28.8
+                      "Energy": 60.0
                     }
                   },
                   "Modes": [
                     {
-                      "Name": "Rapid",
-                      "LocalisedName": "[AUTO]",
-                      "RoundsPerMinute": 1000.0,
-                      "FireType": "rapid",
+                      "Name": "Single",
+                      "LocalisedName": "[SEMI]",
+                      "RoundsPerMinute": 500.0,
+                      "FireType": "sequence",
                       "AmmoPerShot": 1.0,
                       "PelletsPerShot": 1.0,
                       "DamagePerShot": {
-                        "Physical": 28.8
+                        "Energy": 60.0
                       },
                       "DamagePerSecond": {
-                        "Physical": 480.00000000000006
+                        "Energy": 500.00000000000006
                       }
                     }
                   ]
                 },
                 "Ammunition": {
                   "Speed": 1400.0,
-                  "Range": 2366.0,
-                  "Size": 1.0,
-                  "Capacity": 4000.0,
+                  "Range": 1400.0,
+                  "Size": 3.0,
+                  "Capacity": 0.0,
                   "ImpactDamage": {
-                    "Physical": 28.8
+                    "Energy": 60.0
                   }
                 },
                 "Ports": [
                   {
                     "PortName": "BAR1",
                     "Size": 1,
-                    "Loadout": "GATS_BallisticGatling_Barrel_S3",
-                    "InstalledItem": {
-                      "ClassName": "GATS_BallisticGatling_Barrel_S3",
-                      "Size": 1,
-                      "Grade": 1,
-                      "Type": "WeaponAttachment.Barrel",
-                      "Name": "GATS_BallisticGatling_Barrel_S3",
-                      "Manufacturer": {
-                        "Code": "GAT",
-                        "Name": "Gallenson Tactical Systems"
-                      }
-                    },
                     "Types": [
                       "WeaponAttachment.Barrel"
                     ],
@@ -2170,18 +2176,6 @@
                   {
                     "PortName": "MEC",
                     "Size": 1,
-                    "Loadout": "GATS_BallisticGatling_FiringMechanism_S3",
-                    "InstalledItem": {
-                      "ClassName": "GATS_BallisticGatling_FiringMechanism_S3",
-                      "Size": 1,
-                      "Grade": 1,
-                      "Type": "WeaponAttachment.FiringMechanism",
-                      "Name": "GATS_BallisticGatling_FiringMechanism_S3",
-                      "Manufacturer": {
-                        "Code": "GAT",
-                        "Name": "Gallenson Tactical Systems"
-                      }
-                    },
                     "Types": [
                       "WeaponAttachment.FiringMechanism"
                     ],
@@ -2190,18 +2184,6 @@
                   {
                     "PortName": "POW",
                     "Size": 1,
-                    "Loadout": "GATS_BallisticGatling_PowerArray_S3",
-                    "InstalledItem": {
-                      "ClassName": "GATS_BallisticGatling_PowerArray_S3",
-                      "Size": 1,
-                      "Grade": 1,
-                      "Type": "WeaponAttachment.PowerArray",
-                      "Name": "GATS_BallisticGatling_PowerArray_S3",
-                      "Manufacturer": {
-                        "Code": "GAT",
-                        "Name": "Gallenson Tactical Systems"
-                      }
-                    },
                     "Types": [
                       "WeaponAttachment.PowerArray"
                     ],
@@ -2210,18 +2192,6 @@
                   {
                     "PortName": "VEN",
                     "Size": 1,
-                    "Loadout": "GATS_BallisticGatling_Ventilation_S3",
-                    "InstalledItem": {
-                      "ClassName": "GATS_BallisticGatling_Ventilation_S3",
-                      "Size": 1,
-                      "Grade": 1,
-                      "Type": "WeaponAttachment.Ventilation",
-                      "Name": "GATS_BallisticGatling_Ventilation_S3",
-                      "Manufacturer": {
-                        "Code": "GAT",
-                        "Name": "Gallenson Tactical Systems"
-                      }
-                    },
                     "Types": [
                       "WeaponAttachment.Ventilation"
                     ],
@@ -2246,21 +2216,21 @@
             "Port": {
               "PortName": "hardpoint_class_2_right_wing",
               "Size": 3,
-              "Loadout": "GATS_BallisticGatling_S3",
+              "Loadout": "KLWE_LaserRepeater_S3",
               "InstalledItem": {
-                "ClassName": "GATS_BallisticGatling_S3",
+                "ClassName": "KLWE_LaserRepeater_S3",
                 "Size": 3,
                 "Grade": 1,
                 "Type": "WeaponGun.Gun",
-                "Name": "Mantis GT-220 Gatling",
-                "Description": "Manufacturer: Gallenson Tactical Systems\nItem Type: Ballistic Gatling\nSize: 3\n\nThe Mantis GT-220 is a hydraulically-driven Gatling-type rotary cannon designed to deliver smaller rounds at a very high rate of fire. The Mantis is designed to shred armor on very fast targets, sacrificing power for absolute saturation of the target area.\t",
+                "Name": "CF-337 Panther Repeater",
+                "Description": "Manufacturer: Klaus & Werner\nItem Type: Laser Repeater\nSize: 3\n\nThe CF-337 Panther is the size three model in Klaus & Werner's laser repeater line. The Panther is a true fire-and-forget weapon with a respectable power consumption-to-damage ratio. Pilots who outfit their ships with Panthers rarely regret the decision.",
                 "Manufacturer": {
-                  "Code": "GAT",
-                  "Name": "Gallenson Tactical Systems"
+                  "Code": "KLA",
+                  "Name": "Klaus & Werner"
                 },
                 "Tags": [
-                  "GATS",
-                  "BallisticGatling",
+                  "KLWE",
+                  "LaserRepeater",
                   "flightReady",
                   "weaponMountUsable"
                 ],
@@ -2269,66 +2239,54 @@
                   "Lifetime": 20.0
                 },
                 "PowerConnection": {
-                  "PowerBase": 57.0,
-                  "PowerDraw": 221.0
+                  "PowerBase": 122.0,
+                  "PowerDraw": 336.0
                 },
                 "HeatConnection": {
                   "ThermalEnergyBase": 100.0,
-                  "ThermalEnergyDraw": 200.0,
-                  "CoolingRate": 123.235
+                  "ThermalEnergyDraw": 100.0,
+                  "CoolingRate": 160.0
                 },
                 "Weapon": {
                   "Ammunition": {
                     "Speed": 1400.0,
-                    "Range": 2366.0,
-                    "Size": 1.0,
-                    "Capacity": 4000.0,
+                    "Range": 1400.0,
+                    "Size": 3.0,
+                    "Capacity": 0.0,
                     "ImpactDamage": {
-                      "Physical": 28.8
+                      "Energy": 60.0
                     }
                   },
                   "Modes": [
                     {
-                      "Name": "Rapid",
-                      "LocalisedName": "[AUTO]",
-                      "RoundsPerMinute": 1000.0,
-                      "FireType": "rapid",
+                      "Name": "Single",
+                      "LocalisedName": "[SEMI]",
+                      "RoundsPerMinute": 500.0,
+                      "FireType": "sequence",
                       "AmmoPerShot": 1.0,
                       "PelletsPerShot": 1.0,
                       "DamagePerShot": {
-                        "Physical": 28.8
+                        "Energy": 60.0
                       },
                       "DamagePerSecond": {
-                        "Physical": 480.00000000000006
+                        "Energy": 500.00000000000006
                       }
                     }
                   ]
                 },
                 "Ammunition": {
                   "Speed": 1400.0,
-                  "Range": 2366.0,
-                  "Size": 1.0,
-                  "Capacity": 4000.0,
+                  "Range": 1400.0,
+                  "Size": 3.0,
+                  "Capacity": 0.0,
                   "ImpactDamage": {
-                    "Physical": 28.8
+                    "Energy": 60.0
                   }
                 },
                 "Ports": [
                   {
                     "PortName": "BAR1",
                     "Size": 1,
-                    "Loadout": "GATS_BallisticGatling_Barrel_S3",
-                    "InstalledItem": {
-                      "ClassName": "GATS_BallisticGatling_Barrel_S3",
-                      "Size": 1,
-                      "Grade": 1,
-                      "Type": "WeaponAttachment.Barrel",
-                      "Name": "GATS_BallisticGatling_Barrel_S3",
-                      "Manufacturer": {
-                        "Code": "GAT",
-                        "Name": "Gallenson Tactical Systems"
-                      }
-                    },
                     "Types": [
                       "WeaponAttachment.Barrel"
                     ],
@@ -2337,18 +2295,6 @@
                   {
                     "PortName": "MEC",
                     "Size": 1,
-                    "Loadout": "GATS_BallisticGatling_FiringMechanism_S3",
-                    "InstalledItem": {
-                      "ClassName": "GATS_BallisticGatling_FiringMechanism_S3",
-                      "Size": 1,
-                      "Grade": 1,
-                      "Type": "WeaponAttachment.FiringMechanism",
-                      "Name": "GATS_BallisticGatling_FiringMechanism_S3",
-                      "Manufacturer": {
-                        "Code": "GAT",
-                        "Name": "Gallenson Tactical Systems"
-                      }
-                    },
                     "Types": [
                       "WeaponAttachment.FiringMechanism"
                     ],
@@ -2357,18 +2303,6 @@
                   {
                     "PortName": "POW",
                     "Size": 1,
-                    "Loadout": "GATS_BallisticGatling_PowerArray_S3",
-                    "InstalledItem": {
-                      "ClassName": "GATS_BallisticGatling_PowerArray_S3",
-                      "Size": 1,
-                      "Grade": 1,
-                      "Type": "WeaponAttachment.PowerArray",
-                      "Name": "GATS_BallisticGatling_PowerArray_S3",
-                      "Manufacturer": {
-                        "Code": "GAT",
-                        "Name": "Gallenson Tactical Systems"
-                      }
-                    },
                     "Types": [
                       "WeaponAttachment.PowerArray"
                     ],
@@ -2377,18 +2311,6 @@
                   {
                     "PortName": "VEN",
                     "Size": 1,
-                    "Loadout": "GATS_BallisticGatling_Ventilation_S3",
-                    "InstalledItem": {
-                      "ClassName": "GATS_BallisticGatling_Ventilation_S3",
-                      "Size": 1,
-                      "Grade": 1,
-                      "Type": "WeaponAttachment.Ventilation",
-                      "Name": "GATS_BallisticGatling_Ventilation_S3",
-                      "Manufacturer": {
-                        "Code": "GAT",
-                        "Name": "Gallenson Tactical Systems"
-                      }
-                    },
                     "Types": [
                       "WeaponAttachment.Ventilation"
                     ],
@@ -2443,8 +2365,8 @@
                       "Size": 5
                     },
                     "PowerConnection": {
-                      "PowerBase": 0.0,
-                      "PowerDraw": 1.0
+                      "PowerBase": 20.0,
+                      "PowerDraw": 20.0
                     },
                     "HeatConnection": {
                       "ThermalEnergyBase": 10.0,
@@ -2572,8 +2494,8 @@
                       "Size": 5
                     },
                     "PowerConnection": {
-                      "PowerBase": 0.0,
-                      "PowerDraw": 1.0
+                      "PowerBase": 20.0,
+                      "PowerDraw": 20.0
                     },
                     "HeatConnection": {
                       "ThermalEnergyBase": 10.0,
@@ -2773,8 +2695,8 @@
                       "Size": 2
                     },
                     "PowerConnection": {
-                      "PowerBase": 0.0,
-                      "PowerDraw": 1.0
+                      "PowerBase": 20.0,
+                      "PowerDraw": 20.0
                     },
                     "HeatConnection": {
                       "ThermalEnergyBase": 10.0,
@@ -2888,8 +2810,8 @@
                       "Size": 2
                     },
                     "PowerConnection": {
-                      "PowerBase": 0.0,
-                      "PowerDraw": 1.0
+                      "PowerBase": 20.0,
+                      "PowerDraw": 20.0
                     },
                     "HeatConnection": {
                       "ThermalEnergyBase": 10.0,
@@ -3151,38 +3073,38 @@
                       },
                       "Weapon": {
                         "Ammunition": {
-                          "Speed": 1240.0,
-                          "Range": 2108.0,
+                          "Speed": 1400.0,
+                          "Range": 1400.0,
                           "Size": 3.0,
                           "Capacity": 0.0,
                           "ImpactDamage": {
-                            "Energy": 96.0
+                            "Energy": 60.0
                           }
                         },
                         "Modes": [
                           {
                             "Name": "Single",
                             "LocalisedName": "[SEMI]",
-                            "RoundsPerMinute": 275.0,
+                            "RoundsPerMinute": 500.0,
                             "FireType": "sequence",
-                            "AmmoPerShot": 0.0,
+                            "AmmoPerShot": 1.0,
                             "PelletsPerShot": 1.0,
                             "DamagePerShot": {
-                              "Energy": 96.0
+                              "Energy": 60.0
                             },
                             "DamagePerSecond": {
-                              "Energy": 440.0
+                              "Energy": 500.00000000000006
                             }
                           }
                         ]
                       },
                       "Ammunition": {
-                        "Speed": 1240.0,
-                        "Range": 2108.0,
+                        "Speed": 1400.0,
+                        "Range": 1400.0,
                         "Size": 3.0,
                         "Capacity": 0.0,
                         "ImpactDamage": {
-                          "Energy": 96.0
+                          "Energy": 60.0
                         }
                       },
                       "Ports": [
@@ -3261,38 +3183,38 @@
                       },
                       "Weapon": {
                         "Ammunition": {
-                          "Speed": 1240.0,
-                          "Range": 2108.0,
+                          "Speed": 1400.0,
+                          "Range": 1400.0,
                           "Size": 3.0,
                           "Capacity": 0.0,
                           "ImpactDamage": {
-                            "Energy": 96.0
+                            "Energy": 60.0
                           }
                         },
                         "Modes": [
                           {
                             "Name": "Single",
                             "LocalisedName": "[SEMI]",
-                            "RoundsPerMinute": 275.0,
+                            "RoundsPerMinute": 500.0,
                             "FireType": "sequence",
-                            "AmmoPerShot": 0.0,
+                            "AmmoPerShot": 1.0,
                             "PelletsPerShot": 1.0,
                             "DamagePerShot": {
-                              "Energy": 96.0
+                              "Energy": 60.0
                             },
                             "DamagePerSecond": {
-                              "Energy": 440.0
+                              "Energy": 500.00000000000006
                             }
                           }
                         ]
                       },
                       "Ammunition": {
-                        "Speed": 1240.0,
-                        "Range": 2108.0,
+                        "Speed": 1400.0,
+                        "Range": 1400.0,
                         "Size": 3.0,
                         "Capacity": 0.0,
                         "ImpactDamage": {
-                          "Energy": 96.0
+                          "Energy": 60.0
                         }
                       },
                       "Ports": [
@@ -3459,6 +3381,14 @@
             "Port": {
               "PortName": "hardpoint_controller_missile",
               "Size": 1,
+              "Loadout": "Controller_Missile",
+              "InstalledItem": {
+                "ClassName": "Controller_Missile",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "MissileController.UNDEFINED",
+                "Name": "MISSILES"
+              },
               "Types": [
                 "MissileController"
               ],
@@ -3471,8 +3401,8 @@
             }
           }
         ],
-        "ShipDestructionDamage": 2680.0,
-        "PartDetachDamage": 2680.0
+        "ShipDestructionDamage": 10000.0,
+        "PartDetachDamage": 10000.0
       }
     ]
   }

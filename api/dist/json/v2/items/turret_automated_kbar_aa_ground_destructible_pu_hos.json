@@ -12,47 +12,6 @@
   "Durability": {
     "Health": 10000.0
   },
-  "PowerConnection": {
-    "PowerBase": 0.0,
-    "PowerDraw": 1.0
-  },
-  "HeatConnection": {
-    "ThermalEnergyBase": 10.0,
-    "ThermalEnergyDraw": 20.0,
-    "CoolingRate": 1.0
-  },
-  "Radar": {
-    "DetectionLifetime": 60.0,
-    "AltitudeCeiling": 5000.0,
-    "CrossSectionOcclusion": false,
-    "Signatures": [
-      {
-        "Detectable": true,
-        "Sensitivity": 0.5,
-        "AmbientPiercing": false
-      },
-      {
-        "Detectable": true,
-        "Sensitivity": 0.5,
-        "AmbientPiercing": false
-      },
-      {
-        "Detectable": false,
-        "Sensitivity": 1.0,
-        "AmbientPiercing": false
-      },
-      {
-        "Detectable": false,
-        "Sensitivity": 1.0,
-        "AmbientPiercing": false
-      },
-      {
-        "Detectable": false,
-        "Sensitivity": 1.0,
-        "AmbientPiercing": false
-      }
-    ]
-  },
   "Ports": [
     {
       "PortName": "hardpoint_aimodule",
@@ -99,8 +58,8 @@
           "Lifetime": 20.0
         },
         "PowerConnection": {
-          "PowerBase": 82.0,
-          "PowerDraw": 228.0
+          "PowerBase": 220.0,
+          "PowerDraw": 220.0
         },
         "HeatConnection": {
           "ThermalEnergyBase": 100.0,
@@ -109,38 +68,38 @@
         },
         "Weapon": {
           "Ammunition": {
-            "Speed": 1675.0,
-            "Range": 4020.0,
+            "Speed": 1400.0,
+            "Range": 1400.0,
             "Size": 1.0,
             "Capacity": 0.0,
             "ImpactDamage": {
-              "Energy": 137.0
+              "Energy": 80.0
             }
           },
           "Modes": [
             {
               "Name": "Single",
               "LocalisedName": "[SEMI]",
-              "RoundsPerMinute": 270.0,
+              "RoundsPerMinute": 480.0,
               "FireType": "sequence",
-              "AmmoPerShot": 0.0,
+              "AmmoPerShot": 1.0,
               "PelletsPerShot": 1.0,
               "DamagePerShot": {
-                "Energy": 137.0
+                "Energy": 80.0
               },
               "DamagePerSecond": {
-                "Energy": 616.5
+                "Energy": 640.0
               }
             }
           ]
         },
         "Ammunition": {
-          "Speed": 1675.0,
-          "Range": 4020.0,
+          "Speed": 1400.0,
+          "Range": 1400.0,
           "Size": 1.0,
           "Capacity": 0.0,
           "ImpactDamage": {
-            "Energy": 137.0
+            "Energy": 80.0
           }
         },
         "Ports": [
@@ -255,8 +214,8 @@
           "Lifetime": 20.0
         },
         "PowerConnection": {
-          "PowerBase": 82.0,
-          "PowerDraw": 228.0
+          "PowerBase": 220.0,
+          "PowerDraw": 220.0
         },
         "HeatConnection": {
           "ThermalEnergyBase": 100.0,
@@ -265,38 +224,38 @@
         },
         "Weapon": {
           "Ammunition": {
-            "Speed": 1675.0,
-            "Range": 4020.0,
+            "Speed": 1400.0,
+            "Range": 1400.0,
             "Size": 1.0,
             "Capacity": 0.0,
             "ImpactDamage": {
-              "Energy": 137.0
+              "Energy": 80.0
             }
           },
           "Modes": [
             {
               "Name": "Single",
               "LocalisedName": "[SEMI]",
-              "RoundsPerMinute": 270.0,
+              "RoundsPerMinute": 480.0,
               "FireType": "sequence",
-              "AmmoPerShot": 0.0,
+              "AmmoPerShot": 1.0,
               "PelletsPerShot": 1.0,
               "DamagePerShot": {
-                "Energy": 137.0
+                "Energy": 80.0
               },
               "DamagePerSecond": {
-                "Energy": 616.5
+                "Energy": 640.0
               }
             }
           ]
         },
         "Ammunition": {
-          "Speed": 1675.0,
-          "Range": 4020.0,
+          "Speed": 1400.0,
+          "Range": 1400.0,
           "Size": 1.0,
           "Capacity": 0.0,
           "ImpactDamage": {
-            "Energy": 137.0
+            "Energy": 80.0
           }
         },
         "Ports": [
@@ -418,6 +377,9 @@
           "CoolingRate": 104.8765
         }
       },
+      "Types": [
+        "PowerPlant"
+      ],
       "Flags": [
         "invisible",
         "uneditable"
@@ -425,26 +387,171 @@
       "Uneditable": true
     },
     {
-      "PortName": "hardpoint_cooler",
-      "Size": 3,
-      "Loadout": "COOL_JUST_S02_CoolCore_SCItem",
+      "PortName": "hardpoint_weaponcontroller",
+      "Size": 1,
+      "Loadout": "Controller_Weapon_UnmannedTurret",
       "InstalledItem": {
-        "ClassName": "COOL_JUST_S02_CoolCore_SCItem",
+        "ClassName": "Controller_Weapon_UnmannedTurret",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "WeaponController.UNDEFINED",
+        "Name": "WEAPONS"
+      },
+      "Types": [
+        "WeaponController"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_targetselector",
+      "Size": 1,
+      "Loadout": "Controller_TargetSelector",
+      "InstalledItem": {
+        "ClassName": "Controller_TargetSelector",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "TargetSelector.UNDEFINED",
+        "Name": "TARGET SELECTOR"
+      },
+      "Types": [
+        "TargetSelector"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_energycontroller",
+      "Size": 1,
+      "Loadout": "Controller_Energy",
+      "InstalledItem": {
+        "ClassName": "Controller_Energy",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "EnergyController.UNDEFINED",
+        "Name": "POWER"
+      },
+      "Types": [
+        "EnergyController"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_coolercontroller",
+      "Size": 1,
+      "Loadout": "Controller_Cooler",
+      "InstalledItem": {
+        "ClassName": "Controller_Cooler",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "CoolerController.UNDEFINED",
+        "Name": "HEAT"
+      },
+      "Types": [
+        "CoolerController"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_radar",
+      "Size": 1,
+      "Loadout": "RADR_Unmaned_Turret",
+      "InstalledItem": {
+        "ClassName": "RADR_Unmaned_Turret",
+        "Size": 0,
+        "Grade": 1,
+        "Type": "Radar.MidRangeRadar",
+        "Name": "RADR_Unmaned_Turret",
+        "Description": "@LOC_PLACEHOLDER",
+        "Tags": [
+          "flightReady"
+        ],
+        "Durability": {
+          "Lifetime": 720.0
+        },
+        "PowerConnection": {
+          "PowerBase": 0.0,
+          "PowerDraw": 1.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        },
+        "Radar": {
+          "DetectionLifetime": 0.0,
+          "AltitudeCeiling": 0.0,
+          "CrossSectionOcclusion": false
+        },
+        "Ports": [
+          {
+            "PortName": "BatteryPort",
+            "Size": 2,
+            "Types": [
+              "Battery"
+            ],
+            "Flags": [
+              "invisible"
+            ]
+          }
+        ]
+      },
+      "Types": [
+        "CoolerController"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_missilecontroller",
+      "Size": 1,
+      "Types": [
+        "MissileController"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_cooler1",
+      "Size": 1,
+      "Loadout": "COOL_AEGS_S02_Avalanche_SCItem",
+      "InstalledItem": {
+        "ClassName": "COOL_AEGS_S02_Avalanche_SCItem",
         "Size": 2,
-        "Grade": 3,
+        "Grade": 1,
         "Type": "Cooler.UNDEFINED",
-        "Name": "CoolCore",
-        "Description": "Item Type: Cooler\nManufacturer: Juno Starwerk \nSize: 2\nGrade: C\nClass: Industrial\n\nThe name CoolCore says it all. Designed by Juno Starwerk to be as hardworking as you are, this cooler helps ensure that your entire ship operates well within desired temperature parameters.",
+        "Name": "Avalanche",
+        "Description": "Item Type: Cooler\nManufacturer: Aegis Dynamics\nSize: 2\nGrade: A\nClass: Military\n\nShowcasing the best of mil-spec cooler technology, the Aegis Avalanche thermal management unit has been built from the ground up to endure the demanding needs of the battlefield.",
         "Manufacturer": {
-          "Code": "JUST",
-          "Name": "Juno Starwerk"
+          "Code": "AEG",
+          "Name": "Aegis Dynamics"
         },
         "Cooler": {
-          "Rate": 8000000.0
+          "Rate": 5800000.0
         },
         "Durability": {
-          "Health": 1350.0,
-          "Lifetime": 104.0
+          "Health": 1850.0,
+          "Lifetime": 96.0
         },
         "PowerConnection": {
           "PowerBase": 16.0,
@@ -455,6 +562,67 @@
           "ThermalEnergyDraw": 20.0,
           "CoolingRate": 1.0
         }
+      },
+      "Types": [
+        "Cooler"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_cooler2",
+      "Size": 1,
+      "Loadout": "COOL_AEGS_S02_Avalanche_SCItem",
+      "InstalledItem": {
+        "ClassName": "COOL_AEGS_S02_Avalanche_SCItem",
+        "Size": 2,
+        "Grade": 1,
+        "Type": "Cooler.UNDEFINED",
+        "Name": "Avalanche",
+        "Description": "Item Type: Cooler\nManufacturer: Aegis Dynamics\nSize: 2\nGrade: A\nClass: Military\n\nShowcasing the best of mil-spec cooler technology, the Aegis Avalanche thermal management unit has been built from the ground up to endure the demanding needs of the battlefield.",
+        "Manufacturer": {
+          "Code": "AEG",
+          "Name": "Aegis Dynamics"
+        },
+        "Cooler": {
+          "Rate": 5800000.0
+        },
+        "Durability": {
+          "Health": 1850.0,
+          "Lifetime": 96.0
+        },
+        "PowerConnection": {
+          "PowerBase": 16.0,
+          "PowerDraw": 24.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        }
+      },
+      "Types": [
+        "Cooler"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_weapon_regen_pool_turrets",
+      "Size": 1,
+      "Loadout": "WeaponRegenPool_Turret_Default",
+      "InstalledItem": {
+        "ClassName": "WeaponRegenPool_Turret_Default",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "WeaponRegenPool.UNDEFINED",
+        "Name": "WeaponRegenPool_Turret_Default"
       },
       "Flags": [
         "invisible",

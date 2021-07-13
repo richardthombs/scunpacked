@@ -36,10 +36,12 @@ ORIG_890Jump
    hardpoint_controller_cooler                    S1   CoolerController                                  Controller_Cooler                                                UNKNOWN                                 
    hardpoint_controller_door                      S1   DoorController                                    Controller_Door                                                  UNKNOWN                                 
    hardpoint_controller_energy                    S1   EnergyController                                  Controller_Energy                                                UNKNOWN                                 
+   hardpoint_weapon_regen_pool                    S1   WeaponRegenPool                                   WeaponRegenPool_Crew_890J                                        UNKNOWN                                 
+   hardpoint_weapon_regen_pool_turrets            S1   WeaponRegenPool                                   WeaponRegenPool_Turret_890J                                      UNKNOWN                                 
+   hardpoint_controller_capacitor_assignment      S1   CapacitorAssignmentController                     Controller_CapacitorAssignment                                   UNKNOWN                                 
    hardpoint_controller_flight                    S1   FlightController                                  Controller_Flight_ORIG_890J                                      UNKNOWN                                 
    hardpoint_controller_light                     S1   LightController                                   Controller_Light                                                 UNKNOWN                                 
    hardpoint_controller_shield                    S1   ShieldController                                  Controller_Shield_ORIG_890Jump                                   UNKNOWN                                 
-   hardpoint_controller_weapon                    S1   WeaponController                                  Controller_Weapon                                                UNKNOWN                                 
    hardpoint_cooler_left                          S4   Cooler                                            COOL_ORIG_S04_890J_SCItem                                        Coolers                                 
    hardpoint_cooler_right                         S4   Cooler                                            COOL_ORIG_S04_890J_SCItem                                        Coolers                                 
    hardpoint_fuel_tank                            S1   FuelTank                                          HTNK_ORIG_890J                                                   Fuel tanks                              
@@ -57,6 +59,8 @@ ORIG_890Jump
    hardpoint_radar_01                             S3   Radar.ShortRangeRadar, Radar.MidRangeRadar        RADR_CHCO_S02_Surveyor                                           Radars                                  
    hardpoint_radar_02                             S3   Radar.ShortRangeRadar, Radar.MidRangeRadar        RADR_CHCO_S02_Surveyor                                           Radars                                  
    hardpoint_scanner                              S1   Scanner                                           test_scanner                                                     Scanners                                
+    radar_helper                                  S1   Display                                                                                                            UNKNOWN                                 
+    Display_HUD                                   S0                                                     Projector_HUD_Generic                                            UNKNOWN                                 
    hardpoint_selfdestruct                         S1   SelfDestruct                                      VHCL_SelfDestruct_80s                                            Self destruct                           
    hardpoint_shield_generator_left                S4   Shield                                            SHLD_ORIG_S04_890J_SCItem                                        Shield generators                       
    hardpoint_shield_generator_right               S4   Shield                                            SHLD_ORIG_S04_890J_SCItem                                        Shield generators                       
@@ -68,8 +72,6 @@ ORIG_890Jump
    hardpoint_thruster_mav_rear_side_right         S2   ManneuverThruster                                 ORIG_890_Jump_Thruster_Mav_RSR                                   Maneuvering thrusters                   
    hardpoint_thruster_mav_rear_top_left           S2   ManneuverThruster                                 ORIG_890_Jump_Thruster_Mav_TRL                                   Maneuvering thrusters                   
    hardpoint_thruster_mav_rear_top_right          S2   ManneuverThruster                                 ORIG_890_Jump_Thruster_Mav_TRR                                   Maneuvering thrusters                   
-   hardpoint_WC_BB_Left                           S1   WeaponController                                  Controller_Weapon                                                UNKNOWN                                 
-   hardpoint_WC_BB_Right                          S1   WeaponController                                  Controller_Weapon                                                UNKNOWN                                 
    animated_body                                  S1   Room                                                                                                               Rooms                                   
    exterior_lights                                S1   MultiLight                                                                                                         UNKNOWN                                 
     hardpoint_remote_turret_left                  S6   Turret.GunTurret                                  ORIG_890j_SCItem_Remote_Turret_2                                 Remote turrets                          
@@ -82,7 +84,6 @@ ORIG_890Jump
    hardpoint_fuel_intake_left                     S1   FuelIntake                                        INTK_ORIG_890J                                                   Fuel intakes                            
    hardpoint_fuel_intake_right                    S1   FuelIntake                                        INTK_ORIG_890J                                                   Fuel intakes                            
    hardpoint_fuel_intake_center                   S1   FuelIntake                                        INTK_ORIG_890J                                                   Fuel intakes                            
-   hardpoint_controller_weapon_BB                 S1   WeaponController                                  Controller_Weapon                                                UNKNOWN                                 
    hardpoint_radar_03                             S3   Radar.ShortRangeRadar, Radar.MidRangeRadar        RADR_CHCO_S02_Surveyor                                           Radars                                  
    hardpoint_weapon_locker_01                     S1   Usable                                            Weapon_Rack_ORIG_890Jump_Armory                                  Usables                                 
     $IP_rifle_01                                  S4   WeaponPersonal                                                                                                     UNKNOWN                                 
@@ -105,7 +106,7 @@ ORIG_890Jump
     $IP_pistol_10                                 S1   WeaponPersonal                                                                                                     UNKNOWN                                 
     $IP_pistol_11                                 S1   WeaponPersonal                                                                                                     UNKNOWN                                 
     $IP_pistol_12                                 S1   WeaponPersonal                                                                                                     UNKNOWN                                 
-   hardpoint_controller_missile                   S1   MissileController                                                                                                  UNKNOWN                                 
+   hardpoint_controller_missile                   S1   MissileController                                 Controller_Missile                                               UNKNOWN                                 
    hardpoint_weapon_locker_02                     S1   Usable                                            Weapon_Rack_ORIG_890Jump_Armory                                  Usables                                 
     $IP_rifle_01                                  S4   WeaponPersonal                                                                                                     UNKNOWN                                 
     $IP_rifle_02                                  S4   WeaponPersonal                                                                                                     UNKNOWN                                 
@@ -183,14 +184,14 @@ ORIG_890Jump
      turret_right                                 S4   WeaponGun.Gun                                     BEHR_LaserCannon_S4                                              Weapon hardpoints                       
       magazine_attach                             S0                                                                                                                      UNKNOWN                                 
     hardpoint_radar_turret_upper                  S1   Radar.ShortRangeRadar, Radar.MidRangeRadar        RADR_GRNP_S01_Ecouter                                            Radars                                  
-   hardpoint_cargogrid_hangar_001                 S1   Cargo                                             ORIG_890Jump_CargoGrid_Hangar                                    Cargo grids                             
+   hardpoint_cargogrid_hangar_001                 S1   Cargo                                             ORIG_890Jump_CargoGrid_Hangar_Wide                               Cargo grids                             
    hardpoint_cargogrid_hangar_002                 S1   Cargo                                             ORIG_890Jump_CargoGrid_Hangar                                    Cargo grids                             
    hardpoint_cargogrid_hangar_003                 S1   Cargo                                             ORIG_890Jump_CargoGrid_Hangar                                    Cargo grids                             
-   hardpoint_cargogrid_hangar_004                 S1   Cargo                                             ORIG_890Jump_CargoGrid_Hangar                                    Cargo grids                             
-   hardpoint_cargogrid_hangar_005                 S1   Cargo                                             ORIG_890Jump_CargoGrid_Hangar                                    Cargo grids                             
+   hardpoint_cargogrid_hangar_004                 S1   Cargo                                                                                                              Cargo grids                             
+   hardpoint_cargogrid_hangar_005                 S1   Cargo                                             ORIG_890Jump_CargoGrid_Hangar_Wide                               Cargo grids                             
    hardpoint_cargogrid_hangar_006                 S1   Cargo                                             ORIG_890Jump_CargoGrid_Hangar                                    Cargo grids                             
    hardpoint_cargogrid_hangar_007                 S1   Cargo                                             ORIG_890Jump_CargoGrid_Hangar                                    Cargo grids                             
-   hardpoint_cargogrid_hangar_008                 S1   Cargo                                             ORIG_890Jump_CargoGrid_Hangar                                    Cargo grids                             
+   hardpoint_cargogrid_hangar_008                 S1   Cargo                                                                                                              Cargo grids                             
    hardpoint_door_hangar_02                       S1   Door                                                                                                               Doors                                   
    hardpoint_thruster_vtol_nose                   S2   ManneuverThruster                                 ORIG_890_Jump_Thruster_Mav_VTOL                                  VTOL thrusters                          
    hardpoint_remote_missile_turret_left           S6   Turret.MissileTurret                              ORIG_890j_SCItem_Remote_Turret_Missile_Top_Left                  Remote turrets                          
@@ -218,7 +219,7 @@ ORIG_890Jump
     missile_02_attach                             S3   Missile.Missile                                   MISL_S03_CS_FSKI_Arrester                                        Missiles                                
     missile_03_attach                             S3   Missile.Missile                                   MISL_S03_CS_FSKI_Arrester                                        Missiles                                
     missile_04_attach                             S3   Missile.Missile                                   MISL_S03_CS_FSKI_Arrester                                        Missiles                                
-   hardpoint_missilerack_lower_right              S5   MissileLauncher.MissileRack                       MRCK_S05_ORIG_890J_Quad_S03                                      Missile racks                           
+   hardpoint_missilerack_lower_right              S5   MissileLauncher.MissileRack                       MRCK_S05_ORIG_890J_Quad_S03_R                                    Missile racks                           
     missile_01_attach                             S3   Missile.Missile                                   MISL_S03_CS_FSKI_Arrester                                        Missiles                                
     missile_02_attach                             S3   Missile.Missile                                   MISL_S03_CS_FSKI_Arrester                                        Missiles                                
     missile_03_attach                             S3   Missile.Missile                                   MISL_S03_CS_FSKI_Arrester                                        Missiles                                
@@ -235,9 +236,16 @@ ORIG_890Jump
     magazine_attach                               S0                                                                                                                      UNKNOWN                                 
    turret_right                                   S4   WeaponGun.Gun                                     BEHR_LaserCannon_S4                                              Weapon hardpoints                       
     magazine_attach                               S0                                                                                                                      UNKNOWN                                 
+  hardpoint_controller_weapon                     S1   WeaponController                                  Controller_Weapon                                                UNKNOWN                                 
+  hardpoint_controller_weapon_BB                  S1   WeaponController                                  Controller_Weapon                                                UNKNOWN                                 
   hardpoint_controller_weapon_bridge_left         S1   WeaponController                                  Controller_Weapon                                                UNKNOWN                                 
+  hardpoint_controller_missile_bridge_left        S1   MissileController                                 Controller_Missile                                               UNKNOWN                                 
+  hardpoint_WC_BB_Left                            S1   WeaponController                                  Controller_Weapon                                                UNKNOWN                                 
+  hardpoint_MC_BB_Left                            S1   MissileController                                 Controller_Missile                                               UNKNOWN                                 
   hardpoint_controller_weapon_bridge_right        S1   WeaponController                                  Controller_Weapon                                                UNKNOWN                                 
+  hardpoint_WC_BB_Right                           S1   WeaponController                                  Controller_Weapon                                                UNKNOWN                                 
    radar_helper                                   S1   Display                                           ORIG_890J_Hologlobe_RADR_Display                                 UNKNOWN                                 
+   Display_HUD                                    S0                                                     Projector_HUD_Generic                                            UNKNOWN                                 
   hardpoint_hologlobe_display                     S4                                                     ORIG_890J_Hologlobe_RADR_Display                                 UNKNOWN                                 
  landingpad_helper                                S1   LandingSystem                                     ORIG_890Jump_LandingGearSystem                                   UNKNOWN                                 
 

@@ -879,6 +879,81 @@
             }
           },
           {
+            "Name": "hardpoint_weapon_regen_pool",
+            "Port": {
+              "PortName": "hardpoint_weapon_regen_pool",
+              "Size": 1,
+              "Loadout": "WeaponRegenPool_Crew_Caterpillar",
+              "InstalledItem": {
+                "ClassName": "WeaponRegenPool_Crew_Caterpillar",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponRegenPool.UNDEFINED",
+                "Name": "WeaponRegenPool_Crew_Caterpillar"
+              },
+              "Types": [
+                "WeaponRegenPool"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_weapon_regen_pool_turrets",
+            "Port": {
+              "PortName": "hardpoint_weapon_regen_pool_turrets",
+              "Size": 1,
+              "Loadout": "WeaponRegenPool_Turret_Caterpillar",
+              "InstalledItem": {
+                "ClassName": "WeaponRegenPool_Turret_Caterpillar",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponRegenPool.UNDEFINED",
+                "Name": "WeaponRegenPool_Turret_Caterpillar"
+              },
+              "Types": [
+                "WeaponRegenPool"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_capacitor_assignment",
+            "Port": {
+              "PortName": "hardpoint_controller_capacitor_assignment",
+              "Size": 1,
+              "Loadout": "Controller_CapacitorAssignment",
+              "InstalledItem": {
+                "ClassName": "Controller_CapacitorAssignment",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "CapacitorAssignmentController.UNDEFINED",
+                "Name": "Controller_CapacitorAssignment",
+                "Tags": [
+                  "flightReady"
+                ]
+              },
+              "Types": [
+                "CapacitorAssignmentController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
             "Name": "hardpoint_controller_cooler",
             "Port": {
               "PortName": "hardpoint_controller_cooler",
@@ -1362,21 +1437,21 @@
                       {
                         "PortName": "hardpoint_weapon_left",
                         "Size": 4,
-                        "Loadout": "BEHR_LaserCannon_S4",
+                        "Loadout": "KLWE_LaserRepeater_S4",
                         "InstalledItem": {
-                          "ClassName": "BEHR_LaserCannon_S4",
+                          "ClassName": "KLWE_LaserRepeater_S4",
                           "Size": 4,
                           "Grade": 1,
                           "Type": "WeaponGun.Gun",
-                          "Name": "M6A Cannon",
-                          "Description": "Manufacturer: Behring\nItem Type: Laser Cannon\nSize: 4\n\nBehring's M6A is a versatile high velocity energy autocannon, designed to provide to keep your enemy at range without sacrificing your stopping power.",
+                          "Name": "CF-447 Rhino Repeater",
+                          "Description": "Manufacturer: Klaus & Werner\nItem Type: Laser Repeater\nSize: 4\n\nWhen a ship comes charging at you with a CF-447 Rhino strapped on, it is an experience few pilots will ever forget. This formidable size four laser repeater from Klaus & Werner is well suited for medium-range engagements, but packs a wallop up close.",
                           "Manufacturer": {
-                            "Code": "BEH",
-                            "Name": "Behring"
+                            "Code": "KLA",
+                            "Name": "Klaus & Werner"
                           },
                           "Tags": [
-                            "BEHR",
-                            "LaserCannon",
+                            "KLWE",
+                            "LaserRepeater",
                             "flightReady",
                             "weaponMountUsable"
                           ],
@@ -1385,55 +1460,82 @@
                             "Lifetime": 20.0
                           },
                           "PowerConnection": {
-                            "PowerBase": 112.0,
-                            "PowerDraw": 230.0
+                            "PowerBase": 220.0,
+                            "PowerDraw": 270.0
                           },
                           "HeatConnection": {
                             "ThermalEnergyBase": 100.0,
                             "ThermalEnergyDraw": 200.0,
-                            "CoolingRate": 248.947
+                            "CoolingRate": 248.974
                           },
                           "Weapon": {
                             "Ammunition": {
-                              "Speed": 1000.0,
-                              "Range": 3780.0,
-                              "Size": 4.0,
+                              "Speed": 1400.0,
+                              "Range": 1400.0,
+                              "Size": 3.0,
                               "Capacity": 0.0,
                               "ImpactDamage": {
-                                "Energy": 555.0
+                                "Energy": 80.0
                               }
                             },
                             "Modes": [
                               {
                                 "Name": "Single",
-                                "LocalisedName": "[AUTO]",
-                                "RoundsPerMinute": 56.0,
+                                "LocalisedName": "[SEMI]",
+                                "RoundsPerMinute": 480.0,
                                 "FireType": "sequence",
-                                "AmmoPerShot": 0.0,
+                                "AmmoPerShot": 1.0,
                                 "PelletsPerShot": 1.0,
                                 "DamagePerShot": {
-                                  "Energy": 555.0
+                                  "Energy": 80.0
                                 },
                                 "DamagePerSecond": {
-                                  "Energy": 518.0
+                                  "Energy": 640.0
                                 }
                               }
                             ]
                           },
                           "Ammunition": {
-                            "Speed": 1000.0,
-                            "Range": 3780.0,
-                            "Size": 4.0,
+                            "Speed": 1400.0,
+                            "Range": 1400.0,
+                            "Size": 3.0,
                             "Capacity": 0.0,
                             "ImpactDamage": {
-                              "Energy": 555.0
+                              "Energy": 80.0
                             }
                           },
                           "Ports": [
                             {
-                              "PortName": "magazine_attach",
-                              "Size": 0,
-                              "Category": "UNKNOWN"
+                              "PortName": "BAR1",
+                              "Size": 1,
+                              "Types": [
+                                "WeaponAttachment.Barrel"
+                              ],
+                              "Category": "Weapon attachments"
+                            },
+                            {
+                              "PortName": "MEC",
+                              "Size": 1,
+                              "Types": [
+                                "WeaponAttachment.FiringMechanism"
+                              ],
+                              "Category": "Weapon attachments"
+                            },
+                            {
+                              "PortName": "POW",
+                              "Size": 1,
+                              "Types": [
+                                "WeaponAttachment.PowerArray"
+                              ],
+                              "Category": "Weapon attachments"
+                            },
+                            {
+                              "PortName": "VEN",
+                              "Size": 1,
+                              "Types": [
+                                "WeaponAttachment.Ventilation"
+                              ],
+                              "Category": "Weapon attachments"
                             }
                           ]
                         },
@@ -1445,21 +1547,21 @@
                       {
                         "PortName": "hardpoint_weapon_right",
                         "Size": 4,
-                        "Loadout": "BEHR_LaserCannon_S4",
+                        "Loadout": "KLWE_LaserRepeater_S4",
                         "InstalledItem": {
-                          "ClassName": "BEHR_LaserCannon_S4",
+                          "ClassName": "KLWE_LaserRepeater_S4",
                           "Size": 4,
                           "Grade": 1,
                           "Type": "WeaponGun.Gun",
-                          "Name": "M6A Cannon",
-                          "Description": "Manufacturer: Behring\nItem Type: Laser Cannon\nSize: 4\n\nBehring's M6A is a versatile high velocity energy autocannon, designed to provide to keep your enemy at range without sacrificing your stopping power.",
+                          "Name": "CF-447 Rhino Repeater",
+                          "Description": "Manufacturer: Klaus & Werner\nItem Type: Laser Repeater\nSize: 4\n\nWhen a ship comes charging at you with a CF-447 Rhino strapped on, it is an experience few pilots will ever forget. This formidable size four laser repeater from Klaus & Werner is well suited for medium-range engagements, but packs a wallop up close.",
                           "Manufacturer": {
-                            "Code": "BEH",
-                            "Name": "Behring"
+                            "Code": "KLA",
+                            "Name": "Klaus & Werner"
                           },
                           "Tags": [
-                            "BEHR",
-                            "LaserCannon",
+                            "KLWE",
+                            "LaserRepeater",
                             "flightReady",
                             "weaponMountUsable"
                           ],
@@ -1468,55 +1570,82 @@
                             "Lifetime": 20.0
                           },
                           "PowerConnection": {
-                            "PowerBase": 112.0,
-                            "PowerDraw": 230.0
+                            "PowerBase": 220.0,
+                            "PowerDraw": 270.0
                           },
                           "HeatConnection": {
                             "ThermalEnergyBase": 100.0,
                             "ThermalEnergyDraw": 200.0,
-                            "CoolingRate": 248.947
+                            "CoolingRate": 248.974
                           },
                           "Weapon": {
                             "Ammunition": {
-                              "Speed": 1000.0,
-                              "Range": 3780.0,
-                              "Size": 4.0,
+                              "Speed": 1400.0,
+                              "Range": 1400.0,
+                              "Size": 3.0,
                               "Capacity": 0.0,
                               "ImpactDamage": {
-                                "Energy": 555.0
+                                "Energy": 80.0
                               }
                             },
                             "Modes": [
                               {
                                 "Name": "Single",
-                                "LocalisedName": "[AUTO]",
-                                "RoundsPerMinute": 56.0,
+                                "LocalisedName": "[SEMI]",
+                                "RoundsPerMinute": 480.0,
                                 "FireType": "sequence",
-                                "AmmoPerShot": 0.0,
+                                "AmmoPerShot": 1.0,
                                 "PelletsPerShot": 1.0,
                                 "DamagePerShot": {
-                                  "Energy": 555.0
+                                  "Energy": 80.0
                                 },
                                 "DamagePerSecond": {
-                                  "Energy": 518.0
+                                  "Energy": 640.0
                                 }
                               }
                             ]
                           },
                           "Ammunition": {
-                            "Speed": 1000.0,
-                            "Range": 3780.0,
-                            "Size": 4.0,
+                            "Speed": 1400.0,
+                            "Range": 1400.0,
+                            "Size": 3.0,
                             "Capacity": 0.0,
                             "ImpactDamage": {
-                              "Energy": 555.0
+                              "Energy": 80.0
                             }
                           },
                           "Ports": [
                             {
-                              "PortName": "magazine_attach",
-                              "Size": 0,
-                              "Category": "UNKNOWN"
+                              "PortName": "BAR1",
+                              "Size": 1,
+                              "Types": [
+                                "WeaponAttachment.Barrel"
+                              ],
+                              "Category": "Weapon attachments"
+                            },
+                            {
+                              "PortName": "MEC",
+                              "Size": 1,
+                              "Types": [
+                                "WeaponAttachment.FiringMechanism"
+                              ],
+                              "Category": "Weapon attachments"
+                            },
+                            {
+                              "PortName": "POW",
+                              "Size": 1,
+                              "Types": [
+                                "WeaponAttachment.PowerArray"
+                              ],
+                              "Category": "Weapon attachments"
+                            },
+                            {
+                              "PortName": "VEN",
+                              "Size": 1,
+                              "Types": [
+                                "WeaponAttachment.Ventilation"
+                              ],
+                              "Category": "Weapon attachments"
                             }
                           ]
                         },
@@ -2664,7 +2793,7 @@
                   "Loadout": "RADR_WLOP_S02_Chernykh",
                   "InstalledItem": {
                     "ClassName": "RADR_WLOP_S02_Chernykh",
-                    "Size": 2,
+                    "Size": 0,
                     "Grade": 1,
                     "Type": "Radar.MidRangeRadar",
                     "Name": "Chernykh",
@@ -2685,36 +2814,9 @@
                       "CoolingRate": 1.0
                     },
                     "Radar": {
-                      "DetectionLifetime": 60.0,
-                      "AltitudeCeiling": 5000.0,
-                      "CrossSectionOcclusion": false,
-                      "Signatures": [
-                        {
-                          "Detectable": true,
-                          "Sensitivity": 0.75,
-                          "AmbientPiercing": false
-                        },
-                        {
-                          "Detectable": true,
-                          "Sensitivity": 0.75,
-                          "AmbientPiercing": false
-                        },
-                        {
-                          "Detectable": false,
-                          "Sensitivity": 1.0,
-                          "AmbientPiercing": false
-                        },
-                        {
-                          "Detectable": false,
-                          "Sensitivity": 1.0,
-                          "AmbientPiercing": false
-                        },
-                        {
-                          "Detectable": true,
-                          "Sensitivity": 0.75,
-                          "AmbientPiercing": false
-                        }
-                      ]
+                      "DetectionLifetime": 0.0,
+                      "AltitudeCeiling": 0.0,
+                      "CrossSectionOcclusion": false
                     },
                     "Ports": [
                       {
@@ -2760,10 +2862,10 @@
                       "Name": "Basilisk"
                     },
                     "Shield": {
-                      "Health": 89934.0,
-                      "Regeneration": 1927.588,
-                      "DownedDelay": 74.0,
-                      "DamagedDelay": 0.0,
+                      "Health": 100000.0,
+                      "Regeneration": 1200.0,
+                      "DownedDelay": 10.0,
+                      "DamagedDelay": 10.0,
                       "Absorption": {
                         "Physical": {
                           "Minimum": 0.5,
@@ -2796,8 +2898,80 @@
                       "Lifetime": 80.0
                     },
                     "PowerConnection": {
-                      "PowerBase": 4700.0,
-                      "PowerDraw": 12506.0
+                      "PowerBase": 2000.0,
+                      "PowerDraw": 2500.0
+                    },
+                    "HeatConnection": {
+                      "ThermalEnergyBase": 465000.0,
+                      "ThermalEnergyDraw": 470000.0,
+                      "CoolingRate": 144.3077
+                    }
+                  },
+                  "Types": [
+                    "Shield"
+                  ],
+                  "Flags": [
+                    "invisible"
+                  ],
+                  "Category": "Shield generators"
+                }
+              },
+              {
+                "Name": "hardpoint_shield_generator_right",
+                "Port": {
+                  "PortName": "hardpoint_shield_generator_right",
+                  "Size": 3,
+                  "Loadout": "SHLD_BASL_S03_Stronghold_SCItem",
+                  "InstalledItem": {
+                    "ClassName": "SHLD_BASL_S03_Stronghold_SCItem",
+                    "Size": 3,
+                    "Grade": 3,
+                    "Type": "Shield.UNDEFINED",
+                    "Name": "Stronghold",
+                    "Description": "Item Type: Shield Generator\nManufacturer: Basilisk \nSize: 3\nGrade: C\nClass: Industrial\n\nThe Stronghold shield generator uses patented hull plating techniques to reinforce the generator’s body to make it one of the sturdiest on the market. That means the shield and component are both built to last.",
+                    "Manufacturer": {
+                      "Code": "BASL",
+                      "Name": "Basilisk"
+                    },
+                    "Shield": {
+                      "Health": 100000.0,
+                      "Regeneration": 1200.0,
+                      "DownedDelay": 10.0,
+                      "DamagedDelay": 10.0,
+                      "Absorption": {
+                        "Physical": {
+                          "Minimum": 0.5,
+                          "Maximum": 0.95
+                        },
+                        "Energy": {
+                          "Minimum": 1.0,
+                          "Maximum": 1.0
+                        },
+                        "Distortion": {
+                          "Minimum": 1.0,
+                          "Maximum": 1.0
+                        },
+                        "Thermal": {
+                          "Minimum": 1.0,
+                          "Maximum": 1.0
+                        },
+                        "Biochemical": {
+                          "Minimum": 1.0,
+                          "Maximum": 1.0
+                        },
+                        "Stun": {
+                          "Minimum": 1.0,
+                          "Maximum": 1.0
+                        }
+                      }
+                    },
+                    "Durability": {
+                      "Health": 1500.0,
+                      "Lifetime": 80.0
+                    },
+                    "PowerConnection": {
+                      "PowerBase": 2000.0,
+                      "PowerDraw": 2500.0
                     },
                     "HeatConnection": {
                       "ThermalEnergyBase": 465000.0,
@@ -2967,6 +3141,7 @@
           },
           {
             "Name": "Command_Module",
+            "MaximumDamage": 1200.0,
             "Parts": [
               {
                 "Name": "interior_commandModule",
@@ -3259,7 +3434,22 @@
                       "ThermalEnergyBase": 10.0,
                       "ThermalEnergyDraw": 20.0,
                       "CoolingRate": 1.0
-                    }
+                    },
+                    "Ports": [
+                      {
+                        "PortName": "Display_HUD",
+                        "Size": 0,
+                        "Loadout": "Projector_HUD_Generic",
+                        "InstalledItem": {
+                          "ClassName": "Projector_HUD_Generic",
+                          "Size": 1,
+                          "Grade": 1,
+                          "Type": "Display.UNDEFINED",
+                          "Name": "Projector_HUD_Generic"
+                        },
+                        "Category": "UNKNOWN"
+                      }
+                    ]
                   },
                   "Types": [
                     "SeatDashboard"
@@ -3437,7 +3627,7 @@
                       "flightReady"
                     ],
                     "Scanner": {
-                      "Range": 1.0
+                      "Range": 0.0
                     }
                   },
                   "Types": [
@@ -3466,23 +3656,7 @@
                     "Description": "Ping",
                     "Tags": [
                       "flightReady"
-                    ],
-                    "Durability": {
-                      "Lifetime": 720.0
-                    },
-                    "PowerConnection": {
-                      "PowerBase": 50.0,
-                      "PowerDraw": 550.0
-                    },
-                    "HeatConnection": {
-                      "ThermalEnergyBase": 10.0,
-                      "ThermalEnergyDraw": 20.0,
-                      "CoolingRate": 1.0
-                    },
-                    "Ping": {
-                      "ChargeTime": 2.0,
-                      "CooldownTime": 10.0
-                    }
+                    ]
                   },
                   "Types": [
                     "Ping"
@@ -3571,8 +3745,8 @@
                             "Lifetime": 20.0
                           },
                           "PowerConnection": {
-                            "PowerBase": 71.0,
-                            "PowerDraw": 170.0
+                            "PowerBase": 230.0,
+                            "PowerDraw": 230.0
                           },
                           "HeatConnection": {
                             "ThermalEnergyBase": 100.0,
@@ -3581,38 +3755,38 @@
                           },
                           "Weapon": {
                             "Ammunition": {
-                              "Speed": 1000.0,
-                              "Range": 2060.0,
+                              "Speed": 700.0,
+                              "Range": 1400.0,
                               "Size": 2.0,
                               "Capacity": 0.0,
                               "ImpactDamage": {
-                                "Energy": 183.0
+                                "Energy": 110.0
                               }
                             },
                             "Modes": [
                               {
                                 "Name": "Single",
                                 "LocalisedName": "[AUTO]",
-                                "RoundsPerMinute": 75.0,
+                                "RoundsPerMinute": 220.0,
                                 "FireType": "sequence",
-                                "AmmoPerShot": 0.0,
+                                "AmmoPerShot": 1.0,
                                 "PelletsPerShot": 1.0,
                                 "DamagePerShot": {
-                                  "Energy": 183.0
+                                  "Energy": 110.0
                                 },
                                 "DamagePerSecond": {
-                                  "Energy": 228.75
+                                  "Energy": 403.3333333333333
                                 }
                               }
                             ]
                           },
                           "Ammunition": {
-                            "Speed": 1000.0,
-                            "Range": 2060.0,
+                            "Speed": 700.0,
+                            "Range": 1400.0,
                             "Size": 2.0,
                             "Capacity": 0.0,
                             "ImpactDamage": {
-                              "Energy": 183.0
+                              "Energy": 110.0
                             }
                           },
                           "Ports": [
@@ -3725,8 +3899,8 @@
                             "Lifetime": 20.0
                           },
                           "PowerConnection": {
-                            "PowerBase": 71.0,
-                            "PowerDraw": 170.0
+                            "PowerBase": 230.0,
+                            "PowerDraw": 230.0
                           },
                           "HeatConnection": {
                             "ThermalEnergyBase": 100.0,
@@ -3735,38 +3909,38 @@
                           },
                           "Weapon": {
                             "Ammunition": {
-                              "Speed": 1000.0,
-                              "Range": 2060.0,
+                              "Speed": 700.0,
+                              "Range": 1400.0,
                               "Size": 2.0,
                               "Capacity": 0.0,
                               "ImpactDamage": {
-                                "Energy": 183.0
+                                "Energy": 110.0
                               }
                             },
                             "Modes": [
                               {
                                 "Name": "Single",
                                 "LocalisedName": "[AUTO]",
-                                "RoundsPerMinute": 75.0,
+                                "RoundsPerMinute": 220.0,
                                 "FireType": "sequence",
-                                "AmmoPerShot": 0.0,
+                                "AmmoPerShot": 1.0,
                                 "PelletsPerShot": 1.0,
                                 "DamagePerShot": {
-                                  "Energy": 183.0
+                                  "Energy": 110.0
                                 },
                                 "DamagePerSecond": {
-                                  "Energy": 228.75
+                                  "Energy": 403.3333333333333
                                 }
                               }
                             ]
                           },
                           "Ammunition": {
-                            "Speed": 1000.0,
-                            "Range": 2060.0,
+                            "Speed": 700.0,
+                            "Range": 1400.0,
                             "Size": 2.0,
                             "Capacity": 0.0,
                             "ImpactDamage": {
-                              "Energy": 183.0
+                              "Energy": 110.0
                             }
                           },
                           "Ports": [
@@ -3879,8 +4053,8 @@
                             "Lifetime": 20.0
                           },
                           "PowerConnection": {
-                            "PowerBase": 87.0,
-                            "PowerDraw": 190.0
+                            "PowerBase": 240.0,
+                            "PowerDraw": 240.0
                           },
                           "HeatConnection": {
                             "ThermalEnergyBase": 100.0,
@@ -3889,38 +4063,38 @@
                           },
                           "Weapon": {
                             "Ammunition": {
-                              "Speed": 1000.0,
-                              "Range": 3180.0,
+                              "Speed": 700.0,
+                              "Range": 1400.0,
                               "Size": 3.0,
                               "Capacity": 0.0,
                               "ImpactDamage": {
-                                "Energy": 318.0
+                                "Energy": 150.0
                               }
                             },
                             "Modes": [
                               {
                                 "Name": "Single",
                                 "LocalisedName": "[AUTO]",
-                                "RoundsPerMinute": 65.0,
+                                "RoundsPerMinute": 200.0,
                                 "FireType": "sequence",
-                                "AmmoPerShot": 0.0,
+                                "AmmoPerShot": 1.0,
                                 "PelletsPerShot": 1.0,
                                 "DamagePerShot": {
-                                  "Energy": 318.0
+                                  "Energy": 150.0
                                 },
                                 "DamagePerSecond": {
-                                  "Energy": 344.5
+                                  "Energy": 500.0
                                 }
                               }
                             ]
                           },
                           "Ammunition": {
-                            "Speed": 1000.0,
-                            "Range": 3180.0,
+                            "Speed": 700.0,
+                            "Range": 1400.0,
                             "Size": 3.0,
                             "Capacity": 0.0,
                             "ImpactDamage": {
-                              "Energy": 318.0
+                              "Energy": 150.0
                             }
                           },
                           "Ports": [
@@ -3962,8 +4136,8 @@
                             "Lifetime": 20.0
                           },
                           "PowerConnection": {
-                            "PowerBase": 87.0,
-                            "PowerDraw": 190.0
+                            "PowerBase": 240.0,
+                            "PowerDraw": 240.0
                           },
                           "HeatConnection": {
                             "ThermalEnergyBase": 100.0,
@@ -3972,38 +4146,38 @@
                           },
                           "Weapon": {
                             "Ammunition": {
-                              "Speed": 1000.0,
-                              "Range": 3180.0,
+                              "Speed": 700.0,
+                              "Range": 1400.0,
                               "Size": 3.0,
                               "Capacity": 0.0,
                               "ImpactDamage": {
-                                "Energy": 318.0
+                                "Energy": 150.0
                               }
                             },
                             "Modes": [
                               {
                                 "Name": "Single",
                                 "LocalisedName": "[AUTO]",
-                                "RoundsPerMinute": 65.0,
+                                "RoundsPerMinute": 200.0,
                                 "FireType": "sequence",
-                                "AmmoPerShot": 0.0,
+                                "AmmoPerShot": 1.0,
                                 "PelletsPerShot": 1.0,
                                 "DamagePerShot": {
-                                  "Energy": 318.0
+                                  "Energy": 150.0
                                 },
                                 "DamagePerSecond": {
-                                  "Energy": 344.5
+                                  "Energy": 500.0
                                 }
                               }
                             ]
                           },
                           "Ammunition": {
-                            "Speed": 1000.0,
-                            "Range": 3180.0,
+                            "Speed": 700.0,
+                            "Range": 1400.0,
                             "Size": 3.0,
                             "Capacity": 0.0,
                             "ImpactDamage": {
-                              "Energy": 318.0
+                              "Energy": 150.0
                             }
                           },
                           "Ports": [
@@ -4099,7 +4273,7 @@
                   "Loadout": "RADR_WLOP_S02_Chernykh",
                   "InstalledItem": {
                     "ClassName": "RADR_WLOP_S02_Chernykh",
-                    "Size": 2,
+                    "Size": 0,
                     "Grade": 1,
                     "Type": "Radar.MidRangeRadar",
                     "Name": "Chernykh",
@@ -4120,36 +4294,9 @@
                       "CoolingRate": 1.0
                     },
                     "Radar": {
-                      "DetectionLifetime": 60.0,
-                      "AltitudeCeiling": 5000.0,
-                      "CrossSectionOcclusion": false,
-                      "Signatures": [
-                        {
-                          "Detectable": true,
-                          "Sensitivity": 0.75,
-                          "AmbientPiercing": false
-                        },
-                        {
-                          "Detectable": true,
-                          "Sensitivity": 0.75,
-                          "AmbientPiercing": false
-                        },
-                        {
-                          "Detectable": false,
-                          "Sensitivity": 1.0,
-                          "AmbientPiercing": false
-                        },
-                        {
-                          "Detectable": false,
-                          "Sensitivity": 1.0,
-                          "AmbientPiercing": false
-                        },
-                        {
-                          "Detectable": true,
-                          "Sensitivity": 0.75,
-                          "AmbientPiercing": false
-                        }
-                      ]
+                      "DetectionLifetime": 0.0,
+                      "AltitudeCeiling": 0.0,
+                      "CrossSectionOcclusion": false
                     },
                     "Ports": [
                       {
@@ -4181,6 +4328,7 @@
           },
           {
             "Name": "Nose",
+            "MaximumDamage": 12500.0,
             "Parts": [
               {
                 "Name": "hardpoint_thruster_set1_bottom_A",
@@ -5101,21 +5249,21 @@
                       {
                         "PortName": "hardpoint_weapon_left",
                         "Size": 4,
-                        "Loadout": "BEHR_LaserCannon_S4",
+                        "Loadout": "KLWE_LaserRepeater_S4",
                         "InstalledItem": {
-                          "ClassName": "BEHR_LaserCannon_S4",
+                          "ClassName": "KLWE_LaserRepeater_S4",
                           "Size": 4,
                           "Grade": 1,
                           "Type": "WeaponGun.Gun",
-                          "Name": "M6A Cannon",
-                          "Description": "Manufacturer: Behring\nItem Type: Laser Cannon\nSize: 4\n\nBehring's M6A is a versatile high velocity energy autocannon, designed to provide to keep your enemy at range without sacrificing your stopping power.",
+                          "Name": "CF-447 Rhino Repeater",
+                          "Description": "Manufacturer: Klaus & Werner\nItem Type: Laser Repeater\nSize: 4\n\nWhen a ship comes charging at you with a CF-447 Rhino strapped on, it is an experience few pilots will ever forget. This formidable size four laser repeater from Klaus & Werner is well suited for medium-range engagements, but packs a wallop up close.",
                           "Manufacturer": {
-                            "Code": "BEH",
-                            "Name": "Behring"
+                            "Code": "KLA",
+                            "Name": "Klaus & Werner"
                           },
                           "Tags": [
-                            "BEHR",
-                            "LaserCannon",
+                            "KLWE",
+                            "LaserRepeater",
                             "flightReady",
                             "weaponMountUsable"
                           ],
@@ -5124,55 +5272,82 @@
                             "Lifetime": 20.0
                           },
                           "PowerConnection": {
-                            "PowerBase": 112.0,
-                            "PowerDraw": 230.0
+                            "PowerBase": 220.0,
+                            "PowerDraw": 270.0
                           },
                           "HeatConnection": {
                             "ThermalEnergyBase": 100.0,
                             "ThermalEnergyDraw": 200.0,
-                            "CoolingRate": 248.947
+                            "CoolingRate": 248.974
                           },
                           "Weapon": {
                             "Ammunition": {
-                              "Speed": 1000.0,
-                              "Range": 3780.0,
-                              "Size": 4.0,
+                              "Speed": 1400.0,
+                              "Range": 1400.0,
+                              "Size": 3.0,
                               "Capacity": 0.0,
                               "ImpactDamage": {
-                                "Energy": 555.0
+                                "Energy": 80.0
                               }
                             },
                             "Modes": [
                               {
                                 "Name": "Single",
-                                "LocalisedName": "[AUTO]",
-                                "RoundsPerMinute": 56.0,
+                                "LocalisedName": "[SEMI]",
+                                "RoundsPerMinute": 480.0,
                                 "FireType": "sequence",
-                                "AmmoPerShot": 0.0,
+                                "AmmoPerShot": 1.0,
                                 "PelletsPerShot": 1.0,
                                 "DamagePerShot": {
-                                  "Energy": 555.0
+                                  "Energy": 80.0
                                 },
                                 "DamagePerSecond": {
-                                  "Energy": 518.0
+                                  "Energy": 640.0
                                 }
                               }
                             ]
                           },
                           "Ammunition": {
-                            "Speed": 1000.0,
-                            "Range": 3780.0,
-                            "Size": 4.0,
+                            "Speed": 1400.0,
+                            "Range": 1400.0,
+                            "Size": 3.0,
                             "Capacity": 0.0,
                             "ImpactDamage": {
-                              "Energy": 555.0
+                              "Energy": 80.0
                             }
                           },
                           "Ports": [
                             {
-                              "PortName": "magazine_attach",
-                              "Size": 0,
-                              "Category": "UNKNOWN"
+                              "PortName": "BAR1",
+                              "Size": 1,
+                              "Types": [
+                                "WeaponAttachment.Barrel"
+                              ],
+                              "Category": "Weapon attachments"
+                            },
+                            {
+                              "PortName": "MEC",
+                              "Size": 1,
+                              "Types": [
+                                "WeaponAttachment.FiringMechanism"
+                              ],
+                              "Category": "Weapon attachments"
+                            },
+                            {
+                              "PortName": "POW",
+                              "Size": 1,
+                              "Types": [
+                                "WeaponAttachment.PowerArray"
+                              ],
+                              "Category": "Weapon attachments"
+                            },
+                            {
+                              "PortName": "VEN",
+                              "Size": 1,
+                              "Types": [
+                                "WeaponAttachment.Ventilation"
+                              ],
+                              "Category": "Weapon attachments"
                             }
                           ]
                         },
@@ -5184,21 +5359,21 @@
                       {
                         "PortName": "hardpoint_weapon_right",
                         "Size": 4,
-                        "Loadout": "BEHR_LaserCannon_S4",
+                        "Loadout": "KLWE_LaserRepeater_S4",
                         "InstalledItem": {
-                          "ClassName": "BEHR_LaserCannon_S4",
+                          "ClassName": "KLWE_LaserRepeater_S4",
                           "Size": 4,
                           "Grade": 1,
                           "Type": "WeaponGun.Gun",
-                          "Name": "M6A Cannon",
-                          "Description": "Manufacturer: Behring\nItem Type: Laser Cannon\nSize: 4\n\nBehring's M6A is a versatile high velocity energy autocannon, designed to provide to keep your enemy at range without sacrificing your stopping power.",
+                          "Name": "CF-447 Rhino Repeater",
+                          "Description": "Manufacturer: Klaus & Werner\nItem Type: Laser Repeater\nSize: 4\n\nWhen a ship comes charging at you with a CF-447 Rhino strapped on, it is an experience few pilots will ever forget. This formidable size four laser repeater from Klaus & Werner is well suited for medium-range engagements, but packs a wallop up close.",
                           "Manufacturer": {
-                            "Code": "BEH",
-                            "Name": "Behring"
+                            "Code": "KLA",
+                            "Name": "Klaus & Werner"
                           },
                           "Tags": [
-                            "BEHR",
-                            "LaserCannon",
+                            "KLWE",
+                            "LaserRepeater",
                             "flightReady",
                             "weaponMountUsable"
                           ],
@@ -5207,55 +5382,82 @@
                             "Lifetime": 20.0
                           },
                           "PowerConnection": {
-                            "PowerBase": 112.0,
-                            "PowerDraw": 230.0
+                            "PowerBase": 220.0,
+                            "PowerDraw": 270.0
                           },
                           "HeatConnection": {
                             "ThermalEnergyBase": 100.0,
                             "ThermalEnergyDraw": 200.0,
-                            "CoolingRate": 248.947
+                            "CoolingRate": 248.974
                           },
                           "Weapon": {
                             "Ammunition": {
-                              "Speed": 1000.0,
-                              "Range": 3780.0,
-                              "Size": 4.0,
+                              "Speed": 1400.0,
+                              "Range": 1400.0,
+                              "Size": 3.0,
                               "Capacity": 0.0,
                               "ImpactDamage": {
-                                "Energy": 555.0
+                                "Energy": 80.0
                               }
                             },
                             "Modes": [
                               {
                                 "Name": "Single",
-                                "LocalisedName": "[AUTO]",
-                                "RoundsPerMinute": 56.0,
+                                "LocalisedName": "[SEMI]",
+                                "RoundsPerMinute": 480.0,
                                 "FireType": "sequence",
-                                "AmmoPerShot": 0.0,
+                                "AmmoPerShot": 1.0,
                                 "PelletsPerShot": 1.0,
                                 "DamagePerShot": {
-                                  "Energy": 555.0
+                                  "Energy": 80.0
                                 },
                                 "DamagePerSecond": {
-                                  "Energy": 518.0
+                                  "Energy": 640.0
                                 }
                               }
                             ]
                           },
                           "Ammunition": {
-                            "Speed": 1000.0,
-                            "Range": 3780.0,
-                            "Size": 4.0,
+                            "Speed": 1400.0,
+                            "Range": 1400.0,
+                            "Size": 3.0,
                             "Capacity": 0.0,
                             "ImpactDamage": {
-                              "Energy": 555.0
+                              "Energy": 80.0
                             }
                           },
                           "Ports": [
                             {
-                              "PortName": "magazine_attach",
-                              "Size": 0,
-                              "Category": "UNKNOWN"
+                              "PortName": "BAR1",
+                              "Size": 1,
+                              "Types": [
+                                "WeaponAttachment.Barrel"
+                              ],
+                              "Category": "Weapon attachments"
+                            },
+                            {
+                              "PortName": "MEC",
+                              "Size": 1,
+                              "Types": [
+                                "WeaponAttachment.FiringMechanism"
+                              ],
+                              "Category": "Weapon attachments"
+                            },
+                            {
+                              "PortName": "POW",
+                              "Size": 1,
+                              "Types": [
+                                "WeaponAttachment.PowerArray"
+                              ],
+                              "Category": "Weapon attachments"
+                            },
+                            {
+                              "PortName": "VEN",
+                              "Size": 1,
+                              "Types": [
+                                "WeaponAttachment.Ventilation"
+                              ],
+                              "Category": "Weapon attachments"
                             }
                           ]
                         },
@@ -6690,7 +6892,7 @@
                   "Loadout": "RADR_WLOP_S02_Chernykh",
                   "InstalledItem": {
                     "ClassName": "RADR_WLOP_S02_Chernykh",
-                    "Size": 2,
+                    "Size": 0,
                     "Grade": 1,
                     "Type": "Radar.MidRangeRadar",
                     "Name": "Chernykh",
@@ -6711,36 +6913,9 @@
                       "CoolingRate": 1.0
                     },
                     "Radar": {
-                      "DetectionLifetime": 60.0,
-                      "AltitudeCeiling": 5000.0,
-                      "CrossSectionOcclusion": false,
-                      "Signatures": [
-                        {
-                          "Detectable": true,
-                          "Sensitivity": 0.75,
-                          "AmbientPiercing": false
-                        },
-                        {
-                          "Detectable": true,
-                          "Sensitivity": 0.75,
-                          "AmbientPiercing": false
-                        },
-                        {
-                          "Detectable": false,
-                          "Sensitivity": 1.0,
-                          "AmbientPiercing": false
-                        },
-                        {
-                          "Detectable": false,
-                          "Sensitivity": 1.0,
-                          "AmbientPiercing": false
-                        },
-                        {
-                          "Detectable": true,
-                          "Sensitivity": 0.75,
-                          "AmbientPiercing": false
-                        }
-                      ]
+                      "DetectionLifetime": 0.0,
+                      "AltitudeCeiling": 0.0,
+                      "CrossSectionOcclusion": false
                     },
                     "Ports": [
                       {
@@ -6904,7 +7079,7 @@
                 "Name": "Nose_Detach"
               }
             ],
-            "ShipDestructionDamage": 0.0
+            "ShipDestructionDamage": 12500.0
           }
         ],
         "ShipDestructionDamage": 26100.0

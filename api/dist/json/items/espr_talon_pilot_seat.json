@@ -838,8 +838,8 @@
                 "DisplayType": "Show",
                 "GenericCursor": "SingleAction",
                 "FocusModeOnly": true,
-                "Sendable": false,
-                "Linkable": false,
+                "Sendable": true,
+                "Linkable": true,
                 "LockedByLinks": false,
                 "RequiresAuthorizedUser": false,
                 "available": true
@@ -908,7 +908,7 @@
                 "DisplayType": "Hide",
                 "GenericCursor": "SingleAction",
                 "FocusModeOnly": true,
-                "Sendable": false,
+                "Sendable": true,
                 "Linkable": true,
                 "LockedByLinks": true,
                 "RequiresAuthorizedUser": false,
@@ -1181,21 +1181,7 @@
                 "available": true
               },
               {
-                "Name": "CycleHud_Quantum",
-                "RoomTag": "00000000-0000-0000-0000-000000000000",
-                "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@vehicle_interactor_CycleHud_Quantum",
-                "DisplayType": "Show",
-                "GenericCursor": "Button",
-                "FocusModeOnly": false,
-                "Sendable": false,
-                "Linkable": false,
-                "LockedByLinks": false,
-                "RequiresAuthorizedUser": false,
-                "available": true
-              },
-              {
-                "Name": "CycleHud_Flight",
+                "Name": "EnterDefaultMode",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
                 "DisplayName": "@vehicle_interactor_CycleHud_Flight",
@@ -1209,7 +1195,7 @@
                 "available": true
               },
               {
-                "Name": "CycleHud_Scanning",
+                "Name": "EnterScanMode",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
                 "DisplayName": "@vehicle_interactor_CycleHud_Scanning",
@@ -1218,6 +1204,20 @@
                 "FocusModeOnly": false,
                 "Sendable": true,
                 "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "EnterQuantumMode",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@vehicle_interactor_CycleHud_Quantum",
+                "DisplayType": "Show",
+                "GenericCursor": "Button",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
                 "LockedByLinks": false,
                 "RequiresAuthorizedUser": false,
                 "available": true
@@ -1680,6 +1680,18 @@
                   "SubTypes": []
                 }
               ]
+            },
+            {
+              "Name": "Display_HUD",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 0,
+              "MaxSize": 0,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": []
             }
           ]
         }

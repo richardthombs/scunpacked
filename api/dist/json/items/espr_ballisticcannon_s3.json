@@ -1,13 +1,13 @@
 {
   "ammo": {
     "size": 1,
-    "lifetime": 2.55,
-    "speed": 935.0,
+    "lifetime": 3.0,
+    "speed": 700.0,
     "projectileParams": {
       "BulletProjectileParams": {
         "damage": [
           {
-            "DamagePhysical": 290.0,
+            "DamagePhysical": 187.5,
             "DamageEnergy": 0.0,
             "DamageDistortion": 0.0,
             "DamageThermal": 0.0,
@@ -112,13 +112,13 @@
           "DegradeOnlyWhenAttached": true
         },
         "EntityComponentPowerConnection": {
-          "PowerBase": 35.0,
-          "PowerDraw": 102.0,
+          "PowerBase": 50.0,
+          "PowerDraw": 70.0,
           "TimeToReachDrawRequest": 0.0,
           "SafeguardPriority": 20.0,
           "DisplayedInPoweredItemList": true,
-          "IsThrottleable": true,
-          "IsOverclockable": true,
+          "IsThrottleable": false,
+          "IsOverclockable": false,
           "OverclockThresholdMin": 0.25,
           "OverclockThresholdMax": 0.46,
           "OverpowerPerformance": 0.3,
@@ -156,8 +156,8 @@
           "RecoveryTime": 0.98
         },
         "SAmmoContainerComponentParams": {
-          "initialAmmoCount": 1800.0,
-          "maxAmmoCount": 1800.0,
+          "initialAmmoCount": 200.0,
+          "maxAmmoCount": 200.0,
           "ammoParamsRecord": "ac71233b-abf0-4897-9fd0-0da7183e8cce"
         },
         "SCItemWeaponComponentParams": {
@@ -232,12 +232,12 @@
               "mode": "Looping",
               "sequenceEntries": [
                 {
-                  "delay": 75.0,
+                  "delay": 200.0,
                   "unit": "RPM",
                   "weaponAction": {
                     "SWeaponActionFireSingleParams": {
-                      "heatPerShot": 6300.0,
-                      "fireRate": 75.0,
+                      "heatPerShot": 1500.0,
+                      "fireRate": 200.0,
                       "launchParams": {
                         "SProjectileLauncher": {
                           "ammoCost": 1.0,

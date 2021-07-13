@@ -174,7 +174,7 @@
               },
               {
                 "itemPortName": "hardpoint_controller_weapon_gunner",
-                "entityClassName": "Controller_Weapon_Vehicle",
+                "entityClassName": "Controller_Weapon",
                 "loadout": {}
               },
               {
@@ -290,6 +290,26 @@
               {
                 "itemPortName": "hardpoint_scanner_gunner",
                 "entityClassName": "test_scanner",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_missile_gunner",
+                "entityClassName": "Controller_Missile",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_weapon_regen_pool",
+                "entityClassName": "WeaponRegenPool_Crew_Ballista",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_weapon_regen_pool_turrets",
+                "entityClassName": "WeaponRegenPool_Turret_Ballista",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_capacitor_assignment",
+                "entityClassName": "Controller_CapacitorAssignment",
                 "loadout": {}
               }
             ]
@@ -430,8 +450,16 @@
         "class": "WeaponRegen"
       },
       {
+        "name": "WeaponAmmoLoadCrew",
+        "class": "WeaponAmmoLoad"
+      },
+      {
         "name": "WeaponRegenTurret",
         "class": "WeaponRegen"
+      },
+      {
+        "name": "WeaponAmmoLoadTurret",
+        "class": "WeaponAmmoLoad"
       }
     ],
     "Parts": [
@@ -443,7 +471,7 @@
         "Parts": [
           {
             "name": "nose",
-            "damageMax": 4500.0,
+            "damageMax": 10000.0,
             "damagemax": 0.0,
             "class": "AnimatedJoint",
             "detachRatio": 1.0,
@@ -461,6 +489,10 @@
                     {
                       "type": "Turret",
                       "subtypes": "BallTurret"
+                    },
+                    {
+                      "type": "WeaponGun",
+                      "subtypes": "Gun"
                     }
                   ],
                   "Connections": [
@@ -474,7 +506,11 @@
                     },
                     {
                       "pipeClass": "WeaponRegen",
-                      "pipe": "WeaponRegenTurret"
+                      "pipe": "WeaponRegenCrew"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadCrew"
                     }
                   ],
                   "ControllerDef": {
@@ -515,7 +551,7 @@
                     }
                   ],
                   "ControllerDef": {
-                    "controllableTags": "pilotSeat",
+                    "controllableTags": "Seat",
                     "UsableDef": {
                       "PriorityGroups": [
                         {
@@ -669,7 +705,7 @@
           {
             "name": "body",
             "mass": "41700",
-            "damageMax": 2000.0,
+            "damageMax": 10000.0,
             "damagemax": 0.0,
             "class": "AnimatedJoint",
             "detachRatio": 1.0,
@@ -932,6 +968,82 @@
                         {
                           "itemType": "FuelTank",
                           "defaultPriority": "exclusive_control"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "name": "hardpoint_weapon_regen_pool",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "Weapon Regen Pool",
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "WeaponRegenPool"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenCrew"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadCrew"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_weapon_regen_pool_turrets",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "Weapon Regen Pool",
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "WeaponRegenPool"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenTurret"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadTurret"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_controller_capacitor_assignment",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "CapacitorAssignmentController"
+                    }
+                  ],
+                  "ControllerDef": {
+                    "UsableDef": {
+                      "PriorityGroups": [
+                        {
+                          "itemType": "CapacitorAssignmentController"
                         }
                       ]
                     }
@@ -1298,16 +1410,6 @@
                       "type": "WeaponController"
                     }
                   ],
-                  "Connections": [
-                    {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
-                    }
-                  ],
                   "ControllerDef": {
                     "controllableTags": "remote_torpedo_turret",
                     "UsableDef": {
@@ -1315,7 +1417,29 @@
                         {
                           "itemType": "Turret",
                           "defaultPriority": "no_control"
-                        },
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "name": "hardpoint_controller_missile_gunner",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "MissileController"
+                    }
+                  ],
+                  "ControllerDef": {
+                    "controllableTags": "remote_torpedo_turret",
+                    "UsableDef": {
+                      "PriorityGroups": [
                         {
                           "itemType": "MissileLauncher"
                         },
@@ -2094,6 +2218,33 @@
             "mass": "20000",
             "damagemax": 0.0,
             "class": "MassBox"
+          },
+          {
+            "name": "hardpoint_controller_missile",
+            "damagemax": 0.0,
+            "class": "ItemPort",
+            "ItemPort": {
+              "minsize": 1,
+              "maxsize": 1,
+              "flags": "invisible uneditable",
+              "Types": [
+                {
+                  "type": "MissileController"
+                }
+              ],
+              "ControllerDef": {
+                "UsableDef": {
+                  "PriorityGroups": [
+                    {
+                      "itemType": "MissileLauncher"
+                    },
+                    {
+                      "itemType": "Missile"
+                    }
+                  ]
+                }
+              }
+            }
           }
         ]
       }
