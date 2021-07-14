@@ -4,516 +4,9 @@
     "Mass": 73724.0,
     "Parts": [
       {
-        "Name": "hardpoint_seat_access",
-        "Port": {
-          "PortName": "hardpoint_seat_access",
-          "Size": 1,
-          "Loadout": "ANVL_Hornet_SeatAccess",
-          "InstalledItem": {
-            "ClassName": "ANVL_Hornet_SeatAccess",
-            "Size": 1,
-            "Grade": 1,
-            "Type": "SeatAccess.UNDEFINED",
-            "Name": "ANVL_Hornet_SeatAccess",
-            "Manufacturer": {
-              "Code": "ANVL",
-              "Name": "Anvil Aerospace"
-            }
-          },
-          "Types": [
-            "SeatAccess"
-          ],
-          "Flags": [
-            "uneditable"
-          ],
-          "Category": "Seat access",
-          "Uneditable": true
-        }
-      },
-      {
         "Name": "Nose",
         "MaximumDamage": 4000.0,
         "Parts": [
-          {
-            "Name": "interior_cockpit",
-            "Port": {
-              "PortName": "interior_cockpit",
-              "Size": 1,
-              "Types": [
-                "Room"
-              ],
-              "Flags": [
-                "uneditable"
-              ],
-              "Category": "Rooms",
-              "Uneditable": true
-            },
-            "Parts": [
-              {
-                "Name": "hardpoint_seat_pilot",
-                "Port": {
-                  "PortName": "hardpoint_seat_pilot",
-                  "Size": 1,
-                  "Loadout": "ANVL_Hornet_Seat_Pilot",
-                  "InstalledItem": {
-                    "ClassName": "ANVL_Hornet_Seat_Pilot",
-                    "Size": 1,
-                    "Grade": 1,
-                    "Type": "Seat.UNDEFINED",
-                    "Name": "TRGT. STATUS",
-                    "Manufacturer": {
-                      "Code": "ANVL",
-                      "Name": "Anvil Aerospace"
-                    }
-                  },
-                  "Types": [
-                    "Seat"
-                  ],
-                  "Flags": [
-                    "uneditable",
-                    "$EjectCanopy"
-                  ],
-                  "Category": "Seats",
-                  "Uneditable": true
-                }
-              },
-              {
-                "Name": "hardpoint_dashboard_pilot",
-                "Port": {
-                  "PortName": "hardpoint_dashboard_pilot",
-                  "Size": 1,
-                  "Loadout": "ANVL_Hornet_Dashboard_Pilot",
-                  "InstalledItem": {
-                    "ClassName": "ANVL_Hornet_Dashboard_Pilot",
-                    "Size": 1,
-                    "Grade": 1,
-                    "Type": "SeatDashboard.UNDEFINED",
-                    "Name": "ANVL_Hornet_Dashboard_Pilot",
-                    "Manufacturer": {
-                      "Code": "ANVL",
-                      "Name": "Anvil Aerospace"
-                    },
-                    "Durability": {
-                      "Health": 1.0
-                    },
-                    "PowerConnection": {
-                      "PowerBase": 1.0,
-                      "PowerDraw": 1.0
-                    },
-                    "HeatConnection": {
-                      "ThermalEnergyBase": 10.0,
-                      "ThermalEnergyDraw": 20.0,
-                      "CoolingRate": 1.0
-                    },
-                    "Ports": [
-                      {
-                        "PortName": "hardpoint_cockpit_radar",
-                        "Size": 1,
-                        "Loadout": "RADR_Display",
-                        "InstalledItem": {
-                          "ClassName": "RADR_Display",
-                          "Size": 1,
-                          "Grade": 1,
-                          "Type": "Display.UNDEFINED",
-                          "Name": "RADR_Display"
-                        },
-                        "Types": [
-                          "Display"
-                        ],
-                        "Category": "UNKNOWN"
-                      },
-                      {
-                        "PortName": "Display_HUD",
-                        "Size": 0,
-                        "Loadout": "Projector_HUD_Generic",
-                        "InstalledItem": {
-                          "ClassName": "Projector_HUD_Generic",
-                          "Size": 1,
-                          "Grade": 1,
-                          "Type": "Display.UNDEFINED",
-                          "Name": "Projector_HUD_Generic"
-                        },
-                        "Category": "UNKNOWN"
-                      }
-                    ]
-                  },
-                  "Types": [
-                    "SeatDashboard"
-                  ],
-                  "Flags": [
-                    "uneditable"
-                  ],
-                  "Category": "UNKNOWN",
-                  "Uneditable": true
-                }
-              },
-              {
-                "Name": "hardpoint_dashboard_copilot",
-                "Port": {
-                  "PortName": "hardpoint_dashboard_copilot",
-                  "Size": 1,
-                  "Types": [
-                    "SeatDashboard"
-                  ],
-                  "Flags": [
-                    "uneditable"
-                  ],
-                  "Category": "UNKNOWN",
-                  "Uneditable": true
-                }
-              },
-              {
-                "Name": "hardpoint_self_destruct_pilot",
-                "Port": {
-                  "PortName": "hardpoint_self_destruct_pilot",
-                  "Size": 1,
-                  "Loadout": "VHCL_SelfDestruct_10s",
-                  "InstalledItem": {
-                    "ClassName": "VHCL_SelfDestruct_10s",
-                    "Size": 1,
-                    "Grade": 1,
-                    "Type": "SelfDestruct.UNDEFINED",
-                    "Name": "RSI Self Destruct",
-                    "Description": "[PH] RSI Self Destruct",
-                    "Manufacturer": {
-                      "Code": "RSI",
-                      "Name": "Roberts Space Industries"
-                    },
-                    "Tags": [
-                      "flightReady"
-                    ]
-                  },
-                  "Types": [
-                    "SelfDestruct"
-                  ],
-                  "Flags": [
-                    "invisible",
-                    "uneditable"
-                  ],
-                  "Category": "Self destruct",
-                  "Uneditable": true
-                }
-              }
-            ]
-          },
-          {
-            "Name": "hardpoint_controller_energy",
-            "Port": {
-              "PortName": "hardpoint_controller_energy",
-              "Size": 1,
-              "Loadout": "Controller_Energy",
-              "InstalledItem": {
-                "ClassName": "Controller_Energy",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "EnergyController.UNDEFINED",
-                "Name": "POWER"
-              },
-              "Types": [
-                "EnergyController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_weapon_regen_pool",
-            "Port": {
-              "PortName": "hardpoint_weapon_regen_pool",
-              "Size": 1,
-              "Loadout": "WeaponRegenPool_Crew_Hornet",
-              "InstalledItem": {
-                "ClassName": "WeaponRegenPool_Crew_Hornet",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "WeaponRegenPool.UNDEFINED",
-                "Name": "WeaponRegenPool_Crew_Hornet"
-              },
-              "Types": [
-                "WeaponRegenPool"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_weapon_regen_pool_turrets",
-            "Port": {
-              "PortName": "hardpoint_weapon_regen_pool_turrets",
-              "Size": 1,
-              "Loadout": "WeaponRegenPool_Turret_Hornet",
-              "InstalledItem": {
-                "ClassName": "WeaponRegenPool_Turret_Hornet",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "WeaponRegenPool.UNDEFINED",
-                "Name": "WeaponRegenPool_Turret_Hornet"
-              },
-              "Types": [
-                "WeaponRegenPool"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_capacitor_assignment",
-            "Port": {
-              "PortName": "hardpoint_controller_capacitor_assignment",
-              "Size": 1,
-              "Loadout": "Controller_CapacitorAssignment",
-              "InstalledItem": {
-                "ClassName": "Controller_CapacitorAssignment",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "CapacitorAssignmentController.UNDEFINED",
-                "Name": "Controller_CapacitorAssignment",
-                "Tags": [
-                  "flightReady"
-                ]
-              },
-              "Types": [
-                "CapacitorAssignmentController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_cooler",
-            "Port": {
-              "PortName": "hardpoint_controller_cooler",
-              "Size": 1,
-              "Loadout": "Controller_Cooler",
-              "InstalledItem": {
-                "ClassName": "Controller_Cooler",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "CoolerController.UNDEFINED",
-                "Name": "HEAT"
-              },
-              "Types": [
-                "CoolerController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_shield",
-            "Port": {
-              "PortName": "hardpoint_controller_shield",
-              "Size": 1,
-              "Loadout": "Controller_Shield_ANVL_Hornet",
-              "InstalledItem": {
-                "ClassName": "Controller_Shield_ANVL_Hornet",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "ShieldController.UNDEFINED",
-                "Name": "SHIELDS",
-                "Tags": [
-                  "flightReady"
-                ]
-              },
-              "Types": [
-                "ShieldController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_light",
-            "Port": {
-              "PortName": "hardpoint_controller_light",
-              "Size": 1,
-              "Loadout": "Controller_Light",
-              "InstalledItem": {
-                "ClassName": "Controller_Light",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "LightController.UNDEFINED",
-                "Name": "LIGHTS"
-              },
-              "Types": [
-                "LightController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_shield_generator_left",
-            "Port": {
-              "PortName": "hardpoint_shield_generator_left",
-              "Size": 1,
-              "Loadout": "SHLD_ASAS_S01_Shimmer_SCItem",
-              "InstalledItem": {
-                "ClassName": "SHLD_ASAS_S01_Shimmer_SCItem",
-                "Size": 1,
-                "Grade": 3,
-                "Type": "Shield.UNDEFINED",
-                "Name": "Shimmer",
-                "Description": "Item Type: Shield Generator\nManufacturer: Ascension Astro\nSize: 1\nGrade: C\nClass: Stealth\n\nAscension Astro is known for one thing — quality stealth components. Their Shimmer shield generator was built not only to help avoid detection, but also provide protection when needed most.  ",
-                "Manufacturer": {
-                  "Code": "ASAS",
-                  "Name": "Ascension Astro"
-                },
-                "Shield": {
-                  "Health": 1800.0,
-                  "Regeneration": 450.0,
-                  "DownedDelay": 5.0,
-                  "DamagedDelay": 5.0,
-                  "Absorption": {
-                    "Physical": {
-                      "Minimum": 0.5,
-                      "Maximum": 0.95
-                    },
-                    "Energy": {
-                      "Minimum": 1.0,
-                      "Maximum": 1.0
-                    },
-                    "Distortion": {
-                      "Minimum": 1.0,
-                      "Maximum": 1.0
-                    },
-                    "Thermal": {
-                      "Minimum": 1.0,
-                      "Maximum": 1.0
-                    },
-                    "Biochemical": {
-                      "Minimum": 1.0,
-                      "Maximum": 1.0
-                    },
-                    "Stun": {
-                      "Minimum": 1.0,
-                      "Maximum": 1.0
-                    }
-                  }
-                },
-                "Durability": {
-                  "Health": 93.75,
-                  "Lifetime": 15.0
-                },
-                "PowerConnection": {
-                  "PowerBase": 200.0,
-                  "PowerDraw": 250.0
-                },
-                "HeatConnection": {
-                  "ThermalEnergyBase": 3826.25,
-                  "ThermalEnergyDraw": 7420.0,
-                  "CoolingRate": 31.07826
-                }
-              },
-              "Types": [
-                "Shield"
-              ],
-              "Flags": [
-                "invisible"
-              ],
-              "Category": "Shield generators"
-            }
-          },
-          {
-            "Name": "hardpoint_shield_generator_right",
-            "Port": {
-              "PortName": "hardpoint_shield_generator_right",
-              "Size": 1,
-              "Loadout": "SHLD_ASAS_S01_Shimmer_SCItem",
-              "InstalledItem": {
-                "ClassName": "SHLD_ASAS_S01_Shimmer_SCItem",
-                "Size": 1,
-                "Grade": 3,
-                "Type": "Shield.UNDEFINED",
-                "Name": "Shimmer",
-                "Description": "Item Type: Shield Generator\nManufacturer: Ascension Astro\nSize: 1\nGrade: C\nClass: Stealth\n\nAscension Astro is known for one thing — quality stealth components. Their Shimmer shield generator was built not only to help avoid detection, but also provide protection when needed most.  ",
-                "Manufacturer": {
-                  "Code": "ASAS",
-                  "Name": "Ascension Astro"
-                },
-                "Shield": {
-                  "Health": 1800.0,
-                  "Regeneration": 450.0,
-                  "DownedDelay": 5.0,
-                  "DamagedDelay": 5.0,
-                  "Absorption": {
-                    "Physical": {
-                      "Minimum": 0.5,
-                      "Maximum": 0.95
-                    },
-                    "Energy": {
-                      "Minimum": 1.0,
-                      "Maximum": 1.0
-                    },
-                    "Distortion": {
-                      "Minimum": 1.0,
-                      "Maximum": 1.0
-                    },
-                    "Thermal": {
-                      "Minimum": 1.0,
-                      "Maximum": 1.0
-                    },
-                    "Biochemical": {
-                      "Minimum": 1.0,
-                      "Maximum": 1.0
-                    },
-                    "Stun": {
-                      "Minimum": 1.0,
-                      "Maximum": 1.0
-                    }
-                  }
-                },
-                "Durability": {
-                  "Health": 93.75,
-                  "Lifetime": 15.0
-                },
-                "PowerConnection": {
-                  "PowerBase": 200.0,
-                  "PowerDraw": 250.0
-                },
-                "HeatConnection": {
-                  "ThermalEnergyBase": 3826.25,
-                  "ThermalEnergyDraw": 7420.0,
-                  "CoolingRate": 31.07826
-                }
-              },
-              "Types": [
-                "Shield"
-              ],
-              "Flags": [
-                "invisible"
-              ],
-              "Category": "Shield generators"
-            }
-          },
           {
             "Name": "hardpoint_armor",
             "Port": {
@@ -557,119 +50,6 @@
                 "uneditable"
               ],
               "Category": "Armor",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_flight",
-            "Port": {
-              "PortName": "hardpoint_controller_flight",
-              "Size": 1,
-              "Loadout": "Controller_Flight_ANVL_Hornet_F7CS",
-              "InstalledItem": {
-                "ClassName": "Controller_Flight_ANVL_Hornet_F7CS",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "FlightController.UNDEFINED",
-                "Name": "SELF STATUS",
-                "Ifcs": {
-                  "MaxSpeed": 192.0,
-                  "MaxAfterburnSpeed": 1229.0
-                }
-              },
-              "Types": [
-                "FlightController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_scanner",
-            "Port": {
-              "PortName": "hardpoint_scanner",
-              "Size": 1,
-              "Loadout": "test_scanner",
-              "InstalledItem": {
-                "ClassName": "test_scanner",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "Scanner.UNDEFINED",
-                "Name": "test_scanner",
-                "Tags": [
-                  "flightReady"
-                ],
-                "Scanner": {
-                  "Range": 0.0
-                }
-              },
-              "Types": [
-                "Scanner"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "Scanners",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_ping",
-            "Port": {
-              "PortName": "hardpoint_ping",
-              "Size": 1,
-              "Loadout": "test_ping",
-              "InstalledItem": {
-                "ClassName": "test_ping",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "Ping.UNDEFINED",
-                "Name": "Ping",
-                "Description": "Ping",
-                "Tags": [
-                  "flightReady"
-                ]
-              },
-              "Types": [
-                "Ping"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "Pings",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_paint",
-            "Port": {
-              "PortName": "hardpoint_paint",
-              "Size": 1,
-              "Types": [
-                "Paints"
-              ],
-              "Category": "Paints"
-            }
-          },
-          {
-            "Name": "hardpoint_transponder",
-            "Port": {
-              "PortName": "hardpoint_transponder",
-              "Size": 1,
-              "Types": [
-                "Transponder"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "Transponders",
               "Uneditable": true
             }
           },
@@ -733,78 +113,6 @@
             }
           },
           {
-            "Name": "hardpoint_controller_weapon",
-            "Port": {
-              "PortName": "hardpoint_controller_weapon",
-              "Size": 1,
-              "Loadout": "Controller_Weapon",
-              "InstalledItem": {
-                "ClassName": "Controller_Weapon",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "WeaponController.UNDEFINED",
-                "Name": "WEAPONS"
-              },
-              "Types": [
-                "WeaponController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_comms",
-            "Port": {
-              "PortName": "hardpoint_controller_comms",
-              "Size": 1,
-              "Loadout": "Controller_Comms",
-              "InstalledItem": {
-                "ClassName": "Controller_Comms",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "CommsController.UNDEFINED",
-                "Name": "COMMS"
-              },
-              "Types": [
-                "CommsController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_door",
-            "Port": {
-              "PortName": "hardpoint_controller_door",
-              "Size": 1,
-              "Loadout": "Controller_Door",
-              "InstalledItem": {
-                "ClassName": "Controller_Door",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "DoorController.UNDEFINED",
-                "Name": "SECURITY"
-              },
-              "Types": [
-                "DoorController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
             "Name": "hardpoint_class_4_nose",
             "Port": {
               "PortName": "hardpoint_class_4_nose",
@@ -819,30 +127,6 @@
                 "nose"
               ],
               "Category": "Weapon hardpoints"
-            }
-          },
-          {
-            "Name": "hardpoint_controller_missile",
-            "Port": {
-              "PortName": "hardpoint_controller_missile",
-              "Size": 1,
-              "Loadout": "Controller_Missile",
-              "InstalledItem": {
-                "ClassName": "Controller_Missile",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "MissileController.UNDEFINED",
-                "Name": "MISSILES"
-              },
-              "Types": [
-                "MissileController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
             }
           },
           {
@@ -930,118 +214,6 @@
                   "Category": "Retro thrusters",
                   "Uneditable": true
                 }
-              },
-              {
-                "Name": "WingLeft",
-                "Parts": [
-                  {
-                    "Name": "landing_gear_left_wing_helper"
-                  },
-                  {
-                    "Name": "WingLeft_Debris",
-                    "MaximumDamage": 3000.0,
-                    "Parts": [
-                      {
-                        "Name": "hardpoint_class_2_left_wing",
-                        "Port": {
-                          "PortName": "hardpoint_class_2_left_wing",
-                          "Size": 3,
-                          "Loadout": "AMRS_LaserCannon_S3",
-                          "InstalledItem": {
-                            "ClassName": "AMRS_LaserCannon_S3",
-                            "Size": 3,
-                            "Grade": 1,
-                            "Type": "WeaponGun.Gun",
-                            "Name": "Omnisky IX Cannon",
-                            "Description": "Manufacturer: Amon & Reese Co.\nItem Type: Laser Cannon\nSize: 3\n\nThe Omnisky IX is the size three version of Amon & Reese's popular laser autocannon. The weapon's low rate of fire is offset by its effective range, which allows it to deliver a powerful shot from afar. ",
-                            "Manufacturer": {
-                              "Code": "AMRS",
-                              "Name": "Amon & Reese Co."
-                            },
-                            "Tags": [
-                              "AMRS",
-                              "LaserCannon",
-                              "flightReady",
-                              "weaponMountUsable"
-                            ],
-                            "Durability": {
-                              "Health": 1024.0,
-                              "Lifetime": 20.0
-                            },
-                            "PowerConnection": {
-                              "PowerBase": 240.0,
-                              "PowerDraw": 240.0
-                            },
-                            "HeatConnection": {
-                              "ThermalEnergyBase": 100.0,
-                              "ThermalEnergyDraw": 200.0,
-                              "CoolingRate": 160.0
-                            },
-                            "Weapon": {
-                              "Ammunition": {
-                                "Speed": 700.0,
-                                "Range": 1400.0,
-                                "Size": 3.0,
-                                "Capacity": 0.0,
-                                "ImpactDamage": {
-                                  "Energy": 150.0
-                                }
-                              },
-                              "Modes": [
-                                {
-                                  "Name": "Single",
-                                  "LocalisedName": "[AUTO]",
-                                  "RoundsPerMinute": 200.0,
-                                  "FireType": "sequence",
-                                  "AmmoPerShot": 1.0,
-                                  "PelletsPerShot": 1.0,
-                                  "DamagePerShot": {
-                                    "Energy": 150.0
-                                  },
-                                  "DamagePerSecond": {
-                                    "Energy": 500.0
-                                  }
-                                }
-                              ]
-                            },
-                            "Ammunition": {
-                              "Speed": 700.0,
-                              "Range": 1400.0,
-                              "Size": 3.0,
-                              "Capacity": 0.0,
-                              "ImpactDamage": {
-                                "Energy": 150.0
-                              }
-                            },
-                            "Ports": [
-                              {
-                                "PortName": "magazine_attach",
-                                "Size": 0,
-                                "Category": "UNKNOWN"
-                              }
-                            ]
-                          },
-                          "Types": [
-                            "Turret.GunTurret",
-                            "WeaponGun.Gun"
-                          ],
-                          "Flags": [
-                            "left",
-                            "wing",
-                            "bottom"
-                          ],
-                          "Category": "Weapon hardpoints"
-                        }
-                      }
-                    ],
-                    "PartDetachDamage": 3000.0
-                  },
-                  {
-                    "Name": "LG_Door_Rear_L",
-                    "MaximumDamage": 1.0,
-                    "PartDetachDamage": 1.0
-                  }
-                ]
               },
               {
                 "Name": "WingRight",
@@ -1146,12 +318,9 @@
                     "PartDetachDamage": 3000.0
                   },
                   {
-                    "Name": "landing_gear_right_wing_helper"
-                  },
-                  {
                     "Name": "LG_Door_Rear_R",
-                    "MaximumDamage": 1.0,
-                    "PartDetachDamage": 1.0
+                    "MaximumDamage": 100.0,
+                    "PartDetachDamage": 100.0
                   }
                 ]
               },
@@ -1274,90 +443,8 @@
               },
               {
                 "Name": "IntakeLeft",
-                "MaximumDamage": 160.0,
+                "MaximumDamage": 400.0,
                 "Parts": [
-                  {
-                    "Name": "hardpoint_cooler_left",
-                    "Port": {
-                      "PortName": "hardpoint_cooler_left",
-                      "Size": 1,
-                      "Loadout": "COOL_TYDT_S01_HeatSafe_SCItem",
-                      "InstalledItem": {
-                        "ClassName": "COOL_TYDT_S01_HeatSafe_SCItem",
-                        "Size": 1,
-                        "Grade": 3,
-                        "Type": "Cooler.UNDEFINED",
-                        "Name": "HeatSafe",
-                        "Description": "Item Type: Cooler\nManufacturer: Tyler Design & Tech\t\nSize: 1\nGrade: C\nClass: Stealth\n\nPilots looking to keep their IR signature low rely on Tyler Design & Tech. As an entry level cooler, the HeatSafe not only limits emissions, it is built with Tyler’s satisfaction guarantee.  ",
-                        "Manufacturer": {
-                          "Code": "TYDT",
-                          "Name": "Tyler Design & Tech"
-                        },
-                        "Cooler": {
-                          "Rate": 130000.0
-                        },
-                        "Durability": {
-                          "Health": 350.0,
-                          "Lifetime": 10.0
-                        },
-                        "PowerConnection": {
-                          "PowerBase": 8.0,
-                          "PowerDraw": 12.0
-                        },
-                        "HeatConnection": {
-                          "ThermalEnergyBase": 10.0,
-                          "ThermalEnergyDraw": 20.0,
-                          "CoolingRate": 1.0
-                        }
-                      },
-                      "Types": [
-                        "Cooler"
-                      ],
-                      "Flags": [
-                        "invisible"
-                      ],
-                      "Category": "Coolers"
-                    }
-                  },
-                  {
-                    "Name": "hardpoint_fuel_intake_left",
-                    "Port": {
-                      "PortName": "hardpoint_fuel_intake_left",
-                      "Size": 1,
-                      "Loadout": "INTK_ANVL_Hornet_F7CS",
-                      "InstalledItem": {
-                        "ClassName": "INTK_ANVL_Hornet_F7CS",
-                        "Size": 1,
-                        "Grade": 1,
-                        "Type": "FuelIntake.Fuel",
-                        "Name": "INTK_ANVL_Hornet_F7CS",
-                        "Tags": [
-                          "flightReady"
-                        ],
-                        "HydrogenFuelIntake": {
-                          "Rate": 15.0
-                        },
-                        "PowerConnection": {
-                          "PowerBase": 0.0,
-                          "PowerDraw": 1.0
-                        },
-                        "HeatConnection": {
-                          "ThermalEnergyBase": 10.0,
-                          "ThermalEnergyDraw": 20.0,
-                          "CoolingRate": 1.0
-                        }
-                      },
-                      "Types": [
-                        "FuelIntake"
-                      ],
-                      "Flags": [
-                        "invisible",
-                        "uneditable"
-                      ],
-                      "Category": "Fuel intakes",
-                      "Uneditable": true
-                    }
-                  },
                   {
                     "Name": "MissileBay_Left",
                     "Parts": [
@@ -1771,6 +858,88 @@
                       "Category": "Maneuvering thrusters",
                       "Uneditable": true
                     }
+                  },
+                  {
+                    "Name": "hardpoint_fuel_intake_left",
+                    "Port": {
+                      "PortName": "hardpoint_fuel_intake_left",
+                      "Size": 1,
+                      "Loadout": "INTK_ANVL_Hornet_F7CS",
+                      "InstalledItem": {
+                        "ClassName": "INTK_ANVL_Hornet_F7CS",
+                        "Size": 1,
+                        "Grade": 1,
+                        "Type": "FuelIntake.Fuel",
+                        "Name": "INTK_ANVL_Hornet_F7CS",
+                        "Tags": [
+                          "flightReady"
+                        ],
+                        "HydrogenFuelIntake": {
+                          "Rate": 15.0
+                        },
+                        "PowerConnection": {
+                          "PowerBase": 0.0,
+                          "PowerDraw": 1.0
+                        },
+                        "HeatConnection": {
+                          "ThermalEnergyBase": 10.0,
+                          "ThermalEnergyDraw": 20.0,
+                          "CoolingRate": 1.0
+                        }
+                      },
+                      "Types": [
+                        "FuelIntake"
+                      ],
+                      "Flags": [
+                        "invisible",
+                        "uneditable"
+                      ],
+                      "Category": "Fuel intakes",
+                      "Uneditable": true
+                    }
+                  },
+                  {
+                    "Name": "hardpoint_cooler_left",
+                    "Port": {
+                      "PortName": "hardpoint_cooler_left",
+                      "Size": 1,
+                      "Loadout": "COOL_TYDT_S01_HeatSafe_SCItem",
+                      "InstalledItem": {
+                        "ClassName": "COOL_TYDT_S01_HeatSafe_SCItem",
+                        "Size": 1,
+                        "Grade": 3,
+                        "Type": "Cooler.UNDEFINED",
+                        "Name": "HeatSafe",
+                        "Description": "Item Type: Cooler\nManufacturer: Tyler Design & Tech\t\nSize: 1\nGrade: C\nClass: Stealth\n\nPilots looking to keep their IR signature low rely on Tyler Design & Tech. As an entry level cooler, the HeatSafe not only limits emissions, it is built with Tyler’s satisfaction guarantee.  ",
+                        "Manufacturer": {
+                          "Code": "TYDT",
+                          "Name": "Tyler Design & Tech"
+                        },
+                        "Cooler": {
+                          "Rate": 130000.0
+                        },
+                        "Durability": {
+                          "Health": 350.0,
+                          "Lifetime": 10.0
+                        },
+                        "PowerConnection": {
+                          "PowerBase": 8.0,
+                          "PowerDraw": 12.0
+                        },
+                        "HeatConnection": {
+                          "ThermalEnergyBase": 10.0,
+                          "ThermalEnergyDraw": 20.0,
+                          "CoolingRate": 1.0
+                        }
+                      },
+                      "Types": [
+                        "Cooler"
+                      ],
+                      "Flags": [
+                        "invisible"
+                      ],
+                      "Category": "Coolers"
+                    }
                   }
                 ]
               },
@@ -1880,46 +1049,139 @@
                 "MaximumDamage": 400.0,
                 "Parts": [
                   {
-                    "Name": "hardpoint_power_plant",
+                    "Name": "hardpoint_engine_attach",
                     "Port": {
-                      "PortName": "hardpoint_power_plant",
-                      "Size": 1,
-                      "Loadout": "POWR_TYDT_S01_SonicLite_SCItem",
+                      "PortName": "hardpoint_engine_attach",
+                      "Size": 4,
+                      "Loadout": "ANVL_Hornet_F7C_Thruster_Main",
                       "InstalledItem": {
-                        "ClassName": "POWR_TYDT_S01_SonicLite_SCItem",
-                        "Size": 1,
-                        "Grade": 3,
-                        "Type": "PowerPlant.Power",
-                        "Name": "SonicLite",
-                        "Description": "Item Type: Power Plant\nManufacturer: Tyler Design & Tech\nSize: 1\nGrade: C\nClass: Stealth\n\nConstructed from the ground up to minimize your heat signature, Tyler Design’s SonicLite power plant has gained a following among pilots who appreciate a subtler approach. ",
+                        "ClassName": "ANVL_Hornet_F7C_Thruster_Main",
+                        "Size": 3,
+                        "Grade": 1,
+                        "Type": "MainThruster.FixedThruster",
+                        "Name": "ANVL_Hornet_F7C_Thruster_Main",
                         "Manufacturer": {
-                          "Code": "TYDT",
-                          "Name": "Tyler Design & Tech"
+                          "Code": "ANVL",
+                          "Name": "Anvil Aerospace"
                         },
-                        "PowerPlant": {
-                          "Output": 1367.28
+                        "Thruster": {
+                          "ThrustCapacity": 3512532.0,
+                          "FuelRate": 1.25E-05,
+                          "Type": "Main",
+                          "MaxThrustFuelRate": 43.90665
                         },
                         "Durability": {
-                          "Health": 275.0,
-                          "Lifetime": 15.0
+                          "Health": 9000.0,
+                          "Lifetime": 720.0
                         },
                         "PowerConnection": {
-                          "PowerBase": 0.0,
-                          "PowerDraw": 1367.28
+                          "PowerBase": 20.0,
+                          "PowerDraw": 24.0
                         },
                         "HeatConnection": {
-                          "ThermalEnergyBase": 9166.667,
-                          "ThermalEnergyDraw": 15777.0,
-                          "CoolingRate": 53.98861
+                          "ThermalEnergyBase": 500.0,
+                          "ThermalEnergyDraw": 25000.0,
+                          "CoolingRate": 45.0
                         }
                       },
                       "Types": [
-                        "PowerPlant"
+                        "MainThruster"
+                      ],
+                      "Flags": [
+                        "main",
+                        "rear",
+                        "uneditable"
+                      ],
+                      "Category": "Main thrusters",
+                      "Uneditable": true
+                    }
+                  },
+                  {
+                    "Name": "hardpoint_quantum_fuel_tank",
+                    "Port": {
+                      "PortName": "hardpoint_quantum_fuel_tank",
+                      "Size": 1,
+                      "Loadout": "QTNK_ANVL_Hornet_F7CS",
+                      "InstalledItem": {
+                        "ClassName": "QTNK_ANVL_Hornet_F7CS",
+                        "Size": 1,
+                        "Grade": 1,
+                        "Type": "QuantumFuelTank.QuantumFuel",
+                        "Name": "QTNK_ANVL_Hornet_F7CS",
+                        "Tags": [
+                          "flightReady"
+                        ],
+                        "QuantumFuelTank": {
+                          "Capacity": 583.33
+                        }
+                      },
+                      "Types": [
+                        "QuantumFuelTank.QuantumFuel"
+                      ],
+                      "Flags": [
+                        "invisible",
+                        "uneditable"
+                      ],
+                      "Category": "Quantum fuel tanks",
+                      "Uneditable": true
+                    }
+                  },
+                  {
+                    "Name": "hardpoint_quantum_drive",
+                    "Port": {
+                      "PortName": "hardpoint_quantum_drive",
+                      "Size": 1,
+                      "Loadout": "QDRV_RSI_S01_Eos_SCItem",
+                      "InstalledItem": {
+                        "ClassName": "QDRV_RSI_S01_Eos_SCItem",
+                        "Size": 1,
+                        "Grade": 3,
+                        "Type": "QuantumDrive.UNDEFINED",
+                        "Name": "Eos",
+                        "Description": "Item Type: Quantum Drive\nManufacturer: RSI \nSize: 1\nGrade: C\nClass: Civilian\n\nThe Eos quantum drive has been a staple in the RSI product line for centuries. Its original design was so perfectly fine-tuned that it has remained basically unchanged since. ",
+                        "Manufacturer": {
+                          "Code": "RSI",
+                          "Name": "Roberts Space Industries"
+                        },
+                        "QuantumDrive": {
+                          "FuelRate": 9.114E-09,
+                          "JumpRange": 3.402823E+38,
+                          "StandardJump": {
+                            "Speed": 138543800.0,
+                            "Cooldown": 9.4,
+                            "Stage1AccelerationRate": 920000.0,
+                            "State2AccelerationRate": 2284234.0,
+                            "SpoolUpTime": 5.0
+                          },
+                          "SplineJump": {
+                            "Speed": 500000.0,
+                            "Cooldown": 10.0,
+                            "Stage1AccelerationRate": 250.0,
+                            "State2AccelerationRate": 50000.0,
+                            "SpoolUpTime": 5.0
+                          }
+                        },
+                        "Durability": {
+                          "Health": 535.0,
+                          "Lifetime": 5.9
+                        },
+                        "PowerConnection": {
+                          "PowerBase": 25.0,
+                          "PowerDraw": 100.0
+                        },
+                        "HeatConnection": {
+                          "ThermalEnergyBase": 4174.0,
+                          "ThermalEnergyDraw": 4174.0,
+                          "CoolingRate": 25.3
+                        }
+                      },
+                      "Types": [
+                        "QuantumDrive.QDrive"
                       ],
                       "Flags": [
                         "invisible"
                       ],
-                      "Category": "Power plants"
+                      "Category": "Quantum drives"
                     }
                   },
                   {
@@ -1983,139 +1245,46 @@
                     }
                   },
                   {
-                    "Name": "hardpoint_quantum_drive",
+                    "Name": "hardpoint_power_plant",
                     "Port": {
-                      "PortName": "hardpoint_quantum_drive",
+                      "PortName": "hardpoint_power_plant",
                       "Size": 1,
-                      "Loadout": "QDRV_RSI_S01_Eos_SCItem",
+                      "Loadout": "POWR_TYDT_S01_Slipstream_SCItem",
                       "InstalledItem": {
-                        "ClassName": "QDRV_RSI_S01_Eos_SCItem",
+                        "ClassName": "POWR_TYDT_S01_Slipstream_SCItem",
                         "Size": 1,
-                        "Grade": 3,
-                        "Type": "QuantumDrive.UNDEFINED",
-                        "Name": "Eos",
-                        "Description": "Item Type: Quantum Drive\nManufacturer: RSI \nSize: 1\nGrade: C\nClass: Civilian\n\nThe Eos quantum drive has been a staple in the RSI product line for centuries. Its original design was so perfectly fine-tuned that it has remained basically unchanged since. ",
+                        "Grade": 1,
+                        "Type": "PowerPlant.Power",
+                        "Name": "Slipstream",
+                        "Description": "Item Type: Power Plant\nManufacturer: Tyler Design & Tech\nSize: 1\nGrade: A\nClass: Stealth\n\nTyler Design & Tech uses an expensive alloy on its Slipstream power plant to reduce its overall emissions. This design choice is key to making this small power plant’s detectable signature one of the lowest on the market.",
                         "Manufacturer": {
-                          "Code": "RSI",
-                          "Name": "Roberts Space Industries"
+                          "Code": "TYDT",
+                          "Name": "Tyler Design & Tech"
                         },
-                        "QuantumDrive": {
-                          "FuelRate": 9.114E-09,
-                          "JumpRange": 3.402823E+38,
-                          "StandardJump": {
-                            "Speed": 138543800.0,
-                            "Cooldown": 9.4,
-                            "Stage1AccelerationRate": 920000.0,
-                            "State2AccelerationRate": 2284234.0,
-                            "SpoolUpTime": 5.0
-                          },
-                          "SplineJump": {
-                            "Speed": 500000.0,
-                            "Cooldown": 10.0,
-                            "Stage1AccelerationRate": 250.0,
-                            "State2AccelerationRate": 50000.0,
-                            "SpoolUpTime": 5.0
-                          }
+                        "PowerPlant": {
+                          "Output": 1787.98
                         },
                         "Durability": {
-                          "Health": 535.0,
-                          "Lifetime": 5.9
+                          "Health": 325.0,
+                          "Lifetime": 17.0
                         },
                         "PowerConnection": {
-                          "PowerBase": 25.0,
-                          "PowerDraw": 100.0
+                          "PowerBase": 0.0,
+                          "PowerDraw": 1787.98
                         },
                         "HeatConnection": {
-                          "ThermalEnergyBase": 4174.0,
-                          "ThermalEnergyDraw": 4174.0,
-                          "CoolingRate": 25.3
+                          "ThermalEnergyBase": 14850.0,
+                          "ThermalEnergyDraw": 14024.0,
+                          "CoolingRate": 76.79487
                         }
                       },
                       "Types": [
-                        "QuantumDrive.QDrive"
+                        "PowerPlant"
                       ],
                       "Flags": [
                         "invisible"
                       ],
-                      "Category": "Quantum drives"
-                    }
-                  },
-                  {
-                    "Name": "hardpoint_quantum_fuel_tank",
-                    "Port": {
-                      "PortName": "hardpoint_quantum_fuel_tank",
-                      "Size": 1,
-                      "Loadout": "QTNK_ANVL_Hornet_F7CS",
-                      "InstalledItem": {
-                        "ClassName": "QTNK_ANVL_Hornet_F7CS",
-                        "Size": 1,
-                        "Grade": 1,
-                        "Type": "QuantumFuelTank.QuantumFuel",
-                        "Name": "QTNK_ANVL_Hornet_F7CS",
-                        "Tags": [
-                          "flightReady"
-                        ],
-                        "QuantumFuelTank": {
-                          "Capacity": 583.33
-                        }
-                      },
-                      "Types": [
-                        "QuantumFuelTank.QuantumFuel"
-                      ],
-                      "Flags": [
-                        "invisible",
-                        "uneditable"
-                      ],
-                      "Category": "Quantum fuel tanks",
-                      "Uneditable": true
-                    }
-                  },
-                  {
-                    "Name": "hardpoint_engine_attach",
-                    "Port": {
-                      "PortName": "hardpoint_engine_attach",
-                      "Size": 4,
-                      "Loadout": "ANVL_Hornet_F7C_Thruster_Main",
-                      "InstalledItem": {
-                        "ClassName": "ANVL_Hornet_F7C_Thruster_Main",
-                        "Size": 3,
-                        "Grade": 1,
-                        "Type": "MainThruster.FixedThruster",
-                        "Name": "ANVL_Hornet_F7C_Thruster_Main",
-                        "Manufacturer": {
-                          "Code": "ANVL",
-                          "Name": "Anvil Aerospace"
-                        },
-                        "Thruster": {
-                          "ThrustCapacity": 3512532.0,
-                          "FuelRate": 1.25E-05,
-                          "Type": "Main",
-                          "MaxThrustFuelRate": 43.90665
-                        },
-                        "Durability": {
-                          "Health": 9000.0,
-                          "Lifetime": 720.0
-                        },
-                        "PowerConnection": {
-                          "PowerBase": 20.0,
-                          "PowerDraw": 24.0
-                        },
-                        "HeatConnection": {
-                          "ThermalEnergyBase": 500.0,
-                          "ThermalEnergyDraw": 25000.0,
-                          "CoolingRate": 45.0
-                        }
-                      },
-                      "Types": [
-                        "MainThruster"
-                      ],
-                      "Flags": [
-                        "main",
-                        "rear",
-                        "uneditable"
-                      ],
-                      "Category": "Main thrusters",
-                      "Uneditable": true
+                      "Category": "Power plants"
                     }
                   }
                 ]
@@ -2127,113 +1296,29 @@
                   {
                     "Name": "Tail_Debris",
                     "MaximumDamage": 80.0,
-                    "Parts": [
-                      {
-                        "Name": "ANVL_Hornet_F7CR_RearAntenna",
-                        "Port": {
-                          "PortName": "ANVL_Hornet_F7CR_RearAntenna",
-                          "Size": 1,
-                          "Types": [
-                            "Misc"
-                          ],
-                          "Flags": [
-                            "uneditable"
-                          ],
-                          "Category": "UNKNOWN",
-                          "Uneditable": true
-                        }
-                      }
-                    ],
                     "PartDetachDamage": 80.0
+                  },
+                  {
+                    "Name": "ANVL_Hornet_F7CR_RearAntenna",
+                    "Port": {
+                      "PortName": "ANVL_Hornet_F7CR_RearAntenna",
+                      "Size": 1,
+                      "Types": [
+                        "Misc"
+                      ],
+                      "Flags": [
+                        "uneditable"
+                      ],
+                      "Category": "UNKNOWN",
+                      "Uneditable": true
+                    }
                   }
                 ]
               },
               {
                 "Name": "IntakeRight",
-                "MaximumDamage": 160.0,
+                "MaximumDamage": 400.0,
                 "Parts": [
-                  {
-                    "Name": "hardpoint_cooler_right",
-                    "Port": {
-                      "PortName": "hardpoint_cooler_right",
-                      "Size": 1,
-                      "Loadout": "COOL_TYDT_S01_HeatSafe_SCItem",
-                      "InstalledItem": {
-                        "ClassName": "COOL_TYDT_S01_HeatSafe_SCItem",
-                        "Size": 1,
-                        "Grade": 3,
-                        "Type": "Cooler.UNDEFINED",
-                        "Name": "HeatSafe",
-                        "Description": "Item Type: Cooler\nManufacturer: Tyler Design & Tech\t\nSize: 1\nGrade: C\nClass: Stealth\n\nPilots looking to keep their IR signature low rely on Tyler Design & Tech. As an entry level cooler, the HeatSafe not only limits emissions, it is built with Tyler’s satisfaction guarantee.  ",
-                        "Manufacturer": {
-                          "Code": "TYDT",
-                          "Name": "Tyler Design & Tech"
-                        },
-                        "Cooler": {
-                          "Rate": 130000.0
-                        },
-                        "Durability": {
-                          "Health": 350.0,
-                          "Lifetime": 10.0
-                        },
-                        "PowerConnection": {
-                          "PowerBase": 8.0,
-                          "PowerDraw": 12.0
-                        },
-                        "HeatConnection": {
-                          "ThermalEnergyBase": 10.0,
-                          "ThermalEnergyDraw": 20.0,
-                          "CoolingRate": 1.0
-                        }
-                      },
-                      "Types": [
-                        "Cooler"
-                      ],
-                      "Flags": [
-                        "invisible"
-                      ],
-                      "Category": "Coolers"
-                    }
-                  },
-                  {
-                    "Name": "hardpoint_fuel_intake_right",
-                    "Port": {
-                      "PortName": "hardpoint_fuel_intake_right",
-                      "Size": 1,
-                      "Loadout": "INTK_ANVL_Hornet_F7CS",
-                      "InstalledItem": {
-                        "ClassName": "INTK_ANVL_Hornet_F7CS",
-                        "Size": 1,
-                        "Grade": 1,
-                        "Type": "FuelIntake.Fuel",
-                        "Name": "INTK_ANVL_Hornet_F7CS",
-                        "Tags": [
-                          "flightReady"
-                        ],
-                        "HydrogenFuelIntake": {
-                          "Rate": 15.0
-                        },
-                        "PowerConnection": {
-                          "PowerBase": 0.0,
-                          "PowerDraw": 1.0
-                        },
-                        "HeatConnection": {
-                          "ThermalEnergyBase": 10.0,
-                          "ThermalEnergyDraw": 20.0,
-                          "CoolingRate": 1.0
-                        }
-                      },
-                      "Types": [
-                        "FuelIntake"
-                      ],
-                      "Flags": [
-                        "invisible",
-                        "uneditable"
-                      ],
-                      "Category": "Fuel intakes",
-                      "Uneditable": true
-                    }
-                  },
                   {
                     "Name": "MissileBay_Right",
                     "Parts": [
@@ -2645,6 +1730,202 @@
                       "Category": "Maneuvering thrusters",
                       "Uneditable": true
                     }
+                  },
+                  {
+                    "Name": "hardpoint_fuel_intake_right",
+                    "Port": {
+                      "PortName": "hardpoint_fuel_intake_right",
+                      "Size": 1,
+                      "Loadout": "INTK_ANVL_Hornet_F7CS",
+                      "InstalledItem": {
+                        "ClassName": "INTK_ANVL_Hornet_F7CS",
+                        "Size": 1,
+                        "Grade": 1,
+                        "Type": "FuelIntake.Fuel",
+                        "Name": "INTK_ANVL_Hornet_F7CS",
+                        "Tags": [
+                          "flightReady"
+                        ],
+                        "HydrogenFuelIntake": {
+                          "Rate": 15.0
+                        },
+                        "PowerConnection": {
+                          "PowerBase": 0.0,
+                          "PowerDraw": 1.0
+                        },
+                        "HeatConnection": {
+                          "ThermalEnergyBase": 10.0,
+                          "ThermalEnergyDraw": 20.0,
+                          "CoolingRate": 1.0
+                        }
+                      },
+                      "Types": [
+                        "FuelIntake"
+                      ],
+                      "Flags": [
+                        "invisible",
+                        "uneditable"
+                      ],
+                      "Category": "Fuel intakes",
+                      "Uneditable": true
+                    }
+                  },
+                  {
+                    "Name": "hardpoint_cooler_right",
+                    "Port": {
+                      "PortName": "hardpoint_cooler_right",
+                      "Size": 1,
+                      "Loadout": "COOL_TYDT_S01_HeatSafe_SCItem",
+                      "InstalledItem": {
+                        "ClassName": "COOL_TYDT_S01_HeatSafe_SCItem",
+                        "Size": 1,
+                        "Grade": 3,
+                        "Type": "Cooler.UNDEFINED",
+                        "Name": "HeatSafe",
+                        "Description": "Item Type: Cooler\nManufacturer: Tyler Design & Tech\t\nSize: 1\nGrade: C\nClass: Stealth\n\nPilots looking to keep their IR signature low rely on Tyler Design & Tech. As an entry level cooler, the HeatSafe not only limits emissions, it is built with Tyler’s satisfaction guarantee.  ",
+                        "Manufacturer": {
+                          "Code": "TYDT",
+                          "Name": "Tyler Design & Tech"
+                        },
+                        "Cooler": {
+                          "Rate": 130000.0
+                        },
+                        "Durability": {
+                          "Health": 350.0,
+                          "Lifetime": 10.0
+                        },
+                        "PowerConnection": {
+                          "PowerBase": 8.0,
+                          "PowerDraw": 12.0
+                        },
+                        "HeatConnection": {
+                          "ThermalEnergyBase": 10.0,
+                          "ThermalEnergyDraw": 20.0,
+                          "CoolingRate": 1.0
+                        }
+                      },
+                      "Types": [
+                        "Cooler"
+                      ],
+                      "Flags": [
+                        "invisible"
+                      ],
+                      "Category": "Coolers"
+                    }
+                  }
+                ]
+              },
+              {
+                "Name": "WingRightRear",
+                "MaximumDamage": 800.0,
+                "PartDetachDamage": 800.0
+              },
+              {
+                "Name": "WingLeft",
+                "Parts": [
+                  {
+                    "Name": "WingLeft_Debris",
+                    "MaximumDamage": 3000.0,
+                    "Parts": [
+                      {
+                        "Name": "hardpoint_class_2_left_wing",
+                        "Port": {
+                          "PortName": "hardpoint_class_2_left_wing",
+                          "Size": 3,
+                          "Loadout": "AMRS_LaserCannon_S3",
+                          "InstalledItem": {
+                            "ClassName": "AMRS_LaserCannon_S3",
+                            "Size": 3,
+                            "Grade": 1,
+                            "Type": "WeaponGun.Gun",
+                            "Name": "Omnisky IX Cannon",
+                            "Description": "Manufacturer: Amon & Reese Co.\nItem Type: Laser Cannon\nSize: 3\n\nThe Omnisky IX is the size three version of Amon & Reese's popular laser autocannon. The weapon's low rate of fire is offset by its effective range, which allows it to deliver a powerful shot from afar. ",
+                            "Manufacturer": {
+                              "Code": "AMRS",
+                              "Name": "Amon & Reese Co."
+                            },
+                            "Tags": [
+                              "AMRS",
+                              "LaserCannon",
+                              "flightReady",
+                              "weaponMountUsable"
+                            ],
+                            "Durability": {
+                              "Health": 1024.0,
+                              "Lifetime": 20.0
+                            },
+                            "PowerConnection": {
+                              "PowerBase": 240.0,
+                              "PowerDraw": 240.0
+                            },
+                            "HeatConnection": {
+                              "ThermalEnergyBase": 100.0,
+                              "ThermalEnergyDraw": 200.0,
+                              "CoolingRate": 160.0
+                            },
+                            "Weapon": {
+                              "Ammunition": {
+                                "Speed": 700.0,
+                                "Range": 1400.0,
+                                "Size": 3.0,
+                                "Capacity": 0.0,
+                                "ImpactDamage": {
+                                  "Energy": 150.0
+                                }
+                              },
+                              "Modes": [
+                                {
+                                  "Name": "Single",
+                                  "LocalisedName": "[AUTO]",
+                                  "RoundsPerMinute": 200.0,
+                                  "FireType": "sequence",
+                                  "AmmoPerShot": 1.0,
+                                  "PelletsPerShot": 1.0,
+                                  "DamagePerShot": {
+                                    "Energy": 150.0
+                                  },
+                                  "DamagePerSecond": {
+                                    "Energy": 500.0
+                                  }
+                                }
+                              ]
+                            },
+                            "Ammunition": {
+                              "Speed": 700.0,
+                              "Range": 1400.0,
+                              "Size": 3.0,
+                              "Capacity": 0.0,
+                              "ImpactDamage": {
+                                "Energy": 150.0
+                              }
+                            },
+                            "Ports": [
+                              {
+                                "PortName": "magazine_attach",
+                                "Size": 0,
+                                "Category": "UNKNOWN"
+                              }
+                            ]
+                          },
+                          "Types": [
+                            "Turret.GunTurret",
+                            "WeaponGun.Gun"
+                          ],
+                          "Flags": [
+                            "left",
+                            "wing",
+                            "bottom"
+                          ],
+                          "Category": "Weapon hardpoints"
+                        }
+                      }
+                    ],
+                    "PartDetachDamage": 3000.0
+                  },
+                  {
+                    "Name": "LG_Door_Rear_L",
+                    "MaximumDamage": 100.0,
+                    "PartDetachDamage": 100.0
                   }
                 ]
               },
@@ -2654,18 +1935,488 @@
                 "PartDetachDamage": 800.0
               },
               {
-                "Name": "WingRightRear",
-                "MaximumDamage": 800.0,
-                "PartDetachDamage": 800.0
+                "Name": "hardpoint_shield_generator_left",
+                "Port": {
+                  "PortName": "hardpoint_shield_generator_left",
+                  "Size": 1,
+                  "Loadout": "SHLD_ASAS_S01_Shimmer_SCItem",
+                  "InstalledItem": {
+                    "ClassName": "SHLD_ASAS_S01_Shimmer_SCItem",
+                    "Size": 1,
+                    "Grade": 3,
+                    "Type": "Shield.UNDEFINED",
+                    "Name": "Shimmer",
+                    "Description": "Item Type: Shield Generator\nManufacturer: Ascension Astro\nSize: 1\nGrade: C\nClass: Stealth\n\nAscension Astro is known for one thing — quality stealth components. Their Shimmer shield generator was built not only to help avoid detection, but also provide protection when needed most.  ",
+                    "Manufacturer": {
+                      "Code": "ASAS",
+                      "Name": "Ascension Astro"
+                    },
+                    "Shield": {
+                      "Health": 1500.0,
+                      "Regeneration": 375.0,
+                      "DownedDelay": 5.0,
+                      "DamagedDelay": 5.0,
+                      "Absorption": {
+                        "Physical": {
+                          "Minimum": 0.5,
+                          "Maximum": 0.95
+                        },
+                        "Energy": {
+                          "Minimum": 1.0,
+                          "Maximum": 1.0
+                        },
+                        "Distortion": {
+                          "Minimum": 1.0,
+                          "Maximum": 1.0
+                        },
+                        "Thermal": {
+                          "Minimum": 1.0,
+                          "Maximum": 1.0
+                        },
+                        "Biochemical": {
+                          "Minimum": 1.0,
+                          "Maximum": 1.0
+                        },
+                        "Stun": {
+                          "Minimum": 1.0,
+                          "Maximum": 1.0
+                        }
+                      }
+                    },
+                    "Durability": {
+                      "Health": 93.75,
+                      "Lifetime": 15.0
+                    },
+                    "PowerConnection": {
+                      "PowerBase": 200.0,
+                      "PowerDraw": 250.0
+                    },
+                    "HeatConnection": {
+                      "ThermalEnergyBase": 3826.25,
+                      "ThermalEnergyDraw": 7420.0,
+                      "CoolingRate": 31.07826
+                    }
+                  },
+                  "Types": [
+                    "Shield"
+                  ],
+                  "Flags": [
+                    "invisible"
+                  ],
+                  "Category": "Shield generators"
+                }
+              },
+              {
+                "Name": "hardpoint_shield_generator_right",
+                "Port": {
+                  "PortName": "hardpoint_shield_generator_right",
+                  "Size": 1,
+                  "Loadout": "SHLD_ASAS_S01_Shimmer_SCItem",
+                  "InstalledItem": {
+                    "ClassName": "SHLD_ASAS_S01_Shimmer_SCItem",
+                    "Size": 1,
+                    "Grade": 3,
+                    "Type": "Shield.UNDEFINED",
+                    "Name": "Shimmer",
+                    "Description": "Item Type: Shield Generator\nManufacturer: Ascension Astro\nSize: 1\nGrade: C\nClass: Stealth\n\nAscension Astro is known for one thing — quality stealth components. Their Shimmer shield generator was built not only to help avoid detection, but also provide protection when needed most.  ",
+                    "Manufacturer": {
+                      "Code": "ASAS",
+                      "Name": "Ascension Astro"
+                    },
+                    "Shield": {
+                      "Health": 1500.0,
+                      "Regeneration": 375.0,
+                      "DownedDelay": 5.0,
+                      "DamagedDelay": 5.0,
+                      "Absorption": {
+                        "Physical": {
+                          "Minimum": 0.5,
+                          "Maximum": 0.95
+                        },
+                        "Energy": {
+                          "Minimum": 1.0,
+                          "Maximum": 1.0
+                        },
+                        "Distortion": {
+                          "Minimum": 1.0,
+                          "Maximum": 1.0
+                        },
+                        "Thermal": {
+                          "Minimum": 1.0,
+                          "Maximum": 1.0
+                        },
+                        "Biochemical": {
+                          "Minimum": 1.0,
+                          "Maximum": 1.0
+                        },
+                        "Stun": {
+                          "Minimum": 1.0,
+                          "Maximum": 1.0
+                        }
+                      }
+                    },
+                    "Durability": {
+                      "Health": 93.75,
+                      "Lifetime": 15.0
+                    },
+                    "PowerConnection": {
+                      "PowerBase": 200.0,
+                      "PowerDraw": 250.0
+                    },
+                    "HeatConnection": {
+                      "ThermalEnergyBase": 3826.25,
+                      "ThermalEnergyDraw": 7420.0,
+                      "CoolingRate": 31.07826
+                    }
+                  },
+                  "Types": [
+                    "Shield"
+                  ],
+                  "Flags": [
+                    "invisible"
+                  ],
+                  "Category": "Shield generators"
+                }
+              },
+              {
+                "Name": "hardpoint_controller_shield",
+                "Port": {
+                  "PortName": "hardpoint_controller_shield",
+                  "Size": 1,
+                  "Loadout": "Controller_Shield_ANVL_Hornet",
+                  "InstalledItem": {
+                    "ClassName": "Controller_Shield_ANVL_Hornet",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "ShieldController.UNDEFINED",
+                    "Name": "SHIELDS",
+                    "Tags": [
+                      "flightReady"
+                    ]
+                  },
+                  "Types": [
+                    "ShieldController"
+                  ],
+                  "Flags": [
+                    "invisible",
+                    "uneditable"
+                  ],
+                  "Category": "UNKNOWN",
+                  "Uneditable": true
+                }
               }
             ],
-            "ShipDestructionDamage": 4000.0,
-            "PartDetachDamage": 4000.0
+            "ShipDestructionDamage": 4000.0
           },
           {
             "Name": "Canopy",
-            "MaximumDamage": 2500.0,
-            "PartDetachDamage": 2500.0
+            "MaximumDamage": 80.0,
+            "PartDetachDamage": 80.0
+          },
+          {
+            "Name": "interior_cockpit",
+            "Port": {
+              "PortName": "interior_cockpit",
+              "Size": 1,
+              "Types": [
+                "Room"
+              ],
+              "Flags": [
+                "uneditable"
+              ],
+              "Category": "Rooms",
+              "Uneditable": true
+            },
+            "Parts": [
+              {
+                "Name": "hardpoint_seat_pilot",
+                "Port": {
+                  "PortName": "hardpoint_seat_pilot",
+                  "Size": 1,
+                  "Loadout": "ANVL_Hornet_Seat_Pilot",
+                  "InstalledItem": {
+                    "ClassName": "ANVL_Hornet_Seat_Pilot",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "Seat.UNDEFINED",
+                    "Name": "TRGT. STATUS",
+                    "Manufacturer": {
+                      "Code": "ANVL",
+                      "Name": "Anvil Aerospace"
+                    }
+                  },
+                  "Types": [
+                    "Seat"
+                  ],
+                  "Flags": [
+                    "uneditable",
+                    "$EjectCanopy"
+                  ],
+                  "Category": "Seats",
+                  "Uneditable": true
+                }
+              },
+              {
+                "Name": "hardpoint_dashboard_pilot",
+                "Port": {
+                  "PortName": "hardpoint_dashboard_pilot",
+                  "Size": 1,
+                  "Loadout": "ANVL_Hornet_Dashboard_Pilot",
+                  "InstalledItem": {
+                    "ClassName": "ANVL_Hornet_Dashboard_Pilot",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "SeatDashboard.UNDEFINED",
+                    "Name": "ANVL_Hornet_Dashboard_Pilot",
+                    "Manufacturer": {
+                      "Code": "ANVL",
+                      "Name": "Anvil Aerospace"
+                    },
+                    "Durability": {
+                      "Health": 1.0
+                    },
+                    "PowerConnection": {
+                      "PowerBase": 1.0,
+                      "PowerDraw": 1.0
+                    },
+                    "HeatConnection": {
+                      "ThermalEnergyBase": 10.0,
+                      "ThermalEnergyDraw": 20.0,
+                      "CoolingRate": 1.0
+                    },
+                    "Ports": [
+                      {
+                        "PortName": "hardpoint_cockpit_radar",
+                        "Size": 1,
+                        "Loadout": "RADR_Display",
+                        "InstalledItem": {
+                          "ClassName": "RADR_Display",
+                          "Size": 1,
+                          "Grade": 1,
+                          "Type": "Display.UNDEFINED",
+                          "Name": "RADR_Display"
+                        },
+                        "Types": [
+                          "Display"
+                        ],
+                        "Category": "UNKNOWN"
+                      },
+                      {
+                        "PortName": "Display_HUD",
+                        "Size": 0,
+                        "Loadout": "Projector_HUD_Generic",
+                        "InstalledItem": {
+                          "ClassName": "Projector_HUD_Generic",
+                          "Size": 1,
+                          "Grade": 1,
+                          "Type": "Display.UNDEFINED",
+                          "Name": "Projector_HUD_Generic"
+                        },
+                        "Category": "UNKNOWN"
+                      }
+                    ]
+                  },
+                  "Types": [
+                    "SeatDashboard"
+                  ],
+                  "Flags": [
+                    "uneditable"
+                  ],
+                  "Category": "UNKNOWN",
+                  "Uneditable": true
+                }
+              },
+              {
+                "Name": "hardpoint_self_destruct_pilot",
+                "Port": {
+                  "PortName": "hardpoint_self_destruct_pilot",
+                  "Size": 1,
+                  "Loadout": "VHCL_SelfDestruct_10s",
+                  "InstalledItem": {
+                    "ClassName": "VHCL_SelfDestruct_10s",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "SelfDestruct.UNDEFINED",
+                    "Name": "RSI Self Destruct",
+                    "Description": "[PH] RSI Self Destruct",
+                    "Manufacturer": {
+                      "Code": "RSI",
+                      "Name": "Roberts Space Industries"
+                    },
+                    "Tags": [
+                      "flightReady"
+                    ]
+                  },
+                  "Types": [
+                    "SelfDestruct"
+                  ],
+                  "Flags": [
+                    "invisible",
+                    "uneditable"
+                  ],
+                  "Category": "Self destruct",
+                  "Uneditable": true
+                }
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_controller_energy",
+            "Port": {
+              "PortName": "hardpoint_controller_energy",
+              "Size": 1,
+              "Loadout": "Controller_Energy",
+              "InstalledItem": {
+                "ClassName": "Controller_Energy",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "EnergyController.UNDEFINED",
+                "Name": "POWER"
+              },
+              "Types": [
+                "EnergyController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_cooler",
+            "Port": {
+              "PortName": "hardpoint_controller_cooler",
+              "Size": 1,
+              "Loadout": "Controller_Cooler",
+              "InstalledItem": {
+                "ClassName": "Controller_Cooler",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "CoolerController.UNDEFINED",
+                "Name": "HEAT"
+              },
+              "Types": [
+                "CoolerController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_flight",
+            "Port": {
+              "PortName": "hardpoint_controller_flight",
+              "Size": 1,
+              "Loadout": "Controller_Flight_ANVL_Hornet_F7CS",
+              "InstalledItem": {
+                "ClassName": "Controller_Flight_ANVL_Hornet_F7CS",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "FlightController.UNDEFINED",
+                "Name": "SELF STATUS",
+                "Ifcs": {
+                  "MaxSpeed": 192.0,
+                  "MaxAfterburnSpeed": 1229.0
+                }
+              },
+              "Types": [
+                "FlightController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_weapon",
+            "Port": {
+              "PortName": "hardpoint_controller_weapon",
+              "Size": 1,
+              "Loadout": "Controller_Weapon",
+              "InstalledItem": {
+                "ClassName": "Controller_Weapon",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponController.UNDEFINED",
+                "Name": "WEAPONS"
+              },
+              "Types": [
+                "WeaponController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_scanner",
+            "Port": {
+              "PortName": "hardpoint_scanner",
+              "Size": 1,
+              "Loadout": "test_scanner",
+              "InstalledItem": {
+                "ClassName": "test_scanner",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "Scanner.UNDEFINED",
+                "Name": "test_scanner",
+                "Tags": [
+                  "flightReady"
+                ],
+                "Scanner": {
+                  "Range": 0.0
+                }
+              },
+              "Types": [
+                "Scanner"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "Scanners",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_ping",
+            "Port": {
+              "PortName": "hardpoint_ping",
+              "Size": 1,
+              "Loadout": "test_ping",
+              "InstalledItem": {
+                "ClassName": "test_ping",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "Ping.UNDEFINED",
+                "Name": "Ping",
+                "Description": "Ping",
+                "Tags": [
+                  "flightReady"
+                ]
+              },
+              "Types": [
+                "Ping"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "Pings",
+              "Uneditable": true
+            }
           },
           {
             "Name": "ANVL_Hornet_F7CR_NoseCap",
@@ -2681,9 +2432,147 @@
               "Category": "UNKNOWN",
               "Uneditable": true
             }
+          },
+          {
+            "Name": "hardpoint_controller_missile",
+            "Port": {
+              "PortName": "hardpoint_controller_missile",
+              "Size": 1,
+              "Loadout": "Controller_Missile",
+              "InstalledItem": {
+                "ClassName": "Controller_Missile",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "MissileController.UNDEFINED",
+                "Name": "MISSILES"
+              },
+              "Types": [
+                "MissileController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_paint",
+            "Port": {
+              "PortName": "hardpoint_paint",
+              "Size": 1,
+              "Types": [
+                "Paints"
+              ],
+              "Category": "Paints"
+            }
+          },
+          {
+            "Name": "hardpoint_weapon_regen_pool",
+            "Port": {
+              "PortName": "hardpoint_weapon_regen_pool",
+              "Size": 1,
+              "Loadout": "WeaponRegenPool_Crew_Hornet",
+              "InstalledItem": {
+                "ClassName": "WeaponRegenPool_Crew_Hornet",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponRegenPool.UNDEFINED",
+                "Name": "WeaponRegenPool_Crew_Hornet"
+              },
+              "Types": [
+                "WeaponRegenPool"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_weapon_regen_pool_turrets",
+            "Port": {
+              "PortName": "hardpoint_weapon_regen_pool_turrets",
+              "Size": 1,
+              "Loadout": "WeaponRegenPool_Turret_Hornet",
+              "InstalledItem": {
+                "ClassName": "WeaponRegenPool_Turret_Hornet",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponRegenPool.UNDEFINED",
+                "Name": "WeaponRegenPool_Turret_Hornet"
+              },
+              "Types": [
+                "WeaponRegenPool"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_capacitor_assignment",
+            "Port": {
+              "PortName": "hardpoint_controller_capacitor_assignment",
+              "Size": 1,
+              "Loadout": "Controller_CapacitorAssignment",
+              "InstalledItem": {
+                "ClassName": "Controller_CapacitorAssignment",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "CapacitorAssignmentController.UNDEFINED",
+                "Name": "Controller_CapacitorAssignment",
+                "Tags": [
+                  "flightReady"
+                ]
+              },
+              "Types": [
+                "CapacitorAssignmentController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
           }
         ],
-        "ShipDestructionDamage": 4000.0
+        "ShipDestructionDamage": 4000.0,
+        "PartDetachDamage": 4000.0
+      },
+      {
+        "Name": "hardpoint_seat_access",
+        "Port": {
+          "PortName": "hardpoint_seat_access",
+          "Size": 1,
+          "Loadout": "ANVL_Hornet_SeatAccess",
+          "InstalledItem": {
+            "ClassName": "ANVL_Hornet_SeatAccess",
+            "Size": 1,
+            "Grade": 1,
+            "Type": "SeatAccess.UNDEFINED",
+            "Name": "ANVL_Hornet_SeatAccess",
+            "Manufacturer": {
+              "Code": "ANVL",
+              "Name": "Anvil Aerospace"
+            }
+          },
+          "Types": [
+            "SeatAccess"
+          ],
+          "Flags": [
+            "uneditable"
+          ],
+          "Category": "Seat access",
+          "Uneditable": true
+        }
       }
     ]
   }
