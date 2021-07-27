@@ -66,7 +66,13 @@ namespace Loader
 
 			foreach (XmlNode patchNode in patchDoc.DocumentElement.ChildNodes)
 			{
-				var id = patchNode.Attributes["id"].Value;
+				var id = patchNode.Attributes["id"]?.Value;
+				if (id == null)
+				{
+					Console.WriteLine($"Can't load modifications for {patchNode.Name} - there is no id attribute");
+					continue;
+				}
+
 				var nodes = doc.SelectNodes($"//*[@id='{id}']");
 				foreach (XmlNode node in nodes)
 				{

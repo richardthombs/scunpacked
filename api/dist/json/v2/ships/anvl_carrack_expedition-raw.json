@@ -76,11 +76,6 @@
                   "SItemPortLoadoutManualParams": {
                     "entries": [
                       {
-                        "itemPortName": "hardpoint_cockpit_radar",
-                        "entityClassName": "RADR_Display",
-                        "loadout": {}
-                      },
-                      {
                         "itemPortName": "Display_HUD",
                         "entityClassName": "Projector_HUD_Generic",
                         "loadout": {}
@@ -100,11 +95,6 @@
                 "loadout": {
                   "SItemPortLoadoutManualParams": {
                     "entries": [
-                      {
-                        "itemPortName": "hardpoint_cockpit_radar",
-                        "entityClassName": "RADR_Display",
-                        "loadout": {}
-                      },
                       {
                         "itemPortName": "Display_HUD",
                         "entityClassName": "Projector_HUD_Generic",
@@ -555,6 +545,11 @@
                 "loadout": {
                   "SItemPortLoadoutManualParams": {
                     "entries": [
+                      {
+                        "itemPortName": "hardpoint_cockpit_radar",
+                        "entityClassName": "RADR_Display",
+                        "loadout": {}
+                      },
                       {
                         "itemPortName": "Display_HUD",
                         "entityClassName": "Projector_HUD_Generic",
@@ -2841,32 +2836,6 @@
                     }
                   },
                   {
-                    "name": "hardpoint_cockpit_radar",
-                    "damagemax": 0.0,
-                    "class": "ItemPort",
-                    "ItemPort": {
-                      "minsize": 1,
-                      "maxsize": 1,
-                      "display_name": "UI",
-                      "flags": "uneditable invisible",
-                      "Types": [
-                        {
-                          "type": "Display"
-                        }
-                      ],
-                      "Connections": [
-                        {
-                          "pipeClass": "Power",
-                          "pipe": "MainPower"
-                        },
-                        {
-                          "pipeClass": "Heat",
-                          "pipe": "MainHeat"
-                        }
-                      ]
-                    }
-                  },
-                  {
                     "name": "hardpoint_cockpit_selfdestruct",
                     "damagemax": 0.0,
                     "class": "ItemPort",
@@ -3429,6 +3398,35 @@
                     }
                   },
                   {
+                    "name": "hardpoint_cockpit_radar",
+                    "damagemax": 0.0,
+                    "class": "ItemPort",
+                    "ItemPort": {
+                      "minsize": 1,
+                      "maxsize": 1,
+                      "display_name": "Cockpit Radar",
+                      "flags": "start_hidden uneditable",
+                      "Types": [
+                        {
+                          "type": "Display"
+                        }
+                      ],
+                      "Connections": [
+                        {
+                          "pipeClass": "Power",
+                          "pipe": "MainPower"
+                        },
+                        {
+                          "pipeClass": "Heat",
+                          "pipe": "MainHeat"
+                        }
+                      ],
+                      "ControllerDef": {
+                        "controllableTags": "ConsolePilotSeat"
+                      }
+                    }
+                  },
+                  {
                     "name": "hardpoint_seat_pilot",
                     "damagemax": 0.0,
                     "class": "ItemPort",
@@ -3459,6 +3457,9 @@
                             {
                               "itemType": "Seat",
                               "defaultPriority": "no_control"
+                            },
+                            {
+                              "itemType": "Display"
                             }
                           ]
                         }
