@@ -16,7 +16,8 @@ import { CommoditiesComponent } from './commodities/commodities.component';
 import { FpsWeaponsPageComponent } from './fps-weapons-page/fps-weapons-page.component';
 
 const routes: Routes = [
-  { path: "", component: HomePage, data: { title: "Star Citizen Unpacked" } },
+  //{ path: "", component: HomePage, data: { title: "Star Citizen Unpacked" } },
+  { path: "", redirectTo: "/ships", pathMatch: "full" },
   { path: "ships", component: ShiplistPage, resolve: { ships: ShipsResolver }, data: { title: "Ships" } },
   { path: "ships/compare", component: CompareShipsPage },
   { path: "ships/:name", component: ShipPage },
