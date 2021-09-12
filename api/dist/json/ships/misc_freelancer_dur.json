@@ -2628,11 +2628,11 @@
                           },
                           {
                             "pipeClass": "WeaponRegen",
-                            "pipe": "WeaponRegenTurret"
+                            "pipe": "WeaponRegenCrew"
                           },
                           {
                             "pipeClass": "WeaponAmmoLoad",
-                            "pipe": "WeaponAmmoLoadTurret"
+                            "pipe": "WeaponAmmoLoadCrew"
                           }
                         ],
                         "Pitch": {
@@ -2672,11 +2672,11 @@
                           },
                           {
                             "pipeClass": "WeaponRegen",
-                            "pipe": "WeaponRegenTurret"
+                            "pipe": "WeaponRegenCrew"
                           },
                           {
                             "pipeClass": "WeaponAmmoLoad",
-                            "pipe": "WeaponAmmoLoadTurret"
+                            "pipe": "WeaponAmmoLoadCrew"
                           }
                         ],
                         "Pitch": {
@@ -2867,6 +2867,32 @@
                             ]
                           }
                         }
+                      }
+                    },
+                    {
+                      "name": "hardpoint_weapon_regen_pool",
+                      "damagemax": 0.0,
+                      "class": "ItemPort",
+                      "ItemPort": {
+                        "minsize": 1,
+                        "maxsize": 1,
+                        "display_name": "Weapon Regen Pool",
+                        "flags": "invisible uneditable",
+                        "Types": [
+                          {
+                            "type": "WeaponRegenPool"
+                          }
+                        ],
+                        "Connections": [
+                          {
+                            "pipeClass": "WeaponRegen",
+                            "pipe": "WeaponRegenCrew"
+                          },
+                          {
+                            "pipeClass": "WeaponAmmoLoad",
+                            "pipe": "WeaponAmmoLoadCrew"
+                          }
+                        ]
                       }
                     },
                     {

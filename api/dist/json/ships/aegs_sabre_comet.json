@@ -2388,6 +2388,76 @@
                       }
                     }
                   }
+                },
+                {
+                  "name": "bay_door_l_a",
+                  "damageMax": 300.0,
+                  "damagemax": 0.0,
+                  "class": "AnimatedJoint",
+                  "detachRatio": 1.0,
+                  "Parts": [
+                    {
+                      "name": "bay_door_l_b",
+                      "damageMax": 300.0,
+                      "damagemax": 0.0,
+                      "class": "AnimatedJoint",
+                      "detachRatio": 1.0
+                    }
+                  ]
+                },
+                {
+                  "name": "bay_door_r_a",
+                  "damageMax": 300.0,
+                  "damagemax": 0.0,
+                  "class": "AnimatedJoint",
+                  "detachRatio": 1.0,
+                  "Parts": [
+                    {
+                      "name": "bay_door_r_b",
+                      "damageMax": 300.0,
+                      "damagemax": 0.0,
+                      "class": "AnimatedJoint",
+                      "detachRatio": 1.0
+                    }
+                  ]
+                },
+                {
+                  "name": "hardpoint_controller_light",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "invisible uneditable",
+                    "Types": [
+                      {
+                        "type": "LightController"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "Fuel",
+                        "pipe": "MainFuel"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "Light"
+                          }
+                        ]
+                      }
+                    }
+                  }
                 }
               ],
               "DamageBehaviors": [
