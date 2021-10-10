@@ -59,6 +59,7 @@ namespace Loader
 			stdItem.Scanner = BuildScannerInfo(entity);
 			stdItem.Radar = BuildRadarInfo(entity);
 			stdItem.Ping = BuildPingInfo(entity);
+			stdItem.WeaponRegenPool = BuildWeaponRegenInfo(entity);
 
 			return stdItem;
 		}
@@ -414,7 +415,8 @@ namespace Loader
 			var info = new StandardisedWeapon
 			{
 				Modes = new List<StandardisedWeaponMode>(),
-				Ammunition = BuildAmmunitionInfo(item)
+				Ammunition = BuildAmmunitionInfo(item),
+				Consumption = BuildWeaponConsumption(weapon)
 			};
 
 			foreach (var action in weapon.fireActions)
@@ -501,6 +503,20 @@ namespace Loader
 				ImpactDamage = ConvertDamage(impactDamage),
 				DetonationDamage = ConvertDamage(detonationDamage),
 				Capacity = item.Components.SAmmoContainerComponentParams?.maxAmmoCount
+			};
+		}
+
+		StandardisedWeaponConsumption BuildWeaponConsumption(SCItemWeaponComponentParams weapon)
+		{
+			var regenParams = weapon?.weaponRegenConsumerParams.SingleOrDefault();
+			if (regenParams == null) return null;
+
+			return new StandardisedWeaponConsumption
+			{
+				RequestedRegenPerSec = regenParams.requestedRegenPerSec,
+				RequestedAmmoLoad = regenParams.requestedAmmoLoad,
+				Cooldown = regenParams.regenerationCooldown,
+				CostPerBullet = regenParams.regenerationCostPerBullet
 			};
 		}
 
@@ -621,6 +637,21 @@ namespace Loader
 			{
 				ChargeTime = ping.maximumChargeTime,
 				CooldownTime = ping.maximumCooldownTime
+			};
+
+			return info;
+		}
+
+		StandardisedWeaponRegenPool BuildWeaponRegenInfo(EntityClassDefinition item)
+		{
+			var regen = item.Components.SCItemWeaponRegenPoolComponentParams;
+			if (regen == null) return null;
+
+			var info = new StandardisedWeaponRegenPool
+			{
+				RegenFillRate = regen.regenFillRate,
+				AmmoLoad = regen.ammoLoad,
+				RespectsCapacitorAssignments = regen.respectsCapacitorAssignments,
 			};
 
 			return info;

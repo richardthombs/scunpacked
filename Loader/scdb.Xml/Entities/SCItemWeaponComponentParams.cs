@@ -17,6 +17,7 @@ namespace scdb.Xml.Entities
 		[XmlArrayItem(typeof(SWeaponActionFireChargedParams))]
 		[XmlArrayItem(typeof(SWeaponActionFireBurstParams))]
 		public SWeaponActionParams[] fireActions;
+		public SWeaponRegenConsumerParams[] weaponRegenConsumerParams;
 	}
 
 	public class SWeaponActionParams
@@ -219,5 +220,20 @@ namespace scdb.Xml.Entities
 	public class DamagePerSecond
 	{
 		public DamageInfo DamageInfo;
+	}
+
+	public class SWeaponRegenConsumerParams
+	{
+		[XmlAttribute]
+		public double requestedRegenPerSec { get; set; }
+
+		[XmlAttribute]
+		public double regenerationCooldown { get; set; }
+
+		[XmlAttribute]
+		public double regenerationCostPerBullet { get; set; }
+
+		[XmlAttribute]
+		public double requestedAmmoLoad { get; set; }
 	}
 }

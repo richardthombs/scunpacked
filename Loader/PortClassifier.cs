@@ -54,6 +54,7 @@ namespace Loader
 			if (port.Accepts("PowerPlant")) return ("Systems", "Power plants");
 			if (port.Accepts("Cooler")) return ("Systems", "Coolers");
 			if (port.Accepts("Shield")) return ("Systems", "Shield generators");
+			if (port.Accepts("WeaponRegenPool")) return ("Systems", "Weapon regen pool");
 
 			// Propulsion
 			if (port.Accepts("FuelIntake")) return ("Propulsion", "Fuel intakes");

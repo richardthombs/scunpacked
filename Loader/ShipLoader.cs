@@ -266,6 +266,7 @@ namespace Loader
 				var portSize = $"S{port.Size}";
 				var installedItemName = port.InstalledItem?.ClassName ?? port.Loadout ?? "";
 
+				// Keep the dump free of clutter
 				if (port.Category == "Door attachments") continue;
 				if (port.Category == "Weapon attachments") continue;
 				if (port.Category == "Batteries") continue;

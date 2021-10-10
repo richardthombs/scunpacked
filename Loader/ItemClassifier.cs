@@ -43,6 +43,7 @@ namespace Loader
 			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "Transponder.*"), Classifier = (t,s) => $"Ship.{t}.{s}" },
 			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "Shield.*"), Classifier = (t,s) => $"Ship.{t}.{s}" },
 			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "Paints.*"), Classifier = (t,s) => $"Ship.{t}.{s}" },
+			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "WeaponRegenPool.*"), Classifier = (t,s) => $"Ship.{t}.{s}" },
 
 			// FPS weapons
 			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "WeaponPersonal.*"), Classifier = (t,s) => $"FPS.Weapon.{s}" },

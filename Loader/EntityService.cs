@@ -71,7 +71,7 @@ namespace Loader
 			}
 			else
 			{
-				Console.WriteLine("EntityService: Building the entity cache, this takes about 10 minutes on my PC...");
+				Console.WriteLine("EntityService: Building the entity cache, this takes about 15 minutes on my PC...");
 				var timer = new System.Diagnostics.Stopwatch();
 				timer.Start();
 

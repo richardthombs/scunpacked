@@ -36,5 +36,6 @@ namespace scdb.Xml.Entities
 		public SSCItemPingComponentParams SSCItemPingComponentParams;
 		public SCItemScannerComponentParams SSCItemScannerComponentParams;
 		public SItemPortCoreParams SItemPortContainerComponentParams;
+		public SCItemWeaponRegenPoolComponentParams SCItemWeaponRegenPoolComponentParams;
 	}
 }
