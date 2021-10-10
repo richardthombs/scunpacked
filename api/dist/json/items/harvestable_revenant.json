@@ -2,7 +2,35 @@
   "Raw": {
     "Entity": {
       "StaticEntityClassData": {},
-      "tags": [],
+      "tags": [
+        {
+          "value": "80aa69bd-ea75-42a7-b996-2845ae8c5c27"
+        },
+        {
+          "value": "5f9284f0-9eb5-4ca6-970e-cd8497e89eed"
+        },
+        {
+          "value": "853ec0ac-f28b-4eab-a673-92f971a59d8f"
+        },
+        {
+          "value": "8ff11fae-ce28-489a-b88c-e1ded24da96e"
+        },
+        {
+          "value": "bc5d1e70-1cdc-45d8-9f58-e60fc3b6abaf"
+        },
+        {
+          "value": "f881d7cd-a0e0-4b72-bdf6-9c3cbabfd723"
+        },
+        {
+          "value": "59ca5e36-b9a2-4459-ad0e-5745bcf5d899"
+        },
+        {
+          "value": "b97f2439-cde7-45f9-acc3-5eab75b0f84c"
+        },
+        {
+          "value": "bed8e09b-a5f2-4f4e-9be9-ab618ebfbd58"
+        }
+      ],
       "Components": {
         "SAttachableComponentParams": {
           "AttachDef": {
@@ -15,8 +43,8 @@
             "RequiredTags": "",
             "DisplayType": "",
             "Localization": {
-              "Name": "@LOC_PLACEHOLDER",
-              "Description": "@LOC_EMPTY"
+              "Name": "@items_commodities_revenantpod",
+              "Description": "@items_commodities_revenantpod_desc"
             }
           }
         },
@@ -54,18 +82,32 @@
         "CommodityComponentParams": {
           "type": "bf3b68e9-dafe-4517-bc51-23652d6c9f49",
           "subtype": "d45a8751-b055-4f9c-a564-101b169a67f0",
-          "name": "@LOC_EMPTY",
-          "description": "@LOC_EMPTY",
+          "name": "@items_commodities_revenantpod",
+          "description": "@items_commodities_revenantpod_desc",
           "IsUnrefinedElement": false
         },
         "SEntityInteractableParams": {
           "Interactable": {
             "SharedInteractions": [
               {
-                "Name": "Attach",
+                "Name": "Grab",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@interaction_attach",
+                "DisplayName": "@interaction_grab",
+                "DisplayType": "Show",
+                "GenericCursor": "Grab",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Equip",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_equip",
                 "DisplayType": "Show",
                 "GenericCursor": "SingleAction",
                 "FocusModeOnly": false,
@@ -76,10 +118,10 @@
                 "available": true
               },
               {
-                "Name": "OffHandAttach",
+                "Name": "OffHandEquip",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@interaction_attach",
+                "DisplayName": "@interaction_equip",
                 "DisplayType": "Show",
                 "GenericCursor": "SingleAction",
                 "FocusModeOnly": false,
@@ -90,7 +132,7 @@
                 "available": true
               },
               {
-                "Name": "Carry",
+                "Name": "CarryLowered",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
                 "DisplayName": "@interaction_carry",

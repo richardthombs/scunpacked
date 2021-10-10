@@ -5,6 +5,9 @@
       "tags": [
         {
           "value": "5e11a544-7fea-4160-b2bf-98c6cf9ee9df"
+        },
+        {
+          "value": "b97f2439-cde7-45f9-acc3-5eab75b0f84c"
         }
       ],
       "Components": {
@@ -58,6 +61,20 @@
         "SEntityInteractableParams": {
           "Interactable": {
             "SharedInteractions": [
+              {
+                "Name": "Grab",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_grab",
+                "DisplayType": "Show",
+                "GenericCursor": "Grab",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
               {
                 "Name": "Carry",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
@@ -115,10 +132,10 @@
                 "available": true
               },
               {
-                "Name": "Attach",
+                "Name": "Equip",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
-                "DisplayName": "@interaction_attach",
+                "DisplayName": "@interaction_equip",
                 "DisplayType": "Show",
                 "GenericCursor": "SingleAction",
                 "FocusModeOnly": false,
@@ -138,6 +155,34 @@
                 "FocusModeOnly": false,
                 "Sendable": false,
                 "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "BlinkingLight_NotShown",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@usable_use",
+                "DisplayType": "Hide",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "StopBlinking_NotShown",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@usable_use",
+                "DisplayType": "Hide",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
                 "LockedByLinks": false,
                 "RequiresAuthorizedUser": false,
                 "available": true

@@ -20,7 +20,7 @@ namespace Loader
 			var loadoutParser = new DefaultLoadoutParser();
 			var defaultLoadout = loadoutParser.Parse(Path.Combine(DataRoot, "Data", windowsPath));
 
-			return BuildStandardLoadout(defaultLoadout.Items);
+			return BuildStandardLoadout(defaultLoadout?.Items);
 		}
 
 		List<StandardisedLoadoutEntry> BuildStandardLoadout(Item[] loadoutItems)

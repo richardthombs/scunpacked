@@ -630,6 +630,31 @@
                   "itemPortName": "hardpoint_controller_capacitor_assignment",
                   "entityClassName": "Controller_CapacitorAssignment",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_fuel",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_fuel_port",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_air_traffic_controller",
+                  "entityClassName": "MISC_Starfarer_ShipATCDataManager",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_refuel_arm",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_refuel_console",
+                  "entityClassName": "",
+                  "loadout": {}
                 }
               ]
             }
@@ -725,7 +750,88 @@
           "PortFlags": "",
           "PortTags": "MISC_Starfarer_Base",
           "RequiredItemTags": "",
-          "Ports": []
+          "Ports": [
+            {
+              "Name": "hardpoint_controller_fuel",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": []
+            },
+            {
+              "Name": "hardpoint_fuel_port",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "DockingCollar",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_air_traffic_controller",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "AirTrafficController",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_refuel_arm",
+              "DisplayName": "",
+              "PortTags": "Ship_Dock_Refuel",
+              "RequiredPortTags": "",
+              "Flags": "dockingport1",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "DockingCollar",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_refuel_console",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 0,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "Display",
+                  "SubTypes": []
+                }
+              ]
+            }
+          ]
         }
       },
       "ClassName": "MISC_Starfarer",
@@ -1225,6 +1331,7 @@
                     "maxsize": 6,
                     "display_name": "port_NameWeaponSlot01",
                     "flags": "$uneditable",
+                    "requiredTags": "MISC_Starfarer_Base",
                     "Types": [
                       {
                         "type": "Turret",
@@ -1268,6 +1375,7 @@
                     "maxsize": 6,
                     "display_name": "port_NameWeaponSlot02",
                     "flags": "$uneditable",
+                    "requiredTags": "MISC_Starfarer_Base",
                     "Types": [
                       {
                         "type": "Turret",
@@ -3914,26 +4022,6 @@
                       {
                         "pipeClass": "Fuel",
                         "pipe": "MainFuel"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "name": "hardpoint_refuel_arm",
-                  "damagemax": 0.0,
-                  "class": "ItemPort",
-                  "ItemPort": {
-                    "minsize": 1,
-                    "maxsize": 1,
-                    "flags": "invisible",
-                    "Connections": [
-                      {
-                        "pipeClass": "Power",
-                        "pipe": "MainPower"
-                      },
-                      {
-                        "pipeClass": "Heat",
-                        "pipe": "MainHeat"
                       }
                     ]
                   }

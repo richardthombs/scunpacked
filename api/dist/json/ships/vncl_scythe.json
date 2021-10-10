@@ -265,12 +265,12 @@
                 },
                 {
                   "itemPortName": "hardpoint_thruster_retro_left",
-                  "entityClassName": "VNCL_Glaive_Thruster_Retro_Fixed_Left",
+                  "entityClassName": "VNCL_Scythe_Thruster_Retro_Fixed_Left",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_thruster_retro_right",
-                  "entityClassName": "VNCL_Glaive_Thruster_Retro_Fixed_Right",
+                  "entityClassName": "VNCL_Scythe_Thruster_Retro_Fixed_Right",
                   "loadout": {}
                 },
                 {
@@ -385,7 +385,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_weapon_regen_pool",
-                  "entityClassName": "WeaponRegenPool_Crew_Scythe",
+                  "entityClassName": "WeaponRegenPool_Crew_HeavyFighter",
                   "loadout": {}
                 },
                 {
@@ -396,6 +396,21 @@
                 {
                   "itemPortName": "hardpoint_controller_capacitor_assignment",
                   "entityClassName": "Controller_CapacitorAssignment",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_fuel",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_fuel_port",
+                  "entityClassName": "DockingTube_Fuel_Ports_VNCL_Scythe",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_air_traffic_controller",
+                  "entityClassName": "VNCL_Scythe_ShipATCDataManager",
                   "loadout": {}
                 }
               ]
@@ -410,7 +425,7 @@
             "Grade": 1,
             "Manufacturer": "4668760a-d8a1-48d0-be4d-42304b702de0",
             "Tags": "VNCL_Scythe",
-            "RequiredTags": "",
+            "RequiredTags": "Ship_Dock_Refuel",
             "DisplayType": "",
             "Localization": {
               "Name": "@vehicle_NameVNCL_Scythe",
@@ -487,7 +502,54 @@
           "PortFlags": "",
           "PortTags": "VNCL_Scythe_Base",
           "RequiredItemTags": "",
-          "Ports": []
+          "Ports": [
+            {
+              "Name": "hardpoint_controller_fuel",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": []
+            },
+            {
+              "Name": "hardpoint_fuel_port",
+              "DisplayName": "",
+              "PortTags": "Ship_Dock_Refuel",
+              "RequiredPortTags": "",
+              "Flags": "dockingport1",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "DockingCollar",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_air_traffic_controller",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "AirTrafficController",
+                  "SubTypes": []
+                }
+              ]
+            }
+          ]
         }
       },
       "ClassName": "VNCL_Scythe",
@@ -2033,8 +2095,8 @@
                       "damagemax": 0.0,
                       "class": "ItemPort",
                       "ItemPort": {
-                        "minsize": 2,
-                        "maxsize": 2,
+                        "minsize": 1,
+                        "maxsize": 1,
                         "display_name": "port_NameThrustRetro01",
                         "flags": "maneuver orientation +Z left uneditable",
                         "requiredTags": "",
@@ -2070,8 +2132,8 @@
                       "damagemax": 0.0,
                       "class": "ItemPort",
                       "ItemPort": {
-                        "minsize": 2,
-                        "maxsize": 2,
+                        "minsize": 1,
+                        "maxsize": 1,
                         "display_name": "port_NameThrustRetro02",
                         "flags": "maneuver orientation +Z right uneditable",
                         "requiredTags": "",

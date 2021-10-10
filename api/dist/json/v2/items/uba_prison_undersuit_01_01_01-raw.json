@@ -4,21 +4,39 @@
       "entitlementPolicy": "8a1fdd48-7896-4774-a110-2466190e1a07"
     }
   },
-  "tags": [],
-  "Components": {
-    "SEntityComponentDefaultLoadoutParams": {
-      "loadout": {
-        "SItemPortLoadoutManualParams": {
-          "entries": [
-            {
-              "itemPortName": "bakpack",
-              "entityClassName": "uba_prison_backpack_01_01_01",
-              "loadout": {}
-            }
-          ]
-        }
-      }
+  "tags": [
+    {
+      "value": "80c7276b-b8e1-4b19-a5f3-1ea6eebb6b80"
     },
+    {
+      "value": "59ca5e36-b9a2-4459-ad0e-5745bcf5d899"
+    },
+    {
+      "value": "ba75cc73-a4c9-447a-9912-1fd8ccc7031b"
+    },
+    {
+      "value": "ee684f41-bb35-4fa1-8af9-256662d85365"
+    },
+    {
+      "value": "7857cd96-b161-4f56-a076-32ab859778bc"
+    },
+    {
+      "value": "ba81fd42-eb1e-4948-9a92-6359133e16e2"
+    },
+    {
+      "value": "4edbcfc8-7edd-4dc4-a3bc-9f2a1225fc83"
+    },
+    {
+      "value": "1d940363-a9bd-4966-9cf8-595adf0df986"
+    },
+    {
+      "value": "c72967f0-684c-4d30-8016-724b21d6f9dd"
+    },
+    {
+      "value": "1e9427ce-279f-4c7f-9178-2baebbec8fa4"
+    }
+  ],
+  "Components": {
     "SAttachableComponentParams": {
       "AttachDef": {
         "Type": "Char_Armor_Undersuit",
@@ -33,6 +51,96 @@
           "Name": "@item_Name_uba_prison_undersuit_01",
           "Description": "@item_Desc_uba_prison_undersuit_01"
         }
+      }
+    },
+    "SEntityInteractableParams": {
+      "Interactable": {
+        "SharedInteractions": [
+          {
+            "Name": "Grab",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_grab",
+            "DisplayType": "Show",
+            "GenericCursor": "Grab",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Carry",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_carry",
+            "DisplayType": "Show",
+            "GenericCursor": "Grab",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Drop",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_drop",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Place",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_place",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Store",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_store",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Equip",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_equip",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          }
+        ]
       }
     },
     "SCItemClothingParams": {
@@ -54,7 +162,7 @@
           "DisplayName": "Armor_Helmet",
           "PortTags": "uba_prison_01",
           "RequiredPortTags": "",
-          "Flags": "nophys unlootable userbreathingpoint HeadWear",
+          "Flags": "nophys unlootable userbreathingpoint HeadWear inventory",
           "MinSize": 1,
           "MaxSize": 1,
           "InteractionPointSize": -1.0,
@@ -71,7 +179,7 @@
           "DisplayName": "wep_sidearm",
           "PortTags": "",
           "RequiredPortTags": "",
-          "Flags": "body_attach nophys inventory",
+          "Flags": "body_attach nophys inventory transferable",
           "MinSize": 1,
           "MaxSize": 1,
           "InteractionPointSize": -1.0,
@@ -92,7 +200,7 @@
           "DisplayName": "magazine_attach_1",
           "PortTags": "",
           "RequiredPortTags": "",
-          "Flags": "body_attach nophys inventory",
+          "Flags": "body_attach nophys inventory transferable",
           "MinSize": 1,
           "MaxSize": 1,
           "InteractionPointSize": -1.0,
@@ -103,12 +211,7 @@
               "SubTypes": [
                 {
                   "value": "Magazine"
-                }
-              ]
-            },
-            {
-              "Type": "WeaponAttachment",
-              "SubTypes": [
+                },
                 {
                   "value": "Rocket"
                 }
@@ -121,7 +224,7 @@
           "DisplayName": "magazine_attach_2",
           "PortTags": "",
           "RequiredPortTags": "",
-          "Flags": "body_attach nophys inventory",
+          "Flags": "body_attach nophys inventory transferable",
           "MinSize": 1,
           "MaxSize": 1,
           "InteractionPointSize": -1.0,
@@ -132,12 +235,7 @@
               "SubTypes": [
                 {
                   "value": "Magazine"
-                }
-              ]
-            },
-            {
-              "Type": "WeaponAttachment",
-              "SubTypes": [
+                },
                 {
                   "value": "Rocket"
                 }
@@ -150,7 +248,7 @@
           "DisplayName": "medPen_attach_1",
           "PortTags": "",
           "RequiredPortTags": "",
-          "Flags": "body_attach nophys inventory",
+          "Flags": "body_attach nophys inventory transferable",
           "MinSize": 1,
           "MaxSize": 1,
           "InteractionPointSize": -1.0,
@@ -167,7 +265,7 @@
           "DisplayName": "utility_attach_1",
           "PortTags": "",
           "RequiredPortTags": "",
-          "Flags": "body_attach nophys inventory",
+          "Flags": "body_attach nophys inventory transferable",
           "MinSize": 1,
           "MaxSize": 1,
           "InteractionPointSize": -1.0,
@@ -213,7 +311,7 @@
           "DisplayName": "oxyPen_attach_1",
           "PortTags": "",
           "RequiredPortTags": "",
-          "Flags": "body_attach nophys inventory",
+          "Flags": "body_attach nophys inventory transferable",
           "MinSize": 1,
           "MaxSize": 1,
           "InteractionPointSize": -1.0,
@@ -230,7 +328,7 @@
           "DisplayName": "wep_stocked_3",
           "PortTags": "",
           "RequiredPortTags": "",
-          "Flags": "body_attach nophys inventory invis_p1",
+          "Flags": "body_attach nophys inventory invis_p1 transferable",
           "MinSize": 2,
           "MaxSize": 5,
           "InteractionPointSize": -1.0,
@@ -250,10 +348,10 @@
           ]
         },
         {
-          "Name": "bakpack",
-          "DisplayName": "bakpack",
+          "Name": "backpack",
+          "DisplayName": "backpack",
           "PortTags": "uba_prison_01",
-          "RequiredPortTags": "backpack",
+          "RequiredPortTags": "$backpack",
           "Flags": "",
           "MinSize": 1,
           "MaxSize": 1,
@@ -261,12 +359,8 @@
           "DefaultWeaponGroup": "UNDEFINED",
           "Types": [
             {
-              "Type": "Container",
-              "SubTypes": [
-                {
-                  "value": "Personal"
-                }
-              ]
+              "Type": "Char_Armor_Backpack",
+              "SubTypes": []
             }
           ]
         },

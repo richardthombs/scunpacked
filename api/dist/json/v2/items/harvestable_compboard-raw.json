@@ -1,6 +1,37 @@
 {
   "StaticEntityClassData": {},
-  "tags": [],
+  "tags": [
+    {
+      "value": "d57255fd-5783-4b60-8042-fac95626ecb2"
+    },
+    {
+      "value": "deece9e1-d4cc-4af8-bfe3-d83f6278cfaa"
+    },
+    {
+      "value": "ca50da92-b9f8-4db0-808c-795a70f4c140"
+    },
+    {
+      "value": "3a96b2bd-c314-44ec-978c-e9973260a74b"
+    },
+    {
+      "value": "8530aa1b-d015-47c7-b3ed-fe1334487222"
+    },
+    {
+      "value": "b1edbc28-8e0c-4ed5-8d64-eba57a84df9f"
+    },
+    {
+      "value": "59ca5e36-b9a2-4459-ad0e-5745bcf5d899"
+    },
+    {
+      "value": "b97f2439-cde7-45f9-acc3-5eab75b0f84c"
+    },
+    {
+      "value": "9394b28e-fb91-4a41-a927-e3b1c7dbb585"
+    },
+    {
+      "value": "bed8e09b-a5f2-4f4e-9be9-ab618ebfbd58"
+    }
+  ],
   "Components": {
     "SAttachableComponentParams": {
       "AttachDef": {
@@ -13,8 +44,8 @@
         "RequiredTags": "",
         "DisplayType": "",
         "Localization": {
-          "Name": "@LOC_PLACEHOLDER",
-          "Description": "@LOC_EMPTY"
+          "Name": "@items_commodities_compboard",
+          "Description": "@items_commodities_compboard_desc"
         }
       }
     },
@@ -52,18 +83,32 @@
     "CommodityComponentParams": {
       "type": "ed0caf1c-50a1-4310-8bb9-3eb664c64a59",
       "subtype": "32833439-a307-4a21-b11c-56c265a89e37",
-      "name": "@LOC_EMPTY",
-      "description": "@LOC_EMPTY",
+      "name": "@items_commodities_compboard",
+      "description": "@items_commodities_compboard_desc",
       "IsUnrefinedElement": false
     },
     "SEntityInteractableParams": {
       "Interactable": {
         "SharedInteractions": [
           {
-            "Name": "Attach",
+            "Name": "Grab",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@interaction_attach",
+            "DisplayName": "@interaction_grab",
+            "DisplayType": "Show",
+            "GenericCursor": "Grab",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Equip",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_equip",
             "DisplayType": "Show",
             "GenericCursor": "SingleAction",
             "FocusModeOnly": false,
@@ -74,10 +119,10 @@
             "available": true
           },
           {
-            "Name": "OffHandAttach",
+            "Name": "OffHandEquip",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@interaction_attach",
+            "DisplayName": "@interaction_equip",
             "DisplayType": "Show",
             "GenericCursor": "SingleAction",
             "FocusModeOnly": false,
@@ -88,7 +133,7 @@
             "available": true
           },
           {
-            "Name": "Carry",
+            "Name": "CarryLowered",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
             "DisplayName": "@interaction_carry",

@@ -360,17 +360,32 @@
                 },
                 {
                   "itemPortName": "hardpoint_weapon_regen_pool",
-                  "entityClassName": "WeaponRegenPool_Crew_85x",
+                  "entityClassName": "WeaponRegenPool_Crew_SnubFighter",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_weapon_regen_pool_turrets",
-                  "entityClassName": "WeaponRegenPool_Turret_85x",
+                  "entityClassName": "",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_controller_capacitor_assignment",
                   "entityClassName": "Controller_CapacitorAssignment",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_fuel",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_fuel_port",
+                  "entityClassName": "DockingTube_Fuel_Ports_ORIG_85X",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_air_traffic_controller",
+                  "entityClassName": "ORIG_85X_ShipATCDataManager",
                   "loadout": {}
                 }
               ]
@@ -467,7 +482,54 @@
           "PortFlags": "",
           "PortTags": "ORIG_85X",
           "RequiredItemTags": "",
-          "Ports": []
+          "Ports": [
+            {
+              "Name": "hardpoint_controller_fuel",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": []
+            },
+            {
+              "Name": "hardpoint_fuel_port",
+              "DisplayName": "",
+              "PortTags": "Ship_Dock_Refuel",
+              "RequiredPortTags": "",
+              "Flags": "dockingport1",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "DockingCollar",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_air_traffic_controller",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "AirTrafficController",
+                  "SubTypes": []
+                }
+              ]
+            }
+          ]
         }
       },
       "ClassName": "ORIG_85X",
@@ -1068,7 +1130,6 @@
                     "maxsize": 3,
                     "display_name": "Turret",
                     "flags": "$uneditable center",
-                    "requiredTags": "$ORIG_85X",
                     "Types": [
                       {
                         "type": "Turret",
@@ -1921,7 +1982,7 @@
                       "class": "ItemPort",
                       "ItemPort": {
                         "minsize": 1,
-                        "maxsize": 1,
+                        "maxsize": 2,
                         "display_name": "Countermeasures 2",
                         "flags": "uneditable",
                         "Types": [
@@ -1948,7 +2009,7 @@
                       "class": "ItemPort",
                       "ItemPort": {
                         "minsize": 1,
-                        "maxsize": 1,
+                        "maxsize": 2,
                         "display_name": "Countermeasures 1",
                         "flags": "uneditable",
                         "Types": [

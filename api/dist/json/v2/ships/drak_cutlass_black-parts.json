@@ -360,7 +360,7 @@
                             "Lifetime": 20.0
                           },
                           "PowerConnection": {
-                            "PowerBase": 190.0,
+                            "PowerBase": 99.0,
                             "PowerDraw": 190.0
                           },
                           "HeatConnection": {
@@ -1103,7 +1103,7 @@
                             "Lifetime": 20.0
                           },
                           "PowerConnection": {
-                            "PowerBase": 190.0,
+                            "PowerBase": 99.0,
                             "PowerDraw": 190.0
                           },
                           "HeatConnection": {
@@ -1361,9 +1361,9 @@
             }
           },
           {
-            "Name": "DRAK_Cutlass_Black_Int_Cockpit",
+            "Name": "hardpoint_int_cockpit",
             "Port": {
-              "PortName": "DRAK_Cutlass_Black_Int_Cockpit",
+              "PortName": "hardpoint_int_cockpit",
               "Size": 1,
               "Types": [
                 "Room"
@@ -1431,7 +1431,7 @@
                             "Lifetime": 20.0
                           },
                           "PowerConnection": {
-                            "PowerBase": 200.0,
+                            "PowerBase": 99.0,
                             "PowerDraw": 200.0
                           },
                           "HeatConnection": {
@@ -1541,7 +1541,7 @@
                             "Lifetime": 20.0
                           },
                           "PowerConnection": {
-                            "PowerBase": 200.0,
+                            "PowerBase": 99.0,
                             "PowerDraw": 200.0
                           },
                           "HeatConnection": {
@@ -1658,7 +1658,7 @@
                       "Lifetime": 720.0
                     },
                     "PowerConnection": {
-                      "PowerBase": 0.0,
+                      "PowerBase": 0.1,
                       "PowerDraw": 1.0
                     },
                     "HeatConnection": {
@@ -1700,9 +1700,9 @@
             ]
           },
           {
-            "Name": "DRAK_Cutlass_Black_Int_Rear",
+            "Name": "hardpoint_int_body",
             "Port": {
-              "PortName": "DRAK_Cutlass_Black_Int_Rear",
+              "PortName": "hardpoint_int_body",
               "Size": 1,
               "Types": [
                 "Room"
@@ -1711,63 +1711,6 @@
                 "uneditable"
               ],
               "Category": "Rooms",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_weapon_rack",
-            "Port": {
-              "PortName": "hardpoint_weapon_rack",
-              "Size": 1,
-              "Loadout": "Weapon_Rack_DRAK_4slots",
-              "InstalledItem": {
-                "ClassName": "Weapon_Rack_DRAK_4slots",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "UNDEFINED.UNDEFINED",
-                "Name": "Weapon_Rack_DRAK_4slots",
-                "Ports": [
-                  {
-                    "PortName": "$proxy_weapon_01",
-                    "Size": 4,
-                    "Types": [
-                      "WeaponPersonal"
-                    ],
-                    "Category": "UNKNOWN"
-                  },
-                  {
-                    "PortName": "$proxy_weapon_02",
-                    "Size": 4,
-                    "Types": [
-                      "WeaponPersonal"
-                    ],
-                    "Category": "UNKNOWN"
-                  },
-                  {
-                    "PortName": "$proxy_weapon_03",
-                    "Size": 4,
-                    "Types": [
-                      "WeaponPersonal"
-                    ],
-                    "Category": "UNKNOWN"
-                  },
-                  {
-                    "PortName": "$proxy_weapon_04",
-                    "Size": 4,
-                    "Types": [
-                      "WeaponPersonal"
-                    ],
-                    "Category": "UNKNOWN"
-                  }
-                ]
-              },
-              "Types": [
-                "Usable"
-              ],
-              "Flags": [
-                "uneditable"
-              ],
-              "Category": "Usables",
               "Uneditable": true
             }
           },
@@ -1863,7 +1806,7 @@
                   "Lifetime": 720.0
                 },
                 "PowerConnection": {
-                  "PowerBase": 0.0,
+                  "PowerBase": 0.1,
                   "PowerDraw": 1.0
                 },
                 "HeatConnection": {
@@ -2084,32 +2027,98 @@
             }
           },
           {
-            "Name": "hardpoint_controller_missile",
+            "Name": "Canopy",
+            "MaximumDamage": 3000.0
+          },
+          {
+            "Name": "hardpoint_deathmask"
+          },
+          {
+            "Name": "hardpoint_docking_collar",
             "Port": {
-              "PortName": "hardpoint_controller_missile",
-              "Size": 1,
-              "Loadout": "Controller_Missile",
-              "InstalledItem": {
-                "ClassName": "Controller_Missile",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "MissileController.UNDEFINED",
-                "Name": "MISSILES"
-              },
+              "PortName": "hardpoint_docking_collar",
+              "Size": 4,
               "Types": [
-                "MissileController"
+                "DockingCollar"
               ],
               "Flags": [
-                "invisible",
-                "uneditable"
+                "$uneditable"
               ],
               "Category": "UNKNOWN",
               "Uneditable": true
             }
           },
           {
-            "Name": "Canopy",
-            "MaximumDamage": 3000.0
+            "Name": "hardpoint_air_traffic_controller",
+            "Port": {
+              "PortName": "hardpoint_air_traffic_controller",
+              "Size": 4,
+              "Types": [
+                "AirTrafficController"
+              ],
+              "Flags": [
+                "$uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_weapon_rack",
+            "Port": {
+              "PortName": "hardpoint_weapon_rack",
+              "Size": 1,
+              "Loadout": "Weapon_Rack_DRAK_4slots",
+              "InstalledItem": {
+                "ClassName": "Weapon_Rack_DRAK_4slots",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "Usable.UNDEFINED",
+                "Name": "Weapon_Rack_DRAK_4slots",
+                "Ports": [
+                  {
+                    "PortName": "$proxy_weapon_01",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$proxy_weapon_02",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$proxy_weapon_03",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  },
+                  {
+                    "PortName": "$proxy_weapon_04",
+                    "Size": 4,
+                    "Types": [
+                      "WeaponPersonal"
+                    ],
+                    "Category": "UNKNOWN"
+                  }
+                ]
+              },
+              "Types": [
+                "Usable"
+              ],
+              "Flags": [
+                "uneditable"
+              ],
+              "Category": "Usables",
+              "Uneditable": true
+            }
           }
         ],
         "ShipDestructionDamage": 8600.0
@@ -2203,7 +2212,7 @@
                           "Size": 3,
                           "Grade": 1,
                           "Type": "Missile.Missile",
-                          "Name": "Arrester III",
+                          "Name": "Arrester III Missile",
                           "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 3\n\nUsing cross section targeting to hunt for its prey, the Firestorm Arrester proximity missile makes quick work of enemies caught in the crosshairs.",
                           "Manufacturer": {
                             "Code": "FSKI",
@@ -2238,7 +2247,7 @@
                           "Size": 3,
                           "Grade": 1,
                           "Type": "Missile.Missile",
-                          "Name": "Arrester III",
+                          "Name": "Arrester III Missile",
                           "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 3\n\nUsing cross section targeting to hunt for its prey, the Firestorm Arrester proximity missile makes quick work of enemies caught in the crosshairs.",
                           "Manufacturer": {
                             "Code": "FSKI",
@@ -2321,7 +2330,7 @@
                           "Size": 3,
                           "Grade": 1,
                           "Type": "Missile.Missile",
-                          "Name": "Arrester III",
+                          "Name": "Arrester III Missile",
                           "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 3\n\nUsing cross section targeting to hunt for its prey, the Firestorm Arrester proximity missile makes quick work of enemies caught in the crosshairs.",
                           "Manufacturer": {
                             "Code": "FSKI",
@@ -2356,7 +2365,7 @@
                           "Size": 3,
                           "Grade": 1,
                           "Type": "Missile.Missile",
-                          "Name": "Arrester III",
+                          "Name": "Arrester III Missile",
                           "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 3\n\nUsing cross section targeting to hunt for its prey, the Firestorm Arrester proximity missile makes quick work of enemies caught in the crosshairs.",
                           "Manufacturer": {
                             "Code": "FSKI",
@@ -2439,8 +2448,8 @@
                           "Size": 2,
                           "Grade": 1,
                           "Type": "Missile.Missile",
-                          "Name": "Tempest II",
-                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetic’s targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
+                          "Name": "Tempest II Missile",
+                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetics' targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
                           "Manufacturer": {
                             "Code": "FSKI",
                             "Name": "Aegis Dynamics"
@@ -2474,8 +2483,8 @@
                           "Size": 2,
                           "Grade": 1,
                           "Type": "Missile.Missile",
-                          "Name": "Tempest II",
-                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetic’s targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
+                          "Name": "Tempest II Missile",
+                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetics' targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
                           "Manufacturer": {
                             "Code": "FSKI",
                             "Name": "Aegis Dynamics"
@@ -2509,8 +2518,8 @@
                           "Size": 2,
                           "Grade": 1,
                           "Type": "Missile.Missile",
-                          "Name": "Tempest II",
-                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetic’s targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
+                          "Name": "Tempest II Missile",
+                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetics' targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
                           "Manufacturer": {
                             "Code": "FSKI",
                             "Name": "Aegis Dynamics"
@@ -2544,8 +2553,8 @@
                           "Size": 2,
                           "Grade": 1,
                           "Type": "Missile.Missile",
-                          "Name": "Tempest II",
-                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetic’s targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
+                          "Name": "Tempest II Missile",
+                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetics' targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
                           "Manufacturer": {
                             "Code": "FSKI",
                             "Name": "Aegis Dynamics"
@@ -2634,7 +2643,7 @@
                           "Size": 3,
                           "Grade": 1,
                           "Type": "Missile.Missile",
-                          "Name": "Arrester III",
+                          "Name": "Arrester III Missile",
                           "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 3\n\nUsing cross section targeting to hunt for its prey, the Firestorm Arrester proximity missile makes quick work of enemies caught in the crosshairs.",
                           "Manufacturer": {
                             "Code": "FSKI",
@@ -2669,7 +2678,7 @@
                           "Size": 3,
                           "Grade": 1,
                           "Type": "Missile.Missile",
-                          "Name": "Arrester III",
+                          "Name": "Arrester III Missile",
                           "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 3\n\nUsing cross section targeting to hunt for its prey, the Firestorm Arrester proximity missile makes quick work of enemies caught in the crosshairs.",
                           "Manufacturer": {
                             "Code": "FSKI",
@@ -2752,7 +2761,7 @@
                           "Size": 3,
                           "Grade": 1,
                           "Type": "Missile.Missile",
-                          "Name": "Arrester III",
+                          "Name": "Arrester III Missile",
                           "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 3\n\nUsing cross section targeting to hunt for its prey, the Firestorm Arrester proximity missile makes quick work of enemies caught in the crosshairs.",
                           "Manufacturer": {
                             "Code": "FSKI",
@@ -2787,7 +2796,7 @@
                           "Size": 3,
                           "Grade": 1,
                           "Type": "Missile.Missile",
-                          "Name": "Arrester III",
+                          "Name": "Arrester III Missile",
                           "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 3\n\nUsing cross section targeting to hunt for its prey, the Firestorm Arrester proximity missile makes quick work of enemies caught in the crosshairs.",
                           "Manufacturer": {
                             "Code": "FSKI",
@@ -2870,8 +2879,8 @@
                           "Size": 2,
                           "Grade": 1,
                           "Type": "Missile.Missile",
-                          "Name": "Tempest II",
-                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetic’s targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
+                          "Name": "Tempest II Missile",
+                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetics' targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
                           "Manufacturer": {
                             "Code": "FSKI",
                             "Name": "Aegis Dynamics"
@@ -2905,8 +2914,8 @@
                           "Size": 2,
                           "Grade": 1,
                           "Type": "Missile.Missile",
-                          "Name": "Tempest II",
-                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetic’s targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
+                          "Name": "Tempest II Missile",
+                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetics' targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
                           "Manufacturer": {
                             "Code": "FSKI",
                             "Name": "Aegis Dynamics"
@@ -2940,8 +2949,8 @@
                           "Size": 2,
                           "Grade": 1,
                           "Type": "Missile.Missile",
-                          "Name": "Tempest II",
-                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetic’s targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
+                          "Name": "Tempest II Missile",
+                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetics' targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
                           "Manufacturer": {
                             "Code": "FSKI",
                             "Name": "Aegis Dynamics"
@@ -2975,8 +2984,8 @@
                           "Size": 2,
                           "Grade": 1,
                           "Type": "Missile.Missile",
-                          "Name": "Tempest II",
-                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetic’s targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
+                          "Name": "Tempest II Missile",
+                          "Description": "Manufacturer: Firestorm Kinetics\nTracking Signal: Cross Section\nSize: 2\n\nThe Tempest was designed with nothing but annihilation in mind. Utilizing FireStorm Kinetics' targeting technology, this proximity missile locks onto a target's cross section to draw conflicts to a swift conclusion.",
                           "Manufacturer": {
                             "Code": "FSKI",
                             "Name": "Aegis Dynamics"
@@ -3427,7 +3436,7 @@
                 "Name": "hardpoint_cm_launcher_right",
                 "Port": {
                   "PortName": "hardpoint_cm_launcher_right",
-                  "Size": 2,
+                  "Size": 1,
                   "Loadout": "DRAK_CML_Noise_Small",
                   "InstalledItem": {
                     "ClassName": "DRAK_CML_Noise_Small",
@@ -3444,7 +3453,7 @@
                       "Health": 1000.0
                     },
                     "PowerConnection": {
-                      "PowerBase": 0.0,
+                      "PowerBase": 1.0,
                       "PowerDraw": 1.0
                     },
                     "Weapon": {
@@ -3506,7 +3515,7 @@
                       "Rate": 23.5
                     },
                     "PowerConnection": {
-                      "PowerBase": 0.0,
+                      "PowerBase": 0.5,
                       "PowerDraw": 1.0
                     },
                     "HeatConnection": {
@@ -3836,7 +3845,7 @@
                 "Name": "hardpoint_cm_launcher_left",
                 "Port": {
                   "PortName": "hardpoint_cm_launcher_left",
-                  "Size": 2,
+                  "Size": 1,
                   "Loadout": "DRAK_CML_Decoy_Small",
                   "InstalledItem": {
                     "ClassName": "DRAK_CML_Decoy_Small",
@@ -3853,7 +3862,7 @@
                       "Health": 1000.0
                     },
                     "PowerConnection": {
-                      "PowerBase": 0.0,
+                      "PowerBase": 1.0,
                       "PowerDraw": 1.0
                     },
                     "Weapon": {
@@ -3915,7 +3924,7 @@
                       "Rate": 23.5
                     },
                     "PowerConnection": {
-                      "PowerBase": 0.0,
+                      "PowerBase": 0.5,
                       "PowerDraw": 1.0
                     },
                     "HeatConnection": {
@@ -4538,81 +4547,6 @@
             }
           },
           {
-            "Name": "hardpoint_weapon_regen_pool",
-            "Port": {
-              "PortName": "hardpoint_weapon_regen_pool",
-              "Size": 1,
-              "Loadout": "WeaponRegenPool_Crew_Cutlass",
-              "InstalledItem": {
-                "ClassName": "WeaponRegenPool_Crew_Cutlass",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "WeaponRegenPool.UNDEFINED",
-                "Name": "WeaponRegenPool_Crew_Cutlass"
-              },
-              "Types": [
-                "WeaponRegenPool"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_weapon_regen_pool_turrets",
-            "Port": {
-              "PortName": "hardpoint_weapon_regen_pool_turrets",
-              "Size": 1,
-              "Loadout": "WeaponRegenPool_Turret_Cutlass",
-              "InstalledItem": {
-                "ClassName": "WeaponRegenPool_Turret_Cutlass",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "WeaponRegenPool.UNDEFINED",
-                "Name": "WeaponRegenPool_Turret_Cutlass"
-              },
-              "Types": [
-                "WeaponRegenPool"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_capacitor_assignment",
-            "Port": {
-              "PortName": "hardpoint_controller_capacitor_assignment",
-              "Size": 1,
-              "Loadout": "Controller_CapacitorAssignment",
-              "InstalledItem": {
-                "ClassName": "Controller_CapacitorAssignment",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "CapacitorAssignmentController.UNDEFINED",
-                "Name": "Controller_CapacitorAssignment",
-                "Tags": [
-                  "flightReady"
-                ]
-              },
-              "Types": [
-                "CapacitorAssignmentController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
             "Name": "hardpoint_controller_flight",
             "Port": {
               "PortName": "hardpoint_controller_flight",
@@ -5211,7 +5145,7 @@
                   "Lifetime": 32.0
                 },
                 "PowerConnection": {
-                  "PowerBase": 91.0,
+                  "PowerBase": 4.5,
                   "PowerDraw": 1000.0
                 },
                 "HeatConnection": {
@@ -5279,7 +5213,7 @@
                   "Lifetime": 720.0
                 },
                 "PowerConnection": {
-                  "PowerBase": 0.0,
+                  "PowerBase": 0.1,
                   "PowerDraw": 1.0
                 },
                 "HeatConnection": {
@@ -5391,15 +5325,101 @@
             }
           },
           {
-            "Name": "hardpoint_QIG",
+            "Name": "hardpoint_weapon_regen_pool",
             "Port": {
-              "PortName": "hardpoint_QIG",
+              "PortName": "hardpoint_weapon_regen_pool",
               "Size": 1,
+              "Loadout": "WeaponRegenPool_Crew_HeavyFighter",
+              "InstalledItem": {
+                "ClassName": "WeaponRegenPool_Crew_HeavyFighter",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponRegenPool.UNDEFINED",
+                "Name": "WeaponRegenPool_Crew_HeavyFighter"
+              },
+              "Types": [
+                "WeaponRegenPool"
+              ],
               "Flags": [
                 "invisible",
                 "uneditable"
               ],
-              "Category": "DISABLED",
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_weapon_regen_pool_turrets",
+            "Port": {
+              "PortName": "hardpoint_weapon_regen_pool_turrets",
+              "Size": 1,
+              "Loadout": "WeaponRegenPool_Turret_S1",
+              "InstalledItem": {
+                "ClassName": "WeaponRegenPool_Turret_S1",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponRegenPool.UNDEFINED",
+                "Name": "WeaponRegenPool_Turret_S1"
+              },
+              "Types": [
+                "WeaponRegenPool"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_capacitor_assignment",
+            "Port": {
+              "PortName": "hardpoint_controller_capacitor_assignment",
+              "Size": 1,
+              "Loadout": "Controller_CapacitorAssignment",
+              "InstalledItem": {
+                "ClassName": "Controller_CapacitorAssignment",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "CapacitorAssignmentController.UNDEFINED",
+                "Name": "Controller_CapacitorAssignment",
+                "Tags": [
+                  "flightReady"
+                ]
+              },
+              "Types": [
+                "CapacitorAssignmentController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_missile",
+            "Port": {
+              "PortName": "hardpoint_controller_missile",
+              "Size": 1,
+              "Loadout": "Controller_Missile",
+              "InstalledItem": {
+                "ClassName": "Controller_Missile",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "MissileController.UNDEFINED",
+                "Name": "MISSILES"
+              },
+              "Types": [
+                "MissileController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
               "Uneditable": true
             }
           }

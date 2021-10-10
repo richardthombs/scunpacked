@@ -1546,82 +1546,6 @@
                 }
               },
               {
-                "name": "hardpoint_weapon_regen_pool",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "Weapon Regen Pool",
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "WeaponRegenPool"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "WeaponRegen",
-                      "pipe": "WeaponRegenCrew"
-                    },
-                    {
-                      "pipeClass": "WeaponAmmoLoad",
-                      "pipe": "WeaponAmmoLoadCrew"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_weapon_regen_pool_turrets",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "Weapon Regen Pool",
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "WeaponRegenPool"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "WeaponRegen",
-                      "pipe": "WeaponRegenTurret"
-                    },
-                    {
-                      "pipeClass": "WeaponAmmoLoad",
-                      "pipe": "WeaponAmmoLoadTurret"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_controller_capacitor_assignment",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "CapacitorAssignmentController"
-                    }
-                  ],
-                  "ControllerDef": {
-                    "UsableDef": {
-                      "PriorityGroups": [
-                        {
-                          "itemType": "CapacitorAssignmentController"
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              {
                 "name": "hardpoint_controller_cooler",
                 "damagemax": 0.0,
                 "class": "ItemPort",
@@ -2797,22 +2721,6 @@
                     }
                   },
                   {
-                    "name": "hardpoint_ladder",
-                    "damagemax": 0.0,
-                    "class": "ItemPort",
-                    "ItemPort": {
-                      "minsize": 1,
-                      "maxsize": 1,
-                      "flags": "uneditable",
-                      "Types": [
-                        {
-                          "type": "Door",
-                          "subtypes": ""
-                        }
-                      ]
-                    }
-                  },
-                  {
                     "name": "hardpoint_grav_body_right_front",
                     "damagemax": 0.0,
                     "class": "ItemPort",
@@ -3575,62 +3483,6 @@
                     "detachRatio": 1.0
                   },
                   {
-                    "name": "hardpoint_weapon_spine",
-                    "damagemax": 0.0,
-                    "class": "ItemPort",
-                    "ItemPort": {
-                      "minsize": 5,
-                      "maxsize": 5,
-                      "display_name": "port_NameWeaponTop",
-                      "flags": "$uneditable",
-                      "defaultWeaponGroup": "1",
-                      "requiredTags": "",
-                      "Types": [
-                        {
-                          "type": "Turret",
-                          "subtypes": "Gun,GunTurret,BallTurret"
-                        },
-                        {
-                          "type": "WeaponGun",
-                          "subtypes": "Gun"
-                        }
-                      ],
-                      "Connections": [
-                        {
-                          "pipeClass": "Power",
-                          "pipe": "MainPower"
-                        },
-                        {
-                          "pipeClass": "Heat",
-                          "pipe": "MainHeat"
-                        },
-                        {
-                          "pipeClass": "Fuel",
-                          "pipe": "MainFuel"
-                        },
-                        {
-                          "pipeClass": "WeaponRegen",
-                          "pipe": "WeaponRegenCrew"
-                        },
-                        {
-                          "pipeClass": "WeaponAmmoLoad",
-                          "pipe": "WeaponAmmoLoadCrew"
-                        }
-                      ],
-                      "ControllerDef": {
-                        "controllableTags": "Remote_Turret"
-                      },
-                      "Pitch": {
-                        "min": -90,
-                        "max": 90
-                      },
-                      "Yaw": {
-                        "min": -180,
-                        "max": 180
-                      }
-                    }
-                  },
-                  {
                     "name": "hardpoint_countermeasure_launcher_left",
                     "damagemax": 0.0,
                     "class": "ItemPort",
@@ -3694,6 +3546,77 @@
                         {
                           "type": "Usable",
                           "subtypes": ""
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "name": "hardpoint_weapon_spine",
+                    "damagemax": 0.0,
+                    "class": "ItemPort",
+                    "ItemPort": {
+                      "minsize": 5,
+                      "maxsize": 5,
+                      "display_name": "port_NameWeaponTop",
+                      "flags": "$uneditable",
+                      "defaultWeaponGroup": "1",
+                      "requiredTags": "",
+                      "Types": [
+                        {
+                          "type": "Turret",
+                          "subtypes": "Gun,GunTurret,BallTurret"
+                        },
+                        {
+                          "type": "WeaponGun",
+                          "subtypes": "Gun"
+                        }
+                      ],
+                      "Connections": [
+                        {
+                          "pipeClass": "Power",
+                          "pipe": "MainPower"
+                        },
+                        {
+                          "pipeClass": "Heat",
+                          "pipe": "MainHeat"
+                        },
+                        {
+                          "pipeClass": "Fuel",
+                          "pipe": "MainFuel"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenCrew"
+                        },
+                        {
+                          "pipeClass": "WeaponAmmoLoad",
+                          "pipe": "WeaponAmmoLoadCrew"
+                        }
+                      ],
+                      "ControllerDef": {
+                        "controllableTags": "Remote_Turret"
+                      },
+                      "Pitch": {
+                        "min": -90,
+                        "max": 90
+                      },
+                      "Yaw": {
+                        "min": -180,
+                        "max": 180
+                      }
+                    }
+                  },
+                  {
+                    "name": "landingpad_helper",
+                    "damagemax": 0.0,
+                    "class": "ItemPort",
+                    "ItemPort": {
+                      "minsize": 1,
+                      "maxsize": 1,
+                      "flags": "uneditable",
+                      "Types": [
+                        {
+                          "type": "LandingSystem"
                         }
                       ]
                     }
@@ -3894,6 +3817,12 @@
                             }
                           ]
                         }
+                      },
+                      {
+                        "name": "phalange_shield_left",
+                        "damageMax": 700.0,
+                        "damagemax": 0.0,
+                        "class": "AnimatedJoint"
                       }
                     ]
                   }
@@ -4109,6 +4038,12 @@
                             "max": 0
                           }
                         }
+                      },
+                      {
+                        "name": "phalange_shield_right",
+                        "damageMax": 700.0,
+                        "damagemax": 0.0,
+                        "class": "AnimatedJoint"
                       }
                     ]
                   }
@@ -4241,6 +4176,98 @@
                     }
                   }
                 }
+              },
+              {
+                "name": "hardpoint_weapon_regen_pool",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "Weapon Regen Pool",
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "WeaponRegenPool"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenCrew"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadCrew"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_weapon_regen_pool_turrets",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "Weapon Regen Pool",
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "WeaponRegenPool"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenTurret"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadTurret"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_controller_capacitor_assignment",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "CapacitorAssignmentController"
+                    }
+                  ],
+                  "ControllerDef": {
+                    "UsableDef": {
+                      "PriorityGroups": [
+                        {
+                          "itemType": "CapacitorAssignmentController"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "name": "hardpoint_ladder",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "uneditable",
+                  "Types": [
+                    {
+                      "type": "Door",
+                      "subtypes": ""
+                    }
+                  ]
+                }
               }
             ],
             "DamageBehaviors": [
@@ -4303,21 +4330,6 @@
                 }
               }
             ]
-          },
-          {
-            "name": "landingpad_helper",
-            "damagemax": 0.0,
-            "class": "ItemPort",
-            "ItemPort": {
-              "minsize": 1,
-              "maxsize": 1,
-              "flags": "uneditable",
-              "Types": [
-                {
-                  "type": "LandingSystem"
-                }
-              ]
-            }
           }
         ]
       }

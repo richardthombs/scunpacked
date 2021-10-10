@@ -634,12 +634,12 @@
               },
               {
                 "itemPortName": "hardpoint_weapon_regen_pool",
-                "entityClassName": "WeaponRegenPool_Crew_Cutlass",
+                "entityClassName": "WeaponRegenPool_Crew_HeavyFighter",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_weapon_regen_pool_turrets",
-                "entityClassName": "WeaponRegenPool_Turret_Cutlass",
+                "entityClassName": "WeaponRegenPool_Turret_S1",
                 "loadout": {}
               },
               {
@@ -1545,7 +1545,7 @@
                 }
               },
               {
-                "name": "DRAK_Cutlass_Black_Int_Cockpit",
+                "name": "hardpoint_int_cockpit",
                 "damagemax": 0.0,
                 "class": "ItemPort",
                 "Parts": [
@@ -1650,7 +1650,7 @@
                 }
               },
               {
-                "name": "DRAK_Cutlass_Black_Int_Rear",
+                "name": "hardpoint_int_body",
                 "damagemax": 0.0,
                 "class": "ItemPort",
                 "ItemPort": {
@@ -1660,22 +1660,6 @@
                   "Types": [
                     {
                       "type": "Room",
-                      "subtypes": ""
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_weapon_rack",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "flags": "uneditable",
-                  "Types": [
-                    {
-                      "type": "Usable",
                       "subtypes": ""
                     }
                   ]
@@ -1957,37 +1941,61 @@
                 }
               },
               {
-                "name": "hardpoint_controller_missile",
+                "name": "Canopy",
+                "damageMax": 3000.0,
+                "damagemax": 0.0,
+                "class": "AnimatedJoint"
+              },
+              {
+                "name": "hardpoint_deathmask",
+                "damagemax": 0.0,
+                "class": "ItemPort"
+              },
+              {
+                "name": "hardpoint_docking_collar",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 4,
+                  "flags": "$uneditable",
+                  "Types": [
+                    {
+                      "type": "DockingCollar"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_air_traffic_controller",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 4,
+                  "flags": "$uneditable",
+                  "Types": [
+                    {
+                      "type": "AirTrafficController"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_weapon_rack",
                 "damagemax": 0.0,
                 "class": "ItemPort",
                 "ItemPort": {
                   "minsize": 1,
                   "maxsize": 1,
-                  "flags": "invisible uneditable",
+                  "flags": "uneditable",
                   "Types": [
                     {
-                      "type": "MissileController"
+                      "type": "Usable",
+                      "subtypes": ""
                     }
-                  ],
-                  "ControllerDef": {
-                    "UsableDef": {
-                      "PriorityGroups": [
-                        {
-                          "itemType": "MissileLauncher"
-                        },
-                        {
-                          "itemType": "Missile"
-                        }
-                      ]
-                    }
-                  }
+                  ]
                 }
-              },
-              {
-                "name": "Canopy",
-                "damageMax": 3000.0,
-                "damagemax": 0.0,
-                "class": "AnimatedJoint"
               }
             ],
             "DamageBehaviors": [
@@ -2603,8 +2611,8 @@
                     "damagemax": 0.0,
                     "class": "ItemPort",
                     "ItemPort": {
-                      "minsize": 2,
-                      "maxsize": 2,
+                      "minsize": 1,
+                      "maxsize": 1,
                       "display_name": "port_NameCountermeasure02",
                       "flags": "left uneditable",
                       "Types": [
@@ -2894,8 +2902,8 @@
                     "damagemax": 0.0,
                     "class": "ItemPort",
                     "ItemPort": {
-                      "minsize": 2,
-                      "maxsize": 2,
+                      "minsize": 1,
+                      "maxsize": 1,
                       "display_name": "port_NameCountermeasure02",
                       "flags": "left uneditable",
                       "Types": [
@@ -3123,82 +3131,6 @@
                         {
                           "itemType": "FuelTank",
                           "defaultPriority": "exclusive_control"
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              {
-                "name": "hardpoint_weapon_regen_pool",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "Weapon Regen Pool",
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "WeaponRegenPool"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "WeaponRegen",
-                      "pipe": "WeaponRegenCrew"
-                    },
-                    {
-                      "pipeClass": "WeaponAmmoLoad",
-                      "pipe": "WeaponAmmoLoadCrew"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_weapon_regen_pool_turrets",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "Weapon Regen Pool",
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "WeaponRegenPool"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "WeaponRegen",
-                      "pipe": "WeaponRegenTurret"
-                    },
-                    {
-                      "pipeClass": "WeaponAmmoLoad",
-                      "pipe": "WeaponAmmoLoadTurret"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_controller_capacitor_assignment",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "CapacitorAssignmentController"
-                    }
-                  ],
-                  "ControllerDef": {
-                    "UsableDef": {
-                      "PriorityGroups": [
-                        {
-                          "itemType": "CapacitorAssignmentController"
                         }
                       ]
                     }
@@ -3790,23 +3722,106 @@
                 }
               },
               {
-                "name": "hardpoint_QIG",
+                "name": "hardpoint_weapon_regen_pool",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "Weapon Regen Pool",
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "WeaponRegenPool"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenCrew"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadCrew"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_weapon_regen_pool_turrets",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "Weapon Regen Pool",
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "WeaponRegenPool"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenTurret"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadTurret"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_controller_capacitor_assignment",
                 "damagemax": 0.0,
                 "class": "ItemPort",
                 "ItemPort": {
                   "minsize": 1,
                   "maxsize": 1,
                   "flags": "invisible uneditable",
-                  "Connections": [
+                  "Types": [
                     {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
+                      "type": "CapacitorAssignmentController"
                     }
-                  ]
+                  ],
+                  "ControllerDef": {
+                    "UsableDef": {
+                      "PriorityGroups": [
+                        {
+                          "itemType": "CapacitorAssignmentController"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "name": "hardpoint_controller_missile",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "MissileController"
+                    }
+                  ],
+                  "ControllerDef": {
+                    "UsableDef": {
+                      "PriorityGroups": [
+                        {
+                          "itemType": "MissileLauncher"
+                        },
+                        {
+                          "itemType": "Missile"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             ],
@@ -3908,7 +3923,7 @@
           {
             "idRef": "modVehicle",
             "name": "displayname",
-            "value": "DRAK Cutlass Blue UPDATE"
+            "value": "DRAK Cutlass Blue"
           },
           {
             "idRef": "modVehicle",
@@ -3924,7 +3939,7 @@
           {
             "idRef": "modVehicle",
             "name": "displayname",
-            "value": "DRAK Cutlass Red UPDATE"
+            "value": "DRAK Cutlass Red"
           },
           {
             "idRef": "modVehicle",

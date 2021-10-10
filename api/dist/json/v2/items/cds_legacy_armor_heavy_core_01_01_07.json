@@ -2,10 +2,10 @@
   "ClassName": "cds_legacy_armor_heavy_core_01_01_07",
   "Size": 1,
   "Grade": 1,
-  "Type": "Char_Armor_Torso.UNDEFINED",
+  "Type": "Char_Armor_Torso.Heavy",
   "Classification": "FPS.Armor.Torso",
   "Name": "ADP Core Blue",
-  "Description": "Item Type: Heavy Armor\nDamage Reduction: 40%\nCarrying Capacity: 12K SP\nTemp. Rating: -75 / 105 °C\n\nRevolutionary when first released, the ADP heavy armor system was heralded as the pinnacle of personal protection. Clark Defense Systems' maximalist design provides plenty of attachment points and excellent protection against the elements and enemy fire. CDS refined and reshaped the ADP line over the years, but many still consider the original ADP to be the touchstone of military-grade heavy armor.",
+  "Description": "Item Type: Heavy Armor\nDamage Reduction: 40%\nCarrying Capacity: 10.5k µSCU\nTemp. Rating: -75 / 105 °C\nBackpack Compatibility: All\n\nRevolutionary when first released, the ADP heavy armor system was heralded as the pinnacle of personal protection. Clark Defense Systems' maximalist design provides plenty of attachment points and excellent protection against the elements and enemy fire. CDS refined and reshaped the ADP line over the years, but many still consider the original ADP to be the touchstone of military-grade heavy armor.",
   "Manufacturer": {
     "Code": "CDS",
     "Name": "Clark Defense Systems"
@@ -14,15 +14,8 @@
     "Marine_Legacy_Heavy",
     "Set_01",
     "Color_07",
-    "$Core++",
     "SM_RestrictedArm"
   ],
-  "CargoGrid": {
-    "Capacity": 0.0,
-    "Width": 1.0,
-    "Height": 1.0,
-    "Depth": 1.0
-  },
   "Ports": [
     {
       "PortName": "wep_stocked_2",
@@ -35,7 +28,49 @@
         "body_attach",
         "nophys",
         "inventory",
-        "invis_p1"
+        "invis_p1",
+        "transferable"
+      ]
+    },
+    {
+      "PortName": "wep_stocked_3",
+      "Size": 5,
+      "Types": [
+        "WeaponPersonal.Medium",
+        "WeaponPersonal.Large"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory",
+        "invis_p1",
+        "transferable"
+      ]
+    },
+    {
+      "PortName": "magazine_attach_1",
+      "Size": 1,
+      "Types": [
+        "WeaponAttachment.Magazine",
+        "WeaponAttachment.Rocket"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "magazine_attach_2",
+      "Size": 1,
+      "Types": [
+        "WeaponAttachment.Magazine",
+        "WeaponAttachment.Rocket"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
       ]
     },
     {
@@ -172,10 +207,13 @@
       ]
     },
     {
-      "PortName": "bacpac",
-      "Size": 1,
+      "PortName": "backpack",
+      "Size": 3,
       "Types": [
-        "Container.Personal"
+        "Char_Armor_Backpack"
+      ],
+      "Flags": [
+        "inventory"
       ]
     }
   ]

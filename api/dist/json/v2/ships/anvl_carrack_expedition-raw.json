@@ -79,6 +79,11 @@
                         "itemPortName": "Display_HUD",
                         "entityClassName": "Projector_HUD_Generic",
                         "loadout": {}
+                      },
+                      {
+                        "itemPortName": "",
+                        "entityClassName": "",
+                        "loadout": {}
                       }
                     ]
                   }
@@ -98,6 +103,11 @@
                       {
                         "itemPortName": "Display_HUD",
                         "entityClassName": "Projector_HUD_Generic",
+                        "loadout": {}
+                      },
+                      {
+                        "itemPortName": "",
+                        "entityClassName": "",
                         "loadout": {}
                       }
                     ]
@@ -221,13 +231,13 @@
               },
               {
                 "itemPortName": "hardpoint_quantum_drive",
-                "entityClassName": "QDRV_JUST_S03_Agni_SCItem",
+                "entityClassName": "QDRV_JUST_S03_Kama_SCItem",
                 "loadout": {
                   "SItemPortLoadoutManualParams": {
                     "entries": [
                       {
                         "itemPortName": "hardpoint_jump_drive",
-                        "entityClassName": "",
+                        "entityClassName": "JDRV_S03_Template",
                         "loadout": {}
                       }
                     ]
@@ -698,6 +708,21 @@
                 "itemPortName": "hardpoint_controller_capacitor_assignment",
                 "entityClassName": "Controller_CapacitorAssignment",
                 "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_fuel",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuel_port",
+                "entityClassName": "DockingTube_Fuel_Ports_ANVL_Carrack",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_air_traffic_controller",
+                "entityClassName": "ANVL_Carrack_ShipATCDataManager",
+                "loadout": {}
               }
             ]
           }
@@ -711,7 +736,7 @@
           "Grade": 1,
           "Manufacturer": "b922abdb-0634-4358-9eee-60118f3cf3a7",
           "Tags": "ANVL_Carrack",
-          "RequiredTags": "",
+          "RequiredTags": "Ship_Dock_Refuel",
           "DisplayType": "",
           "Localization": {
             "Name": "@vehicle_nameANVL_Carrack_Expedition",
@@ -793,7 +818,54 @@
         "PortFlags": "",
         "PortTags": "",
         "RequiredItemTags": "",
-        "Ports": []
+        "Ports": [
+          {
+            "Name": "hardpoint_controller_fuel",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": []
+          },
+          {
+            "Name": "hardpoint_fuel_port",
+            "DisplayName": "",
+            "PortTags": "Ship_Dock_Refuel",
+            "RequiredPortTags": "",
+            "Flags": "dockingport1",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "DockingCollar",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_air_traffic_controller",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "AirTrafficController",
+                "SubTypes": []
+              }
+            ]
+          }
+        ]
       }
     },
     "ClassName": "ANVL_Carrack_Expedition",
@@ -1917,6 +1989,7 @@
                       "maxsize": 5,
                       "display_name": "port_NameTurret01",
                       "flags": "$uneditable",
+                      "requiredTags": "ANVL_Carrack_Turret",
                       "Types": [
                         {
                           "type": "Turret",
@@ -2346,7 +2419,7 @@
                       "flags": "uneditable",
                       "Types": [
                         {
-                          "type": "Usable",
+                          "type": "Door",
                           "subtypes": ""
                         }
                       ]
@@ -2362,7 +2435,7 @@
                       "flags": "uneditable",
                       "Types": [
                         {
-                          "type": "Usable",
+                          "type": "Door",
                           "subtypes": ""
                         }
                       ]
@@ -3651,8 +3724,8 @@
                 "damagemax": 0.0,
                 "class": "ItemPort",
                 "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
+                  "minsize": 3,
+                  "maxsize": 3,
                   "flags": "invisible uneditable",
                   "Types": [
                     {

@@ -44,6 +44,11 @@
             "SItemPortLoadoutManualParams": {
               "entries": [
                 {
+                  "itemPortName": "hardpoint_paint",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
                   "itemPortName": "hardpoint_seat_pilot",
                   "entityClassName": "DRAK_Buccaneer_SCItem_Seat_Pilot",
                   "loadout": {}
@@ -199,7 +204,7 @@
                   "loadout": {}
                 },
                 {
-                  "itemPortName": "hardpoint_Right_Main_Retro",
+                  "itemPortName": "hardpoint_right_main_retro",
                   "entityClassName": "DRAK_Buccaneer_Thruster_Retro",
                   "loadout": {}
                 },
@@ -415,12 +420,12 @@
                 },
                 {
                   "itemPortName": "hardpoint_weapon_regen_pool",
-                  "entityClassName": "WeaponRegenPool_Crew_Buccaneer",
+                  "entityClassName": "WeaponRegenPool_Crew_MultiRoleFighter",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_weapon_regen_pool_turrets",
-                  "entityClassName": "WeaponRegenPool_Turret_Buccaneer",
+                  "entityClassName": "",
                   "loadout": {}
                 },
                 {
@@ -3069,6 +3074,24 @@
                   "damagemax": 0.0,
                   "class": "AnimatedJoint",
                   "detachRatio": 1.0
+                },
+                {
+                  "name": "hardpoint_paint",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "port_NamePaint",
+                    "flags": "",
+                    "id": "modPaint",
+                    "requiredTags": "Paint_Buccaneer",
+                    "Types": [
+                      {
+                        "type": "Paints"
+                      }
+                    ]
+                  }
                 }
               ],
               "DamageBehaviors": [

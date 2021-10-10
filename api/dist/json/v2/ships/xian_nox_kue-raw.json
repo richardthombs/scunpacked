@@ -1168,7 +1168,7 @@
                     "detachRatio": 1.0,
                     "Parts": [
                       {
-                        "name": "Front_Cowling",
+                        "name": "front_cowling",
                         "damageMax": 225.0,
                         "damagemax": 0.0,
                         "class": "AnimatedJoint"
@@ -2177,6 +2177,35 @@
                         }
                       }
                     }
+                  },
+                  {
+                    "name": "hardpoint_controller_comms",
+                    "damagemax": 0.0,
+                    "class": "ItemPort",
+                    "ItemPort": {
+                      "minsize": 1,
+                      "maxsize": 1,
+                      "flags": "invisible uneditable",
+                      "Types": [
+                        {
+                          "type": "CommsController"
+                        }
+                      ],
+                      "ControllerDef": {
+                        "UsableDef": {
+                          "PriorityGroups": [
+                            {
+                              "itemType": "Comms"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "name": "hardpoint_armor",
+                    "damagemax": 0.0,
+                    "class": "ItemPort"
                   }
                 ],
                 "DamageBehaviors": [

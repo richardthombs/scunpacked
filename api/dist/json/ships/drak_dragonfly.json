@@ -314,12 +314,27 @@
                 },
                 {
                   "itemPortName": "hardpoint_weapon_regen_pool_turrets",
-                  "entityClassName": "WeaponRegenPool_Turret_Dragonfly",
+                  "entityClassName": "",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_controller_capacitor_assignment",
                   "entityClassName": "Controller_CapacitorAssignment",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_fuel",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_fuel_port",
+                  "entityClassName": "DockingTube_Fuel_Ports_DRAK_Dragonfly",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_air_traffic_controller",
+                  "entityClassName": "DRAK_Dragonfly_ShipATCDataManager",
                   "loadout": {}
                 }
               ]
@@ -334,7 +349,7 @@
             "Grade": 1,
             "Manufacturer": "6116471c-891d-4830-8968-650b6deafc00",
             "Tags": "DRAK_Dragonfly",
-            "RequiredTags": "",
+            "RequiredTags": "Ship_Dock_Refuel",
             "DisplayType": "",
             "Localization": {
               "Name": "@vehicle_NameDRAK_Dragonfly",
@@ -411,7 +426,54 @@
           "PortFlags": "",
           "PortTags": "DRAK_Dragonfly_Base",
           "RequiredItemTags": "",
-          "Ports": []
+          "Ports": [
+            {
+              "Name": "hardpoint_controller_fuel",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": []
+            },
+            {
+              "Name": "hardpoint_fuel_port",
+              "DisplayName": "",
+              "PortTags": "Ship_Dock_Refuel",
+              "RequiredPortTags": "",
+              "Flags": "dockingport1",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "DockingCollar",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_air_traffic_controller",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "AirTrafficController",
+                  "SubTypes": []
+                }
+              ]
+            }
+          ]
         }
       },
       "ClassName": "DRAK_Dragonfly",
@@ -2156,6 +2218,24 @@
                         ]
                       }
                     }
+                  }
+                },
+                {
+                  "name": "hardpoint_paint",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "port_NamePaint",
+                    "flags": "",
+                    "id": "modPaint",
+                    "requiredTags": "Paint_Dragonfly",
+                    "Types": [
+                      {
+                        "type": "Paints"
+                      }
+                    ]
                   }
                 }
               ],

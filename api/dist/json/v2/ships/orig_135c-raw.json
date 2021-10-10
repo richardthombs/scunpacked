@@ -375,6 +375,21 @@
                 "loadout": {}
               },
               {
+                "itemPortName": "hardpoint_controller_fuel",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuel_port",
+                "entityClassName": "DockingTube_Fuel_Ports_ORIG_135c",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_air_traffic_controller",
+                "entityClassName": "ORIG_135c_ShipATCDataManager",
+                "loadout": {}
+              },
+              {
                 "itemPortName": "hardpoint_cargoramp",
                 "entityClassName": "ORIG_100i_CargoDoor",
                 "loadout": {}
@@ -406,12 +421,12 @@
               },
               {
                 "itemPortName": "hardpoint_weapon_regen_pool",
-                "entityClassName": "WeaponRegenPool_Crew_100i",
+                "entityClassName": "WeaponRegenPool_Crew_Dogfighter",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_weapon_regen_pool_turrets",
-                "entityClassName": "WeaponRegenPool_Turret_100i",
+                "entityClassName": "",
                 "loadout": {}
               },
               {
@@ -431,7 +446,7 @@
           "Grade": 1,
           "Manufacturer": "1e47a9ec-a3f0-431d-be0e-377712e1ed84",
           "Tags": "ORIG_135c",
-          "RequiredTags": "ORIG_135c",
+          "RequiredTags": "Ship_Dock_Refuel ORIG_135c",
           "DisplayType": "",
           "Localization": {
             "Name": "@vehicle_NameORIG_135c",
@@ -513,7 +528,54 @@
         "PortFlags": "",
         "PortTags": "ORIG_135c",
         "RequiredItemTags": "",
-        "Ports": []
+        "Ports": [
+          {
+            "Name": "hardpoint_controller_fuel",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": []
+          },
+          {
+            "Name": "hardpoint_fuel_port",
+            "DisplayName": "",
+            "PortTags": "Ship_Dock_Refuel",
+            "RequiredPortTags": "",
+            "Flags": "dockingport1",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "DockingCollar",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_air_traffic_controller",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "AirTrafficController",
+                "SubTypes": []
+              }
+            ]
+          }
+        ]
       }
     },
     "ClassName": "ORIG_135c",
@@ -1733,8 +1795,8 @@
                 "damagemax": 0.0,
                 "class": "ItemPort",
                 "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
+                  "minsize": 2,
+                  "maxsize": 2,
                   "display_name": "port_NameMissileRack01",
                   "flags": "$uneditable",
                   "defaultWeaponGroup": "",
@@ -2102,8 +2164,8 @@
                     "damagemax": 0.0,
                     "class": "ItemPort",
                     "ItemPort": {
-                      "minsize": 1,
-                      "maxsize": 1,
+                      "minsize": 2,
+                      "maxsize": 2,
                       "flags": "uneditable",
                       "Types": [
                         {
@@ -2428,8 +2490,8 @@
                     "damagemax": 0.0,
                     "class": "ItemPort",
                     "ItemPort": {
-                      "minsize": 1,
-                      "maxsize": 1,
+                      "minsize": 2,
+                      "maxsize": 2,
                       "flags": "uneditable",
                       "Types": [
                         {

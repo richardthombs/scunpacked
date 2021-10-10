@@ -5,7 +5,7 @@
   "Type": "Char_Armor_Legs.UNDEFINED",
   "Classification": "FPS.Armor.Legs",
   "Name": "Citadel-SE Legs White",
-  "Description": "Item Type: Heavy Armor\nDamage Reduction: 40%\nCarrying Capacity: 8K SP\nTemp. Rating: -80 / 110 °C\n\nKastak Arms' aggressive design reached its peak with the Citadel. Layers of reinforced armor plating provide maximum security while its striking angular silhouette cuts an imposing figure. The Citadel-SE features a flourish of stylish script on the front chest plate and provides the same stellar protections thanks to advanced nanocomposite ballistic materials. ",
+  "Description": "Item Type: Heavy Armor\nDamage Reduction: 40%\nCarrying Capacity: 6.5k µSCU\nTemp. Rating: -80 / 110 °C\n\nKastak Arms' aggressive design reached its peak with the Citadel. Layers of reinforced armor plating provide maximum security while its striking angular silhouette cuts an imposing figure. The Citadel-SE features a flourish of stylish script on the front chest plate and provides the same stellar protections thanks to advanced nanocomposite ballistic materials. ",
   "Manufacturer": {
     "Code": "KSAR",
     "Name": "Kastak Arms"
@@ -14,21 +14,39 @@
     "Outlaw_Legacy_Heavy",
     "Set_02",
     "Color_10",
-    "$Legs++",
     "SM_RestrictedArm"
   ],
-  "CargoGrid": {
-    "Capacity": 0.0,
-    "Width": 1.0,
-    "Height": 1.0,
-    "Depth": 1.0
-  },
   "Ports": [
+    {
+      "PortName": "medPen_attach_1",
+      "Size": 1,
+      "Types": [
+        "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
     {
       "PortName": "medPen_attach_2",
       "Size": 1,
       "Types": [
         "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "utility_attach_1",
+      "Size": 1,
+      "Types": [
+        "WeaponPersonal.Gadget",
+        "RemovableChip.Hacking"
       ],
       "Flags": [
         "body_attach",
@@ -60,10 +78,34 @@
       ]
     },
     {
+      "PortName": "oxyPen_attach_1",
+      "Size": 1,
+      "Types": [
+        "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
       "PortName": "oxyPen_attach_2",
       "Size": 1,
       "Types": [
         "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "wep_sidearm",
+      "Size": 1,
+      "Types": [
+        "WeaponPersonal.Small"
       ],
       "Flags": [
         "body_attach",

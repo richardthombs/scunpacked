@@ -5,7 +5,7 @@
   "Type": "Char_Armor_Legs.UNDEFINED",
   "Classification": "FPS.Armor.Legs",
   "Name": "Venture Legs Sienna",
-  "Description": "Item Type: Light Armor\nDamage Reduction: 20%\nCarrying Capacity: 6K SP\nTemp. Rating: -41 / 71 °C\n\nRSI's Venture is a lightweight armor set built for the unknown. This EVA-rated protection system features an undersuit built from a durable polymer weave that's designed to withstand extreme environmental conditions and features component armor pieces to protect you against impacts and particulates.",
+  "Description": "Item Type: Light Armor\nDamage Reduction: 20%\nCarrying Capacity: 6K µSCU\nTemp. Rating: -41 / 71 °C\n\nRSI's Venture is a lightweight armor set built for the unknown. This EVA-rated protection system features an undersuit built from a durable polymer weave that's designed to withstand extreme environmental conditions and features component armor pieces to protect you against impacts and particulates.",
   "Manufacturer": {
     "Code": "RSI",
     "Name": "Roberts Space Industries"
@@ -14,21 +14,40 @@
     "Explorer",
     "Set_01",
     "Color_14",
-    "$Legs++",
     "SM_RestrictedArm"
   ],
-  "CargoGrid": {
-    "Capacity": 0.0,
-    "Width": 1.0,
-    "Height": 1.0,
-    "Depth": 1.0
-  },
   "Ports": [
+    {
+      "PortName": "medPen_attach_1",
+      "Size": 1,
+      "Types": [
+        "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
     {
       "PortName": "medPen_attach_2",
       "Size": 1,
       "Types": [
+        "FPS_Consumable",
         "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "utility_attach_1",
+      "Size": 0,
+      "Types": [
+        "WeaponPersonal.Gadget",
+        "RemovableChip.Hacking"
       ],
       "Flags": [
         "body_attach",
@@ -60,10 +79,34 @@
       ]
     },
     {
+      "PortName": "oxypen_attach_1",
+      "Size": 1,
+      "Types": [
+        "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
       "PortName": "oxyPen_attach_2",
       "Size": 1,
       "Types": [
         "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "wep_sidearm",
+      "Size": 1,
+      "Types": [
+        "WeaponPersonal.Small"
       ],
       "Flags": [
         "body_attach",

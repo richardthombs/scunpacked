@@ -2,7 +2,28 @@
   "StaticEntityClassData": {},
   "tags": [
     {
-      "value": "e6471cdd-5456-4a7c-91f3-8088c5bc067b"
+      "value": "84dcbd71-6d30-4fef-a091-c8a74cd81faa"
+    },
+    {
+      "value": "59ca5e36-b9a2-4459-ad0e-5745bcf5d899"
+    },
+    {
+      "value": "4b98a74f-aeca-48b7-aba8-92ced1edc981"
+    },
+    {
+      "value": "042205a5-fe47-4486-8702-3ae5c62217f4"
+    },
+    {
+      "value": "5558f6d3-adac-4797-ae75-d5863c21ff21"
+    },
+    {
+      "value": "12be6f94-b692-4100-b0f0-fd391f01d019"
+    },
+    {
+      "value": "b2cd0ffe-9898-4424-8b72-c8fb3c5ade83"
+    },
+    {
+      "value": "3511eaac-2d3b-4d93-a7f5-badbd457224a"
     }
   ],
   "Components": {
@@ -13,6 +34,11 @@
             {
               "itemPortName": "module_attach",
               "entityClassName": "grin_multitool_01_cutter",
+              "loadout": {}
+            },
+            {
+              "itemPortName": "magazine_attach",
+              "entityClassName": "grin_multitool_resource_healing_01",
               "loadout": {}
             }
           ]
@@ -53,7 +79,7 @@
       "WarningDisplayTime": 8.0
     },
     "SCItemWeaponComponentParams": {
-      "ammoContainerRecord": "00000000-0000-0000-0000-000000000000",
+      "ammoContainerRecord": "03fc4136-a491-4713-b278-ef7e4333431d",
       "connectionParams": {
         "powerActiveCooldown": 1.0,
         "heatRateOnline": 25.0,
@@ -121,11 +147,6 @@
       },
       "fireActions": []
     },
-    "SCItemRadarComponentParams": {
-      "detectionLifetime": 0.0,
-      "altitudeCeiling": 0.0,
-      "enableCrossSectionOcclusion": false
-    },
     "SEntityComponentMiningLaserParams": {
       "globalParams": "a3c468d8-1194-44a3-b3e6-a8d65ecebd85",
       "throttleLerpSpeed": "10",
@@ -142,6 +163,34 @@
       "Interactable": {
         "SharedInteractions": [
           {
+            "Name": "Grab",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_grab",
+            "DisplayType": "Show",
+            "GenericCursor": "Grab",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "CarryReady",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_carry",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
             "Name": "Equip",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
@@ -156,24 +205,10 @@
             "available": true
           },
           {
-            "Name": "Attach",
+            "Name": "OffHandEquip",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@interaction_attach",
-            "DisplayType": "Show",
-            "GenericCursor": "SingleAction",
-            "FocusModeOnly": false,
-            "Sendable": false,
-            "Linkable": false,
-            "LockedByLinks": false,
-            "RequiresAuthorizedUser": false,
-            "available": true
-          },
-          {
-            "Name": "OffHandAttach",
-            "RoomTag": "00000000-0000-0000-0000-000000000000",
-            "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@interaction_attach",
+            "DisplayName": "@interaction_equip",
             "DisplayType": "Show",
             "GenericCursor": "SingleAction",
             "FocusModeOnly": false,
@@ -226,10 +261,10 @@
             "available": true
           },
           {
-            "Name": "Carry",
+            "Name": "CarryLowered",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@interaction_carry",
+            "DisplayName": "@interaction_carry_lowered",
             "DisplayType": "Show",
             "GenericCursor": "SingleAction",
             "FocusModeOnly": false,
@@ -399,9 +434,9 @@
         },
         {
           "Name": "magazine_attach",
-          "DisplayName": "Magazine Slot",
+          "DisplayName": "",
           "PortTags": "",
-          "RequiredPortTags": "",
+          "RequiredPortTags": "multitool_resource",
           "Flags": "",
           "MinSize": 0,
           "MaxSize": 1,

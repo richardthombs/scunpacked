@@ -404,17 +404,32 @@
               },
               {
                 "itemPortName": "hardpoint_weapon_regen_pool",
-                "entityClassName": "WeaponRegenPool_Crew_Gladius",
+                "entityClassName": "WeaponRegenPool_Crew_Dogfighter",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_weapon_regen_pool_turrets",
-                "entityClassName": "WeaponRegenPool_Turret_Gladius",
+                "entityClassName": "",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_controller_capacitor_assignment",
                 "entityClassName": "Controller_CapacitorAssignment",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_fuel",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuel_port",
+                "entityClassName": "DockingTube_Fuel_Ports_AEGS_Gladius",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_air_traffic_controller",
+                "entityClassName": "AEGS_Gladius_ShipATCDataManager",
                 "loadout": {}
               }
             ]
@@ -429,7 +444,7 @@
           "Grade": 1,
           "Manufacturer": "cf4a74bf-eb2c-462a-9b78-f7f2724c31d2",
           "Tags": "AEGS_Gladius_Valiant",
-          "RequiredTags": "",
+          "RequiredTags": "Ship_Dock_Refuel",
           "DisplayType": "",
           "Localization": {
             "Name": "@vehicle_NameAEGS_Gladius_Valiant",
@@ -525,7 +540,54 @@
         "PortFlags": "",
         "PortTags": "AEGS_Gladius_Base",
         "RequiredItemTags": "",
-        "Ports": []
+        "Ports": [
+          {
+            "Name": "hardpoint_controller_fuel",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": []
+          },
+          {
+            "Name": "hardpoint_fuel_port",
+            "DisplayName": "",
+            "PortTags": "Ship_Dock_Refuel",
+            "RequiredPortTags": "",
+            "Flags": "dockingport1",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "DockingCollar",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_air_traffic_controller",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "AirTrafficController",
+                "SubTypes": []
+              }
+            ]
+          }
+        ]
       }
     },
     "ClassName": "AEGS_Gladius_Valiant",
@@ -1678,6 +1740,14 @@
                             {
                               "pipeClass": "Heat",
                               "pipe": "MainHeat"
+                            },
+                            {
+                              "pipeClass": "",
+                              "pipe": ""
+                            },
+                            {
+                              "pipeClass": "",
+                              "pipe": ""
                             }
                           ],
                           "Pitch": {
@@ -1841,12 +1911,12 @@
                           "pipe": "MainHeat"
                         },
                         {
-                          "pipeClass": "WeaponRegen",
-                          "pipe": "WeaponRegenCrew"
-                        },
-                        {
                           "pipeClass": "WeaponAmmoLoad",
                           "pipe": "WeaponAmmoLoadCrew"
+                        },
+                        {
+                          "pipeClass": "WeaponRegen",
+                          "pipe": "WeaponRegenCrew"
                         }
                       ],
                       "Pitch": {
@@ -2043,6 +2113,14 @@
                             {
                               "pipeClass": "Heat",
                               "pipe": "MainHeat"
+                            },
+                            {
+                              "pipeClass": "",
+                              "pipe": ""
+                            },
+                            {
+                              "pipeClass": "",
+                              "pipe": ""
                             }
                           ],
                           "Pitch": {
@@ -3085,6 +3163,16 @@
             "value": "Rocket"
           },
           {
+            "idRef": "modPart_gun_left_wing_type3",
+            "name": "pipeClass",
+            "value": ""
+          },
+          {
+            "idRef": "modPart_gun_left_wing_type3",
+            "name": "pipe",
+            "value": ""
+          },
+          {
             "idRef": "modPart_gun_left_wing_pitch",
             "name": "min",
             "value": "0"
@@ -3133,6 +3221,26 @@
             "idRef": "modPart_gun_left_wing_outer_type2",
             "name": "subTypes",
             "value": "Gun"
+          },
+          {
+            "idRef": "modPart_gun_left_wing_outer_type3",
+            "name": "pipeClass",
+            "value": "WeaponRegen"
+          },
+          {
+            "idRef": "modPart_gun_left_wing_outer_type3",
+            "name": "pipe",
+            "value": "WeaponRegenCrew"
+          },
+          {
+            "idRef": "modPart_gun_left_wing_outer_type4",
+            "name": "pipeClass",
+            "value": "WeaponAmmoLoad"
+          },
+          {
+            "idRef": "modPart_gun_left_wing_outer_type4",
+            "name": "pipe",
+            "value": "WeaponAmmoLoadCrew"
           },
           {
             "idRef": "modPart_gun_left_wing_outer_pitch",
@@ -3185,6 +3293,16 @@
             "value": "Rocket"
           },
           {
+            "idRef": "modPart_gun_right_wing_type3",
+            "name": "pipeClass",
+            "value": ""
+          },
+          {
+            "idRef": "modPart_gun_right_wing_type3",
+            "name": "pipe",
+            "value": ""
+          },
+          {
             "idRef": "modPart_gun_right_wing_pitch",
             "name": "min",
             "value": "0"
@@ -3233,6 +3351,26 @@
             "idRef": "modPart_gun_right_wing_outer_type2",
             "name": "subTypes",
             "value": "Gun"
+          },
+          {
+            "idRef": "modPart_gun_right_wing_outer_type3",
+            "name": "pipeClass",
+            "value": "WeaponRegen"
+          },
+          {
+            "idRef": "modPart_gun_right_wing_outer_type3",
+            "name": "pipe",
+            "value": "WeaponRegenCrew"
+          },
+          {
+            "idRef": "modPart_gun_right_wing_outer_type4",
+            "name": "pipeClass",
+            "value": "WeaponAmmoLoad"
+          },
+          {
+            "idRef": "modPart_gun_right_wing_outer_type4",
+            "name": "pipe",
+            "value": "WeaponAmmoLoadCrew"
           },
           {
             "idRef": "modPart_gun_right_wing_outer_pitch",
@@ -3320,6 +3458,16 @@
             "value": "Rocket"
           },
           {
+            "idRef": "modPart_gun_left_wing_type3",
+            "name": "pipeClass",
+            "value": ""
+          },
+          {
+            "idRef": "modPart_gun_left_wing_type3",
+            "name": "pipe",
+            "value": ""
+          },
+          {
             "idRef": "modPart_gun_left_wing_pitch",
             "name": "min",
             "value": "0"
@@ -3368,6 +3516,26 @@
             "idRef": "modPart_gun_left_wing_outer_type2",
             "name": "subTypes",
             "value": "Gun"
+          },
+          {
+            "idRef": "modPart_gun_left_wing_outer_type3",
+            "name": "pipeClass",
+            "value": "WeaponRegen"
+          },
+          {
+            "idRef": "modPart_gun_left_wing_outer_type3",
+            "name": "pipe",
+            "value": "WeaponRegenCrew"
+          },
+          {
+            "idRef": "modPart_gun_left_wing_outer_type4",
+            "name": "pipeClass",
+            "value": "WeaponAmmoLoad"
+          },
+          {
+            "idRef": "modPart_gun_left_wing_outer_type4",
+            "name": "pipe",
+            "value": "WeaponAmmoLoadCrew"
           },
           {
             "idRef": "modPart_gun_left_wing_outer_pitch",
@@ -3420,6 +3588,16 @@
             "value": "Rocket"
           },
           {
+            "idRef": "modPart_gun_right_wing_type3",
+            "name": "pipeClass",
+            "value": ""
+          },
+          {
+            "idRef": "modPart_gun_right_wing_type3",
+            "name": "pipe",
+            "value": ""
+          },
+          {
             "idRef": "modPart_gun_right_wing_pitch",
             "name": "min",
             "value": "0"
@@ -3468,6 +3646,26 @@
             "idRef": "modPart_gun_right_wing_outer_type2",
             "name": "subTypes",
             "value": "Gun"
+          },
+          {
+            "idRef": "modPart_gun_right_wing_outer_type3",
+            "name": "pipeClass",
+            "value": "WeaponRegen"
+          },
+          {
+            "idRef": "modPart_gun_right_wing_outer_type3",
+            "name": "pipe",
+            "value": "WeaponRegenCrew"
+          },
+          {
+            "idRef": "modPart_gun_right_wing_outer_type4",
+            "name": "pipeClass",
+            "value": "WeaponAmmoLoad"
+          },
+          {
+            "idRef": "modPart_gun_right_wing_outer_type4",
+            "name": "pipe",
+            "value": "WeaponAmmoLoadCrew"
           },
           {
             "idRef": "modPart_gun_right_wing_outer_pitch",

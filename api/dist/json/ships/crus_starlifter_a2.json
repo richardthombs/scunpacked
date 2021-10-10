@@ -185,7 +185,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_remote_turret_bottom",
-                  "entityClassName": "CRUS_Starlifter_SCItem_Remote_Turret_Main",
+                  "entityClassName": "CRUS_Starlifter_SCItem_Remote_Turret_Main_A2",
                   "loadout": {
                     "SItemPortLoadoutManualParams": {
                       "entries": [
@@ -479,11 +479,6 @@
                   "loadout": {}
                 },
                 {
-                  "itemPortName": "hardpoint_cargo_small",
-                  "entityClassName": "CRUS_Starlifter_CargoGrid_Small",
-                  "loadout": {}
-                },
-                {
                   "itemPortName": "landingpad_helper",
                   "entityClassName": "Default_LandingSystem",
                   "loadout": {}
@@ -695,7 +690,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_chin_turret_cap",
-                  "entityClassName": "CRUS_Starlifter_chin_turret_cap",
+                  "entityClassName": "",
                   "loadout": {}
                 },
                 {
@@ -710,12 +705,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_front_door_bottom",
-                  "entityClassName": "Door_Ship_Exterior_CRUS_Starlifter_Door_Bottom_A2",
-                  "loadout": {}
-                },
-                {
-                  "itemPortName": "hardpoint_controller_missile",
-                  "entityClassName": "",
+                  "entityClassName": "Door_Ship_Exterior_CRUS_Starlifter_Door_Bottom",
                   "loadout": {}
                 },
                 {
@@ -817,6 +807,86 @@
                   "itemPortName": "hardpoint_armory_cargo_03",
                   "entityClassName": "CRUS_Starlifter_CargoGrid_Personal_Armory_Small",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_bombrack_left",
+                  "entityClassName": "BMBRCK_CRUS_STARL_Left",
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "missile_01_attach",
+                          "entityClassName": "BOMB_S10_FSKI_Colossus",
+                          "loadout": {}
+                        },
+                        {
+                          "itemPortName": "missile_02_attach",
+                          "entityClassName": "BOMB_S10_FSKI_Colossus",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "itemPortName": "hardpoint_bombrack_right",
+                  "entityClassName": "BMBRCK_CRUS_STARL_Right",
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "missile_01_attach",
+                          "entityClassName": "BOMB_S10_FSKI_Colossus",
+                          "loadout": {}
+                        },
+                        {
+                          "itemPortName": "missile_02_attach",
+                          "entityClassName": "BOMB_S10_FSKI_Colossus",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "itemPortName": "hardpoint_bomb_console",
+                  "entityClassName": "CRUS_Starlifter_SCItem_Bomb_Console",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_bomb_console_access",
+                  "entityClassName": "CRUS_Starlifter_SCItem_Bomb_Console_SeatAccess",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_bomb_turret",
+                  "entityClassName": "CRUS_Starlifter_Bomb_Turret",
+                  "loadout": {
+                    "SItemPortLoadoutManualParams": {
+                      "entries": [
+                        {
+                          "itemPortName": "hardpoint_missile_rack1",
+                          "entityClassName": "",
+                          "loadout": {}
+                        },
+                        {
+                          "itemPortName": "hardpoint_missile_rack2",
+                          "entityClassName": "",
+                          "loadout": {}
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "itemPortName": "hardpoint_bomb_turret_controller",
+                  "entityClassName": "Controller_Weapon",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_cargo_small_A2",
+                  "entityClassName": "CRUS_Starlifter_CargoGrid_Small_A2",
+                  "loadout": {}
                 }
               ]
             }
@@ -830,7 +900,7 @@
             "Grade": 1,
             "Manufacturer": "63685f47-b0cc-4ebe-8f16-72793a5cd6e0",
             "Tags": "CRUS_Starlifter_A2",
-            "RequiredTags": "",
+            "RequiredTags": "Ship_Dock_Refuel",
             "DisplayType": "",
             "Localization": {
               "Name": "@vehicle_NameCRUS_Starlifter_A2",
@@ -912,7 +982,54 @@
           "PortFlags": "",
           "PortTags": "",
           "RequiredItemTags": "",
-          "Ports": []
+          "Ports": [
+            {
+              "Name": "hardpoint_controller_fuel",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": []
+            },
+            {
+              "Name": "hardpoint_fuel_port",
+              "DisplayName": "",
+              "PortTags": "Ship_Dock_Refuel",
+              "RequiredPortTags": "",
+              "Flags": "dockingport1",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "DockingCollar",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_air_traffic_controller",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "AirTrafficController",
+                  "SubTypes": []
+                }
+              ]
+            }
+          ]
         }
       },
       "ClassName": "CRUS_Starlifter_A2",
@@ -1240,7 +1357,7 @@
                     "minsize": 3,
                     "maxsize": 3,
                     "display_name": "port_NamePowerplant02",
-                    "flags": "invisible uneditable",
+                    "flags": "",
                     "id": "modPart_power_plant_r",
                     "Types": [
                       {
@@ -1458,10 +1575,12 @@
                   "name": "hardpoint_cargo_small",
                   "damagemax": 0.0,
                   "class": "ItemPort",
+                  "skipPart": true,
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
                     "flags": "selfphys uneditable",
+                    "id": "modPart_cargo_small",
                     "Types": [
                       {
                         "type": "Cargo",
@@ -1489,48 +1608,14 @@
                   }
                 },
                 {
-                  "name": "hardpoint_armory_cargo_01",
+                  "name": "hardpoint_cargo_small_A2",
                   "damagemax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
-                    "flags": "selfphys uneditable",
-                    "id": "modPart_armory_cargo_01",
-                    "Types": [
-                      {
-                        "type": "Cargo",
-                        "subtypes": ""
-                      }
-                    ]
-                  }
-                },
-                {
-                  "name": "hardpoint_armory_cargo_02",
-                  "damagemax": 0.0,
-                  "class": "ItemPort",
-                  "ItemPort": {
-                    "minsize": 1,
-                    "maxsize": 1,
-                    "flags": "selfphys uneditable",
-                    "id": "modPart_armory_cargo_02",
-                    "Types": [
-                      {
-                        "type": "Cargo",
-                        "subtypes": ""
-                      }
-                    ]
-                  }
-                },
-                {
-                  "name": "hardpoint_armory_cargo_03",
-                  "damagemax": 0.0,
-                  "class": "ItemPort",
-                  "ItemPort": {
-                    "minsize": 1,
-                    "maxsize": 1,
-                    "flags": "selfphys uneditable",
-                    "id": "modPart_armory_cargo_03",
+                    "flags": "",
+                    "id": "modPart_cargo_small_A2",
                     "Types": [
                       {
                         "type": "Cargo",
@@ -1650,36 +1735,6 @@
                       }
                     }
                   ]
-                },
-                {
-                  "name": "hardpoint_rear_ramp",
-                  "damagemax": 0.0,
-                  "class": "ItemPort",
-                  "ItemPort": {
-                    "minsize": 1,
-                    "maxsize": 1,
-                    "flags": "$uneditable",
-                    "Types": [
-                      {
-                        "type": "Door"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "name": "hardpoint_Elevator_Exterior_Door",
-                  "damagemax": 0.0,
-                  "class": "ItemPort",
-                  "ItemPort": {
-                    "minsize": 1,
-                    "maxsize": 1,
-                    "flags": "$uneditable",
-                    "Types": [
-                      {
-                        "type": "Door"
-                      }
-                    ]
-                  }
                 },
                 {
                   "name": "animated_interior_modular",
@@ -2665,9 +2720,13 @@
                         "pipe": "MainFuel"
                       }
                     ],
+                    "Pitch": {
+                      "min": -60,
+                      "max": 60
+                    },
                     "Yaw": {
-                      "min": -30,
-                      "max": 30
+                      "min": -60,
+                      "max": 60
                     }
                   }
                 },
@@ -3919,12 +3978,10 @@
                       "UsableDef": {
                         "PriorityGroups": [
                           {
-                            "itemType": "Turret",
-                            "defaultPriority": "no_control"
+                            "itemType": "Turret"
                           },
                           {
-                            "itemType": "WeaponGun",
-                            "defaultPriority": "no_control"
+                            "itemType": "WeaponGun"
                           },
                           {
                             "itemType": "WeaponDefensive"
@@ -4320,7 +4377,7 @@
                         "flags": "uneditable",
                         "Types": [
                           {
-                            "type": "Usable",
+                            "type": "Door",
                             "subtypes": ""
                           }
                         ]
@@ -4336,7 +4393,7 @@
                         "flags": "uneditable",
                         "Types": [
                           {
-                            "type": "Usable",
+                            "type": "Door",
                             "subtypes": ""
                           }
                         ]
@@ -4352,7 +4409,7 @@
                         "flags": "uneditable",
                         "Types": [
                           {
-                            "type": "Usable",
+                            "type": "Door",
                             "subtypes": ""
                           }
                         ]
@@ -4811,13 +4868,15 @@
                       }
                     ],
                     "ControllerDef": {
+                      "controllableTags": "bomb_console",
                       "UsableDef": {
                         "PriorityGroups": [
                           {
-                            "itemType": "MissileLauncher"
+                            "itemType": "BombLauncher",
+                            "defaultPriority": "no_control"
                           },
                           {
-                            "itemType": "Missile"
+                            "itemType": "Bomb"
                           }
                         ]
                       }
@@ -4887,6 +4946,72 @@
                 },
                 {
                   "name": "hardpoint_front_door_bottom",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "$uneditable",
+                    "Types": [
+                      {
+                        "type": "Door"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_armory_cargo_02",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "selfphys uneditable",
+                    "id": "modPart_armory_cargo_02",
+                    "Types": [
+                      {
+                        "type": "Cargo",
+                        "subtypes": ""
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_armory_cargo_01",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "selfphys uneditable",
+                    "id": "modPart_armory_cargo_01",
+                    "Types": [
+                      {
+                        "type": "Cargo",
+                        "subtypes": ""
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_armory_cargo_03",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "selfphys uneditable",
+                    "id": "modPart_armory_cargo_03",
+                    "Types": [
+                      {
+                        "type": "Cargo",
+                        "subtypes": ""
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_Elevator_Exterior_Door",
                   "damagemax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
@@ -5023,6 +5148,21 @@
                   }
                 },
                 {
+                  "name": "hardpoint_rear_ramp",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "$uneditable",
+                    "Types": [
+                      {
+                        "type": "Door"
+                      }
+                    ]
+                  }
+                },
+                {
                   "name": "hardpoint_weapon_regen_pool_turrets",
                   "damagemax": 0.0,
                   "class": "ItemPort",
@@ -5066,6 +5206,226 @@
                         "PriorityGroups": [
                           {
                             "itemType": "CapacitorAssignmentController"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_bombrack_left",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 10,
+                    "maxsize": 10,
+                    "display_name": "port_NameBombRackLeft",
+                    "flags": "",
+                    "id": "modPart_bomb_mechanism_left",
+                    "Types": [
+                      {
+                        "type": "BombLauncher",
+                        "subtypes": "BombRack"
+                      },
+                      {
+                        "type": "WeaponGun",
+                        "subtypes": "Rocket"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "bomb_mount"
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_bombrack_right",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 10,
+                    "maxsize": 10,
+                    "display_name": "port_NameBombRackRight",
+                    "flags": "",
+                    "id": "modPart_bomb_mechanism_right",
+                    "Types": [
+                      {
+                        "type": "BombLauncher",
+                        "subtypes": "BombRack"
+                      },
+                      {
+                        "type": "WeaponGun",
+                        "subtypes": "Rocket"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "bomb_mount"
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_bomb_console_access",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "",
+                    "id": "modPart_bomb_console_access",
+                    "Types": [
+                      {
+                        "type": "SeatAccess"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_bomb_console",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 0,
+                    "maxsize": 3,
+                    "flags": "",
+                    "id": "modPart_bomb_console",
+                    "Types": [
+                      {
+                        "type": "Seat"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "bomb_console",
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "Seat",
+                            "defaultPriority": "no_control"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_bomb_turret",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 5,
+                    "maxsize": 5,
+                    "flags": "",
+                    "id": "modPart_bomb_turret",
+                    "Types": [
+                      {
+                        "type": "Misc",
+                        "subtypes": ""
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      },
+                      {
+                        "pipeClass": "WeaponRegen",
+                        "pipe": "WeaponRegenTurret"
+                      },
+                      {
+                        "pipeClass": "WeaponAmmoLoad",
+                        "pipe": "WeaponAmmoLoadTurret"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "bomb_turret"
+                    },
+                    "Pitch": {
+                      "min": -45,
+                      "max": 85
+                    },
+                    "Yaw": {
+                      "min": -180,
+                      "max": 180
+                    }
+                  }
+                },
+                {
+                  "name": "hardpoint_bomb_turret_controller",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "flags": "",
+                    "id": "modPart_bomb_turret_controller",
+                    "Types": [
+                      {
+                        "type": "WeaponController"
+                      }
+                    ],
+                    "Connections": [
+                      {
+                        "pipeClass": "Power",
+                        "pipe": "MainPower"
+                      },
+                      {
+                        "pipeClass": "Heat",
+                        "pipe": "MainHeat"
+                      }
+                    ],
+                    "ControllerDef": {
+                      "controllableTags": "bomb_turret",
+                      "UsableDef": {
+                        "PriorityGroups": [
+                          {
+                            "itemType": "Turret",
+                            "defaultPriority": "no_control"
+                          },
+                          {
+                            "itemType": "WeaponGun",
+                            "defaultPriority": "no_control"
                           }
                         ]
                       }
@@ -5262,7 +5622,17 @@
               "value": "0"
             },
             {
+              "idRef": "modPart_power_plant_r",
+              "name": "flags",
+              "value": ""
+            },
+            {
               "idRef": "modPart_cargo_large",
+              "name": "skipPart",
+              "value": "1"
+            },
+            {
+              "idRef": "modPart_cargo_small",
               "name": "skipPart",
               "value": "1"
             },
@@ -5407,6 +5777,36 @@
               "value": "0"
             },
             {
+              "idRef": "modPart_bomb_mechanism_left",
+              "name": "flags",
+              "value": ""
+            },
+            {
+              "idRef": "modPart_bomb_mechanism_right",
+              "name": "flags",
+              "value": ""
+            },
+            {
+              "idRef": "modPart_bomb_turret_controller",
+              "name": "flags",
+              "value": ""
+            },
+            {
+              "idRef": "modPart_bomb_turret",
+              "name": "flags",
+              "value": ""
+            },
+            {
+              "idRef": "modPart_bomb_console_access",
+              "name": "flags",
+              "value": ""
+            },
+            {
+              "idRef": "modPart_bomb_console",
+              "name": "flags",
+              "value": ""
+            },
+            {
               "idRef": "modPart_Nose",
               "name": "damageMax",
               "value": "10150"
@@ -5435,6 +5835,11 @@
               "idRef": "modPart_Tail_Right",
               "name": "damageMax",
               "value": "5220"
+            },
+            {
+              "idRef": "modPart_cargo_small_A2",
+              "name": "flags",
+              "value": ""
             }
           ]
         }

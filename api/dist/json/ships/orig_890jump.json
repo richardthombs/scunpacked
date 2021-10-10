@@ -141,11 +141,6 @@
                   "loadout": {}
                 },
                 {
-                  "itemPortName": "hardpoint_medical_bed",
-                  "entityClassName": "Bed_Single_Medical_890Jump",
-                  "loadout": {}
-                },
-                {
                   "itemPortName": "hardpoint_radar_01",
                   "entityClassName": "RADR_CHCO_S02_Surveyor",
                   "loadout": {}
@@ -939,6 +934,16 @@
                   "itemPortName": "hardpoint_MC_BB_Left",
                   "entityClassName": "Controller_Missile",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_fuel",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_fuel_port",
+                  "entityClassName": "DockingTube_Fuel_Ports_ORIG_890Jump",
+                  "loadout": {}
                 }
               ]
             }
@@ -1034,7 +1039,37 @@
           "PortFlags": "",
           "PortTags": "ORIG_890Jump",
           "RequiredItemTags": "",
-          "Ports": []
+          "Ports": [
+            {
+              "Name": "hardpoint_controller_fuel",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": []
+            },
+            {
+              "Name": "hardpoint_fuel_port",
+              "DisplayName": "",
+              "PortTags": "Ship_Dock_Refuel",
+              "RequiredPortTags": "",
+              "Flags": "dockingport1",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "DockingCollar",
+                  "SubTypes": []
+                }
+              ]
+            }
+          ]
         }
       },
       "ClassName": "ORIG_890Jump",

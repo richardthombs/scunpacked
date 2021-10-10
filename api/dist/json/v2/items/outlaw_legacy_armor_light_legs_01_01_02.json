@@ -5,7 +5,7 @@
   "Type": "Char_Armor_Legs.UNDEFINED",
   "Classification": "FPS.Armor.Legs",
   "Name": "Lynx Legs Red",
-  "Description": "Item Type: Light Armor\nDamage Reduction: 20%\nCarrying Capacity: 4.5K SP\nTemp. Rating: -31 / 61 °C\n\nMaintain your mobility with the Lynx combat armor. A high tech polymer weave allows the wearer to withstand enough damage to quickly escape danger. The suit's striking look became famous after being worn by the Seeker in the widely popular \"Fire and Fury\" vids of the mid-2800s.   ",
+  "Description": "Item Type: Light Armor\nDamage Reduction: 20%\nCarrying Capacity: 5K µSCU\nTemp. Rating: -31 / 61 °C\n\nMaintain your mobility with the Lynx combat armor. A high tech polymer weave allows the wearer to withstand enough damage to quickly escape danger. The suit's striking look became famous after being worn by the Seeker in the widely popular \"Fire and Fury\" vids of the mid-2800s.   ",
   "Manufacturer": {
     "Code": "KSAR",
     "Name": "Kastak Arms"
@@ -14,21 +14,40 @@
     "Outlaw_Legacy_Light",
     "Set_01",
     "Color_02",
-    "$Legs++",
     "SM_RestrictedArm"
   ],
-  "CargoGrid": {
-    "Capacity": 0.0,
-    "Width": 1.0,
-    "Height": 1.0,
-    "Depth": 1.0
-  },
   "Ports": [
+    {
+      "PortName": "medPen_attach_1",
+      "Size": 1,
+      "Types": [
+        "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
     {
       "PortName": "medPen_attach_2",
       "Size": 1,
       "Types": [
+        "FPS_Consumable",
         "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "utility_attach_1",
+      "Size": 0,
+      "Types": [
+        "WeaponPersonal.Gadget",
+        "RemovableChip.Hacking"
       ],
       "Flags": [
         "body_attach",
@@ -60,10 +79,34 @@
       ]
     },
     {
+      "PortName": "oxypen_attach_1",
+      "Size": 1,
+      "Types": [
+        "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
       "PortName": "oxyPen_attach_2",
       "Size": 1,
       "Types": [
         "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "wep_sidearm",
+      "Size": 1,
+      "Types": [
+        "WeaponPersonal.Small"
       ],
       "Flags": [
         "body_attach",

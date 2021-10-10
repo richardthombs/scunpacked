@@ -347,7 +347,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_turret",
-                  "entityClassName": "AEGS_Vanguard_SCItem_Turret",
+                  "entityClassName": "AEGS_Vanguard_Harbinger_SCItem_Turret",
                   "loadout": {
                     "SItemPortLoadoutManualParams": {
                       "entries": [
@@ -517,17 +517,32 @@
                 },
                 {
                   "itemPortName": "hardpoint_weapon_regen_pool",
-                  "entityClassName": "WeaponRegenPool_Crew_Vanguard",
+                  "entityClassName": "WeaponRegenPool_Crew_HeavyFighter",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_weapon_regen_pool_turrets",
-                  "entityClassName": "WeaponRegenPool_Turret_Vanguard",
+                  "entityClassName": "WeaponRegenPool_Turret_S1",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_controller_capacitor_assignment",
                   "entityClassName": "Controller_CapacitorAssignment",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_fuel",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_fuel_port",
+                  "entityClassName": "DockingTube_Fuel_Ports_AEGS_Vanguard_Harbinger",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_air_traffic_controller",
+                  "entityClassName": "AEGS_Vanguard_Harbinger_ShipATCDataManager",
                   "loadout": {}
                 }
               ]
@@ -542,7 +557,7 @@
             "Grade": 1,
             "Manufacturer": "cf4a74bf-eb2c-462a-9b78-f7f2724c31d2",
             "Tags": "AEGS_Vanguard_Harbinger",
-            "RequiredTags": "",
+            "RequiredTags": "Ship_Dock_Refuel",
             "DisplayType": "",
             "Localization": {
               "Name": "@vehicle_NameAEGS_Vanguard_Harbinger",
@@ -624,7 +639,54 @@
           "PortFlags": "",
           "PortTags": "AEGS_Vanguard_Base",
           "RequiredItemTags": "",
-          "Ports": []
+          "Ports": [
+            {
+              "Name": "hardpoint_controller_fuel",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": []
+            },
+            {
+              "Name": "hardpoint_fuel_port",
+              "DisplayName": "",
+              "PortTags": "Ship_Dock_Refuel",
+              "RequiredPortTags": "",
+              "Flags": "dockingport1",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "DockingCollar",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_air_traffic_controller",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "AirTrafficController",
+                  "SubTypes": []
+                }
+              ]
+            }
+          ]
         }
       },
       "ClassName": "AEGS_Vanguard_Harbinger",

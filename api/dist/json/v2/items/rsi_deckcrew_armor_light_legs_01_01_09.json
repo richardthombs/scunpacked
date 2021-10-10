@@ -5,7 +5,7 @@
   "Type": "Char_Armor_Legs.UNDEFINED",
   "Classification": "FPS.Armor.Legs",
   "Name": "MacFlex Legs Violet",
-  "Description": "Item Type: Light Armor\nDamage Reduction: 20%\nCarrying Capacity: 7.2K SP\nTemp. Rating: -37 / 67 °C\n\nWhether you're planetside or in vacuum, RSI's MacFlex industrial armor set has your back. Reinforced plating keeps you safe from environmental hazards while the array of pouches keep your tools accessible.",
+  "Description": "Item Type: Light Armor\nDamage Reduction: 20%\nCarrying Capacity: 6K µSCU\nTemp. Rating: -37 / 67 °C\n\nWhether you're planetside or in vacuum, RSI's MacFlex industrial armor set has your back. Reinforced plating keeps you safe from environmental hazards while the array of pouches keep your tools accessible.",
   "Manufacturer": {
     "Code": "RSI",
     "Name": "Roberts Space Industries"
@@ -14,21 +14,40 @@
     "DeckCrew",
     "Set_01",
     "Color_09",
-    "$Legs++",
     "SM_RestrictedArm"
   ],
-  "CargoGrid": {
-    "Capacity": 0.0,
-    "Width": 1.0,
-    "Height": 1.0,
-    "Depth": 1.0
-  },
   "Ports": [
+    {
+      "PortName": "medPen_attach_1",
+      "Size": 1,
+      "Types": [
+        "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
     {
       "PortName": "medPen_attach_2",
       "Size": 1,
       "Types": [
+        "FPS_Consumable",
         "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "utility_attach_1",
+      "Size": 0,
+      "Types": [
+        "WeaponPersonal.Gadget",
+        "RemovableChip.Hacking"
       ],
       "Flags": [
         "body_attach",
@@ -60,10 +79,34 @@
       ]
     },
     {
+      "PortName": "oxypen_attach_1",
+      "Size": 1,
+      "Types": [
+        "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
       "PortName": "oxyPen_attach_2",
       "Size": 1,
       "Types": [
         "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "wep_sidearm",
+      "Size": 1,
+      "Types": [
+        "WeaponPersonal.Small"
       ],
       "Flags": [
         "body_attach",

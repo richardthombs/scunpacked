@@ -2,6 +2,19 @@
   "StaticEntityClassData": {},
   "tags": [],
   "Components": {
+    "SEntityComponentDefaultLoadoutParams": {
+      "loadout": {
+        "SItemPortLoadoutManualParams": {
+          "entries": [
+            {
+              "itemPortName": "StandingScreen",
+              "entityClassName": "Console_Standing_Angled_MedicalBed_AttachedToBedEnd",
+              "loadout": {}
+            }
+          ]
+        }
+      }
+    },
     "SAttachableComponentParams": {
       "AttachDef": {
         "Type": "Usable",
@@ -36,20 +49,6 @@
             "available": true
           },
           {
-            "Name": "Sit",
-            "RoomTag": "00000000-0000-0000-0000-000000000000",
-            "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@interaction_sit",
-            "DisplayType": "Show",
-            "GenericCursor": "SingleAction",
-            "FocusModeOnly": false,
-            "Sendable": false,
-            "Linkable": false,
-            "LockedByLinks": false,
-            "RequiresAuthorizedUser": false,
-            "available": true
-          },
-          {
             "Name": "Exit",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
@@ -64,24 +63,24 @@
             "available": true
           },
           {
-            "Name": "Sleep",
+            "Name": "FinishSurgery",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@interaction_sleep",
-            "DisplayType": "Show",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Hide",
             "GenericCursor": "SingleAction",
             "FocusModeOnly": false,
             "Sendable": false,
             "Linkable": false,
             "LockedByLinks": false,
-            "RequiresAuthorizedUser": true,
+            "RequiresAuthorizedUser": false,
             "available": true
           },
           {
-            "Name": "MedScan",
+            "Name": "OpenExternalInventory",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@medbed_heal",
+            "DisplayName": "@interaction_open",
             "DisplayType": "Show",
             "GenericCursor": "SingleAction",
             "FocusModeOnly": false,
@@ -92,10 +91,24 @@
             "available": true
           },
           {
-            "Name": "SetRespawnPoint",
+            "Name": "PlaceOtherInBed",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@medbed_set_spawnpoint",
+            "DisplayName": "@interaction_drag_other_into_bed",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": true,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "PlaceResourceCanister",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_place",
             "DisplayType": "Show",
             "GenericCursor": "SingleAction",
             "FocusModeOnly": false,
@@ -106,10 +119,10 @@
             "available": true
           },
           {
-            "Name": "CancelRespawnPoint",
+            "Name": "KioskActivate",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@medbed_cancel_spawnpoint",
+            "DisplayName": "@usable_use",
             "DisplayType": "Show",
             "GenericCursor": "SingleAction",
             "FocusModeOnly": false,
@@ -120,10 +133,52 @@
             "available": true
           },
           {
-            "Name": "CancelAllRespawnPoint",
+            "Name": "ProcClipLowerToEnter",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@medbed_clearall_spawnpoint",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Hide",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
             "DisplayType": "Show",
             "GenericCursor": "SingleAction",
             "FocusModeOnly": false,
@@ -166,6 +221,18 @@
           "Flags": "",
           "MinSize": 1,
           "MaxSize": 2,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": []
+        },
+        {
+          "Name": "StandingScreen",
+          "DisplayName": "",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "",
+          "MinSize": 0,
+          "MaxSize": 0,
           "InteractionPointSize": -1.0,
           "DefaultWeaponGroup": "UNDEFINED",
           "Types": []

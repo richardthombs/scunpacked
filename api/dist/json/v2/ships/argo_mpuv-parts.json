@@ -124,7 +124,7 @@
                 "Ports": [
                   {
                     "PortName": "Display_HUD",
-                    "Size": 0,
+                    "Size": 1,
                     "Loadout": "Projector_HUD_Generic",
                     "InstalledItem": {
                       "ClassName": "Projector_HUD_Generic",
@@ -159,6 +159,37 @@
                 "uneditable"
               ],
               "Category": "Rooms",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_arm",
+            "Port": {
+              "PortName": "hardpoint_arm",
+              "Size": 1,
+              "Types": [
+                "MiningArm"
+              ],
+              "Flags": [
+                "uneditable"
+              ],
+              "Category": "Mining arm",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_mining",
+            "Port": {
+              "PortName": "hardpoint_controller_mining",
+              "Size": 1,
+              "Types": [
+                "MiningController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
               "Uneditable": true
             }
           },
@@ -427,7 +458,7 @@
               "Loadout": "RADR_WLOP_S01_Capstan",
               "InstalledItem": {
                 "ClassName": "RADR_WLOP_S01_Capstan",
-                "Size": 0,
+                "Size": 1,
                 "Grade": 1,
                 "Type": "Radar.MidRangeRadar",
                 "Name": "Capston",
@@ -439,7 +470,7 @@
                   "Lifetime": 720.0
                 },
                 "PowerConnection": {
-                  "PowerBase": 0.0,
+                  "PowerBase": 0.1,
                   "PowerDraw": 1.0
                 },
                 "HeatConnection": {
@@ -467,13 +498,14 @@
                 ]
               },
               "Types": [
-                "Scanner"
+                "Radar.ShortRangeRadar",
+                "Radar.MidRangeRadar"
               ],
               "Flags": [
                 "invisible",
                 "uneditable"
               ],
-              "Category": "Scanners",
+              "Category": "Radars",
               "Uneditable": true
             }
           },
@@ -2276,7 +2308,7 @@
                           "Rate": 1.5
                         },
                         "PowerConnection": {
-                          "PowerBase": 0.0,
+                          "PowerBase": 0.5,
                           "PowerDraw": 1.0
                         },
                         "HeatConnection": {
@@ -2564,7 +2596,7 @@
                           "Rate": 1.5
                         },
                         "PowerConnection": {
-                          "PowerBase": 0.0,
+                          "PowerBase": 0.5,
                           "PowerDraw": 1.0
                         },
                         "HeatConnection": {

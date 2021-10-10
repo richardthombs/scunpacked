@@ -5,7 +5,7 @@
   "Type": "Char_Armor_Legs.UNDEFINED",
   "Classification": "FPS.Armor.Legs",
   "Name": "Aves Legs",
-  "Description": "Item Type: Medium Armor\nDamage Reduction: 30%\nCarrying Capacity: 4K SP\nTemp. Rating: -61 / 91 °C\n\nHonor and embody the Tevarin aesthetic with the Aves armor. Cutting edge manufacturing techniques were used to place white, red, grey, and black plating perfectly to fit the Human form and evoke the shape language imbued into the Tevarin's iconic ships. This medium armor from CC's Conversions is both sensational and practical, providing solid protection while keeping you light on your feet. When paired with the Aves helmet, the suit combines for a striking and unforgettable look.",
+  "Description": "Item Type: Medium Armor\nDamage Reduction: 30%\nCarrying Capacity: 4.5K µSCU\nTemp. Rating: -61 / 91 °C\n\nHonor and embody the Tevarin aesthetic with the Aves armor. Cutting edge manufacturing techniques were used to place white, red, grey, and black plating perfectly to fit the Human form and evoke the shape language imbued into the Tevarin's iconic ships. This medium armor from CC's Conversions is both sensational and practical, providing solid protection while keeping you light on your feet. When paired with the Aves helmet, the suit combines for a striking and unforgettable look.",
   "Manufacturer": {
     "Code": "CCC",
     "Name": "[PH] CC's Conversions"
@@ -13,21 +13,39 @@
   "Tags": [
     "Set_01",
     "Color_01",
-    "$Legs++",
     "SM_RestrictedArm"
   ],
-  "CargoGrid": {
-    "Capacity": 0.0,
-    "Width": 1.0,
-    "Height": 1.0,
-    "Depth": 1.0
-  },
   "Ports": [
+    {
+      "PortName": "medPen_attach_1",
+      "Size": 1,
+      "Types": [
+        "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
     {
       "PortName": "medPen_attach_2",
       "Size": 1,
       "Types": [
         "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "utility_attach_1",
+      "Size": 1,
+      "Types": [
+        "WeaponPersonal.Gadget",
+        "RemovableChip.Hacking"
       ],
       "Flags": [
         "body_attach",
@@ -59,10 +77,34 @@
       ]
     },
     {
+      "PortName": "oxyPen_attach_1",
+      "Size": 1,
+      "Types": [
+        "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
       "PortName": "oxyPen_attach_2",
       "Size": 1,
       "Types": [
         "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "wep_sidearm",
+      "Size": 1,
+      "Types": [
+        "WeaponPersonal.Small"
       ],
       "Flags": [
         "body_attach",

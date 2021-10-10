@@ -4,7 +4,38 @@
       "entitlementPolicy": "8a1fdd48-7896-4774-a110-2466190e1a07"
     }
   },
-  "tags": [],
+  "tags": [
+    {
+      "value": "f1c9b063-4a55-4066-a577-a8f445c9d684"
+    },
+    {
+      "value": "59ca5e36-b9a2-4459-ad0e-5745bcf5d899"
+    },
+    {
+      "value": "ba75cc73-a4c9-447a-9912-1fd8ccc7031b"
+    },
+    {
+      "value": "41aa0984-180e-4af0-9f40-d34a5b01c683"
+    },
+    {
+      "value": "1caa8797-db36-48d0-9809-dd44e3270c31"
+    },
+    {
+      "value": "ba81fd42-eb1e-4948-9a92-6359133e16e2"
+    },
+    {
+      "value": "6c6a9482-7e4b-4a88-bf07-50fe3ec1e538"
+    },
+    {
+      "value": "4e0e11c9-95b5-438b-9042-8f2b877c5e2e"
+    },
+    {
+      "value": "093270a3-ee7c-4c05-a6d4-d876ef9c5d30"
+    },
+    {
+      "value": "bed8e09b-a5f2-4f4e-9be9-ab618ebfbd58"
+    }
+  ],
   "Components": {
     "SAttachableComponentParams": {
       "AttachDef": {
@@ -13,7 +44,7 @@
         "Size": 1,
         "Grade": 1,
         "Manufacturer": "093e6eba-93fa-4dad-b3dd-38966934e34e",
-        "Tags": "Explorer Set_01 Color_07 $Legs++ SM_RestrictedArm",
+        "Tags": "Explorer Set_01 Color_07 SM_RestrictedArm",
         "RequiredTags": "",
         "DisplayType": "",
         "Localization": {
@@ -22,17 +53,108 @@
         }
       }
     },
-    "SCItemCargoGridParams": {
-      "crateGenPercentageOnDestroy": 0.1,
-      "crateMaxOnDestroy": 20.0,
-      "personalInventory": true,
-      "invisible": true,
-      "miningOnly": false,
-      "minVolatilePowerToExplode": 0.0,
-      "dimensions": {
-        "x": 1.0,
-        "y": 1.0,
-        "z": 1.0
+    "SEntityInteractableParams": {
+      "Interactable": {
+        "SharedInteractions": [
+          {
+            "Name": "Grab",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_grab",
+            "DisplayType": "Show",
+            "GenericCursor": "Grab",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Carry",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_carry",
+            "DisplayType": "Show",
+            "GenericCursor": "Grab",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Drop",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_drop",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Place",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_place",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Store",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_store",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Equip",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_equip",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "OpenExternalInventory",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_open",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          }
+        ]
       }
     },
     "SCItemClothingParams": {
@@ -50,6 +172,23 @@
       "RequiredItemTags": "",
       "Ports": [
         {
+          "Name": "medPen_attach_1",
+          "DisplayName": "medPen_attach_1",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "body_attach nophys inventory",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "FPS_Consumable",
+              "SubTypes": []
+            }
+          ]
+        },
+        {
           "Name": "medPen_attach_2",
           "DisplayName": "medPen_attach_2",
           "PortTags": "",
@@ -62,7 +201,43 @@
           "Types": [
             {
               "Type": "FPS_Consumable",
-              "SubTypes": []
+              "SubTypes": [
+                {
+                  "value": ""
+                },
+                {
+                  "value": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "utility_attach_1",
+          "DisplayName": "utility_attach_1",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "body_attach nophys inventory",
+          "MinSize": 0,
+          "MaxSize": 0,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "WeaponPersonal",
+              "SubTypes": [
+                {
+                  "value": "Gadget"
+                }
+              ]
+            },
+            {
+              "Type": "RemovableChip",
+              "SubTypes": [
+                {
+                  "value": "Hacking"
+                }
+              ]
             }
           ]
         },
@@ -108,6 +283,23 @@
           ]
         },
         {
+          "Name": "oxypen_attach_1",
+          "DisplayName": "oxypen_attach_1",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "body_attach nophys inventory",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "FPS_Consumable",
+              "SubTypes": []
+            }
+          ]
+        },
+        {
           "Name": "oxyPen_attach_2",
           "DisplayName": "oxyPen_attach_2",
           "PortTags": "",
@@ -121,6 +313,27 @@
             {
               "Type": "FPS_Consumable",
               "SubTypes": []
+            }
+          ]
+        },
+        {
+          "Name": "wep_sidearm",
+          "DisplayName": "wep_sidearm",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "body_attach nophys inventory",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "WeaponPersonal",
+              "SubTypes": [
+                {
+                  "value": "Small"
+                }
+              ]
             }
           ]
         }

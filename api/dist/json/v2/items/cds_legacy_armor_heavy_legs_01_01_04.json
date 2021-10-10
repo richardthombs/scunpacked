@@ -5,7 +5,7 @@
   "Type": "Char_Armor_Legs.UNDEFINED",
   "Classification": "FPS.Armor.Legs",
   "Name": "ADP Legs Yellow",
-  "Description": "Item Type: Heavy Armor\nDamage Reduction: 40%\nCarrying Capacity: 8K SP\nTemp. Rating: -75 / 105 °C\n\nRevolutionary when first released, the ADP heavy armor system was heralded as the pinnacle of personal protection. Clark Defense Systems' maximalist design provides plenty of attachment points and excellent protection against the elements and enemy fire. CDS refined and reshaped the ADP line over the years, but many still consider the original ADP to be the touchstone of military-grade heavy armor. ",
+  "Description": "Item Type: Heavy Armor\nDamage Reduction: 40%\nCarrying Capacity: 6.5k µSCU\nTemp. Rating: -75 / 105 °C\n\nRevolutionary when first released, the ADP heavy armor system was heralded as the pinnacle of personal protection. Clark Defense Systems' maximalist design provides plenty of attachment points and excellent protection against the elements and enemy fire. CDS refined and reshaped the ADP line over the years, but many still consider the original ADP to be the touchstone of military-grade heavy armor. ",
   "Manufacturer": {
     "Code": "CDS",
     "Name": "Clark Defense Systems"
@@ -14,21 +14,39 @@
     "Marine_Legacy_Heavy",
     "Set_01",
     "Color_04",
-    "$Legs++",
     "SM_RestrictedArm"
   ],
-  "CargoGrid": {
-    "Capacity": 0.0,
-    "Width": 1.0,
-    "Height": 1.0,
-    "Depth": 1.0
-  },
   "Ports": [
+    {
+      "PortName": "medPen_attach_1",
+      "Size": 1,
+      "Types": [
+        "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
     {
       "PortName": "medPen_attach_2",
       "Size": 1,
       "Types": [
         "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "utility_attach_1",
+      "Size": 1,
+      "Types": [
+        "WeaponPersonal.Gadget",
+        "RemovableChip.Hacking"
       ],
       "Flags": [
         "body_attach",
@@ -60,10 +78,34 @@
       ]
     },
     {
+      "PortName": "oxyPen_attach_1",
+      "Size": 1,
+      "Types": [
+        "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
       "PortName": "oxyPen_attach_2",
       "Size": 1,
       "Types": [
         "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "wep_sidearm",
+      "Size": 1,
+      "Types": [
+        "WeaponPersonal.Small"
       ],
       "Flags": [
         "body_attach",

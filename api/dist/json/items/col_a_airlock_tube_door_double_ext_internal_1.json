@@ -1,0 +1,200 @@
+{
+  "Raw": {
+    "Entity": {
+      "StaticEntityClassData": {},
+      "tags": [],
+      "Components": {
+        "SEntityComponentDefaultLoadoutParams": {
+          "loadout": {
+            "SItemPortLoadoutXMLParams": {
+              "loadoutPath": "Scripts/Loadouts/Objects/Doors/AirlockDoorColonialismLoadout.xml",
+              "__type": "SItemPortLoadoutBaseParams"
+            }
+          }
+        },
+        "SAttachableComponentParams": {
+          "AttachDef": {
+            "Type": "Door",
+            "SubType": "AirlockPart",
+            "Size": 1,
+            "Grade": 1,
+            "Manufacturer": "00000000-0000-0000-0000-000000000000",
+            "Tags": "",
+            "RequiredTags": "",
+            "DisplayType": "",
+            "Localization": {
+              "Name": "@LOC_PLACEHOLDER",
+              "Description": "@LOC_EMPTY"
+            }
+          }
+        },
+        "EntityComponentPowerConnection": {
+          "PowerBase": 0.0,
+          "PowerDraw": 1.0,
+          "TimeToReachDrawRequest": 0.0,
+          "SafeguardPriority": 0.0,
+          "DisplayedInPoweredItemList": false,
+          "IsThrottleable": false,
+          "IsOverclockable": false,
+          "OverclockThresholdMin": 0.0,
+          "OverclockThresholdMax": 0.0,
+          "OverpowerPerformance": 0.0,
+          "OverclockPerformance": 0.0,
+          "PowerToEM": 0.0,
+          "DecayRateOfEM": 0.15,
+          "WarningDelayTime": 0.3,
+          "WarningDisplayTime": 8.0
+        },
+        "SEntityInteractableParams": {
+          "Interactable": {
+            "SharedInteractions": [
+              {
+                "Name": "Open",
+                "RoomTag": "5ed0ade9-51ed-4bed-835c-ada7fbd38738",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@usable_use",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Close",
+                "RoomTag": "61cc8167-9013-4534-b4fc-3d7f60e752b7",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@usable_use",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Lock",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@usable_use",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Override",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@usable_use",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Cycle",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@usable_use",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              }
+            ]
+          }
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": [
+            {
+              "Name": "control_panel_a",
+              "DisplayName": "",
+              "PortTags": "Front",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 10,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "ControlPanel",
+                  "SubTypes": [
+                    {
+                      "value": "DoorPart"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "charge_handle_a",
+              "DisplayName": "",
+              "PortTags": "Front",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 0,
+              "MaxSize": 10,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "Misc",
+                  "SubTypes": [
+                    {
+                      "value": "DoorPart"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "proximity_sensor",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 0,
+              "MaxSize": 2,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "Sensor",
+                  "SubTypes": [
+                    {
+                      "value": "DoorPart"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "ClassName": "Col_A_Airlock_Tube_Door_Double_Ext_Internal_1",
+      "__ref": "33c51e3a-8a13-4790-a5ff-c14cb086b4f8",
+      "__type": "EntityClassDefinition"
+    }
+  }
+}

@@ -17,15 +17,6 @@
       },
       {
         "value": "f9877bdd-d0cc-40cb-8397-0c8b70f18901"
-      },
-      {
-        "value": "00000000-0000-0000-0000-000000000000"
-      },
-      {
-        "value": "00000000-0000-0000-0000-000000000000"
-      },
-      {
-        "value": "00000000-0000-0000-0000-000000000000"
       }
     ],
     "Components": {
@@ -317,6 +308,21 @@
                 "loadout": {}
               },
               {
+                "itemPortName": "hardpoint_arm",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_fuel",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuel_port",
+                "entityClassName": "DockingTube_Fuel_Ports_ARGO_MPUV",
+                "loadout": {}
+              },
+              {
                 "itemPortName": "hardpoint_controller_capacitor_assignment",
                 "entityClassName": "Controller_CapacitorAssignment",
                 "loadout": {}
@@ -333,7 +339,7 @@
           "Grade": 1,
           "Manufacturer": "9e1f5a35-edcc-4d19-bede-08e2730043c5",
           "Tags": "ARGO_MPUV_Cargo",
-          "RequiredTags": "Dock_MPUV",
+          "RequiredTags": "Dock_MPUV Ship_Dock_Refuel",
           "DisplayType": "",
           "Localization": {
             "Name": "@vehicle_NameARGO_MPUV",
@@ -415,7 +421,37 @@
         "PortFlags": "",
         "PortTags": "ARGO_MPUV_Base",
         "RequiredItemTags": "",
-        "Ports": []
+        "Ports": [
+          {
+            "Name": "hardpoint_controller_fuel",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": []
+          },
+          {
+            "Name": "hardpoint_fuel_port",
+            "DisplayName": "",
+            "PortTags": "Ship_Dock_Refuel",
+            "RequiredPortTags": "",
+            "Flags": "dockingport1",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "DockingCollar",
+                "SubTypes": []
+              }
+            ]
+          }
+        ]
       }
     },
     "ClassName": "ARGO_MPUV",
@@ -633,6 +669,62 @@
                       "subtypes": ""
                     }
                   ]
+                }
+              },
+              {
+                "name": "hardpoint_arm",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "Mining Arm",
+                  "flags": "uneditable",
+                  "Types": [
+                    {
+                      "type": "MiningArm"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_controller_mining",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "MiningController"
+                    }
+                  ],
+                  "ControllerDef": {
+                    "UsableDef": {
+                      "PriorityGroups": [
+                        {
+                          "itemType": "WeaponMining"
+                        },
+                        {
+                          "itemType": "MiningArm"
+                        },
+                        {
+                          "itemType": "MiningModifier"
+                        }
+                      ]
+                    }
+                  }
                 }
               },
               {
@@ -991,7 +1083,8 @@
                   "flags": "invisible uneditable",
                   "Types": [
                     {
-                      "type": "Scanner"
+                      "type": "Radar",
+                      "subtypes": "ShortRangeRadar,MidRangeRadar"
                     }
                   ],
                   "Connections": [
@@ -1735,6 +1828,7 @@
                           "minsize": 1,
                           "maxsize": 1,
                           "flags": "selfphys uneditable",
+                          "id": "modPart_cargo",
                           "Types": [
                             {
                               "type": "Cargo",
@@ -2610,6 +2704,11 @@
         "patchFile": "Modifications/ARGO_MPUV_Transport",
         "Elems": [
           {
+            "idRef": "modcargo",
+            "name": "skipPart",
+            "value": "0"
+          },
+          {
             "idRef": "modVehicle",
             "name": "displayname",
             "value": "ARGO MPUV Transport"
@@ -2642,7 +2741,24 @@
         ]
       },
       {
-        "name": "Military"
+        "name": "Military",
+        "Elems": [
+          {
+            "idRef": "modObserverables",
+            "name": "itemType",
+            "value": "MiningController"
+          },
+          {
+            "idRef": "modObserverables",
+            "name": "screensAvail",
+            "value": "Flight_HUD"
+          },
+          {
+            "idRef": "modPriorityGroups",
+            "name": "itemType",
+            "value": "MiningController"
+          }
+        ]
       }
     ]
   }

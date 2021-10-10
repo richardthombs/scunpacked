@@ -5,7 +5,7 @@
   "Type": "Char_Armor_Legs.UNDEFINED",
   "Classification": "FPS.Armor.Legs",
   "Name": "Field Recon Suit Legs",
-  "Description": "Item Type: Light Armor\nDamage Reduction: 20%\nCarrying Capacity: 2K SP\nTemp. Rating: -35 / 65 °C\n\nCDS’ Field Recon Suit is the perfect solution for the combat operator who wants a little extra protection without compromising any of their situational agility. EdgeCore composite plating is strategically sewn into the nano-weave suit to cover vital organs while keeping the suit flexible.",
+  "Description": "Item Type: Light Armor\nDamage Reduction: 20%\nCarrying Capacity: 2.5K µSCU\nTemp. Rating: -35 / 65 °C\n\nCDS’ Field Recon Suit is the perfect solution for the combat operator who wants a little extra protection without compromising any of their situational agility. EdgeCore composite plating is strategically sewn into the nano-weave suit to cover vital organs while keeping the suit flexible.",
   "Manufacturer": {
     "Code": "CDS",
     "Name": "Clark Defense Systems"
@@ -17,18 +17,38 @@
     "$Legs++",
     "SM_Marine"
   ],
-  "CargoGrid": {
-    "Capacity": 0.0,
-    "Width": 1.0,
-    "Height": 1.0,
-    "Depth": 1.0
-  },
   "Ports": [
+    {
+      "PortName": "medPen_attach_1",
+      "Size": 1,
+      "Types": [
+        "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
     {
       "PortName": "medPen_attach_2",
       "Size": 1,
       "Types": [
+        "FPS_Consumable",
         "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "utility_attach_1",
+      "Size": 0,
+      "Types": [
+        "WeaponPersonal.Gadget",
+        "RemovableChip.Hacking"
       ],
       "Flags": [
         "body_attach",
@@ -60,10 +80,34 @@
       ]
     },
     {
+      "PortName": "oxypen_attach_1",
+      "Size": 1,
+      "Types": [
+        "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
       "PortName": "oxyPen_attach_2",
       "Size": 1,
       "Types": [
         "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "wep_sidearm",
+      "Size": 1,
+      "Types": [
+        "WeaponPersonal.Small"
       ],
       "Flags": [
         "body_attach",

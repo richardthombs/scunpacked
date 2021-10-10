@@ -114,22 +114,7 @@
                 {
                   "itemPortName": "hardpoint_dashboard_copilot",
                   "entityClassName": "MISC_Freelancer_Base_SCItem_Dashboard_CoPilot",
-                  "loadout": {
-                    "SItemPortLoadoutManualParams": {
-                      "entries": [
-                        {
-                          "itemPortName": "hardpoint_cockpit_radar",
-                          "entityClassName": "RADR_Display",
-                          "loadout": {}
-                        },
-                        {
-                          "itemPortName": "Display_HUD",
-                          "entityClassName": "Projector_HUD_Generic",
-                          "loadout": {}
-                        }
-                      ]
-                    }
-                  }
+                  "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_seat_rear_left",
@@ -578,12 +563,27 @@
                 },
                 {
                   "itemPortName": "hardpoint_weapon_regen_pool_turrets",
-                  "entityClassName": "WeaponRegenPool_Turret_Freelancer",
+                  "entityClassName": "WeaponRegenPool_Turret_S1",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_controller_capacitor_assignment",
                   "entityClassName": "Controller_CapacitorAssignment",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_fuel",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_fuel_port",
+                  "entityClassName": "DockingTube_Fuel_Ports_MISC_Freelancer_DUR",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_air_traffic_controller",
+                  "entityClassName": "MISC_Freelancer_DUR_ShipATCDataManager",
                   "loadout": {}
                 }
               ]
@@ -598,7 +598,7 @@
             "Grade": 1,
             "Manufacturer": "b28a5c61-63a4-478b-8047-5fba545d5b8a",
             "Tags": "MISC_Freelancer_DUR",
-            "RequiredTags": "",
+            "RequiredTags": "Ship_Dock_Refuel",
             "DisplayType": "",
             "Localization": {
               "Name": "@vehicle_NameMISC_Freelancer_DUR_DUR",
@@ -680,7 +680,54 @@
           "PortFlags": "",
           "PortTags": "MISC_Freelancer_Base",
           "RequiredItemTags": "",
-          "Ports": []
+          "Ports": [
+            {
+              "Name": "hardpoint_controller_fuel",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": []
+            },
+            {
+              "Name": "hardpoint_fuel_port",
+              "DisplayName": "",
+              "PortTags": "Ship_Dock_Refuel",
+              "RequiredPortTags": "",
+              "Flags": "dockingport1",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "DockingCollar",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_air_traffic_controller",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "AirTrafficController",
+                  "SubTypes": []
+                }
+              ]
+            }
+          ]
         }
       },
       "ClassName": "MISC_Freelancer_DUR",

@@ -5,7 +5,7 @@
   "Type": "Char_Armor_Legs.UNDEFINED",
   "Classification": "FPS.Armor.Legs",
   "Name": "Microid Battle Suit Legs",
-  "Description": "Item Type: Light Armor\nDamage Reduction: 20%\nCarrying Capacity: 3.3K SP\nTemp. Rating: -33 / 63 °C\n\nWho'd have thought a suit of armor could be affordable and effective? Kastak Arms' Microid Battle Suit is a perfect entry-level armor set. Ceramic plates protect vital areas while a microweave covers the rest, allowing you to stay light, mobile and protected.",
+  "Description": "Item Type: Light Armor\nDamage Reduction: 20%\nCarrying Capacity: 3K µSCU\nTemp. Rating: -33 / 63 °C\n\nWho'd have thought a suit of armor could be affordable and effective? Kastak Arms' Microid Battle Suit is a perfect entry-level armor set. Ceramic plates protect vital areas while a microweave covers the rest, allowing you to stay light, mobile and protected.",
   "Manufacturer": {
     "Code": "KSAR",
     "Name": "Kastak Arms"
@@ -17,18 +17,38 @@
     "$Legs++",
     "SM_RestrictedArm"
   ],
-  "CargoGrid": {
-    "Capacity": 0.0,
-    "Width": 1.0,
-    "Height": 1.0,
-    "Depth": 1.0
-  },
   "Ports": [
+    {
+      "PortName": "medPen_attach_1",
+      "Size": 1,
+      "Types": [
+        "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
     {
       "PortName": "medPen_attach_2",
       "Size": 1,
       "Types": [
+        "FPS_Consumable",
         "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "utility_attach_1",
+      "Size": 0,
+      "Types": [
+        "WeaponPersonal.Gadget",
+        "RemovableChip.Hacking"
       ],
       "Flags": [
         "body_attach",
@@ -60,10 +80,34 @@
       ]
     },
     {
+      "PortName": "oxypen_attach_1",
+      "Size": 1,
+      "Types": [
+        "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
       "PortName": "oxyPen_attach_2",
       "Size": 1,
       "Types": [
         "FPS_Consumable"
+      ],
+      "Flags": [
+        "body_attach",
+        "nophys",
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "wep_sidearm",
+      "Size": 1,
+      "Types": [
+        "WeaponPersonal.Small"
       ],
       "Flags": [
         "body_attach",

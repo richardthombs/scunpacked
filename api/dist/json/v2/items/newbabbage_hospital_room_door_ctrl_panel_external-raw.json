@@ -1,0 +1,105 @@
+{
+  "StaticEntityClassData": {},
+  "tags": [],
+  "Components": {
+    "SEntityComponentDefaultLoadoutParams": {
+      "loadout": {
+        "SItemPortLoadoutManualParams": {
+          "entries": [
+            {
+              "itemPortName": "Screen",
+              "entityClassName": "HT_DoorPanelScreen_Template",
+              "loadout": {}
+            }
+          ]
+        }
+      }
+    },
+    "SAttachableComponentParams": {
+      "AttachDef": {
+        "Type": "ControlPanel",
+        "SubType": "DoorPart",
+        "Size": 1,
+        "Grade": 1,
+        "Manufacturer": "00000000-0000-0000-0000-000000000000",
+        "Tags": "DoorInteractionPanel",
+        "RequiredTags": "",
+        "DisplayType": "",
+        "Localization": {
+          "Name": "@LOC_PLACEHOLDER",
+          "Description": "@LOC_EMPTY"
+        }
+      }
+    },
+    "SEntityInteractableParams": {
+      "Interactable": {
+        "SharedInteractions": [
+          {
+            "Name": "Open",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_open",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": true,
+            "Linkable": false,
+            "LockedByLinks": true,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Close",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@innerthought_close",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": true,
+            "Linkable": true,
+            "LockedByLinks": true,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Pump",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@innerthought_door_use_lever",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          }
+        ]
+      }
+    },
+    "SItemPortContainerComponentParams": {
+      "PortFlags": "",
+      "PortTags": "",
+      "RequiredItemTags": "",
+      "Ports": [
+        {
+          "Name": "Screen",
+          "DisplayName": "Screen",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "",
+          "MinSize": 0,
+          "MaxSize": 5,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": []
+        }
+      ]
+    }
+  },
+  "ClassName": "NewBabbage_Hospital_Room_Door_Ctrl_Panel_External",
+  "__ref": "1c61fcc2-79c0-4c0c-9bf6-a27d35d441af",
+  "__type": "EntityClassDefinition"
+}

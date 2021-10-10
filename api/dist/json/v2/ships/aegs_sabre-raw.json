@@ -344,7 +344,7 @@
               },
               {
                 "itemPortName": "hardpoint_weapon_regen_pool",
-                "entityClassName": "WeaponRegenPool_Crew_Sabre",
+                "entityClassName": "WeaponRegenPool_Crew_MultiRoleFighter",
                 "loadout": {}
               },
               {
@@ -364,12 +364,27 @@
               },
               {
                 "itemPortName": "hardpoint_weapon_regen_pool_turrets",
-                "entityClassName": "WeaponRegenPool_Turret_Sabre",
+                "entityClassName": "",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_controller_capacitor_assignment",
                 "entityClassName": "Controller_CapacitorAssignment",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_fuel",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuel_port",
+                "entityClassName": "DockingTube_Fuel_Ports_AEGS_Sabre",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_air_traffic_controller",
+                "entityClassName": "AEGS_Sabre_ShipATCDataManager",
                 "loadout": {}
               }
             ]
@@ -384,7 +399,7 @@
           "Grade": 1,
           "Manufacturer": "cf4a74bf-eb2c-462a-9b78-f7f2724c31d2",
           "Tags": "AEGS_Sabre",
-          "RequiredTags": "",
+          "RequiredTags": "Ship_Dock_Refuel",
           "DisplayType": "",
           "Localization": {
             "Name": "@vehicle_NameAEGS_Sabre",
@@ -466,7 +481,54 @@
         "PortFlags": "",
         "PortTags": "AEGS_Sabre",
         "RequiredItemTags": "",
-        "Ports": []
+        "Ports": [
+          {
+            "Name": "hardpoint_controller_fuel",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": []
+          },
+          {
+            "Name": "hardpoint_fuel_port",
+            "DisplayName": "",
+            "PortTags": "Ship_Dock_Refuel",
+            "RequiredPortTags": "",
+            "Flags": "dockingport1",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "DockingCollar",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_air_traffic_controller",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "AirTrafficController",
+                "SubTypes": []
+              }
+            ]
+          }
+        ]
       }
     },
     "ClassName": "AEGS_Sabre",
@@ -2393,14 +2455,12 @@
                 "damageMax": 300.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
-                "detachRatio": 1.0,
                 "Parts": [
                   {
                     "name": "bay_door_l_b",
                     "damageMax": 300.0,
                     "damagemax": 0.0,
-                    "class": "AnimatedJoint",
-                    "detachRatio": 1.0
+                    "class": "AnimatedJoint"
                   }
                 ]
               },
@@ -2409,14 +2469,12 @@
                 "damageMax": 300.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
-                "detachRatio": 1.0,
                 "Parts": [
                   {
                     "name": "bay_door_r_b",
                     "damageMax": 300.0,
                     "damagemax": 0.0,
-                    "class": "AnimatedJoint",
-                    "detachRatio": 1.0
+                    "class": "AnimatedJoint"
                   }
                 ]
               },

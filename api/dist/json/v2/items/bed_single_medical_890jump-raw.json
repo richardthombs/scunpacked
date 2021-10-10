@@ -2,6 +2,13 @@
   "StaticEntityClassData": {},
   "tags": [],
   "Components": {
+    "SEntityComponentDefaultLoadoutParams": {
+      "loadout": {
+        "SItemPortLoadoutManualParams": {
+          "entries": []
+        }
+      }
+    },
     "SAttachableComponentParams": {
       "AttachDef": {
         "Type": "Usable",
@@ -36,20 +43,6 @@
             "available": true
           },
           {
-            "Name": "Sit",
-            "RoomTag": "00000000-0000-0000-0000-000000000000",
-            "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@interaction_sit",
-            "DisplayType": "Show",
-            "GenericCursor": "SingleAction",
-            "FocusModeOnly": false,
-            "Sendable": false,
-            "Linkable": false,
-            "LockedByLinks": false,
-            "RequiresAuthorizedUser": false,
-            "available": true
-          },
-          {
             "Name": "Exit",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
@@ -78,10 +71,24 @@
             "available": true
           },
           {
-            "Name": "MedScan",
+            "Name": "FinishSurgery",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@medbed_heal",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Hide",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "OpenExternalInventory",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_open",
             "DisplayType": "Show",
             "GenericCursor": "SingleAction",
             "FocusModeOnly": false,
@@ -92,10 +99,24 @@
             "available": true
           },
           {
-            "Name": "SetRespawnPoint",
+            "Name": "PlaceOtherInBed",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@medbed_set_spawnpoint",
+            "DisplayName": "@interaction_drag_other_into_bed",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": true,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "PlaceResourceCanister",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_place",
             "DisplayType": "Show",
             "GenericCursor": "SingleAction",
             "FocusModeOnly": false,
@@ -106,10 +127,10 @@
             "available": true
           },
           {
-            "Name": "CancelRespawnPoint",
+            "Name": "KioskActivate",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@medbed_cancel_spawnpoint",
+            "DisplayName": "@usable_use",
             "DisplayType": "Show",
             "GenericCursor": "SingleAction",
             "FocusModeOnly": false,
@@ -120,11 +141,25 @@
             "available": true
           },
           {
-            "Name": "CancelAllRespawnPoint",
+            "Name": "ProcClipLowerToEnter",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@medbed_clearall_spawnpoint",
-            "DisplayType": "Show",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Hide",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "ProcClipRaiseToEnter",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@usable_use",
+            "DisplayType": "Hide",
             "GenericCursor": "SingleAction",
             "FocusModeOnly": false,
             "Sendable": false,
