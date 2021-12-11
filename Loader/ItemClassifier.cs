@@ -23,7 +23,7 @@ namespace Loader
 			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "WeaponDefensive.CountermeasureLauncher"), Classifier = (t,s) => $"Ship.{t}.{s}" },
 			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "WeaponGun.*"), Classifier = (t,s) => $"Ship.Weapon.{s}" },
 			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "WeaponMining.*"), Classifier = (t,s) => $"Ship.Mining.{s}" },
-			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "WeaponAttachment.Barrel"), Classifier = (t,s) => $"Ship.{t}.{s}"} ,
+			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "WeaponAttachment.Barrel") && !TagMatch(item, "FPS_Barrel"), Classifier = (t,s) => $"Ship.{t}.{s}"} ,
 			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "WeaponAttachment.FiringMechanism"), Classifier = (t,s) => $"Ship.{t}.{s}" },
 			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "WeaponAttachment.PowerArray"), Classifier = (t,s) => $"Ship.{t}.{s}" },
 			new ItemMatchRule { Matcher = (item) => TypeMatch(item, "WeaponAttachment.Ventilation"), Classifier = (t,s) => $"Ship.{t}.{s}" },
