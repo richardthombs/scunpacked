@@ -19,6 +19,8 @@ namespace Loader
 			var insurance = Parse<ShipInsuranceRecord>(Path.Combine(DataRoot, @"data\libs\foundry\records\shipinsurancerecord\shipinsurance.xml"));
 			foreach (var record in insurance.allShips)
 			{
+				if (output.ContainsKey(record.shipEntityClassName)) continue; // Fix for Redeemer appearing twice
+
 				output.Add(record.shipEntityClassName, new StandardisedInsurance
 				{
 					StandardClaimTime = record.baseWaitTimeMinutes,
