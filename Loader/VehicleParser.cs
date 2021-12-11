@@ -36,8 +36,16 @@ namespace Loader
 			var serialiser = new XmlSerializer(typeof(Vehicle));
 			using (var stream = new XmlNodeReader(doc))
 			{
-				var vehicle = (Vehicle)serialiser.Deserialize(stream);
-				return vehicle;
+				try
+				{
+					var vehicle = (Vehicle)serialiser.Deserialize(stream);
+					return vehicle;
+				}
+				catch (InvalidOperationException ex)
+				{
+					Console.WriteLine($@"Deserialisation failed while parsing {stream.Name} value ""{stream.Value}"": {ex.InnerException.Message}");
+					throw;
+				}
 			}
 		}
 
