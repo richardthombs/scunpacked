@@ -1,4 +1,27 @@
 {
+  "ammo": {
+    "size": 6,
+    "lifetime": 4.0,
+    "speed": 700.0,
+    "projectileParams": {
+      "BulletProjectileParams": {
+        "damage": [
+          {
+            "DamagePhysical": 141.25,
+            "DamageEnergy": 0.0,
+            "DamageDistortion": 0.0,
+            "DamageThermal": 0.0,
+            "DamageBiochemical": 0.0,
+            "DamageStun": 0.0
+          }
+        ],
+        "detonationParams": {}
+      }
+    },
+    "ClassName": "BEHR_BallisticGatling_S6_AMMO",
+    "__ref": "bf5a1083-4e19-436f-9df0-6d5c2ceab4c8",
+    "__type": "AmmoParams"
+  },
   "Raw": {
     "Entity": {
       "StaticEntityClassData": {
@@ -47,8 +70,8 @@
             "RequiredTags": "",
             "DisplayType": "",
             "Localization": {
-              "Name": "@item_NameAPAR_BallisticGatling_S4",
-              "Description": "@item_DescAPAR_BallisticGatling_S4"
+              "Name": "@item_NameBEHR_BallisticGatling_S6",
+              "Description": "@item_DescBEHR_BallisticGatling_S6"
             }
           }
         },
@@ -89,17 +112,17 @@
           "DegradeOnlyWhenAttached": true
         },
         "EntityComponentPowerConnection": {
-          "PowerBase": 70.0,
-          "PowerDraw": 100.0,
+          "PowerBase": 90.0,
+          "PowerDraw": 110.0,
           "TimeToReachDrawRequest": 0.0,
           "SafeguardPriority": 20.0,
           "DisplayedInPoweredItemList": true,
           "IsThrottleable": false,
           "IsOverclockable": false,
-          "OverclockThresholdMin": 0.33,
-          "OverclockThresholdMax": 0.52,
-          "OverpowerPerformance": 0.5,
-          "OverclockPerformance": 0.3,
+          "OverclockThresholdMin": 0.0,
+          "OverclockThresholdMax": 0.0,
+          "OverpowerPerformance": 0.0,
+          "OverclockPerformance": 0.0,
           "PowerToEM": 1.75,
           "DecayRateOfEM": 0.5,
           "WarningDelayTime": 0.3,
@@ -117,7 +140,7 @@
           "Mass": 440.0,
           "SurfaceArea": 0.05,
           "StartCoolingTemperature": 300.0,
-          "MaxCoolingRate": 190.57,
+          "MaxCoolingRate": 500.0,
           "MaxTemperature": 700.0,
           "OverheatTemperature": 650.0,
           "RecoveryTemperature": 550.0,
@@ -133,9 +156,9 @@
           "RecoveryTime": 1.35
         },
         "SAmmoContainerComponentParams": {
-          "initialAmmoCount": 675.0,
-          "maxAmmoCount": 675.0,
-          "ammoParamsRecord": "47e2b9bd-94dc-4be4-90ae-b71165716e4d"
+          "initialAmmoCount": 3250.0,
+          "maxAmmoCount": 3250.0,
+          "ammoParamsRecord": "bf5a1083-4e19-436f-9df0-6d5c2ceab4c8"
         },
         "SCItemWeaponComponentParams": {
           "ammoContainerRecord": "00000000-0000-0000-0000-000000000000",
@@ -206,18 +229,18 @@
           },
           "fireActions": [
             {
-              "spinUpTime": 0.8,
+              "spinUpTime": 1.75,
               "spinDownTime": 1.5,
               "spinParam": "spin_speed",
-              "heatPerShot": 2000.0,
-              "fireRate": 700.0,
+              "heatPerShot": 1000.0,
+              "fireRate": 1300.0,
               "launchParams": {
                 "SProjectileLauncher": {
                   "ammoCost": 1.0,
                   "pelletCount": 1.0,
                   "spreadParams": {
-                    "min": 0.0,
-                    "max": 0.5,
+                    "min": 0.5,
+                    "max": 1.0,
                     "firstAttack": 0.008,
                     "attack": 0.008,
                     "decay": 0.01

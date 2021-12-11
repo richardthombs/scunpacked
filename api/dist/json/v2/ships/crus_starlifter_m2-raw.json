@@ -113,16 +113,6 @@
                 "loadout": {}
               },
               {
-                "itemPortName": "hardpoint_countermeasures_1",
-                "entityClassName": "CRUS_Starlifter_CML_Flare_Rear_Left",
-                "loadout": {}
-              },
-              {
-                "itemPortName": "hardpoint_countermeasures_2",
-                "entityClassName": "CRUS_Starlifter_CML_Chaff_Rear_Right",
-                "loadout": {}
-              },
-              {
                 "itemPortName": "hardpoint_countermeasures_3",
                 "entityClassName": "CRUS_Starlifter_CML_Flare_Top_Left",
                 "loadout": {}
@@ -1548,7 +1538,7 @@
                   "minsize": 5,
                   "maxsize": 5,
                   "display_name": "port_NameTurret02",
-                  "flags": "uneditable",
+                  "flags": "$uneditable",
                   "id": "modPart_forward_left_remote_turret",
                   "Types": [
                     {
@@ -1729,7 +1719,7 @@
                   "minsize": 5,
                   "maxsize": 5,
                   "display_name": "port_NameTurret03",
-                  "flags": "uneditable",
+                  "flags": "$uneditable",
                   "id": "modPart_forward_right_remote_turret",
                   "Types": [
                     {
@@ -1910,7 +1900,7 @@
                   "minsize": 6,
                   "maxsize": 6,
                   "display_name": "port_NameTurret04",
-                  "flags": "uneditable",
+                  "flags": "$uneditable",
                   "id": "modPart_rear_left_remote_turret",
                   "Types": [
                     {
@@ -2091,7 +2081,7 @@
                   "minsize": 6,
                   "maxsize": 6,
                   "display_name": "port_NameTurret05",
-                  "flags": "uneditable",
+                  "flags": "$uneditable",
                   "id": "modPart_rear_right_remote_turret",
                   "Types": [
                     {
@@ -3393,7 +3383,7 @@
                   "minsize": 5,
                   "maxsize": 5,
                   "display_name": "port_NameTurret01",
-                  "flags": "uneditable",
+                  "flags": "$uneditable",
                   "Types": [
                     {
                       "type": "Turret",
@@ -3533,6 +3523,10 @@
                       "PriorityGroups": [
                         {
                           "itemType": "Door",
+                          "defaultPriority": "exclusive_control"
+                        },
+                        {
+                          "itemType": "Elevator",
                           "defaultPriority": "exclusive_control"
                         },
                         {
@@ -3843,7 +3837,7 @@
                   "minsize": 5,
                   "maxsize": 5,
                   "display_name": "port_NameTurretAft",
-                  "flags": "uneditable",
+                  "flags": "$uneditable",
                   "Types": [
                     {
                       "type": "Turret",
@@ -3890,6 +3884,7 @@
                   "maxsize": 1,
                   "display_name": "port_NamePaint",
                   "flags": "",
+                  "id": "modPart_Paint",
                   "requiredTags": "Paint_Starlifter",
                   "Types": [
                     {
@@ -4994,6 +4989,7 @@
                   "display_name": "port_NameBombRackLeft",
                   "flags": "invisible uneditable",
                   "id": "modPart_bomb_mechanism_left",
+                  "requiredTags": "$Starlifter_A2_Bomb_Rack_Right",
                   "Types": [
                     {
                       "type": "BombLauncher",
@@ -5029,6 +5025,7 @@
                   "display_name": "port_NameBombRackRight",
                   "flags": "invisible uneditable",
                   "id": "modPart_bomb_mechanism_right",
+                  "requiredTags": "$Starlifter_A2_Bomb_Rack_Left",
                   "Types": [
                     {
                       "type": "BombLauncher",
@@ -5361,6 +5358,11 @@
             "idRef": "modPart_Tail_Right",
             "name": "damageMax",
             "value": "4680"
+          },
+          {
+            "idRef": "modPart_Paint",
+            "name": "portTags",
+            "value": "Paint_Starlifter"
           }
         ]
       },
@@ -5612,6 +5614,11 @@
             "idRef": "modPart_cargo_small_A2",
             "name": "flags",
             "value": ""
+          },
+          {
+            "idRef": "modPart_Paint",
+            "name": "portTags",
+            "value": "Paint_Starlifter"
           }
         ]
       }

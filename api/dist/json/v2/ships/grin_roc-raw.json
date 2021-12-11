@@ -337,7 +337,7 @@
             "Parts": [
               {
                 "name": "light_bar",
-                "damageMax": 50.0,
+                "damageMax": 10.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
                 "detachRatio": 1.0
@@ -776,30 +776,6 @@
                 }
               },
               {
-                "name": "hardpoint_controller_capacitor_assignment",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "CapacitorAssignmentController"
-                    }
-                  ],
-                  "ControllerDef": {
-                    "UsableDef": {
-                      "PriorityGroups": [
-                        {
-                          "itemType": "CapacitorAssignmentController"
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              {
                 "name": "hardpoint_scanner",
                 "damagemax": 0.0,
                 "class": "ItemPort",
@@ -1158,6 +1134,21 @@
                     {
                       "pipeClass": "Heat",
                       "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_controller_capacitor_assignment",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "CapacitorAssignmentController"
                     }
                   ]
                 }

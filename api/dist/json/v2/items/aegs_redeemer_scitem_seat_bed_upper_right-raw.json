@@ -1,0 +1,149 @@
+{
+  "StaticEntityClassData": {},
+  "tags": [
+    {
+      "value": "d0d29c20-f5e2-46f7-9d53-cc90f6ac63f2"
+    },
+    {
+      "value": "ffea63ba-9234-426f-a9c6-125162309401"
+    }
+  ],
+  "Components": {
+    "SEntityComponentDefaultLoadoutParams": {
+      "loadout": {
+        "SItemPortLoadoutXMLParams": {
+          "loadoutPath": "",
+          "__type": "SItemPortLoadoutBaseParams"
+        }
+      }
+    },
+    "SAttachableComponentParams": {
+      "AttachDef": {
+        "Type": "Seat",
+        "SubType": "UNDEFINED",
+        "Size": 1,
+        "Grade": 1,
+        "Manufacturer": "cf4a74bf-eb2c-462a-9b78-f7f2724c31d2",
+        "Tags": "",
+        "RequiredTags": "",
+        "DisplayType": "",
+        "Localization": {
+          "Name": "@LOC_PLACEHOLDER",
+          "Description": "@LOC_EMPTY"
+        }
+      }
+    },
+    "EntityComponentPowerConnection": {
+      "PowerBase": 1.0,
+      "PowerDraw": 1.0,
+      "TimeToReachDrawRequest": 0.0,
+      "SafeguardPriority": 50.0,
+      "DisplayedInPoweredItemList": false,
+      "IsThrottleable": false,
+      "IsOverclockable": false,
+      "OverclockThresholdMin": 0.0,
+      "OverclockThresholdMax": 0.0,
+      "OverpowerPerformance": 0.0,
+      "OverclockPerformance": 0.0,
+      "PowerToEM": 0.0,
+      "DecayRateOfEM": 0.15,
+      "WarningDelayTime": 0.3,
+      "WarningDisplayTime": 8.0
+    },
+    "EntityComponentHeatConnection": {
+      "TemperatureToIR": 6.0,
+      "OverpowerHeat": 0.0,
+      "OverclockThresholdMinHeat": 0.0,
+      "OverclockThresholdMaxHeat": 0.0,
+      "ThermalEnergyBase": 10.0,
+      "ThermalEnergyDraw": 20.0,
+      "ThermalConductivity": 3.0,
+      "SpecificHeatCapacity": 13.0,
+      "Mass": 200.0,
+      "SurfaceArea": 50.0,
+      "StartCoolingTemperature": 300.0,
+      "MaxCoolingRate": 1.0,
+      "MaxTemperature": 450.0,
+      "OverheatTemperature": 370.0,
+      "RecoveryTemperature": 350.0,
+      "MinTemperature": 0.0,
+      "MisfireMinTemperature": 370.0,
+      "MisfireMaxTemperature": 600.0
+    },
+    "SEntityInteractableParams": {
+      "Interactable": {
+        "SharedInteractions": [
+          {
+            "Name": "EnterBed",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_use_bed",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "ExitBed",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_exit",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "SaveGameLogOut",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_logout",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": true,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          }
+        ]
+      }
+    },
+    "SItemPortContainerComponentParams": {
+      "PortFlags": "",
+      "PortTags": "",
+      "RequiredItemTags": "",
+      "Ports": [
+        {
+          "Name": "hardpoint_bedding",
+          "DisplayName": "",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "",
+          "MinSize": 1,
+          "MaxSize": 1,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "Seat",
+              "SubTypes": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "ClassName": "AEGS_Redeemer_SCItem_Seat_Bed_Upper_Right",
+  "__ref": "ca85a18f-f97a-4661-89f1-ae41186bdaac",
+  "__type": "EntityClassDefinition"
+}

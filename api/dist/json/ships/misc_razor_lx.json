@@ -44,6 +44,11 @@
             "SItemPortLoadoutManualParams": {
               "entries": [
                 {
+                  "itemPortName": "hardpoint_paint",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
                   "itemPortName": "hardpoint_seat_pilot",
                   "entityClassName": "MISC_Razor_Seat_Pilot",
                   "loadout": {}
@@ -565,6 +570,24 @@
               "class": "AnimatedJoint",
               "detachRatio": 1.0,
               "Parts": [
+                {
+                  "name": "hardpoint_paint",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "port_NamePaint",
+                    "flags": "",
+                    "id": "modPaint",
+                    "requiredTags": "Paint_Razor",
+                    "Types": [
+                      {
+                        "type": "Paints"
+                      }
+                    ]
+                  }
+                },
                 {
                   "name": "wing_front_left",
                   "damageMax": 100.0,
@@ -2135,16 +2158,7 @@
                       {
                         "type": "CapacitorAssignmentController"
                       }
-                    ],
-                    "ControllerDef": {
-                      "UsableDef": {
-                        "PriorityGroups": [
-                          {
-                            "itemType": "CapacitorAssignmentController"
-                          }
-                        ]
-                      }
-                    }
+                    ]
                   }
                 },
                 {

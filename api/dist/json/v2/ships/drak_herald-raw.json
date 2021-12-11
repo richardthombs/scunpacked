@@ -40,6 +40,11 @@
           "SItemPortLoadoutManualParams": {
             "entries": [
               {
+                "itemPortName": "hardpoint_paint",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
                 "itemPortName": "hardpoint_seat_pilot",
                 "entityClassName": "DRAK_Herald_SCItem_Seat_Pilot",
                 "loadout": {
@@ -2094,16 +2099,7 @@
                     {
                       "type": "CapacitorAssignmentController"
                     }
-                  ],
-                  "ControllerDef": {
-                    "UsableDef": {
-                      "PriorityGroups": [
-                        {
-                          "itemType": "CapacitorAssignmentController"
-                        }
-                      ]
-                    }
-                  }
+                  ]
                 }
               },
               {
@@ -2854,6 +2850,24 @@
                 }
               }
             ]
+          },
+          {
+            "name": "hardpoint_paint",
+            "damagemax": 0.0,
+            "class": "ItemPort",
+            "ItemPort": {
+              "minsize": 1,
+              "maxsize": 1,
+              "display_name": "port_NamePaint",
+              "flags": "",
+              "id": "modPaint",
+              "requiredTags": "Paint_Herald",
+              "Types": [
+                {
+                  "type": "Paints"
+                }
+              ]
+            }
           }
         ]
       }

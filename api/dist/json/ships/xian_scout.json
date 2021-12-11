@@ -312,6 +312,11 @@
                   "itemPortName": "hardpoint_controller_capacitor_assignment",
                   "entityClassName": "Controller_CapacitorAssignment",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_paint",
+                  "entityClassName": "",
+                  "loadout": {}
                 }
               ]
             }
@@ -597,16 +602,7 @@
                   {
                     "type": "CapacitorAssignmentController"
                   }
-                ],
-                "ControllerDef": {
-                  "UsableDef": {
-                    "PriorityGroups": [
-                      {
-                        "itemType": "CapacitorAssignmentController"
-                      }
-                    ]
-                  }
-                }
+                ]
               }
             },
             {
@@ -2351,6 +2347,23 @@
                 "Types": [
                   {
                     "type": "LandingSystem"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "hardpoint_paint",
+              "damagemax": 0.0,
+              "class": "ItemPort",
+              "ItemPort": {
+                "minsize": 1,
+                "maxsize": 1,
+                "display_name": "port_NamePaint",
+                "flags": "",
+                "requiredTags": "Paint_Scout",
+                "Types": [
+                  {
+                    "type": "Paints"
                   }
                 ]
               }

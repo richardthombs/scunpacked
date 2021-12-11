@@ -1,6 +1,26 @@
 {
-  "StaticEntityClassData": {},
-  "tags": [],
+  "StaticEntityClassData": {
+    "DefaultEntitlementEntityParams": {
+      "entitlementPolicy": "8a1fdd48-7896-4774-a110-2466190e1a07"
+    }
+  },
+  "tags": [
+    {
+      "value": "d405fc9c-593c-4540-9bdb-65a7fb390a49"
+    },
+    {
+      "value": "fa5bbe66-38c2-4f61-865c-4ad793373ded"
+    },
+    {
+      "value": "532b3340-6cc9-4124-b822-8a422a89f2b6"
+    },
+    {
+      "value": "59ca5e36-b9a2-4459-ad0e-5745bcf5d899"
+    },
+    {
+      "value": "f3653dfe-343d-45d4-8b1b-56ed4e93922a"
+    }
+  ],
   "Components": {
     "SAttachableComponentParams": {
       "AttachDef": {
@@ -21,6 +41,20 @@
     "SEntityInteractableParams": {
       "Interactable": {
         "SharedInteractions": [
+          {
+            "Name": "Grab",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_grab",
+            "DisplayType": "Show",
+            "GenericCursor": "Grab",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": false,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
           {
             "Name": "Carry",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
@@ -110,8 +144,8 @@
     },
     "SCItemClothingParams": {
       "TemperatureResistance": {
-        "MinResistance": "-5",
-        "MaxResistance": "50"
+        "MinResistance": "2",
+        "MaxResistance": "32"
       }
     },
     "SItemPortContainerComponentParams": {
@@ -120,18 +154,18 @@
       "RequiredItemTags": "",
       "Ports": [
         {
-          "Name": "Clothing_Helmet",
-          "DisplayName": "Clothing_Helmet",
+          "Name": "Material_Variant",
+          "DisplayName": "Material_Variant",
           "PortTags": "",
           "RequiredPortTags": "",
-          "Flags": "nophys unlootable",
+          "Flags": "nontransferable ",
           "MinSize": 1,
           "MaxSize": 1,
           "InteractionPointSize": -1.0,
           "DefaultWeaponGroup": "UNDEFINED",
           "Types": [
             {
-              "Type": "Char_Clothing_Hat",
+              "Type": "Paints",
               "SubTypes": []
             }
           ]

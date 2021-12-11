@@ -1,0 +1,208 @@
+{
+  "Raw": {
+    "Entity": {
+      "StaticEntityClassData": {},
+      "tags": [],
+      "Components": {
+        "SEntityComponentDefaultLoadoutParams": {
+          "loadout": {
+            "SItemPortLoadoutManualParams": {
+              "entries": [
+                {
+                  "itemPortName": "IP_Button",
+                  "entityClassName": "ControlPanel_Screen_DoorControl_Physical_Redeemer",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "decal_front",
+                  "entityClassName": "AEGS_Redeemer_Storage_Decal_02",
+                  "loadout": {}
+                }
+              ]
+            }
+          }
+        },
+        "SAttachableComponentParams": {
+          "AttachDef": {
+            "Type": "Cargo",
+            "SubType": "UNDEFINED",
+            "Size": 1,
+            "Grade": 1,
+            "Manufacturer": "00000000-0000-0000-0000-000000000000",
+            "Tags": "",
+            "RequiredTags": "",
+            "DisplayType": "",
+            "Localization": {
+              "Name": "@LOC_PLACEHOLDER",
+              "Description": "@LOC_EMPTY"
+            }
+          }
+        },
+        "SHealthComponentParams": {
+          "Health": 1000.0,
+          "DamageResistances": {
+            "DamageResistance": {
+              "PhysicalResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "EnergyResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "DistortionResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "ThermalResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "BiochemicalResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "StunResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              }
+            }
+          }
+        },
+        "SEntityInteractableParams": {
+          "Interactable": {
+            "SharedInteractions": [
+              {
+                "Name": "Open",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_open",
+                "DisplayType": "ForeignOnly",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Close",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@ui_interactor_close",
+                "DisplayType": "ForeignOnly",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "AccessCargoGrid",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@ui_PersonalStorage",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Opened",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@usable_use",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": false,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Lock",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@usable_use",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": true,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "Unlock",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@usable_use",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": true,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              }
+            ]
+          }
+        },
+        "SItemPortContainerComponentParams": {
+          "PortFlags": "",
+          "PortTags": "",
+          "RequiredItemTags": "",
+          "Ports": [
+            {
+              "Name": "IP_Button",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "ControlPanel",
+                  "SubTypes": [
+                    {
+                      "value": "DoorPart"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Name": "decal_front",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 0,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": []
+            }
+          ]
+        }
+      },
+      "ClassName": "PersonalStorage_Redeemer_02",
+      "__ref": "79e873dc-2573-4aeb-8167-133c803f1f1b",
+      "__type": "EntityClassDefinition"
+    }
+  }
+}
