@@ -220,6 +220,16 @@
                   "loadout": {}
                 },
                 {
+                  "itemPortName": "hardpoint_radar_copilot_left",
+                  "entityClassName": "RADR_WLOP_S02_Chernykh",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_radar_copilot_right",
+                  "entityClassName": "RADR_WLOP_S02_Chernykh",
+                  "loadout": {}
+                },
+                {
                   "itemPortName": "hardpoint_radar_turret_upper",
                   "entityClassName": "RADR_WLOP_S02_Chernykh",
                   "loadout": {}
@@ -1572,7 +1582,70 @@
                             "pipeClass": "Heat",
                             "pipe": "MainHeat"
                           }
-                        ]
+                        ],
+                        "ControllerDef": {
+                          "controllableTags": "pilotSeat"
+                        }
+                      }
+                    },
+                    {
+                      "name": "hardpoint_radar_copilot_left",
+                      "damagemax": 0.0,
+                      "class": "ItemPort",
+                      "ItemPort": {
+                        "minsize": 1,
+                        "maxsize": 2,
+                        "display_name": "port_NameRadar",
+                        "flags": "invisible uneditable",
+                        "Types": [
+                          {
+                            "type": "Radar",
+                            "subtypes": "ShortRangeRadar,MidRangeRadar"
+                          }
+                        ],
+                        "Connections": [
+                          {
+                            "pipeClass": "Power",
+                            "pipe": "MainPower"
+                          },
+                          {
+                            "pipeClass": "Heat",
+                            "pipe": "MainHeat"
+                          }
+                        ],
+                        "ControllerDef": {
+                          "controllableTags": "coPilotSeatLeft"
+                        }
+                      }
+                    },
+                    {
+                      "name": "hardpoint_radar_copilot_right",
+                      "damagemax": 0.0,
+                      "class": "ItemPort",
+                      "ItemPort": {
+                        "minsize": 1,
+                        "maxsize": 2,
+                        "display_name": "port_NameRadar",
+                        "flags": "invisible uneditable",
+                        "Types": [
+                          {
+                            "type": "Radar",
+                            "subtypes": "ShortRangeRadar,MidRangeRadar"
+                          }
+                        ],
+                        "Connections": [
+                          {
+                            "pipeClass": "Power",
+                            "pipe": "MainPower"
+                          },
+                          {
+                            "pipeClass": "Heat",
+                            "pipe": "MainHeat"
+                          }
+                        ],
+                        "ControllerDef": {
+                          "controllableTags": "coPilotSeatRight"
+                        }
                       }
                     },
                     {
