@@ -215,7 +215,7 @@
       "StaticEntityClassData": {},
       "tags": [
         {
-          "value": "84dcbd71-6d30-4fef-a091-c8a74cd81faa"
+          "value": "e6471cdd-5456-4a7c-91f3-8088c5bc067b"
         },
         {
           "value": "59ca5e36-b9a2-4459-ad0e-5745bcf5d899"
@@ -363,6 +363,12 @@
           },
           "fireActions": [],
           "weaponRegenConsumerParams": []
+        },
+        "SCItemRadarComponentParams": {
+          "detectionLifetime": 0.0,
+          "altitudeCeiling": 0.0,
+          "enableCrossSectionOcclusion": false,
+          "signatureDetection": []
         },
         "SEntityComponentMiningLaserParams": {
           "globalParams": "a3c468d8-1194-44a3-b3e6-a8d65ecebd85",
@@ -578,14 +584,32 @@
             ]
           }
         },
-        "SSCItemScannerComponentParams": {
-          "scanRange": 0.0
-        },
         "SItemPortContainerComponentParams": {
           "PortFlags": "",
           "PortTags": "",
           "RequiredItemTags": "",
           "Ports": [
+            {
+              "Name": "magazine_attach",
+              "DisplayName": "Magazine Slot",
+              "PortTags": "",
+              "RequiredPortTags": "multitool_resource",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "WeaponAttachment",
+                  "SubTypes": [
+                    {
+                      "value": "Magazine"
+                    }
+                  ]
+                }
+              ]
+            },
             {
               "Name": "weapon_action_attachment",
               "DisplayName": "WeaponActionAttachment",
@@ -612,7 +636,7 @@
               "DisplayName": "ModuleSlot",
               "PortTags": "grin_multitool_01",
               "RequiredPortTags": "grin_multitool_01",
-              "Flags": "",
+              "Flags": "inventory",
               "MinSize": 1,
               "MaxSize": 1,
               "InteractionPointSize": -1.0,
@@ -623,27 +647,6 @@
                   "SubTypes": [
                     {
                       "value": "Utility"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Name": "magazine_attach",
-              "DisplayName": "",
-              "PortTags": "",
-              "RequiredPortTags": "multitool_resource",
-              "Flags": "",
-              "MinSize": 0,
-              "MaxSize": 1,
-              "InteractionPointSize": -1.0,
-              "DefaultWeaponGroup": "UNDEFINED",
-              "Types": [
-                {
-                  "Type": "WeaponAttachment",
-                  "SubTypes": [
-                    {
-                      "value": "Magazine"
                     }
                   ]
                 }

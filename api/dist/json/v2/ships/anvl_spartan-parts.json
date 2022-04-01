@@ -28,11 +28,6 @@
                   "Code": "ANVL",
                   "Name": "Anvil Aerospace"
                 },
-                "Tags": [
-                  "ANVL_Ballista",
-                  "ANVL_Dunestalker",
-                  "ANVL_Snowblind"
-                ],
                 "PowerConnection": {
                   "PowerBase": 0.0,
                   "PowerDraw": 1.0
@@ -136,7 +131,10 @@
                             "Manufacturer": {
                               "Code": "GAT",
                               "Name": "Gallenson Tactical Systems"
-                            }
+                            },
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.Barrel"
@@ -156,7 +154,10 @@
                             "Manufacturer": {
                               "Code": "GAT",
                               "Name": "Gallenson Tactical Systems"
-                            }
+                            },
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.FiringMechanism"
@@ -176,7 +177,10 @@
                             "Manufacturer": {
                               "Code": "GAT",
                               "Name": "Gallenson Tactical Systems"
-                            }
+                            },
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.PowerArray"
@@ -196,7 +200,10 @@
                             "Manufacturer": {
                               "Code": "GAT",
                               "Name": "Gallenson Tactical Systems"
-                            }
+                            },
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.Ventilation"
@@ -311,7 +318,10 @@
                             "Manufacturer": {
                               "Code": "GAT",
                               "Name": "Gallenson Tactical Systems"
-                            }
+                            },
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.Barrel"
@@ -331,7 +341,10 @@
                             "Manufacturer": {
                               "Code": "GAT",
                               "Name": "Gallenson Tactical Systems"
-                            }
+                            },
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.FiringMechanism"
@@ -351,7 +364,10 @@
                             "Manufacturer": {
                               "Code": "GAT",
                               "Name": "Gallenson Tactical Systems"
-                            }
+                            },
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.PowerArray"
@@ -371,7 +387,10 @@
                             "Manufacturer": {
                               "Code": "GAT",
                               "Name": "Gallenson Tactical Systems"
-                            }
+                            },
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.Ventilation"
@@ -850,7 +869,7 @@
                 "ClassName": "Weapon_Rack_ANVL_Atlas_1_Slot",
                 "Size": 1,
                 "Grade": 1,
-                "Type": "UNDEFINED.UNDEFINED",
+                "Type": "Usable.UNDEFINED",
                 "Name": "Weapon_Rack_ANVL_Atlas_1_Slot",
                 "Ports": [
                   {
@@ -883,7 +902,7 @@
                 "ClassName": "Weapon_Rack_ANVL_Atlas_1_Slot",
                 "Size": 1,
                 "Grade": 1,
-                "Type": "UNDEFINED.UNDEFINED",
+                "Type": "Usable.UNDEFINED",
                 "Name": "Weapon_Rack_ANVL_Atlas_1_Slot",
                 "Ports": [
                   {
@@ -1296,7 +1315,8 @@
                 "Radar": {
                   "DetectionLifetime": 0.0,
                   "AltitudeCeiling": 0.0,
-                  "CrossSectionOcclusion": false
+                  "CrossSectionOcclusion": false,
+                  "Signatures": []
                 },
                 "Ports": [
                   {
@@ -1621,6 +1641,33 @@
               ],
               "Category": "Weapon regen pool",
               "Uneditable": true
+            }
+          },
+          {
+            "Name": "WheelFrontLeft01DmgGroup",
+            "MaximumDamage": 1.0,
+            "PartDetachDamage": 1.0
+          },
+          {
+            "Name": "hardpoint_cockpit_flair",
+            "Port": {
+              "PortName": "hardpoint_cockpit_flair",
+              "Size": 1,
+              "Types": [
+                "Flair_Cockpit.Flair_Static"
+              ],
+              "Category": "UNKNOWN"
+            }
+          },
+          {
+            "Name": "hardpoint_cockpit_flair_hang",
+            "Port": {
+              "PortName": "hardpoint_cockpit_flair_hang",
+              "Size": 1,
+              "Types": [
+                "Flair_Cockpit.Flair_Hanging"
+              ],
+              "Category": "UNKNOWN"
             }
           }
         ],
@@ -2099,6 +2146,12 @@
         "Mass": 20000.0
       },
       {
+        "Name": "hardpoint_wheel_left01",
+        "MaximumDamage": 1700.0,
+        "Mass": 80.0,
+        "PartDetachDamage": 1700.0
+      },
+      {
         "Name": "hardpoint_wheel_left03",
         "MaximumDamage": 1700.0,
         "Mass": 80.0,
@@ -2106,24 +2159,6 @@
       },
       {
         "Name": "hardpoint_wheel_left04",
-        "MaximumDamage": 1700.0,
-        "Mass": 80.0,
-        "PartDetachDamage": 1700.0
-      },
-      {
-        "Name": "hardpoint_wheel_right03",
-        "MaximumDamage": 1700.0,
-        "Mass": 80.0,
-        "PartDetachDamage": 1700.0
-      },
-      {
-        "Name": "hardpoint_wheel_right04",
-        "MaximumDamage": 1700.0,
-        "Mass": 80.0,
-        "PartDetachDamage": 1700.0
-      },
-      {
-        "Name": "hardpoint_wheel_left01",
         "MaximumDamage": 1700.0,
         "Mass": 80.0,
         "PartDetachDamage": 1700.0
@@ -2147,100 +2182,16 @@
         "PartDetachDamage": 1700.0
       },
       {
-        "Name": "hardpoint_arm_upper_left01",
-        "Mass": 25.0
+        "Name": "hardpoint_wheel_right03",
+        "MaximumDamage": 1700.0,
+        "Mass": 80.0,
+        "PartDetachDamage": 1700.0
       },
       {
-        "Name": "hardpoint_arm_upper_left02",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_arm_upper_left03",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_arm_upper_left04",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_arm_upper_right01",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_arm_upper_right02",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_arm_upper_right03",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_arm_upper_right04",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_piston_left01_target",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_piston_left02_target",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_piston_left03_target",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_piston_left04_target",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_piston_right01_target",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_piston_right02_target",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_piston_right03_target",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_piston_right04_target",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_spindle_left01",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_spindle_left02",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_spindle_left03",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_spindle_left04",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_spindle_right01",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_spindle_right02",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_spindle_right03",
-        "Mass": 25.0
-      },
-      {
-        "Name": "hardpoint_spindle_right04",
-        "Mass": 25.0
+        "Name": "hardpoint_wheel_right04",
+        "MaximumDamage": 1700.0,
+        "Mass": 80.0,
+        "PartDetachDamage": 1700.0
       },
       {
         "Name": "hardpoint_arm_lower_left01",
@@ -2275,35 +2226,35 @@
         "Mass": 25.0
       },
       {
-        "Name": "hardpoint_piston_left01",
+        "Name": "hardpoint_arm_upper_left01",
         "Mass": 25.0
       },
       {
-        "Name": "hardpoint_piston_left02",
+        "Name": "hardpoint_arm_upper_left02",
         "Mass": 25.0
       },
       {
-        "Name": "hardpoint_piston_left03",
+        "Name": "hardpoint_arm_upper_left03",
         "Mass": 25.0
       },
       {
-        "Name": "hardpoint_piston_left04",
+        "Name": "hardpoint_arm_upper_left04",
         "Mass": 25.0
       },
       {
-        "Name": "hardpoint_piston_right01",
+        "Name": "hardpoint_arm_upper_right01",
         "Mass": 25.0
       },
       {
-        "Name": "hardpoint_piston_right02",
+        "Name": "hardpoint_arm_upper_right02",
         "Mass": 25.0
       },
       {
-        "Name": "hardpoint_piston_right03",
+        "Name": "hardpoint_arm_upper_right03",
         "Mass": 25.0
       },
       {
-        "Name": "hardpoint_piston_right04",
+        "Name": "hardpoint_arm_upper_right04",
         "Mass": 25.0
       },
       {
@@ -2339,6 +2290,42 @@
         "Mass": 25.0
       },
       {
+        "Name": "hardpoint_piston_left01",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_piston_left01_target",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_piston_left02",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_piston_left02_target",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_piston_left03",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_piston_left03_target",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_piston_left04",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_piston_left04_target",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_piston_right04_target",
+        "Mass": 25.0
+      },
+      {
         "Name": "hardpoint_piston_lower_left01",
         "Mass": 25.0
       },
@@ -2368,6 +2355,66 @@
       },
       {
         "Name": "hardpoint_piston_lower_right04",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_piston_right01",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_piston_right02",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_piston_right03",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_piston_right04",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_spindle_left01",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_spindle_left02",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_spindle_left03",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_spindle_left04",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_spindle_right01",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_spindle_right02",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_spindle_right03",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_spindle_right04",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_piston_right03_target",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_piston_right02_target",
+        "Mass": 25.0
+      },
+      {
+        "Name": "hardpoint_piston_right01_target",
         "Mass": 25.0
       }
     ]

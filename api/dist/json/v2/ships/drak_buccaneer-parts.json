@@ -35,29 +35,7 @@
         "Parts": [
           {
             "Name": "Cockpit_Canopy_Door",
-            "MaximumDamage": 200.0,
-            "Parts": [
-              {
-                "Name": "$lod1_Cockpit_Canopy_Door",
-                "MaximumDamage": 200.0
-              },
-              {
-                "Name": "$lod2_Cockpit_Canopy_Door",
-                "MaximumDamage": 200.0
-              },
-              {
-                "Name": "$lod3_Cockpit_Canopy_Door",
-                "MaximumDamage": 200.0
-              },
-              {
-                "Name": "$lod4_Cockpit_Canopy_Door",
-                "MaximumDamage": 200.0
-              },
-              {
-                "Name": "$lod5_Cockpit_Canopy_Door",
-                "MaximumDamage": 200.0
-              }
-            ]
+            "MaximumDamage": 200.0
           },
           {
             "Name": "Hardpoint_Landing_Gear_Front"
@@ -80,9 +58,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 233764.5,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 2.9220562500000002
+                  "MaxThrustFuelRate": 0.7305140625000001
                 },
                 "Durability": {
                   "Health": 9150.0,
@@ -126,9 +104,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 233764.5,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 2.9220562500000002
+                  "MaxThrustFuelRate": 0.7305140625000001
                 },
                 "Durability": {
                   "Health": 9150.0,
@@ -172,9 +150,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 233764.5,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 2.9220562500000002
+                  "MaxThrustFuelRate": 0.7305140625000001
                 },
                 "Durability": {
                   "Health": 9150.0,
@@ -218,9 +196,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 233764.5,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 2.9220562500000002
+                  "MaxThrustFuelRate": 0.7305140625000001
                 },
                 "Durability": {
                   "Health": 9150.0,
@@ -264,9 +242,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 233764.5,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 2.9220562500000002
+                  "MaxThrustFuelRate": 0.7305140625000001
                 },
                 "Durability": {
                   "Health": 9150.0,
@@ -310,9 +288,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 233764.5,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 2.9220562500000002
+                  "MaxThrustFuelRate": 0.7305140625000001
                 },
                 "Durability": {
                   "Health": 9150.0,
@@ -369,7 +347,7 @@
                 "Ports": [
                   {
                     "PortName": "Display_HUD",
-                    "Size": 0,
+                    "Size": 1,
                     "Loadout": "Projector_HUD_Generic",
                     "InstalledItem": {
                       "ClassName": "Projector_HUD_Generic",
@@ -444,6 +422,28 @@
                 "SeatAccess"
               ],
               "Category": "Seat access"
+            }
+          },
+          {
+            "Name": "hardpoint_cockpit_flair",
+            "Port": {
+              "PortName": "hardpoint_cockpit_flair",
+              "Size": 1,
+              "Types": [
+                "Flair_Cockpit.Flair_Static"
+              ],
+              "Category": "UNKNOWN"
+            }
+          },
+          {
+            "Name": "hardpoint_cockpit_flair_hang",
+            "Port": {
+              "PortName": "hardpoint_cockpit_flair_hang",
+              "Size": 1,
+              "Types": [
+                "Flair_Cockpit.Flair_Hanging"
+              ],
+              "Category": "UNKNOWN"
             }
           },
           {
@@ -822,7 +822,7 @@
                     "ClassName": "DRAK_Buccaneer_Thruster_Retro",
                     "Size": 4,
                     "Grade": 1,
-                    "Type": "MainThruster.FixedThruster",
+                    "Type": "ManneuverThruster.UNDEFINED",
                     "Name": "DRAK_Buccaneer_Thruster_Retro",
                     "Manufacturer": {
                       "Code": "DRAK",
@@ -830,9 +830,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 591797.4,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 9.45E-06,
                       "Type": "Retro",
-                      "MaxThrustFuelRate": 7.3974675
+                      "MaxThrustFuelRate": 5.59248543
                     },
                     "Durability": {
                       "Health": 9850.0,
@@ -878,9 +878,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1875199.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 9.45E-06,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 23.4399875
+                      "MaxThrustFuelRate": 17.72063055
                     },
                     "Durability": {
                       "Health": 10750.0,
@@ -926,9 +926,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -972,9 +972,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -1018,9 +1018,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -1064,9 +1064,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -1110,9 +1110,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -1156,9 +1156,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -1202,9 +1202,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -1296,8 +1296,7 @@
                               },
                               "Missile": {
                                 "Damage": {
-                                  "Physical": 738.72,
-                                  "Energy": 2954.88
+                                  "Physical": 2378.678
                                 }
                               }
                             },
@@ -1331,8 +1330,7 @@
                               },
                               "Missile": {
                                 "Damage": {
-                                  "Physical": 701.784,
-                                  "Energy": 2807.136
+                                  "Energy": 1670.246
                                 }
                               }
                             },
@@ -1435,7 +1433,10 @@
                               "Manufacturer": {
                                 "Code": "GAT",
                                 "Name": "Gallenson Tactical Systems"
-                              }
+                              },
+                              "Tags": [
+                                "uneditable"
+                              ]
                             },
                             "Types": [
                               "WeaponAttachment.Barrel"
@@ -1455,7 +1456,10 @@
                               "Manufacturer": {
                                 "Code": "GAT",
                                 "Name": "Gallenson Tactical Systems"
-                              }
+                              },
+                              "Tags": [
+                                "uneditable"
+                              ]
                             },
                             "Types": [
                               "WeaponAttachment.FiringMechanism"
@@ -1475,7 +1479,10 @@
                               "Manufacturer": {
                                 "Code": "GAT",
                                 "Name": "Gallenson Tactical Systems"
-                              }
+                              },
+                              "Tags": [
+                                "uneditable"
+                              ]
                             },
                             "Types": [
                               "WeaponAttachment.PowerArray"
@@ -1495,7 +1502,10 @@
                               "Manufacturer": {
                                 "Code": "GAT",
                                 "Name": "Gallenson Tactical Systems"
-                              }
+                              },
+                              "Tags": [
+                                "uneditable"
+                              ]
                             },
                             "Types": [
                               "WeaponAttachment.Ventilation"
@@ -1539,9 +1549,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -1585,9 +1595,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -1631,9 +1641,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -1677,9 +1687,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -1723,9 +1733,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -1769,9 +1779,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -1815,9 +1825,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -1853,7 +1863,7 @@
                     "ClassName": "DRAK_Buccaneer_Thruster_Retro",
                     "Size": 4,
                     "Grade": 1,
-                    "Type": "MainThruster.FixedThruster",
+                    "Type": "ManneuverThruster.UNDEFINED",
                     "Name": "DRAK_Buccaneer_Thruster_Retro",
                     "Manufacturer": {
                       "Code": "DRAK",
@@ -1861,9 +1871,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 591797.4,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 9.45E-06,
                       "Type": "Retro",
-                      "MaxThrustFuelRate": 7.3974675
+                      "MaxThrustFuelRate": 5.59248543
                     },
                     "Durability": {
                       "Health": 9850.0,
@@ -1907,9 +1917,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1875199.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 9.45E-06,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 23.4399875
+                      "MaxThrustFuelRate": 17.72063055
                     },
                     "Durability": {
                       "Health": 10750.0,
@@ -2003,8 +2013,7 @@
                               },
                               "Missile": {
                                 "Damage": {
-                                  "Physical": 701.784,
-                                  "Energy": 2807.136
+                                  "Energy": 1670.246
                                 }
                               }
                             },
@@ -2038,8 +2047,7 @@
                               },
                               "Missile": {
                                 "Damage": {
-                                  "Physical": 738.72,
-                                  "Energy": 2954.88
+                                  "Physical": 2378.678
                                 }
                               }
                             },
@@ -2142,7 +2150,10 @@
                               "Manufacturer": {
                                 "Code": "GAT",
                                 "Name": "Gallenson Tactical Systems"
-                              }
+                              },
+                              "Tags": [
+                                "uneditable"
+                              ]
                             },
                             "Types": [
                               "WeaponAttachment.Barrel"
@@ -2162,7 +2173,10 @@
                               "Manufacturer": {
                                 "Code": "GAT",
                                 "Name": "Gallenson Tactical Systems"
-                              }
+                              },
+                              "Tags": [
+                                "uneditable"
+                              ]
                             },
                             "Types": [
                               "WeaponAttachment.FiringMechanism"
@@ -2182,7 +2196,10 @@
                               "Manufacturer": {
                                 "Code": "GAT",
                                 "Name": "Gallenson Tactical Systems"
-                              }
+                              },
+                              "Tags": [
+                                "uneditable"
+                              ]
                             },
                             "Types": [
                               "WeaponAttachment.PowerArray"
@@ -2202,7 +2219,10 @@
                               "Manufacturer": {
                                 "Code": "GAT",
                                 "Name": "Gallenson Tactical Systems"
-                              }
+                              },
+                              "Tags": [
+                                "uneditable"
+                              ]
                             },
                             "Types": [
                               "WeaponAttachment.Ventilation"
@@ -2244,7 +2264,7 @@
             "Name": "hardpoint_cm_launcher_left",
             "Port": {
               "PortName": "hardpoint_cm_launcher_left",
-              "Size": 2,
+              "Size": 1,
               "Loadout": "DRAK_CML_Decoy_Small",
               "InstalledItem": {
                 "ClassName": "DRAK_CML_Decoy_Small",
@@ -2308,7 +2328,7 @@
             "Name": "hardpoint_cm_launcher_right",
             "Port": {
               "PortName": "hardpoint_cm_launcher_right",
-              "Size": 2,
+              "Size": 1,
               "Loadout": "DRAK_CML_Noise_Small",
               "InstalledItem": {
                 "ClassName": "DRAK_CML_Noise_Small",
@@ -2632,7 +2652,8 @@
                 "Radar": {
                   "DetectionLifetime": 0.0,
                   "AltitudeCeiling": 0.0,
-                  "CrossSectionOcclusion": false
+                  "CrossSectionOcclusion": false,
+                  "Signatures": []
                 },
                 "Ports": [
                   {
@@ -2940,9 +2961,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -2986,9 +3007,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -3039,9 +3060,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -3085,9 +3106,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 233764.5,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 2.9220562500000002
+                      "MaxThrustFuelRate": 0.7305140625000001
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -3390,7 +3411,7 @@
                   "flightReady"
                 ],
                 "HydrogenFuelIntake": {
-                  "Rate": 8.5
+                  "Rate": 0.0
                 },
                 "PowerConnection": {
                   "PowerBase": 0.5,
@@ -3459,7 +3480,7 @@
                   "flightReady"
                 ],
                 "HydrogenFuelIntake": {
-                  "Rate": 8.5
+                  "Rate": 0.0
                 },
                 "PowerConnection": {
                   "PowerBase": 0.5,

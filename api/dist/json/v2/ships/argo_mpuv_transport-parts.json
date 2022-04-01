@@ -94,6 +94,17 @@
             }
           },
           {
+            "Name": "hardpoint_cockpit_flair_hang",
+            "Port": {
+              "PortName": "hardpoint_cockpit_flair_hang",
+              "Size": 1,
+              "Types": [
+                "Flair_Cockpit.Flair_Hanging"
+              ],
+              "Category": "UNKNOWN"
+            }
+          },
+          {
             "Name": "hardpoint_dashboard_pilot",
             "Port": {
               "PortName": "hardpoint_dashboard_pilot",
@@ -481,7 +492,8 @@
                 "Radar": {
                   "DetectionLifetime": 0.0,
                   "AltitudeCeiling": 0.0,
-                  "CrossSectionOcclusion": false
+                  "CrossSectionOcclusion": false,
+                  "Signatures": []
                 },
                 "Ports": [
                   {
@@ -609,9 +621,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 68173.3,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 1.09375E-05,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 0.8521662500000001
+                      "MaxThrustFuelRate": 0.74564546875
                     },
                     "Durability": {
                       "Health": 3500.0,
@@ -658,9 +670,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 68173.3,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 1.09375E-05,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 0.8521662500000001
+                      "MaxThrustFuelRate": 0.74564546875
                     },
                     "Durability": {
                       "Health": 3500.0,
@@ -1855,9 +1867,9 @@
                         },
                         "Thruster": {
                           "ThrustCapacity": 51224.58,
-                          "FuelRate": 1.25E-05,
+                          "FuelRate": 1.09375E-05,
                           "Type": "Main",
-                          "MaxThrustFuelRate": 0.6403072500000001
+                          "MaxThrustFuelRate": 0.56026884375
                         },
                         "Durability": {
                           "Health": 3500.0,
@@ -2052,7 +2064,7 @@
                           "flightReady"
                         ],
                         "HydrogenFuelIntake": {
-                          "Rate": 1.5
+                          "Rate": 0.0
                         },
                         "PowerConnection": {
                           "PowerBase": 0.5,
@@ -2143,9 +2155,9 @@
                         },
                         "Thruster": {
                           "ThrustCapacity": 51224.58,
-                          "FuelRate": 1.25E-05,
+                          "FuelRate": 1.09375E-05,
                           "Type": "Main",
-                          "MaxThrustFuelRate": 0.6403072500000001
+                          "MaxThrustFuelRate": 0.56026884375
                         },
                         "Durability": {
                           "Health": 3500.0,
@@ -2340,7 +2352,7 @@
                           "flightReady"
                         ],
                         "HydrogenFuelIntake": {
-                          "Rate": 1.5
+                          "Rate": 0.0
                         },
                         "PowerConnection": {
                           "PowerBase": 0.5,
@@ -2432,6 +2444,27 @@
               "PortName": "hardpoint_docking_collar",
               "Size": 4,
               "Loadout": "ARGO_MPUV_DockingTube",
+              "InstalledItem": {
+                "ClassName": "ARGO_MPUV_DockingTube",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "DockingCollar.UNDEFINED",
+                "Name": "ARGO_MPUV_DockingTube",
+                "Manufacturer": {
+                  "Code": "ARGO",
+                  "Name": "Argo Astronautics"
+                },
+                "Ports": [
+                  {
+                    "PortName": "itemport_vehicle_attach",
+                    "Size": 8,
+                    "Types": [
+                      "NOITEM_Vehicle"
+                    ],
+                    "Category": "UNKNOWN"
+                  }
+                ]
+              },
               "Types": [
                 "DockingCollar"
               ],
@@ -2448,6 +2481,20 @@
               "PortName": "hardpoint_air_traffic_controller",
               "Size": 4,
               "Loadout": "ARGO_MPUV_ShipATCDataManager",
+              "InstalledItem": {
+                "ClassName": "ARGO_MPUV_ShipATCDataManager",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "AirTrafficController.UNDEFINED",
+                "Name": "ARGO_MPUV_ShipATCDataManager",
+                "Manufacturer": {
+                  "Code": "ARGO",
+                  "Name": "Argo Astronautics"
+                },
+                "Tags": [
+                  "ARGO_MPUV_Base"
+                ]
+              },
               "Types": [
                 "AirTrafficController"
               ],

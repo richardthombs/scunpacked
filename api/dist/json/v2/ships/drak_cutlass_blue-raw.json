@@ -30,7 +30,7 @@
         "isGravlevVehicle": false,
         "incomingDamageModifierToAI": 1.0,
         "emergencyStatusDamageThreshold": 0.1,
-        "crewSize": 1,
+        "crewSize": 3,
         "vehicleName": "@vehicle_NameDRAK_Cutlass_Blue",
         "vehicleDescription": "@vehicle_DescDRAK_Cutlass_Blue",
         "vehicleCareer": "@vehicle_focus_multirole",
@@ -439,7 +439,7 @@
               },
               {
                 "itemPortName": "hardpoint_turret",
-                "entityClassName": "DRAK_Cutlass_SCItem_Turret_Blue",
+                "entityClassName": "DRAK_Cutlass_SCItem_Turret_Black",
                 "loadout": {
                   "SItemPortLoadoutManualParams": {
                     "entries": [
@@ -648,11 +648,6 @@
                 "loadout": {}
               },
               {
-                "itemPortName": "hardpoint_bed",
-                "entityClassName": "Bed_Bunk_DRAK_Cutlass",
-                "loadout": {}
-              },
-              {
                 "itemPortName": "hardpoint_Side_IntDoor_Left",
                 "entityClassName": "DRAK_Cutlass_Blue_Airlock_Door",
                 "loadout": {}
@@ -714,17 +709,17 @@
               },
               {
                 "itemPortName": "hardpoint_controller_fuel",
-                "entityClassName": "",
+                "entityClassName": "Controller_Fuel",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_fuel_port",
-                "entityClassName": "",
+                "entityClassName": "DockingTube_Fuel_Ports_DRAK_Cutlass",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_air_traffic_controller",
-                "entityClassName": "",
+                "entityClassName": "DRAK_Cutlass_ShipATCDataManager",
                 "loadout": {}
               },
               {
@@ -735,6 +730,11 @@
               {
                 "itemPortName": "hardpoint_personal_storage_02",
                 "entityClassName": "PersonalStorage_DRAK_Cutlass_02",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair_hang",
+                "entityClassName": "",
                 "loadout": {}
               }
             ]
@@ -748,7 +748,7 @@
           "Size": 3,
           "Grade": 1,
           "Manufacturer": "6116471c-891d-4830-8968-650b6deafc00",
-          "Tags": "DRAK_Cutlass_Blue",
+          "Tags": "DRAK_Cutlass_Blue Ship_Dock_Refuel",
           "RequiredTags": "",
           "DisplayType": "",
           "Localization": {
@@ -980,7 +980,7 @@
         "Parts": [
           {
             "name": "Body",
-            "damagemax": 9000.0,
+            "damagemax": 8600.0,
             "class": "AnimatedJoint",
             "Parts": [
               {
@@ -1869,6 +1869,24 @@
                     {
                       "pipeClass": "Fuel",
                       "pipe": "IntakeFuel"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_cockpit_flair_hang",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair02",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Hanging"
                     }
                   ]
                 }
@@ -2822,7 +2840,7 @@
               },
               {
                 "name": "Canopy",
-                "damageMax": 6250.0,
+                "damageMax": 6000.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint"
               },
@@ -3098,7 +3116,7 @@
           },
           {
             "name": "Tail",
-            "damagemax": 9000.0,
+            "damagemax": 8600.0,
             "class": "AnimatedJoint",
             "Parts": [
               {

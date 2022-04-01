@@ -343,16 +343,6 @@
                 "loadout": {}
               },
               {
-                "itemPortName": "hardpoint_lifesupport",
-                "entityClassName": "LFSP_Sabre",
-                "loadout": {}
-              },
-              {
-                "itemPortName": "hardpoint_avionics",
-                "entityClassName": "COMP_BEHR_S01_CSR-RP",
-                "loadout": {}
-              },
-              {
                 "itemPortName": "hardpoint_weapon_regen_pool_turrets",
                 "entityClassName": "",
                 "loadout": {}
@@ -364,16 +354,21 @@
               },
               {
                 "itemPortName": "hardpoint_controller_fuel",
-                "entityClassName": "",
+                "entityClassName": "Controller_Fuel",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_fuel_port",
-                "entityClassName": "",
+                "entityClassName": "DockingTube_Fuel_Ports_AEGS_Sabre_Raven",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_air_traffic_controller",
+                "entityClassName": "AEGS_Sabre_Raven_ShipATCDataManager",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair",
                 "entityClassName": "",
                 "loadout": {}
               },
@@ -398,8 +393,8 @@
           "Size": 2,
           "Grade": 1,
           "Manufacturer": "cf4a74bf-eb2c-462a-9b78-f7f2724c31d2",
-          "Tags": "AEGS_Sabre_Raven",
-          "RequiredTags": "Ship_Dock_Refuel",
+          "Tags": "AEGS_Sabre_Raven Ship_Dock_Refuel",
+          "RequiredTags": "",
           "DisplayType": "",
           "Localization": {
             "Name": "@vehicle_NameAEGS_Sabre_Raven",
@@ -527,6 +522,18 @@
                 "SubTypes": []
               }
             ]
+          },
+          {
+            "Name": "hardpoint_controller_missile",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": []
           }
         ]
       }
@@ -891,6 +898,24 @@
                 }
               }
             ]
+          },
+          {
+            "name": "hardpoint_cockpit_flair",
+            "damagemax": 0.0,
+            "class": "ItemPort",
+            "ItemPort": {
+              "minsize": 1,
+              "maxsize": 1,
+              "display_name": "@itemPort_port_Flair01",
+              "flags": "",
+              "requiredTags": "",
+              "Types": [
+                {
+                  "type": "Flair_Cockpit",
+                  "subtypes": "Flair_Static"
+                }
+              ]
+            }
           },
           {
             "name": "landingpad_helper",
@@ -1633,8 +1658,8 @@
                 "class": "ItemPort",
                 "detachRatio": 1.0,
                 "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
+                  "minsize": 2,
+                  "maxsize": 2,
                   "display_name": "port_NameThrustRetro02",
                   "flags": "retro right uneditable",
                   "requiredTags": "",
@@ -1667,8 +1692,8 @@
                 "class": "ItemPort",
                 "detachRatio": 1.0,
                 "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
+                  "minsize": 2,
+                  "maxsize": 2,
                   "display_name": "port_NameThrustRetro01",
                   "flags": "retro left uneditable",
                   "requiredTags": "",

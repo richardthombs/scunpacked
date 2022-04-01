@@ -344,17 +344,17 @@
               },
               {
                 "itemPortName": "hardpoint_controller_fuel",
-                "entityClassName": "",
+                "entityClassName": "Controller_Fuel",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_fuel_port",
-                "entityClassName": "",
+                "entityClassName": "DockingTube_Fuel_Ports_MISC_Razor",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_air_traffic_controller",
-                "entityClassName": "",
+                "entityClassName": "MISC_Razor_ShipATCDataManager",
                 "loadout": {}
               }
             ]
@@ -368,8 +368,8 @@
           "Size": 1,
           "Grade": 1,
           "Manufacturer": "b28a5c61-63a4-478b-8047-5fba545d5b8a",
-          "Tags": "MISC_Razor_LX",
-          "RequiredTags": "Ship_Dock_Refuel",
+          "Tags": "MISC_Razor_LX Ship_Dock_Refuel",
+          "RequiredTags": "",
           "DisplayType": "",
           "Localization": {
             "Name": "@vehicle_NameMISC_Razor_LX",
@@ -2310,6 +2310,33 @@
                       "pipe": "MainHeat"
                     }
                   ]
+                }
+              },
+              {
+                "name": "hardpoint_controller_missile",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "MissileController"
+                    }
+                  ],
+                  "ControllerDef": {
+                    "UsableDef": {
+                      "PriorityGroups": [
+                        {
+                          "itemType": "MissileLauncher"
+                        },
+                        {
+                          "itemType": "Missile"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             ],

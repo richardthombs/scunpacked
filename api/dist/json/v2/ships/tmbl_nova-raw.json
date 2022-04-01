@@ -115,17 +115,7 @@
               {
                 "itemPortName": "hardpoint_radar",
                 "entityClassName": "RADR_GRNP_S00_Prevenir",
-                "loadout": {
-                  "SItemPortLoadoutManualParams": {
-                    "entries": [
-                      {
-                        "itemPortName": "hardpoint_cockpit_radar",
-                        "entityClassName": "RADR_Display",
-                        "loadout": {}
-                      }
-                    ]
-                  }
-                }
+                "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_radar_copilot",
@@ -446,6 +436,16 @@
                 "itemPortName": "hardpoint_controller_missile",
                 "entityClassName": "Controller_Missile",
                 "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair_hang",
+                "entityClassName": "",
+                "loadout": {}
               }
             ]
           }
@@ -539,7 +539,7 @@
       },
       "SItemPortContainerComponentParams": {
         "PortFlags": "",
-        "PortTags": "",
+        "PortTags": "TMBL_Nova",
         "RequiredItemTags": "",
         "Ports": []
       }
@@ -2192,6 +2192,42 @@
                     {
                       "pipeClass": "Heat",
                       "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_cockpit_flair",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair01",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Static"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_cockpit_flair_hang",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair01",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Hanging"
                     }
                   ]
                 }

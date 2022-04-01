@@ -451,6 +451,26 @@
                 "itemPortName": "hardpoint_controller_capacitor_assignment",
                 "entityClassName": "Controller_CapacitorAssignment",
                 "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_fuel",
+                "entityClassName": "Controller_Fuel",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuel_port",
+                "entityClassName": "DockingTube_Fuel_Ports_BANU_Defender",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_air_traffic_controller",
+                "entityClassName": "BANU_Defender_ShipATCDataManager",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair_hang",
+                "entityClassName": "",
+                "loadout": {}
               }
             ]
           }
@@ -463,7 +483,7 @@
           "Size": 2,
           "Grade": 1,
           "Manufacturer": "2b5ba252-e826-4356-ac0d-8d88007ea386",
-          "Tags": "BANU_Defender",
+          "Tags": "BANU_Defender Ship_Dock_Refuel",
           "RequiredTags": "",
           "DisplayType": "",
           "Localization": {
@@ -544,9 +564,56 @@
       },
       "SItemPortContainerComponentParams": {
         "PortFlags": "",
-        "PortTags": "",
+        "PortTags": "BANU_Defender_Base",
         "RequiredItemTags": "",
-        "Ports": []
+        "Ports": [
+          {
+            "Name": "hardpoint_controller_fuel",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": []
+          },
+          {
+            "Name": "hardpoint_fuel_port",
+            "DisplayName": "",
+            "PortTags": "Ship_Dock_Refuel",
+            "RequiredPortTags": "",
+            "Flags": "dockingport1",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "DockingCollar",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_air_traffic_controller",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "AirTrafficController",
+                "SubTypes": []
+              }
+            ]
+          }
+        ]
       }
     },
     "ClassName": "BANU_Defender",
@@ -1666,6 +1733,24 @@
                 }
               },
               {
+                "name": "hardpoint_cockpit_flair_hang",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair02",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Hanging"
+                    }
+                  ]
+                }
+              },
+              {
                 "name": "hardpoint_seat_pilot",
                 "damagemax": 0.0,
                 "class": "ItemPort",
@@ -2768,7 +2853,7 @@
                   "minsize": 1,
                   "maxsize": 1,
                   "display_name": "port_NamePaint",
-                  "flags": "",
+                  "flags": "invisible",
                   "requiredTags": "Paint_Defender",
                   "Types": [
                     {

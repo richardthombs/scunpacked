@@ -231,7 +231,8 @@
                 "Radar": {
                   "DetectionLifetime": 0.0,
                   "AltitudeCeiling": 0.0,
-                  "CrossSectionOcclusion": false
+                  "CrossSectionOcclusion": false,
+                  "Signatures": []
                 },
                 "Ports": [
                   {
@@ -745,6 +746,17 @@
             }
           },
           {
+            "Name": "hardpoint_cockpit_flair_hang",
+            "Port": {
+              "PortName": "hardpoint_cockpit_flair_hang",
+              "Size": 1,
+              "Types": [
+                "Flair_Cockpit.Flair_Hanging"
+              ],
+              "Category": "UNKNOWN"
+            }
+          },
+          {
             "Name": "hardpoint_controller_door",
             "Port": {
               "PortName": "hardpoint_controller_door",
@@ -802,11 +814,11 @@
             "Name": "hardpoint_ping",
             "Port": {
               "PortName": "hardpoint_ping",
-              "Size": 1,
+              "Size": 2,
               "Loadout": "test_ping_S2",
               "InstalledItem": {
                 "ClassName": "test_ping_S2",
-                "Size": 1,
+                "Size": 2,
                 "Grade": 1,
                 "Type": "Ping.UNDEFINED",
                 "Name": "Ping",
@@ -1250,7 +1262,10 @@
                             "Size": 1,
                             "Grade": 1,
                             "Type": "WeaponAttachment.Barrel",
-                            "Name": "BEHR_BallisticRepeater_Barrel_S2"
+                            "Name": "BEHR_BallisticRepeater_Barrel_S2",
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.Barrel"
@@ -1266,7 +1281,10 @@
                             "Size": 1,
                             "Grade": 1,
                             "Type": "WeaponAttachment.FiringMechanism",
-                            "Name": "BEHR_BallisticRepeater_FiringMechanism_S2"
+                            "Name": "BEHR_BallisticRepeater_FiringMechanism_S2",
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.FiringMechanism"
@@ -1282,7 +1300,10 @@
                             "Size": 1,
                             "Grade": 1,
                             "Type": "WeaponAttachment.PowerArray",
-                            "Name": "BEHR_BallisticRepeater_PowerArray_S2"
+                            "Name": "BEHR_BallisticRepeater_PowerArray_S2",
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.PowerArray"
@@ -1298,7 +1319,10 @@
                             "Size": 1,
                             "Grade": 1,
                             "Type": "WeaponAttachment.Ventilation",
-                            "Name": "BEHR_BallisticRepeater_Ventilation_S2"
+                            "Name": "BEHR_BallisticRepeater_Ventilation_S2",
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.Ventilation"
@@ -1393,7 +1417,10 @@
                             "Size": 1,
                             "Grade": 1,
                             "Type": "WeaponAttachment.Barrel",
-                            "Name": "BEHR_BallisticRepeater_Barrel_S2"
+                            "Name": "BEHR_BallisticRepeater_Barrel_S2",
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.Barrel"
@@ -1409,7 +1436,10 @@
                             "Size": 1,
                             "Grade": 1,
                             "Type": "WeaponAttachment.FiringMechanism",
-                            "Name": "BEHR_BallisticRepeater_FiringMechanism_S2"
+                            "Name": "BEHR_BallisticRepeater_FiringMechanism_S2",
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.FiringMechanism"
@@ -1425,7 +1455,10 @@
                             "Size": 1,
                             "Grade": 1,
                             "Type": "WeaponAttachment.PowerArray",
-                            "Name": "BEHR_BallisticRepeater_PowerArray_S2"
+                            "Name": "BEHR_BallisticRepeater_PowerArray_S2",
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.PowerArray"
@@ -1441,7 +1474,10 @@
                             "Size": 1,
                             "Grade": 1,
                             "Type": "WeaponAttachment.Ventilation",
-                            "Name": "BEHR_BallisticRepeater_Ventilation_S2"
+                            "Name": "BEHR_BallisticRepeater_Ventilation_S2",
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.Ventilation"
@@ -1673,7 +1709,7 @@
                   "flightReady"
                 ],
                 "HydrogenFuelIntake": {
-                  "Rate": 52.0
+                  "Rate": 25.0
                 },
                 "PowerConnection": {
                   "PowerBase": 0.5,
@@ -1712,7 +1748,7 @@
                   "flightReady"
                 ],
                 "HydrogenFuelIntake": {
-                  "Rate": 52.0
+                  "Rate": 25.0
                 },
                 "PowerConnection": {
                   "PowerBase": 0.5,
@@ -2325,7 +2361,8 @@
                 "Radar": {
                   "DetectionLifetime": 0.0,
                   "AltitudeCeiling": 0.0,
-                  "CrossSectionOcclusion": false
+                  "CrossSectionOcclusion": false,
+                  "Signatures": []
                 },
                 "Ports": [
                   {
@@ -2685,8 +2722,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 627.912,
-                          "Energy": 3265.92
+                          "Distortion": 2400.451
                         }
                       }
                     },
@@ -2720,8 +2756,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 627.912,
-                          "Energy": 3265.92
+                          "Distortion": 2400.451
                         }
                       }
                     },
@@ -2755,8 +2790,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 627.912,
-                          "Energy": 3265.92
+                          "Distortion": 2400.451
                         }
                       }
                     },
@@ -2790,8 +2824,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 627.912,
-                          "Energy": 3265.92
+                          "Distortion": 2400.451
                         }
                       }
                     },
@@ -2870,8 +2903,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 738.72,
-                          "Energy": 2954.88
+                          "Physical": 2378.678
                         }
                       }
                     },
@@ -2905,8 +2937,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 738.72,
-                          "Energy": 2954.88
+                          "Physical": 2378.678
                         }
                       }
                     },
@@ -2940,8 +2971,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 738.72,
-                          "Energy": 2954.88
+                          "Physical": 2378.678
                         }
                       }
                     },
@@ -2975,8 +3005,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 738.72,
-                          "Energy": 2954.88
+                          "Physical": 2378.678
                         }
                       }
                     },
@@ -3047,9 +3076,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 5324742.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 6.125E-06,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 66.559275
+                      "MaxThrustFuelRate": 32.61404475
                     },
                     "Durability": {
                       "Health": 16500.0,
@@ -3105,9 +3134,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3155,9 +3184,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3205,9 +3234,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3255,9 +3284,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3304,9 +3333,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3354,9 +3383,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 3448401.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 9.1875E-06,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 43.1050125
+                      "MaxThrustFuelRate": 31.6821841875
                     },
                     "Durability": {
                       "Health": 16500.0,
@@ -3401,9 +3430,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 3513015.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 6.125E-06,
                       "Type": "Retro",
-                      "MaxThrustFuelRate": 43.912687500000004
+                      "MaxThrustFuelRate": 21.517216875
                     },
                     "Durability": {
                       "Health": 15250.0,
@@ -3488,9 +3517,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 5324742.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 6.125E-06,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 66.559275
+                      "MaxThrustFuelRate": 32.61404475
                     },
                     "Durability": {
                       "Health": 16500.0,
@@ -3536,9 +3565,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3586,9 +3615,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3636,9 +3665,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3685,9 +3714,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3735,9 +3764,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3785,9 +3814,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 3448401.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 9.1875E-06,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 43.1050125
+                      "MaxThrustFuelRate": 31.6821841875
                     },
                     "Durability": {
                       "Health": 16500.0,
@@ -3843,9 +3872,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 3513015.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 6.125E-06,
                       "Type": "Retro",
-                      "MaxThrustFuelRate": 43.912687500000004
+                      "MaxThrustFuelRate": 21.517216875
                     },
                     "Durability": {
                       "Health": 15250.0,
@@ -3892,12 +3921,12 @@
               "PortName": "hardpoint_weapon_locker_sentinel",
               "Size": 1,
               "Types": [
-                "Usable"
+                "Door"
               ],
               "Flags": [
                 "uneditable"
               ],
-              "Category": "Usables",
+              "Category": "Doors",
               "Uneditable": true
             }
           },
@@ -4012,12 +4041,12 @@
               "PortName": "hardpoint_weapon_locker_harbinger",
               "Size": 1,
               "Types": [
-                "Usable"
+                "Door"
               ],
               "Flags": [
                 "uneditable"
               ],
-              "Category": "Usables",
+              "Category": "Doors",
               "Uneditable": true
             }
           },
@@ -4027,12 +4056,12 @@
               "PortName": "hardpoint_weapon_locker_warden",
               "Size": 1,
               "Types": [
-                "Usable"
+                "Door"
               ],
               "Flags": [
                 "uneditable"
               ],
-              "Category": "Usables",
+              "Category": "Doors",
               "Uneditable": true
             }
           },

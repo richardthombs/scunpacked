@@ -26,7 +26,7 @@
         "isGravlevVehicle": false,
         "incomingDamageModifierToAI": 1.0,
         "emergencyStatusDamageThreshold": 0.25,
-        "crewSize": 2,
+        "crewSize": 1,
         "vehicleName": "@vehicle_NameANVL_Spartan",
         "vehicleDescription": "@vehicle_DescANVL_Spartan",
         "vehicleCareer": "@vehicle_focus_ground",
@@ -281,6 +281,16 @@
               {
                 "itemPortName": "hardpoint_personal_storage",
                 "entityClassName": "PersonalStorage_SPARTAN",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair_hang",
+                "entityClassName": "",
                 "loadout": {}
               }
             ]
@@ -1268,6 +1278,49 @@
                     }
                   ]
                 }
+              },
+              {
+                "name": "WheelFrontLeft01DmgGroup",
+                "damageMax": 1.0,
+                "damagemax": 0.0,
+                "class": "AnimatedJoint",
+                "detachRatio": 1.0
+              },
+              {
+                "name": "hardpoint_cockpit_flair",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair01",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Static"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_cockpit_flair_hang",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair01",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Hanging"
+                    }
+                  ]
+                }
               }
             ],
             "DamageBehaviors": [
@@ -1537,6 +1590,51 @@
             "class": "MassBox"
           },
           {
+            "name": "hardpoint_wheel_left01",
+            "mass": "80",
+            "damagemax": 1700.0,
+            "class": "SubPartWheel",
+            "detachRatio": 1.0,
+            "DamageBehaviors": [
+              {
+                "class": "DetachPart",
+                "damageRatioMin": 1.0,
+                "DetachPart": [
+                  {
+                    "name": "hardpoint_spindle_left01",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  },
+                  {
+                    "name": "hardpoint_piston_left01",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  },
+                  {
+                    "name": "hardpoint_arm_lower_left01",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  },
+                  {
+                    "name": "hardpoint_piston_lower_left01",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  },
+                  {
+                    "name": "hardpoint_arm_upper_left01",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  },
+                  {
+                    "name": "hardpoint_drive_shaft_left01",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "name": "hardpoint_wheel_left03",
             "mass": "80",
             "damagemax": 1700.0,
@@ -1619,141 +1717,6 @@
                   },
                   {
                     "name": "hardpoint_drive_shaft_left04",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "name": "hardpoint_wheel_right03",
-            "mass": "80",
-            "damagemax": 1700.0,
-            "class": "SubPartWheel",
-            "detachRatio": 1.0,
-            "DamageBehaviors": [
-              {
-                "class": "DetachPart",
-                "damageRatioMin": 1.0,
-                "DetachPart": [
-                  {
-                    "name": "hardpoint_spindle_right03",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  },
-                  {
-                    "name": "hardpoint_drive_shaft_right03",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  },
-                  {
-                    "name": "hardpoint_arm_lower_right03",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  },
-                  {
-                    "name": "hardpoint_piston_lower_right03",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  },
-                  {
-                    "name": "hardpoint_arm_upper_right03",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  },
-                  {
-                    "name": "hardpoint_piston_right03",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "name": "hardpoint_wheel_right04",
-            "mass": "80",
-            "damagemax": 1700.0,
-            "class": "SubPartWheel",
-            "detachRatio": 1.0,
-            "DamageBehaviors": [
-              {
-                "class": "DetachPart",
-                "damageRatioMin": 1.0,
-                "DetachPart": [
-                  {
-                    "name": "hardpoint_spindle_right04",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  },
-                  {
-                    "name": "hardpoint_drive_shaft_right04",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  },
-                  {
-                    "name": "hardpoint_arm_lower_right04",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  },
-                  {
-                    "name": "hardpoint_piston_lower_right04",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  },
-                  {
-                    "name": "hardpoint_arm_upper_right04",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  },
-                  {
-                    "name": "hardpoint_piston_right04",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "name": "hardpoint_wheel_left01",
-            "mass": "80",
-            "damagemax": 1700.0,
-            "class": "SubPartWheel",
-            "detachRatio": 1.0,
-            "DamageBehaviors": [
-              {
-                "class": "DetachPart",
-                "damageRatioMin": 1.0,
-                "DetachPart": [
-                  {
-                    "name": "hardpoint_spindle_left01",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  },
-                  {
-                    "name": "hardpoint_piston_left01",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  },
-                  {
-                    "name": "hardpoint_arm_lower_left01",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  },
-                  {
-                    "name": "hardpoint_piston_lower_left01",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  },
-                  {
-                    "name": "hardpoint_arm_upper_left01",
-                    "damagemax": 0.0,
-                    "Probability": 0.2
-                  },
-                  {
-                    "name": "hardpoint_drive_shaft_left01",
                     "damagemax": 0.0,
                     "Probability": 0.2
                   }
@@ -1897,172 +1860,94 @@
             ]
           },
           {
-            "name": "hardpoint_arm_upper_left01",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
+            "name": "hardpoint_wheel_right03",
+            "mass": "80",
+            "damagemax": 1700.0,
+            "class": "SubPartWheel",
+            "detachRatio": 1.0,
+            "DamageBehaviors": [
+              {
+                "class": "DetachPart",
+                "damageRatioMin": 1.0,
+                "DetachPart": [
+                  {
+                    "name": "hardpoint_spindle_right03",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  },
+                  {
+                    "name": "hardpoint_drive_shaft_right03",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  },
+                  {
+                    "name": "hardpoint_arm_lower_right03",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  },
+                  {
+                    "name": "hardpoint_piston_lower_right03",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  },
+                  {
+                    "name": "hardpoint_arm_upper_right03",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  },
+                  {
+                    "name": "hardpoint_piston_right03",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  }
+                ]
+              }
+            ]
           },
           {
-            "name": "hardpoint_arm_upper_left02",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_arm_upper_left03",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_arm_upper_left04",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_arm_upper_right01",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_arm_upper_right02",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_arm_upper_right03",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_arm_upper_right04",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_piston_left01_target",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_piston_left02_target",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_piston_left03_target",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_piston_left04_target",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_piston_right01_target",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_piston_right02_target",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_piston_right03_target",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_piston_right04_target",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_spindle_left01",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_spindle_left02",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_spindle_left03",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_spindle_left04",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_spindle_right01",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_spindle_right02",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_spindle_right03",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
-          },
-          {
-            "name": "hardpoint_spindle_right04",
-            "mass": "25",
-            "damagemax": 0.0,
-            "class": "SuspensionPart",
-            "detachRatio": 1.0
+            "name": "hardpoint_wheel_right04",
+            "mass": "80",
+            "damagemax": 1700.0,
+            "class": "SubPartWheel",
+            "detachRatio": 1.0,
+            "DamageBehaviors": [
+              {
+                "class": "DetachPart",
+                "damageRatioMin": 1.0,
+                "DetachPart": [
+                  {
+                    "name": "hardpoint_spindle_right04",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  },
+                  {
+                    "name": "hardpoint_drive_shaft_right04",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  },
+                  {
+                    "name": "hardpoint_arm_lower_right04",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  },
+                  {
+                    "name": "hardpoint_piston_lower_right04",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  },
+                  {
+                    "name": "hardpoint_arm_upper_right04",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  },
+                  {
+                    "name": "hardpoint_piston_right04",
+                    "damagemax": 0.0,
+                    "Probability": 0.2
+                  }
+                ]
+              }
+            ]
           },
           {
             "name": "hardpoint_arm_lower_left01",
@@ -2121,56 +2006,56 @@
             "detachRatio": 1.0
           },
           {
-            "name": "hardpoint_piston_left01",
+            "name": "hardpoint_arm_upper_left01",
             "mass": "25",
             "damagemax": 0.0,
             "class": "SuspensionPart",
             "detachRatio": 1.0
           },
           {
-            "name": "hardpoint_piston_left02",
+            "name": "hardpoint_arm_upper_left02",
             "mass": "25",
             "damagemax": 0.0,
             "class": "SuspensionPart",
             "detachRatio": 1.0
           },
           {
-            "name": "hardpoint_piston_left03",
+            "name": "hardpoint_arm_upper_left03",
             "mass": "25",
             "damagemax": 0.0,
             "class": "SuspensionPart",
             "detachRatio": 1.0
           },
           {
-            "name": "hardpoint_piston_left04",
+            "name": "hardpoint_arm_upper_left04",
             "mass": "25",
             "damagemax": 0.0,
             "class": "SuspensionPart",
             "detachRatio": 1.0
           },
           {
-            "name": "hardpoint_piston_right01",
+            "name": "hardpoint_arm_upper_right01",
             "mass": "25",
             "damagemax": 0.0,
             "class": "SuspensionPart",
             "detachRatio": 1.0
           },
           {
-            "name": "hardpoint_piston_right02",
+            "name": "hardpoint_arm_upper_right02",
             "mass": "25",
             "damagemax": 0.0,
             "class": "SuspensionPart",
             "detachRatio": 1.0
           },
           {
-            "name": "hardpoint_piston_right03",
+            "name": "hardpoint_arm_upper_right03",
             "mass": "25",
             "damagemax": 0.0,
             "class": "SuspensionPart",
             "detachRatio": 1.0
           },
           {
-            "name": "hardpoint_piston_right04",
+            "name": "hardpoint_arm_upper_right04",
             "mass": "25",
             "damagemax": 0.0,
             "class": "SuspensionPart",
@@ -2233,6 +2118,69 @@
             "detachRatio": 1.0
           },
           {
+            "name": "hardpoint_piston_left01",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_piston_left01_target",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_piston_left02",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_piston_left02_target",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_piston_left03",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_piston_left03_target",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_piston_left04",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_piston_left04_target",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_piston_right04_target",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
             "name": "hardpoint_piston_lower_left01",
             "mass": "25",
             "damagemax": 0.0,
@@ -2283,6 +2231,111 @@
           },
           {
             "name": "hardpoint_piston_lower_right04",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_piston_right01",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_piston_right02",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_piston_right03",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_piston_right04",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_spindle_left01",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_spindle_left02",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_spindle_left03",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_spindle_left04",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_spindle_right01",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_spindle_right02",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_spindle_right03",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_spindle_right04",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_piston_right03_target",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_piston_right02_target",
+            "mass": "25",
+            "damagemax": 0.0,
+            "class": "SuspensionPart",
+            "detachRatio": 1.0
+          },
+          {
+            "name": "hardpoint_piston_right01_target",
             "mass": "25",
             "damagemax": 0.0,
             "class": "SuspensionPart",

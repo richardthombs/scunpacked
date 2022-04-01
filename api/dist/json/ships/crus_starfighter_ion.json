@@ -9,6 +9,12 @@
       "tags": [
         {
           "value": "3ae0a7ab-5ba6-48d8-aad2-93ff7bc64598"
+        },
+        {
+          "value": "8fdbe5cf-d822-4e6c-85a6-02de0190130c"
+        },
+        {
+          "value": "2803885d-5cff-401e-8790-8f85d6c1a29c"
         }
       ],
       "Components": {
@@ -468,6 +474,26 @@
                   "itemPortName": "hardpoint_gun_rack",
                   "entityClassName": "Weapon_Rack_CRUS_Starfighter",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_fuel",
+                  "entityClassName": "Controller_Fuel",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_fuel_port",
+                  "entityClassName": "DockingTube_Fuel_Ports_CRUS_Starfighter",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_air_traffic_controller",
+                  "entityClassName": "CRUS_Starfighter_ShipATCDataManager",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_cockpit_flair",
+                  "entityClassName": "",
+                  "loadout": {}
                 }
               ]
             }
@@ -480,7 +506,7 @@
             "Size": 3,
             "Grade": 1,
             "Manufacturer": "63685f47-b0cc-4ebe-8f16-72793a5cd6e0",
-            "Tags": "CRUS_Starfighter_Ion",
+            "Tags": "CRUS_Starfighter_Ion Ship_Dock_Refuel",
             "RequiredTags": "",
             "DisplayType": "",
             "Localization": {
@@ -563,7 +589,54 @@
           "PortFlags": "",
           "PortTags": "",
           "RequiredItemTags": "",
-          "Ports": []
+          "Ports": [
+            {
+              "Name": "hardpoint_controller_fuel",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": []
+            },
+            {
+              "Name": "hardpoint_fuel_port",
+              "DisplayName": "",
+              "PortTags": "Ship_Dock_Refuel CRUS_Starfighter_Base",
+              "RequiredPortTags": "",
+              "Flags": "dockingport1",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "DockingCollar",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_air_traffic_controller",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "AirTrafficController",
+                  "SubTypes": []
+                }
+              ]
+            }
+          ]
         }
       },
       "ClassName": "CRUS_Starfighter_Ion",
@@ -1346,6 +1419,24 @@
                       {
                         "pipeClass": "Heat",
                         "pipe": "MainHeat"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_cockpit_flair",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "@itemPort_port_Flair01",
+                    "flags": "",
+                    "requiredTags": "",
+                    "Types": [
+                      {
+                        "type": "Flair_Cockpit",
+                        "subtypes": "Flair_Static"
                       }
                     ]
                   }

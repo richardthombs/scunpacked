@@ -366,22 +366,22 @@
                 }
               },
               {
-                "itemPortName": "hardpoint_controller_missile",
-                "entityClassName": "Controller_Missile",
-                "loadout": {}
-              },
-              {
                 "itemPortName": "hardpoint_controller_fuel",
-                "entityClassName": "",
+                "entityClassName": "Controller_Fuel",
                 "loadout": {}
               },
               {
-                "itemPortName": "",
-                "entityClassName": "",
+                "itemPortName": "hardpoint_fuel_port",
+                "entityClassName": "DockingTube_Fuel_Ports_ANVL_Pisces_Expedition",
                 "loadout": {}
               },
               {
-                "itemPortName": "",
+                "itemPortName": "hardpoint_air_traffic_controller",
+                "entityClassName": "ANVL_Pisces_Expedition_ShipATCDataManager",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair",
                 "entityClassName": "",
                 "loadout": {}
               },
@@ -426,8 +426,8 @@
           "Size": 2,
           "Grade": 1,
           "Manufacturer": "b922abdb-0634-4358-9eee-60118f3cf3a7",
-          "Tags": "ANVL_Pisces_Expedition",
-          "RequiredTags": "Ship_Dock_Refuel",
+          "Tags": "ANVL_Pisces_Expedition Ship_Dock_Refuel",
+          "RequiredTags": "",
           "DisplayType": "",
           "Localization": {
             "Name": "@vehicle_NameANVL_Pisces_C8X_Expedition",
@@ -2020,6 +2020,24 @@
                 }
               },
               {
+                "name": "hardpoint_cockpit_flair",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair01",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Static"
+                    }
+                  ]
+                }
+              },
+              {
                 "name": "hardpoint_cockpit_selfDestruct",
                 "damagemax": 0.0,
                 "class": "ItemPort",
@@ -2617,6 +2635,32 @@
             "idRef": "modPart_gun_c8x_left_wing",
             "name": "skipPart",
             "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "C8R",
+        "patchFile": "",
+        "Elems": [
+          {
+            "idRef": "modPart_cargo_right01",
+            "name": "skipPart",
+            "value": "1"
+          },
+          {
+            "idRef": "modPart_cargo_right02",
+            "name": "skipPart",
+            "value": "1"
+          },
+          {
+            "idRef": "modPart_cargo_left01",
+            "name": "skipPart",
+            "value": "1"
+          },
+          {
+            "idRef": "modPart_cargo_left02",
+            "name": "skipPart",
+            "value": "1"
           }
         ]
       }

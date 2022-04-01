@@ -84,9 +84,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 2089736.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 9.3625E-06,
                   "Type": "Retro",
-                  "MaxThrustFuelRate": 26.1217
+                  "MaxThrustFuelRate": 19.565153300000002
                 },
                 "Durability": {
                   "Health": 5240.0,
@@ -131,9 +131,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 2089736.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 9.3625E-06,
                   "Type": "Retro",
-                  "MaxThrustFuelRate": 26.1217
+                  "MaxThrustFuelRate": 19.565153300000002
                 },
                 "Durability": {
                   "Health": 5240.0,
@@ -295,11 +295,14 @@
                 "Size": 1,
                 "Grade": 1,
                 "Type": "TurretBase.MannedTurret",
-                "Name": "ANVL_Terrapin_Support_Turret",
+                "Name": "Manned Turret",
                 "Manufacturer": {
                   "Code": "ANVL",
                   "Name": "Anvil Aerospace"
                 },
+                "Tags": [
+                  "ANVL_Terrapin_Base"
+                ],
                 "Durability": {
                   "Health": 2000.0,
                   "Lifetime": 25.0
@@ -375,7 +378,7 @@
                   "flightReady"
                 ],
                 "HydrogenFuelIntake": {
-                  "Rate": 16.5
+                  "Rate": 9.0
                 },
                 "PowerConnection": {
                   "PowerBase": 0.5,
@@ -435,9 +438,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1756797.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 9.3625E-06,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 21.9599625
+                      "MaxThrustFuelRate": 16.4480119125
                     },
                     "Durability": {
                       "Health": 6000.0,
@@ -485,9 +488,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 1153023.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 14.4127875
+                  "MaxThrustFuelRate": 3.603196875
                 },
                 "Durability": {
                   "Health": 4800.0,
@@ -531,9 +534,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 1153023.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 14.4127875
+                  "MaxThrustFuelRate": 3.603196875
                 },
                 "Durability": {
                   "Health": 4800.0,
@@ -579,7 +582,7 @@
                   "flightReady"
                 ],
                 "HydrogenFuelIntake": {
-                  "Rate": 16.5
+                  "Rate": 9.0
                 },
                 "PowerConnection": {
                   "PowerBase": 0.5,
@@ -618,7 +621,7 @@
                   "flightReady"
                 ],
                 "HydrogenFuelTank": {
-                  "Capacity": 227500.0
+                  "Capacity": 522500.0
                 }
               },
               "Types": [
@@ -648,7 +651,7 @@
                   "flightReady"
                 ],
                 "HydrogenFuelTank": {
-                  "Capacity": 227500.0
+                  "Capacity": 522500.0
                 }
               },
               "Types": [
@@ -703,9 +706,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1756797.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 9.3625E-06,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 21.9599625
+                      "MaxThrustFuelRate": 16.4480119125
                     },
                     "Durability": {
                       "Health": 6000.0,
@@ -1300,7 +1303,8 @@
                 "Radar": {
                   "DetectionLifetime": 0.0,
                   "AltitudeCeiling": 0.0,
-                  "CrossSectionOcclusion": false
+                  "CrossSectionOcclusion": false,
+                  "Signatures": []
                 },
                 "Ports": [
                   {
@@ -1745,9 +1749,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 1153023.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 14.4127875
+                  "MaxThrustFuelRate": 3.603196875
                 },
                 "Durability": {
                   "Health": 4800.0,
@@ -1791,9 +1795,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 1153023.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 14.4127875
+                  "MaxThrustFuelRate": 3.603196875
                 },
                 "Durability": {
                   "Health": 4800.0,
@@ -1817,6 +1821,28 @@
               ],
               "Category": "Maneuvering thrusters",
               "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_cockpit_flair",
+            "Port": {
+              "PortName": "hardpoint_cockpit_flair",
+              "Size": 1,
+              "Types": [
+                "Flair_Cockpit.Flair_Static"
+              ],
+              "Category": "UNKNOWN"
+            }
+          },
+          {
+            "Name": "hardpoint_cockpit_flair_hang",
+            "Port": {
+              "PortName": "hardpoint_cockpit_flair_hang",
+              "Size": 1,
+              "Types": [
+                "Flair_Cockpit.Flair_Hanging"
+              ],
+              "Category": "UNKNOWN"
             }
           },
           {
@@ -1896,7 +1922,7 @@
                   },
                   {
                     "PortName": "Display_HUD",
-                    "Size": 0,
+                    "Size": 1,
                     "Loadout": "Projector_HUD_Generic",
                     "InstalledItem": {
                       "ClassName": "Projector_HUD_Generic",
@@ -1990,9 +2016,7 @@
                           "Range": 1540.0000000000002,
                           "Size": 1.0,
                           "Capacity": 0.0,
-                          "ImpactDamage": {
-                            "Distortion": 1.0
-                          },
+                          "ImpactDamage": {},
                           "DetonationDamage": {
                             "Distortion": 42.0
                           }
@@ -2006,10 +2030,10 @@
                             "AmmoPerShot": 1.0,
                             "PelletsPerShot": 1.0,
                             "DamagePerShot": {
-                              "Distortion": 43.0
+                              "Distortion": 42.0
                             },
                             "DamagePerSecond": {
-                              "Distortion": 211.41666666666669
+                              "Distortion": 206.5
                             }
                           }
                         ],
@@ -2025,9 +2049,7 @@
                         "Range": 1540.0000000000002,
                         "Size": 1.0,
                         "Capacity": 0.0,
-                        "ImpactDamage": {
-                          "Distortion": 1.0
-                        },
+                        "ImpactDamage": {},
                         "DetonationDamage": {
                           "Distortion": 42.0
                         }
@@ -2046,7 +2068,10 @@
                             "Manufacturer": {
                               "Code": "ASAD",
                               "Name": "[PH] PH Associated Science and Development"
-                            }
+                            },
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.Barrel"
@@ -2066,7 +2091,10 @@
                             "Manufacturer": {
                               "Code": "ASAD",
                               "Name": "[PH] PH Associated Science and Development"
-                            }
+                            },
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.FiringMechanism"
@@ -2086,7 +2114,10 @@
                             "Manufacturer": {
                               "Code": "ASAD",
                               "Name": "[PH] PH Associated Science and Development"
-                            }
+                            },
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.PowerArray"
@@ -2106,7 +2137,10 @@
                             "Manufacturer": {
                               "Code": "ASAD",
                               "Name": "[PH] PH Associated Science and Development"
-                            }
+                            },
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.Ventilation"
@@ -2160,9 +2194,7 @@
                           "Range": 1540.0000000000002,
                           "Size": 1.0,
                           "Capacity": 0.0,
-                          "ImpactDamage": {
-                            "Distortion": 1.0
-                          },
+                          "ImpactDamage": {},
                           "DetonationDamage": {
                             "Distortion": 42.0
                           }
@@ -2176,10 +2208,10 @@
                             "AmmoPerShot": 1.0,
                             "PelletsPerShot": 1.0,
                             "DamagePerShot": {
-                              "Distortion": 43.0
+                              "Distortion": 42.0
                             },
                             "DamagePerSecond": {
-                              "Distortion": 211.41666666666669
+                              "Distortion": 206.5
                             }
                           }
                         ],
@@ -2195,9 +2227,7 @@
                         "Range": 1540.0000000000002,
                         "Size": 1.0,
                         "Capacity": 0.0,
-                        "ImpactDamage": {
-                          "Distortion": 1.0
-                        },
+                        "ImpactDamage": {},
                         "DetonationDamage": {
                           "Distortion": 42.0
                         }
@@ -2216,7 +2246,10 @@
                             "Manufacturer": {
                               "Code": "ASAD",
                               "Name": "[PH] PH Associated Science and Development"
-                            }
+                            },
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.Barrel"
@@ -2236,7 +2269,10 @@
                             "Manufacturer": {
                               "Code": "ASAD",
                               "Name": "[PH] PH Associated Science and Development"
-                            }
+                            },
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.FiringMechanism"
@@ -2256,7 +2292,10 @@
                             "Manufacturer": {
                               "Code": "ASAD",
                               "Name": "[PH] PH Associated Science and Development"
-                            }
+                            },
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.PowerArray"
@@ -2276,7 +2315,10 @@
                             "Manufacturer": {
                               "Code": "ASAD",
                               "Name": "[PH] PH Associated Science and Development"
-                            }
+                            },
+                            "Tags": [
+                              "uneditable"
+                            ]
                           },
                           "Types": [
                             "WeaponAttachment.Ventilation"
@@ -2333,7 +2375,8 @@
                 "Radar": {
                   "DetectionLifetime": 0.0,
                   "AltitudeCeiling": 0.0,
-                  "CrossSectionOcclusion": false
+                  "CrossSectionOcclusion": false,
+                  "Signatures": []
                 },
                 "Ports": [
                   {
@@ -2461,9 +2504,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 1270704.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 15.8838
+                  "MaxThrustFuelRate": 3.97095
                 },
                 "Durability": {
                   "Health": 4800.0,
@@ -2513,9 +2556,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1153023.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 14.4127875
+                      "MaxThrustFuelRate": 3.603196875
                     },
                     "Durability": {
                       "Health": 4800.0,
@@ -2569,9 +2612,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1756797.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 9.3625E-06,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 21.9599625
+                      "MaxThrustFuelRate": 16.4480119125
                     },
                     "Durability": {
                       "Health": 6000.0,
@@ -2621,9 +2664,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 1270704.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 15.8838
+                  "MaxThrustFuelRate": 3.97095
                 },
                 "Durability": {
                   "Health": 4800.0,
@@ -2683,9 +2726,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1153023.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 14.4127875
+                      "MaxThrustFuelRate": 3.603196875
                     },
                     "Durability": {
                       "Health": 4800.0,
@@ -2729,9 +2772,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1756797.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 9.3625E-06,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 21.9599625
+                      "MaxThrustFuelRate": 16.4480119125
                     },
                     "Durability": {
                       "Health": 6000.0,
@@ -2879,9 +2922,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 1153023.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 14.4127875
+                  "MaxThrustFuelRate": 3.603196875
                 },
                 "Durability": {
                   "Health": 4800.0,
@@ -2925,9 +2968,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 1153023.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 14.4127875
+                  "MaxThrustFuelRate": 3.603196875
                 },
                 "Durability": {
                   "Health": 4800.0,

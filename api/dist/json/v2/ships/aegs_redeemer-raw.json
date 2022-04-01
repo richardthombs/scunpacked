@@ -36,12 +36,12 @@
               },
               {
                 "itemPortName": "hardpoint_battery_left",
-                "entityClassName": "test_battery",
+                "entityClassName": "",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_battery_right",
-                "entityClassName": "test_battery",
+                "entityClassName": "",
                 "loadout": {}
               },
               {
@@ -721,7 +721,7 @@
               },
               {
                 "itemPortName": "hardpoint_fuel_port",
-                "entityClassName": "",
+                "entityClassName": "DockingTube_Fuel_Ports_AEGS_Redeemer",
                 "loadout": {}
               },
               {
@@ -748,6 +748,16 @@
                 "itemPortName": "hardpoint_storage_4",
                 "entityClassName": "PersonalStorage_Redeemer_04",
                 "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair_hang",
+                "entityClassName": "",
+                "loadout": {}
               }
             ]
           }
@@ -760,8 +770,8 @@
           "Size": 4,
           "Grade": 1,
           "Manufacturer": "cf4a74bf-eb2c-462a-9b78-f7f2724c31d2",
-          "Tags": "AEGS_Redeemer",
-          "RequiredTags": "Ship_Dock_Refuel",
+          "Tags": "AEGS_Redeemer Ship_Dock_Refuel",
+          "RequiredTags": "",
           "DisplayType": "",
           "Localization": {
             "Name": "@vehicle_NameAEGS_Redeemer",
@@ -955,7 +965,7 @@
         "Parts": [
           {
             "name": "Body",
-            "damageMax": 20000.0,
+            "damageMax": 45000.0,
             "damagemax": 0.0,
             "class": "AnimatedJoint",
             "detachRatio": 1.0,
@@ -1664,7 +1674,7 @@
                   "flags": "uneditable",
                   "Types": [
                     {
-                      "type": "Usable",
+                      "type": "Door",
                       "subtypes": ""
                     }
                   ]
@@ -1681,15 +1691,15 @@
                   "flags": "uneditable",
                   "Types": [
                     {
-                      "type": "Usable"
+                      "type": "Seat"
                     }
                   ],
                   "ControllerDef": {
-                    "controllableTags": "pilotBed",
+                    "controllableTags": "escpod_ll",
                     "UsableDef": {
                       "PriorityGroups": [
                         {
-                          "itemType": "Usable",
+                          "itemType": "Seat",
                           "defaultPriority": "no_control"
                         }
                       ]
@@ -1708,15 +1718,15 @@
                   "flags": "uneditable",
                   "Types": [
                     {
-                      "type": "Usable"
+                      "type": "Seat"
                     }
                   ],
                   "ControllerDef": {
-                    "controllableTags": "pilotBed",
+                    "controllableTags": "escpod_lr",
                     "UsableDef": {
                       "PriorityGroups": [
                         {
-                          "itemType": "Usable",
+                          "itemType": "Seat",
                           "defaultPriority": "no_control"
                         }
                       ]
@@ -1735,15 +1745,15 @@
                   "flags": "uneditable",
                   "Types": [
                     {
-                      "type": "Usable"
+                      "type": "Seat"
                     }
                   ],
                   "ControllerDef": {
-                    "controllableTags": "pilotBed",
+                    "controllableTags": "escpod_ul",
                     "UsableDef": {
                       "PriorityGroups": [
                         {
-                          "itemType": "Usable",
+                          "itemType": "Seat",
                           "defaultPriority": "no_control"
                         }
                       ]
@@ -1762,15 +1772,15 @@
                   "flags": "uneditable",
                   "Types": [
                     {
-                      "type": "Usable"
+                      "type": "Seat"
                     }
                   ],
                   "ControllerDef": {
-                    "controllableTags": "pilotBed",
+                    "controllableTags": "escpod_ur",
                     "UsableDef": {
                       "PriorityGroups": [
                         {
-                          "itemType": "Usable",
+                          "itemType": "Seat",
                           "defaultPriority": "no_control"
                         }
                       ]
@@ -1780,7 +1790,7 @@
               },
               {
                 "name": "Nose",
-                "damageMax": 20000.0,
+                "damageMax": 7000.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
                 "Parts": [
@@ -2115,12 +2125,11 @@
                         }
                       ],
                       "ControllerDef": {
-                        "controllableTags": "pilotSeat",
+                        "controllableTags": "weapon_controller_pilot",
                         "UsableDef": {
                           "PriorityGroups": [
                             {
-                              "itemType": "Turret",
-                              "defaultPriority": "no_control"
+                              "itemType": "Turret"
                             },
                             {
                               "itemType": "WeaponGun"
@@ -2541,7 +2550,7 @@
                       "minsize": 3,
                       "maxsize": 3,
                       "display_name": "",
-                      "flags": "$uneditable AEGS_Redeemer_Turret",
+                      "flags": "$uneditable",
                       "defaultWeaponGroup": "",
                       "id": "modParemote_front_turret_remote_turret",
                       "Types": [
@@ -2860,52 +2869,6 @@
                         }
                       ]
                     }
-                  },
-                  {
-                    "name": "nose_glass",
-                    "damageMax": 200.0,
-                    "damagemax": 0.0,
-                    "class": "AnimatedJoint",
-                    "Parts": [
-                      {
-                        "name": "$lod1_nose_glass",
-                        "damageMax": 200.0,
-                        "damagemax": 0.0,
-                        "class": "AnimatedJoint"
-                      }
-                    ]
-                  },
-                  {
-                    "name": "nose_bottomwindow_glass",
-                    "damageMax": 200.0,
-                    "damagemax": 0.0,
-                    "class": "AnimatedJoint",
-                    "Parts": [
-                      {
-                        "name": "$lod1_nose_bottomwindow_glass",
-                        "damageMax": 200.0,
-                        "damagemax": 0.0,
-                        "class": "AnimatedJoint"
-                      },
-                      {
-                        "name": "$lod2_nose_bottomwindow_glass",
-                        "damageMax": 200.0,
-                        "damagemax": 0.0,
-                        "class": "AnimatedJoint"
-                      },
-                      {
-                        "name": "$lod3_nose_bottomwindow_glass",
-                        "damageMax": 200.0,
-                        "damagemax": 0.0,
-                        "class": "AnimatedJoint"
-                      },
-                      {
-                        "name": "$lod4_nose_bottomwindow_glass",
-                        "damageMax": 200.0,
-                        "damagemax": 0.0,
-                        "class": "AnimatedJoint"
-                      }
-                    ]
                   }
                 ],
                 "DamageBehaviors": [
@@ -3204,7 +3167,7 @@
                       "maxsize": 4,
                       "display_name": "port_NameWeaponRight",
                       "flags": "",
-                      "defaultWeaponGroup": "",
+                      "defaultWeaponGroup": "1",
                       "Types": [
                         {
                           "type": "Turret",
@@ -3233,6 +3196,9 @@
                           "pipe": "WeaponAmmoLoadCrew"
                         }
                       ],
+                      "ControllerDef": {
+                        "controllableTags": "pilotSeat"
+                      },
                       "Pitch": {
                         "min": -30,
                         "max": 30
@@ -3405,7 +3371,7 @@
                       "maxsize": 4,
                       "display_name": "port_NameWeaponLeft",
                       "flags": "",
-                      "defaultWeaponGroup": "",
+                      "defaultWeaponGroup": "1",
                       "Types": [
                         {
                           "type": "Turret",
@@ -3434,6 +3400,9 @@
                           "pipe": "WeaponAmmoLoadCrew"
                         }
                       ],
+                      "ControllerDef": {
+                        "controllableTags": "pilotSeat"
+                      },
                       "Pitch": {
                         "min": -30,
                         "max": 30
@@ -3511,41 +3480,8 @@
                 "damageMax": 3600.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
+                "detachRatio": 1.0,
                 "Parts": [
-                  {
-                    "name": "rudder_right",
-                    "damageMax": 1.0,
-                    "damagemax": 0.0,
-                    "class": "AnimatedJoint",
-                    "detachRatio": 250.0,
-                    "Parts": [
-                      {
-                        "name": "rudder_glass_right",
-                        "damageMax": 1.0,
-                        "damagemax": 0.0,
-                        "class": "AnimatedJoint",
-                        "detachRatio": 1.0
-                      }
-                    ],
-                    "DamageBehaviors": [
-                      {
-                        "class": "DetachPart",
-                        "damageRatioMin": 1.0,
-                        "DetachPart": [
-                          {
-                            "name": "rudder_flap_right",
-                            "damagemax": 0.0,
-                            "Probability": 0.8
-                          },
-                          {
-                            "name": "rudder_right",
-                            "damagemax": 0.0,
-                            "Probability": 1.0
-                          }
-                        ]
-                      }
-                    ]
-                  },
                   {
                     "name": "rudder_left",
                     "damageMax": 1.0,
@@ -3706,7 +3642,7 @@
                       "minsize": 3,
                       "maxsize": 3,
                       "display_name": "port_NameTurret01",
-                      "flags": "$uneditable AEGS_Redeemer_Turret",
+                      "flags": "$uneditable",
                       "id": "modParemote_rear_turret_remote_turret",
                       "Types": [
                         {
@@ -3823,52 +3759,6 @@
                     "detachRatio": 1.0
                   },
                   {
-                    "name": "tail_glass_turret",
-                    "damageMax": 1.0,
-                    "damagemax": 0.0,
-                    "class": "AnimatedJoint",
-                    "detachRatio": 1.0,
-                    "Parts": [
-                      {
-                        "name": "$lod1_tail_glass_turret",
-                        "damageMax": 1.0,
-                        "damagemax": 0.0,
-                        "class": "AnimatedJoint",
-                        "detachRatio": 1.0
-                      },
-                      {
-                        "name": "$lod2_tail_glass_turret",
-                        "damageMax": 1.0,
-                        "damagemax": 0.0,
-                        "class": "AnimatedJoint",
-                        "detachRatio": 1.0
-                      }
-                    ]
-                  },
-                  {
-                    "name": "tail_glass_top",
-                    "damageMax": 1.0,
-                    "damagemax": 0.0,
-                    "class": "AnimatedJoint",
-                    "detachRatio": 1.0,
-                    "Parts": [
-                      {
-                        "name": "$lod1_tail_glass_top",
-                        "damageMax": 1.0,
-                        "damagemax": 0.0,
-                        "class": "AnimatedJoint",
-                        "detachRatio": 1.0
-                      },
-                      {
-                        "name": "$lod2_tail_glass_top",
-                        "damageMax": 1.0,
-                        "damagemax": 0.0,
-                        "class": "AnimatedJoint",
-                        "detachRatio": 1.0
-                      }
-                    ]
-                  },
-                  {
                     "name": "tail_glass_name_front_right",
                     "damageMax": 1.0,
                     "damagemax": 0.0,
@@ -3902,6 +3792,74 @@
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0
+                  }
+                ],
+                "DamageBehaviors": [
+                  {
+                    "class": "DetachPart",
+                    "damageRatioMin": 1.0,
+                    "DetachPart": [
+                      {
+                        "name": "wing_debris_right_bottom",
+                        "damagemax": 0.0,
+                        "Probability": 0.5
+                      },
+                      {
+                        "name": "wing_debris_left_bottom",
+                        "damagemax": 0.0,
+                        "Probability": 0.5
+                      },
+                      {
+                        "name": "wing_debris_right_top",
+                        "damagemax": 0.0,
+                        "Probability": 0.5
+                      },
+                      {
+                        "name": "wing_debris_left_top",
+                        "damagemax": 0.0,
+                        "Probability": 0.5
+                      },
+                      {
+                        "name": "rudder_flap_right",
+                        "damagemax": 0.0,
+                        "Probability": 0.8
+                      },
+                      {
+                        "name": "rudder_right",
+                        "damagemax": 0.0,
+                        "Probability": 0.6
+                      },
+                      {
+                        "name": "rudder_flap_left",
+                        "damagemax": 0.0,
+                        "Probability": 0.8
+                      },
+                      {
+                        "name": "rudder_left",
+                        "damagemax": 0.0,
+                        "Probability": 0.6
+                      },
+                      {
+                        "name": "Wing_Left",
+                        "damagemax": 0.0,
+                        "Probability": 0.4
+                      },
+                      {
+                        "name": "Wing_Right",
+                        "damagemax": 0.0,
+                        "Probability": 0.4
+                      },
+                      {
+                        "name": "Tail",
+                        "damagemax": 0.0,
+                        "Probability": 1.0
+                      },
+                      {
+                        "name": "Body",
+                        "damagemax": 0.0,
+                        "Probability": 1.0
+                      }
+                    ]
                   }
                 ]
               },
@@ -3982,6 +3940,42 @@
                     {
                       "type": "Cargo",
                       "subtypes": ""
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_cockpit_flair",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair01",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Static"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_cockpit_flair_hang",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair02",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Hanging"
                     }
                   ]
                 }

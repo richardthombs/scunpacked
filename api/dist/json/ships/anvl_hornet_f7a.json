@@ -382,6 +382,31 @@
                   "itemPortName": "hardpoint_controller_capacitor_assignment",
                   "entityClassName": "Controller_CapacitorAssignment",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_controller_fuel",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_fuel_port",
+                  "entityClassName": "DockingTube_Fuel_Ports_ANVL_Hornet",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_air_traffic_controller",
+                  "entityClassName": "ANVL_Hornet_ShipATCDataManager",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_cockpit_flair",
+                  "entityClassName": "",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_cockpit_flair_hang",
+                  "entityClassName": "",
+                  "loadout": {}
                 }
               ]
             }
@@ -394,7 +419,7 @@
             "Size": 2,
             "Grade": 1,
             "Manufacturer": "b922abdb-0634-4358-9eee-60118f3cf3a7",
-            "Tags": "ANVL_Hornet_F7A",
+            "Tags": "ANVL_Hornet_F7A Ship_Dock_Refuel",
             "RequiredTags": "",
             "DisplayType": "",
             "Localization": {
@@ -477,7 +502,54 @@
           "PortFlags": "",
           "PortTags": "ANVL_Hornet_Base",
           "RequiredItemTags": "",
-          "Ports": []
+          "Ports": [
+            {
+              "Name": "hardpoint_controller_fuel",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": []
+            },
+            {
+              "Name": "hardpoint_fuel_port",
+              "DisplayName": "",
+              "PortTags": "Ship_Dock_Refuel",
+              "RequiredPortTags": "",
+              "Flags": "dockingport1",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "DockingCollar",
+                  "SubTypes": []
+                }
+              ]
+            },
+            {
+              "Name": "hardpoint_air_traffic_controller",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": [
+                {
+                  "Type": "AirTrafficController",
+                  "SubTypes": []
+                }
+              ]
+            }
+          ]
         }
       },
       "ClassName": "ANVL_Hornet_F7A",
@@ -542,7 +614,7 @@
           "class": "Animated",
           "Parts": [
             {
-              "name": "Tail",
+              "name": "tail",
               "damageMax": 475.0,
               "damagemax": 0.0,
               "class": "AnimatedJoint",
@@ -782,7 +854,7 @@
               }
             },
             {
-              "name": "Body",
+              "name": "body",
               "damageMax": 4000.0,
               "damagemax": 0.0,
               "class": "AnimatedJoint",
@@ -1672,13 +1744,13 @@
                   }
                 },
                 {
-                  "name": "Nose",
+                  "name": "nose",
                   "damageMax": 4000.0,
                   "damagemax": 0.0,
                   "class": "AnimatedJoint",
                   "Parts": [
                     {
-                      "name": "Canopy",
+                      "name": "canopy",
                       "damagemax": 0.0,
                       "class": "AnimatedJoint",
                       "detachRatio": 1.0
@@ -1705,7 +1777,7 @@
                       "ItemPort": {
                         "minsize": 1,
                         "maxsize": 3,
-                        "display_name": "port_NameWeaponNose",
+                        "display_name": "port_NameWeaponnose",
                         "flags": "front nose",
                         "defaultWeaponGroup": "1",
                         "Types": [
@@ -1755,6 +1827,42 @@
                       "damagemax": 0.0,
                       "class": "ItemPort",
                       "Parts": [
+                        {
+                          "name": "hardpoint_cockpit_flair",
+                          "damagemax": 0.0,
+                          "class": "ItemPort",
+                          "ItemPort": {
+                            "minsize": 1,
+                            "maxsize": 1,
+                            "display_name": "@itemPort_port_Flair01",
+                            "flags": "",
+                            "requiredTags": "",
+                            "Types": [
+                              {
+                                "type": "Flair_Cockpit",
+                                "subtypes": "Flair_Static"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "name": "hardpoint_cockpit_flair_hang",
+                          "damagemax": 0.0,
+                          "class": "ItemPort",
+                          "ItemPort": {
+                            "minsize": 1,
+                            "maxsize": 1,
+                            "display_name": "@itemPort_port_Flair02",
+                            "flags": "",
+                            "requiredTags": "",
+                            "Types": [
+                              {
+                                "type": "Flair_Cockpit",
+                                "subtypes": "Flair_Hanging"
+                              }
+                            ]
+                          }
+                        },
                         {
                           "name": "hardpoint_dashboard_pilot",
                           "damagemax": 0.0,
@@ -1844,7 +1952,7 @@
                           "ItemPort": {
                             "minsize": 1,
                             "maxsize": 1,
-                            "flags": "uneditable $EjectCanopy",
+                            "flags": "uneditable $Ejectcanopy",
                             "Types": [
                               {
                                 "type": "Seat"
@@ -2168,6 +2276,33 @@
                       }
                     },
                     {
+                      "name": "hardpoint_controller_missile",
+                      "damagemax": 0.0,
+                      "class": "ItemPort",
+                      "ItemPort": {
+                        "minsize": 1,
+                        "maxsize": 1,
+                        "flags": "invisible uneditable",
+                        "Types": [
+                          {
+                            "type": "MissileController"
+                          }
+                        ],
+                        "ControllerDef": {
+                          "UsableDef": {
+                            "PriorityGroups": [
+                              {
+                                "itemType": "MissileLauncher"
+                              },
+                              {
+                                "itemType": "Missile"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    {
                       "name": "hardpoint_controller_light",
                       "damagemax": 0.0,
                       "class": "ItemPort",
@@ -2249,7 +2384,7 @@
                       "damageRatioMin": 1.0,
                       "DetachPart": [
                         {
-                          "name": "Body",
+                          "name": "body",
                           "damagemax": 0.0,
                           "Probability": 0.6
                         },
@@ -2331,7 +2466,7 @@
                   "damageRatioMin": 1.0,
                   "DetachPart": [
                     {
-                      "name": "Nose",
+                      "name": "nose",
                       "damagemax": 0.0,
                       "Probability": 0.6
                     },
@@ -2507,6 +2642,11 @@
               "idRef": "modShip_Base",
               "name": "mass",
               "value": "74197.0"
+            },
+            {
+              "idRef": "modNoseWeapon",
+              "name": "minsize",
+              "value": "2"
             }
           ]
         },

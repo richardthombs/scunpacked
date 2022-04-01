@@ -361,6 +361,31 @@
                 "itemPortName": "hardpoint_controller_capacitor_assignment",
                 "entityClassName": "Controller_CapacitorAssignment",
                 "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_fuel",
+                "entityClassName": "Controller_Fuel",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuel_port",
+                "entityClassName": "DockingTube_Fuel_Ports_RSI_Aurora_CL",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_air_traffic_controller",
+                "entityClassName": "RSI_Aurora_ShipATCDataManager",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair_hang",
+                "entityClassName": "",
+                "loadout": {}
               }
             ]
           }
@@ -373,7 +398,7 @@
           "Size": 2,
           "Grade": 1,
           "Manufacturer": "093e6eba-93fa-4dad-b3dd-38966934e34e",
-          "Tags": "RSI_Aurora_CL",
+          "Tags": "RSI_Aurora_CL Ship_Dock_Refuel",
           "RequiredTags": "",
           "DisplayType": "",
           "Localization": {
@@ -456,7 +481,54 @@
         "PortFlags": "",
         "PortTags": "RSI_Aurora_Base",
         "RequiredItemTags": "",
-        "Ports": []
+        "Ports": [
+          {
+            "Name": "hardpoint_controller_fuel",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": []
+          },
+          {
+            "Name": "hardpoint_fuel_port",
+            "DisplayName": "",
+            "PortTags": "Ship_Dock_Refuel",
+            "RequiredPortTags": "",
+            "Flags": "dockingport1",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "DockingCollar",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_air_traffic_controller",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "AirTrafficController",
+                "SubTypes": []
+              }
+            ]
+          }
+        ]
       }
     },
     "ClassName": "RSI_Aurora_CL",
@@ -1421,6 +1493,42 @@
                 }
               },
               {
+                "name": "hardpoint_cockpit_flair",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair01",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Static"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_cockpit_flair_hang",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair01",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Hanging"
+                    }
+                  ]
+                }
+              },
+              {
                 "name": "Body",
                 "damageMax": 1880.0,
                 "damagemax": 0.0,
@@ -1474,8 +1582,8 @@
                         "damagemax": 0.0,
                         "class": "ItemPort",
                         "ItemPort": {
-                          "minsize": 2,
-                          "maxsize": 2,
+                          "minsize": 1,
+                          "maxsize": 1,
                           "flags": "left uneditable",
                           "Types": [
                             {
@@ -1629,8 +1737,8 @@
                         "damagemax": 0.0,
                         "class": "ItemPort",
                         "ItemPort": {
-                          "minsize": 2,
-                          "maxsize": 2,
+                          "minsize": 1,
+                          "maxsize": 1,
                           "flags": "right uneditable",
                           "Types": [
                             {

@@ -589,16 +589,26 @@
               },
               {
                 "itemPortName": "hardpoint_controller_fuel",
-                "entityClassName": "",
+                "entityClassName": "Controller_Fuel",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_fuel_port",
-                "entityClassName": "",
+                "entityClassName": "DockingTube_Fuel_Ports_CRUS_Starlifter",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_air_traffic_controller",
+                "entityClassName": "CRUS_Starlifter_ShipATCDataManager",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair_hang",
                 "entityClassName": "",
                 "loadout": {}
               }
@@ -613,8 +623,8 @@
           "Size": 5,
           "Grade": 1,
           "Manufacturer": "63685f47-b0cc-4ebe-8f16-72793a5cd6e0",
-          "Tags": "CRUS_Starlifter",
-          "RequiredTags": "Ship_Dock_Refuel",
+          "Tags": "CRUS_Starlifter Ship_Dock_Refuel",
+          "RequiredTags": "",
           "DisplayType": "",
           "Localization": {
             "Name": "@vehicle_NameCRUS_Starlifter",
@@ -3957,6 +3967,42 @@
                     }
                   },
                   {
+                    "name": "hardpoint_cockpit_flair",
+                    "damagemax": 0.0,
+                    "class": "ItemPort",
+                    "ItemPort": {
+                      "minsize": 1,
+                      "maxsize": 1,
+                      "display_name": "@itemPort_port_Flair01",
+                      "flags": "invisible",
+                      "requiredTags": "",
+                      "Types": [
+                        {
+                          "type": "Flair_Cockpit",
+                          "subtypes": "Flair_Static"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "name": "hardpoint_cockpit_flair_hang",
+                    "damagemax": 0.0,
+                    "class": "ItemPort",
+                    "ItemPort": {
+                      "minsize": 1,
+                      "maxsize": 1,
+                      "display_name": "@itemPort_port_Flair02",
+                      "flags": "invisible",
+                      "requiredTags": "",
+                      "Types": [
+                        {
+                          "type": "Flair_Cockpit",
+                          "subtypes": "Flair_Hanging"
+                        }
+                      ]
+                    }
+                  },
+                  {
                     "name": "hardpoint_seat_pilot",
                     "damagemax": 0.0,
                     "class": "ItemPort",
@@ -4094,7 +4140,7 @@
                       "flags": "uneditable",
                       "Types": [
                         {
-                          "type": "Door",
+                          "type": "Usable",
                           "subtypes": ""
                         }
                       ]
@@ -4110,7 +4156,7 @@
                       "flags": "uneditable",
                       "Types": [
                         {
-                          "type": "Door",
+                          "type": "Usable",
                           "subtypes": ""
                         }
                       ]
@@ -4126,7 +4172,7 @@
                       "flags": "uneditable",
                       "Types": [
                         {
-                          "type": "Door",
+                          "type": "Usable",
                           "subtypes": ""
                         }
                       ]
@@ -4185,7 +4231,7 @@
                       "id": "modPart_bridge_remote_turret",
                       "Types": [
                         {
-                          "type": "Misc",
+                          "type": "Turret",
                           "subtypes": ""
                         }
                       ],
@@ -4939,7 +4985,7 @@
                   "display_name": "port_NameBombRackLeft",
                   "flags": "invisible uneditable",
                   "id": "modPart_bomb_mechanism_left",
-                  "requiredTags": "$Starlifter_A2_Bomb_Rack_Right",
+                  "requiredTags": "$Starlifter_A2_Bomb_Rack_Left",
                   "Types": [
                     {
                       "type": "BombLauncher",
@@ -4975,7 +5021,7 @@
                   "display_name": "port_NameBombRackRight",
                   "flags": "invisible uneditable",
                   "id": "modPart_bomb_mechanism_right",
-                  "requiredTags": "$Starlifter_A2_Bomb_Rack_Left",
+                  "requiredTags": "$Starlifter_A2_Bomb_Rack_Right",
                   "Types": [
                     {
                       "type": "BombLauncher",
@@ -5075,7 +5121,7 @@
                   "id": "modPart_bomb_turret",
                   "Types": [
                     {
-                      "type": "Misc",
+                      "type": "Turret",
                       "subtypes": ""
                     }
                   ],

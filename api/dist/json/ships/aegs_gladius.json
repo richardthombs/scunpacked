@@ -400,16 +400,21 @@
                 },
                 {
                   "itemPortName": "hardpoint_controller_fuel",
-                  "entityClassName": "",
+                  "entityClassName": "Controller_Fuel",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_fuel_port",
-                  "entityClassName": "",
+                  "entityClassName": "DockingTube_Fuel_Ports_AEGS_Gladius",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_air_traffic_controller",
+                  "entityClassName": "AEGS_Gladius_ShipATCDataManager",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_cockpit_flair",
                   "entityClassName": "",
                   "loadout": {}
                 }
@@ -424,8 +429,8 @@
             "Size": 2,
             "Grade": 1,
             "Manufacturer": "cf4a74bf-eb2c-462a-9b78-f7f2724c31d2",
-            "Tags": "AEGS_Gladius",
-            "RequiredTags": "Ship_Dock_Refuel",
+            "Tags": "AEGS_Gladius Ship_Dock_Refuel",
+            "RequiredTags": "",
             "DisplayType": "",
             "Localization": {
               "Name": "@vehicle_NameAEGS_Gladius",
@@ -2978,6 +2983,24 @@
                         ]
                       }
                     }
+                  }
+                },
+                {
+                  "name": "hardpoint_cockpit_flair",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "@itemPort_port_Flair01",
+                    "flags": "",
+                    "requiredTags": "",
+                    "Types": [
+                      {
+                        "type": "Flair_Cockpit",
+                        "subtypes": "Flair_Static"
+                      }
+                    ]
                   }
                 },
                 {

@@ -200,7 +200,8 @@
                 "Radar": {
                   "DetectionLifetime": 0.0,
                   "AltitudeCeiling": 0.0,
-                  "CrossSectionOcclusion": false
+                  "CrossSectionOcclusion": false,
+                  "Signatures": []
                 },
                 "Ports": [
                   {
@@ -281,51 +282,6 @@
                 "uneditable"
               ],
               "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_weapon_regen_pool",
-            "Port": {
-              "PortName": "hardpoint_weapon_regen_pool",
-              "Size": 1,
-              "Loadout": "WeaponRegenPool_Crew_HeavyFighter",
-              "InstalledItem": {
-                "ClassName": "WeaponRegenPool_Crew_HeavyFighter",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "WeaponRegenPool.UNDEFINED",
-                "Name": "WeaponRegenPool_Crew_HeavyFighter",
-                "WeaponRegenPool": {
-                  "RegenFillRate": 3000.0,
-                  "AmmoLoad": 10000,
-                  "RespectsCapacitorAssignments": true
-                }
-              },
-              "Types": [
-                "WeaponRegenPool"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "Weapon regen pool",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_weapon_regen_pool_turrets",
-            "Port": {
-              "PortName": "hardpoint_weapon_regen_pool_turrets",
-              "Size": 1,
-              "Types": [
-                "WeaponRegenPool"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "Weapon regen pool",
               "Uneditable": true
             }
           },
@@ -505,30 +461,6 @@
             }
           },
           {
-            "Name": "hardpoint_controller_missile",
-            "Port": {
-              "PortName": "hardpoint_controller_missile",
-              "Size": 1,
-              "Loadout": "Controller_Missile",
-              "InstalledItem": {
-                "ClassName": "Controller_Missile",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "MissileController.UNDEFINED",
-                "Name": "MISSILES"
-              },
-              "Types": [
-                "MissileController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
             "Name": "cockpit_canopy",
             "MaximumDamage": 1500.0
           },
@@ -591,18 +523,47 @@
             }
           },
           {
-            "Name": "hardpoint_transponder",
+            "Name": "hardpoint_weapon_regen_pool",
             "Port": {
-              "PortName": "hardpoint_transponder",
+              "PortName": "hardpoint_weapon_regen_pool",
               "Size": 1,
+              "Loadout": "WeaponRegenPool_Crew_HeavyFighter",
+              "InstalledItem": {
+                "ClassName": "WeaponRegenPool_Crew_HeavyFighter",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponRegenPool.UNDEFINED",
+                "Name": "WeaponRegenPool_Crew_HeavyFighter",
+                "WeaponRegenPool": {
+                  "RegenFillRate": 3000.0,
+                  "AmmoLoad": 10000,
+                  "RespectsCapacitorAssignments": true
+                }
+              },
               "Types": [
-                "Transponder"
+                "WeaponRegenPool"
               ],
               "Flags": [
                 "invisible",
                 "uneditable"
               ],
-              "Category": "Transponders",
+              "Category": "Weapon regen pool",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_weapon_regen_pool_turrets",
+            "Port": {
+              "PortName": "hardpoint_weapon_regen_pool_turrets",
+              "Size": 1,
+              "Types": [
+                "WeaponRegenPool"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "Weapon regen pool",
               "Uneditable": true
             }
           },
@@ -641,17 +602,6 @@
         "Name": "body",
         "MaximumDamage": 2500.0,
         "Parts": [
-          {
-            "Name": "hardpoint_paint",
-            "Port": {
-              "PortName": "hardpoint_paint",
-              "Size": 1,
-              "Types": [
-                "Paints"
-              ],
-              "Category": "Paints"
-            }
-          },
           {
             "Name": "wing_left",
             "MaximumDamage": 1500.0,
@@ -796,9 +746,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 240529.9,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 3.00662375
+                      "MaxThrustFuelRate": 0.7516559375
                     },
                     "Durability": {
                       "Health": 10500.0,
@@ -846,9 +796,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 431909.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 6.55375E-06,
                       "Type": "Retro",
-                      "MaxThrustFuelRate": 5.3988625
+                      "MaxThrustFuelRate": 2.83062360875
                     },
                     "Durability": {
                       "Health": 11500.0,
@@ -895,9 +845,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 240529.9,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 3.00662375
+                      "MaxThrustFuelRate": 0.7516559375
                     },
                     "Durability": {
                       "Health": 10500.0,
@@ -937,6 +887,70 @@
                   }
                 ],
                 "PartDetachDamage": 320.0
+              },
+              {
+                "Name": "hardpoint_countermeasure_launcher_left",
+                "Port": {
+                  "PortName": "hardpoint_countermeasure_launcher_left",
+                  "Size": 1,
+                  "Loadout": "AEGS_Eclipse_CML_Flare",
+                  "InstalledItem": {
+                    "ClassName": "AEGS_Eclipse_CML_Flare",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "WeaponDefensive.CountermeasureLauncher",
+                    "Name": "Aegis Eclipse - Decoy Launcher",
+                    "Description": "[PH] Aegis Eclipse - Decoy Launcher",
+                    "Manufacturer": {
+                      "Code": "AEG",
+                      "Name": "Aegis Dynamics"
+                    },
+                    "Durability": {
+                      "Health": 1000.0
+                    },
+                    "PowerConnection": {
+                      "PowerBase": 1.0,
+                      "PowerDraw": 1.0
+                    },
+                    "Weapon": {
+                      "Ammunition": {
+                        "Speed": 65.0,
+                        "Range": 520.0,
+                        "Size": 0.0,
+                        "Capacity": 48.0,
+                        "ImpactDamage": {}
+                      },
+                      "Modes": [
+                        {
+                          "Name": "Burst",
+                          "LocalisedName": "[BURST]",
+                          "RoundsPerMinute": 450.0,
+                          "FireType": "burst",
+                          "AmmoPerShot": 1.0,
+                          "PelletsPerShot": 1.0,
+                          "DamagePerShot": {},
+                          "DamagePerSecond": {}
+                        }
+                      ]
+                    },
+                    "Ammunition": {
+                      "Speed": 65.0,
+                      "Range": 520.0,
+                      "Size": 0.0,
+                      "Capacity": 48.0,
+                      "ImpactDamage": {}
+                    }
+                  },
+                  "Types": [
+                    "WeaponDefensive.CountermeasureLauncher"
+                  ],
+                  "Flags": [
+                    "left",
+                    "uneditable"
+                  ],
+                  "Category": "Countermeasures",
+                  "Uneditable": true
+                }
               }
             ],
             "PartDetachDamage": 1500.0
@@ -1085,9 +1099,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 240529.9,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 3.00662375
+                      "MaxThrustFuelRate": 0.7516559375
                     },
                     "Durability": {
                       "Health": 10500.0,
@@ -1135,9 +1149,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 431909.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 6.55375E-06,
                       "Type": "Retro",
-                      "MaxThrustFuelRate": 5.3988625
+                      "MaxThrustFuelRate": 2.83062360875
                     },
                     "Durability": {
                       "Health": 11500.0,
@@ -1184,9 +1198,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 240529.9,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 3.00662375
+                      "MaxThrustFuelRate": 0.7516559375
                     },
                     "Durability": {
                       "Health": 10500.0,
@@ -1226,6 +1240,70 @@
                   }
                 ],
                 "PartDetachDamage": 320.0
+              },
+              {
+                "Name": "hardpoint_countermeasure_launcher_right",
+                "Port": {
+                  "PortName": "hardpoint_countermeasure_launcher_right",
+                  "Size": 1,
+                  "Loadout": "AEGS_Eclipse_CML_Chaff",
+                  "InstalledItem": {
+                    "ClassName": "AEGS_Eclipse_CML_Chaff",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "WeaponDefensive.CountermeasureLauncher",
+                    "Name": "Aegis Eclipse - Noise Launcher",
+                    "Description": "[PH] Aegis Eclipse - Noise Launcher",
+                    "Manufacturer": {
+                      "Code": "AEG",
+                      "Name": "Aegis Dynamics"
+                    },
+                    "Durability": {
+                      "Health": 1000.0
+                    },
+                    "PowerConnection": {
+                      "PowerBase": 1.0,
+                      "PowerDraw": 1.0
+                    },
+                    "Weapon": {
+                      "Ammunition": {
+                        "Speed": 180.0,
+                        "Range": 144.0,
+                        "Size": 0.0,
+                        "Capacity": 5.0,
+                        "ImpactDamage": {}
+                      },
+                      "Modes": [
+                        {
+                          "Name": "Single",
+                          "LocalisedName": "[SEMI]",
+                          "RoundsPerMinute": 50.0,
+                          "FireType": "single",
+                          "AmmoPerShot": 1.0,
+                          "PelletsPerShot": 1.0,
+                          "DamagePerShot": {},
+                          "DamagePerSecond": {}
+                        }
+                      ]
+                    },
+                    "Ammunition": {
+                      "Speed": 180.0,
+                      "Range": 144.0,
+                      "Size": 0.0,
+                      "Capacity": 5.0,
+                      "ImpactDamage": {}
+                    }
+                  },
+                  "Types": [
+                    "WeaponDefensive.CountermeasureLauncher"
+                  ],
+                  "Flags": [
+                    "right",
+                    "uneditable"
+                  ],
+                  "Category": "Countermeasures",
+                  "Uneditable": true
+                }
               }
             ],
             "PartDetachDamage": 1500.0
@@ -1249,9 +1327,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 327729.5,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 4.09661875
+                  "MaxThrustFuelRate": 1.0241546875
                 },
                 "Durability": {
                   "Health": 10500.0,
@@ -1299,9 +1377,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 327729.5,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 4.09661875
+                  "MaxThrustFuelRate": 1.0241546875
                 },
                 "Durability": {
                   "Health": 10500.0,
@@ -1334,49 +1412,6 @@
             "Name": "hardpoint_cooler",
             "Port": {
               "PortName": "hardpoint_cooler",
-              "Size": 1,
-              "Loadout": "COOL_TYDT_S01_VaporBlock_SCItem",
-              "InstalledItem": {
-                "ClassName": "COOL_TYDT_S01_VaporBlock_SCItem",
-                "Size": 1,
-                "Grade": 2,
-                "Type": "Cooler.UNDEFINED",
-                "Name": "VaporBlock",
-                "Description": "Item Type: Cooler\nManufacturer: Tyler Design & Tech \nSize: 1\nGrade: B\nClass: Stealth\n\nFew coolers can match the stealth performance of the VaporBlock. The team at Tyler Design & Tech have crafted a cooler that keeps your ship’s signature low while delivering acceptable durability and performance.",
-                "Manufacturer": {
-                  "Code": "TYDT",
-                  "Name": "Tyler Design & Tech"
-                },
-                "Cooler": {
-                  "Rate": 150000.0
-                },
-                "Durability": {
-                  "Health": 360.0,
-                  "Lifetime": 10.4
-                },
-                "PowerConnection": {
-                  "PowerBase": 8.0,
-                  "PowerDraw": 12.0
-                },
-                "HeatConnection": {
-                  "ThermalEnergyBase": 10.0,
-                  "ThermalEnergyDraw": 20.0,
-                  "CoolingRate": 1.0
-                }
-              },
-              "Types": [
-                "Cooler"
-              ],
-              "Flags": [
-                "invisible"
-              ],
-              "Category": "Coolers"
-            }
-          },
-          {
-            "Name": "hardpoint_cooler_2",
-            "Port": {
-              "PortName": "hardpoint_cooler_2",
               "Size": 1,
               "Loadout": "COOL_TYDT_S01_VaporBlock_SCItem",
               "InstalledItem": {
@@ -1458,6 +1493,9 @@
               ],
               "Category": "Power plants"
             }
+          },
+          {
+            "Name": "hardpoint_heat_sink"
           },
           {
             "Name": "hardpoint_quantum_drive",
@@ -1797,7 +1835,7 @@
                   "flightReady"
                 ],
                 "HydrogenFuelIntake": {
-                  "Rate": 5.5
+                  "Rate": 0.0
                 },
                 "PowerConnection": {
                   "PowerBase": 0.5,
@@ -1836,7 +1874,7 @@
                   "flightReady"
                 ],
                 "HydrogenFuelIntake": {
-                  "Rate": 5.5
+                  "Rate": 0.0
                 },
                 "PowerConnection": {
                   "PowerBase": 0.5,
@@ -1856,134 +1894,6 @@
                 "uneditable"
               ],
               "Category": "Fuel intakes",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_countermeasure_launcher_left",
-            "Port": {
-              "PortName": "hardpoint_countermeasure_launcher_left",
-              "Size": 1,
-              "Loadout": "AEGS_Eclipse_CML_Flare",
-              "InstalledItem": {
-                "ClassName": "AEGS_Eclipse_CML_Flare",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "WeaponDefensive.CountermeasureLauncher",
-                "Name": "Aegis Eclipse - Decoy Launcher",
-                "Description": "[PH] Aegis Eclipse - Decoy Launcher",
-                "Manufacturer": {
-                  "Code": "AEG",
-                  "Name": "Aegis Dynamics"
-                },
-                "Durability": {
-                  "Health": 1000.0
-                },
-                "PowerConnection": {
-                  "PowerBase": 1.0,
-                  "PowerDraw": 1.0
-                },
-                "Weapon": {
-                  "Ammunition": {
-                    "Speed": 65.0,
-                    "Range": 520.0,
-                    "Size": 0.0,
-                    "Capacity": 48.0,
-                    "ImpactDamage": {}
-                  },
-                  "Modes": [
-                    {
-                      "Name": "Burst",
-                      "LocalisedName": "[BURST]",
-                      "RoundsPerMinute": 450.0,
-                      "FireType": "burst",
-                      "AmmoPerShot": 1.0,
-                      "PelletsPerShot": 1.0,
-                      "DamagePerShot": {},
-                      "DamagePerSecond": {}
-                    }
-                  ]
-                },
-                "Ammunition": {
-                  "Speed": 65.0,
-                  "Range": 520.0,
-                  "Size": 0.0,
-                  "Capacity": 48.0,
-                  "ImpactDamage": {}
-                }
-              },
-              "Types": [
-                "WeaponDefensive.CountermeasureLauncher"
-              ],
-              "Flags": [
-                "left",
-                "uneditable"
-              ],
-              "Category": "Countermeasures",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_countermeasure_launcher_right",
-            "Port": {
-              "PortName": "hardpoint_countermeasure_launcher_right",
-              "Size": 1,
-              "Loadout": "AEGS_Eclipse_CML_Chaff",
-              "InstalledItem": {
-                "ClassName": "AEGS_Eclipse_CML_Chaff",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "WeaponDefensive.CountermeasureLauncher",
-                "Name": "Aegis Eclipse - Noise Launcher",
-                "Description": "[PH] Aegis Eclipse - Noise Launcher",
-                "Manufacturer": {
-                  "Code": "AEG",
-                  "Name": "Aegis Dynamics"
-                },
-                "Durability": {
-                  "Health": 1000.0
-                },
-                "PowerConnection": {
-                  "PowerBase": 1.0,
-                  "PowerDraw": 1.0
-                },
-                "Weapon": {
-                  "Ammunition": {
-                    "Speed": 180.0,
-                    "Range": 144.0,
-                    "Size": 0.0,
-                    "Capacity": 5.0,
-                    "ImpactDamage": {}
-                  },
-                  "Modes": [
-                    {
-                      "Name": "Single",
-                      "LocalisedName": "[SEMI]",
-                      "RoundsPerMinute": 50.0,
-                      "FireType": "single",
-                      "AmmoPerShot": 1.0,
-                      "PelletsPerShot": 1.0,
-                      "DamagePerShot": {},
-                      "DamagePerSecond": {}
-                    }
-                  ]
-                },
-                "Ammunition": {
-                  "Speed": 180.0,
-                  "Range": 144.0,
-                  "Size": 0.0,
-                  "Capacity": 5.0,
-                  "ImpactDamage": {}
-                }
-              },
-              "Types": [
-                "WeaponDefensive.CountermeasureLauncher"
-              ],
-              "Flags": [
-                "right",
-                "uneditable"
-              ],
-              "Category": "Countermeasures",
               "Uneditable": true
             }
           },
@@ -2049,7 +1959,6 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 26065.49,
                           "Energy": 395620.4
                         }
                       }
@@ -2085,7 +1994,6 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 26065.49,
                           "Energy": 395620.4
                         }
                       }
@@ -2121,7 +2029,6 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 26065.49,
                           "Energy": 395620.4
                         }
                       }
@@ -2163,9 +2070,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 327729.5,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 4.09661875
+                  "MaxThrustFuelRate": 1.0241546875
                 },
                 "Durability": {
                   "Health": 10500.0,
@@ -2213,9 +2120,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 327729.5,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 4.09661875
+                  "MaxThrustFuelRate": 1.0241546875
                 },
                 "Durability": {
                   "Health": 10500.0,
@@ -2267,9 +2174,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1642679.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 6.55375E-06,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 20.5334875
+                      "MaxThrustFuelRate": 10.76570749625
                     },
                     "Durability": {
                       "Health": 12500.0,
@@ -2318,9 +2225,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1642679.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 6.55375E-06,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 20.5334875
+                      "MaxThrustFuelRate": 10.76570749625
                     },
                     "Durability": {
                       "Health": 12500.0,
@@ -2353,28 +2260,28 @@
             "PartDetachDamage": 1500.0
           },
           {
-            "Name": "bay_door_left_01",
-            "MaximumDamage": 300.0,
+            "Name": "bay_door_l_a",
+            "MaximumDamage": 1.0,
             "Parts": [
               {
-                "Name": "bay_door_left_02",
-                "MaximumDamage": 300.0,
-                "PartDetachDamage": 300.0
+                "Name": "bay_door_l_b",
+                "MaximumDamage": 1.0,
+                "PartDetachDamage": 1.0
               }
             ],
-            "PartDetachDamage": 300.0
+            "PartDetachDamage": 1.0
           },
           {
-            "Name": "bay_door_right_02",
-            "MaximumDamage": 300.0,
+            "Name": "bay_door_r_a",
+            "MaximumDamage": 1.0,
             "Parts": [
               {
-                "Name": "bay_door_right_01",
-                "MaximumDamage": 300.0,
-                "PartDetachDamage": 300.0
+                "Name": "bay_door_r_b",
+                "MaximumDamage": 1.0,
+                "PartDetachDamage": 1.0
               }
             ],
-            "PartDetachDamage": 300.0
+            "PartDetachDamage": 1.0
           },
           {
             "Name": "hardpoint_armour",
@@ -2419,6 +2326,106 @@
               ],
               "Category": "Armor",
               "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_paint",
+            "Port": {
+              "PortName": "hardpoint_paint",
+              "Size": 1,
+              "Types": [
+                "Paints"
+              ],
+              "Category": "Paints"
+            }
+          },
+          {
+            "Name": "hardpoint_controller_missile",
+            "Port": {
+              "PortName": "hardpoint_controller_missile",
+              "Size": 1,
+              "Loadout": "Controller_Missile",
+              "InstalledItem": {
+                "ClassName": "Controller_Missile",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "MissileController.UNDEFINED",
+                "Name": "MISSILES"
+              },
+              "Types": [
+                "MissileController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_cooler_2",
+            "Port": {
+              "PortName": "hardpoint_cooler_2",
+              "Size": 1,
+              "Loadout": "COOL_TYDT_S01_VaporBlock_SCItem",
+              "InstalledItem": {
+                "ClassName": "COOL_TYDT_S01_VaporBlock_SCItem",
+                "Size": 1,
+                "Grade": 2,
+                "Type": "Cooler.UNDEFINED",
+                "Name": "VaporBlock",
+                "Description": "Item Type: Cooler\nManufacturer: Tyler Design & Tech \nSize: 1\nGrade: B\nClass: Stealth\n\nFew coolers can match the stealth performance of the VaporBlock. The team at Tyler Design & Tech have crafted a cooler that keeps your ship’s signature low while delivering acceptable durability and performance.",
+                "Manufacturer": {
+                  "Code": "TYDT",
+                  "Name": "Tyler Design & Tech"
+                },
+                "Cooler": {
+                  "Rate": 150000.0
+                },
+                "Durability": {
+                  "Health": 360.0,
+                  "Lifetime": 10.4
+                },
+                "PowerConnection": {
+                  "PowerBase": 8.0,
+                  "PowerDraw": 12.0
+                },
+                "HeatConnection": {
+                  "ThermalEnergyBase": 10.0,
+                  "ThermalEnergyDraw": 20.0,
+                  "CoolingRate": 1.0
+                }
+              },
+              "Types": [
+                "Cooler"
+              ],
+              "Flags": [
+                "invisible"
+              ],
+              "Category": "Coolers"
+            }
+          },
+          {
+            "Name": "hardpoint_cockpit_flair",
+            "Port": {
+              "PortName": "hardpoint_cockpit_flair",
+              "Size": 1,
+              "Types": [
+                "Flair_Cockpit.Flair_Static"
+              ],
+              "Category": "UNKNOWN"
+            }
+          },
+          {
+            "Name": "hardpoint_cockpit_flair_hang",
+            "Port": {
+              "PortName": "hardpoint_cockpit_flair_hang",
+              "Size": 1,
+              "Types": [
+                "Flair_Cockpit.Flair_Hanging"
+              ],
+              "Category": "UNKNOWN"
             }
           }
         ],

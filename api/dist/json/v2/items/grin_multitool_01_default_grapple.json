@@ -38,24 +38,13 @@
       "Energy": 5.0
     }
   },
-  "Scanner": {
-    "Range": 0.0
+  "Radar": {
+    "DetectionLifetime": 0.0,
+    "AltitudeCeiling": 0.0,
+    "CrossSectionOcclusion": false,
+    "Signatures": []
   },
   "Ports": [
-    {
-      "PortName": "weapon_action_attachment",
-      "Size": 1,
-      "Types": [
-        "WeaponAttachment.Personal"
-      ]
-    },
-    {
-      "PortName": "module_attach",
-      "Size": 1,
-      "Types": [
-        "WeaponAttachment.Utility"
-      ]
-    },
     {
       "PortName": "magazine_attach",
       "Size": 1,
@@ -87,6 +76,23 @@
       },
       "Types": [
         "WeaponAttachment.Magazine"
+      ]
+    },
+    {
+      "PortName": "weapon_action_attachment",
+      "Size": 1,
+      "Types": [
+        "WeaponAttachment.Personal"
+      ]
+    },
+    {
+      "PortName": "module_attach",
+      "Size": 1,
+      "Types": [
+        "WeaponAttachment.Utility"
+      ],
+      "Flags": [
+        "inventory"
       ]
     }
   ]

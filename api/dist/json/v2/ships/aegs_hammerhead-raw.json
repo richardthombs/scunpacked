@@ -393,6 +393,11 @@
                         "itemPortName": "hardpoint_weapon_right_lower",
                         "entityClassName": "KLWE_LaserRepeater_S4",
                         "loadout": {}
+                      },
+                      {
+                        "itemPortName": "hardpoint_OC",
+                        "entityClassName": "AEGS_Hammerhead_Side_Turret_Lighting",
+                        "loadout": {}
                       }
                     ]
                   }
@@ -432,6 +437,11 @@
                       {
                         "itemPortName": "hardpoint_weapon_right_lower",
                         "entityClassName": "KLWE_LaserRepeater_S4",
+                        "loadout": {}
+                      },
+                      {
+                        "itemPortName": "hardpoint_OC",
+                        "entityClassName": "AEGS_Hammerhead_Side_Turret_Lighting",
                         "loadout": {}
                       }
                     ]
@@ -473,6 +483,11 @@
                         "itemPortName": "hardpoint_weapon_right_lower",
                         "entityClassName": "KLWE_LaserRepeater_S4",
                         "loadout": {}
+                      },
+                      {
+                        "itemPortName": "hardpoint_OC",
+                        "entityClassName": "AEGS_Hammerhead_Side_Turret_Lighting",
+                        "loadout": {}
                       }
                     ]
                   }
@@ -512,6 +527,11 @@
                       {
                         "itemPortName": "hardpoint_weapon_right_lower",
                         "entityClassName": "KLWE_LaserRepeater_S4",
+                        "loadout": {}
+                      },
+                      {
+                        "itemPortName": "hardpoint_OC",
+                        "entityClassName": "AEGS_Hammerhead_Side_Turret_Lighting",
                         "loadout": {}
                       }
                     ]
@@ -905,22 +925,22 @@
               },
               {
                 "itemPortName": "turret_door_front_right",
-                "entityClassName": "Door_Single_AEGS_2",
+                "entityClassName": "",
                 "loadout": {}
               },
               {
                 "itemPortName": "turret_door_front_left",
-                "entityClassName": "Door_Single_AEGS_2",
+                "entityClassName": "",
                 "loadout": {}
               },
               {
                 "itemPortName": "turret_door_rear_right",
-                "entityClassName": "Door_Single_AEGS_2",
+                "entityClassName": "",
                 "loadout": {}
               },
               {
                 "itemPortName": "turret_door_rear_left",
-                "entityClassName": "Door_Single_AEGS_2",
+                "entityClassName": "",
                 "loadout": {}
               },
               {
@@ -955,11 +975,21 @@
               },
               {
                 "itemPortName": "hardpoint_controller_fuel",
-                "entityClassName": "",
+                "entityClassName": "Controller_Fuel",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_fuel_port",
+                "entityClassName": "DockingTube_Fuel_Ports_AEGS_Hammerhead",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair_hang",
                 "entityClassName": "",
                 "loadout": {}
               }
@@ -974,8 +1004,8 @@
           "Size": 5,
           "Grade": 1,
           "Manufacturer": "cf4a74bf-eb2c-462a-9b78-f7f2724c31d2",
-          "Tags": "AEGS_Hammerhead",
-          "RequiredTags": "Station_Dock_Large",
+          "Tags": "AEGS_Hammerhead Station_Dock_Large Ship_Dock_Refuel",
+          "RequiredTags": "",
           "DisplayType": "",
           "Localization": {
             "Name": "@vehicle_NameAEGS_Hammerhead",
@@ -1162,23 +1192,6 @@
               "Types": [
                 {
                   "type": "LandingSystem"
-                }
-              ]
-            }
-          },
-          {
-            "name": "hardpoint_paint",
-            "damagemax": 0.0,
-            "class": "ItemPort",
-            "ItemPort": {
-              "minsize": 1,
-              "maxsize": 1,
-              "display_name": "port_NamePaint",
-              "flags": "",
-              "requiredTags": "AEGS_Hammerhead_Base",
-              "Types": [
-                {
-                  "type": "Paints"
                 }
               ]
             }
@@ -1623,6 +1636,11 @@
                     }
                   }
                 }
+              },
+              {
+                "name": "hardpoint_cockpit_radar",
+                "damagemax": 0.0,
+                "class": "ItemPort"
               },
               {
                 "name": "hardpoint_cockpit_selfdestruct",
@@ -2786,6 +2804,12 @@
                     }
                   ]
                 }
+              },
+              {
+                "name": "custom_decal",
+                "damageMax": 200.0,
+                "damagemax": 0.0,
+                "class": "AnimatedJoint"
               },
               {
                 "name": "Tail",
@@ -4455,22 +4479,6 @@
                 }
               },
               {
-                "name": "hardpoint_airlock_door_front",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "flags": "$uneditable dockingport1",
-                  "Types": [
-                    {
-                      "type": "Door",
-                      "subtypes": ""
-                    }
-                  ]
-                }
-              },
-              {
                 "name": "hardpoint_weapon_regen_pool_turrets",
                 "damagemax": 0.0,
                 "class": "ItemPort",
@@ -4523,6 +4531,42 @@
                   "Types": [
                     {
                       "type": "AirTrafficController"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_cockpit_flair_hang",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair02",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Hanging"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_cockpit_flair",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair01",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Static"
                     }
                   ]
                 }

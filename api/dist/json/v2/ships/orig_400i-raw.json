@@ -405,7 +405,7 @@
               },
               {
                 "itemPortName": "hardpoint_thruster_sub_right",
-                "entityClassName": "ORIG_400i_Thruster_Main_Sub_R",
+                "entityClassName": "ORIG_400i_Thruster_Main_Sub",
                 "loadout": {}
               },
               {
@@ -700,21 +700,31 @@
               },
               {
                 "itemPortName": "hardpoint_controller_fuel",
-                "entityClassName": "",
+                "entityClassName": "Controller_Fuel",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_fuel_port",
-                "entityClassName": "",
+                "entityClassName": "DockingTube_Fuel_Ports_ORIG_400i",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_air_traffic_controller",
-                "entityClassName": "",
+                "entityClassName": "ORIG_400i_ShipATCDataManager",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_door_airlock",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair_hang",
                 "entityClassName": "",
                 "loadout": {}
               }
@@ -729,7 +739,7 @@
           "Size": 4,
           "Grade": 1,
           "Manufacturer": "1e47a9ec-a3f0-431d-be0e-377712e1ed84",
-          "Tags": "ORIG_400i",
+          "Tags": "ORIG_400i Ship_Dock_Refuel",
           "RequiredTags": "",
           "DisplayType": "",
           "Localization": {
@@ -1070,7 +1080,7 @@
                   "minsize": 1,
                   "maxsize": 1,
                   "display_name": "port_NameThrusterMavMUL",
-                  "flags": "maneuver orientation +Y uneditable",
+                  "flags": "maneuver orientation +Y uneditable right",
                   "requiredTags": "",
                   "Types": [
                     {
@@ -1102,7 +1112,7 @@
                   "minsize": 1,
                   "maxsize": 1,
                   "display_name": "port_NameThrusterMavMUL",
-                  "flags": "maneuver orientation +Y uneditable",
+                  "flags": "maneuver orientation +Y uneditable left",
                   "requiredTags": "",
                   "Types": [
                     {
@@ -3535,6 +3545,42 @@
                     }
                   }
                 ]
+              },
+              {
+                "name": "hardpoint_cockpit_flair",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair01",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Static"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_cockpit_flair_hang",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair01",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Hanging"
+                    }
+                  ]
+                }
               }
             ],
             "DamageBehaviors": [

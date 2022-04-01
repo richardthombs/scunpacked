@@ -102,12 +102,12 @@
               },
               {
                 "itemPortName": "hardpoint_seat_support_left",
-                "entityClassName": "MISC_Starfarer_SCItem_Seat_Sup_Left",
+                "entityClassName": "",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_dashboard_support_left",
-                "entityClassName": "MISC_Starfarer_Base_SCItem_Dashboard_Sup_Left",
+                "entityClassName": "SoftLock_Terminal_Standard_Refueling_Starfarer_2",
                 "loadout": {}
               },
               {
@@ -627,32 +627,32 @@
               },
               {
                 "itemPortName": "hardpoint_fuel_pod_L1",
-                "entityClassName": "MISC_FuelPod",
+                "entityClassName": "FuelPod_MISC_Standard",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_fuel_pod_L2",
-                "entityClassName": "MISC_FuelPod",
+                "entityClassName": "FuelPod_MISC_Standard",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_fuel_pod_L3",
-                "entityClassName": "MISC_FuelPod",
+                "entityClassName": "FuelPod_MISC_Standard",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_fuel_pod_R1",
-                "entityClassName": "MISC_FuelPod",
+                "entityClassName": "FuelPod_MISC_Standard",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_fuel_pod_R2",
-                "entityClassName": "MISC_FuelPod",
+                "entityClassName": "FuelPod_MISC_Standard",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_fuel_pod_R3",
-                "entityClassName": "MISC_FuelPod",
+                "entityClassName": "FuelPod_MISC_Standard",
                 "loadout": {}
               },
               {
@@ -679,6 +679,81 @@
                 "itemPortName": "hardpoint_controller_capacitor_assignment",
                 "entityClassName": "Controller_CapacitorAssignment",
                 "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_fuel",
+                "entityClassName": "Controller_Fuel",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuel_port",
+                "entityClassName": "DockingTube_Fuel_Ports_MISC_Starfarer",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_air_traffic_controller",
+                "entityClassName": "MISC_Starfarer_ShipATCDataManager",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_refuel_arm",
+                "entityClassName": "Nozzle_FuelGiver_MISC_NozzleStandard",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_refuel_console",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuelpod_1_console",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuelpod_2_console",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuelpod_3_console",
+                "entityClassName": "SoftLock_Terminal_Standard_Starfarer_Fuel_Pods_Ship_R1",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuelpod_4_console",
+                "entityClassName": "SoftLock_Terminal_Standard_Starfarer_Fuel_Pods_Ship_L1",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuelpod_5_console",
+                "entityClassName": "SoftLock_Terminal_Standard_Starfarer_Fuel_Pods_Ship_R2",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuelpod_6_console",
+                "entityClassName": "SoftLock_Terminal_Standard_Starfarer_Fuel_Pods_Ship_L2",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuelpod_7_console",
+                "entityClassName": "SoftLock_Terminal_Standard_Starfarer_Fuel_Pods_Ship_R3",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuelpod_8_console",
+                "entityClassName": "SoftLock_Terminal_Standard_Starfarer_Fuel_Pods_Ship_L3",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair_hang",
+                "entityClassName": "",
+                "loadout": {}
               }
             ]
           }
@@ -691,7 +766,7 @@
           "Size": 5,
           "Grade": 1,
           "Manufacturer": "b28a5c61-63a4-478b-8047-5fba545d5b8a",
-          "Tags": "MISC_Starfarer_Gemeni",
+          "Tags": "MISC_Starfarer_Gemeni Ship_Dock_Refuel",
           "RequiredTags": "",
           "DisplayType": "",
           "Localization": {
@@ -774,7 +849,385 @@
         "PortFlags": "",
         "PortTags": "MISC_Starfarer_Base",
         "RequiredItemTags": "",
-        "Ports": []
+        "Ports": [
+          {
+            "Name": "hardpoint_controller_fuel",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": []
+          },
+          {
+            "Name": "hardpoint_fuel_port",
+            "DisplayName": "",
+            "PortTags": "Ship_Dock_Refuel",
+            "RequiredPortTags": "",
+            "Flags": "dockingport1",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "DockingCollar",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_air_traffic_controller",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "AirTrafficController",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_refuel_arm",
+            "DisplayName": "NameNozzle",
+            "PortTags": "Ship_Dock_Refuel",
+            "RequiredPortTags": "",
+            "Flags": "dockingport1",
+            "MinSize": 2,
+            "MaxSize": 2,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "DockingCollar",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_refuel_console",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 0,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "Display",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_fuelpod_1_console",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 0,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "Display",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_fuelpod_2_console",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 0,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "Display",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_fuelpod_3_console",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 0,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "Display",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_fuelpod_4_console",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 0,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "Display",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_fuelpod_5_console",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 0,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "Display",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_fuelpod_6_console",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 0,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "Display",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_fuelpod_7_console",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 0,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "Display",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_fuelpod_8_console",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 0,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "Display",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_fuel_pod_L1",
+            "DisplayName": "port_NameFuelPod01",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 2,
+            "MaxSize": 3,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "ExternalFuelTank",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_fuel_pod_L2",
+            "DisplayName": "port_NameFuelPod02",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 2,
+            "MaxSize": 3,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "ExternalFuelTank",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_fuel_pod_L3",
+            "DisplayName": "port_NameFuelPod03",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 2,
+            "MaxSize": 3,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "ExternalFuelTank",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_fuel_pod_R1",
+            "DisplayName": "port_NameFuelPod06",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 2,
+            "MaxSize": 3,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "ExternalFuelTank",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_fuel_pod_R2",
+            "DisplayName": "port_NameFuelPod05",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 2,
+            "MaxSize": 3,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "ExternalFuelTank",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_fuel_pod_R3",
+            "DisplayName": "port_NameFuelPod04",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 2,
+            "MaxSize": 3,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "ExternalFuelTank",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_fuel_refinery_left",
+            "DisplayName": "port_NameRefineryPod01",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 3,
+            "MaxSize": 3,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "FuelTank",
+                "SubTypes": [
+                  {
+                    "value": "Fuel"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_fuel_refinery_right",
+            "DisplayName": "port_NameRefineryPod02",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 3,
+            "MaxSize": 3,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "FuelTank",
+                "SubTypes": [
+                  {
+                    "value": "Fuel"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_door_catwalk",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "Door",
+                "SubTypes": []
+              }
+            ]
+          }
+        ]
       }
     },
     "ClassName": "MISC_Starfarer_Gemini",
@@ -1436,73 +1889,6 @@
                 }
               },
               {
-                "name": "hardpoint_weapon_regen_pool",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "Weapon Regen Pool",
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "WeaponRegenPool"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "WeaponRegen",
-                      "pipe": "WeaponRegenCrew"
-                    },
-                    {
-                      "pipeClass": "WeaponAmmoLoad",
-                      "pipe": "WeaponAmmoLoadCrew"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_weapon_regen_pool_turrets",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "Weapon Regen Pool",
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "WeaponRegenPool"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "WeaponRegen",
-                      "pipe": "WeaponRegenTurret"
-                    },
-                    {
-                      "pipeClass": "WeaponAmmoLoad",
-                      "pipe": "WeaponAmmoLoadTurret"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_controller_capacitor_assignment",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "CapacitorAssignmentController"
-                    }
-                  ]
-                }
-              },
-              {
                 "name": "hardpoint_controller_cooler",
                 "damagemax": 0.0,
                 "class": "ItemPort",
@@ -1853,8 +2239,8 @@
                 "damagemax": 0.0,
                 "class": "ItemPort",
                 "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
+                  "minsize": 2,
+                  "maxsize": 2,
                   "flags": "invisible uneditable",
                   "Types": [
                     {
@@ -1987,6 +2373,47 @@
                       ]
                     }
                   }
+                }
+              },
+              {
+                "name": "hardpoint_launcher",
+                "damagemax": 0.0,
+                "class": "ItemPort"
+              },
+              {
+                "name": "hardpoint_cockpit_flair",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair01",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Static"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_cockpit_flair_hang",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair01",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Hanging"
+                    }
+                  ]
                 }
               }
             ],
@@ -2442,38 +2869,6 @@
                 }
               },
               {
-                "name": "hardpoint_fuel_refinery_right",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 3,
-                  "maxsize": 3,
-                  "display_name": "port_NameFuelRefin01",
-                  "flags": "right uneditable",
-                  "Types": [
-                    {
-                      "type": "FuelTank"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_fuel_refinery_left",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 3,
-                  "maxsize": 3,
-                  "display_name": "port_NameFuelRefin02",
-                  "flags": "left uneditable",
-                  "Types": [
-                    {
-                      "type": "FuelTank"
-                    }
-                  ]
-                }
-              },
-              {
                 "name": "hardpoint_front_turret",
                 "damagemax": 0.0,
                 "class": "ItemPort",
@@ -2858,54 +3253,6 @@
                         }
                       ]
                     }
-                  },
-                  {
-                    "name": "hardpoint_fuel_pod_R3",
-                    "damagemax": 0.0,
-                    "class": "ItemPort",
-                    "ItemPort": {
-                      "minsize": 2,
-                      "maxsize": 3,
-                      "display_name": "port_NameFuelPod04",
-                      "flags": "uneditable",
-                      "Types": [
-                        {
-                          "type": "FuelTank"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "name": "hardpoint_fuel_pod_R2",
-                    "damagemax": 0.0,
-                    "class": "ItemPort",
-                    "ItemPort": {
-                      "minsize": 2,
-                      "maxsize": 3,
-                      "display_name": "port_NameFuelPod05",
-                      "flags": "uneditable",
-                      "Types": [
-                        {
-                          "type": "FuelTank"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "name": "hardpoint_fuel_pod_R1",
-                    "damagemax": 0.0,
-                    "class": "ItemPort",
-                    "ItemPort": {
-                      "minsize": 2,
-                      "maxsize": 3,
-                      "display_name": "port_NameFuelPod06",
-                      "flags": "uneditable",
-                      "Types": [
-                        {
-                          "type": "FuelTank"
-                        }
-                      ]
-                    }
                   }
                 ],
                 "DamageBehaviors": [
@@ -3243,54 +3590,6 @@
                         {
                           "pipeClass": "Fuel",
                           "pipe": "MainFuel"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "name": "hardpoint_fuel_pod_L3",
-                    "damagemax": 0.0,
-                    "class": "ItemPort",
-                    "ItemPort": {
-                      "minsize": 2,
-                      "maxsize": 3,
-                      "display_name": "port_NameFuelPod03",
-                      "flags": "uneditable",
-                      "Types": [
-                        {
-                          "type": "FuelTank"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "name": "hardpoint_fuel_pod_L2",
-                    "damagemax": 0.0,
-                    "class": "ItemPort",
-                    "ItemPort": {
-                      "minsize": 2,
-                      "maxsize": 3,
-                      "display_name": "port_NameFuelPod02",
-                      "flags": "uneditable",
-                      "Types": [
-                        {
-                          "type": "FuelTank"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "name": "hardpoint_fuel_pod_L1",
-                    "damagemax": 0.0,
-                    "class": "ItemPort",
-                    "ItemPort": {
-                      "minsize": 2,
-                      "maxsize": 3,
-                      "display_name": "port_NameFuelPod01",
-                      "flags": "uneditable",
-                      "Types": [
-                        {
-                          "type": "FuelTank"
                         }
                       ]
                     }
@@ -3678,36 +3977,6 @@
                 }
               },
               {
-                "name": "hardpoint_ramp",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "flags": "$uneditable",
-                  "Types": [
-                    {
-                      "type": "Door"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_door_catwalk",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "flags": "$uneditable",
-                  "Types": [
-                    {
-                      "type": "Door"
-                    }
-                  ]
-                }
-              },
-              {
                 "name": "hardpoint_bed_captain",
                 "damagemax": 0.0,
                 "class": "ItemPort",
@@ -3961,6 +4230,21 @@
                 }
               },
               {
+                "name": "hardpoint_ramp",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "$uneditable",
+                  "Types": [
+                    {
+                      "type": "Door"
+                    }
+                  ]
+                }
+              },
+              {
                 "name": "hardpoint_controller_missile",
                 "damagemax": 0.0,
                 "class": "ItemPort",
@@ -3985,6 +4269,73 @@
                       ]
                     }
                   }
+                }
+              },
+              {
+                "name": "hardpoint_weapon_regen_pool",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "Weapon Regen Pool",
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "WeaponRegenPool"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenCrew"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadCrew"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_weapon_regen_pool_turrets",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "Weapon Regen Pool",
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "WeaponRegenPool"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenTurret"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadTurret"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_controller_capacitor_assignment",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "CapacitorAssignmentController"
+                    }
+                  ]
                 }
               }
             ],

@@ -475,33 +475,6 @@
             }
           },
           {
-            "Name": "hardpoint_controller_capacitor_assignment",
-            "Port": {
-              "PortName": "hardpoint_controller_capacitor_assignment",
-              "Size": 1,
-              "Loadout": "Controller_CapacitorAssignment",
-              "InstalledItem": {
-                "ClassName": "Controller_CapacitorAssignment",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "CapacitorAssignmentController.UNDEFINED",
-                "Name": "Controller_CapacitorAssignment",
-                "Tags": [
-                  "flightReady"
-                ]
-              },
-              "Types": [
-                "CapacitorAssignmentController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
             "Name": "hardpoint_scanner",
             "Port": {
               "PortName": "hardpoint_scanner",
@@ -625,7 +598,8 @@
                 "Radar": {
                   "DetectionLifetime": 0.0,
                   "AltitudeCeiling": 0.0,
-                  "CrossSectionOcclusion": false
+                  "CrossSectionOcclusion": false,
+                  "Signatures": []
                 },
                 "Ports": [
                   {
@@ -847,7 +821,7 @@
             "Name": "hardpoint_mining_arm",
             "Port": {
               "PortName": "hardpoint_mining_arm",
-              "Size": 4,
+              "Size": 1,
               "Loadout": "GRIN_ROC_DS_Turret_Mining",
               "InstalledItem": {
                 "ClassName": "GRIN_ROC_DS_Turret_Mining",
@@ -878,7 +852,7 @@
                 "Ports": [
                   {
                     "PortName": "hardpoint_mining_laser",
-                    "Size": 4,
+                    "Size": 0,
                     "Loadout": "GRIN_ROC_DS_Mining_Head",
                     "InstalledItem": {
                       "ClassName": "GRIN_ROC_DS_Mining_Head",
@@ -925,9 +899,9 @@
                       }
                     },
                     "Types": [
-                      "WeaponMining.UNDEFINED"
+                      "WeaponMining.Gun"
                     ],
-                    "Category": "UNKNOWN"
+                    "Category": "Mining hardpoints"
                   }
                 ]
               },
@@ -972,7 +946,8 @@
                 "Radar": {
                   "DetectionLifetime": 0.0,
                   "AltitudeCeiling": 0.0,
-                  "CrossSectionOcclusion": false
+                  "CrossSectionOcclusion": false,
+                  "Signatures": []
                 },
                 "Ports": [
                   {
@@ -1057,6 +1032,10 @@
               "Category": "Pings",
               "Uneditable": true
             }
+          },
+          {
+            "Name": "$PHYSICS_PROXY_rollcage_main",
+            "MaximumDamage": 200.0
           }
         ],
         "ShipDestructionDamage": 2250.0
@@ -1165,6 +1144,17 @@
       {
         "Name": "hardpoint_wheel_MR_hub",
         "Mass": 10.0
+      },
+      {
+        "Name": "hardpoint_cockpit_flair_hang",
+        "Port": {
+          "PortName": "hardpoint_cockpit_flair_hang",
+          "Size": 1,
+          "Types": [
+            "Flair_Cockpit.Flair_Hanging"
+          ],
+          "Category": "UNKNOWN"
+        }
       }
     ]
   }

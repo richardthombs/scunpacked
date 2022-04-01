@@ -376,6 +376,36 @@
                 "itemPortName": "hardpoint_controller_capacitor_assignment",
                 "entityClassName": "Controller_CapacitorAssignment",
                 "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_fuel",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuel_port",
+                "entityClassName": "DockingTube_Fuel_Ports_ANVL_Hornet",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_air_traffic_controller",
+                "entityClassName": "ANVL_Hornet_ShipATCDataManager",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_fuel",
+                "entityClassName": "Controller_Fuel",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuel_port",
+                "entityClassName": "DockingTube_Fuel_Ports_ANVL_Hornet",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_air_traffic_controller",
+                "entityClassName": "ANVL_Hornet_ShipATCDataManager",
+                "loadout": {}
               }
             ]
           }
@@ -388,7 +418,7 @@
           "Size": 2,
           "Grade": 1,
           "Manufacturer": "b922abdb-0634-4358-9eee-60118f3cf3a7",
-          "Tags": "ANVL_Hornet_F7CS",
+          "Tags": "ANVL_Hornet_F7CS Ship_Dock_Refuel",
           "RequiredTags": "",
           "DisplayType": "",
           "Localization": {
@@ -471,7 +501,54 @@
         "PortFlags": "",
         "PortTags": "ANVL_Hornet_Base",
         "RequiredItemTags": "",
-        "Ports": []
+        "Ports": [
+          {
+            "Name": "hardpoint_controller_fuel",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": []
+          },
+          {
+            "Name": "hardpoint_fuel_port",
+            "DisplayName": "",
+            "PortTags": "Ship_Dock_Refuel",
+            "RequiredPortTags": "",
+            "Flags": "dockingport1",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "DockingCollar",
+                "SubTypes": []
+              }
+            ]
+          },
+          {
+            "Name": "hardpoint_air_traffic_controller",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "AirTrafficController",
+                "SubTypes": []
+              }
+            ]
+          }
+        ]
       }
     },
     "ClassName": "ANVL_Hornet_F7CS",
@@ -540,7 +617,6 @@
             "damageMax": 4000.0,
             "damagemax": 0.0,
             "class": "AnimatedJoint",
-            "detachRatio": 1.0,
             "Parts": [
               {
                 "name": "hardpoint_armor",
@@ -588,7 +664,7 @@
                 "damagemax": 0.0,
                 "class": "ItemPort",
                 "ItemPort": {
-                  "minsize": 3,
+                  "minsize": 2,
                   "maxsize": 3,
                   "display_name": "port_NameWeaponSlot01",
                   "flags": "front nose",
@@ -1841,6 +1917,12 @@
                         }
                       }
                     }
+                  },
+                  {
+                    "name": "hardpoint_vehicle_destroyed",
+                    "damageMax": 200.0,
+                    "damagemax": 0.0,
+                    "class": "AnimatedJoint"
                   }
                 ],
                 "DamageBehaviors": [
@@ -1849,9 +1931,9 @@
                     "damageRatioMin": 1.0,
                     "DetachPart": [
                       {
-                        "name": "Nose",
+                        "name": "Tail_Debris",
                         "damagemax": 0.0,
-                        "Probability": 0.2
+                        "Probability": 0.7
                       },
                       {
                         "name": "WingLeftRear",
@@ -1874,9 +1956,9 @@
                         "Probability": 0.6
                       },
                       {
-                        "name": "Tail_Debris",
+                        "name": "Nose",
                         "damagemax": 0.0,
-                        "Probability": 0.7
+                        "Probability": 1.0
                       },
                       {
                         "name": "Body",
@@ -2341,6 +2423,97 @@
                     }
                   ]
                 }
+              },
+              {
+                "name": "hardpoint_controller_light",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "LightController"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    },
+                    {
+                      "pipeClass": "Fuel",
+                      "pipe": "MainFuel"
+                    }
+                  ],
+                  "ControllerDef": {
+                    "UsableDef": {
+                      "PriorityGroups": [
+                        {
+                          "itemType": "Light"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "name": "hardpoint_controller_comms",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "CommsController"
+                    }
+                  ],
+                  "ControllerDef": {
+                    "UsableDef": {
+                      "PriorityGroups": [
+                        {
+                          "itemType": "Comms"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "name": "hardpoint_controller_door",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "DoorController"
+                    }
+                  ],
+                  "ControllerDef": {
+                    "UsableDef": {
+                      "PriorityGroups": [
+                        {
+                          "itemType": "Door",
+                          "defaultPriority": "exclusive_control"
+                        },
+                        {
+                          "itemType": "SeatAccess",
+                          "defaultPriority": "exclusive_control"
+                        }
+                      ]
+                    }
+                  }
+                }
               }
             ],
             "DamageBehaviors": [
@@ -2374,12 +2547,12 @@
                     "Probability": 0.4
                   },
                   {
-                    "name": "Nose",
+                    "name": "Body",
                     "damagemax": 0.0,
                     "Probability": 1.0
                   },
                   {
-                    "name": "Body",
+                    "name": "Nose",
                     "damagemax": 0.0,
                     "Probability": 1.0
                   }
@@ -2520,6 +2693,11 @@
             "idRef": "modShip_Base",
             "name": "mass",
             "value": "74197.0"
+          },
+          {
+            "idRef": "modNoseWeapon",
+            "name": "minsize",
+            "value": "2"
           }
         ]
       },

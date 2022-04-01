@@ -375,16 +375,21 @@
                 },
                 {
                   "itemPortName": "hardpoint_controller_fuel",
-                  "entityClassName": "",
+                  "entityClassName": "Controller_Fuel",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_fuel_port",
-                  "entityClassName": "",
+                  "entityClassName": "DockingTube_Fuel_Ports_AEGS_Sabre",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_air_traffic_controller",
+                  "entityClassName": "AEGS_Sabre_ShipATCDataManager",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_cockpit_flair",
                   "entityClassName": "",
                   "loadout": {}
                 }
@@ -399,8 +404,8 @@
             "Size": 2,
             "Grade": 1,
             "Manufacturer": "cf4a74bf-eb2c-462a-9b78-f7f2724c31d2",
-            "Tags": "AEGS_Sabre",
-            "RequiredTags": "Ship_Dock_Refuel",
+            "Tags": "AEGS_Sabre Ship_Dock_Refuel",
+            "RequiredTags": "",
             "DisplayType": "",
             "Localization": {
               "Name": "@vehicle_NameAEGS_Sabre",
@@ -528,6 +533,18 @@
                   "SubTypes": []
                 }
               ]
+            },
+            {
+              "Name": "hardpoint_controller_door",
+              "DisplayName": "",
+              "PortTags": "",
+              "RequiredPortTags": "",
+              "Flags": "",
+              "MinSize": 1,
+              "MaxSize": 1,
+              "InteractionPointSize": -1.0,
+              "DefaultWeaponGroup": "UNDEFINED",
+              "Types": []
             }
           ]
         }
@@ -680,21 +697,6 @@
                   }
                 },
                 {
-                  "name": "hardpoint_ObjectContainer",
-                  "damagemax": 0.0,
-                  "class": "ItemPort",
-                  "ItemPort": {
-                    "minsize": 0,
-                    "maxsize": 1,
-                    "flags": "uneditable",
-                    "Types": [
-                      {
-                        "type": "Room"
-                      }
-                    ]
-                  }
-                },
-                {
                   "name": "hardpoint_seat_access",
                   "damagemax": 0.0,
                   "class": "ItemPort",
@@ -839,6 +841,39 @@
                       {
                         "type": "Usable",
                         "subtypes": ""
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_ObjectContainer",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 0,
+                    "maxsize": 1,
+                    "flags": "uneditable",
+                    "Types": [
+                      {
+                        "type": "Room"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "hardpoint_cockpit_flair",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "@itemPort_port_Flair01",
+                    "flags": "",
+                    "requiredTags": "",
+                    "Types": [
+                      {
+                        "type": "Flair_Cockpit",
+                        "subtypes": "Flair_Static"
                       }
                     ]
                   }
@@ -1019,6 +1054,34 @@
                   }
                 },
                 {
+                  "name": "bay_door_l_a",
+                  "damageMax": 300.0,
+                  "damagemax": 0.0,
+                  "class": "AnimatedJoint",
+                  "Parts": [
+                    {
+                      "name": "bay_door_l_b",
+                      "damageMax": 300.0,
+                      "damagemax": 0.0,
+                      "class": "AnimatedJoint"
+                    }
+                  ]
+                },
+                {
+                  "name": "bay_door_r_a",
+                  "damageMax": 300.0,
+                  "damagemax": 0.0,
+                  "class": "AnimatedJoint",
+                  "Parts": [
+                    {
+                      "name": "bay_door_r_b",
+                      "damageMax": 300.0,
+                      "damagemax": 0.0,
+                      "class": "AnimatedJoint"
+                    }
+                  ]
+                },
+                {
                   "name": "hardpoint_weapon_left_nose",
                   "damagemax": 0.0,
                   "class": "ItemPort",
@@ -1124,7 +1187,7 @@
                   "detachRatio": 1.0,
                   "ItemPort": {
                     "minsize": 2,
-                    "maxsize": 3,
+                    "maxsize": 2,
                     "display_name": "port_NameThrusterRetroL",
                     "flags": "retro left uneditable",
                     "requiredTags": "",
@@ -1158,7 +1221,7 @@
                   "detachRatio": 1.0,
                   "ItemPort": {
                     "minsize": 2,
-                    "maxsize": 3,
+                    "maxsize": 2,
                     "display_name": "port_NameThrusterRetroR",
                     "flags": "retro right uneditable",
                     "requiredTags": "",
@@ -2441,34 +2504,6 @@
                       }
                     ]
                   }
-                },
-                {
-                  "name": "bay_door_l_a",
-                  "damageMax": 300.0,
-                  "damagemax": 0.0,
-                  "class": "AnimatedJoint",
-                  "Parts": [
-                    {
-                      "name": "bay_door_l_b",
-                      "damageMax": 300.0,
-                      "damagemax": 0.0,
-                      "class": "AnimatedJoint"
-                    }
-                  ]
-                },
-                {
-                  "name": "bay_door_r_a",
-                  "damageMax": 300.0,
-                  "damagemax": 0.0,
-                  "class": "AnimatedJoint",
-                  "Parts": [
-                    {
-                      "name": "bay_door_r_b",
-                      "damageMax": 300.0,
-                      "damagemax": 0.0,
-                      "class": "AnimatedJoint"
-                    }
-                  ]
                 },
                 {
                   "name": "hardpoint_controller_light",

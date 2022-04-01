@@ -22,15 +22,6 @@
     "tail": 20000.0
   },
   "DamageBeforeDetach": {
-    "wing_left": 15000.0,
-    "turbine_cover_wingl_bot_front_out": 20.0,
-    "turbine_cover_wingl_bot_rear_out": 20.0,
-    "turbine_cover_wingl_bot_front_in": 20.0,
-    "turbine_cover_wingl_bot_rear_in": 20.0,
-    "turbine_cover_wingl_top_front_out": 20.0,
-    "turbine_cover_wingl_top_rear_out": 20.0,
-    "turbine_cover_wingl_top_front_in": 20.0,
-    "turbine_cover_wingl_top_rear_in": 20.0,
     "wing_right": 15000.0,
     "turbine_cover_wingr_top_rear_in": 20.0,
     "turbine_cover_wingr_top_front_in": 20.0,
@@ -40,12 +31,17 @@
     "turbine_cover_wingr_top_front_out": 20.0,
     "turbine_cover_wingr_bot_front_in": 20.0,
     "turbine_cover_wingr_bot_rear_out": 20.0,
+    "wing_left": 15000.0,
+    "turbine_cover_wingl_bot_front_out": 20.0,
+    "turbine_cover_wingl_bot_rear_out": 20.0,
+    "turbine_cover_wingl_bot_front_in": 20.0,
+    "turbine_cover_wingl_bot_rear_in": 20.0,
+    "turbine_cover_wingl_top_front_out": 20.0,
+    "turbine_cover_wingl_top_rear_out": 20.0,
+    "turbine_cover_wingl_top_front_in": 20.0,
+    "turbine_cover_wingl_top_rear_in": 20.0,
     "misslerack_arm_body_left_arm": 1750.0,
     "misslerack_arm_body_right_arm": 1750.0,
-    "misslerack_arm_tail_left_arm": 1750.0,
-    "nacelle_tower_left": 1000.0,
-    "nacelle_tower_right": 1000.0,
-    "misslerack_arm_tail_right_arm": 1750.0,
     "nacelle_bottom_right": 15000.0,
     "turbine_cover_naceller_bot_front_in": 20.0,
     "turbine_cover_naceller_bot_rear_in": 20.0,
@@ -63,7 +59,11 @@
     "turbine_cover_nacellel_top_front_out": 20.0,
     "turbine_cover_nacellel_top_rear_out": 20.0,
     "turbine_cover_nacellel_top_front_in": 20.0,
-    "turbine_cover_nacellel_top_rear_in": 20.0
+    "turbine_cover_nacellel_top_rear_in": 20.0,
+    "misslerack_arm_tail_left_arm": 1750.0,
+    "misslerack_arm_tail_right_arm": 1750.0,
+    "nacelle_tower_left": 1000.0,
+    "nacelle_tower_right": 1000.0
   },
   "FlightCharacteristics": {
     "ScmSpeed": 144.0,
@@ -87,12 +87,12 @@
   },
   "Propulsion": {
     "FuelCapacity": 660000.0,
-    "FuelIntakeRate": 176.0,
+    "FuelIntakeRate": 0.0,
     "FuelUsage": {
-      "Main": 249.07335,
-      "Retro": 124.46615,
+      "Main": 219.6826947,
+      "Retro": 109.7791443,
       "Vtol": 61.04525999999999,
-      "Maneuvering": 117.55204499999998
+      "Maneuvering": 29.388011249999995
     },
     "ThrustCapacity": {
       "Main": 19925868.0,
@@ -100,10 +100,10 @@
       "Vtol": 4883620.8,
       "Maneuvering": 9404163.6
     },
-    "IntakeToMainFuelRatio": 0.7066191545582857,
-    "IntakeToTankCapacityRatio": 0.0002666666666666667,
-    "TimeForIntakesToFillTank": 3750.0,
-    "ManeuveringTimeTillEmpty": 5005.712105304103
+    "IntakeToMainFuelRatio": 0.0,
+    "IntakeToTankCapacityRatio": 0.0,
+    "TimeForIntakesToFillTank": "Infinity",
+    "ManeuveringTimeTillEmpty": 2815.9795708566876
   },
   "QuantumTravel": {
     "Speed": 74485900.0,
@@ -117,20 +117,6 @@
   "PilotHardpoints": [
     {
       "Size": 5,
-      "Fixed": true,
-      "WeaponSizes": [
-        5
-      ]
-    },
-    {
-      "Size": 5,
-      "Fixed": true,
-      "WeaponSizes": [
-        5
-      ]
-    },
-    {
-      "Size": 5,
       "Gimballed": true,
       "WeaponSizes": [
         4
@@ -141,6 +127,20 @@
       "Gimballed": true,
       "WeaponSizes": [
         4
+      ]
+    },
+    {
+      "Size": 5,
+      "Fixed": true,
+      "WeaponSizes": [
+        5
+      ]
+    },
+    {
+      "Size": 5,
+      "Fixed": true,
+      "WeaponSizes": [
+        5
       ]
     }
   ],

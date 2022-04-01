@@ -277,13 +277,13 @@
                 "Name": "hardpoint_thruster_retro_left",
                 "Port": {
                   "PortName": "hardpoint_thruster_retro_left",
-                  "Size": 3,
+                  "Size": 1,
                   "Loadout": "ANVL_Lightning_F8_Thruster_Retro",
                   "InstalledItem": {
                     "ClassName": "ANVL_Lightning_F8_Thruster_Retro",
                     "Size": 1,
                     "Grade": 1,
-                    "Type": "MainThruster.FixedThruster",
+                    "Type": "ManneuverThruster.FixedThruster",
                     "Name": "ANVL_Lightning_F8_Thruster_Retro",
                     "Manufacturer": {
                       "Code": "ANVL",
@@ -345,9 +345,9 @@
                     ],
                     "Thruster": {
                       "ThrustCapacity": 1042194.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 13.027425000000001
+                      "MaxThrustFuelRate": 3.2568562500000002
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -397,9 +397,9 @@
                     ],
                     "Thruster": {
                       "ThrustCapacity": 1042194.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 13.027425000000001
+                      "MaxThrustFuelRate": 3.2568562500000002
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -557,8 +557,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 738.72,
-                          "Energy": 2954.88
+                          "Physical": 2378.678
                         }
                       }
                     },
@@ -592,8 +591,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 738.72,
-                          "Energy": 2954.88
+                          "Physical": 2378.678
                         }
                       }
                     },
@@ -672,8 +670,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 738.72,
-                          "Energy": 2954.88
+                          "Physical": 2378.678
                         }
                       }
                     },
@@ -707,8 +704,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 738.72,
-                          "Energy": 2954.88
+                          "Physical": 2378.678
                         }
                       }
                     },
@@ -1309,8 +1305,55 @@
             "Name": "hardpoint_countermeasure_launcher_left",
             "Port": {
               "PortName": "hardpoint_countermeasure_launcher_left",
-              "Size": 2,
-              "Loadout": "ANVL_CML_Flare",
+              "Size": 1,
+              "Loadout": "AEGS_CML_Decoy_Small",
+              "InstalledItem": {
+                "ClassName": "AEGS_CML_Decoy_Small",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponDefensive.CountermeasureLauncher",
+                "Name": "Aegis Gladius - Decoy Launcher",
+                "Description": "[PH] Aegis Gladius - Decoy Launcher",
+                "Manufacturer": {
+                  "Code": "AEG",
+                  "Name": "Aegis Dynamics"
+                },
+                "Durability": {
+                  "Health": 1000.0
+                },
+                "PowerConnection": {
+                  "PowerBase": 1.0,
+                  "PowerDraw": 1.0
+                },
+                "Weapon": {
+                  "Ammunition": {
+                    "Speed": 65.0,
+                    "Range": 520.0,
+                    "Size": 0.0,
+                    "Capacity": 48.0,
+                    "ImpactDamage": {}
+                  },
+                  "Modes": [
+                    {
+                      "Name": "Burst",
+                      "LocalisedName": "[BURST]",
+                      "RoundsPerMinute": 450.0,
+                      "FireType": "burst",
+                      "AmmoPerShot": 1.0,
+                      "PelletsPerShot": 1.0,
+                      "DamagePerShot": {},
+                      "DamagePerSecond": {}
+                    }
+                  ]
+                },
+                "Ammunition": {
+                  "Speed": 65.0,
+                  "Range": 520.0,
+                  "Size": 0.0,
+                  "Capacity": 48.0,
+                  "ImpactDamage": {}
+                }
+              },
               "Types": [
                 "WeaponDefensive.CountermeasureLauncher"
               ],
@@ -1326,8 +1369,55 @@
             "Name": "hardpoint_countermeasure_launcher_right",
             "Port": {
               "PortName": "hardpoint_countermeasure_launcher_right",
-              "Size": 2,
-              "Loadout": "ANVL_CML_Chaff",
+              "Size": 1,
+              "Loadout": "ANVL_CML_Noise_Small",
+              "InstalledItem": {
+                "ClassName": "ANVL_CML_Noise_Small",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponDefensive.CountermeasureLauncher",
+                "Name": "Anvil Noise Launcher",
+                "Description": "Anvil Noise Launcher",
+                "Manufacturer": {
+                  "Code": "ANVL",
+                  "Name": "Anvil Aerospace"
+                },
+                "Durability": {
+                  "Health": 1000.0
+                },
+                "PowerConnection": {
+                  "PowerBase": 1.0,
+                  "PowerDraw": 1.0
+                },
+                "Weapon": {
+                  "Ammunition": {
+                    "Speed": 180.0,
+                    "Range": 144.0,
+                    "Size": 0.0,
+                    "Capacity": 5.0,
+                    "ImpactDamage": {}
+                  },
+                  "Modes": [
+                    {
+                      "Name": "Single",
+                      "LocalisedName": "[SEMI]",
+                      "RoundsPerMinute": 50.0,
+                      "FireType": "single",
+                      "AmmoPerShot": 1.0,
+                      "PelletsPerShot": 1.0,
+                      "DamagePerShot": {},
+                      "DamagePerSecond": {}
+                    }
+                  ]
+                },
+                "Ammunition": {
+                  "Speed": 180.0,
+                  "Range": 144.0,
+                  "Size": 0.0,
+                  "Capacity": 5.0,
+                  "ImpactDamage": {}
+                }
+              },
               "Types": [
                 "WeaponDefensive.CountermeasureLauncher"
               ],
@@ -1443,7 +1533,7 @@
                   "flightReady"
                 ],
                 "HydrogenFuelIntake": {
-                  "Rate": 14.5
+                  "Rate": 0.0
                 },
                 "PowerConnection": {
                   "PowerBase": 0.5,
@@ -1482,7 +1572,7 @@
                   "flightReady"
                 ],
                 "HydrogenFuelIntake": {
-                  "Rate": 14.5
+                  "Rate": 0.0
                 },
                 "PowerConnection": {
                   "PowerBase": 0.5,
@@ -1999,13 +2089,13 @@
                 "Name": "hardpoint_thruster_retro_right",
                 "Port": {
                   "PortName": "hardpoint_thruster_retro_right",
-                  "Size": 3,
+                  "Size": 1,
                   "Loadout": "ANVL_Lightning_F8_Thruster_Retro",
                   "InstalledItem": {
                     "ClassName": "ANVL_Lightning_F8_Thruster_Retro",
                     "Size": 1,
                     "Grade": 1,
-                    "Type": "MainThruster.FixedThruster",
+                    "Type": "ManneuverThruster.FixedThruster",
                     "Name": "ANVL_Lightning_F8_Thruster_Retro",
                     "Manufacturer": {
                       "Code": "ANVL",
@@ -2067,9 +2157,9 @@
                     ],
                     "Thruster": {
                       "ThrustCapacity": 1042194.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 13.027425000000001
+                      "MaxThrustFuelRate": 3.2568562500000002
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -2119,9 +2209,9 @@
                     ],
                     "Thruster": {
                       "ThrustCapacity": 1042194.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 13.027425000000001
+                      "MaxThrustFuelRate": 3.2568562500000002
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -2424,9 +2514,9 @@
                     ],
                     "Thruster": {
                       "ThrustCapacity": 1042194.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 13.027425000000001
+                      "MaxThrustFuelRate": 3.2568562500000002
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -2488,9 +2578,9 @@
                     ],
                     "Thruster": {
                       "ThrustCapacity": 1042194.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 13.027425000000001
+                      "MaxThrustFuelRate": 3.2568562500000002
                     },
                     "Durability": {
                       "Health": 9150.0,
@@ -2542,9 +2632,9 @@
                 ],
                 "Thruster": {
                   "ThrustCapacity": 1042194.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 13.027425000000001
+                  "MaxThrustFuelRate": 3.2568562500000002
                 },
                 "Durability": {
                   "Health": 9150.0,
@@ -2594,9 +2684,9 @@
                 ],
                 "Thruster": {
                   "ThrustCapacity": 1042194.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 13.027425000000001
+                  "MaxThrustFuelRate": 3.2568562500000002
                 },
                 "Durability": {
                   "Health": 9150.0,
@@ -2646,9 +2736,9 @@
                 ],
                 "Thruster": {
                   "ThrustCapacity": 1042194.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 13.027425000000001
+                  "MaxThrustFuelRate": 3.2568562500000002
                 },
                 "Durability": {
                   "Health": 9150.0,
@@ -2698,9 +2788,9 @@
                 ],
                 "Thruster": {
                   "ThrustCapacity": 1042194.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 13.027425000000001
+                  "MaxThrustFuelRate": 3.2568562500000002
                 },
                 "Durability": {
                   "Health": 9150.0,
@@ -2750,9 +2840,9 @@
                 ],
                 "Thruster": {
                   "ThrustCapacity": 1042194.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 13.027425000000001
+                  "MaxThrustFuelRate": 3.2568562500000002
                 },
                 "Durability": {
                   "Health": 9150.0,
@@ -2802,9 +2892,9 @@
                 ],
                 "Thruster": {
                   "ThrustCapacity": 1042194.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 13.027425000000001
+                  "MaxThrustFuelRate": 3.2568562500000002
                 },
                 "Durability": {
                   "Health": 9150.0,
@@ -2909,7 +2999,8 @@
                     "Radar": {
                       "DetectionLifetime": 0.0,
                       "AltitudeCeiling": 0.0,
-                      "CrossSectionOcclusion": false
+                      "CrossSectionOcclusion": false,
+                      "Signatures": []
                     },
                     "Ports": [
                       {

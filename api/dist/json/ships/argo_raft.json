@@ -425,12 +425,12 @@
                 },
                 {
                   "itemPortName": "hardpoint_controller_fuel",
-                  "entityClassName": "",
+                  "entityClassName": "Controller_Fuel",
                   "loadout": {}
                 },
                 {
                   "itemPortName": "hardpoint_fuel_port",
-                  "entityClassName": "",
+                  "entityClassName": "DockingTube_Fuel_Ports_ARGO_RAFT",
                   "loadout": {}
                 },
                 {
@@ -452,6 +452,11 @@
                   "itemPortName": "hardpoint_personal_storage_02",
                   "entityClassName": "PersonalStorage_RAFT",
                   "loadout": {}
+                },
+                {
+                  "itemPortName": "hardpoint_cockpit_flair_hang",
+                  "entityClassName": "",
+                  "loadout": {}
                 }
               ]
             }
@@ -464,8 +469,8 @@
             "Size": 3,
             "Grade": 1,
             "Manufacturer": "9e1f5a35-edcc-4d19-bede-08e2730043c5",
-            "Tags": "ARGO_RAFT expoship",
-            "RequiredTags": "Ship_Dock_Refuel",
+            "Tags": "ARGO_RAFT expoship Ship_Dock_Refuel",
+            "RequiredTags": "",
             "DisplayType": "",
             "Localization": {
               "Name": "@vehicle_NameARGO_RAFT",
@@ -1038,6 +1043,24 @@
                   }
                 },
                 {
+                  "name": "hardpoint_cockpit_flair_hang",
+                  "damagemax": 0.0,
+                  "class": "ItemPort",
+                  "ItemPort": {
+                    "minsize": 1,
+                    "maxsize": 1,
+                    "display_name": "@itemPort_port_Flair02",
+                    "flags": "",
+                    "requiredTags": "",
+                    "Types": [
+                      {
+                        "type": "Flair_Cockpit",
+                        "subtypes": "Flair_Hanging"
+                      }
+                    ]
+                  }
+                },
+                {
                   "name": "hardpoint_seat_pilot_seat_access",
                   "damagemax": 0.0,
                   "class": "ItemPort",
@@ -1243,8 +1266,8 @@
                   "damagemax": 0.0,
                   "class": "ItemPort",
                   "ItemPort": {
-                    "minsize": 2,
-                    "maxsize": 2,
+                    "minsize": 1,
+                    "maxsize": 1,
                     "flags": "invisible uneditable",
                     "Types": [
                       {

@@ -334,16 +334,26 @@
               },
               {
                 "itemPortName": "hardpoint_controller_fuel",
-                "entityClassName": "",
+                "entityClassName": "Controller_Fuel",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_fuel_port",
-                "entityClassName": "",
+                "entityClassName": "DockingTube_Fuel_Ports_AEGS_Eclipse",
                 "loadout": {}
               },
               {
                 "itemPortName": "hardpoint_air_traffic_controller",
+                "entityClassName": "AEGS_Eclipse_ShipATCDataManager",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair",
+                "entityClassName": "",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair_hang",
                 "entityClassName": "",
                 "loadout": {}
               }
@@ -358,8 +368,8 @@
           "Size": 2,
           "Grade": 1,
           "Manufacturer": "cf4a74bf-eb2c-462a-9b78-f7f2724c31d2",
-          "Tags": "AEGS_Eclipse",
-          "RequiredTags": "Ship_Dock_Refuel",
+          "Tags": "AEGS_Eclipse Ship_Dock_Refuel",
+          "RequiredTags": "",
           "DisplayType": "",
           "Localization": {
             "Name": "@vehicle_NameAEGS_Eclipse",
@@ -763,58 +773,6 @@
                 }
               },
               {
-                "name": "hardpoint_weapon_regen_pool",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "Weapon Regen Pool",
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "WeaponRegenPool"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "WeaponRegen",
-                      "pipe": "WeaponRegenCrew"
-                    },
-                    {
-                      "pipeClass": "WeaponAmmoLoad",
-                      "pipe": "WeaponAmmoLoadCrew"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_weapon_regen_pool_turrets",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "Weapon Regen Pool",
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "WeaponRegenPool"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "WeaponRegen",
-                      "pipe": "WeaponRegenTurret"
-                    },
-                    {
-                      "pipeClass": "WeaponAmmoLoad",
-                      "pipe": "WeaponAmmoLoadTurret"
-                    }
-                  ]
-                }
-              },
-              {
                 "name": "hardpoint_controller_energy",
                 "damagemax": 0.0,
                 "class": "ItemPort",
@@ -1071,33 +1029,6 @@
                 }
               },
               {
-                "name": "hardpoint_controller_missile",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "MissileController"
-                    }
-                  ],
-                  "ControllerDef": {
-                    "UsableDef": {
-                      "PriorityGroups": [
-                        {
-                          "itemType": "MissileLauncher"
-                        },
-                        {
-                          "itemType": "Missile"
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-              {
                 "name": "cockpit_canopy",
                 "damageMax": 1500.0,
                 "damagemax": 0.0,
@@ -1154,26 +1085,53 @@
                 }
               },
               {
-                "name": "hardpoint_transponder",
+                "name": "hardpoint_weapon_regen_pool",
                 "damagemax": 0.0,
                 "class": "ItemPort",
                 "ItemPort": {
                   "minsize": 1,
                   "maxsize": 1,
+                  "display_name": "Weapon Regen Pool",
                   "flags": "invisible uneditable",
                   "Types": [
                     {
-                      "type": "Transponder"
+                      "type": "WeaponRegenPool"
                     }
                   ],
                   "Connections": [
                     {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenCrew"
                     },
                     {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadCrew"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_weapon_regen_pool_turrets",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "Weapon Regen Pool",
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "WeaponRegenPool"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenTurret"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadTurret"
                     }
                   ]
                 }
@@ -1216,23 +1174,6 @@
             "class": "AnimatedJoint",
             "detachRatio": 1.0,
             "Parts": [
-              {
-                "name": "hardpoint_paint",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "port_NamePaint",
-                  "flags": "",
-                  "requiredTags": "Paint_Eclipse",
-                  "Types": [
-                    {
-                      "type": "Paints"
-                    }
-                  ]
-                }
-              },
               {
                 "name": "wing_left",
                 "damageMax": 1500.0,
@@ -1424,6 +1365,33 @@
                         "DetachPart": []
                       }
                     ]
+                  },
+                  {
+                    "name": "hardpoint_countermeasure_launcher_left",
+                    "damagemax": 0.0,
+                    "class": "ItemPort",
+                    "ItemPort": {
+                      "minsize": 1,
+                      "maxsize": 1,
+                      "display_name": "port_NameCountermeasure01",
+                      "flags": "left uneditable",
+                      "Types": [
+                        {
+                          "type": "WeaponDefensive",
+                          "subtypes": "CountermeasureLauncher"
+                        }
+                      ],
+                      "Connections": [
+                        {
+                          "pipeClass": "Power",
+                          "pipe": "MainPower"
+                        },
+                        {
+                          "pipeClass": "Heat",
+                          "pipe": "MainHeat"
+                        }
+                      ]
+                    }
                   }
                 ],
                 "DamageBehaviors": [
@@ -1625,6 +1593,33 @@
                         "DetachPart": []
                       }
                     ]
+                  },
+                  {
+                    "name": "hardpoint_countermeasure_launcher_right",
+                    "damagemax": 0.0,
+                    "class": "ItemPort",
+                    "ItemPort": {
+                      "minsize": 1,
+                      "maxsize": 1,
+                      "display_name": "port_NameCountermeasure02",
+                      "flags": "right uneditable",
+                      "Types": [
+                        {
+                          "type": "WeaponDefensive",
+                          "subtypes": "CountermeasureLauncher"
+                        }
+                      ],
+                      "Connections": [
+                        {
+                          "pipeClass": "Power",
+                          "pipe": "MainPower"
+                        },
+                        {
+                          "pipeClass": "Heat",
+                          "pipe": "MainHeat"
+                        }
+                      ]
+                    }
                   }
                 ],
                 "DamageBehaviors": [
@@ -1737,33 +1732,6 @@
                 }
               },
               {
-                "name": "hardpoint_cooler_2",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "port_NameCooler02",
-                  "flags": "invisible",
-                  "Types": [
-                    {
-                      "type": "Cooler",
-                      "subtypes": ""
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
-                    }
-                  ]
-                }
-              },
-              {
                 "name": "hardpoint_powerplant",
                 "damagemax": 0.0,
                 "class": "ItemPort",
@@ -1789,6 +1757,11 @@
                     }
                   ]
                 }
+              },
+              {
+                "name": "hardpoint_heat_sink",
+                "damagemax": 0.0,
+                "class": "ItemPort"
               },
               {
                 "name": "hardpoint_quantum_drive",
@@ -2045,60 +2018,6 @@
                 }
               },
               {
-                "name": "hardpoint_countermeasure_launcher_left",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "port_NameCountermeasure01",
-                  "flags": "left uneditable",
-                  "Types": [
-                    {
-                      "type": "WeaponDefensive",
-                      "subtypes": "CountermeasureLauncher"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_countermeasure_launcher_right",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "port_NameCountermeasure02",
-                  "flags": "right uneditable",
-                  "Types": [
-                    {
-                      "type": "WeaponDefensive",
-                      "subtypes": "CountermeasureLauncher"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "Power",
-                      "pipe": "MainPower"
-                    },
-                    {
-                      "pipeClass": "Heat",
-                      "pipe": "MainHeat"
-                    }
-                  ]
-                }
-              },
-              {
                 "name": "hardpoint_torpedorack",
                 "damagemax": 0.0,
                 "class": "ItemPort",
@@ -2276,15 +2195,15 @@
                 ]
               },
               {
-                "name": "bay_door_left_01",
-                "damageMax": 300.0,
+                "name": "bay_door_l_a",
+                "damageMax": 1.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
                 "detachRatio": 1.0,
                 "Parts": [
                   {
-                    "name": "bay_door_left_02",
-                    "damageMax": 300.0,
+                    "name": "bay_door_l_b",
+                    "damageMax": 1.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0
@@ -2292,15 +2211,15 @@
                 ]
               },
               {
-                "name": "bay_door_right_02",
-                "damageMax": 300.0,
+                "name": "bay_door_r_a",
+                "damageMax": 1.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
                 "detachRatio": 1.0,
                 "Parts": [
                   {
-                    "name": "bay_door_right_01",
-                    "damageMax": 300.0,
+                    "name": "bay_door_r_b",
+                    "damageMax": 1.0,
                     "damagemax": 0.0,
                     "class": "AnimatedJoint",
                     "detachRatio": 1.0
@@ -2319,6 +2238,113 @@
                   "Types": [
                     {
                       "type": "Armor"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_paint",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "port_NamePaint",
+                  "flags": "",
+                  "requiredTags": "Paint_Eclipse",
+                  "Types": [
+                    {
+                      "type": "Paints"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_controller_missile",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "MissileController"
+                    }
+                  ],
+                  "ControllerDef": {
+                    "UsableDef": {
+                      "PriorityGroups": [
+                        {
+                          "itemType": "MissileLauncher"
+                        },
+                        {
+                          "itemType": "Missile"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "name": "hardpoint_cooler_2",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "port_NameCooler01",
+                  "flags": "invisible",
+                  "Types": [
+                    {
+                      "type": "Cooler",
+                      "subtypes": ""
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_cockpit_flair",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair01",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Static"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_cockpit_flair_hang",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair02",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Hanging"
                     }
                   ]
                 }

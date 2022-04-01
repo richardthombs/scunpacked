@@ -210,7 +210,8 @@
                 "Radar": {
                   "DetectionLifetime": 0.0,
                   "AltitudeCeiling": 0.0,
-                  "CrossSectionOcclusion": false
+                  "CrossSectionOcclusion": false,
+                  "Signatures": []
                 },
                 "Ports": [
                   {
@@ -724,6 +725,17 @@
             }
           },
           {
+            "Name": "hardpoint_cockpit_flair_hang",
+            "Port": {
+              "PortName": "hardpoint_cockpit_flair_hang",
+              "Size": 1,
+              "Types": [
+                "Flair_Cockpit.Flair_Hanging"
+              ],
+              "Category": "UNKNOWN"
+            }
+          },
+          {
             "Name": "hardpoint_controller_door",
             "Port": {
               "PortName": "hardpoint_controller_door",
@@ -781,11 +793,11 @@
             "Name": "hardpoint_ping",
             "Port": {
               "PortName": "hardpoint_ping",
-              "Size": 1,
+              "Size": 2,
               "Loadout": "test_ping_S2",
               "InstalledItem": {
                 "ClassName": "test_ping_S2",
-                "Size": 1,
+                "Size": 2,
                 "Grade": 1,
                 "Type": "Ping.UNDEFINED",
                 "Name": "Ping",
@@ -1155,15 +1167,14 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 3772.928,
                           "Energy": 17091.71
                         }
                       }
                     },
                     "Types": [
-                      "Missile.Missile"
+                      "Missile.Torpedo"
                     ],
-                    "Category": "Missiles"
+                    "Category": "UNKNOWN"
                   },
                   {
                     "PortName": "torpedo_tray_02_attach_node",
@@ -1190,15 +1201,14 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 3772.928,
                           "Energy": 17091.71
                         }
                       }
                     },
                     "Types": [
-                      "Missile.Missile"
+                      "Missile.Torpedo"
                     ],
-                    "Category": "Missiles"
+                    "Category": "UNKNOWN"
                   },
                   {
                     "PortName": "torpedo_tray_03_attach_node",
@@ -1225,15 +1235,14 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 3772.928,
                           "Energy": 17091.71
                         }
                       }
                     },
                     "Types": [
-                      "Missile.Missile"
+                      "Missile.Torpedo"
                     ],
-                    "Category": "Missiles"
+                    "Category": "UNKNOWN"
                   }
                 ]
               },
@@ -1325,11 +1334,9 @@
                           "Range": 2100.0,
                           "Size": 0.0,
                           "Capacity": 18.0,
-                          "ImpactDamage": {
-                            "Physical": 1.0
-                          },
+                          "ImpactDamage": {},
                           "DetonationDamage": {
-                            "Physical": 100.0
+                            "Physical": 250.0
                           }
                         },
                         "Modes": [
@@ -1341,10 +1348,10 @@
                             "AmmoPerShot": 1.0,
                             "PelletsPerShot": 1.0,
                             "DamagePerShot": {
-                              "Physical": 101.0
+                              "Physical": 250.0
                             },
                             "DamagePerSecond": {
-                              "Physical": 101.0
+                              "Physical": 250.0
                             }
                           }
                         ]
@@ -1354,11 +1361,9 @@
                         "Range": 2100.0,
                         "Size": 0.0,
                         "Capacity": 18.0,
-                        "ImpactDamage": {
-                          "Physical": 1.0
-                        },
+                        "ImpactDamage": {},
                         "DetonationDamage": {
-                          "Physical": 100.0
+                          "Physical": 250.0
                         }
                       }
                     },
@@ -1405,11 +1410,9 @@
                           "Range": 2100.0,
                           "Size": 0.0,
                           "Capacity": 18.0,
-                          "ImpactDamage": {
-                            "Physical": 1.0
-                          },
+                          "ImpactDamage": {},
                           "DetonationDamage": {
-                            "Physical": 100.0
+                            "Physical": 250.0
                           }
                         },
                         "Modes": [
@@ -1421,10 +1424,10 @@
                             "AmmoPerShot": 1.0,
                             "PelletsPerShot": 1.0,
                             "DamagePerShot": {
-                              "Physical": 101.0
+                              "Physical": 250.0
                             },
                             "DamagePerSecond": {
-                              "Physical": 101.0
+                              "Physical": 250.0
                             }
                           }
                         ]
@@ -1434,11 +1437,9 @@
                         "Range": 2100.0,
                         "Size": 0.0,
                         "Capacity": 18.0,
-                        "ImpactDamage": {
-                          "Physical": 1.0
-                        },
+                        "ImpactDamage": {},
                         "DetonationDamage": {
-                          "Physical": 100.0
+                          "Physical": 250.0
                         }
                       }
                     },
@@ -1665,7 +1666,7 @@
                   "flightReady"
                 ],
                 "HydrogenFuelIntake": {
-                  "Rate": 52.0
+                  "Rate": 25.0
                 },
                 "PowerConnection": {
                   "PowerBase": 0.5,
@@ -1704,7 +1705,7 @@
                   "flightReady"
                 ],
                 "HydrogenFuelIntake": {
-                  "Rate": 52.0
+                  "Rate": 25.0
                 },
                 "PowerConnection": {
                   "PowerBase": 0.5,
@@ -2317,7 +2318,8 @@
                 "Radar": {
                   "DetectionLifetime": 0.0,
                   "AltitudeCeiling": 0.0,
-                  "CrossSectionOcclusion": false
+                  "CrossSectionOcclusion": false,
+                  "Signatures": []
                 },
                 "Ports": [
                   {
@@ -2719,8 +2721,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 627.912,
-                          "Energy": 3265.92
+                          "Distortion": 2400.451
                         }
                       }
                     },
@@ -2754,8 +2755,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 627.912,
-                          "Energy": 3265.92
+                          "Distortion": 2400.451
                         }
                       }
                     },
@@ -2789,8 +2789,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 627.912,
-                          "Energy": 3265.92
+                          "Distortion": 2400.451
                         }
                       }
                     },
@@ -2824,8 +2823,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 627.912,
-                          "Energy": 3265.92
+                          "Distortion": 2400.451
                         }
                       }
                     },
@@ -2904,8 +2902,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 738.72,
-                          "Energy": 2954.88
+                          "Physical": 2378.678
                         }
                       }
                     },
@@ -2939,8 +2936,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 738.72,
-                          "Energy": 2954.88
+                          "Physical": 2378.678
                         }
                       }
                     },
@@ -2974,8 +2970,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 738.72,
-                          "Energy": 2954.88
+                          "Physical": 2378.678
                         }
                       }
                     },
@@ -3009,8 +3004,7 @@
                       },
                       "Missile": {
                         "Damage": {
-                          "Physical": 738.72,
-                          "Energy": 2954.88
+                          "Physical": 2378.678
                         }
                       }
                     },
@@ -3081,9 +3075,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 5324742.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 6.125E-06,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 66.559275
+                      "MaxThrustFuelRate": 32.61404475
                     },
                     "Durability": {
                       "Health": 16500.0,
@@ -3172,8 +3166,7 @@
                           },
                           "Missile": {
                             "Damage": {
-                              "Physical": 842.14,
-                              "Energy": 3368.56
+                              "Energy": 2526.42
                             }
                           }
                         },
@@ -3207,8 +3200,7 @@
                           },
                           "Missile": {
                             "Damage": {
-                              "Physical": 842.14,
-                              "Energy": 3368.56
+                              "Energy": 2526.42
                             }
                           }
                         },
@@ -3243,9 +3235,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3293,9 +3285,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3343,9 +3335,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3393,9 +3385,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3442,9 +3434,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3492,9 +3484,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 3448401.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 9.1875E-06,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 43.1050125
+                      "MaxThrustFuelRate": 31.6821841875
                     },
                     "Durability": {
                       "Health": 16500.0,
@@ -3539,9 +3531,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 3513015.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 6.125E-06,
                       "Type": "Retro",
-                      "MaxThrustFuelRate": 43.912687500000004
+                      "MaxThrustFuelRate": 21.517216875
                     },
                     "Durability": {
                       "Health": 15250.0,
@@ -3626,9 +3618,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 5324742.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 6.125E-06,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 66.559275
+                      "MaxThrustFuelRate": 32.61404475
                     },
                     "Durability": {
                       "Health": 16500.0,
@@ -3674,9 +3666,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3724,9 +3716,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3774,9 +3766,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3823,9 +3815,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3873,9 +3865,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 1586393.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 3.125E-06,
                       "Type": "Maneuver",
-                      "MaxThrustFuelRate": 19.829912500000002
+                      "MaxThrustFuelRate": 4.957478125000001
                     },
                     "Durability": {
                       "Health": 14350.0,
@@ -3923,9 +3915,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 3448401.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 9.1875E-06,
                       "Type": "Main",
-                      "MaxThrustFuelRate": 43.1050125
+                      "MaxThrustFuelRate": 31.6821841875
                     },
                     "Durability": {
                       "Health": 16500.0,
@@ -4014,8 +4006,7 @@
                           },
                           "Missile": {
                             "Damage": {
-                              "Physical": 842.14,
-                              "Energy": 3368.56
+                              "Energy": 2526.42
                             }
                           }
                         },
@@ -4049,8 +4040,7 @@
                           },
                           "Missile": {
                             "Damage": {
-                              "Physical": 842.14,
-                              "Energy": 3368.56
+                              "Energy": 2526.42
                             }
                           }
                         },
@@ -4085,9 +4075,9 @@
                     },
                     "Thruster": {
                       "ThrustCapacity": 3513015.0,
-                      "FuelRate": 1.25E-05,
+                      "FuelRate": 6.125E-06,
                       "Type": "Retro",
-                      "MaxThrustFuelRate": 43.912687500000004
+                      "MaxThrustFuelRate": 21.517216875
                     },
                     "Durability": {
                       "Health": 15250.0,
@@ -4134,12 +4124,12 @@
               "PortName": "hardpoint_weapon_locker_sentinel",
               "Size": 1,
               "Types": [
-                "Usable"
+                "Door"
               ],
               "Flags": [
                 "uneditable"
               ],
-              "Category": "Usables",
+              "Category": "Doors",
               "Uneditable": true
             }
           },
@@ -4206,12 +4196,12 @@
                 ]
               },
               "Types": [
-                "Usable"
+                "Door"
               ],
               "Flags": [
                 "uneditable"
               ],
-              "Category": "Usables",
+              "Category": "Doors",
               "Uneditable": true
             }
           },
@@ -4221,12 +4211,12 @@
               "PortName": "hardpoint_weapon_locker_warden",
               "Size": 1,
               "Types": [
-                "Usable"
+                "Door"
               ],
               "Flags": [
                 "uneditable"
               ],
-              "Category": "Usables",
+              "Category": "Doors",
               "Uneditable": true
             }
           },

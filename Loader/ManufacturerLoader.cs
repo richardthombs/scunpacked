@@ -43,7 +43,7 @@ namespace Loader
 
 				var indexEntry = new ManufacturerIndexEntry
 				{
-					name = localisationService.GetText(manufacturer.Localization.Name),
+					name = localisationService.GetText(manufacturer.Localization?.Name),
 					code = manufacturer.Code,
 					reference = manufacturer.__ref
 				};

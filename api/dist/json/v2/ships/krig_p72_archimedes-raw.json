@@ -383,6 +383,21 @@
                 "itemPortName": "hardpoint_controller_capacitor_assignment",
                 "entityClassName": "Controller_CapacitorAssignment",
                 "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_controller_fuel",
+                "entityClassName": "Controller_Fuel",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_fuel_port",
+                "entityClassName": "DockingTube_Fuel_Ports_KRIG_P52_Merlin",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_cockpit_flair_hang",
+                "entityClassName": "",
+                "loadout": {}
               }
             ]
           }
@@ -395,8 +410,8 @@
           "Size": 2,
           "Grade": 1,
           "Manufacturer": "7b5d1ed3-11e7-49e6-9ed3-9d0cb52a3dc2",
-          "Tags": "KRIG_P72_Archimedes ",
-          "RequiredTags": "Dock_Merlin",
+          "Tags": "KRIG_P72_Archimedes Dock_Merlin Ship_Dock_Refuel",
+          "RequiredTags": "",
           "DisplayType": "",
           "Localization": {
             "Name": "@vehicle_NameKRIG_P72_Archimedes",
@@ -473,7 +488,37 @@
         "PortFlags": "",
         "PortTags": "KRIG_Merlin_Base",
         "RequiredItemTags": "",
-        "Ports": []
+        "Ports": [
+          {
+            "Name": "hardpoint_controller_fuel",
+            "DisplayName": "",
+            "PortTags": "",
+            "RequiredPortTags": "",
+            "Flags": "",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": []
+          },
+          {
+            "Name": "hardpoint_fuel_port",
+            "DisplayName": "",
+            "PortTags": "Ship_Dock_Refuel",
+            "RequiredPortTags": "",
+            "Flags": "dockingport1",
+            "MinSize": 1,
+            "MaxSize": 1,
+            "InteractionPointSize": -1.0,
+            "DefaultWeaponGroup": "UNDEFINED",
+            "Types": [
+              {
+                "Type": "DockingCollar",
+                "SubTypes": []
+              }
+            ]
+          }
+        ]
       }
     },
     "ClassName": "KRIG_P72_Archimedes",
@@ -541,38 +586,6 @@
             "damagemax": 0.0,
             "class": "AnimatedJoint",
             "Parts": [
-              {
-                "name": "hardpoint_docking_collar",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 4,
-                  "display_name": "@dockingcollar_merlin",
-                  "flags": "$uneditable",
-                  "Types": [
-                    {
-                      "type": "DockingCollar"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_air_traffic_controller",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 4,
-                  "display_name": "@atc_merlin",
-                  "flags": "$uneditable",
-                  "Types": [
-                    {
-                      "type": "AirTrafficController"
-                    }
-                  ]
-                }
-              },
               {
                 "name": "hardpoint_thruster_front_bottom",
                 "damagemax": 0.0,
@@ -825,7 +838,39 @@
                 "name": "Canopy",
                 "damageMax": 80.0,
                 "damagemax": 0.0,
-                "class": "AnimatedJoint"
+                "class": "AnimatedJoint",
+                "Parts": [
+                  {
+                    "name": "$lod1_Canopy",
+                    "damageMax": 200.0,
+                    "damagemax": 0.0,
+                    "class": "AnimatedJoint"
+                  },
+                  {
+                    "name": "$lod2_Canopy",
+                    "damageMax": 200.0,
+                    "damagemax": 0.0,
+                    "class": "AnimatedJoint"
+                  },
+                  {
+                    "name": "$lod3_Canopy",
+                    "damageMax": 200.0,
+                    "damagemax": 0.0,
+                    "class": "AnimatedJoint"
+                  },
+                  {
+                    "name": "$lod5_Canopy",
+                    "damageMax": 200.0,
+                    "damagemax": 0.0,
+                    "class": "AnimatedJoint"
+                  },
+                  {
+                    "name": "$lod4_Canopy",
+                    "damageMax": 200.0,
+                    "damagemax": 0.0,
+                    "class": "AnimatedJoint"
+                  }
+                ]
               },
               {
                 "name": "hardpoint_weapon_gun_centermount",
@@ -1278,73 +1323,6 @@
                 }
               },
               {
-                "name": "hardpoint_weapon_regen_pool",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "Weapon Regen Pool",
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "WeaponRegenPool"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "WeaponRegen",
-                      "pipe": "WeaponRegenCrew"
-                    },
-                    {
-                      "pipeClass": "WeaponAmmoLoad",
-                      "pipe": "WeaponAmmoLoadCrew"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_weapon_regen_pool_turrets",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "display_name": "Weapon Regen Pool",
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "WeaponRegenPool"
-                    }
-                  ],
-                  "Connections": [
-                    {
-                      "pipeClass": "WeaponRegen",
-                      "pipe": "WeaponRegenTurret"
-                    },
-                    {
-                      "pipeClass": "WeaponAmmoLoad",
-                      "pipe": "WeaponAmmoLoadTurret"
-                    }
-                  ]
-                }
-              },
-              {
-                "name": "hardpoint_controller_capacitor_assignment",
-                "damagemax": 0.0,
-                "class": "ItemPort",
-                "ItemPort": {
-                  "minsize": 1,
-                  "maxsize": 1,
-                  "flags": "invisible uneditable",
-                  "Types": [
-                    {
-                      "type": "CapacitorAssignmentController"
-                    }
-                  ]
-                }
-              },
-              {
                 "name": "hardpoint_controller_cooler",
                 "damagemax": 0.0,
                 "class": "ItemPort",
@@ -1491,6 +1469,27 @@
                     }
                   },
                   {
+                    "name": "hardpoint_self_destruct_pilot",
+                    "damagemax": 0.0,
+                    "class": "ItemPort",
+                    "ItemPort": {
+                      "minsize": 1,
+                      "maxsize": 1,
+                      "flags": "invisible uneditable",
+                      "Types": [
+                        {
+                          "type": "SelfDestruct"
+                        }
+                      ],
+                      "Connections": [
+                        {
+                          "pipeClass": "Power",
+                          "pipe": "MainPower"
+                        }
+                      ]
+                    }
+                  },
+                  {
                     "name": "hardpoint_seat_pilot",
                     "damagemax": 0.0,
                     "class": "ItemPort",
@@ -1528,27 +1527,6 @@
                           ]
                         }
                       }
-                    }
-                  },
-                  {
-                    "name": "hardpoint_self_destruct_pilot",
-                    "damagemax": 0.0,
-                    "class": "ItemPort",
-                    "ItemPort": {
-                      "minsize": 1,
-                      "maxsize": 1,
-                      "flags": "invisible uneditable",
-                      "Types": [
-                        {
-                          "type": "SelfDestruct"
-                        }
-                      ],
-                      "Connections": [
-                        {
-                          "pipeClass": "Power",
-                          "pipe": "MainPower"
-                        }
-                      ]
                     }
                   }
                 ],
@@ -2152,6 +2130,107 @@
                       ]
                     }
                   }
+                }
+              },
+              {
+                "name": "hardpoint_docking_collar",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 4,
+                  "display_name": "@dockingcollar_merlin",
+                  "flags": "$uneditable",
+                  "Types": [
+                    {
+                      "type": "DockingCollar"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_weapon_regen_pool",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "Weapon Regen Pool",
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "WeaponRegenPool"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenCrew"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadCrew"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_weapon_regen_pool_turrets",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "Weapon Regen Pool",
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "WeaponRegenPool"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "WeaponRegen",
+                      "pipe": "WeaponRegenTurret"
+                    },
+                    {
+                      "pipeClass": "WeaponAmmoLoad",
+                      "pipe": "WeaponAmmoLoadTurret"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_controller_capacitor_assignment",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "CapacitorAssignmentController"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_cockpit_flair_hang",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "display_name": "@itemPort_port_Flair01",
+                  "flags": "",
+                  "requiredTags": "",
+                  "Types": [
+                    {
+                      "type": "Flair_Cockpit",
+                      "subtypes": "Flair_Hanging"
+                    }
+                  ]
                 }
               }
             ],

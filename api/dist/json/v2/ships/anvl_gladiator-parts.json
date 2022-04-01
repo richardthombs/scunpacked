@@ -43,7 +43,8 @@
                 "Radar": {
                   "DetectionLifetime": 0.0,
                   "AltitudeCeiling": 0.0,
-                  "CrossSectionOcclusion": false
+                  "CrossSectionOcclusion": false,
+                  "Signatures": []
                 },
                 "Ports": [
                   {
@@ -85,18 +86,6 @@
           },
           {
             "Name": "landing_gear_front_helper"
-          },
-          {
-            "Name": "canopy",
-            "MaximumDamage": 7500.0,
-            "Parts": [
-              {
-                "Name": "canopy_glass",
-                "MaximumDamage": 250.0,
-                "PartDetachDamage": 250.0
-              }
-            ],
-            "PartDetachDamage": 7500.0
           },
           {
             "Name": "hardpoint_dashboard_pilot",
@@ -148,7 +137,7 @@
                   },
                   {
                     "PortName": "Display_HUD",
-                    "Size": 0,
+                    "Size": 1,
                     "Loadout": "Projector_HUD_Generic",
                     "InstalledItem": {
                       "ClassName": "Projector_HUD_Generic",
@@ -247,35 +236,6 @@
                 "uneditable"
               ],
               "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_weapon_regen_pool",
-            "Port": {
-              "PortName": "hardpoint_weapon_regen_pool",
-              "Size": 1,
-              "Loadout": "WeaponRegenPool_Crew_HeavyFighter",
-              "InstalledItem": {
-                "ClassName": "WeaponRegenPool_Crew_HeavyFighter",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "WeaponRegenPool.UNDEFINED",
-                "Name": "WeaponRegenPool_Crew_HeavyFighter",
-                "WeaponRegenPool": {
-                  "RegenFillRate": 3000.0,
-                  "AmmoLoad": 10000,
-                  "RespectsCapacitorAssignments": true
-                }
-              },
-              "Types": [
-                "WeaponRegenPool"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "Weapon regen pool",
               "Uneditable": true
             }
           },
@@ -471,7 +431,8 @@
                 "Radar": {
                   "DetectionLifetime": 0.0,
                   "AltitudeCeiling": 0.0,
-                  "CrossSectionOcclusion": false
+                  "CrossSectionOcclusion": false,
+                  "Signatures": []
                 },
                 "Ports": [
                   {
@@ -750,6 +711,40 @@
             }
           },
           {
+            "Name": "canopy",
+            "MaximumDamage": 7500.0,
+            "Parts": [
+              {
+                "Name": "canopy_glass",
+                "MaximumDamage": 250.0,
+                "PartDetachDamage": 250.0
+              }
+            ],
+            "PartDetachDamage": 7500.0
+          },
+          {
+            "Name": "hardpoint_cockpit_flair",
+            "Port": {
+              "PortName": "hardpoint_cockpit_flair",
+              "Size": 1,
+              "Types": [
+                "Flair_Cockpit.Flair_Static"
+              ],
+              "Category": "UNKNOWN"
+            }
+          },
+          {
+            "Name": "hardpoint_cockpit_flair_hang",
+            "Port": {
+              "PortName": "hardpoint_cockpit_flair_hang",
+              "Size": 1,
+              "Types": [
+                "Flair_Cockpit.Flair_Hanging"
+              ],
+              "Category": "UNKNOWN"
+            }
+          },
+          {
             "Name": "hardpoint_transponder",
             "Port": {
               "PortName": "hardpoint_transponder",
@@ -762,62 +757,6 @@
                 "uneditable"
               ],
               "Category": "Transponders",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_weapon_regen_pool_turrets",
-            "Port": {
-              "PortName": "hardpoint_weapon_regen_pool_turrets",
-              "Size": 1,
-              "Loadout": "WeaponRegenPool_Turret_S1",
-              "InstalledItem": {
-                "ClassName": "WeaponRegenPool_Turret_S1",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "WeaponRegenPool.UNDEFINED",
-                "Name": "WeaponRegenPool_Turret_S1",
-                "WeaponRegenPool": {
-                  "RegenFillRate": 3000.0,
-                  "AmmoLoad": 20000,
-                  "RespectsCapacitorAssignments": false
-                }
-              },
-              "Types": [
-                "WeaponRegenPool"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "Weapon regen pool",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_capacitor_assignment",
-            "Port": {
-              "PortName": "hardpoint_controller_capacitor_assignment",
-              "Size": 1,
-              "Loadout": "Controller_CapacitorAssignment",
-              "InstalledItem": {
-                "ClassName": "Controller_CapacitorAssignment",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "CapacitorAssignmentController.UNDEFINED",
-                "Name": "Controller_CapacitorAssignment",
-                "Tags": [
-                  "flightReady"
-                ]
-              },
-              "Types": [
-                "CapacitorAssignmentController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
               "Uneditable": true
             }
           }
@@ -1267,8 +1206,7 @@
                           },
                           "Missile": {
                             "Damage": {
-                              "Physical": 701.784,
-                              "Energy": 2807.136
+                              "Energy": 1670.246
                             }
                           }
                         },
@@ -1302,8 +1240,7 @@
                           },
                           "Missile": {
                             "Damage": {
-                              "Physical": 701.784,
-                              "Energy": 2807.136
+                              "Energy": 1670.246
                             }
                           }
                         },
@@ -1382,8 +1319,7 @@
                           },
                           "Missile": {
                             "Damage": {
-                              "Physical": 738.72,
-                              "Energy": 2954.88
+                              "Physical": 2378.678
                             }
                           }
                         },
@@ -1417,8 +1353,7 @@
                           },
                           "Missile": {
                             "Damage": {
-                              "Physical": 738.72,
-                              "Energy": 2954.88
+                              "Physical": 2378.678
                             }
                           }
                         },
@@ -1479,9 +1414,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 2073723.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 6.55375E-06,
                   "Type": "Main",
-                  "MaxThrustFuelRate": 25.921537500000003
+                  "MaxThrustFuelRate": 13.59066211125
                 },
                 "Durability": {
                   "Health": 8500.0,
@@ -1528,9 +1463,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 2073723.0,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 6.55375E-06,
                   "Type": "Main",
-                  "MaxThrustFuelRate": 25.921537500000003
+                  "MaxThrustFuelRate": 13.59066211125
                 },
                 "Durability": {
                   "Health": 8500.0,
@@ -1578,9 +1513,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 980676.8,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 6.55375E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 12.258460000000001
+                  "MaxThrustFuelRate": 6.427110578
                 },
                 "Durability": {
                   "Health": 7256.0,
@@ -1626,9 +1561,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 980676.8,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 6.55375E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 12.258460000000001
+                  "MaxThrustFuelRate": 6.427110578
                 },
                 "Durability": {
                   "Health": 7256.0,
@@ -1673,7 +1608,7 @@
                   "Name": "Aegis Dynamics"
                 },
                 "PowerPlant": {
-                  "Output": 3155.25
+                  "Output": 4000.0
                 },
                 "Durability": {
                   "Health": 750.0,
@@ -1681,7 +1616,7 @@
                 },
                 "PowerConnection": {
                   "PowerBase": 0.0,
-                  "PowerDraw": 3155.25
+                  "PowerDraw": 4000.0
                 },
                 "HeatConnection": {
                   "ThermalEnergyBase": 22245.0,
@@ -1730,7 +1665,7 @@
                   "flightReady"
                 ],
                 "HydrogenFuelIntake": {
-                  "Rate": 9.0
+                  "Rate": 0.0
                 },
                 "PowerConnection": {
                   "PowerBase": 0.5,
@@ -1769,7 +1704,7 @@
                   "flightReady"
                 ],
                 "HydrogenFuelIntake": {
-                  "Rate": 9.0
+                  "Rate": 0.0
                 },
                 "PowerConnection": {
                   "PowerBase": 0.5,
@@ -1811,9 +1746,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 981613.2,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 12.270165
+                  "MaxThrustFuelRate": 3.06754125
                 },
                 "Durability": {
                   "Health": 6980.0,
@@ -1859,9 +1794,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 981613.2,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 12.270165
+                  "MaxThrustFuelRate": 3.06754125
                 },
                 "Durability": {
                   "Health": 6980.0,
@@ -1907,9 +1842,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 949379.4,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 11.867242500000001
+                  "MaxThrustFuelRate": 2.9668106250000004
                 },
                 "Durability": {
                   "Health": 6980.0,
@@ -1960,9 +1895,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 949379.4,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 11.867242500000001
+                  "MaxThrustFuelRate": 2.9668106250000004
                 },
                 "Durability": {
                   "Health": 6980.0,
@@ -2014,9 +1949,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 949379.4,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 11.867242500000001
+                  "MaxThrustFuelRate": 2.9668106250000004
                 },
                 "Durability": {
                   "Health": 6980.0,
@@ -2067,9 +2002,9 @@
                 },
                 "Thruster": {
                   "ThrustCapacity": 949379.4,
-                  "FuelRate": 1.25E-05,
+                  "FuelRate": 3.125E-06,
                   "Type": "Maneuver",
-                  "MaxThrustFuelRate": 11.867242500000001
+                  "MaxThrustFuelRate": 2.9668106250000004
                 },
                 "Durability": {
                   "Health": 6980.0,
@@ -2421,15 +2356,14 @@
                           },
                           "Missile": {
                             "Damage": {
-                              "Physical": 3772.928,
                               "Energy": 17091.71
                             }
                           }
                         },
                         "Types": [
-                          "Missile.Missile"
+                          "Missile.Torpedo"
                         ],
-                        "Category": "Missiles"
+                        "Category": "UNKNOWN"
                       },
                       {
                         "PortName": "missile_02_attach",
@@ -2456,15 +2390,14 @@
                           },
                           "Missile": {
                             "Damage": {
-                              "Physical": 3772.928,
                               "Energy": 17091.71
                             }
                           }
                         },
                         "Types": [
-                          "Missile.Missile"
+                          "Missile.Torpedo"
                         ],
-                        "Category": "Missiles"
+                        "Category": "UNKNOWN"
                       }
                     ]
                   },
@@ -2550,15 +2483,14 @@
                           },
                           "Missile": {
                             "Damage": {
-                              "Physical": 3772.928,
                               "Energy": 17091.71
                             }
                           }
                         },
                         "Types": [
-                          "Missile.Missile"
+                          "Missile.Torpedo"
                         ],
-                        "Category": "Missiles"
+                        "Category": "UNKNOWN"
                       },
                       {
                         "PortName": "missile_02_attach",
@@ -2585,15 +2517,14 @@
                           },
                           "Missile": {
                             "Damage": {
-                              "Physical": 3772.928,
                               "Energy": 17091.71
                             }
                           }
                         },
                         "Types": [
-                          "Missile.Missile"
+                          "Missile.Torpedo"
                         ],
-                        "Category": "Missiles"
+                        "Category": "UNKNOWN"
                       }
                     ]
                   },
@@ -2751,8 +2682,7 @@
                           },
                           "Missile": {
                             "Damage": {
-                              "Physical": 738.72,
-                              "Energy": 2954.88
+                              "Physical": 2378.678
                             }
                           }
                         },
@@ -2786,8 +2716,7 @@
                           },
                           "Missile": {
                             "Damage": {
-                              "Physical": 738.72,
-                              "Energy": 2954.88
+                              "Physical": 2378.678
                             }
                           }
                         },
@@ -2866,8 +2795,7 @@
                           },
                           "Missile": {
                             "Damage": {
-                              "Physical": 701.784,
-                              "Energy": 2807.136
+                              "Energy": 1670.246
                             }
                           }
                         },
@@ -2901,8 +2829,7 @@
                           },
                           "Missile": {
                             "Damage": {
-                              "Physical": 701.784,
-                              "Energy": 2807.136
+                              "Energy": 1670.246
                             }
                           }
                         },
@@ -3425,6 +3352,91 @@
               },
               "Types": [
                 "MissileController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_weapon_regen_pool",
+            "Port": {
+              "PortName": "hardpoint_weapon_regen_pool",
+              "Size": 1,
+              "Loadout": "WeaponRegenPool_Crew_HeavyFighter",
+              "InstalledItem": {
+                "ClassName": "WeaponRegenPool_Crew_HeavyFighter",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponRegenPool.UNDEFINED",
+                "Name": "WeaponRegenPool_Crew_HeavyFighter",
+                "WeaponRegenPool": {
+                  "RegenFillRate": 3000.0,
+                  "AmmoLoad": 10000,
+                  "RespectsCapacitorAssignments": true
+                }
+              },
+              "Types": [
+                "WeaponRegenPool"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "Weapon regen pool",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_weapon_regen_pool_turrets",
+            "Port": {
+              "PortName": "hardpoint_weapon_regen_pool_turrets",
+              "Size": 1,
+              "Loadout": "WeaponRegenPool_Turret_S1",
+              "InstalledItem": {
+                "ClassName": "WeaponRegenPool_Turret_S1",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponRegenPool.UNDEFINED",
+                "Name": "WeaponRegenPool_Turret_S1",
+                "WeaponRegenPool": {
+                  "RegenFillRate": 3000.0,
+                  "AmmoLoad": 20000,
+                  "RespectsCapacitorAssignments": false
+                }
+              },
+              "Types": [
+                "WeaponRegenPool"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "Weapon regen pool",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_capacitor_assignment",
+            "Port": {
+              "PortName": "hardpoint_controller_capacitor_assignment",
+              "Size": 1,
+              "Loadout": "Controller_CapacitorAssignment",
+              "InstalledItem": {
+                "ClassName": "Controller_CapacitorAssignment",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "CapacitorAssignmentController.UNDEFINED",
+                "Name": "Controller_CapacitorAssignment",
+                "Tags": [
+                  "flightReady"
+                ]
+              },
+              "Types": [
+                "CapacitorAssignmentController"
               ],
               "Flags": [
                 "invisible",
