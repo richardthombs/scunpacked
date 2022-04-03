@@ -69,16 +69,14 @@
         <app-stat *ngIf="item!.Weapon.Modes[0].AmmoPerShot == 0" title="Ammo used" [value]="false" bool="true"></app-stat>
       </div>
     </div>
-    <!--
-      <div *ngIf="item?.Weapon">
-        <h2 class="text-xl">Ammunition performance</h2>
-        <div class="grid grid-cols-4 gap-5">
-          <app-stat title="Speed" [value]="item!.ammo.speed" units="m/s" si="true"></app-stat>
-          <app-stat title="Range" [value]="item!.ammo.range" units="m" si="true" decimals="1"></app-stat>
-          <app-stat title="Detonates" [value]="item!.ammo.detonates" bool="true"></app-stat>
-        </div>
+    <div *ngIf="item?.Weapon">
+      <h2 class="text-xl">Ammunition performance</h2>
+      <div class="grid grid-cols-4 gap-5">
+        <app-stat title="Speed" [value]="item!.Ammunition.Speed" units="m/s" si="true"></app-stat>
+        <app-stat title="Range" [value]="item!.Ammunition.Range" units="m" si="true" decimals="1"></app-stat>
+        <app-stat title="Detonates" [value]="item!.Ammunition?.DetonationDamage.Physical" *ngIf="item?.Ammunition?.DetonationDamage" bool="true"></app-stat>
       </div>
-      -->
+    </div>
     <div *ngIf="item?.Missile">
       <h2 class="text-xl">Missile</h2>
       <div class="grid grid-cols-6 gap-5">
