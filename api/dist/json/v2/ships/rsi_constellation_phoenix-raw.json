@@ -508,12 +508,12 @@
                     "entries": [
                       {
                         "itemPortName": "hardpoint_weapon_left",
-                        "entityClassName": "ASAD_DistortionRepeater_S2",
+                        "entityClassName": "KLWE_LaserRepeater_S2",
                         "loadout": {}
                       },
                       {
                         "itemPortName": "hardpoint_weapon_right",
-                        "entityClassName": "ASAD_DistortionRepeater_S2",
+                        "entityClassName": "KLWE_LaserRepeater_S2",
                         "loadout": {}
                       }
                     ]
@@ -528,12 +528,12 @@
                     "entries": [
                       {
                         "itemPortName": "hardpoint_weapon_left",
-                        "entityClassName": "ASAD_DistortionRepeater_S2",
+                        "entityClassName": "KLWE_LaserRepeater_S2",
                         "loadout": {}
                       },
                       {
                         "itemPortName": "hardpoint_weapon_right",
-                        "entityClassName": "ASAD_DistortionRepeater_S2",
+                        "entityClassName": "KLWE_LaserRepeater_S2",
                         "loadout": {}
                       }
                     ]
@@ -1701,66 +1701,12 @@
                     "damagemax": 0.0,
                     "class": "ItemPort",
                     "ItemPort": {
-                      "minsize": 2,
-                      "maxsize": 2,
+                      "minsize": 1,
+                      "maxsize": 1,
                       "flags": "invisible uneditable",
                       "Types": [
                         {
                           "type": "Ping"
-                        }
-                      ],
-                      "Connections": [
-                        {
-                          "pipeClass": "Power",
-                          "pipe": "MainPower"
-                        },
-                        {
-                          "pipeClass": "Heat",
-                          "pipe": "MainHeat"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "name": "hardpoint_powerplant_left",
-                    "damagemax": 0.0,
-                    "class": "ItemPort",
-                    "ItemPort": {
-                      "minsize": 2,
-                      "maxsize": 2,
-                      "display_name": "port_NamePowerplant02",
-                      "flags": "invisible",
-                      "Types": [
-                        {
-                          "type": "PowerPlant",
-                          "subtypes": ""
-                        }
-                      ],
-                      "Connections": [
-                        {
-                          "pipeClass": "Power",
-                          "pipe": "MainPower"
-                        },
-                        {
-                          "pipeClass": "Heat",
-                          "pipe": "MainHeat"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "name": "hardpoint_powerplant_right",
-                    "damagemax": 0.0,
-                    "class": "ItemPort",
-                    "ItemPort": {
-                      "minsize": 2,
-                      "maxsize": 2,
-                      "display_name": "port_NamePowerplant01",
-                      "flags": "invisible",
-                      "Types": [
-                        {
-                          "type": "PowerPlant",
-                          "subtypes": ""
                         }
                       ],
                       "Connections": [
@@ -1807,32 +1753,6 @@
                       "ControllerDef": {
                         "controllableTags": "quantum_drive"
                       }
-                    }
-                  },
-                  {
-                    "name": "hardpoint_quantum_interdiction_generator",
-                    "damagemax": 0.0,
-                    "class": "ItemPort",
-                    "ItemPort": {
-                      "minsize": 1,
-                      "maxsize": 1,
-                      "flags": "invisible uneditable",
-                      "Types": [
-                        {
-                          "type": "QuantumInterdictionGenerator",
-                          "subtypes": ""
-                        }
-                      ],
-                      "Connections": [
-                        {
-                          "pipeClass": "Power",
-                          "pipe": "MainPower"
-                        },
-                        {
-                          "pipeClass": "Heat",
-                          "pipe": "MainHeat"
-                        }
-                      ]
                     }
                   },
                   {
@@ -5023,6 +4943,86 @@
                     {
                       "type": "Flair_Floor",
                       "subtypes": ""
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_powerplant_left",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 2,
+                  "maxsize": 2,
+                  "display_name": "port_NamePowerplant02",
+                  "flags": "invisible",
+                  "Types": [
+                    {
+                      "type": "PowerPlant",
+                      "subtypes": ""
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_powerplant_right",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 2,
+                  "maxsize": 2,
+                  "display_name": "port_NamePowerplant01",
+                  "flags": "invisible",
+                  "Types": [
+                    {
+                      "type": "PowerPlant",
+                      "subtypes": ""
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_quantum_interdiction_generator",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 1,
+                  "flags": "invisible uneditable",
+                  "Types": [
+                    {
+                      "type": "QuantumInterdictionGenerator",
+                      "subtypes": ""
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
                     }
                   ]
                 }

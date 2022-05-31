@@ -1,0 +1,1211 @@
+{
+  "ClassName": "Turret_Unmanned_BEHR_S10_Ground_Destructible_PSec_Crusader",
+  "Size": 1,
+  "Grade": 1,
+  "Type": "Turret.MannedTurret",
+  "Name": "AAT-34 Turret",
+  "Description": "Manufacturer: Broad & Rabiee\nItem Type: Anti-Aircraft Turret\n\nMaintain order with the AAT-34 anti-aircraft turret. This rugged design is ideal for perimeter protection and can survive long exposure to the elements with minimal maintenance while still providing first class defensive fire. Its custom targeting software also helps maximize area coverage while keeping placement numbers reasonable; covering more sky with fewer turrets.",
+  "Manufacturer": {
+    "Code": "AEG",
+    "Name": "Aegis Dynamics"
+  },
+  "Durability": {
+    "Health": 70000.0
+  },
+  "Ports": [
+    {
+      "PortName": "hardpoint_aimodule",
+      "Size": 10,
+      "Loadout": "AIModule_Unmanned_PU_PSec_GreenzoneTurret_Large",
+      "InstalledItem": {
+        "ClassName": "AIModule_Unmanned_PU_PSec_GreenzoneTurret_Large",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "AIModule.UNDEFINED",
+        "Name": "AIModule_Unmanned_PU_PSec_GreenzoneTurret_Large"
+      },
+      "Types": [
+        "AIModule"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_weaponcenter",
+      "Size": 10,
+      "Loadout": "BEHR_LaserRepeater_S10",
+      "InstalledItem": {
+        "ClassName": "BEHR_LaserRepeater_S10",
+        "Size": 10,
+        "Grade": 1,
+        "Type": "WeaponGun.Gun",
+        "Name": "GVSR Repeater",
+        "Description": "Manufacturer: Behring\nItem Type: Laser Repeater\nSize: 2\n\nAegis commissioned Behring to design a laser repeater specifically for their Vanguard line-up. The result was the GVSR, which met Aegis exacting standards by delivering a steady rate of fire without overtaxing the ship's power plant. ",
+        "Manufacturer": {
+          "Code": "BEH",
+          "Name": "Behring"
+        },
+        "Tags": [
+          "flightReady",
+          "weaponMountUsable",
+          "VanguardNose"
+        ],
+        "Durability": {
+          "Lifetime": 20.0
+        },
+        "PowerConnection": {
+          "PowerBase": 270.0,
+          "PowerDraw": 270.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 100.0,
+          "ThermalEnergyDraw": 200.0,
+          "CoolingRate": 300.0
+        },
+        "Weapon": {
+          "Ammunition": {
+            "Speed": 700.0,
+            "Range": 2800.0,
+            "Size": 10.0,
+            "Capacity": 0.0,
+            "ImpactDamage": {
+              "Energy": 10000.0
+            }
+          },
+          "Modes": [
+            {
+              "Name": "Single",
+              "LocalisedName": "[SEMI]",
+              "RoundsPerMinute": 100.0,
+              "FireType": "sequence",
+              "AmmoPerShot": 0.0,
+              "PelletsPerShot": 1.0,
+              "DamagePerShot": {
+                "Energy": 10000.0
+              },
+              "DamagePerSecond": {
+                "Energy": 16666.666666666668
+              }
+            }
+          ],
+          "Consumption": {
+            "RequestedRegenPerSec": 83333.33,
+            "Cooldown": 3.0,
+            "CostPerBullet": 3.5,
+            "RequestedAmmoLoad": 500000.0
+          }
+        },
+        "Ammunition": {
+          "Speed": 700.0,
+          "Range": 2800.0,
+          "Size": 10.0,
+          "Capacity": 0.0,
+          "ImpactDamage": {
+            "Energy": 10000.0
+          }
+        },
+        "Ports": [
+          {
+            "PortName": "BAR1",
+            "Size": 10,
+            "Loadout": "BEHR_LaserRepeater_Barrel_S10",
+            "InstalledItem": {
+              "ClassName": "BEHR_LaserRepeater_Barrel_S10",
+              "Size": 10,
+              "Grade": 1,
+              "Type": "WeaponAttachment.Barrel",
+              "Name": "BEHR_LaserRepeater_Barrel_S10",
+              "Manufacturer": {
+                "Code": "BEH",
+                "Name": "Behring"
+              },
+              "Tags": [
+                "uneditable"
+              ]
+            },
+            "Types": [
+              "WeaponAttachment.Barrel"
+            ]
+          },
+          {
+            "PortName": "MEC",
+            "Size": 10,
+            "Loadout": "BEHR_LaserRepeater_FiringMechanism_S10",
+            "InstalledItem": {
+              "ClassName": "BEHR_LaserRepeater_FiringMechanism_S10",
+              "Size": 10,
+              "Grade": 1,
+              "Type": "WeaponAttachment.FiringMechanism",
+              "Name": "BEHR_LaserRepeater_FiringMechanism_S10",
+              "Manufacturer": {
+                "Code": "BEH",
+                "Name": "Behring"
+              },
+              "Tags": [
+                "uneditable"
+              ]
+            },
+            "Types": [
+              "WeaponAttachment.FiringMechanism"
+            ]
+          },
+          {
+            "PortName": "POW",
+            "Size": 10,
+            "Loadout": "BEHR_LaserRepeater_PowerArray_S10",
+            "InstalledItem": {
+              "ClassName": "BEHR_LaserRepeater_PowerArray_S10",
+              "Size": 10,
+              "Grade": 1,
+              "Type": "WeaponAttachment.PowerArray",
+              "Name": "BEHR_LaserRepeater_PowerArray_S10",
+              "Manufacturer": {
+                "Code": "BEH",
+                "Name": "Behring"
+              },
+              "Tags": [
+                "uneditable"
+              ]
+            },
+            "Types": [
+              "WeaponAttachment.PowerArray"
+            ]
+          },
+          {
+            "PortName": "VEN",
+            "Size": 10,
+            "Loadout": "BEHR_LaserRepeater_Ventilation_S10",
+            "InstalledItem": {
+              "ClassName": "BEHR_LaserRepeater_Ventilation_S10",
+              "Size": 10,
+              "Grade": 1,
+              "Type": "WeaponAttachment.Ventilation",
+              "Name": "BEHR_LaserRepeater_Ventilation_S10",
+              "Manufacturer": {
+                "Code": "BEH",
+                "Name": "Behring"
+              },
+              "Tags": [
+                "uneditable"
+              ]
+            },
+            "Types": [
+              "WeaponAttachment.Ventilation"
+            ]
+          }
+        ]
+      },
+      "Types": [
+        "WeaponGun"
+      ],
+      "Flags": [
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_powerplant",
+      "Size": 3,
+      "Loadout": "POWR_AEGS_S03_Fulgur_SCItem",
+      "InstalledItem": {
+        "ClassName": "POWR_AEGS_S03_Fulgur_SCItem",
+        "Size": 3,
+        "Grade": 2,
+        "Type": "PowerPlant.Power",
+        "Name": "Fulgur",
+        "Description": "Item Type: Power Plant\nManufacturer: Aegis Dynamics\nSize: 3\nGrade: B\nClass: Military\n\nTried and tested by the UEE Navy on the Vanduul front, the Fulgur large power plant from Aegis Dynamics is now available for all to put to use protecting what’s important.",
+        "Manufacturer": {
+          "Code": "AEG",
+          "Name": "Aegis Dynamics"
+        },
+        "PowerPlant": {
+          "Output": 40000.0
+        },
+        "Durability": {
+          "Health": 3600.0,
+          "Lifetime": 46.0
+        },
+        "PowerConnection": {
+          "PowerBase": 0.0,
+          "PowerDraw": 40000.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 377696.1,
+          "ThermalEnergyDraw": 400000.0,
+          "CoolingRate": 289.7723
+        }
+      },
+      "Types": [
+        "PowerPlant"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_weaponcontroller",
+      "Size": 1,
+      "Loadout": "Controller_Weapon_UnmannedTurret",
+      "InstalledItem": {
+        "ClassName": "Controller_Weapon_UnmannedTurret",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "WeaponController.UNDEFINED",
+        "Name": "WEAPONS"
+      },
+      "Types": [
+        "WeaponController"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_targetselector",
+      "Size": 1,
+      "Loadout": "Controller_TargetSelector",
+      "InstalledItem": {
+        "ClassName": "Controller_TargetSelector",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "TargetSelector.UNDEFINED",
+        "Name": "TARGET SELECTOR"
+      },
+      "Types": [
+        "TargetSelector"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_energycontroller",
+      "Size": 1,
+      "Loadout": "Controller_Energy",
+      "InstalledItem": {
+        "ClassName": "Controller_Energy",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "EnergyController.UNDEFINED",
+        "Name": "POWER"
+      },
+      "Types": [
+        "EnergyController"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_coolercontroller",
+      "Size": 1,
+      "Loadout": "Controller_Cooler",
+      "InstalledItem": {
+        "ClassName": "Controller_Cooler",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "CoolerController.UNDEFINED",
+        "Name": "HEAT"
+      },
+      "Types": [
+        "CoolerController"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_radar",
+      "Size": 1,
+      "Loadout": "RADR_Unmaned_Turret",
+      "InstalledItem": {
+        "ClassName": "RADR_Unmaned_Turret",
+        "Size": 0,
+        "Grade": 1,
+        "Type": "Radar.MidRangeRadar",
+        "Name": "RADR_Unmaned_Turret",
+        "Description": "@LOC_PLACEHOLDER",
+        "Tags": [
+          "flightReady"
+        ],
+        "Durability": {
+          "Lifetime": 720.0
+        },
+        "PowerConnection": {
+          "PowerBase": 0.1,
+          "PowerDraw": 1.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        },
+        "Radar": {
+          "DetectionLifetime": 0.0,
+          "AltitudeCeiling": 0.0,
+          "CrossSectionOcclusion": false,
+          "Signatures": []
+        },
+        "Ports": [
+          {
+            "PortName": "BatteryPort",
+            "Size": 2,
+            "Types": [
+              "Battery"
+            ],
+            "Flags": [
+              "invisible"
+            ]
+          }
+        ]
+      },
+      "Types": [
+        "CoolerController"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_missilecontroller",
+      "Size": 3,
+      "Loadout": "Controller_Missile",
+      "InstalledItem": {
+        "ClassName": "Controller_Missile",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "MissileController.UNDEFINED",
+        "Name": "MISSILES"
+      },
+      "Types": [
+        "MissileController"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_cooler1",
+      "Size": 1,
+      "Loadout": "COOL_AEGS_S02_Avalanche_SCItem",
+      "InstalledItem": {
+        "ClassName": "COOL_AEGS_S02_Avalanche_SCItem",
+        "Size": 2,
+        "Grade": 1,
+        "Type": "Cooler.UNDEFINED",
+        "Name": "Avalanche",
+        "Description": "Item Type: Cooler\nManufacturer: Aegis Dynamics\nSize: 2\nGrade: A\nClass: Military\n\nShowcasing the best of mil-spec cooler technology, the Aegis Avalanche thermal management unit has been built from the ground up to endure the demanding needs of the battlefield.",
+        "Manufacturer": {
+          "Code": "AEG",
+          "Name": "Aegis Dynamics"
+        },
+        "Cooler": {
+          "Rate": 5800000.0
+        },
+        "Durability": {
+          "Health": 1850.0,
+          "Lifetime": 96.0
+        },
+        "PowerConnection": {
+          "PowerBase": 16.0,
+          "PowerDraw": 24.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        }
+      },
+      "Types": [
+        "Cooler"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_cooler2",
+      "Size": 1,
+      "Loadout": "COOL_AEGS_S02_Avalanche_SCItem",
+      "InstalledItem": {
+        "ClassName": "COOL_AEGS_S02_Avalanche_SCItem",
+        "Size": 2,
+        "Grade": 1,
+        "Type": "Cooler.UNDEFINED",
+        "Name": "Avalanche",
+        "Description": "Item Type: Cooler\nManufacturer: Aegis Dynamics\nSize: 2\nGrade: A\nClass: Military\n\nShowcasing the best of mil-spec cooler technology, the Aegis Avalanche thermal management unit has been built from the ground up to endure the demanding needs of the battlefield.",
+        "Manufacturer": {
+          "Code": "AEG",
+          "Name": "Aegis Dynamics"
+        },
+        "Cooler": {
+          "Rate": 5800000.0
+        },
+        "Durability": {
+          "Health": 1850.0,
+          "Lifetime": 96.0
+        },
+        "PowerConnection": {
+          "PowerBase": 16.0,
+          "PowerDraw": 24.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        }
+      },
+      "Types": [
+        "Cooler"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_weapon_regen_pool_turrets",
+      "Size": 1,
+      "Loadout": "WeaponRegenPool_Turret_Default",
+      "InstalledItem": {
+        "ClassName": "WeaponRegenPool_Turret_Default",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "WeaponRegenPool.UNDEFINED",
+        "Name": "WeaponRegenPool_Turret_Default",
+        "WeaponRegenPool": {
+          "RegenFillRate": 100000.0,
+          "AmmoLoad": 60000,
+          "RespectsCapacitorAssignments": false
+        }
+      },
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_missilerack_left",
+      "Size": 8,
+      "Loadout": "MRCK_S08_BEHR_Non_S05_PUDefenseTurret_Crusader",
+      "InstalledItem": {
+        "ClassName": "MRCK_S08_BEHR_Non_S05_PUDefenseTurret_Crusader",
+        "Size": 8,
+        "Grade": 1,
+        "Type": "MissileLauncher.MissileRack",
+        "Name": "[PH] Freelancer Stock Missile Rack",
+        "Description": "Item Type: Missile Rack\nManufacturer: Behring\nSize: 4\nMissiles: 8xS1\n\nBehring’s MSD-481 \"Marsden\" is a complete ordnance storage and deployment system that can be mounted on any compatible size 4 hardpoint for the reliable and effective launch of eight S1 missiles.",
+        "Manufacturer": {
+          "Code": "BEH",
+          "Name": "Behring"
+        },
+        "Tags": [
+          "flightReady"
+        ],
+        "Durability": {
+          "Health": 200.0
+        },
+        "MissileRack": {
+          "Count": 9,
+          "Size": 5
+        },
+        "PowerConnection": {
+          "PowerBase": 20.0,
+          "PowerDraw": 20.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        },
+        "Ports": [
+          {
+            "PortName": "missile_01_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          },
+          {
+            "PortName": "missile_02_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          },
+          {
+            "PortName": "missile_03_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          },
+          {
+            "PortName": "missile_04_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          },
+          {
+            "PortName": "missile_05_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          },
+          {
+            "PortName": "missile_06_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          },
+          {
+            "PortName": "missile_07_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          },
+          {
+            "PortName": "missile_08_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          },
+          {
+            "PortName": "missile_09_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          }
+        ]
+      },
+      "Types": [
+        "MissileLauncher"
+      ],
+      "Flags": [
+        "$uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_missilerack_right",
+      "Size": 8,
+      "Loadout": "MRCK_S08_BEHR_Non_S05_PUDefenseTurret_Crusader",
+      "InstalledItem": {
+        "ClassName": "MRCK_S08_BEHR_Non_S05_PUDefenseTurret_Crusader",
+        "Size": 8,
+        "Grade": 1,
+        "Type": "MissileLauncher.MissileRack",
+        "Name": "[PH] Freelancer Stock Missile Rack",
+        "Description": "Item Type: Missile Rack\nManufacturer: Behring\nSize: 4\nMissiles: 8xS1\n\nBehring’s MSD-481 \"Marsden\" is a complete ordnance storage and deployment system that can be mounted on any compatible size 4 hardpoint for the reliable and effective launch of eight S1 missiles.",
+        "Manufacturer": {
+          "Code": "BEH",
+          "Name": "Behring"
+        },
+        "Tags": [
+          "flightReady"
+        ],
+        "Durability": {
+          "Health": 200.0
+        },
+        "MissileRack": {
+          "Count": 9,
+          "Size": 5
+        },
+        "PowerConnection": {
+          "PowerBase": 20.0,
+          "PowerDraw": 20.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        },
+        "Ports": [
+          {
+            "PortName": "missile_01_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          },
+          {
+            "PortName": "missile_02_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          },
+          {
+            "PortName": "missile_03_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          },
+          {
+            "PortName": "missile_04_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          },
+          {
+            "PortName": "missile_05_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          },
+          {
+            "PortName": "missile_06_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          },
+          {
+            "PortName": "missile_07_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          },
+          {
+            "PortName": "missile_08_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          },
+          {
+            "PortName": "missile_09_attach",
+            "Size": 5,
+            "Loadout": "MISL_S05_CS_TALN_Stalker",
+            "InstalledItem": {
+              "ClassName": "MISL_S05_CS_TALN_Stalker",
+              "Size": 5,
+              "Grade": 1,
+              "Type": "Missile.Torpedo",
+              "Name": "Stalker V Missile",
+              "Description": "Manufacturer: Talon\nTracking Signal: Cross Section\nSize: 5\n\nWith dedicated cross section tracking, the Talon Stalker has endured over the years as a precision strike torpedo with maximum stopping power.",
+              "Manufacturer": {
+                "Code": "TALN",
+                "Name": "Talon"
+              },
+              "Tags": [
+                "TALN",
+                "CS",
+                "flightReady"
+              ],
+              "Durability": {
+                "Health": 10.0
+              },
+              "Missile": {
+                "Damage": {
+                  "Physical": 17091.71
+                }
+              }
+            },
+            "Types": [
+              "Missile.Missile",
+              "Missile.Torpedo"
+            ]
+          }
+        ]
+      },
+      "Types": [
+        "MissileLauncher"
+      ],
+      "Flags": [
+        "$uneditable"
+      ],
+      "Uneditable": true
+    }
+  ]
+}

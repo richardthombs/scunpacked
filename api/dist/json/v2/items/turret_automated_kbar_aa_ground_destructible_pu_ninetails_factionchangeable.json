@@ -1,0 +1,676 @@
+{
+  "ClassName": "Turret_Automated_KBAR_AA_Ground_Destructible_PU_Ninetails_FactionChangeable",
+  "Size": 1,
+  "Grade": 1,
+  "Type": "Turret.MannedTurret",
+  "Name": "AAT-34 Turret",
+  "Description": "Manufacturer: Broad & Rabiee\nItem Type: Anti-Aircraft Turret\n\nMaintain order with the AAT-34 anti-aircraft turret. This rugged design is ideal for perimeter protection and can survive long exposure to the elements with minimal maintenance while still providing first class defensive fire. Its custom targeting software also helps maximize area coverage while keeping placement numbers reasonable; covering more sky with fewer turrets.",
+  "Manufacturer": {
+    "Code": "AEG",
+    "Name": "Aegis Dynamics"
+  },
+  "Durability": {
+    "Health": 10000.0
+  },
+  "Ports": [
+    {
+      "PortName": "hardpoint_aimodule",
+      "Size": 10,
+      "Loadout": "AIModule_Unmanned_PU_NineTails",
+      "InstalledItem": {
+        "ClassName": "AIModule_Unmanned_PU_NineTails",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "AIModule.UNDEFINED",
+        "Name": "AIModule_Unmanned_PU_NineTails"
+      },
+      "Types": [
+        "AIModule"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_weaponleft",
+      "Size": 10,
+      "Loadout": "HRST_LaserRepeater_S4_Turret",
+      "InstalledItem": {
+        "ClassName": "HRST_LaserRepeater_S4_Turret",
+        "Size": 4,
+        "Grade": 1,
+        "Type": "WeaponGun.Gun",
+        "Name": "Attrition-4 Repeater",
+        "Description": "Manufacturer: Hurston Dynamics\nItem Type: Laser Repeater\nSize: 4\n\nHurston Dynamics has fully integrated it's cascade laser technology into their Attrition-line of repeaters. The size four Attrition-4 is no exception, operating at peak performance when near its maximum thermal capacity.",
+        "Manufacturer": {
+          "Code": "HRST",
+          "Name": "Hurston Dynamics"
+        },
+        "Tags": [
+          "HRST",
+          "LaserRepeater",
+          "flightReady",
+          "weaponMountUsable"
+        ],
+        "Durability": {
+          "Lifetime": 20.0
+        },
+        "PowerConnection": {
+          "PowerBase": 220.0,
+          "PowerDraw": 220.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 100.0,
+          "ThermalEnergyDraw": 200.0,
+          "CoolingRate": 216.5
+        },
+        "Weapon": {
+          "Ammunition": {
+            "Speed": 1400.0,
+            "Range": 1540.0000000000002,
+            "Size": 1.0,
+            "Capacity": 0.0,
+            "ImpactDamage": {
+              "Energy": 80.0
+            }
+          },
+          "Modes": [
+            {
+              "Name": "Single",
+              "LocalisedName": "[SEMI]",
+              "RoundsPerMinute": 480.0,
+              "FireType": "sequence",
+              "AmmoPerShot": 1.0,
+              "PelletsPerShot": 1.0,
+              "DamagePerShot": {
+                "Energy": 80.0
+              },
+              "DamagePerSecond": {
+                "Energy": 640.0
+              }
+            }
+          ],
+          "Consumption": {
+            "RequestedRegenPerSec": 3200.0,
+            "Cooldown": 1.5,
+            "CostPerBullet": 80.0,
+            "RequestedAmmoLoad": 19200.0
+          }
+        },
+        "Ammunition": {
+          "Speed": 1400.0,
+          "Range": 1540.0000000000002,
+          "Size": 1.0,
+          "Capacity": 0.0,
+          "ImpactDamage": {
+            "Energy": 80.0
+          }
+        },
+        "Ports": [
+          {
+            "PortName": "BAR1",
+            "Size": 1,
+            "Loadout": "HRST_LaserRepeater_Barrel_S4",
+            "InstalledItem": {
+              "ClassName": "HRST_LaserRepeater_Barrel_S4",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "WeaponAttachment.Barrel",
+              "Name": "HRST_LaserRepeater_Barrel_S4",
+              "Manufacturer": {
+                "Code": "HRST",
+                "Name": "Hurston Dynamics"
+              },
+              "Tags": [
+                "uneditable"
+              ]
+            },
+            "Types": [
+              "WeaponAttachment.Barrel"
+            ]
+          },
+          {
+            "PortName": "MEC",
+            "Size": 1,
+            "Loadout": "HRST_LaserRepeater_FiringMechanism_S4",
+            "InstalledItem": {
+              "ClassName": "HRST_LaserRepeater_FiringMechanism_S4",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "WeaponAttachment.FiringMechanism",
+              "Name": "HRST_LaserRepeater_FiringMechanism_S4",
+              "Manufacturer": {
+                "Code": "HRST",
+                "Name": "Hurston Dynamics"
+              },
+              "Tags": [
+                "uneditable"
+              ]
+            },
+            "Types": [
+              "WeaponAttachment.FiringMechanism"
+            ]
+          },
+          {
+            "PortName": "POW",
+            "Size": 1,
+            "Loadout": "HRST_LaserRepeater_PowerArray_S4",
+            "InstalledItem": {
+              "ClassName": "HRST_LaserRepeater_PowerArray_S4",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "WeaponAttachment.PowerArray",
+              "Name": "HRST_LaserRepeater_PowerArray_S4",
+              "Manufacturer": {
+                "Code": "HRST",
+                "Name": "Hurston Dynamics"
+              },
+              "Tags": [
+                "uneditable"
+              ]
+            },
+            "Types": [
+              "WeaponAttachment.PowerArray"
+            ]
+          },
+          {
+            "PortName": "VEN",
+            "Size": 1,
+            "Loadout": "HRST_LaserRepeater_Ventilation_S4",
+            "InstalledItem": {
+              "ClassName": "HRST_LaserRepeater_Ventilation_S4",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "WeaponAttachment.Ventilation",
+              "Name": "HRST_LaserRepeater_Ventilation_S4",
+              "Manufacturer": {
+                "Code": "HRST",
+                "Name": "Hurston Dynamics"
+              },
+              "Tags": [
+                "uneditable"
+              ]
+            },
+            "Types": [
+              "WeaponAttachment.Ventilation"
+            ]
+          }
+        ]
+      },
+      "Types": [
+        "WeaponGun"
+      ],
+      "Flags": [
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_weaponright",
+      "Size": 10,
+      "Loadout": "HRST_LaserRepeater_S4_Turret",
+      "InstalledItem": {
+        "ClassName": "HRST_LaserRepeater_S4_Turret",
+        "Size": 4,
+        "Grade": 1,
+        "Type": "WeaponGun.Gun",
+        "Name": "Attrition-4 Repeater",
+        "Description": "Manufacturer: Hurston Dynamics\nItem Type: Laser Repeater\nSize: 4\n\nHurston Dynamics has fully integrated it's cascade laser technology into their Attrition-line of repeaters. The size four Attrition-4 is no exception, operating at peak performance when near its maximum thermal capacity.",
+        "Manufacturer": {
+          "Code": "HRST",
+          "Name": "Hurston Dynamics"
+        },
+        "Tags": [
+          "HRST",
+          "LaserRepeater",
+          "flightReady",
+          "weaponMountUsable"
+        ],
+        "Durability": {
+          "Lifetime": 20.0
+        },
+        "PowerConnection": {
+          "PowerBase": 220.0,
+          "PowerDraw": 220.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 100.0,
+          "ThermalEnergyDraw": 200.0,
+          "CoolingRate": 216.5
+        },
+        "Weapon": {
+          "Ammunition": {
+            "Speed": 1400.0,
+            "Range": 1540.0000000000002,
+            "Size": 1.0,
+            "Capacity": 0.0,
+            "ImpactDamage": {
+              "Energy": 80.0
+            }
+          },
+          "Modes": [
+            {
+              "Name": "Single",
+              "LocalisedName": "[SEMI]",
+              "RoundsPerMinute": 480.0,
+              "FireType": "sequence",
+              "AmmoPerShot": 1.0,
+              "PelletsPerShot": 1.0,
+              "DamagePerShot": {
+                "Energy": 80.0
+              },
+              "DamagePerSecond": {
+                "Energy": 640.0
+              }
+            }
+          ],
+          "Consumption": {
+            "RequestedRegenPerSec": 3200.0,
+            "Cooldown": 1.5,
+            "CostPerBullet": 80.0,
+            "RequestedAmmoLoad": 19200.0
+          }
+        },
+        "Ammunition": {
+          "Speed": 1400.0,
+          "Range": 1540.0000000000002,
+          "Size": 1.0,
+          "Capacity": 0.0,
+          "ImpactDamage": {
+            "Energy": 80.0
+          }
+        },
+        "Ports": [
+          {
+            "PortName": "BAR1",
+            "Size": 1,
+            "Loadout": "HRST_LaserRepeater_Barrel_S4",
+            "InstalledItem": {
+              "ClassName": "HRST_LaserRepeater_Barrel_S4",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "WeaponAttachment.Barrel",
+              "Name": "HRST_LaserRepeater_Barrel_S4",
+              "Manufacturer": {
+                "Code": "HRST",
+                "Name": "Hurston Dynamics"
+              },
+              "Tags": [
+                "uneditable"
+              ]
+            },
+            "Types": [
+              "WeaponAttachment.Barrel"
+            ]
+          },
+          {
+            "PortName": "MEC",
+            "Size": 1,
+            "Loadout": "HRST_LaserRepeater_FiringMechanism_S4",
+            "InstalledItem": {
+              "ClassName": "HRST_LaserRepeater_FiringMechanism_S4",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "WeaponAttachment.FiringMechanism",
+              "Name": "HRST_LaserRepeater_FiringMechanism_S4",
+              "Manufacturer": {
+                "Code": "HRST",
+                "Name": "Hurston Dynamics"
+              },
+              "Tags": [
+                "uneditable"
+              ]
+            },
+            "Types": [
+              "WeaponAttachment.FiringMechanism"
+            ]
+          },
+          {
+            "PortName": "POW",
+            "Size": 1,
+            "Loadout": "HRST_LaserRepeater_PowerArray_S4",
+            "InstalledItem": {
+              "ClassName": "HRST_LaserRepeater_PowerArray_S4",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "WeaponAttachment.PowerArray",
+              "Name": "HRST_LaserRepeater_PowerArray_S4",
+              "Manufacturer": {
+                "Code": "HRST",
+                "Name": "Hurston Dynamics"
+              },
+              "Tags": [
+                "uneditable"
+              ]
+            },
+            "Types": [
+              "WeaponAttachment.PowerArray"
+            ]
+          },
+          {
+            "PortName": "VEN",
+            "Size": 1,
+            "Loadout": "HRST_LaserRepeater_Ventilation_S4",
+            "InstalledItem": {
+              "ClassName": "HRST_LaserRepeater_Ventilation_S4",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "WeaponAttachment.Ventilation",
+              "Name": "HRST_LaserRepeater_Ventilation_S4",
+              "Manufacturer": {
+                "Code": "HRST",
+                "Name": "Hurston Dynamics"
+              },
+              "Tags": [
+                "uneditable"
+              ]
+            },
+            "Types": [
+              "WeaponAttachment.Ventilation"
+            ]
+          }
+        ]
+      },
+      "Types": [
+        "WeaponGun"
+      ],
+      "Flags": [
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_powerplant",
+      "Size": 1,
+      "Loadout": "POWR_AEGS_S01_Regulus_SCItem",
+      "InstalledItem": {
+        "ClassName": "POWR_AEGS_S01_Regulus_SCItem",
+        "Size": 1,
+        "Grade": 3,
+        "Type": "PowerPlant.Power",
+        "Name": "Regulus",
+        "Description": "Item Type: Power Plant\nManufacturer: Aegis Dynamics\nSize: 1\nGrade: C\nClass: Military\n\nThe Regulus is the power plant you can count on when everyone is counting on you. Made to exceed exacting military standards, Aegis’ design team has made sure that you have the extra power you need, when you need it most.",
+        "Manufacturer": {
+          "Code": "AEG",
+          "Name": "Aegis Dynamics"
+        },
+        "PowerPlant": {
+          "Output": 4000.0
+        },
+        "Durability": {
+          "Health": 750.0,
+          "Lifetime": 22.0
+        },
+        "PowerConnection": {
+          "PowerBase": 0.0,
+          "PowerDraw": 4000.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 22245.0,
+          "ThermalEnergyDraw": 26295.0,
+          "CoolingRate": 104.8765
+        }
+      },
+      "Types": [
+        "PowerPlant"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_weaponcontroller",
+      "Size": 1,
+      "Loadout": "Controller_Weapon_UnmannedTurret",
+      "InstalledItem": {
+        "ClassName": "Controller_Weapon_UnmannedTurret",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "WeaponController.UNDEFINED",
+        "Name": "WEAPONS"
+      },
+      "Types": [
+        "WeaponController"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_targetselector",
+      "Size": 1,
+      "Loadout": "Controller_TargetSelector",
+      "InstalledItem": {
+        "ClassName": "Controller_TargetSelector",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "TargetSelector.UNDEFINED",
+        "Name": "TARGET SELECTOR"
+      },
+      "Types": [
+        "TargetSelector"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_energycontroller",
+      "Size": 1,
+      "Loadout": "Controller_Energy",
+      "InstalledItem": {
+        "ClassName": "Controller_Energy",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "EnergyController.UNDEFINED",
+        "Name": "POWER"
+      },
+      "Types": [
+        "EnergyController"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_coolercontroller",
+      "Size": 1,
+      "Loadout": "Controller_Cooler",
+      "InstalledItem": {
+        "ClassName": "Controller_Cooler",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "CoolerController.UNDEFINED",
+        "Name": "HEAT"
+      },
+      "Types": [
+        "CoolerController"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_radar",
+      "Size": 1,
+      "Loadout": "RADR_Unmaned_Turret",
+      "InstalledItem": {
+        "ClassName": "RADR_Unmaned_Turret",
+        "Size": 0,
+        "Grade": 1,
+        "Type": "Radar.MidRangeRadar",
+        "Name": "RADR_Unmaned_Turret",
+        "Description": "@LOC_PLACEHOLDER",
+        "Tags": [
+          "flightReady"
+        ],
+        "Durability": {
+          "Lifetime": 720.0
+        },
+        "PowerConnection": {
+          "PowerBase": 0.1,
+          "PowerDraw": 1.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        },
+        "Radar": {
+          "DetectionLifetime": 0.0,
+          "AltitudeCeiling": 0.0,
+          "CrossSectionOcclusion": false,
+          "Signatures": []
+        },
+        "Ports": [
+          {
+            "PortName": "BatteryPort",
+            "Size": 2,
+            "Types": [
+              "Battery"
+            ],
+            "Flags": [
+              "invisible"
+            ]
+          }
+        ]
+      },
+      "Types": [
+        "CoolerController"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_missilecontroller",
+      "Size": 1,
+      "Types": [
+        "MissileController"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_cooler1",
+      "Size": 1,
+      "Loadout": "COOL_AEGS_S02_Avalanche_SCItem",
+      "InstalledItem": {
+        "ClassName": "COOL_AEGS_S02_Avalanche_SCItem",
+        "Size": 2,
+        "Grade": 1,
+        "Type": "Cooler.UNDEFINED",
+        "Name": "Avalanche",
+        "Description": "Item Type: Cooler\nManufacturer: Aegis Dynamics\nSize: 2\nGrade: A\nClass: Military\n\nShowcasing the best of mil-spec cooler technology, the Aegis Avalanche thermal management unit has been built from the ground up to endure the demanding needs of the battlefield.",
+        "Manufacturer": {
+          "Code": "AEG",
+          "Name": "Aegis Dynamics"
+        },
+        "Cooler": {
+          "Rate": 5800000.0
+        },
+        "Durability": {
+          "Health": 1850.0,
+          "Lifetime": 96.0
+        },
+        "PowerConnection": {
+          "PowerBase": 16.0,
+          "PowerDraw": 24.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        }
+      },
+      "Types": [
+        "Cooler"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_cooler2",
+      "Size": 1,
+      "Loadout": "COOL_AEGS_S02_Avalanche_SCItem",
+      "InstalledItem": {
+        "ClassName": "COOL_AEGS_S02_Avalanche_SCItem",
+        "Size": 2,
+        "Grade": 1,
+        "Type": "Cooler.UNDEFINED",
+        "Name": "Avalanche",
+        "Description": "Item Type: Cooler\nManufacturer: Aegis Dynamics\nSize: 2\nGrade: A\nClass: Military\n\nShowcasing the best of mil-spec cooler technology, the Aegis Avalanche thermal management unit has been built from the ground up to endure the demanding needs of the battlefield.",
+        "Manufacturer": {
+          "Code": "AEG",
+          "Name": "Aegis Dynamics"
+        },
+        "Cooler": {
+          "Rate": 5800000.0
+        },
+        "Durability": {
+          "Health": 1850.0,
+          "Lifetime": 96.0
+        },
+        "PowerConnection": {
+          "PowerBase": 16.0,
+          "PowerDraw": 24.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        }
+      },
+      "Types": [
+        "Cooler"
+      ],
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    },
+    {
+      "PortName": "hardpoint_weapon_regen_pool_turrets",
+      "Size": 1,
+      "Loadout": "WeaponRegenPool_Turret_Default",
+      "InstalledItem": {
+        "ClassName": "WeaponRegenPool_Turret_Default",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "WeaponRegenPool.UNDEFINED",
+        "Name": "WeaponRegenPool_Turret_Default",
+        "WeaponRegenPool": {
+          "RegenFillRate": 100000.0,
+          "AmmoLoad": 60000,
+          "RespectsCapacitorAssignments": false
+        }
+      },
+      "Flags": [
+        "invisible",
+        "uneditable"
+      ],
+      "Uneditable": true
+    }
+  ]
+}

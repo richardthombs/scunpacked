@@ -5,8 +5,41 @@
     "Parts": [
       {
         "Name": "Nose",
-        "MaximumDamage": 1000.0,
+        "MaximumDamage": 2500.0,
         "Parts": [
+          {
+            "Name": "Radar_Helper",
+            "Port": {
+              "PortName": "Radar_Helper",
+              "Size": 1,
+              "Types": [
+                "Display"
+              ],
+              "Flags": [
+                "start_hidden",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_radar",
+            "Port": {
+              "PortName": "hardpoint_radar",
+              "Size": 1,
+              "Types": [
+                "Radar.ShortRangeRadar",
+                "Radar.MidRangeRadar"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "Radars",
+              "Uneditable": true
+            }
+          },
           {
             "Name": "hardpoint_avionics_motherboard",
             "Port": {
@@ -20,22 +53,6 @@
                 "uneditable"
               ],
               "Category": "Computers",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "UI_Helper",
-            "Port": {
-              "PortName": "UI_Helper",
-              "Size": 1,
-              "Types": [
-                "Display"
-              ],
-              "Flags": [
-                "nose",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
               "Uneditable": true
             }
           },
@@ -67,531 +84,22 @@
             }
           },
           {
-            "Name": "hardpoint_seat_access",
+            "Name": "landingpad_helper",
             "Port": {
-              "PortName": "hardpoint_seat_access",
+              "PortName": "landingpad_helper",
               "Size": 1,
-              "Loadout": "ARGO_MPUV_SCItem_SeatAccess",
+              "Loadout": "Default_LandingSystem",
               "InstalledItem": {
-                "ClassName": "ARGO_MPUV_SCItem_SeatAccess",
+                "ClassName": "Default_LandingSystem",
                 "Size": 1,
                 "Grade": 1,
-                "Type": "SeatAccess.UNDEFINED",
-                "Name": "ARGO_MPUV_SCItem_SeatAccess",
-                "Manufacturer": {
-                  "Code": "ARGO",
-                  "Name": "Argo Astronautics"
-                }
+                "Type": "LandingSystem.UNDEFINED",
+                "Name": "Default_LandingSystem"
               },
               "Types": [
-                "SeatAccess"
+                "LandingSystem"
               ],
               "Flags": [
-                "uneditable"
-              ],
-              "Category": "Seat access",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_cockpit_flair_hang",
-            "Port": {
-              "PortName": "hardpoint_cockpit_flair_hang",
-              "Size": 1,
-              "Types": [
-                "Flair_Cockpit.Flair_Hanging"
-              ],
-              "Category": "UNKNOWN"
-            }
-          },
-          {
-            "Name": "hardpoint_dashboard_pilot",
-            "Port": {
-              "PortName": "hardpoint_dashboard_pilot",
-              "Size": 1,
-              "Loadout": "ARGO_MPUV_SCItem_Dashboard_Pilot",
-              "InstalledItem": {
-                "ClassName": "ARGO_MPUV_SCItem_Dashboard_Pilot",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "SeatDashboard.UNDEFINED",
-                "Name": "ARGO_MPUV_SCItem_Dashboard_Pilot",
-                "Manufacturer": {
-                  "Code": "ARGO",
-                  "Name": "Argo Astronautics"
-                },
-                "Durability": {
-                  "Health": 1.0
-                },
-                "PowerConnection": {
-                  "PowerBase": 1.0,
-                  "PowerDraw": 1.0
-                },
-                "HeatConnection": {
-                  "ThermalEnergyBase": 10.0,
-                  "ThermalEnergyDraw": 20.0,
-                  "CoolingRate": 1.0
-                },
-                "Ports": [
-                  {
-                    "PortName": "Display_HUD",
-                    "Size": 1,
-                    "Loadout": "Projector_HUD_Generic",
-                    "InstalledItem": {
-                      "ClassName": "Projector_HUD_Generic",
-                      "Size": 1,
-                      "Grade": 1,
-                      "Type": "Display.UNDEFINED",
-                      "Name": "Projector_HUD_Generic"
-                    },
-                    "Category": "UNKNOWN"
-                  }
-                ]
-              },
-              "Types": [
-                "SeatDashboard"
-              ],
-              "Flags": [
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "animated_cockpit",
-            "Port": {
-              "PortName": "animated_cockpit",
-              "Size": 1,
-              "Types": [
-                "Room"
-              ],
-              "Flags": [
-                "uneditable"
-              ],
-              "Category": "Rooms",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_arm",
-            "Port": {
-              "PortName": "hardpoint_arm",
-              "Size": 1,
-              "Types": [
-                "MiningArm"
-              ],
-              "Flags": [
-                "uneditable"
-              ],
-              "Category": "Mining arm",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_mining",
-            "Port": {
-              "PortName": "hardpoint_controller_mining",
-              "Size": 1,
-              "Types": [
-                "MiningController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_lights_int",
-            "Port": {
-              "PortName": "hardpoint_lights_int",
-              "Size": 1,
-              "Types": [
-                "Room"
-              ],
-              "Flags": [
-                "uneditable"
-              ],
-              "Category": "Rooms",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_energy",
-            "Port": {
-              "PortName": "hardpoint_controller_energy",
-              "Size": 1,
-              "Loadout": "Controller_Energy",
-              "InstalledItem": {
-                "ClassName": "Controller_Energy",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "EnergyController.UNDEFINED",
-                "Name": "POWER"
-              },
-              "Types": [
-                "EnergyController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_weapon_regen_pool",
-            "Port": {
-              "PortName": "hardpoint_weapon_regen_pool",
-              "Size": 1,
-              "Types": [
-                "WeaponRegenPool"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "Weapon regen pool",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_capacitor_assignment",
-            "Port": {
-              "PortName": "hardpoint_controller_capacitor_assignment",
-              "Size": 1,
-              "Loadout": "Controller_CapacitorAssignment",
-              "InstalledItem": {
-                "ClassName": "Controller_CapacitorAssignment",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "CapacitorAssignmentController.UNDEFINED",
-                "Name": "Controller_CapacitorAssignment",
-                "Tags": [
-                  "flightReady"
-                ]
-              },
-              "Types": [
-                "CapacitorAssignmentController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_comms",
-            "Port": {
-              "PortName": "hardpoint_controller_comms",
-              "Size": 1,
-              "Loadout": "Controller_Comms",
-              "InstalledItem": {
-                "ClassName": "Controller_Comms",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "CommsController.UNDEFINED",
-                "Name": "COMMS"
-              },
-              "Types": [
-                "CommsController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_door",
-            "Port": {
-              "PortName": "hardpoint_controller_door",
-              "Size": 1,
-              "Loadout": "Controller_Door",
-              "InstalledItem": {
-                "ClassName": "Controller_Door",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "DoorController.UNDEFINED",
-                "Name": "SECURITY"
-              },
-              "Types": [
-                "DoorController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_cooler",
-            "Port": {
-              "PortName": "hardpoint_controller_cooler",
-              "Size": 1,
-              "Loadout": "Controller_Cooler",
-              "InstalledItem": {
-                "ClassName": "Controller_Cooler",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "CoolerController.UNDEFINED",
-                "Name": "HEAT"
-              },
-              "Types": [
-                "CoolerController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_shield",
-            "Port": {
-              "PortName": "hardpoint_controller_shield",
-              "Size": 1,
-              "Loadout": "Controller_Shield_ARGO_MPUV",
-              "InstalledItem": {
-                "ClassName": "Controller_Shield_ARGO_MPUV",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "ShieldController.UNDEFINED",
-                "Name": "SHIELDS",
-                "Tags": [
-                  "flightReady"
-                ]
-              },
-              "Types": [
-                "ShieldController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_flight",
-            "Port": {
-              "PortName": "hardpoint_controller_flight",
-              "Size": 1,
-              "Loadout": "Controller_Flight_ARGO_MPUV",
-              "InstalledItem": {
-                "ClassName": "Controller_Flight_ARGO_MPUV",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "FlightController.UNDEFINED",
-                "Name": "SELF STATUS",
-                "Ifcs": {
-                  "MaxSpeed": 112.0,
-                  "MaxAfterburnSpeed": 899.0
-                }
-              },
-              "Types": [
-                "FlightController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_light",
-            "Port": {
-              "PortName": "hardpoint_controller_light",
-              "Size": 1,
-              "Loadout": "Controller_Light",
-              "InstalledItem": {
-                "ClassName": "Controller_Light",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "LightController.UNDEFINED",
-                "Name": "LIGHTS"
-              },
-              "Types": [
-                "LightController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_controller_weapon",
-            "Port": {
-              "PortName": "hardpoint_controller_weapon",
-              "Size": 1,
-              "Loadout": "Controller_Weapon",
-              "InstalledItem": {
-                "ClassName": "Controller_Weapon",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "WeaponController.UNDEFINED",
-                "Name": "WEAPONS"
-              },
-              "Types": [
-                "WeaponController"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "UNKNOWN",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_scanner",
-            "Port": {
-              "PortName": "hardpoint_scanner",
-              "Size": 1,
-              "Loadout": "RADR_WLOP_S01_Capstan",
-              "InstalledItem": {
-                "ClassName": "RADR_WLOP_S01_Capstan",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "Radar.MidRangeRadar",
-                "Name": "Capston",
-                "Description": "Item Type: Radar\nManufacturer: WillsOp\nSize: 1\nGrade: C\nClass: Civilian\n\nExperience why WillsOp is a premiere manufacturer of ship electronics with their Capston radar. Outfit your ship with one today so you know what’s nearby.",
-                "Tags": [
-                  "flightReady"
-                ],
-                "Durability": {
-                  "Lifetime": 720.0
-                },
-                "PowerConnection": {
-                  "PowerBase": 0.1,
-                  "PowerDraw": 1.0
-                },
-                "HeatConnection": {
-                  "ThermalEnergyBase": 10.0,
-                  "ThermalEnergyDraw": 20.0,
-                  "CoolingRate": 1.0
-                },
-                "Radar": {
-                  "DetectionLifetime": 0.0,
-                  "AltitudeCeiling": 0.0,
-                  "CrossSectionOcclusion": false,
-                  "Signatures": []
-                },
-                "Ports": [
-                  {
-                    "PortName": "BatteryPort",
-                    "Size": 2,
-                    "Types": [
-                      "Battery"
-                    ],
-                    "Flags": [
-                      "invisible"
-                    ],
-                    "Category": "Batteries"
-                  }
-                ]
-              },
-              "Types": [
-                "Radar.ShortRangeRadar",
-                "Radar.MidRangeRadar"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "Radars",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_ping",
-            "Port": {
-              "PortName": "hardpoint_ping",
-              "Size": 1,
-              "Loadout": "test_ping",
-              "InstalledItem": {
-                "ClassName": "test_ping",
-                "Size": 1,
-                "Grade": 1,
-                "Type": "Ping.UNDEFINED",
-                "Name": "Ping",
-                "Description": "Ping",
-                "Tags": [
-                  "flightReady"
-                ]
-              },
-              "Types": [
-                "Ping"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "Pings",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_transponder",
-            "Port": {
-              "PortName": "hardpoint_transponder",
-              "Size": 1,
-              "Types": [
-                "Transponder"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "Transponders",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "hardpoint_radar",
-            "Port": {
-              "PortName": "hardpoint_radar",
-              "Size": 1,
-              "Types": [
-                "Radar.ShortRangeRadar",
-                "Radar.MidRangeRadar"
-              ],
-              "Flags": [
-                "invisible",
-                "uneditable"
-              ],
-              "Category": "Radars",
-              "Uneditable": true
-            }
-          },
-          {
-            "Name": "Radar_Helper",
-            "Port": {
-              "PortName": "Radar_Helper",
-              "Size": 1,
-              "Types": [
-                "Display"
-              ],
-              "Flags": [
-                "start_hidden",
                 "uneditable"
               ],
               "Category": "UNKNOWN",
@@ -600,592 +108,12 @@
           },
           {
             "Name": "Body",
-            "MaximumDamage": 1000.0,
+            "MaximumDamage": 2500.0,
             "Parts": [
               {
-                "Name": "hardpoint_engine_middle_right",
-                "MaximumDamage": 50.0,
+                "Name": "hardpoint_cooler_right",
                 "Port": {
-                  "PortName": "hardpoint_engine_middle_right",
-                  "Size": 4,
-                  "Loadout": "ARGO_MPUV_Thruster_Main",
-                  "InstalledItem": {
-                    "ClassName": "ARGO_MPUV_Thruster_Main",
-                    "Size": 1,
-                    "Grade": 1,
-                    "Type": "MainThruster.FixedThruster",
-                    "Name": "ARGO_MPUV_Thruster_Main",
-                    "Manufacturer": {
-                      "Code": "ARGO",
-                      "Name": "Argo Astronautics"
-                    },
-                    "Thruster": {
-                      "ThrustCapacity": 68173.3,
-                      "FuelRate": 1.09375E-05,
-                      "Type": "Main",
-                      "MaxThrustFuelRate": 0.74564546875
-                    },
-                    "Durability": {
-                      "Health": 3500.0,
-                      "Lifetime": 720.0
-                    },
-                    "PowerConnection": {
-                      "PowerBase": 10.0,
-                      "PowerDraw": 12.0
-                    },
-                    "HeatConnection": {
-                      "ThermalEnergyBase": 500.0,
-                      "ThermalEnergyDraw": 1250.0,
-                      "CoolingRate": 20.0
-                    }
-                  },
-                  "Types": [
-                    "MainThruster"
-                  ],
-                  "Flags": [
-                    "main",
-                    "right",
-                    "uneditable"
-                  ],
-                  "Category": "Main thrusters",
-                  "Uneditable": true
-                }
-              },
-              {
-                "Name": "hardpoint_engine_middle_left",
-                "MaximumDamage": 50.0,
-                "Port": {
-                  "PortName": "hardpoint_engine_middle_left",
-                  "Size": 4,
-                  "Loadout": "ARGO_MPUV_Thruster_Main",
-                  "InstalledItem": {
-                    "ClassName": "ARGO_MPUV_Thruster_Main",
-                    "Size": 1,
-                    "Grade": 1,
-                    "Type": "MainThruster.FixedThruster",
-                    "Name": "ARGO_MPUV_Thruster_Main",
-                    "Manufacturer": {
-                      "Code": "ARGO",
-                      "Name": "Argo Astronautics"
-                    },
-                    "Thruster": {
-                      "ThrustCapacity": 68173.3,
-                      "FuelRate": 1.09375E-05,
-                      "Type": "Main",
-                      "MaxThrustFuelRate": 0.74564546875
-                    },
-                    "Durability": {
-                      "Health": 3500.0,
-                      "Lifetime": 720.0
-                    },
-                    "PowerConnection": {
-                      "PowerBase": 10.0,
-                      "PowerDraw": 12.0
-                    },
-                    "HeatConnection": {
-                      "ThermalEnergyBase": 500.0,
-                      "ThermalEnergyDraw": 1250.0,
-                      "CoolingRate": 20.0
-                    }
-                  },
-                  "Types": [
-                    "MainThruster"
-                  ],
-                  "Flags": [
-                    "main",
-                    "left",
-                    "uneditable"
-                  ],
-                  "Category": "Main thrusters",
-                  "Uneditable": true
-                }
-              },
-              {
-                "Name": "hardpoint_thruster_front_right_middle",
-                "MaximumDamage": 50.0,
-                "Port": {
-                  "PortName": "hardpoint_thruster_front_right_middle",
-                  "Size": 1,
-                  "Loadout": "ARGO_MPUV_Thruster_Aux_Side",
-                  "InstalledItem": {
-                    "ClassName": "ARGO_MPUV_Thruster_Aux_Side",
-                    "Size": 1,
-                    "Grade": 1,
-                    "Type": "ManneuverThruster.FixedThruster",
-                    "Name": "ARGO_MPUV_Thruster_Aux_Side",
-                    "Manufacturer": {
-                      "Code": "ARGO",
-                      "Name": "Argo Astronautics"
-                    },
-                    "Thruster": {
-                      "ThrustCapacity": 61139.72,
-                      "FuelRate": 1.25E-05,
-                      "Type": "Maneuver",
-                      "MaxThrustFuelRate": 0.7642465
-                    },
-                    "Durability": {
-                      "Health": 2500.0,
-                      "Lifetime": 720.0
-                    },
-                    "PowerConnection": {
-                      "PowerBase": 10.0,
-                      "PowerDraw": 12.0
-                    },
-                    "HeatConnection": {
-                      "ThermalEnergyBase": 500.0,
-                      "ThermalEnergyDraw": 1250.0,
-                      "CoolingRate": 20.0
-                    }
-                  },
-                  "Types": [
-                    "ManneuverThruster"
-                  ],
-                  "Flags": [
-                    "uneditable",
-                    "maneuver",
-                    "orientation",
-                    "-X"
-                  ],
-                  "Category": "Maneuvering thrusters",
-                  "Uneditable": true
-                }
-              },
-              {
-                "Name": "hardpoint_thruster_front_right_top",
-                "MaximumDamage": 50.0,
-                "Port": {
-                  "PortName": "hardpoint_thruster_front_right_top",
-                  "Size": 2,
-                  "Loadout": "ARGO_MPUV_Thruster_Aux_Front_Top",
-                  "InstalledItem": {
-                    "ClassName": "ARGO_MPUV_Thruster_Aux_Front_Top",
-                    "Size": 1,
-                    "Grade": 1,
-                    "Type": "ManneuverThruster.FixedThruster",
-                    "Name": "ARGO_MPUV_Thruster_Aux_Front_Top",
-                    "Manufacturer": {
-                      "Code": "ARGO",
-                      "Name": "Argo Astronautics"
-                    },
-                    "Thruster": {
-                      "ThrustCapacity": 73769.5,
-                      "FuelRate": 1.25E-05,
-                      "Type": "Maneuver",
-                      "MaxThrustFuelRate": 0.9221187500000001
-                    },
-                    "Durability": {
-                      "Health": 2500.0,
-                      "Lifetime": 720.0
-                    },
-                    "PowerConnection": {
-                      "PowerBase": 10.0,
-                      "PowerDraw": 12.0
-                    },
-                    "HeatConnection": {
-                      "ThermalEnergyBase": 500.0,
-                      "ThermalEnergyDraw": 1250.0,
-                      "CoolingRate": 20.0
-                    }
-                  },
-                  "Types": [
-                    "ManneuverThruster"
-                  ],
-                  "Flags": [
-                    "uneditable",
-                    "maneuver",
-                    "orientation",
-                    "-Z"
-                  ],
-                  "Category": "Maneuvering thrusters",
-                  "Uneditable": true
-                }
-              },
-              {
-                "Name": "hardpoint_thruster_front_right_front",
-                "MaximumDamage": 50.0,
-                "Port": {
-                  "PortName": "hardpoint_thruster_front_right_front",
-                  "Size": 2,
-                  "Loadout": "ARGO_MPUV_Thruster_Aux_Front",
-                  "InstalledItem": {
-                    "ClassName": "ARGO_MPUV_Thruster_Aux_Front",
-                    "Size": 1,
-                    "Grade": 1,
-                    "Type": "ManneuverThruster.FixedThruster",
-                    "Name": "ARGO_MPUV_Thruster_Aux_Front",
-                    "Manufacturer": {
-                      "Code": "ARGO",
-                      "Name": "Argo Astronautics"
-                    },
-                    "Thruster": {
-                      "ThrustCapacity": 73769.5,
-                      "FuelRate": 1.25E-05,
-                      "Type": "Maneuver",
-                      "MaxThrustFuelRate": 0.9221187500000001
-                    },
-                    "Durability": {
-                      "Health": 2500.0,
-                      "Lifetime": 720.0
-                    },
-                    "PowerConnection": {
-                      "PowerBase": 10.0,
-                      "PowerDraw": 12.0
-                    },
-                    "HeatConnection": {
-                      "ThermalEnergyBase": 500.0,
-                      "ThermalEnergyDraw": 1250.0,
-                      "CoolingRate": 20.0
-                    }
-                  },
-                  "Types": [
-                    "ManneuverThruster"
-                  ],
-                  "Flags": [
-                    "retro",
-                    "uneditable"
-                  ],
-                  "Category": "Maneuvering thrusters",
-                  "Uneditable": true
-                }
-              },
-              {
-                "Name": "hardpoint_thruster_front_right_bottom",
-                "MaximumDamage": 50.0,
-                "Port": {
-                  "PortName": "hardpoint_thruster_front_right_bottom",
-                  "Size": 2,
-                  "Loadout": "ARGO_MPUV_Thruster_Aux_Fixed_03",
-                  "InstalledItem": {
-                    "ClassName": "ARGO_MPUV_Thruster_Aux_Fixed_03",
-                    "Size": 1,
-                    "Grade": 1,
-                    "Type": "ManneuverThruster.FixedThruster",
-                    "Name": "ARGO_MPUV_Thruster_Aux_Fixed_03",
-                    "Manufacturer": {
-                      "Code": "ARGO",
-                      "Name": "Argo Astronautics"
-                    },
-                    "Thruster": {
-                      "ThrustCapacity": 73769.5,
-                      "FuelRate": 1.25E-05,
-                      "Type": "Maneuver",
-                      "MaxThrustFuelRate": 0.9221187500000001
-                    },
-                    "Durability": {
-                      "Health": 2500.0,
-                      "Lifetime": 720.0
-                    },
-                    "PowerConnection": {
-                      "PowerBase": 10.0,
-                      "PowerDraw": 12.0
-                    },
-                    "HeatConnection": {
-                      "ThermalEnergyBase": 500.0,
-                      "ThermalEnergyDraw": 1250.0,
-                      "CoolingRate": 20.0
-                    }
-                  },
-                  "Types": [
-                    "ManneuverThruster"
-                  ],
-                  "Flags": [
-                    "uneditable",
-                    "maneuver",
-                    "orientation",
-                    "-X",
-                    "+Z"
-                  ],
-                  "Category": "Maneuvering thrusters",
-                  "Uneditable": true
-                }
-              },
-              {
-                "Name": "hardpoint_thruster_front_left_middle",
-                "MaximumDamage": 50.0,
-                "Port": {
-                  "PortName": "hardpoint_thruster_front_left_middle",
-                  "Size": 1,
-                  "Loadout": "ARGO_MPUV_Thruster_Aux_Side",
-                  "InstalledItem": {
-                    "ClassName": "ARGO_MPUV_Thruster_Aux_Side",
-                    "Size": 1,
-                    "Grade": 1,
-                    "Type": "ManneuverThruster.FixedThruster",
-                    "Name": "ARGO_MPUV_Thruster_Aux_Side",
-                    "Manufacturer": {
-                      "Code": "ARGO",
-                      "Name": "Argo Astronautics"
-                    },
-                    "Thruster": {
-                      "ThrustCapacity": 61139.72,
-                      "FuelRate": 1.25E-05,
-                      "Type": "Maneuver",
-                      "MaxThrustFuelRate": 0.7642465
-                    },
-                    "Durability": {
-                      "Health": 2500.0,
-                      "Lifetime": 720.0
-                    },
-                    "PowerConnection": {
-                      "PowerBase": 10.0,
-                      "PowerDraw": 12.0
-                    },
-                    "HeatConnection": {
-                      "ThermalEnergyBase": 500.0,
-                      "ThermalEnergyDraw": 1250.0,
-                      "CoolingRate": 20.0
-                    }
-                  },
-                  "Types": [
-                    "ManneuverThruster"
-                  ],
-                  "Flags": [
-                    "uneditable",
-                    "maneuver",
-                    "orientation",
-                    "+X"
-                  ],
-                  "Category": "Maneuvering thrusters",
-                  "Uneditable": true
-                }
-              },
-              {
-                "Name": "hardpoint_thruster_front_left_top",
-                "MaximumDamage": 50.0,
-                "Port": {
-                  "PortName": "hardpoint_thruster_front_left_top",
-                  "Size": 2,
-                  "Loadout": "ARGO_MPUV_Thruster_Aux_Front_Top",
-                  "InstalledItem": {
-                    "ClassName": "ARGO_MPUV_Thruster_Aux_Front_Top",
-                    "Size": 1,
-                    "Grade": 1,
-                    "Type": "ManneuverThruster.FixedThruster",
-                    "Name": "ARGO_MPUV_Thruster_Aux_Front_Top",
-                    "Manufacturer": {
-                      "Code": "ARGO",
-                      "Name": "Argo Astronautics"
-                    },
-                    "Thruster": {
-                      "ThrustCapacity": 73769.5,
-                      "FuelRate": 1.25E-05,
-                      "Type": "Maneuver",
-                      "MaxThrustFuelRate": 0.9221187500000001
-                    },
-                    "Durability": {
-                      "Health": 2500.0,
-                      "Lifetime": 720.0
-                    },
-                    "PowerConnection": {
-                      "PowerBase": 10.0,
-                      "PowerDraw": 12.0
-                    },
-                    "HeatConnection": {
-                      "ThermalEnergyBase": 500.0,
-                      "ThermalEnergyDraw": 1250.0,
-                      "CoolingRate": 20.0
-                    }
-                  },
-                  "Types": [
-                    "ManneuverThruster"
-                  ],
-                  "Flags": [
-                    "uneditable",
-                    "maneuver",
-                    "orientation",
-                    "+X",
-                    "-Z"
-                  ],
-                  "Category": "Maneuvering thrusters",
-                  "Uneditable": true
-                }
-              },
-              {
-                "Name": "hardpoint_thruster_front_left_front",
-                "MaximumDamage": 50.0,
-                "Port": {
-                  "PortName": "hardpoint_thruster_front_left_front",
-                  "Size": 2,
-                  "Loadout": "ARGO_MPUV_Thruster_Aux_Front",
-                  "InstalledItem": {
-                    "ClassName": "ARGO_MPUV_Thruster_Aux_Front",
-                    "Size": 1,
-                    "Grade": 1,
-                    "Type": "ManneuverThruster.FixedThruster",
-                    "Name": "ARGO_MPUV_Thruster_Aux_Front",
-                    "Manufacturer": {
-                      "Code": "ARGO",
-                      "Name": "Argo Astronautics"
-                    },
-                    "Thruster": {
-                      "ThrustCapacity": 73769.5,
-                      "FuelRate": 1.25E-05,
-                      "Type": "Maneuver",
-                      "MaxThrustFuelRate": 0.9221187500000001
-                    },
-                    "Durability": {
-                      "Health": 2500.0,
-                      "Lifetime": 720.0
-                    },
-                    "PowerConnection": {
-                      "PowerBase": 10.0,
-                      "PowerDraw": 12.0
-                    },
-                    "HeatConnection": {
-                      "ThermalEnergyBase": 500.0,
-                      "ThermalEnergyDraw": 1250.0,
-                      "CoolingRate": 20.0
-                    }
-                  },
-                  "Types": [
-                    "ManneuverThruster"
-                  ],
-                  "Flags": [
-                    "retro",
-                    "uneditable"
-                  ],
-                  "Category": "Maneuvering thrusters",
-                  "Uneditable": true
-                }
-              },
-              {
-                "Name": "hardpoint_thruster_front_left_bottom",
-                "MaximumDamage": 50.0,
-                "Port": {
-                  "PortName": "hardpoint_thruster_front_left_bottom",
-                  "Size": 2,
-                  "Loadout": "ARGO_MPUV_Thruster_Aux_Fixed_03",
-                  "InstalledItem": {
-                    "ClassName": "ARGO_MPUV_Thruster_Aux_Fixed_03",
-                    "Size": 1,
-                    "Grade": 1,
-                    "Type": "ManneuverThruster.FixedThruster",
-                    "Name": "ARGO_MPUV_Thruster_Aux_Fixed_03",
-                    "Manufacturer": {
-                      "Code": "ARGO",
-                      "Name": "Argo Astronautics"
-                    },
-                    "Thruster": {
-                      "ThrustCapacity": 73769.5,
-                      "FuelRate": 1.25E-05,
-                      "Type": "Maneuver",
-                      "MaxThrustFuelRate": 0.9221187500000001
-                    },
-                    "Durability": {
-                      "Health": 2500.0,
-                      "Lifetime": 720.0
-                    },
-                    "PowerConnection": {
-                      "PowerBase": 10.0,
-                      "PowerDraw": 12.0
-                    },
-                    "HeatConnection": {
-                      "ThermalEnergyBase": 500.0,
-                      "ThermalEnergyDraw": 1250.0,
-                      "CoolingRate": 20.0
-                    }
-                  },
-                  "Types": [
-                    "ManneuverThruster"
-                  ],
-                  "Flags": [
-                    "uneditable",
-                    "maneuver",
-                    "orientation",
-                    "+X",
-                    "+Z"
-                  ],
-                  "Category": "Maneuvering thrusters",
-                  "Uneditable": true
-                }
-              },
-              {
-                "Name": "hardpoint_fuel_tank_left",
-                "Port": {
-                  "PortName": "hardpoint_fuel_tank_left",
-                  "Size": 1,
-                  "Loadout": "HTNK_ARGO_MPUV",
-                  "InstalledItem": {
-                    "ClassName": "HTNK_ARGO_MPUV",
-                    "Size": 1,
-                    "Grade": 1,
-                    "Type": "FuelTank.Fuel",
-                    "Name": "Internal Tank",
-                    "Tags": [
-                      "flightReady"
-                    ],
-                    "HydrogenFuelTank": {
-                      "Capacity": 15000.0
-                    }
-                  },
-                  "Types": [
-                    "FuelTank"
-                  ],
-                  "Flags": [
-                    "invisible",
-                    "uneditable"
-                  ],
-                  "Category": "Fuel tanks",
-                  "Uneditable": true
-                }
-              },
-              {
-                "Name": "hardpoint_fuel_tank_right",
-                "Port": {
-                  "PortName": "hardpoint_fuel_tank_right",
-                  "Size": 1,
-                  "Loadout": "HTNK_ARGO_MPUV",
-                  "InstalledItem": {
-                    "ClassName": "HTNK_ARGO_MPUV",
-                    "Size": 1,
-                    "Grade": 1,
-                    "Type": "FuelTank.Fuel",
-                    "Name": "Internal Tank",
-                    "Tags": [
-                      "flightReady"
-                    ],
-                    "HydrogenFuelTank": {
-                      "Capacity": 15000.0
-                    }
-                  },
-                  "Types": [
-                    "FuelTank"
-                  ],
-                  "Flags": [
-                    "invisible",
-                    "uneditable"
-                  ],
-                  "Category": "Fuel tanks",
-                  "Uneditable": true
-                }
-              },
-              {
-                "Name": "landingpad_helper",
-                "Port": {
-                  "PortName": "landingpad_helper",
-                  "Size": 1,
-                  "Loadout": "Default_LandingSystem",
-                  "InstalledItem": {
-                    "ClassName": "Default_LandingSystem",
-                    "Size": 1,
-                    "Grade": 1,
-                    "Type": "LandingSystem.UNDEFINED",
-                    "Name": "Default_LandingSystem"
-                  },
-                  "Types": [
-                    "LandingSystem"
-                  ],
-                  "Flags": [
-                    "uneditable"
-                  ],
-                  "Category": "UNKNOWN",
-                  "Uneditable": true
-                }
-              },
-              {
-                "Name": "hardpoint_cooler_left",
-                "Port": {
-                  "PortName": "hardpoint_cooler_left",
+                  "PortName": "hardpoint_cooler_right",
                   "Size": 0,
                   "Loadout": "COOL_JSPN_S00_FrostStarSL_SCItem",
                   "InstalledItem": {
@@ -1226,9 +154,9 @@
                 }
               },
               {
-                "Name": "hardpoint_cooler_right",
+                "Name": "hardpoint_cooler_left",
                 "Port": {
-                  "PortName": "hardpoint_cooler_right",
+                  "PortName": "hardpoint_cooler_left",
                   "Size": 0,
                   "Loadout": "COOL_JSPN_S00_FrostStarSL_SCItem",
                   "InstalledItem": {
@@ -1312,6 +240,164 @@
                 }
               },
               {
+                "Name": "hardpoint_fuel_tank_left",
+                "Port": {
+                  "PortName": "hardpoint_fuel_tank_left",
+                  "Size": 1,
+                  "Loadout": "HTNK_ARGO_MPUV",
+                  "InstalledItem": {
+                    "ClassName": "HTNK_ARGO_MPUV",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "FuelTank.Fuel",
+                    "Name": "Internal Tank",
+                    "Tags": [
+                      "flightReady"
+                    ],
+                    "HydrogenFuelTank": {
+                      "Capacity": 15000.0
+                    }
+                  },
+                  "Types": [
+                    "FuelTank"
+                  ],
+                  "Flags": [
+                    "invisible",
+                    "uneditable"
+                  ],
+                  "Category": "Fuel tanks",
+                  "Uneditable": true
+                }
+              },
+              {
+                "Name": "hardpoint_fuel_tank_right",
+                "Port": {
+                  "PortName": "hardpoint_fuel_tank_right",
+                  "Size": 1,
+                  "Loadout": "HTNK_ARGO_MPUV",
+                  "InstalledItem": {
+                    "ClassName": "HTNK_ARGO_MPUV",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "FuelTank.Fuel",
+                    "Name": "Internal Tank",
+                    "Tags": [
+                      "flightReady"
+                    ],
+                    "HydrogenFuelTank": {
+                      "Capacity": 15000.0
+                    }
+                  },
+                  "Types": [
+                    "FuelTank"
+                  ],
+                  "Flags": [
+                    "invisible",
+                    "uneditable"
+                  ],
+                  "Category": "Fuel tanks",
+                  "Uneditable": true
+                }
+              },
+              {
+                "Name": "hardpoint_engine_middle_left",
+                "MaximumDamage": 50.0,
+                "Port": {
+                  "PortName": "hardpoint_engine_middle_left",
+                  "Size": 4,
+                  "Loadout": "ARGO_MPUV_Thruster_Main",
+                  "InstalledItem": {
+                    "ClassName": "ARGO_MPUV_Thruster_Main",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "MainThruster.FixedThruster",
+                    "Name": "ARGO_MPUV_Thruster_Main",
+                    "Manufacturer": {
+                      "Code": "ARGO",
+                      "Name": "Argo Astronautics"
+                    },
+                    "Thruster": {
+                      "ThrustCapacity": 68173.3,
+                      "FuelRate": 1.09375E-05,
+                      "Type": "Main",
+                      "MaxThrustFuelRate": 0.74564546875
+                    },
+                    "Durability": {
+                      "Health": 3500.0,
+                      "Lifetime": 720.0
+                    },
+                    "PowerConnection": {
+                      "PowerBase": 10.0,
+                      "PowerDraw": 12.0
+                    },
+                    "HeatConnection": {
+                      "ThermalEnergyBase": 500.0,
+                      "ThermalEnergyDraw": 1250.0,
+                      "CoolingRate": 20.0
+                    }
+                  },
+                  "Types": [
+                    "MainThruster"
+                  ],
+                  "Flags": [
+                    "main",
+                    "left",
+                    "uneditable"
+                  ],
+                  "Category": "Main thrusters",
+                  "Uneditable": true
+                }
+              },
+              {
+                "Name": "hardpoint_engine_middle_right",
+                "MaximumDamage": 50.0,
+                "Port": {
+                  "PortName": "hardpoint_engine_middle_right",
+                  "Size": 4,
+                  "Loadout": "ARGO_MPUV_Thruster_Main",
+                  "InstalledItem": {
+                    "ClassName": "ARGO_MPUV_Thruster_Main",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "MainThruster.FixedThruster",
+                    "Name": "ARGO_MPUV_Thruster_Main",
+                    "Manufacturer": {
+                      "Code": "ARGO",
+                      "Name": "Argo Astronautics"
+                    },
+                    "Thruster": {
+                      "ThrustCapacity": 68173.3,
+                      "FuelRate": 1.09375E-05,
+                      "Type": "Main",
+                      "MaxThrustFuelRate": 0.74564546875
+                    },
+                    "Durability": {
+                      "Health": 3500.0,
+                      "Lifetime": 720.0
+                    },
+                    "PowerConnection": {
+                      "PowerBase": 10.0,
+                      "PowerDraw": 12.0
+                    },
+                    "HeatConnection": {
+                      "ThermalEnergyBase": 500.0,
+                      "ThermalEnergyDraw": 1250.0,
+                      "CoolingRate": 20.0
+                    }
+                  },
+                  "Types": [
+                    "MainThruster"
+                  ],
+                  "Flags": [
+                    "main",
+                    "right",
+                    "uneditable"
+                  ],
+                  "Category": "Main thrusters",
+                  "Uneditable": true
+                }
+              },
+              {
                 "Name": "hardpoint_shield_generator",
                 "Port": {
                   "PortName": "hardpoint_shield_generator",
@@ -1384,6 +470,437 @@
                 }
               },
               {
+                "Name": "hardpoint_thruster_front_left_front",
+                "MaximumDamage": 50.0,
+                "Port": {
+                  "PortName": "hardpoint_thruster_front_left_front",
+                  "Size": 2,
+                  "Loadout": "ARGO_MPUV_Thruster_Aux_Front",
+                  "InstalledItem": {
+                    "ClassName": "ARGO_MPUV_Thruster_Aux_Front",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "ManneuverThruster.FixedThruster",
+                    "Name": "ARGO_MPUV_Thruster_Aux_Front",
+                    "Manufacturer": {
+                      "Code": "ARGO",
+                      "Name": "Argo Astronautics"
+                    },
+                    "Thruster": {
+                      "ThrustCapacity": 73769.5,
+                      "FuelRate": 1.25E-05,
+                      "Type": "Maneuver",
+                      "MaxThrustFuelRate": 0.9221187500000001
+                    },
+                    "Durability": {
+                      "Health": 2500.0,
+                      "Lifetime": 720.0
+                    },
+                    "PowerConnection": {
+                      "PowerBase": 10.0,
+                      "PowerDraw": 12.0
+                    },
+                    "HeatConnection": {
+                      "ThermalEnergyBase": 500.0,
+                      "ThermalEnergyDraw": 1250.0,
+                      "CoolingRate": 20.0
+                    }
+                  },
+                  "Types": [
+                    "ManneuverThruster"
+                  ],
+                  "Flags": [
+                    "retro",
+                    "uneditable"
+                  ],
+                  "Category": "Maneuvering thrusters",
+                  "Uneditable": true
+                }
+              },
+              {
+                "Name": "hardpoint_thruster_front_left_top",
+                "MaximumDamage": 50.0,
+                "Port": {
+                  "PortName": "hardpoint_thruster_front_left_top",
+                  "Size": 2,
+                  "Loadout": "ARGO_MPUV_Thruster_Aux_Front_Top",
+                  "InstalledItem": {
+                    "ClassName": "ARGO_MPUV_Thruster_Aux_Front_Top",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "ManneuverThruster.FixedThruster",
+                    "Name": "ARGO_MPUV_Thruster_Aux_Front_Top",
+                    "Manufacturer": {
+                      "Code": "ARGO",
+                      "Name": "Argo Astronautics"
+                    },
+                    "Thruster": {
+                      "ThrustCapacity": 73769.5,
+                      "FuelRate": 1.25E-05,
+                      "Type": "Maneuver",
+                      "MaxThrustFuelRate": 0.9221187500000001
+                    },
+                    "Durability": {
+                      "Health": 2500.0,
+                      "Lifetime": 720.0
+                    },
+                    "PowerConnection": {
+                      "PowerBase": 10.0,
+                      "PowerDraw": 12.0
+                    },
+                    "HeatConnection": {
+                      "ThermalEnergyBase": 500.0,
+                      "ThermalEnergyDraw": 1250.0,
+                      "CoolingRate": 20.0
+                    }
+                  },
+                  "Types": [
+                    "ManneuverThruster"
+                  ],
+                  "Flags": [
+                    "uneditable",
+                    "maneuver",
+                    "orientation",
+                    "+X",
+                    "-Z"
+                  ],
+                  "Category": "Maneuvering thrusters",
+                  "Uneditable": true
+                }
+              },
+              {
+                "Name": "hardpoint_thruster_front_left_middle",
+                "MaximumDamage": 50.0,
+                "Port": {
+                  "PortName": "hardpoint_thruster_front_left_middle",
+                  "Size": 1,
+                  "Loadout": "ARGO_MPUV_Thruster_Aux_Side",
+                  "InstalledItem": {
+                    "ClassName": "ARGO_MPUV_Thruster_Aux_Side",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "ManneuverThruster.FixedThruster",
+                    "Name": "ARGO_MPUV_Thruster_Aux_Side",
+                    "Manufacturer": {
+                      "Code": "ARGO",
+                      "Name": "Argo Astronautics"
+                    },
+                    "Thruster": {
+                      "ThrustCapacity": 61139.72,
+                      "FuelRate": 1.25E-05,
+                      "Type": "Maneuver",
+                      "MaxThrustFuelRate": 0.7642465
+                    },
+                    "Durability": {
+                      "Health": 2500.0,
+                      "Lifetime": 720.0
+                    },
+                    "PowerConnection": {
+                      "PowerBase": 10.0,
+                      "PowerDraw": 12.0
+                    },
+                    "HeatConnection": {
+                      "ThermalEnergyBase": 500.0,
+                      "ThermalEnergyDraw": 1250.0,
+                      "CoolingRate": 20.0
+                    }
+                  },
+                  "Types": [
+                    "ManneuverThruster"
+                  ],
+                  "Flags": [
+                    "uneditable",
+                    "maneuver",
+                    "orientation",
+                    "+X"
+                  ],
+                  "Category": "Maneuvering thrusters",
+                  "Uneditable": true
+                }
+              },
+              {
+                "Name": "hardpoint_thruster_front_right_front",
+                "MaximumDamage": 50.0,
+                "Port": {
+                  "PortName": "hardpoint_thruster_front_right_front",
+                  "Size": 2,
+                  "Loadout": "ARGO_MPUV_Thruster_Aux_Front",
+                  "InstalledItem": {
+                    "ClassName": "ARGO_MPUV_Thruster_Aux_Front",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "ManneuverThruster.FixedThruster",
+                    "Name": "ARGO_MPUV_Thruster_Aux_Front",
+                    "Manufacturer": {
+                      "Code": "ARGO",
+                      "Name": "Argo Astronautics"
+                    },
+                    "Thruster": {
+                      "ThrustCapacity": 73769.5,
+                      "FuelRate": 1.25E-05,
+                      "Type": "Maneuver",
+                      "MaxThrustFuelRate": 0.9221187500000001
+                    },
+                    "Durability": {
+                      "Health": 2500.0,
+                      "Lifetime": 720.0
+                    },
+                    "PowerConnection": {
+                      "PowerBase": 10.0,
+                      "PowerDraw": 12.0
+                    },
+                    "HeatConnection": {
+                      "ThermalEnergyBase": 500.0,
+                      "ThermalEnergyDraw": 1250.0,
+                      "CoolingRate": 20.0
+                    }
+                  },
+                  "Types": [
+                    "ManneuverThruster"
+                  ],
+                  "Flags": [
+                    "retro",
+                    "uneditable"
+                  ],
+                  "Category": "Maneuvering thrusters",
+                  "Uneditable": true
+                }
+              },
+              {
+                "Name": "hardpoint_thruster_front_right_top",
+                "MaximumDamage": 50.0,
+                "Port": {
+                  "PortName": "hardpoint_thruster_front_right_top",
+                  "Size": 2,
+                  "Loadout": "ARGO_MPUV_Thruster_Aux_Front_Top",
+                  "InstalledItem": {
+                    "ClassName": "ARGO_MPUV_Thruster_Aux_Front_Top",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "ManneuverThruster.FixedThruster",
+                    "Name": "ARGO_MPUV_Thruster_Aux_Front_Top",
+                    "Manufacturer": {
+                      "Code": "ARGO",
+                      "Name": "Argo Astronautics"
+                    },
+                    "Thruster": {
+                      "ThrustCapacity": 73769.5,
+                      "FuelRate": 1.25E-05,
+                      "Type": "Maneuver",
+                      "MaxThrustFuelRate": 0.9221187500000001
+                    },
+                    "Durability": {
+                      "Health": 2500.0,
+                      "Lifetime": 720.0
+                    },
+                    "PowerConnection": {
+                      "PowerBase": 10.0,
+                      "PowerDraw": 12.0
+                    },
+                    "HeatConnection": {
+                      "ThermalEnergyBase": 500.0,
+                      "ThermalEnergyDraw": 1250.0,
+                      "CoolingRate": 20.0
+                    }
+                  },
+                  "Types": [
+                    "ManneuverThruster"
+                  ],
+                  "Flags": [
+                    "uneditable",
+                    "maneuver",
+                    "orientation",
+                    "-Z"
+                  ],
+                  "Category": "Maneuvering thrusters",
+                  "Uneditable": true
+                }
+              },
+              {
+                "Name": "hardpoint_thruster_front_right_middle",
+                "MaximumDamage": 50.0,
+                "Port": {
+                  "PortName": "hardpoint_thruster_front_right_middle",
+                  "Size": 1,
+                  "Loadout": "ARGO_MPUV_Thruster_Aux_Side",
+                  "InstalledItem": {
+                    "ClassName": "ARGO_MPUV_Thruster_Aux_Side",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "ManneuverThruster.FixedThruster",
+                    "Name": "ARGO_MPUV_Thruster_Aux_Side",
+                    "Manufacturer": {
+                      "Code": "ARGO",
+                      "Name": "Argo Astronautics"
+                    },
+                    "Thruster": {
+                      "ThrustCapacity": 61139.72,
+                      "FuelRate": 1.25E-05,
+                      "Type": "Maneuver",
+                      "MaxThrustFuelRate": 0.7642465
+                    },
+                    "Durability": {
+                      "Health": 2500.0,
+                      "Lifetime": 720.0
+                    },
+                    "PowerConnection": {
+                      "PowerBase": 10.0,
+                      "PowerDraw": 12.0
+                    },
+                    "HeatConnection": {
+                      "ThermalEnergyBase": 500.0,
+                      "ThermalEnergyDraw": 1250.0,
+                      "CoolingRate": 20.0
+                    }
+                  },
+                  "Types": [
+                    "ManneuverThruster"
+                  ],
+                  "Flags": [
+                    "uneditable",
+                    "maneuver",
+                    "orientation",
+                    "-X"
+                  ],
+                  "Category": "Maneuvering thrusters",
+                  "Uneditable": true
+                }
+              },
+              {
+                "Name": "hardpoint_thruster_front_right_bottom",
+                "MaximumDamage": 50.0,
+                "Port": {
+                  "PortName": "hardpoint_thruster_front_right_bottom",
+                  "Size": 2,
+                  "Loadout": "ARGO_MPUV_Thruster_Aux_Fixed_03",
+                  "InstalledItem": {
+                    "ClassName": "ARGO_MPUV_Thruster_Aux_Fixed_03",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "ManneuverThruster.FixedThruster",
+                    "Name": "ARGO_MPUV_Thruster_Aux_Fixed_03",
+                    "Manufacturer": {
+                      "Code": "ARGO",
+                      "Name": "Argo Astronautics"
+                    },
+                    "Thruster": {
+                      "ThrustCapacity": 73769.5,
+                      "FuelRate": 1.25E-05,
+                      "Type": "Maneuver",
+                      "MaxThrustFuelRate": 0.9221187500000001
+                    },
+                    "Durability": {
+                      "Health": 2500.0,
+                      "Lifetime": 720.0
+                    },
+                    "PowerConnection": {
+                      "PowerBase": 10.0,
+                      "PowerDraw": 12.0
+                    },
+                    "HeatConnection": {
+                      "ThermalEnergyBase": 500.0,
+                      "ThermalEnergyDraw": 1250.0,
+                      "CoolingRate": 20.0
+                    }
+                  },
+                  "Types": [
+                    "ManneuverThruster"
+                  ],
+                  "Flags": [
+                    "uneditable",
+                    "maneuver",
+                    "orientation",
+                    "-X",
+                    "+Z"
+                  ],
+                  "Category": "Maneuvering thrusters",
+                  "Uneditable": true
+                }
+              },
+              {
+                "Name": "hardpoint_thruster_front_left_bottom",
+                "MaximumDamage": 50.0,
+                "Port": {
+                  "PortName": "hardpoint_thruster_front_left_bottom",
+                  "Size": 2,
+                  "Loadout": "ARGO_MPUV_Thruster_Aux_Fixed_03",
+                  "InstalledItem": {
+                    "ClassName": "ARGO_MPUV_Thruster_Aux_Fixed_03",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "ManneuverThruster.FixedThruster",
+                    "Name": "ARGO_MPUV_Thruster_Aux_Fixed_03",
+                    "Manufacturer": {
+                      "Code": "ARGO",
+                      "Name": "Argo Astronautics"
+                    },
+                    "Thruster": {
+                      "ThrustCapacity": 73769.5,
+                      "FuelRate": 1.25E-05,
+                      "Type": "Maneuver",
+                      "MaxThrustFuelRate": 0.9221187500000001
+                    },
+                    "Durability": {
+                      "Health": 2500.0,
+                      "Lifetime": 720.0
+                    },
+                    "PowerConnection": {
+                      "PowerBase": 10.0,
+                      "PowerDraw": 12.0
+                    },
+                    "HeatConnection": {
+                      "ThermalEnergyBase": 500.0,
+                      "ThermalEnergyDraw": 1250.0,
+                      "CoolingRate": 20.0
+                    }
+                  },
+                  "Types": [
+                    "ManneuverThruster"
+                  ],
+                  "Flags": [
+                    "uneditable",
+                    "maneuver",
+                    "orientation",
+                    "+X",
+                    "+Z"
+                  ],
+                  "Category": "Maneuvering thrusters",
+                  "Uneditable": true
+                }
+              },
+              {
+                "Name": "hardpoint_selfdestruct",
+                "Port": {
+                  "PortName": "hardpoint_selfdestruct",
+                  "Size": 1,
+                  "Loadout": "VHCL_SelfDestruct_10s",
+                  "InstalledItem": {
+                    "ClassName": "VHCL_SelfDestruct_10s",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "SelfDestruct.UNDEFINED",
+                    "Name": "RSI Self Destruct",
+                    "Description": "[PH] RSI Self Destruct",
+                    "Manufacturer": {
+                      "Code": "RSI",
+                      "Name": "Roberts Space Industries"
+                    },
+                    "Tags": [
+                      "flightReady"
+                    ]
+                  },
+                  "Types": [
+                    "SelfDestruct"
+                  ],
+                  "Flags": [
+                    "invisible",
+                    "uneditable"
+                  ],
+                  "Category": "Self destruct",
+                  "Uneditable": true
+                }
+              },
+              {
                 "Name": "hardpoint_armor",
                 "Port": {
                   "PortName": "hardpoint_armor",
@@ -1430,41 +947,211 @@
                 }
               },
               {
-                "Name": "hardpoint_selfdestruct",
-                "Port": {
-                  "PortName": "hardpoint_selfdestruct",
-                  "Size": 1,
-                  "Loadout": "VHCL_SelfDestruct_10s",
-                  "InstalledItem": {
-                    "ClassName": "VHCL_SelfDestruct_10s",
-                    "Size": 1,
-                    "Grade": 1,
-                    "Type": "SelfDestruct.UNDEFINED",
-                    "Name": "RSI Self Destruct",
-                    "Description": "[PH] RSI Self Destruct",
-                    "Manufacturer": {
-                      "Code": "RSI",
-                      "Name": "Roberts Space Industries"
-                    },
-                    "Tags": [
-                      "flightReady"
-                    ]
-                  },
-                  "Types": [
-                    "SelfDestruct"
-                  ],
-                  "Flags": [
-                    "invisible",
-                    "uneditable"
-                  ],
-                  "Category": "Self destruct",
-                  "Uneditable": true
-                }
-              },
-              {
                 "Name": "Cargo_Container_Exterior",
                 "MaximumDamage": 440.0,
                 "Parts": [
+                  {
+                    "Name": "hardpoint_cargo_seat",
+                    "Port": {
+                      "PortName": "hardpoint_cargo_seat",
+                      "Size": 1,
+                      "Types": [
+                        "Seat"
+                      ],
+                      "Flags": [
+                        "seat",
+                        "uneditable"
+                      ],
+                      "Category": "Seats",
+                      "Uneditable": true
+                    }
+                  },
+                  {
+                    "Name": "animated_pod",
+                    "Port": {
+                      "PortName": "animated_pod",
+                      "Size": 1,
+                      "Types": [
+                        "Room"
+                      ],
+                      "Flags": [
+                        "uneditable"
+                      ],
+                      "Category": "Rooms",
+                      "Uneditable": true
+                    }
+                  },
+                  {
+                    "Name": "hardpoint_cargogrid",
+                    "Port": {
+                      "PortName": "hardpoint_cargogrid",
+                      "Size": 1,
+                      "Loadout": "ARGO_MPUV_CargoGrid_Main",
+                      "InstalledItem": {
+                        "ClassName": "ARGO_MPUV_CargoGrid_Main",
+                        "Size": 1,
+                        "Grade": 1,
+                        "Type": "Cargo.UNDEFINED",
+                        "Name": "ARGO_MPUV_CargoGrid_Main",
+                        "Manufacturer": {
+                          "Code": "ARGO",
+                          "Name": "Argo Astronautics"
+                        },
+                        "CargoGrid": {
+                          "Capacity": 2.0,
+                          "Width": 1.5,
+                          "Height": 1.5,
+                          "Depth": 2.5
+                        },
+                        "PowerConnection": {
+                          "PowerBase": 0.0,
+                          "PowerDraw": 1.0
+                        },
+                        "HeatConnection": {
+                          "ThermalEnergyBase": 10.0,
+                          "ThermalEnergyDraw": 20.0,
+                          "CoolingRate": 1.0
+                        }
+                      },
+                      "Types": [
+                        "Cargo"
+                      ],
+                      "Flags": [
+                        "selfphys",
+                        "uneditable"
+                      ],
+                      "Category": "Cargo grids",
+                      "Uneditable": true
+                    }
+                  },
+                  {
+                    "Name": "hardpoint_door_rear",
+                    "Port": {
+                      "PortName": "hardpoint_door_rear",
+                      "Size": 1,
+                      "Loadout": "Door_Ship_Exterior_ARGO_Cargo_Rear",
+                      "InstalledItem": {
+                        "ClassName": "Door_Ship_Exterior_ARGO_Cargo_Rear",
+                        "Size": 1,
+                        "Grade": 1,
+                        "Type": "Door.UNDEFINED",
+                        "Name": "Door_Ship_Exterior_ARGO_Cargo_Rear",
+                        "Durability": {
+                          "Health": 200.0
+                        },
+                        "PowerConnection": {
+                          "PowerBase": 0.0,
+                          "PowerDraw": 1.0
+                        },
+                        "Ports": [
+                          {
+                            "PortName": "control_panel_a",
+                            "Size": 10,
+                            "Types": [
+                              "ControlPanel.DoorPart"
+                            ],
+                            "Category": "Door attachments"
+                          },
+                          {
+                            "PortName": "control_panel_b",
+                            "Size": 10,
+                            "Types": [
+                              "ControlPanel.DoorPart"
+                            ],
+                            "Category": "Door attachments"
+                          },
+                          {
+                            "PortName": "charge_handle_a",
+                            "Size": 10,
+                            "Types": [
+                              "Misc.DoorPart"
+                            ],
+                            "Category": "Door attachments"
+                          },
+                          {
+                            "PortName": "charge_handle_b",
+                            "Size": 10,
+                            "Types": [
+                              "Misc.DoorPart"
+                            ],
+                            "Category": "Door attachments"
+                          },
+                          {
+                            "PortName": "close_button_a",
+                            "Size": 10,
+                            "Types": [
+                              "Button.DoorPart"
+                            ],
+                            "Category": "Door attachments"
+                          },
+                          {
+                            "PortName": "close_button_b",
+                            "Size": 10,
+                            "Types": [
+                              "Button.DoorPart"
+                            ],
+                            "Category": "Door attachments"
+                          },
+                          {
+                            "PortName": "proximity_sensor",
+                            "Size": 2,
+                            "Types": [
+                              "Sensor.DoorPart"
+                            ],
+                            "Category": "Door attachments"
+                          },
+                          {
+                            "PortName": "light_group_a",
+                            "Size": 10,
+                            "Types": [
+                              "Lightgroup.DoorPart"
+                            ],
+                            "Category": "Door attachments"
+                          },
+                          {
+                            "PortName": "light_group_b",
+                            "Size": 10,
+                            "Types": [
+                              "Lightgroup.DoorPart"
+                            ],
+                            "Category": "Door attachments"
+                          },
+                          {
+                            "PortName": "decal_front",
+                            "Size": 1,
+                            "Types": [
+                              "Decal.DoorPart"
+                            ],
+                            "Category": "Door attachments"
+                          },
+                          {
+                            "PortName": "decal_rear",
+                            "Size": 1,
+                            "Types": [
+                              "Decal.DoorPart"
+                            ],
+                            "Category": "Door attachments"
+                          },
+                          {
+                            "PortName": "decal_screen",
+                            "Size": 1,
+                            "Types": [
+                              "Decal.DoorPart"
+                            ],
+                            "Category": "Door attachments"
+                          }
+                        ]
+                      },
+                      "Types": [
+                        "Door"
+                      ],
+                      "Flags": [
+                        "$uneditable"
+                      ],
+                      "Category": "Doors",
+                      "Uneditable": true
+                    }
+                  },
                   {
                     "Name": "hardpoint_door_left",
                     "Port": {
@@ -1722,134 +1409,6 @@
                     }
                   },
                   {
-                    "Name": "hardpoint_door_rear",
-                    "Port": {
-                      "PortName": "hardpoint_door_rear",
-                      "Size": 1,
-                      "Loadout": "Door_Ship_Exterior_ARGO_Cargo_Rear",
-                      "InstalledItem": {
-                        "ClassName": "Door_Ship_Exterior_ARGO_Cargo_Rear",
-                        "Size": 1,
-                        "Grade": 1,
-                        "Type": "Door.UNDEFINED",
-                        "Name": "Door_Ship_Exterior_ARGO_Cargo_Rear",
-                        "Durability": {
-                          "Health": 200.0
-                        },
-                        "PowerConnection": {
-                          "PowerBase": 0.0,
-                          "PowerDraw": 1.0
-                        },
-                        "Ports": [
-                          {
-                            "PortName": "control_panel_a",
-                            "Size": 10,
-                            "Types": [
-                              "ControlPanel.DoorPart"
-                            ],
-                            "Category": "Door attachments"
-                          },
-                          {
-                            "PortName": "control_panel_b",
-                            "Size": 10,
-                            "Types": [
-                              "ControlPanel.DoorPart"
-                            ],
-                            "Category": "Door attachments"
-                          },
-                          {
-                            "PortName": "charge_handle_a",
-                            "Size": 10,
-                            "Types": [
-                              "Misc.DoorPart"
-                            ],
-                            "Category": "Door attachments"
-                          },
-                          {
-                            "PortName": "charge_handle_b",
-                            "Size": 10,
-                            "Types": [
-                              "Misc.DoorPart"
-                            ],
-                            "Category": "Door attachments"
-                          },
-                          {
-                            "PortName": "close_button_a",
-                            "Size": 10,
-                            "Types": [
-                              "Button.DoorPart"
-                            ],
-                            "Category": "Door attachments"
-                          },
-                          {
-                            "PortName": "close_button_b",
-                            "Size": 10,
-                            "Types": [
-                              "Button.DoorPart"
-                            ],
-                            "Category": "Door attachments"
-                          },
-                          {
-                            "PortName": "proximity_sensor",
-                            "Size": 2,
-                            "Types": [
-                              "Sensor.DoorPart"
-                            ],
-                            "Category": "Door attachments"
-                          },
-                          {
-                            "PortName": "light_group_a",
-                            "Size": 10,
-                            "Types": [
-                              "Lightgroup.DoorPart"
-                            ],
-                            "Category": "Door attachments"
-                          },
-                          {
-                            "PortName": "light_group_b",
-                            "Size": 10,
-                            "Types": [
-                              "Lightgroup.DoorPart"
-                            ],
-                            "Category": "Door attachments"
-                          },
-                          {
-                            "PortName": "decal_front",
-                            "Size": 1,
-                            "Types": [
-                              "Decal.DoorPart"
-                            ],
-                            "Category": "Door attachments"
-                          },
-                          {
-                            "PortName": "decal_rear",
-                            "Size": 1,
-                            "Types": [
-                              "Decal.DoorPart"
-                            ],
-                            "Category": "Door attachments"
-                          },
-                          {
-                            "PortName": "decal_screen",
-                            "Size": 1,
-                            "Types": [
-                              "Decal.DoorPart"
-                            ],
-                            "Category": "Door attachments"
-                          }
-                        ]
-                      },
-                      "Types": [
-                        "Door"
-                      ],
-                      "Flags": [
-                        "$uneditable"
-                      ],
-                      "Category": "Doors",
-                      "Uneditable": true
-                    }
-                  },
-                  {
                     "Name": "hardpoint_lights_ext_pod",
                     "Port": {
                       "PortName": "hardpoint_lights_ext_pod",
@@ -1861,80 +1420,6 @@
                         "uneditable"
                       ],
                       "Category": "Rooms",
-                      "Uneditable": true
-                    }
-                  },
-                  {
-                    "Name": "animated_pod",
-                    "Port": {
-                      "PortName": "animated_pod",
-                      "Size": 1,
-                      "Types": [
-                        "Room"
-                      ],
-                      "Flags": [
-                        "uneditable"
-                      ],
-                      "Category": "Rooms",
-                      "Uneditable": true
-                    }
-                  },
-                  {
-                    "Name": "hardpoint_cargogrid",
-                    "Port": {
-                      "PortName": "hardpoint_cargogrid",
-                      "Size": 1,
-                      "Loadout": "ARGO_MPUV_CargoGrid_Main",
-                      "InstalledItem": {
-                        "ClassName": "ARGO_MPUV_CargoGrid_Main",
-                        "Size": 1,
-                        "Grade": 1,
-                        "Type": "Cargo.UNDEFINED",
-                        "Name": "ARGO_MPUV_CargoGrid_Main",
-                        "Manufacturer": {
-                          "Code": "ARGO",
-                          "Name": "Argo Astronautics"
-                        },
-                        "CargoGrid": {
-                          "Capacity": 2.0,
-                          "Width": 1.5,
-                          "Height": 1.5,
-                          "Depth": 2.5
-                        },
-                        "PowerConnection": {
-                          "PowerBase": 0.0,
-                          "PowerDraw": 1.0
-                        },
-                        "HeatConnection": {
-                          "ThermalEnergyBase": 10.0,
-                          "ThermalEnergyDraw": 20.0,
-                          "CoolingRate": 1.0
-                        }
-                      },
-                      "Types": [
-                        "Cargo"
-                      ],
-                      "Flags": [
-                        "selfphys",
-                        "uneditable"
-                      ],
-                      "Category": "Cargo grids",
-                      "Uneditable": true
-                    }
-                  },
-                  {
-                    "Name": "hardpoint_cargo_seat",
-                    "Port": {
-                      "PortName": "hardpoint_cargo_seat",
-                      "Size": 1,
-                      "Types": [
-                        "Seat"
-                      ],
-                      "Flags": [
-                        "seat",
-                        "uneditable"
-                      ],
-                      "Category": "Seats",
                       "Uneditable": true
                     }
                   },
@@ -2071,36 +1556,63 @@
                 "PartDetachDamage": 440.0
               },
               {
+                "Name": "hardpoint_controller_comms",
+                "Port": {
+                  "PortName": "hardpoint_controller_comms",
+                  "Size": 1,
+                  "Loadout": "Controller_Comms",
+                  "InstalledItem": {
+                    "ClassName": "Controller_Comms",
+                    "Size": 1,
+                    "Grade": 1,
+                    "Type": "CommsController.UNDEFINED",
+                    "Name": "COMMS"
+                  },
+                  "Types": [
+                    "CommsController"
+                  ],
+                  "Flags": [
+                    "invisible",
+                    "uneditable"
+                  ],
+                  "Category": "UNKNOWN",
+                  "Uneditable": true
+                }
+              },
+              {
+                "Name": "hardpoint_lights_ext",
+                "Port": {
+                  "PortName": "hardpoint_lights_ext",
+                  "Size": 1,
+                  "Types": [
+                    "Room"
+                  ],
+                  "Flags": [
+                    "uneditable"
+                  ],
+                  "Category": "Rooms",
+                  "Uneditable": true
+                }
+              },
+              {
+                "Name": "animated_s42",
+                "Port": {
+                  "PortName": "animated_s42",
+                  "Size": 1,
+                  "Types": [
+                    "Room"
+                  ],
+                  "Flags": [
+                    "uneditable"
+                  ],
+                  "Category": "Rooms",
+                  "Uneditable": true
+                }
+              },
+              {
                 "Name": "Leg_Left",
                 "MaximumDamage": 240.0,
                 "Parts": [
-                  {
-                    "Name": "hardpoint_seat_access_leg_left",
-                    "Port": {
-                      "PortName": "hardpoint_seat_access_leg_left",
-                      "Size": 1,
-                      "Loadout": "ARGO_MPUV_SCItem_SeatAccess_Leg_Left",
-                      "InstalledItem": {
-                        "ClassName": "ARGO_MPUV_SCItem_SeatAccess_Leg_Left",
-                        "Size": 1,
-                        "Grade": 1,
-                        "Type": "SeatAccess.UNDEFINED",
-                        "Name": "ARGO_MPUV_SCItem_SeatAccess_Leg_Left",
-                        "Manufacturer": {
-                          "Code": "ARGO",
-                          "Name": "Argo Astronautics"
-                        }
-                      },
-                      "Types": [
-                        "SeatAccess"
-                      ],
-                      "Flags": [
-                        "uneditable"
-                      ],
-                      "Category": "Seat access",
-                      "Uneditable": true
-                    }
-                  },
                   {
                     "Name": "hardpoint_engine_left",
                     "MaximumDamage": 50.0,
@@ -2150,52 +1662,56 @@
                     }
                   },
                   {
-                    "Name": "hardpoint_thruster_rear_left_middle",
-                    "MaximumDamage": 50.0,
+                    "Name": "hardpoint_fuel_intake_left",
                     "Port": {
-                      "PortName": "hardpoint_thruster_rear_left_middle",
+                      "PortName": "hardpoint_fuel_intake_left",
                       "Size": 1,
-                      "Loadout": "ARGO_MPUV_Thruster_Aux_Side_Rear",
+                      "Loadout": "INTK_ARGO_MPUV",
                       "InstalledItem": {
-                        "ClassName": "ARGO_MPUV_Thruster_Aux_Side_Rear",
+                        "ClassName": "INTK_ARGO_MPUV",
                         "Size": 1,
                         "Grade": 1,
-                        "Type": "ManneuverThruster.FixedThruster",
-                        "Name": "ARGO_MPUV_Thruster_Aux_Side_Rear",
-                        "Manufacturer": {
-                          "Code": "ARGO",
-                          "Name": "Argo Astronautics"
-                        },
-                        "Thruster": {
-                          "ThrustCapacity": 40578.23,
-                          "FuelRate": 1.25E-05,
-                          "Type": "Maneuver",
-                          "MaxThrustFuelRate": 0.5072278750000001
-                        },
-                        "Durability": {
-                          "Health": 2500.0,
-                          "Lifetime": 720.0
+                        "Type": "FuelIntake.Fuel",
+                        "Name": "INTK_ARGO_MPUV",
+                        "Tags": [
+                          "flightReady"
+                        ],
+                        "HydrogenFuelIntake": {
+                          "Rate": 0.0
                         },
                         "PowerConnection": {
-                          "PowerBase": 10.0,
-                          "PowerDraw": 12.0
+                          "PowerBase": 0.5,
+                          "PowerDraw": 1.0
                         },
                         "HeatConnection": {
-                          "ThermalEnergyBase": 500.0,
-                          "ThermalEnergyDraw": 1250.0,
-                          "CoolingRate": 20.0
+                          "ThermalEnergyBase": 10.0,
+                          "ThermalEnergyDraw": 20.0,
+                          "CoolingRate": 1.0
                         }
                       },
                       "Types": [
-                        "ManneuverThruster"
+                        "FuelIntake"
                       ],
                       "Flags": [
-                        "uneditable",
-                        "maneuver",
-                        "orientation",
-                        "+X"
+                        "invisible",
+                        "uneditable"
                       ],
-                      "Category": "Maneuvering thrusters",
+                      "Category": "Fuel intakes",
+                      "Uneditable": true
+                    }
+                  },
+                  {
+                    "Name": "hardpoint_lights_leg_left",
+                    "Port": {
+                      "PortName": "hardpoint_lights_leg_left",
+                      "Size": 1,
+                      "Types": [
+                        "Room"
+                      ],
+                      "Flags": [
+                        "uneditable"
+                      ],
+                      "Category": "Rooms",
                       "Uneditable": true
                     }
                   },
@@ -2245,6 +1761,56 @@
                         "orientation",
                         "+X",
                         "-Z"
+                      ],
+                      "Category": "Maneuvering thrusters",
+                      "Uneditable": true
+                    }
+                  },
+                  {
+                    "Name": "hardpoint_thruster_rear_left_middle",
+                    "MaximumDamage": 50.0,
+                    "Port": {
+                      "PortName": "hardpoint_thruster_rear_left_middle",
+                      "Size": 1,
+                      "Loadout": "ARGO_MPUV_Thruster_Aux_Side_Rear",
+                      "InstalledItem": {
+                        "ClassName": "ARGO_MPUV_Thruster_Aux_Side_Rear",
+                        "Size": 1,
+                        "Grade": 1,
+                        "Type": "ManneuverThruster.FixedThruster",
+                        "Name": "ARGO_MPUV_Thruster_Aux_Side_Rear",
+                        "Manufacturer": {
+                          "Code": "ARGO",
+                          "Name": "Argo Astronautics"
+                        },
+                        "Thruster": {
+                          "ThrustCapacity": 40578.23,
+                          "FuelRate": 1.25E-05,
+                          "Type": "Maneuver",
+                          "MaxThrustFuelRate": 0.5072278750000001
+                        },
+                        "Durability": {
+                          "Health": 2500.0,
+                          "Lifetime": 720.0
+                        },
+                        "PowerConnection": {
+                          "PowerBase": 10.0,
+                          "PowerDraw": 12.0
+                        },
+                        "HeatConnection": {
+                          "ThermalEnergyBase": 500.0,
+                          "ThermalEnergyDraw": 1250.0,
+                          "CoolingRate": 20.0
+                        }
+                      },
+                      "Types": [
+                        "ManneuverThruster"
+                      ],
+                      "Flags": [
+                        "uneditable",
+                        "maneuver",
+                        "orientation",
+                        "+X"
                       ],
                       "Category": "Maneuvering thrusters",
                       "Uneditable": true
@@ -2302,78 +1868,17 @@
                     }
                   },
                   {
-                    "Name": "hardpoint_fuel_intake_left",
+                    "Name": "hardpoint_seat_access_leg_left",
                     "Port": {
-                      "PortName": "hardpoint_fuel_intake_left",
+                      "PortName": "hardpoint_seat_access_leg_left",
                       "Size": 1,
-                      "Loadout": "INTK_ARGO_MPUV",
+                      "Loadout": "ARGO_MPUV_SCItem_SeatAccess_Leg_Left",
                       "InstalledItem": {
-                        "ClassName": "INTK_ARGO_MPUV",
-                        "Size": 1,
-                        "Grade": 1,
-                        "Type": "FuelIntake.Fuel",
-                        "Name": "INTK_ARGO_MPUV",
-                        "Tags": [
-                          "flightReady"
-                        ],
-                        "HydrogenFuelIntake": {
-                          "Rate": 0.0
-                        },
-                        "PowerConnection": {
-                          "PowerBase": 0.5,
-                          "PowerDraw": 1.0
-                        },
-                        "HeatConnection": {
-                          "ThermalEnergyBase": 10.0,
-                          "ThermalEnergyDraw": 20.0,
-                          "CoolingRate": 1.0
-                        }
-                      },
-                      "Types": [
-                        "FuelIntake"
-                      ],
-                      "Flags": [
-                        "invisible",
-                        "uneditable"
-                      ],
-                      "Category": "Fuel intakes",
-                      "Uneditable": true
-                    }
-                  },
-                  {
-                    "Name": "hardpoint_lights_leg_left",
-                    "Port": {
-                      "PortName": "hardpoint_lights_leg_left",
-                      "Size": 1,
-                      "Types": [
-                        "Room"
-                      ],
-                      "Flags": [
-                        "uneditable"
-                      ],
-                      "Category": "Rooms",
-                      "Uneditable": true
-                    }
-                  }
-                ],
-                "PartDetachDamage": 240.0
-              },
-              {
-                "Name": "Leg_Right",
-                "MaximumDamage": 240.0,
-                "Parts": [
-                  {
-                    "Name": "hardpoint_seat_access_leg_right",
-                    "Port": {
-                      "PortName": "hardpoint_seat_access_leg_right",
-                      "Size": 1,
-                      "Loadout": "ARGO_MPUV_SCItem_SeatAccess_Leg_Right",
-                      "InstalledItem": {
-                        "ClassName": "ARGO_MPUV_SCItem_SeatAccess_Leg_Right",
+                        "ClassName": "ARGO_MPUV_SCItem_SeatAccess_Leg_Left",
                         "Size": 1,
                         "Grade": 1,
                         "Type": "SeatAccess.UNDEFINED",
-                        "Name": "ARGO_MPUV_SCItem_SeatAccess_Leg_Right",
+                        "Name": "ARGO_MPUV_SCItem_SeatAccess_Leg_Left",
                         "Manufacturer": {
                           "Code": "ARGO",
                           "Name": "Argo Astronautics"
@@ -2388,7 +1893,14 @@
                       "Category": "Seat access",
                       "Uneditable": true
                     }
-                  },
+                  }
+                ],
+                "PartDetachDamage": 240.0
+              },
+              {
+                "Name": "Leg_Right",
+                "MaximumDamage": 240.0,
+                "Parts": [
                   {
                     "Name": "hardpoint_engine_right",
                     "MaximumDamage": 50.0,
@@ -2434,6 +1946,111 @@
                         "uneditable"
                       ],
                       "Category": "Main thrusters",
+                      "Uneditable": true
+                    }
+                  },
+                  {
+                    "Name": "hardpoint_fuel_intake_right",
+                    "Port": {
+                      "PortName": "hardpoint_fuel_intake_right",
+                      "Size": 1,
+                      "Loadout": "INTK_ARGO_MPUV",
+                      "InstalledItem": {
+                        "ClassName": "INTK_ARGO_MPUV",
+                        "Size": 1,
+                        "Grade": 1,
+                        "Type": "FuelIntake.Fuel",
+                        "Name": "INTK_ARGO_MPUV",
+                        "Tags": [
+                          "flightReady"
+                        ],
+                        "HydrogenFuelIntake": {
+                          "Rate": 0.0
+                        },
+                        "PowerConnection": {
+                          "PowerBase": 0.5,
+                          "PowerDraw": 1.0
+                        },
+                        "HeatConnection": {
+                          "ThermalEnergyBase": 10.0,
+                          "ThermalEnergyDraw": 20.0,
+                          "CoolingRate": 1.0
+                        }
+                      },
+                      "Types": [
+                        "FuelIntake"
+                      ],
+                      "Flags": [
+                        "invisible",
+                        "uneditable"
+                      ],
+                      "Category": "Fuel intakes",
+                      "Uneditable": true
+                    }
+                  },
+                  {
+                    "Name": "hardpoint_lights_leg_right",
+                    "Port": {
+                      "PortName": "hardpoint_lights_leg_right",
+                      "Size": 1,
+                      "Types": [
+                        "Room"
+                      ],
+                      "Flags": [
+                        "uneditable"
+                      ],
+                      "Category": "Rooms",
+                      "Uneditable": true
+                    }
+                  },
+                  {
+                    "Name": "hardpoint_thruster_rear_right_bottom",
+                    "MaximumDamage": 50.0,
+                    "Port": {
+                      "PortName": "hardpoint_thruster_rear_right_bottom",
+                      "Size": 2,
+                      "Loadout": "ARGO_MPUV_Thruster_Aux_Bottom",
+                      "InstalledItem": {
+                        "ClassName": "ARGO_MPUV_Thruster_Aux_Bottom",
+                        "Size": 1,
+                        "Grade": 1,
+                        "Type": "ManneuverThruster.JointThruster",
+                        "Name": "ARGO_MPUV_Thruster_Aux_Bottom",
+                        "Manufacturer": {
+                          "Code": "ARGO",
+                          "Name": "Argo Astronautics"
+                        },
+                        "Thruster": {
+                          "ThrustCapacity": 71610.14,
+                          "FuelRate": 1.25E-05,
+                          "Type": "Maneuver",
+                          "MaxThrustFuelRate": 0.8951267500000001
+                        },
+                        "Durability": {
+                          "Health": 2500.0,
+                          "Lifetime": 720.0
+                        },
+                        "PowerConnection": {
+                          "PowerBase": 10.0,
+                          "PowerDraw": 12.0
+                        },
+                        "HeatConnection": {
+                          "ThermalEnergyBase": 500.0,
+                          "ThermalEnergyDraw": 1250.0,
+                          "CoolingRate": 20.0
+                        }
+                      },
+                      "Types": [
+                        "ManneuverThruster"
+                      ],
+                      "Flags": [
+                        "uneditable",
+                        "maneuver",
+                        "orientation",
+                        "-X",
+                        "+Z"
+                      ],
+                      "Category": "Maneuvering thrusters",
                       "Uneditable": true
                     }
                   },
@@ -2539,146 +2156,443 @@
                     }
                   },
                   {
-                    "Name": "hardpoint_thruster_rear_right_bottom",
-                    "MaximumDamage": 50.0,
+                    "Name": "hardpoint_seat_access_leg_right",
                     "Port": {
-                      "PortName": "hardpoint_thruster_rear_right_bottom",
-                      "Size": 2,
-                      "Loadout": "ARGO_MPUV_Thruster_Aux_Bottom",
+                      "PortName": "hardpoint_seat_access_leg_right",
+                      "Size": 1,
+                      "Loadout": "ARGO_MPUV_SCItem_SeatAccess_Leg_Right",
                       "InstalledItem": {
-                        "ClassName": "ARGO_MPUV_Thruster_Aux_Bottom",
+                        "ClassName": "ARGO_MPUV_SCItem_SeatAccess_Leg_Right",
                         "Size": 1,
                         "Grade": 1,
-                        "Type": "ManneuverThruster.JointThruster",
-                        "Name": "ARGO_MPUV_Thruster_Aux_Bottom",
+                        "Type": "SeatAccess.UNDEFINED",
+                        "Name": "ARGO_MPUV_SCItem_SeatAccess_Leg_Right",
                         "Manufacturer": {
                           "Code": "ARGO",
                           "Name": "Argo Astronautics"
-                        },
-                        "Thruster": {
-                          "ThrustCapacity": 71610.14,
-                          "FuelRate": 1.25E-05,
-                          "Type": "Maneuver",
-                          "MaxThrustFuelRate": 0.8951267500000001
-                        },
-                        "Durability": {
-                          "Health": 2500.0,
-                          "Lifetime": 720.0
-                        },
-                        "PowerConnection": {
-                          "PowerBase": 10.0,
-                          "PowerDraw": 12.0
-                        },
-                        "HeatConnection": {
-                          "ThermalEnergyBase": 500.0,
-                          "ThermalEnergyDraw": 1250.0,
-                          "CoolingRate": 20.0
                         }
                       },
                       "Types": [
-                        "ManneuverThruster"
-                      ],
-                      "Flags": [
-                        "uneditable",
-                        "maneuver",
-                        "orientation",
-                        "-X",
-                        "+Z"
-                      ],
-                      "Category": "Maneuvering thrusters",
-                      "Uneditable": true
-                    }
-                  },
-                  {
-                    "Name": "hardpoint_fuel_intake_right",
-                    "Port": {
-                      "PortName": "hardpoint_fuel_intake_right",
-                      "Size": 1,
-                      "Loadout": "INTK_ARGO_MPUV",
-                      "InstalledItem": {
-                        "ClassName": "INTK_ARGO_MPUV",
-                        "Size": 1,
-                        "Grade": 1,
-                        "Type": "FuelIntake.Fuel",
-                        "Name": "INTK_ARGO_MPUV",
-                        "Tags": [
-                          "flightReady"
-                        ],
-                        "HydrogenFuelIntake": {
-                          "Rate": 0.0
-                        },
-                        "PowerConnection": {
-                          "PowerBase": 0.5,
-                          "PowerDraw": 1.0
-                        },
-                        "HeatConnection": {
-                          "ThermalEnergyBase": 10.0,
-                          "ThermalEnergyDraw": 20.0,
-                          "CoolingRate": 1.0
-                        }
-                      },
-                      "Types": [
-                        "FuelIntake"
-                      ],
-                      "Flags": [
-                        "invisible",
-                        "uneditable"
-                      ],
-                      "Category": "Fuel intakes",
-                      "Uneditable": true
-                    }
-                  },
-                  {
-                    "Name": "hardpoint_lights_leg_right",
-                    "Port": {
-                      "PortName": "hardpoint_lights_leg_right",
-                      "Size": 1,
-                      "Types": [
-                        "Room"
+                        "SeatAccess"
                       ],
                       "Flags": [
                         "uneditable"
                       ],
-                      "Category": "Rooms",
+                      "Category": "Seat access",
                       "Uneditable": true
                     }
                   }
                 ],
                 "PartDetachDamage": 240.0
-              },
-              {
-                "Name": "hardpoint_lights_ext",
-                "Port": {
-                  "PortName": "hardpoint_lights_ext",
-                  "Size": 1,
-                  "Types": [
-                    "Room"
-                  ],
-                  "Flags": [
-                    "uneditable"
-                  ],
-                  "Category": "Rooms",
-                  "Uneditable": true
-                }
-              },
-              {
-                "Name": "animated_s42",
-                "Port": {
-                  "PortName": "animated_s42",
-                  "Size": 1,
-                  "Types": [
-                    "Room"
-                  ],
-                  "Flags": [
-                    "uneditable"
-                  ],
-                  "Category": "Rooms",
-                  "Uneditable": true
-                }
               }
             ],
-            "ShipDestructionDamage": 1000.0,
-            "PartDetachDamage": 1000.0
+            "ShipDestructionDamage": 2500.0,
+            "PartDetachDamage": 2500.0
+          },
+          {
+            "Name": "hardpoint_controller_energy",
+            "Port": {
+              "PortName": "hardpoint_controller_energy",
+              "Size": 1,
+              "Loadout": "Controller_Energy",
+              "InstalledItem": {
+                "ClassName": "Controller_Energy",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "EnergyController.UNDEFINED",
+                "Name": "POWER"
+              },
+              "Types": [
+                "EnergyController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_cooler",
+            "Port": {
+              "PortName": "hardpoint_controller_cooler",
+              "Size": 1,
+              "Loadout": "Controller_Cooler",
+              "InstalledItem": {
+                "ClassName": "Controller_Cooler",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "CoolerController.UNDEFINED",
+                "Name": "HEAT"
+              },
+              "Types": [
+                "CoolerController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_shield",
+            "Port": {
+              "PortName": "hardpoint_controller_shield",
+              "Size": 1,
+              "Loadout": "Controller_Shield_ARGO_MPUV",
+              "InstalledItem": {
+                "ClassName": "Controller_Shield_ARGO_MPUV",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "ShieldController.UNDEFINED",
+                "Name": "SHIELDS",
+                "Tags": [
+                  "flightReady"
+                ]
+              },
+              "Types": [
+                "ShieldController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_flight",
+            "Port": {
+              "PortName": "hardpoint_controller_flight",
+              "Size": 1,
+              "Loadout": "Controller_Flight_ARGO_MPUV",
+              "InstalledItem": {
+                "ClassName": "Controller_Flight_ARGO_MPUV",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "FlightController.UNDEFINED",
+                "Name": "SELF STATUS",
+                "Ifcs": {
+                  "MaxSpeed": 112.0,
+                  "MaxAfterburnSpeed": 899.0
+                }
+              },
+              "Types": [
+                "FlightController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_weapon",
+            "Port": {
+              "PortName": "hardpoint_controller_weapon",
+              "Size": 1,
+              "Loadout": "Controller_Weapon",
+              "InstalledItem": {
+                "ClassName": "Controller_Weapon",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "WeaponController.UNDEFINED",
+                "Name": "WEAPONS"
+              },
+              "Types": [
+                "WeaponController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_seat_access",
+            "Port": {
+              "PortName": "hardpoint_seat_access",
+              "Size": 1,
+              "Loadout": "ARGO_MPUV_SCItem_SeatAccess",
+              "InstalledItem": {
+                "ClassName": "ARGO_MPUV_SCItem_SeatAccess",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "SeatAccess.UNDEFINED",
+                "Name": "ARGO_MPUV_SCItem_SeatAccess",
+                "Manufacturer": {
+                  "Code": "ARGO",
+                  "Name": "Argo Astronautics"
+                }
+              },
+              "Types": [
+                "SeatAccess"
+              ],
+              "Flags": [
+                "uneditable"
+              ],
+              "Category": "Seat access",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_dashboard_pilot",
+            "Port": {
+              "PortName": "hardpoint_dashboard_pilot",
+              "Size": 1,
+              "Loadout": "ARGO_MPUV_SCItem_Dashboard_Pilot",
+              "InstalledItem": {
+                "ClassName": "ARGO_MPUV_SCItem_Dashboard_Pilot",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "SeatDashboard.UNDEFINED",
+                "Name": "ARGO_MPUV_SCItem_Dashboard_Pilot",
+                "Manufacturer": {
+                  "Code": "ARGO",
+                  "Name": "Argo Astronautics"
+                },
+                "Durability": {
+                  "Health": 1.0
+                },
+                "PowerConnection": {
+                  "PowerBase": 1.0,
+                  "PowerDraw": 1.0
+                },
+                "HeatConnection": {
+                  "ThermalEnergyBase": 10.0,
+                  "ThermalEnergyDraw": 20.0,
+                  "CoolingRate": 1.0
+                },
+                "Ports": [
+                  {
+                    "PortName": "Display_HUD",
+                    "Size": 1,
+                    "Loadout": "Projector_HUD_Generic",
+                    "InstalledItem": {
+                      "ClassName": "Projector_HUD_Generic",
+                      "Size": 1,
+                      "Grade": 1,
+                      "Type": "Display.UNDEFINED",
+                      "Name": "Projector_HUD_Generic"
+                    },
+                    "Category": "UNKNOWN"
+                  }
+                ]
+              },
+              "Types": [
+                "SeatDashboard"
+              ],
+              "Flags": [
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "animated_cockpit",
+            "Port": {
+              "PortName": "animated_cockpit",
+              "Size": 1,
+              "Types": [
+                "Room"
+              ],
+              "Flags": [
+                "uneditable"
+              ],
+              "Category": "Rooms",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "UI_Helper",
+            "Port": {
+              "PortName": "UI_Helper",
+              "Size": 1,
+              "Types": [
+                "Display"
+              ],
+              "Flags": [
+                "nose",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_door",
+            "Port": {
+              "PortName": "hardpoint_controller_door",
+              "Size": 1,
+              "Loadout": "Controller_Door",
+              "InstalledItem": {
+                "ClassName": "Controller_Door",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "DoorController.UNDEFINED",
+                "Name": "SECURITY"
+              },
+              "Types": [
+                "DoorController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_light",
+            "Port": {
+              "PortName": "hardpoint_controller_light",
+              "Size": 1,
+              "Loadout": "Controller_Light",
+              "InstalledItem": {
+                "ClassName": "Controller_Light",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "LightController.UNDEFINED",
+                "Name": "LIGHTS"
+              },
+              "Types": [
+                "LightController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_lights_int",
+            "Port": {
+              "PortName": "hardpoint_lights_int",
+              "Size": 1,
+              "Types": [
+                "Room"
+              ],
+              "Flags": [
+                "uneditable"
+              ],
+              "Category": "Rooms",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_scanner",
+            "Port": {
+              "PortName": "hardpoint_scanner",
+              "Size": 1,
+              "Loadout": "RADR_WLOP_S01_Capstan",
+              "InstalledItem": {
+                "ClassName": "RADR_WLOP_S01_Capstan",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "Radar.MidRangeRadar",
+                "Name": "Capston",
+                "Description": "Item Type: Radar\nManufacturer: WillsOp\nSize: 1\nGrade: C\nClass: Civilian\n\nExperience why WillsOp is a premiere manufacturer of ship electronics with their Capston radar. Outfit your ship with one today so you know what’s nearby.",
+                "Tags": [
+                  "flightReady"
+                ],
+                "Durability": {
+                  "Lifetime": 720.0
+                },
+                "PowerConnection": {
+                  "PowerBase": 0.1,
+                  "PowerDraw": 1.0
+                },
+                "HeatConnection": {
+                  "ThermalEnergyBase": 10.0,
+                  "ThermalEnergyDraw": 20.0,
+                  "CoolingRate": 1.0
+                },
+                "Radar": {
+                  "DetectionLifetime": 0.0,
+                  "AltitudeCeiling": 0.0,
+                  "CrossSectionOcclusion": false,
+                  "Signatures": []
+                },
+                "Ports": [
+                  {
+                    "PortName": "BatteryPort",
+                    "Size": 2,
+                    "Types": [
+                      "Battery"
+                    ],
+                    "Flags": [
+                      "invisible"
+                    ],
+                    "Category": "Batteries"
+                  }
+                ]
+              },
+              "Types": [
+                "Radar.ShortRangeRadar",
+                "Radar.MidRangeRadar"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "Radars",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_ping",
+            "Port": {
+              "PortName": "hardpoint_ping",
+              "Size": 1,
+              "Loadout": "test_ping",
+              "InstalledItem": {
+                "ClassName": "test_ping",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "Ping.UNDEFINED",
+                "Name": "Ping",
+                "Description": "Ping",
+                "Tags": [
+                  "flightReady"
+                ]
+              },
+              "Types": [
+                "Ping"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "Pings",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_arm",
+            "Port": {
+              "PortName": "hardpoint_arm",
+              "Size": 1,
+              "Types": [
+                "MiningArm"
+              ],
+              "Flags": [
+                "uneditable"
+              ],
+              "Category": "Mining arm",
+              "Uneditable": true
+            }
           },
           {
             "Name": "hardpoint_paint",
@@ -2757,10 +2671,96 @@
               "Category": "UNKNOWN",
               "Uneditable": true
             }
+          },
+          {
+            "Name": "hardpoint_controller_capacitor_assignment",
+            "Port": {
+              "PortName": "hardpoint_controller_capacitor_assignment",
+              "Size": 1,
+              "Loadout": "Controller_CapacitorAssignment",
+              "InstalledItem": {
+                "ClassName": "Controller_CapacitorAssignment",
+                "Size": 1,
+                "Grade": 1,
+                "Type": "CapacitorAssignmentController.UNDEFINED",
+                "Name": "Controller_CapacitorAssignment",
+                "Tags": [
+                  "flightReady"
+                ]
+              },
+              "Types": [
+                "CapacitorAssignmentController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_weapon_regen_pool",
+            "Port": {
+              "PortName": "hardpoint_weapon_regen_pool",
+              "Size": 1,
+              "Types": [
+                "WeaponRegenPool"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "Weapon regen pool",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_transponder",
+            "Port": {
+              "PortName": "hardpoint_transponder",
+              "Size": 1,
+              "Types": [
+                "Transponder"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "Transponders",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_controller_mining",
+            "Port": {
+              "PortName": "hardpoint_controller_mining",
+              "Size": 1,
+              "Types": [
+                "MiningController"
+              ],
+              "Flags": [
+                "invisible",
+                "uneditable"
+              ],
+              "Category": "UNKNOWN",
+              "Uneditable": true
+            }
+          },
+          {
+            "Name": "hardpoint_cockpit_flair_hang",
+            "Port": {
+              "PortName": "hardpoint_cockpit_flair_hang",
+              "Size": 1,
+              "Types": [
+                "Flair_Cockpit.Flair_Hanging"
+              ],
+              "Category": "UNKNOWN"
+            }
           }
         ],
-        "ShipDestructionDamage": 1000.0,
-        "PartDetachDamage": 1000.0
+        "ShipDestructionDamage": 2500.0,
+        "PartDetachDamage": 2500.0
       }
     ]
   }

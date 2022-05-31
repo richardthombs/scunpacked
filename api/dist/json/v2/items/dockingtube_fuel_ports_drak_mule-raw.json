@@ -1,0 +1,87 @@
+{
+  "StaticEntityClassData": {},
+  "tags": [
+    {
+      "value": "dc810059-af06-4985-81b1-1a908ff4ff78"
+    }
+  ],
+  "Components": {
+    "SAttachableComponentParams": {
+      "AttachDef": {
+        "Type": "DockingCollar",
+        "SubType": "UNDEFINED",
+        "Size": 1,
+        "Grade": 1,
+        "Manufacturer": "00000000-0000-0000-0000-000000000000",
+        "Tags": "",
+        "RequiredTags": "DRAK_Mule",
+        "DisplayType": "",
+        "Localization": {
+          "Name": "@LOC_PLACEHOLDER",
+          "Description": "@LOC_EMPTY"
+        }
+      }
+    },
+    "SEntityInteractableParams": {
+      "Interactable": {
+        "SharedInteractions": [
+          {
+            "Name": "Open",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_open",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": true,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          },
+          {
+            "Name": "Close",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_close",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": true,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          }
+        ]
+      }
+    },
+    "SItemPortContainerComponentParams": {
+      "PortFlags": "",
+      "PortTags": "",
+      "RequiredItemTags": "",
+      "Ports": [
+        {
+          "Name": "itemport_vehicle_attach",
+          "DisplayName": "ItemportVehicleAttach",
+          "PortTags": "",
+          "RequiredPortTags": "Ship_Dock_Refuel",
+          "Flags": "",
+          "MinSize": 0,
+          "MaxSize": 8,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "NOITEM_Vehicle",
+              "SubTypes": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "ClassName": "DockingTube_Fuel_Ports_DRAK_Mule",
+  "__ref": "cbe8b649-63a3-4c3b-a82d-c2bf404764c4",
+  "__type": "EntityClassDefinition"
+}

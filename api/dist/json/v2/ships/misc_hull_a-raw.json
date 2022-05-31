@@ -197,12 +197,12 @@
                     "entries": [
                       {
                         "itemPortName": "hardpoint_left",
-                        "entityClassName": "ASAD_DistortionRepeater_S1",
+                        "entityClassName": "KLWE_LaserRepeater_S1",
                         "loadout": {}
                       },
                       {
                         "itemPortName": "hardpoint_right",
-                        "entityClassName": "ASAD_DistortionRepeater_S1",
+                        "entityClassName": "KLWE_LaserRepeater_S1",
                         "loadout": {}
                       }
                     ]
@@ -543,6 +543,20 @@
               "LockedByLinks": false,
               "RequiresAuthorizedUser": false,
               "available": true
+            },
+            {
+              "Name": "ShipTransformCycle",
+              "RoomTag": "00000000-0000-0000-0000-000000000000",
+              "UsableTag": "00000000-0000-0000-0000-000000000000",
+              "DisplayName": "@usable_use",
+              "DisplayType": "Show",
+              "GenericCursor": "SingleAction",
+              "FocusModeOnly": false,
+              "Sendable": true,
+              "Linkable": true,
+              "LockedByLinks": false,
+              "RequiresAuthorizedUser": false,
+              "available": true
             }
           ]
         }
@@ -567,7 +581,7 @@
           {
             "Name": "hardpoint_fuel_port",
             "DisplayName": "",
-            "PortTags": "Ship_Dock_Refuel",
+            "PortTags": "Ship_Dock_Refuel MISC_Hull_A",
             "RequiredPortTags": "",
             "Flags": "dockingport1",
             "MinSize": 1,
@@ -663,7 +677,7 @@
         "Parts": [
           {
             "name": "body",
-            "damageMax": 9500.0,
+            "damageMax": 10000.0,
             "damagemax": 0.0,
             "class": "AnimatedJoint",
             "detachRatio": 1.0,
@@ -2071,7 +2085,7 @@
               },
               {
                 "name": "nose",
-                "damageMax": 8000.0,
+                "damageMax": 10000.0,
                 "damagemax": 0.0,
                 "class": "AnimatedJoint",
                 "Parts": [
@@ -2097,7 +2111,7 @@
                       "display_name": "port_NameWeaponNose",
                       "flags": "$uneditable",
                       "defaultWeaponGroup": "1",
-                      "requiredTags": "",
+                      "requiredTags": "$MISC_Hull_A_Turret",
                       "Types": [
                         {
                           "type": "Turret",

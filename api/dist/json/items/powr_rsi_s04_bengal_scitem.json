@@ -1,0 +1,147 @@
+{
+  "Raw": {
+    "Entity": {
+      "StaticEntityClassData": {
+        "DefaultEntitlementEntityParams": {
+          "entitlementPolicy": "6df1749c-48ea-43e5-bae5-8084d9fe5aca"
+        }
+      },
+      "tags": [],
+      "Components": {
+        "SAttachableComponentParams": {
+          "AttachDef": {
+            "Type": "PowerPlant",
+            "SubType": "Power",
+            "Size": 4,
+            "Grade": 1,
+            "Manufacturer": "00000000-0000-0000-0000-000000000000",
+            "Tags": "",
+            "RequiredTags": "",
+            "DisplayType": "",
+            "Localization": {
+              "Name": "@item_NameIdris_PowerPlant",
+              "Description": "@item_DescIdris_PowerPlant"
+            }
+          }
+        },
+        "SHealthComponentParams": {
+          "Health": 4000.0,
+          "DamageResistances": {
+            "DamageResistance": {
+              "PhysicalResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "EnergyResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "DistortionResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "ThermalResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "BiochemicalResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "StunResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              }
+            }
+          }
+        },
+        "SDegradationParams": {
+          "MaxLifetimeHours": 1440.0,
+          "InitialAgeRatio": 0.0,
+          "DegradeOnlyWhenAttached": true
+        },
+        "EntityComponentPowerConnection": {
+          "PowerBase": 0.0,
+          "PowerDraw": 27500000.0,
+          "TimeToReachDrawRequest": 50.0,
+          "SafeguardPriority": 100.0,
+          "DisplayedInPoweredItemList": true,
+          "IsThrottleable": true,
+          "IsOverclockable": true,
+          "OverclockThresholdMin": 0.55,
+          "OverclockThresholdMax": 0.68,
+          "OverpowerPerformance": 0.25,
+          "OverclockPerformance": 0.51,
+          "PowerToEM": 0.15,
+          "DecayRateOfEM": 0.15,
+          "WarningDelayTime": 0.3,
+          "WarningDisplayTime": 8.0
+        },
+        "EntityComponentHeatConnection": {
+          "TemperatureToIR": 5.0,
+          "OverpowerHeat": 0.3,
+          "OverclockThresholdMinHeat": 0.64,
+          "OverclockThresholdMaxHeat": 0.77,
+          "ThermalEnergyBase": 22000000.0,
+          "ThermalEnergyDraw": 27000000.0,
+          "ThermalConductivity": 0.05,
+          "SpecificHeatCapacity": 0.5,
+          "Mass": 600000.0,
+          "SurfaceArea": 0.05,
+          "StartCoolingTemperature": 300.0,
+          "MaxCoolingRate": 86.66,
+          "MaxTemperature": 700.0,
+          "OverheatTemperature": 700.0,
+          "RecoveryTemperature": 550.0,
+          "MinTemperature": 0.0,
+          "MisfireMinTemperature": 300.0,
+          "MisfireMaxTemperature": 900.0
+        },
+        "SDistortionParams": {
+          "DecayRate": 405.0,
+          "Maximum": 4050.0,
+          "OverloadRatio": 0.0,
+          "RecoveryRatio": 0.59,
+          "RecoveryTime": 0.0
+        },
+        "SEntityInteractableParams": {
+          "Interactable": {
+            "SharedInteractions": [
+              {
+                "Name": "EnablePowerPlant",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@usable_use",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "DisablePowerPlant",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@usable_use",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": false,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              }
+            ]
+          }
+        }
+      },
+      "ClassName": "POWR_RSI_S04_Bengal_SCItem",
+      "__ref": "87bcad59-966f-4280-b651-1f9a8d92bc32",
+      "__type": "EntityClassDefinition"
+    }
+  }
+}

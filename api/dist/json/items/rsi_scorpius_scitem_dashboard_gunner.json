@@ -1,0 +1,208 @@
+{
+  "Raw": {
+    "Entity": {
+      "StaticEntityClassData": {},
+      "tags": [],
+      "Components": {
+        "SAttachableComponentParams": {
+          "AttachDef": {
+            "Type": "SeatDashboard",
+            "SubType": "UNDEFINED",
+            "Size": 1,
+            "Grade": 1,
+            "Manufacturer": "093e6eba-93fa-4dad-b3dd-38966934e34e",
+            "Tags": "",
+            "RequiredTags": "",
+            "DisplayType": "",
+            "Localization": {
+              "Name": "@LOC_PLACEHOLDER",
+              "Description": "@LOC_EMPTY"
+            }
+          }
+        },
+        "SHealthComponentParams": {
+          "Health": 1.0,
+          "DamageResistances": {
+            "DamageResistance": {
+              "PhysicalResistance": {
+                "Multiplier": 0.0,
+                "Threshold": 0
+              },
+              "EnergyResistance": {
+                "Multiplier": 0.0,
+                "Threshold": 0
+              },
+              "DistortionResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              },
+              "ThermalResistance": {
+                "Multiplier": 0.0,
+                "Threshold": 0
+              },
+              "BiochemicalResistance": {
+                "Multiplier": 0.0,
+                "Threshold": 0
+              },
+              "StunResistance": {
+                "Multiplier": 1.0,
+                "Threshold": 0
+              }
+            }
+          }
+        },
+        "EntityComponentPowerConnection": {
+          "PowerBase": 1.0,
+          "PowerDraw": 1.0,
+          "TimeToReachDrawRequest": 0.0,
+          "SafeguardPriority": 50.0,
+          "DisplayedInPoweredItemList": false,
+          "IsThrottleable": false,
+          "IsOverclockable": false,
+          "OverclockThresholdMin": 0.0,
+          "OverclockThresholdMax": 0.0,
+          "OverpowerPerformance": 0.0,
+          "OverclockPerformance": 0.0,
+          "PowerToEM": 1.0,
+          "DecayRateOfEM": 0.15,
+          "WarningDelayTime": 0.3,
+          "WarningDisplayTime": 8.0
+        },
+        "EntityComponentHeatConnection": {
+          "TemperatureToIR": 0.1,
+          "OverpowerHeat": 0.0,
+          "OverclockThresholdMinHeat": 0.0,
+          "OverclockThresholdMaxHeat": 0.0,
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "ThermalConductivity": 3.0,
+          "SpecificHeatCapacity": 13.0,
+          "Mass": 200.0,
+          "SurfaceArea": 50.0,
+          "StartCoolingTemperature": 300.0,
+          "MaxCoolingRate": 1.0,
+          "MaxTemperature": 450.0,
+          "OverheatTemperature": 370.0,
+          "RecoveryTemperature": 350.0,
+          "MinTemperature": 0.0,
+          "MisfireMinTemperature": 370.0,
+          "MisfireMaxTemperature": 600.0
+        },
+        "SDistortionParams": {
+          "DecayRate": 50.0,
+          "Maximum": 1500.0,
+          "OverloadRatio": 0.0,
+          "RecoveryRatio": 0.7,
+          "RecoveryTime": 0.0
+        },
+        "SEntityInteractableParams": {
+          "Interactable": {
+            "SharedInteractions": [
+              {
+                "Name": "Flight_Ready",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@ui_interactor_flight_ready",
+                "DisplayType": "Show",
+                "GenericCursor": "MultiAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": false,
+                "LockedByLinks": true,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "OpenCanopy",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@ui_interactor_open_pilot_canopy",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": true,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "CloseCanopy",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@ui_interactor_close_pilot_canopy",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": true,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "DeployLadder",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@ui_interactor_open_ladder",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": true,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "RetractLadder",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@ui_interactor_close_ladder",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": true,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "BottomToTop",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@ui_interactor_retract",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": true,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
+                "Name": "TopToBottom",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@ea_ui_spawning_Deploy",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": true,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              }
+            ]
+          }
+        }
+      },
+      "ClassName": "RSI_Scorpius_SCItem_Dashboard_Gunner",
+      "__ref": "7a444021-53da-4e36-b42d-ccd158764707",
+      "__type": "EntityClassDefinition"
+    }
+  }
+}
