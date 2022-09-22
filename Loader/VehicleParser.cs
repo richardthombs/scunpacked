@@ -52,6 +52,7 @@ namespace Loader
 		XmlDocument LoadVehicleXml(string vehiclePath)
 		{
 			var xml = File.ReadAllText(vehiclePath);
+			xml = FixXmlFileSerializationProblems(xml);
 			var doc = new XmlDocument();
 			doc.LoadXml(xml);
 			return doc;
@@ -120,6 +121,16 @@ namespace Loader
 				var modifications = (Modifications)serialiser.Deserialize(stream);
 				return modifications;
 			}
+		}
+
+		string FixXmlFileSerializationProblems(string xmlFileText)
+		{
+			if(xmlFileText.Contains("..") == true)
+			{
+				xmlFileText = xmlFileText.Replace("..", ".");
+			}
+
+			return xmlFileText;
 		}
 	}
 }
