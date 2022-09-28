@@ -1,3 +1,7 @@
+# Project is archived
+I'm afraid that I'm totally done with Star Citizen for now. I'm tired of CIG's opacity and lack of accountability.
+
+
 ![Build](https://github.com/richardthombs/scunpacked/workflows/Build/badge.svg)
 
 ## Welcome to Star Citizen Unpacked!
