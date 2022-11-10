@@ -6,9 +6,39 @@
       "Components": {
         "SEntityComponentDefaultLoadoutParams": {
           "loadout": {
-            "SItemPortLoadoutXMLParams": {
-              "loadoutPath": "scripts/loadouts/objects/props/idris_bunk_loadout.xml",
-              "__type": "SItemPortLoadoutBaseParams"
+            "SItemPortLoadoutManualParams": {
+              "entries": [
+                {
+                  "itemPortName": "Mattress",
+                  "entityClassName": "Bed_Mattress_No_Sheets",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "Mattress_Top",
+                  "entityClassName": "Bed_Mattress_No_Sheets",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "Pillow",
+                  "entityClassName": "Bed_Pillow_Idris_AEGS",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "Pillow_Top",
+                  "entityClassName": "Bed_Pillow_Idris_AEGS",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "Sheet",
+                  "entityClassName": "Bed_Sheets_Bottom_Template",
+                  "loadout": {}
+                },
+                {
+                  "itemPortName": "Sheet_Top",
+                  "entityClassName": "Bed_Sheets_Top_Template",
+                  "loadout": {}
+                }
+              ]
             }
           }
         },
@@ -85,6 +115,20 @@
                 "Linkable": false,
                 "LockedByLinks": false,
                 "RequiresAuthorizedUser": true,
+                "available": true
+              },
+              {
+                "Name": "SitUp",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_situp",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
                 "available": true
               },
               {
@@ -200,6 +244,20 @@
                 "available": true
               },
               {
+                "Name": "SitUpTop",
+                "RoomTag": "00000000-0000-0000-0000-000000000000",
+                "UsableTag": "00000000-0000-0000-0000-000000000000",
+                "DisplayName": "@interaction_situp",
+                "DisplayType": "Show",
+                "GenericCursor": "SingleAction",
+                "FocusModeOnly": false,
+                "Sendable": true,
+                "Linkable": true,
+                "LockedByLinks": false,
+                "RequiresAuthorizedUser": false,
+                "available": true
+              },
+              {
                 "Name": "SaveGameLogOut",
                 "RoomTag": "00000000-0000-0000-0000-000000000000",
                 "UsableTag": "00000000-0000-0000-0000-000000000000",
@@ -275,25 +333,25 @@
               "Types": []
             },
             {
-              "Name": "Shutter",
+              "Name": "Sheet",
               "DisplayName": "",
               "PortTags": "",
               "RequiredPortTags": "",
               "Flags": "",
-              "MinSize": 1,
-              "MaxSize": 2,
+              "MinSize": 0,
+              "MaxSize": 0,
               "InteractionPointSize": -1.0,
               "DefaultWeaponGroup": "UNDEFINED",
               "Types": []
             },
             {
-              "Name": "Shutter_Top",
+              "Name": "Sheet_Top",
               "DisplayName": "",
               "PortTags": "",
               "RequiredPortTags": "",
               "Flags": "",
-              "MinSize": 1,
-              "MaxSize": 2,
+              "MinSize": 0,
+              "MaxSize": 0,
               "InteractionPointSize": -1.0,
               "DefaultWeaponGroup": "UNDEFINED",
               "Types": []

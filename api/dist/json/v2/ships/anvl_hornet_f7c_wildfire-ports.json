@@ -1,6 +1,173 @@
 {
   "PilotHardpoints": [
     {
+      "PortName": "hardpoint_class_4_center",
+      "Size": 5,
+      "Loadout": "ANVL_Fixed_Mount_Hornet_Ball_S4",
+      "InstalledItem": {
+        "ClassName": "ANVL_Fixed_Mount_Hornet_Ball_S4",
+        "Size": 5,
+        "Grade": 1,
+        "Type": "Turret.BallTurret",
+        "Name": "Specialty Hornet S5 VariPuck Mount",
+        "Description": "Manufacturer: Flashfire Systems\nItem Type: Weapon Mount\nSize: 5\n\nA ‘special mission’ weapon mount from Flashfire Systems designed to allow the Hornet to attach weapons one size smaller than the hardpoint the VariPuck is mounting to.",
+        "Manufacturer": {
+          "Code": "FFSY",
+          "Name": "Flashfire Systems"
+        },
+        "Tags": [
+          "turretMount",
+          "flightReady"
+        ],
+        "Durability": {
+          "Health": 400.0
+        },
+        "PowerConnection": {
+          "PowerBase": 0.0,
+          "PowerDraw": 1.0
+        },
+        "HeatConnection": {
+          "ThermalEnergyBase": 10.0,
+          "ThermalEnergyDraw": 20.0,
+          "CoolingRate": 1.0
+        },
+        "Ports": [
+          {
+            "PortName": "hardpoint_size_4",
+            "Size": 4,
+            "Loadout": "APAR_BallisticGatling_S4",
+            "InstalledItem": {
+              "ClassName": "APAR_BallisticGatling_S4",
+              "Size": 4,
+              "Grade": 1,
+              "Type": "WeaponGun.Gun",
+              "Name": "Revenant Gatling",
+              "Description": "Manufacturer: Apocalypse Arms\nItem Type: Ballistic Gatling\nSize: 4\n\nIf it ain’t broke, don’t fix it. And if you want it broke, aim a Revenant at it. Solidly built on a foundation of centuries-old tech, Apocalypse Arms puts an innovative spin on battle-tested designs to create a rugged ballistic Gatling that can steadily hurtle death across the void. Though it’s slow to spin up and cool down, the Revenant’s dependability makes it a favorite for those expecting to find trouble. ",
+              "Manufacturer": {
+                "Code": "APAR",
+                "Name": "Apocalypse Arms"
+              },
+              "Tags": [
+                "APAR",
+                "BallisticGatling",
+                "flightReady",
+                "weaponMountUsable"
+              ],
+              "Durability": {
+                "Health": 1650.0,
+                "Lifetime": 20.0
+              },
+              "PowerConnection": {
+                "PowerBase": 73.0,
+                "PowerDraw": 283.0
+              },
+              "HeatConnection": {
+                "ThermalEnergyBase": 100.0,
+                "ThermalEnergyDraw": 200.0,
+                "CoolingRate": 190.57
+              },
+              "Weapon": {
+                "Ammunition": {
+                  "Speed": 1400.0,
+                  "Range": 1540.0000000000002,
+                  "Size": 1.0,
+                  "Capacity": 240.0,
+                  "ImpactDamage": {
+                    "Physical": 68.8
+                  }
+                },
+                "Modes": [
+                  {
+                    "Name": "Rapid",
+                    "LocalisedName": "[AUTO]",
+                    "RoundsPerMinute": 900.0,
+                    "FireType": "rapid",
+                    "AmmoPerShot": 1.0,
+                    "PelletsPerShot": 1.0,
+                    "DamagePerShot": {
+                      "Physical": 68.8
+                    },
+                    "DamagePerSecond": {
+                      "Physical": 1032.0
+                    }
+                  }
+                ]
+              },
+              "Ammunition": {
+                "Speed": 1400.0,
+                "Range": 1540.0000000000002,
+                "Size": 1.0,
+                "Capacity": 240.0,
+                "ImpactDamage": {
+                  "Physical": 68.8
+                }
+              },
+              "Ports": [
+                {
+                  "PortName": "BAR1",
+                  "Size": 1,
+                  "Types": [
+                    "WeaponAttachment.Barrel"
+                  ],
+                  "Category": "Weapon attachments"
+                },
+                {
+                  "PortName": "MEC",
+                  "Size": 1,
+                  "Types": [
+                    "WeaponAttachment.FiringMechanism"
+                  ],
+                  "Category": "Weapon attachments"
+                },
+                {
+                  "PortName": "POW",
+                  "Size": 1,
+                  "Types": [
+                    "WeaponAttachment.PowerArray"
+                  ],
+                  "Category": "Weapon attachments"
+                },
+                {
+                  "PortName": "VEN",
+                  "Size": 1,
+                  "Types": [
+                    "WeaponAttachment.Ventilation"
+                  ],
+                  "Category": "Weapon attachments"
+                }
+              ]
+            },
+            "Types": [
+              "WeaponGun.Gun"
+            ],
+            "Category": "Weapon hardpoints"
+          }
+        ]
+      },
+      "Types": [
+        "Turret.BallTurret",
+        "Container.Cargo"
+      ],
+      "Flags": [
+        "center"
+      ],
+      "Category": "Weapon hardpoints"
+    },
+    {
+      "PortName": "hardpoint_class_4_nose",
+      "Size": 3,
+      "Types": [
+        "Turret.CanardTurret",
+        "Turret.NoseMounted",
+        "WeaponGun.Gun"
+      ],
+      "Flags": [
+        "front",
+        "nose"
+      ],
+      "Category": "Weapon hardpoints"
+    },
+    {
       "PortName": "hardpoint_class_2_right_wing",
       "Size": 3,
       "Loadout": "GATS_BallisticCannon_S3",
@@ -177,159 +344,6 @@
       "Category": "Weapon hardpoints"
     },
     {
-      "PortName": "hardpoint_class_4_center",
-      "Size": 5,
-      "Loadout": "ANVL_Fixed_Mount_Hornet_Ball_S4",
-      "InstalledItem": {
-        "ClassName": "ANVL_Fixed_Mount_Hornet_Ball_S4",
-        "Size": 5,
-        "Grade": 1,
-        "Type": "Turret.BallTurret",
-        "Name": "Specialty Hornet S5 VariPuck Mount",
-        "Description": "Manufacturer: Flashfire Systems\nItem Type: Weapon Mount\nSize: 5\n\nA ‘special mission’ weapon mount from Flashfire Systems designed to allow the Hornet to attach weapons one size smaller than the hardpoint the VariPuck is mounting to.",
-        "Manufacturer": {
-          "Code": "FFSY",
-          "Name": "Flashfire Systems"
-        },
-        "Tags": [
-          "turretMount",
-          "flightReady"
-        ],
-        "Durability": {
-          "Health": 400.0
-        },
-        "PowerConnection": {
-          "PowerBase": 0.0,
-          "PowerDraw": 1.0
-        },
-        "HeatConnection": {
-          "ThermalEnergyBase": 10.0,
-          "ThermalEnergyDraw": 20.0,
-          "CoolingRate": 1.0
-        },
-        "Ports": [
-          {
-            "PortName": "hardpoint_size_4",
-            "Size": 4,
-            "Loadout": "APAR_BallisticGatling_S4",
-            "InstalledItem": {
-              "ClassName": "APAR_BallisticGatling_S4",
-              "Size": 4,
-              "Grade": 1,
-              "Type": "WeaponGun.Gun",
-              "Name": "Revenant Gatling",
-              "Description": "Manufacturer: Apocalypse Arms\nItem Type: Ballistic Gatling\nSize: 4\n\nIf it ain’t broke, don’t fix it. And if you want it broke, aim a Revenant at it. Solidly built on a foundation of centuries-old tech, Apocalypse Arms puts an innovative spin on battle-tested designs to create a rugged ballistic Gatling that can steadily hurtle death across the void. Though it’s slow to spin up and cool down, the Revenant’s dependability makes it a favorite for those expecting to find trouble. ",
-              "Manufacturer": {
-                "Code": "APAR",
-                "Name": "Apocalypse Arms"
-              },
-              "Tags": [
-                "APAR",
-                "BallisticGatling",
-                "flightReady",
-                "weaponMountUsable"
-              ],
-              "Durability": {
-                "Health": 1650.0,
-                "Lifetime": 20.0
-              },
-              "PowerConnection": {
-                "PowerBase": 73.0,
-                "PowerDraw": 283.0
-              },
-              "HeatConnection": {
-                "ThermalEnergyBase": 100.0,
-                "ThermalEnergyDraw": 200.0,
-                "CoolingRate": 190.57
-              },
-              "Weapon": {
-                "Ammunition": {
-                  "Speed": 1400.0,
-                  "Range": 1540.0000000000002,
-                  "Size": 1.0,
-                  "Capacity": 240.0,
-                  "ImpactDamage": {
-                    "Physical": 68.8
-                  }
-                },
-                "Modes": [
-                  {
-                    "Name": "Rapid",
-                    "LocalisedName": "[AUTO]",
-                    "RoundsPerMinute": 900.0,
-                    "FireType": "rapid",
-                    "AmmoPerShot": 1.0,
-                    "PelletsPerShot": 1.0,
-                    "DamagePerShot": {
-                      "Physical": 68.8
-                    },
-                    "DamagePerSecond": {
-                      "Physical": 1032.0
-                    }
-                  }
-                ]
-              },
-              "Ammunition": {
-                "Speed": 1400.0,
-                "Range": 1540.0000000000002,
-                "Size": 1.0,
-                "Capacity": 240.0,
-                "ImpactDamage": {
-                  "Physical": 68.8
-                }
-              },
-              "Ports": [
-                {
-                  "PortName": "BAR1",
-                  "Size": 1,
-                  "Types": [
-                    "WeaponAttachment.Barrel"
-                  ],
-                  "Category": "Weapon attachments"
-                },
-                {
-                  "PortName": "MEC",
-                  "Size": 1,
-                  "Types": [
-                    "WeaponAttachment.FiringMechanism"
-                  ],
-                  "Category": "Weapon attachments"
-                },
-                {
-                  "PortName": "POW",
-                  "Size": 1,
-                  "Types": [
-                    "WeaponAttachment.PowerArray"
-                  ],
-                  "Category": "Weapon attachments"
-                },
-                {
-                  "PortName": "VEN",
-                  "Size": 1,
-                  "Types": [
-                    "WeaponAttachment.Ventilation"
-                  ],
-                  "Category": "Weapon attachments"
-                }
-              ]
-            },
-            "Types": [
-              "WeaponGun.Gun"
-            ],
-            "Category": "Weapon hardpoints"
-          }
-        ]
-      },
-      "Types": [
-        "Turret.BallTurret",
-        "Container.Cargo"
-      ],
-      "Flags": [
-        "center"
-      ],
-      "Category": "Weapon hardpoints"
-    },
-    {
       "PortName": "hardpoint_class_2_left_wing",
       "Size": 3,
       "Loadout": "GATS_BallisticCannon_S3",
@@ -502,20 +516,6 @@
         "left",
         "wing",
         "bottom"
-      ],
-      "Category": "Weapon hardpoints"
-    },
-    {
-      "PortName": "hardpoint_class_4_nose",
-      "Size": 3,
-      "Types": [
-        "Turret.CanardTurret",
-        "Turret.NoseMounted",
-        "WeaponGun.Gun"
-      ],
-      "Flags": [
-        "front",
-        "nose"
       ],
       "Category": "Weapon hardpoints"
     }

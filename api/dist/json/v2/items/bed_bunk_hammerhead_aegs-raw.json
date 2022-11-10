@@ -4,9 +4,39 @@
   "Components": {
     "SEntityComponentDefaultLoadoutParams": {
       "loadout": {
-        "SItemPortLoadoutXMLParams": {
-          "loadoutPath": "Scripts/Loadouts/Objects/Props/Caterpillar_Bunk_Loadout.xml",
-          "__type": "SItemPortLoadoutBaseParams"
+        "SItemPortLoadoutManualParams": {
+          "entries": [
+            {
+              "itemPortName": "Mattress",
+              "entityClassName": "Bed_Mattress_No_Sheets",
+              "loadout": {}
+            },
+            {
+              "itemPortName": "Mattress_Top",
+              "entityClassName": "Bed_Mattress_No_Sheets",
+              "loadout": {}
+            },
+            {
+              "itemPortName": "Pillow",
+              "entityClassName": "Bed_Pillow_Idris_AEGS",
+              "loadout": {}
+            },
+            {
+              "itemPortName": "Pillow_Top",
+              "entityClassName": "Bed_Pillow_Idris_AEGS",
+              "loadout": {}
+            },
+            {
+              "itemPortName": "Sheet",
+              "entityClassName": "Bed_Sheets_Bottom_Template",
+              "loadout": {}
+            },
+            {
+              "itemPortName": "Sheet_Top",
+              "entityClassName": "Bed_Sheets_Top_Template",
+              "loadout": {}
+            }
+          ]
         }
       }
     },
@@ -83,6 +113,20 @@
             "Linkable": false,
             "LockedByLinks": false,
             "RequiresAuthorizedUser": true,
+            "available": true
+          },
+          {
+            "Name": "SitUp",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@interaction_situp",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": true,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
             "available": true
           },
           {
@@ -184,24 +228,24 @@
             "available": true
           },
           {
-            "Name": "ExitTop",
+            "Name": "SaveGameLogOut",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@interaction_getup",
+            "DisplayName": "@ui_interactor_logout",
             "DisplayType": "Show",
             "GenericCursor": "SingleAction",
             "FocusModeOnly": false,
-            "Sendable": false,
-            "Linkable": false,
+            "Sendable": true,
+            "Linkable": true,
             "LockedByLinks": false,
             "RequiresAuthorizedUser": false,
             "available": true
           },
           {
-            "Name": "SaveGameLogOut",
+            "Name": "SitUpTop",
             "RoomTag": "00000000-0000-0000-0000-000000000000",
             "UsableTag": "00000000-0000-0000-0000-000000000000",
-            "DisplayName": "@ui_interactor_logout",
+            "DisplayName": "@interaction_situp",
             "DisplayType": "Show",
             "GenericCursor": "SingleAction",
             "FocusModeOnly": false,

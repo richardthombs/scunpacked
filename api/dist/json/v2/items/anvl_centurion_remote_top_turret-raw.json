@@ -1,0 +1,128 @@
+{
+  "StaticEntityClassData": {},
+  "tags": [],
+  "Components": {
+    "SAttachableComponentParams": {
+      "AttachDef": {
+        "Type": "Turret",
+        "SubType": "BallTurret",
+        "Size": 4,
+        "Grade": 1,
+        "Manufacturer": "b922abdb-0634-4358-9eee-60118f3cf3a7",
+        "Tags": "ANVL_Ballista ANVL_Dunestalker ANVL_Snowblind $ANVL_Centurion_Turret",
+        "RequiredTags": "$ANVL_Centurion_Turret",
+        "DisplayType": "",
+        "Localization": {
+          "Name": "@itemPort_hardpoint_turret",
+          "Description": "@item_Desc_Turret_Remote"
+        }
+      }
+    },
+    "SHealthComponentParams": {
+      "Health": 200.0,
+      "DamageResistances": {
+        "DamageResistance": {
+          "PhysicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "EnergyResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "DistortionResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "ThermalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "BiochemicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "StunResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          }
+        }
+      }
+    },
+    "EntityComponentPowerConnection": {
+      "PowerBase": 0.0,
+      "PowerDraw": 1.0,
+      "TimeToReachDrawRequest": 0.0,
+      "SafeguardPriority": 0.0,
+      "DisplayedInPoweredItemList": false,
+      "IsThrottleable": false,
+      "IsOverclockable": false,
+      "OverclockThresholdMin": 0.0,
+      "OverclockThresholdMax": 0.0,
+      "OverpowerPerformance": 0.0,
+      "OverclockPerformance": 0.0,
+      "PowerToEM": 0.0,
+      "DecayRateOfEM": 0.15,
+      "WarningDelayTime": 0.3,
+      "WarningDisplayTime": 8.0
+    },
+    "SCItemTurretParams": {
+      "rotationStyle": "SingleAxis",
+      "inputLevelUnderOneRate": 0.0,
+      "inputLevelOverOneRate": 0.0,
+      "joystickSensitivityBoost": 0.0,
+      "powerRequirement": 1.0
+    },
+    "SEntityInteractableParams": {
+      "Interactable": {
+        "SharedInteractions": [
+          {
+            "Name": "Activate Remote Camera",
+            "RoomTag": "00000000-0000-0000-0000-000000000000",
+            "UsableTag": "00000000-0000-0000-0000-000000000000",
+            "DisplayName": "@ui_interactor_use_remote_turret",
+            "DisplayType": "Show",
+            "GenericCursor": "SingleAction",
+            "FocusModeOnly": false,
+            "Sendable": false,
+            "Linkable": true,
+            "LockedByLinks": false,
+            "RequiresAuthorizedUser": false,
+            "available": true
+          }
+        ]
+      }
+    },
+    "SItemPortContainerComponentParams": {
+      "PortFlags": "",
+      "PortTags": "",
+      "RequiredItemTags": "",
+      "Ports": [
+        {
+          "Name": "hardpoint_gunmount",
+          "DisplayName": "port_NameTurretGunSlot01",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "",
+          "MinSize": 3,
+          "MaxSize": 3,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": [
+            {
+              "Type": "WeaponGun",
+              "SubTypes": [
+                {
+                  "value": "Gun"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "ClassName": "ANVL_Centurion_Remote_Top_Turret",
+  "__ref": "547ec8ba-89a6-49a8-8065-67349f179971",
+  "__type": "EntityClassDefinition"
+}

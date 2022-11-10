@@ -47,7 +47,7 @@
                 },
                 {
                   "itemPortName": "hardpoint_cockpit_selfDestruct",
-                  "entityClassName": "VHCL_SelfDestruct_60s",
+                  "entityClassName": "VHCL_SelfDestruct_80s",
                   "loadout": {}
                 },
                 {
@@ -398,7 +398,7 @@
                       "entries": [
                         {
                           "itemPortName": "hardpoint_thruster_mav_wing_top",
-                          "entityClassName": "AEGS_Redeemer_Blankingplate",
+                          "entityClassName": "AEGS_Redeemer_Blankingplate_LT",
                           "loadout": {}
                         }
                       ]
@@ -413,7 +413,7 @@
                       "entries": [
                         {
                           "itemPortName": "hardpoint_thruster_mav_wing_top",
-                          "entityClassName": "AEGS_Redeemer_Blankingplate",
+                          "entityClassName": "AEGS_Redeemer_Blankingplate_RT",
                           "loadout": {}
                         }
                       ]
@@ -2959,45 +2959,7 @@
                   "name": "Underbelly",
                   "damageMax": 4500.0,
                   "damagemax": 0.0,
-                  "class": "AnimatedJoint",
-                  "Parts": [
-                    {
-                      "name": "underbelly_glass_lg_bay_front_left",
-                      "damageMax": 200.0,
-                      "damagemax": 0.0,
-                      "class": "AnimatedJoint"
-                    },
-                    {
-                      "name": "underbelly_glass_lg_bay_front_right",
-                      "damageMax": 200.0,
-                      "damagemax": 0.0,
-                      "class": "AnimatedJoint"
-                    },
-                    {
-                      "name": "underbelly_glass_lg_bay_rear_left",
-                      "damageMax": 200.0,
-                      "damagemax": 0.0,
-                      "class": "AnimatedJoint"
-                    },
-                    {
-                      "name": "underbelly_glass_lg_bay_rear_right",
-                      "damageMax": 200.0,
-                      "damagemax": 0.0,
-                      "class": "AnimatedJoint"
-                    },
-                    {
-                      "name": "underbelly_glass_rear_left",
-                      "damageMax": 200.0,
-                      "damagemax": 0.0,
-                      "class": "AnimatedJoint"
-                    },
-                    {
-                      "name": "underbelly_glass_rear_right",
-                      "damageMax": 200.0,
-                      "damagemax": 0.0,
-                      "class": "AnimatedJoint"
-                    }
-                  ]
+                  "class": "AnimatedJoint"
                 },
                 {
                   "name": "Wing_Right",
@@ -3007,84 +2969,118 @@
                   "detachRatio": 1.0,
                   "Parts": [
                     {
-                      "name": "wing_debris_right_bottom",
-                      "damageMax": 1.0,
+                      "name": "wing_pitch_right",
+                      "damageMax": 1000.0,
                       "damagemax": 0.0,
                       "class": "AnimatedJoint",
-                      "detachRatio": 1.0,
                       "Parts": [
                         {
-                          "name": "hardpoint_thruster_wing_bottom_main_right",
+                          "name": "wing_debris_right_bottom",
+                          "damageMax": 6600.0,
                           "damagemax": 0.0,
-                          "class": "ItemPort",
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "display_name": "port_NameThrusterMainR",
-                            "flags": "maneuver orientation +Y wing uneditable",
-                            "requiredTags": "",
-                            "Types": [
-                              {
-                                "type": "MainThruster",
-                                "subtypes": ""
+                          "class": "AnimatedJoint",
+                          "detachRatio": 1.0,
+                          "Parts": [
+                            {
+                              "name": "hardpoint_thruster_wing_bottom_main_right",
+                              "damagemax": 0.0,
+                              "class": "ItemPort",
+                              "ItemPort": {
+                                "minsize": 1,
+                                "maxsize": 1,
+                                "display_name": "port_NameThrusterMainR",
+                                "flags": "maneuver orientation +Y wing uneditable",
+                                "requiredTags": "",
+                                "Types": [
+                                  {
+                                    "type": "MainThruster",
+                                    "subtypes": ""
+                                  }
+                                ],
+                                "Connections": [
+                                  {
+                                    "pipeClass": "Power",
+                                    "pipe": "MainPower"
+                                  },
+                                  {
+                                    "pipeClass": "Heat",
+                                    "pipe": "MainHeat"
+                                  },
+                                  {
+                                    "pipeClass": "Fuel",
+                                    "pipe": "MainFuel"
+                                  }
+                                ]
                               }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              },
-                              {
-                                "pipeClass": "Fuel",
-                                "pipe": "MainFuel"
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "name": "wing_debris_right_top",
-                      "damageMax": 1.0,
-                      "damagemax": 0.0,
-                      "class": "AnimatedJoint",
-                      "detachRatio": 1.0,
-                      "Parts": [
+                            }
+                          ],
+                          "DamageBehaviors": [
+                            {
+                              "class": "DetachPart",
+                              "damageRatioMin": 1.0,
+                              "DetachPart": [
+                                {
+                                  "name": "wing_debris_right_bottom",
+                                  "damagemax": 0.0,
+                                  "Probability": 1.0
+                                }
+                              ]
+                            }
+                          ]
+                        },
                         {
-                          "name": "hardpoint_thruster_wing_top_main_right",
+                          "name": "wing_debris_right_top",
+                          "damageMax": 6600.0,
                           "damagemax": 0.0,
-                          "class": "ItemPort",
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "display_name": "port_NameThrusterMainR",
-                            "flags": "maneuver orientation +Y wing uneditable",
-                            "requiredTags": "",
-                            "Types": [
-                              {
-                                "type": "MainThruster",
-                                "subtypes": ""
+                          "class": "AnimatedJoint",
+                          "detachRatio": 1.0,
+                          "Parts": [
+                            {
+                              "name": "hardpoint_thruster_wing_top_main_right",
+                              "damagemax": 0.0,
+                              "class": "ItemPort",
+                              "ItemPort": {
+                                "minsize": 1,
+                                "maxsize": 1,
+                                "display_name": "port_NameThrusterMainR",
+                                "flags": "maneuver orientation +Y wing uneditable",
+                                "requiredTags": "",
+                                "Types": [
+                                  {
+                                    "type": "MainThruster",
+                                    "subtypes": ""
+                                  }
+                                ],
+                                "Connections": [
+                                  {
+                                    "pipeClass": "Power",
+                                    "pipe": "MainPower"
+                                  },
+                                  {
+                                    "pipeClass": "Heat",
+                                    "pipe": "MainHeat"
+                                  },
+                                  {
+                                    "pipeClass": "Fuel",
+                                    "pipe": "MainFuel"
+                                  }
+                                ]
                               }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              },
-                              {
-                                "pipeClass": "Fuel",
-                                "pipe": "MainFuel"
-                              }
-                            ]
-                          }
+                            }
+                          ],
+                          "DamageBehaviors": [
+                            {
+                              "class": "DetachPart",
+                              "damageRatioMin": 1.0,
+                              "DetachPart": [
+                                {
+                                  "name": "wing_debris_right_top",
+                                  "damagemax": 0.0,
+                                  "Probability": 1.0
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ]
                     },
@@ -3225,11 +3221,6 @@
                           "name": "wing_debris_right_top",
                           "damagemax": 0.0,
                           "Probability": 0.5
-                        },
-                        {
-                          "name": "Wing_Right",
-                          "damagemax": 0.0,
-                          "Probability": 1.0
                         }
                       ]
                     }
@@ -3243,84 +3234,118 @@
                   "detachRatio": 1.0,
                   "Parts": [
                     {
-                      "name": "wing_debris_left_top",
-                      "damageMax": 500.0,
+                      "name": "wing_pitch_left",
+                      "damageMax": 1000.0,
                       "damagemax": 0.0,
                       "class": "AnimatedJoint",
-                      "detachRatio": 1.0,
                       "Parts": [
                         {
-                          "name": "hardpoint_thruster_wing_top_main_left",
+                          "name": "wing_debris_left_top",
+                          "damageMax": 6600.0,
                           "damagemax": 0.0,
-                          "class": "ItemPort",
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "display_name": "port_NameThrusterMainL",
-                            "flags": "maneuver orientation +Y wing uneditable",
-                            "requiredTags": "",
-                            "Types": [
-                              {
-                                "type": "MainThruster",
-                                "subtypes": ""
+                          "class": "AnimatedJoint",
+                          "detachRatio": 1.0,
+                          "Parts": [
+                            {
+                              "name": "hardpoint_thruster_wing_top_main_left",
+                              "damagemax": 0.0,
+                              "class": "ItemPort",
+                              "ItemPort": {
+                                "minsize": 1,
+                                "maxsize": 1,
+                                "display_name": "port_NameThrusterMainL",
+                                "flags": "maneuver orientation +Y wing uneditable",
+                                "requiredTags": "",
+                                "Types": [
+                                  {
+                                    "type": "MainThruster",
+                                    "subtypes": ""
+                                  }
+                                ],
+                                "Connections": [
+                                  {
+                                    "pipeClass": "Power",
+                                    "pipe": "MainPower"
+                                  },
+                                  {
+                                    "pipeClass": "Heat",
+                                    "pipe": "MainHeat"
+                                  },
+                                  {
+                                    "pipeClass": "Fuel",
+                                    "pipe": "MainFuel"
+                                  }
+                                ]
                               }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              },
-                              {
-                                "pipeClass": "Fuel",
-                                "pipe": "MainFuel"
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "name": "wing_debris_left_bottom",
-                      "damageMax": 500.0,
-                      "damagemax": 0.0,
-                      "class": "AnimatedJoint",
-                      "detachRatio": 1.0,
-                      "Parts": [
+                            }
+                          ],
+                          "DamageBehaviors": [
+                            {
+                              "class": "DetachPart",
+                              "damageRatioMin": 1.0,
+                              "DetachPart": [
+                                {
+                                  "name": "wing_debris_left_top",
+                                  "damagemax": 0.0,
+                                  "Probability": 1.0
+                                }
+                              ]
+                            }
+                          ]
+                        },
                         {
-                          "name": "hardpoint_thruster_wing_bottom_main_left",
+                          "name": "wing_debris_left_bottom",
+                          "damageMax": 6600.0,
                           "damagemax": 0.0,
-                          "class": "ItemPort",
-                          "ItemPort": {
-                            "minsize": 1,
-                            "maxsize": 1,
-                            "display_name": "port_NameThrusterMainL",
-                            "flags": "maneuver orientation +Y wing uneditable",
-                            "requiredTags": "",
-                            "Types": [
-                              {
-                                "type": "MainThruster",
-                                "subtypes": ""
+                          "class": "AnimatedJoint",
+                          "detachRatio": 1.0,
+                          "Parts": [
+                            {
+                              "name": "hardpoint_thruster_wing_bottom_main_left",
+                              "damagemax": 0.0,
+                              "class": "ItemPort",
+                              "ItemPort": {
+                                "minsize": 1,
+                                "maxsize": 1,
+                                "display_name": "port_NameThrusterMainL",
+                                "flags": "maneuver orientation +Y wing uneditable",
+                                "requiredTags": "",
+                                "Types": [
+                                  {
+                                    "type": "MainThruster",
+                                    "subtypes": ""
+                                  }
+                                ],
+                                "Connections": [
+                                  {
+                                    "pipeClass": "Power",
+                                    "pipe": "MainPower"
+                                  },
+                                  {
+                                    "pipeClass": "Heat",
+                                    "pipe": "MainHeat"
+                                  },
+                                  {
+                                    "pipeClass": "Fuel",
+                                    "pipe": "MainFuel"
+                                  }
+                                ]
                               }
-                            ],
-                            "Connections": [
-                              {
-                                "pipeClass": "Power",
-                                "pipe": "MainPower"
-                              },
-                              {
-                                "pipeClass": "Heat",
-                                "pipe": "MainHeat"
-                              },
-                              {
-                                "pipeClass": "Fuel",
-                                "pipe": "MainFuel"
-                              }
-                            ]
-                          }
+                            }
+                          ],
+                          "DamageBehaviors": [
+                            {
+                              "class": "DetachPart",
+                              "damageRatioMin": 1.0,
+                              "DetachPart": [
+                                {
+                                  "name": "wing_debris_left_bottom",
+                                  "damagemax": 0.0,
+                                  "Probability": 1.0
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ]
                     },
@@ -3461,11 +3486,6 @@
                           "name": "wing_debris_left_top",
                           "damagemax": 0.0,
                           "Probability": 0.5
-                        },
-                        {
-                          "name": "Wing_Left",
-                          "damagemax": 0.0,
-                          "Probability": 1.0
                         }
                       ]
                     }
@@ -3481,39 +3501,36 @@
                   "damageMax": 3600.0,
                   "damagemax": 0.0,
                   "class": "AnimatedJoint",
-                  "detachRatio": 1.0,
                   "Parts": [
                     {
-                      "name": "rudder_left",
-                      "damageMax": 1.0,
+                      "name": "rudder_right",
+                      "damageMax": 200.0,
                       "damagemax": 0.0,
                       "class": "AnimatedJoint",
-                      "detachRatio": 250.0,
+                      "detachRatio": 1.0,
                       "Parts": [
                         {
-                          "name": "rudder_glass_left",
-                          "damageMax": 1.0,
+                          "name": "rudder_flap_right",
+                          "damageMax": 100.0,
                           "damagemax": 0.0,
                           "class": "AnimatedJoint",
                           "detachRatio": 1.0
                         }
-                      ],
-                      "DamageBehaviors": [
+                      ]
+                    },
+                    {
+                      "name": "rudder_left",
+                      "damageMax": 200.0,
+                      "damagemax": 0.0,
+                      "class": "AnimatedJoint",
+                      "detachRatio": 1.0,
+                      "Parts": [
                         {
-                          "class": "DetachPart",
-                          "damageRatioMin": 1.0,
-                          "DetachPart": [
-                            {
-                              "name": "rudder_flap_left",
-                              "damagemax": 0.0,
-                              "Probability": 0.8
-                            },
-                            {
-                              "name": "rudder_left",
-                              "damagemax": 0.0,
-                              "Probability": 1.0
-                            }
-                          ]
+                          "name": "rudder_flap_left",
+                          "damageMax": 100.0,
+                          "damagemax": 0.0,
+                          "class": "AnimatedJoint",
+                          "detachRatio": 1.0
                         }
                       ]
                     },
@@ -3751,116 +3768,13 @@
                           "controllableTags": "remote_rear_turret"
                         }
                       }
-                    },
-                    {
-                      "name": "tail_glass_ramp_top_left",
-                      "damageMax": 1.0,
-                      "damagemax": 0.0,
-                      "class": "AnimatedJoint",
-                      "detachRatio": 1.0
-                    },
-                    {
-                      "name": "tail_glass_name_front_right",
-                      "damageMax": 1.0,
-                      "damagemax": 0.0,
-                      "class": "AnimatedJoint",
-                      "detachRatio": 1.0
-                    },
-                    {
-                      "name": "tail_glass_name_rear_right",
-                      "damageMax": 1.0,
-                      "damagemax": 0.0,
-                      "class": "AnimatedJoint",
-                      "detachRatio": 1.0
-                    },
-                    {
-                      "name": "tail_glass_name_front_left",
-                      "damageMax": 1.0,
-                      "damagemax": 0.0,
-                      "class": "AnimatedJoint",
-                      "detachRatio": 1.0
-                    },
-                    {
-                      "name": "tail_glass_name_rear_left",
-                      "damageMax": 1.0,
-                      "damagemax": 0.0,
-                      "class": "AnimatedJoint",
-                      "detachRatio": 1.0
-                    },
-                    {
-                      "name": "tail_glass_ramp_top_right",
-                      "damageMax": 1.0,
-                      "damagemax": 0.0,
-                      "class": "AnimatedJoint",
-                      "detachRatio": 1.0
                     }
                   ],
                   "DamageBehaviors": [
                     {
                       "class": "DetachPart",
                       "damageRatioMin": 1.0,
-                      "DetachPart": [
-                        {
-                          "name": "wing_debris_right_bottom",
-                          "damagemax": 0.0,
-                          "Probability": 0.5
-                        },
-                        {
-                          "name": "wing_debris_left_bottom",
-                          "damagemax": 0.0,
-                          "Probability": 0.5
-                        },
-                        {
-                          "name": "wing_debris_right_top",
-                          "damagemax": 0.0,
-                          "Probability": 0.5
-                        },
-                        {
-                          "name": "wing_debris_left_top",
-                          "damagemax": 0.0,
-                          "Probability": 0.5
-                        },
-                        {
-                          "name": "rudder_flap_right",
-                          "damagemax": 0.0,
-                          "Probability": 0.8
-                        },
-                        {
-                          "name": "rudder_right",
-                          "damagemax": 0.0,
-                          "Probability": 0.6
-                        },
-                        {
-                          "name": "rudder_flap_left",
-                          "damagemax": 0.0,
-                          "Probability": 0.8
-                        },
-                        {
-                          "name": "rudder_left",
-                          "damagemax": 0.0,
-                          "Probability": 0.6
-                        },
-                        {
-                          "name": "Wing_Left",
-                          "damagemax": 0.0,
-                          "Probability": 0.4
-                        },
-                        {
-                          "name": "Wing_Right",
-                          "damagemax": 0.0,
-                          "Probability": 0.4
-                        },
-                        {
-                          "name": "Tail",
-                          "damagemax": 0.0,
-                          "Probability": 1.0
-                        },
-                        {
-                          "name": "Body",
-                          "damagemax": 0.0,
-                          "Probability": 1.0
-                        }
-                      ]
+                      "DetachPart": []
                     }
                   ]
                 },
@@ -3952,7 +3866,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
-                    "display_name": "@itemPort_port_Flair01",
+                    "display_name": "port_Flair01",
                     "flags": "",
                     "requiredTags": "",
                     "Types": [
@@ -3970,7 +3884,7 @@
                   "ItemPort": {
                     "minsize": 1,
                     "maxsize": 1,
-                    "display_name": "@itemPort_port_Flair02",
+                    "display_name": "port_Flair02",
                     "flags": "",
                     "requiredTags": "",
                     "Types": [
@@ -3990,27 +3904,22 @@
                     {
                       "name": "wing_debris_right_bottom",
                       "damagemax": 0.0,
-                      "Probability": 0.5
+                      "Probability": 0.6
                     },
                     {
                       "name": "wing_debris_left_bottom",
                       "damagemax": 0.0,
-                      "Probability": 0.5
+                      "Probability": 0.6
                     },
                     {
                       "name": "wing_debris_right_top",
                       "damagemax": 0.0,
-                      "Probability": 0.5
+                      "Probability": 0.6
                     },
                     {
                       "name": "wing_debris_left_top",
                       "damagemax": 0.0,
-                      "Probability": 0.5
-                    },
-                    {
-                      "name": "rudder_flap_right",
-                      "damagemax": 0.0,
-                      "Probability": 0.8
+                      "Probability": 0.6
                     },
                     {
                       "name": "rudder_right",
@@ -4018,7 +3927,7 @@
                       "Probability": 0.6
                     },
                     {
-                      "name": "rudder_flap_left",
+                      "name": "rudder_flap_right",
                       "damagemax": 0.0,
                       "Probability": 0.8
                     },
@@ -4026,6 +3935,11 @@
                       "name": "rudder_left",
                       "damagemax": 0.0,
                       "Probability": 0.6
+                    },
+                    {
+                      "name": "rudder_flap_left",
+                      "damagemax": 0.0,
+                      "Probability": 0.8
                     },
                     {
                       "name": "Wing_Left",
@@ -4040,7 +3954,7 @@
                     {
                       "name": "Tail",
                       "damagemax": 0.0,
-                      "Probability": 1.0
+                      "Probability": 0.8
                     },
                     {
                       "name": "Body",

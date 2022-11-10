@@ -2,6 +2,24 @@
   "StaticEntityClassData": {},
   "tags": [],
   "Components": {
+    "SEntityComponentDefaultLoadoutParams": {
+      "loadout": {
+        "SItemPortLoadoutManualParams": {
+          "entries": [
+            {
+              "itemPortName": "hardpoint_front_door",
+              "entityClassName": "SimpleOpenableObject_CNOU_Mustang_CargoBox_Door",
+              "loadout": {}
+            },
+            {
+              "itemPortName": "hardpoint_rear_door",
+              "entityClassName": "SimpleOpenableObject_CNOU_Mustang_CargoBox_Door",
+              "loadout": {}
+            }
+          ]
+        }
+      }
+    },
     "SAttachableComponentParams": {
       "AttachDef": {
         "Type": "Cargo",
@@ -18,11 +36,67 @@
         }
       }
     },
+    "SHealthComponentParams": {
+      "Health": 800.0,
+      "DamageResistances": {
+        "DamageResistance": {
+          "PhysicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "EnergyResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "DistortionResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "ThermalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "BiochemicalResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          },
+          "StunResistance": {
+            "Multiplier": 1.0,
+            "Threshold": 0
+          }
+        }
+      }
+    },
     "SItemPortContainerComponentParams": {
       "PortFlags": "",
       "PortTags": "",
       "RequiredItemTags": "",
-      "Ports": []
+      "Ports": [
+        {
+          "Name": "hardpoint_front_door",
+          "DisplayName": "",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "",
+          "MinSize": 0,
+          "MaxSize": 0,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": []
+        },
+        {
+          "Name": "hardpoint_rear_door",
+          "DisplayName": "",
+          "PortTags": "",
+          "RequiredPortTags": "",
+          "Flags": "",
+          "MinSize": 0,
+          "MaxSize": 0,
+          "InteractionPointSize": -1.0,
+          "DefaultWeaponGroup": "UNDEFINED",
+          "Types": []
+        }
+      ]
     }
   },
   "ClassName": "CNOU_Mustang_Cargo_Box_Fake",

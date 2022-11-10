@@ -1,6 +1,90 @@
 {
   "PilotHardpoints": [
     {
+      "PortName": "hardpoint_class_4_center",
+      "Size": 5,
+      "Loadout": "ANVL_Hornet_F7C_Cargo_Mod",
+      "InstalledItem": {
+        "ClassName": "ANVL_Hornet_F7C_Cargo_Mod",
+        "Size": 5,
+        "Grade": 1,
+        "Type": "Container.Cargo",
+        "Name": "Stor*All Big Box Model H",
+        "Description": "Manufacturer: Stor*All\nItem Type: Storage\n\nDesigned exclusively for the Hornet F7C, the Stor*All Big Box model H replaces the void left by the turret system of the military-spec craft with a respectable cargo hold. Transforming the flagship fighter of the UEEN into a durable hauling ship.",
+        "Manufacturer": {
+          "Code": "ANVL",
+          "Name": "Anvil Aerospace"
+        },
+        "Durability": {
+          "Health": 250.0
+        },
+        "Ports": [
+          {
+            "PortName": "hardpoint_cargo_grid",
+            "Size": 1,
+            "Loadout": "ANVL_Hornet_CargoGrid_F7C",
+            "InstalledItem": {
+              "ClassName": "ANVL_Hornet_CargoGrid_F7C",
+              "Size": 1,
+              "Grade": 1,
+              "Type": "Cargo.UNDEFINED",
+              "Name": "ANVL_Hornet_CargoGrid_F7C",
+              "Manufacturer": {
+                "Code": "ANVL",
+                "Name": "Anvil Aerospace"
+              },
+              "CargoGrid": {
+                "Capacity": 2.0,
+                "Width": 2.5,
+                "Height": 1.25,
+                "Depth": 1.25
+              },
+              "PowerConnection": {
+                "PowerBase": 0.0,
+                "PowerDraw": 1.0
+              },
+              "HeatConnection": {
+                "ThermalEnergyBase": 10.0,
+                "ThermalEnergyDraw": 20.0,
+                "CoolingRate": 1.0
+              }
+            },
+            "Types": [
+              "Cargo"
+            ],
+            "Flags": [
+              "invisible",
+              "uneditable"
+            ],
+            "Category": "Cargo grids",
+            "Uneditable": true
+          }
+        ]
+      },
+      "Types": [
+        "Turret.BallTurret",
+        "Container.Cargo"
+      ],
+      "Flags": [
+        "center"
+      ],
+      "Category": "Weapon hardpoints"
+    },
+    {
+      "PortName": "hardpoint_class_4_nose",
+      "Size": 3,
+      "Types": [
+        "Turret.CanardTurret",
+        "Turret.NoseMounted",
+        "WeaponGun.Gun"
+      ],
+      "Flags": [
+        "front",
+        "nose"
+      ],
+      "Category": "Weapon hardpoints"
+    },
+    {
       "PortName": "hardpoint_class_2_right_wing",
       "Size": 3,
       "Loadout": "KLWE_LaserRepeater_S3",
@@ -123,76 +207,6 @@
       "Category": "Weapon hardpoints"
     },
     {
-      "PortName": "hardpoint_class_4_center",
-      "Size": 5,
-      "Loadout": "ANVL_Hornet_F7C_Cargo_Mod",
-      "InstalledItem": {
-        "ClassName": "ANVL_Hornet_F7C_Cargo_Mod",
-        "Size": 5,
-        "Grade": 1,
-        "Type": "Container.Cargo",
-        "Name": "Stor*All Big Box Model H",
-        "Description": "Manufacturer: Stor*All\nItem Type: Storage\n\nDesigned exclusively for the Hornet F7C, the Stor*All Big Box model H replaces the void left by the turret system of the military-spec craft with a respectable cargo hold. Transforming the flagship fighter of the UEEN into a durable hauling ship.",
-        "Manufacturer": {
-          "Code": "ANVL",
-          "Name": "Anvil Aerospace"
-        },
-        "Durability": {
-          "Health": 250.0
-        },
-        "Ports": [
-          {
-            "PortName": "hardpoint_cargo_grid",
-            "Size": 1,
-            "Loadout": "ANVL_Hornet_CargoGrid_F7C",
-            "InstalledItem": {
-              "ClassName": "ANVL_Hornet_CargoGrid_F7C",
-              "Size": 1,
-              "Grade": 1,
-              "Type": "Cargo.UNDEFINED",
-              "Name": "ANVL_Hornet_CargoGrid_F7C",
-              "Manufacturer": {
-                "Code": "ANVL",
-                "Name": "Anvil Aerospace"
-              },
-              "CargoGrid": {
-                "Capacity": 2.0,
-                "Width": 2.5,
-                "Height": 1.25,
-                "Depth": 1.25
-              },
-              "PowerConnection": {
-                "PowerBase": 0.0,
-                "PowerDraw": 1.0
-              },
-              "HeatConnection": {
-                "ThermalEnergyBase": 10.0,
-                "ThermalEnergyDraw": 20.0,
-                "CoolingRate": 1.0
-              }
-            },
-            "Types": [
-              "Cargo"
-            ],
-            "Flags": [
-              "invisible",
-              "uneditable"
-            ],
-            "Category": "Cargo grids",
-            "Uneditable": true
-          }
-        ]
-      },
-      "Types": [
-        "Turret.BallTurret",
-        "Container.Cargo"
-      ],
-      "Flags": [
-        "center"
-      ],
-      "Category": "Weapon hardpoints"
-    },
-    {
       "PortName": "hardpoint_class_2_left_wing",
       "Size": 3,
       "Loadout": "KLWE_LaserRepeater_S3",
@@ -311,20 +325,6 @@
         "left",
         "wing",
         "bottom"
-      ],
-      "Category": "Weapon hardpoints"
-    },
-    {
-      "PortName": "hardpoint_class_4_nose",
-      "Size": 3,
-      "Types": [
-        "Turret.CanardTurret",
-        "Turret.NoseMounted",
-        "WeaponGun.Gun"
-      ],
-      "Flags": [
-        "front",
-        "nose"
       ],
       "Category": "Weapon hardpoints"
     }

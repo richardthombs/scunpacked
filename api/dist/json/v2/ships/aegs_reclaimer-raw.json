@@ -56,8 +56,23 @@
                 "loadout": {}
               },
               {
-                "itemPortName": "hardpoint_seat_access",
-                "entityClassName": "AEGS_Reclaimer_SeatAccess",
+                "itemPortName": "hardpoint_seat_access_pilot",
+                "entityClassName": "AEGS_Reclaimer_SeatAccess_Pilot",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_seat_access_copilot",
+                "entityClassName": "AEGS_Reclaimer_SeatAccess_Copilot",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_seat_access_tractorbeam_left",
+                "entityClassName": "AEGS_Reclaimer_SeatAccess_TractorBeam_Left",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_seat_access_tractorbeam_right",
+                "entityClassName": "AEGS_Reclaimer_SeatAccess_TractorBeam_Right",
                 "loadout": {}
               },
               {
@@ -91,8 +106,13 @@
                 "loadout": {}
               },
               {
-                "itemPortName": "hardpoint_seat_access_drone",
-                "entityClassName": "AEGS_Reclaimer_DroneRoom_SeatAccess",
+                "itemPortName": "hardpoint_seat_access_drone_left",
+                "entityClassName": "AEGS_Reclaimer_DroneRoom_SeatAccess_Left",
+                "loadout": {}
+              },
+              {
+                "itemPortName": "hardpoint_seat_access_drone_right",
+                "entityClassName": "AEGS_Reclaimer_DroneRoom_SeatAccess_Right",
                 "loadout": {}
               },
               {
@@ -541,12 +561,12 @@
                 }
               },
               {
-                "itemPortName": "hardpoint_tractor_beam_left",
+                "itemPortName": "hardpoint_remote_turret_salvage_left",
                 "entityClassName": "AEGS_Reclaimer_Tractor_Beam",
                 "loadout": {}
               },
               {
-                "itemPortName": "hardpoint_tractor_beam_right",
+                "itemPortName": "hardpoint_remote_turret_salvage_right",
                 "entityClassName": "AEGS_Reclaimer_Tractor_Beam",
                 "loadout": {}
               },
@@ -1925,7 +1945,82 @@
                 }
               },
               {
-                "name": "hardpoint_seat_access",
+                "name": "hardpoint_seat_access_pilot",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 4,
+                  "flags": "",
+                  "Types": [
+                    {
+                      "type": "SeatAccess"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_seat_access_copilot",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 4,
+                  "flags": "",
+                  "Types": [
+                    {
+                      "type": "SeatAccess"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_seat_access_tractorbeam_left",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 4,
+                  "flags": "",
+                  "Types": [
+                    {
+                      "type": "SeatAccess"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_seat_access_tractorbeam_right",
                 "damagemax": 0.0,
                 "class": "ItemPort",
                 "ItemPort": {
@@ -2302,7 +2397,32 @@
                 }
               },
               {
-                "name": "hardpoint_seat_access_drone",
+                "name": "hardpoint_seat_access_drone_left",
+                "damagemax": 0.0,
+                "class": "ItemPort",
+                "ItemPort": {
+                  "minsize": 1,
+                  "maxsize": 4,
+                  "flags": "",
+                  "Types": [
+                    {
+                      "type": "SeatAccess"
+                    }
+                  ],
+                  "Connections": [
+                    {
+                      "pipeClass": "Power",
+                      "pipe": "MainPower"
+                    },
+                    {
+                      "pipeClass": "Heat",
+                      "pipe": "MainHeat"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "hardpoint_seat_access_drone_right",
                 "damagemax": 0.0,
                 "class": "ItemPort",
                 "ItemPort": {
@@ -2687,7 +2807,7 @@
                 }
               },
               {
-                "name": "hardpoint_tractor_beam_right",
+                "name": "hardpoint_remote_turret_salvage_right",
                 "damagemax": 0.0,
                 "class": "ItemPort",
                 "ItemPort": {
@@ -2745,7 +2865,7 @@
                 }
               },
               {
-                "name": "hardpoint_tractor_beam_left",
+                "name": "hardpoint_remote_turret_salvage_left",
                 "damagemax": 0.0,
                 "class": "ItemPort",
                 "ItemPort": {
@@ -4333,7 +4453,7 @@
                 "ItemPort": {
                   "minsize": 1,
                   "maxsize": 1,
-                  "display_name": "@itemPort_port_Flair02",
+                  "display_name": "port_Flair02",
                   "flags": "",
                   "requiredTags": "",
                   "Types": [
