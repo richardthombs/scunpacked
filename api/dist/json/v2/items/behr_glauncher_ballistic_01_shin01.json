@@ -1,0 +1,114 @@
+{
+  "ClassName": "behr_glauncher_ballistic_01_shin01",
+  "Size": 4,
+  "Grade": 1,
+  "Type": "WeaponPersonal.Medium",
+  "Classification": "FPS.Weapon.Medium",
+  "Name": "GP-33 MOD Grenade Launcher",
+  "Description": "Manufacturer: Behring\nItem Type: Grenade Launcher\nClass: Ballistic\n\nMagazine Size: 6\nRate Of Fire: 40 rpm\nEffective Range: Variable (80m)\n\nAttachments: Optics (S1), Barrel (N/A), Underbarrel (S1)\n\nEnemies will either scatter or splatter when you turn the GP-33 MOD in their direction. This military-grade launcher fires 40mm grenades to clear rooms and flush out enemies behind cover. Those that don't immediately flee will feel the pain, as Behring's precision design also includes a feature that primes each grenade to explode on impact. ",
+  "Manufacturer": {
+    "Code": "BEH",
+    "Name": "Behring"
+  },
+  "Tags": [
+    "stocked",
+    "SM_RestrictedWep"
+  ],
+  "Weapon": {
+    "Ammunition": {
+      "Speed": 50.0,
+      "Range": 200.0,
+      "Size": 1.0,
+      "ImpactDamage": {
+        "Physical": 10.0
+      },
+      "DetonationDamage": {
+        "Physical": 14.0
+      }
+    },
+    "Modes": [
+      {
+        "Name": "Single",
+        "LocalisedName": "[SEMI]",
+        "RoundsPerMinute": 60.0,
+        "FireType": "single",
+        "AmmoPerShot": 1.0,
+        "PelletsPerShot": 1.0,
+        "DamagePerShot": {
+          "Physical": 24.0
+        },
+        "DamagePerSecond": {
+          "Physical": 24.0
+        }
+      }
+    ]
+  },
+  "Ammunition": {
+    "Speed": 50.0,
+    "Range": 200.0,
+    "Size": 1.0,
+    "ImpactDamage": {
+      "Physical": 10.0
+    },
+    "DetonationDamage": {
+      "Physical": 14.0
+    }
+  },
+  "Ports": [
+    {
+      "PortName": "magazine_attach",
+      "Size": 1,
+      "Loadout": "behr_glauncher_ballistic_01_mag",
+      "InstalledItem": {
+        "ClassName": "behr_glauncher_ballistic_01_mag",
+        "Size": 1,
+        "Grade": 1,
+        "Type": "WeaponAttachment.Magazine",
+        "Name": "GP-33 MOD Grenade Launcher Magazine (6 cap)",
+        "Description": "Item Type: Magazine\nCapacity: 6\n\nThis magazine for the GP-33 MOD holds six 40mm grenades.",
+        "Manufacturer": {
+          "Code": "BEH",
+          "Name": "Behring"
+        },
+        "Tags": [
+          "behr_glauncher_ballistic_01"
+        ],
+        "Ammunition": {
+          "Speed": 50.0,
+          "Range": 200.0,
+          "Size": 1.0,
+          "Capacity": 6.0,
+          "ImpactDamage": {
+            "Physical": 10.0
+          },
+          "DetonationDamage": {
+            "Physical": 14.0
+          }
+        }
+      },
+      "Types": [
+        "WeaponAttachment.Magazine"
+      ]
+    },
+    {
+      "PortName": "optics_attach",
+      "Size": 2,
+      "Types": [
+        "WeaponAttachment.IronSight"
+      ],
+      "Flags": [
+        "inventory"
+      ]
+    },
+    {
+      "PortName": "underbarrel_attach",
+      "Size": 2,
+      "Types": [
+        "WeaponAttachment.BottomAttachment"
+      ],
+      "Flags": [
+        "inventory"
+      ]
+    }
+  ]
+}
