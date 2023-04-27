@@ -7,7 +7,21 @@ namespace scdb.Xml.Entities
 		[XmlAttribute]
 		public double regenFillRate;
 
-		[XmlAttribute]
+		public string _ammoLoadString;
+		[XmlAttribute("ammoLoad")]
+		public string ammoLoadString
+		{
+			get => _ammoLoadString;
+			set
+			{
+				if(int.TryParse(value, System.Globalization.NumberStyles.AllowExponent, System.Globalization.NumberFormatInfo.InvariantInfo, out int parsedAmmoLoadValue))
+				{
+					ammoLoad = parsedAmmoLoadValue;
+				}
+			}
+		}
+
+		[XmlIgnore]
 		public int ammoLoad;
 
 		[XmlAttribute]

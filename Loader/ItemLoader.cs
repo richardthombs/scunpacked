@@ -168,6 +168,11 @@ namespace Loader
 
 			foreach (var entity in entitySvc.GetAll(typeFilter))
 			{
+				if(entity is null)
+				{
+					continue;
+				}
+
 				// Skip types that are not very interesting
 				if (avoidType(entity.Components?.SAttachableComponentParams?.AttachDef.Type)) continue;
 

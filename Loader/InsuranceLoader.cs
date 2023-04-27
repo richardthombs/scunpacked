@@ -17,6 +17,12 @@ namespace Loader
 			var output = new Dictionary<string, StandardisedInsurance>();
 
 			var insurance = Parse<ShipInsuranceRecord>(Path.Combine(DataRoot, @"data\libs\foundry\records\shipinsurancerecord\shipinsurance.xml"));
+
+			if(insurance is null)
+			{
+				return new Dictionary<string, StandardisedInsurance>();
+			}
+
 			foreach (var record in insurance.allShips)
 			{
 				if (output.ContainsKey(record.shipEntityClassName)) continue; // Fix for Redeemer appearing twice
@@ -34,22 +40,29 @@ namespace Loader
 
 		T Parse<T>(string xmlFilename)
 		{
-			string rootNodeName;
-			using (var reader = XmlReader.Create(new StreamReader(xmlFilename)))
+			try
 			{
-				reader.MoveToContent();
-				rootNodeName = reader.Name;
+				string rootNodeName;
+				using (var reader = XmlReader.Create(new StreamReader(xmlFilename)))
+				{
+					reader.MoveToContent();
+					rootNodeName = reader.Name;
+				}
+
+				var xml = File.ReadAllText(xmlFilename);
+				var doc = new XmlDocument();
+				doc.LoadXml(xml);
+
+				var serialiser = new XmlSerializer(typeof(T), new XmlRootAttribute { ElementName = rootNodeName });
+				using (var stream = new XmlNodeReader(doc))
+				{
+					var entity = (T)serialiser.Deserialize(stream);
+					return entity;
+				}
 			}
-
-			var xml = File.ReadAllText(xmlFilename);
-			var doc = new XmlDocument();
-			doc.LoadXml(xml);
-
-			var serialiser = new XmlSerializer(typeof(T), new XmlRootAttribute { ElementName = rootNodeName });
-			using (var stream = new XmlNodeReader(doc))
+			catch
 			{
-				var entity = (T)serialiser.Deserialize(stream);
-				return entity;
+				return default(T);
 			}
 		}
 	}

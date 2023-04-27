@@ -125,10 +125,22 @@ namespace Loader
 			var entity = LoadEntity(filename);
 			if (entity == null) return null;
 
-			classNameToFilenameMap.Add(entity.ClassName, filename);
-			referenceToClassNameMap.Add(entity.__ref, entity.ClassName);
-			classNameToEntityMap.Add(entity.ClassName, entity);
-			classNameToTypeMap.Add(entity.ClassName, entity.Components.SAttachableComponentParams?.AttachDef.Type ?? "");
+			if(classNameToFilenameMap.ContainsKey(entity.ClassName) == false)
+			{
+				classNameToFilenameMap.Add(entity.ClassName, filename);
+			}
+			if (referenceToClassNameMap.ContainsKey(entity.__ref) == false)
+			{
+				referenceToClassNameMap.Add(entity.__ref, entity.ClassName);
+			}
+			if (classNameToEntityMap.ContainsKey(entity.ClassName) == false)
+			{
+				classNameToEntityMap.Add(entity.ClassName, entity);
+			}
+			if (classNameToTypeMap.ContainsKey(entity.ClassName) == false)
+			{
+				classNameToTypeMap.Add(entity.ClassName, entity.Components.SAttachableComponentParams?.AttachDef.Type ?? "");
+			}
 
 			return entity;
 		}
